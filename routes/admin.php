@@ -18,6 +18,7 @@ Route::group([
     Route::post('promotion/set', 'Promotion\IndexController@sort')->name('promotion.sort');
 
     //Route::get('article/import', 'Article\IndexController@import')->name('article.import');
+    Route::get('promotion/import', 'Promotion\IndexController@import')->name('promotion.import');
 
     Route::get('user/datatable', 'User\IndexController@datatable')->name('user.datatable');
 

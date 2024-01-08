@@ -8,6 +8,7 @@ use App\Models\Promotion;
 use App\Repositories\PromotionRepository;
 use App\Services\PromotionService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class IndexController extends Controller
 {
@@ -73,5 +74,22 @@ class IndexController extends Controller
     public function sort(Request $request)
     {
         $this->repository->updateOrder($request->get('recordsArray'));
+    }
+
+    public function import(){
+        $oldSystemData = DB::table('rabaty')->get();
+
+        foreach ($oldSystemData as $oldData) {
+            $newArticle = new Promotion();
+
+            $newArticle->name = $oldData->nazwa;
+            $newArticle->discount = $oldData->rabat;
+            $newArticle->file = $oldData->plik;
+            $newArticle->description = $oldData->przed;
+            $newArticle->text = $oldData->po;
+            $newArticle->active = $oldData->status;
+
+            $newArticle->save();
+        }
     }
 }

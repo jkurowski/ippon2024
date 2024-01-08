@@ -30,7 +30,7 @@
                                             <div class="col-12 col-sm-9">
                                                 <div class="accordion-text">
                                                     <h2>{{ $item->name }}</h2>
-                                                    <p>{{$item->text}}</p>
+                                                    <p>{!! $item->text !!}</p>
                                                     <p class="bttn bttn-icon mt-3">Zobacz kod <i class="ms-3 las la-plus-circle"></i></p>
                                                 </div>
                                             </div>
