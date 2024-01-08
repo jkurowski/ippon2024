@@ -19,50 +19,35 @@ Route::middleware(['restrictIp'])->group(function () {
         \Artisan::call('route:list');
         return '<pre>' . \Artisan::output() . '</pre>';
     });
+});
 
-    Route::get('/',
-        'Front\IndexController@index')->name('index');
+Route::group(['namespace' => 'Front', 'prefix' => '{locale?}', 'where' => ['locale' => '(?!admin)*[a-z]{2}'],], function() {
+    Route::get('/', 'IndexController@index')->name('index');
 
-    Route::post('/property-contact/{property}',
-        'Front\ContactController@property')->name('contact.property');
+    Route::get('kariera',
+        'CareerController@index')->name('career');
 
-    Route::get('o-nas',
-        'Front\AboutController@index')->name('about');
+    Route::get('kontakt',
+        'ContactController@index')->name('contact.index');
 
     Route::get('zakup-gruntow',
-        'Front\LandController@index')->name('land');
+        'LandController@index')->name('land');
 
-    Route::get('/pl/kariera',
-        'Front\CareerController@index')->name('career');
+    Route::get('rabaty',
+        'PromotionController@index')->name('promotion');
 
-
-
-    Route::get('/pl/kontakt',
-        'Front\ContactController@index')->name('contact.index');
-
-    Route::post('kontakt',
-        'Front\ContactController@send')->name('contact.send');
-
-    // Developro
-    Route::group(['namespace' => 'Front', 'prefix'=>'/i', 'as' => 'front.investment.'], function() {
-
-        Route::get('/{slug}',
-            'InvestmentController@index')->name('show');
-
-        Route::get('/{slug}/plan',
-            'InvestmentController@show')->name('plan');
-
-        Route::get('/{slug}/pietro/{floor}',
-            'InvestmentFloorController@index')->name('floor.index');
-
-        Route::get('/{slug}/pietro/{floor}/m/{property}',
-            'InvestmentPropertyController@index')->name('property.index');
+    // Inline
+    Route::group(['prefix'=>'/inline', 'as' => 'front.inline.'], function() {
+        Route::get('/', 'InlineController@index')->name('index');
+        Route::get('/loadinline/{inline}', 'InlineController@show')->name('show');
+        Route::post('/update/{inline}', 'InlineController@update')->name('update');
     });
 
     // Articles
-    Route::group(['namespace' => 'Front', 'prefix'=>'/aktualnosci/', 'as' => 'front.news.'], function() {
+    Route::group(['prefix' => 'blog', 'as' => 'front.news.'], function() {
         Route::get('/',         'ArticleController@index')->name('index');
         Route::get('/{slug}',   'ArticleController@show')->name('show');
     });
 
+    Route::get('{uri}', 'MenuController@index')->where('uri', '([A-Za-z0-9\-\/]+)');
 });

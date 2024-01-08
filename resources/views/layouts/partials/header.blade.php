@@ -23,7 +23,7 @@
                             <div id="lang">
                                 <ul class="mb-0 list-unstyled d-flex">
                                     <li><a href=""><img src="{{ asset('/images/flag-en.png') }}" alt=""></a></li>
-                                    <li><a href=""><img src="{{ asset('/images/flag-de.png') }}" alt=""></a></li>
+                                    <li class="d-none"><a href=""><img src="{{ asset('/images/flag-de.png') }}" alt=""></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -40,7 +40,7 @@
                                         <li><a href="{{ route('career') }}">Kariera</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="">Zakup gruntu</a></li>
+                                <li><a href="{{ route('land') }}">Zakup gruntu</a></li>
                                 <li>
                                     <a href="">Mieszkania <i class="ms-2 las la-angle-down"></i></a>
                                     <ul class="mb-0 list-unstyled subnav">
@@ -60,8 +60,8 @@
                                     <ul class="mb-0 list-unstyled subnav">
                                         <li><a href="">Panel klienta</a></li>
                                         <li><a href="">Jak kupić mieszkanie?</a></li>
-                                        <li><a href="">Rabaty</a></li>
-                                        <li><a href="">Mieszkanie pod klucz</a></li>
+                                        <li><a href="{{ route('promotion') }}">Rabaty</a></li>
+                                        <li><a href="{{ url($current_locale.'/pod-klucz') }}">Mieszkanie pod klucz</a></li>
                                         <li><a href="">Blog</a></li>
                                     </ul>
                                 </li>

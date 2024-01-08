@@ -9,7 +9,7 @@ class CareerController extends Controller
 {
     function index()
     {
-        $page = Page::where('id', 1)->first();
+        $page = Page::find(2);
 
         return view('front.career.index', [
             'page' => $page

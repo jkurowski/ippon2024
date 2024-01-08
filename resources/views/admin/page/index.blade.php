@@ -2,18 +2,19 @@
 
 @section('content')
     <div class="container-fluid">
-        <div class="card">
-            <div class="card-head container-fluid">
-                <div class="row">
-                    <div class="col-6 pl-0">
-                        <h4 class="page-title row"><i class="fe-file-text"></i>Menu</h4>
-                    </div>
-                    <div class="col-6 d-flex justify-content-end align-items-center form-group-submit">
-                        <a href="{{route('admin.page.create')}}" class="me-3 btn btn-primary">Dodaj stronę</a>
-                        <a href="{{route('admin.url.create')}}" class="btn btn-primary">Dodaj link</a>
-                    </div>
+        <div class="card-head container-fluid">
+            <div class="row">
+                <div class="col-6 pl-0">
+                    <h4 class="page-title"><i class="fe-file-text"></i>Menu</h4>
+                </div>
+                <div class="col-6 d-flex justify-content-end align-items-center form-group-submit">
+                    <a href="{{route('admin.page.create')}}" class="me-3 btn btn-primary">Dodaj stronę</a>
+                    <a href="{{route('admin.url.create')}}" class="btn btn-primary">Dodaj link</a>
                 </div>
             </div>
+        </div>
+
+        <div class="card mt-3">
             <div class="table-overflow">
                 @if (session('success'))
                     <div class="alert alert-success border-0 mb-0">
@@ -53,6 +54,11 @@
                                         <a href="{{$page->url}}" class="btn action-button me-1" data-toggle="tooltip" data-placement="top" title="Otwórz stronę" target="_blank"><i class="fe-link"></i></a>
                                         <a href="{{route('admin.url.edit', $page->id)}}" class="btn action-button me-1" data-toggle="tooltip" data-placement="top" title="Edytuj"><i class="fe-edit"></i></a>
                                         @endif
+                                        <form method="POST" action="{{route('admin.page.destroy', $page->id)}}">
+                                            {{ csrf_field() }}
+                                            {{ method_field('DELETE') }}
+                                            <button type="submit" class="btn action-button confirm" data-toggle="tooltip" data-placement="top" title="Usuń" data-id="{{ $page->id }}"><i class="fe-trash-2"></i></button>
+                                        </form>
                                     </div>
                                 </td>
                             </tr>

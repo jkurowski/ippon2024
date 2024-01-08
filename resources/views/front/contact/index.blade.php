@@ -34,7 +34,7 @@
                         <li><img src="{{ asset('images/phone-icon-svg.svg') }}" alt=""> <a href="tel:+48895265558">+48 89 526 55 58</a></li>
                         <li><img src="{{ asset('images/envelop-icon-svg.svg') }}" alt=""> <a href="mailto:sekretariat@ippon.group">sekretariat@ippon.group</a></li>
                     </ul>
-                    <a href="#" class="bttn bttn-icon mt-5">JAK DOJECHAĆ <i class="las la-chevron-circle-right"></i></a>
+                    <a href="#" class="bttn bttn-icon mt-5">JAK DOJECHAĆ <i class="ms-3 las la-chevron-circle-right"></i></a>
                 </div>
             </div>
         </div>
@@ -51,7 +51,7 @@
                     <ul class="mb-0 list-unstyled icon-list-contact">
                         <li><img src="{{ asset('images/envelop-icon-svg.svg') }}" alt=""> <a href="mailto:mieszkania@ippon.group">mieszkania@ippon.group</a></li>
                     </ul>
-                    <a href="#" class="bttn bttn-icon mt-5">JAK DOJECHAĆ <i class="las la-chevron-circle-right"></i></a>
+                    <a href="#" class="bttn bttn-icon mt-5">JAK DOJECHAĆ <i class="ms-3 las la-chevron-circle-right"></i></a>
                 </div>
             </div>
             <div class="col-8">

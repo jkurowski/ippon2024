@@ -9,6 +9,7 @@ use App\Http\Requests\ArticleFormRequest;
 use App\Repositories\ArticleRepository;
 use App\Services\ArticleService;
 use App\Models\Article;
+use Illuminate\Support\Facades\DB;
 
 class IndexController extends Controller
 {
@@ -93,5 +94,25 @@ class IndexController extends Controller
     {
         $this->repository->delete($id);
         return response()->json('Deleted');
+    }
+
+    public function import(){
+        $oldSystemData = DB::table('news')->get();
+
+        foreach ($oldSystemData as $oldData) {
+            $newArticle = new Article();
+
+            $newArticle->title = $oldData->tytul;
+            $newArticle->slug = $oldData->tag;
+            $newArticle->content_entry = $oldData->wprowadzenie;
+            $newArticle->content = $oldData->tekst;
+            $newArticle->file = $oldData->plik;
+            $newArticle->date = $oldData->data;
+            $newArticle->meta_title = $oldData->meta_tytul;
+            $newArticle->meta_description = $oldData->meta_opis;
+            $newArticle->status = $oldData->status;
+
+            $newArticle->save();
+        }
     }
 }

@@ -17,96 +17,143 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/jquery-ui.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('/css/admin.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/admin.min.css') }}">
+
+    @stack('style')
+
 </head>
 <body class="lang-pl">
 <div id="admin">
     <div class="sidemenu-holder">
         <div id="sidemenu">
             <ul class="list-unstyled mb0">
-                <li class="">
-                    <a href="{{route('admin.dashboard.seo.index')}}">
-                        <i class="fe-sliders"></i>
-                        <span> Ustawienia </span>
+                <li class="active">
+                    <a href="#">
+                        <i class="fe-cpu"></i>
+                        <span> CMS </span>
                     </a>
+                    <ul class="sub-menu">
+                        <li {{ Request::routeIs('admin.settings.*') ? 'class=active' : '' }}>
+                            <a href="{{ route('admin.settings.seo.index') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span> Ustawienia</a>
+                        </li>
+
+                        <li {{ Request::routeIs('admin.user.*') ? 'class=active' : '' }}>
+                            <a href="{{ route('admin.user.index') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span> Użytkownicy</a>
+                        </li>
+
+                        <li {{ Request::routeIs('admin.greylist.*') ? 'class=active' : '' }}>
+                            <a href="{{ route('admin.greylist.index') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span> Blokada dostępu</a>
+                        </li>
+                        <li {{ Request::routeIs('admin.page.*') ? 'class=active' : '' }}>
+                            <a href="{{ route('admin.page.index') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span> Strony</a>
+                        </li>
+                        <li {{ Request::routeIs('admin.map.*') ? 'class=active' : '' }}>
+                            <a href="{{ route('admin.map.index') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span> Mapa</a>
+                        </li>
+                        <li {{ Request::routeIs('admin.gallery.*') ? 'class=active' : '' }}>
+                            <a href="{{ route('admin.gallery.index') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span> Galeria</a>
+                        </li>
+                        <li {{ Request::routeIs('admin.article.*') ? 'class=active' : '' }}>
+                            <a href="{{ route('admin.article.index') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span> Aktualności</a>
+                        </li>
+                        <li {{ Request::routeIs('admin.slider.*') ? 'class=active' : '' }}>
+                            <a href="{{ route('admin.slider.index') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span> Slider</a>
+                        </li>
+                        <li {{ Request::routeIs('admin.promotion.*') ? 'class=active' : '' }}>
+                            <a href="{{ route('admin.promotion.index') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span> Promocje</a>
+                        </li>
+                        <li class="d-none">
+                            <a href="">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span> Boksy</a>
+                        </li>
+                    </ul>
                 </li>
-                <li class="{{ Request::routeIs('admin.user.*') ? 'active' : '' }}">
-                    <a href="{{route('admin.user.index')}}">
-                        <i class="fe-users"></i>
-                        <span> Użytkownicy </span>
+                <li class="active">
+                    <a href="#">
+                        <i class="fe-cpu"></i>
+                        <span> DeveloCRM </span>
                     </a>
+                    <ul class="sub-menu">
+                        <li {{ Request::routeIs('admin.crm.statistics.*') ? 'class=active' : '' }}>
+                            <a href="{{ route('admin.crm.statistics.index') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span> Statystyki</a>
+                        </li>
+                        <li {{ Request::routeIs('admin.crm.inbox.*') ? 'class=active' : '' }}>
+                            <a href="{{ route('admin.crm.inbox.index') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span> Leads</a>
+                        </li>
+                        <li {{ Request::routeIs('admin.crm.contact.*') ? 'class=active' : '' }}>
+                            <a href="{{ route('admin.crm.contact.index') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span> Kontakty</a>
+                        </li>
+                    </ul>
                 </li>
-                <li class="{{ Request::routeIs('admin.greylist.*') ? 'active' : '' }}">
-                    <a href="{{route('admin.greylist.index')}}">
-                        <i class="fe-shield"></i>
-                        <span> Blokada dostępu </span>
-                    </a>
-                </li>
-                <li class="{{ Request::routeIs('admin.slider.*') ? 'active' : '' }}">
-                    <a href="{{route('admin.slider.index')}}">
-                        <i class="fe-airplay"></i>
-                        <span> Slider </span>
-                    </a>
-                </li>
-                <li class="{{ Request::routeIs('admin.article.*') ? 'active' : '' }}">
-                    <a href="{{route('admin.article.index')}}">
-                        <i class="fe-book-open"></i>
-                        <span> Aktualności </span>
-                    </a>
-                </li>
-                <li class="{{ Request::routeIs('admin.developro.*') ? 'active' : '' }}">
-                    <a href="{{route('admin.developro.index')}}">
+                <li class="active">
+                    <a href="#">
                         <i class="fe-home"></i>
-                        <span> Inwestycje </span>
+                        <span> DeveloCMS </span>
                     </a>
-                </li>
-                <li class="{{ Request::routeIs('admin.gallery.*') ? 'active' : '' }}">
-                    <a href="{{route('admin.gallery.index')}}">
-                        <i class="fe-image"></i>
-                        <span> Galeria </span>
-                    </a>
-                </li>
-                <li class="{{ Request::routeIs('admin.map.*') ? 'active' : '' }}">
-                    <a href="{{route('admin.map.index')}}">
-                        <i class="fe-map-pin"></i>
-                        <span> Mapa </span>
-                    </a>
-                </li>
-                <li class="{{ Request::routeIs('admin.inbox.*') ? 'active' : '' }}">
-                    <a href="{{route('admin.inbox.index')}}">
-                        <i class="fe-inbox"></i>
-                        <span> Wiadomości </span>
-                    </a>
-                </li>
-                <li class="{{ Request::routeIs('admin.box.*') ? 'active' : '' }} d-none">
-                    <a href="{{route('admin.box.index')}}">
-                        <i class="fe-grid"></i>
-                        <span> Boksy </span>
-                    </a>
-                </li>
-                <li class="{{ Request::routeIs('admin.section.*') ? 'active' : '' }} d-none">
-                    <a href="{{route('admin.section.index')}}">
-                        <i class="fe-credit-card"></i>
-                        <span> Sekcje strony </span>
-                    </a>
+                    <ul class="sub-menu">
+                        <li class="{{ Request::routeIs('admin.developro.*') ? 'active' : '' }}">
+                            <a href="{{route('admin.developro.investment.index')}}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span> Inwestycje
+                            </a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </div>
         <div class="clearfix"></div>
     </div>
-
+    <div id="modalNewUser"></div>
     <div id="content">
         <header id="header-navbar">
             <h1><a href="" class="logo"><span>kCMS v4.2</span></a></h1>
 
             <a href="#" id="togglemenu"><span class="fe-menu"></span></a>
-
             <div class="user">
                 <ul>
                     <li><span class="fe-calendar"></span> <span id="livedate"><?=date('d-m-Y');?></span></li>
                     <li><span class="fe-clock"></span> <span id="liveclock"></span></li>
                     <li><span class="fe-user"></span> Witaj: <b>{{ Auth::user()->name }}</b></li>
-                    <li><a title="Idź do strony" href="{{ route('index') }}" target="_blank"><span class="fe-monitor"></span> Idź do strony</a></li>
+                    <li><a title="Idź do strony" href="/" target="_blank"><span class="fe-monitor"></span> Idź do strony</a></li>
                     <li>
                         <a title="Wyloguj" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><span class="fe-lock"></span> Wyloguj</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -131,7 +178,27 @@
 <script src="{{ asset('/js/jquery.min.js') }}" charset="utf-8"></script>
 <script src="{{ asset('/js/bootstrap.bundle.min.js') }}" charset="utf-8"></script>
 <script src="{{ asset('/js/jquery-ui.min.js') }}" charset="utf-8"></script>
-<script src="{{ asset('/js/cms.js') }}" charset="utf-8"></script>
+<script src="{{ asset('/js/cms.min.js') }}" charset="utf-8"></script>
+<script>
+    $(document).ready(function() {
+        $(".btn-add-user").click((d) => {
+            d.preventDefault();
+            const modalHolder = $('#modalNewUser');
+            modalHolder.empty();
+
+            jQuery.ajax({
+                url: '{{ route('admin.crm.clients.create') }}',
+                success: function (response) {
+                    if (response) {
+                        modalHolder.append(response);
+                    } else {
+                        alert('Error');
+                    }
+                }
+            });
+        });
+    });
+</script>
 
 @stack('scripts')
 

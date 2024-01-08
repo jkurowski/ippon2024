@@ -9,36 +9,38 @@
 @stop
 
 @section('content')
-    <div class="container pb-4">
-        <div class="row left-right">
-            <div class="col-6 d-flex align-items-center">
-                <div class="left-right-text">
-                    <h2>Pracuj z najlepszymi</h2>
-                    <p>Oferujemy stabilne zatrudnienie i ciągły rozwój w strukturach jednego z najszybciej rozwijających się deweloperów w kraju.</p>
-                    <p>&nbsp;</p>
-                    <p>Nasz zespół to profesjonaliści dla których rynek nieruchomości jest pasją, a celem - wspólne tworzenie nowych projektów inwestycyjnych.</p>
-                    <p>&nbsp;</p>
-                    <p>Dołącz do nas, jeżeli cenisz sobie przyjazną atmosferę w pracy, jesteś pełen zapału i gotów na nowe wyzwania!</p>
+    <section class="pt-0">
+        <div class="container">
+            <div class="row left-right">
+                <div class="col-6 d-flex align-items-center">
+                    <div class="left-right-text">
+                        <h2>Pracuj z najlepszymi</h2>
+                        <p>Oferujemy stabilne zatrudnienie i ciągły rozwój w strukturach jednego z najszybciej rozwijających się deweloperów w kraju.</p>
+                        <p>&nbsp;</p>
+                        <p>Nasz zespół to profesjonaliści dla których rynek nieruchomości jest pasją, a celem - wspólne tworzenie nowych projektów inwestycyjnych.</p>
+                        <p>&nbsp;</p>
+                        <p>Dołącz do nas, jeżeli cenisz sobie przyjazną atmosferę w pracy, jesteś pełen zapału i gotów na nowe wyzwania!</p>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <img src="{{ asset('/images/inline/pracuj-z-najlepszymi.jpg') }}" alt="" class="golden-border" width="840" height="650">
                 </div>
             </div>
-            <div class="col-6">
-                <img src="{{ asset('/images/inline/pracuj-z-najlepszymi.jpg') }}" alt="" class="golden-border" width="840" height="650">
-            </div>
-        </div>
-        <div class="row left-right flex-row-reverse row-offset-up">
-            <div class="col-6 d-flex align-items-center">
-                <div class="left-right-text">
-                    <h2>Poznajmy się</h2>
-                    <p>Proces rekrutacyjny to rozmowa, w czasie której koncentrujemy się na doświadczeniu, umiejętnościach i kompetencjach, które są związane z konkretnym stanowiskiem pracy.</p>
-                    <p>&nbsp;</p>
-                    <p>Chętnie odpowiadamy na wszystkie pytania, abyś mógł lepiej poznać wartości i misję Firmy.</p>
+            <div class="row left-right flex-row-reverse row-offset-up">
+                <div class="col-6 d-flex align-items-center">
+                    <div class="left-right-text">
+                        <h2>Poznajmy się</h2>
+                        <p>Proces rekrutacyjny to rozmowa, w czasie której koncentrujemy się na doświadczeniu, umiejętnościach i kompetencjach, które są związane z konkretnym stanowiskiem pracy.</p>
+                        <p>&nbsp;</p>
+                        <p>Chętnie odpowiadamy na wszystkie pytania, abyś mógł lepiej poznać wartości i misję Firmy.</p>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <img src="{{ asset('/images/inline/kariera-poznajmy-sie.jpg') }}" alt="" class="golden-border">
                 </div>
             </div>
-            <div class="col-6">
-                <img src="{{ asset('/images/inline/kariera-poznajmy-sie.jpg') }}" alt="" class="golden-border">
-            </div>
         </div>
-    </div>
+    </section>
 
     <section>
         <div class="container">

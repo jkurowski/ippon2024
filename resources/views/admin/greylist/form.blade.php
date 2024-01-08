@@ -8,21 +8,21 @@
 @endif
         @csrf
         <div class="container">
-            <div class="card">
-                <div class="card-head container">
-                    <div class="row">
-                        <div class="col-12 pl-0">
-                            <h4 class="page-title row"><i class="fe-book-open"></i><a href="{{route('admin.greylist.index')}}">Greylist</a><span class="d-inline-flex ml-2 mr-2">/</span>{{ $cardTitle }}</h4>
-                        </div>
+            <div class="card-head container">
+                <div class="row">
+                    <div class="col-12 pl-0">
+                        <h4 class="page-title"><i class="fe-book-open"></i><a href="{{route('admin.greylist.index')}}">Zablokowane adresy IP</a><span class="d-inline-flex me-2 ms-2">/</span>{{ $cardTitle }}</h4>
                     </div>
                 </div>
+            </div>
+            <div class="card mt-3">
                 @include('form-elements.back-route-button')
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-12">
-                            @include('form-elements.input-text', ['label' => 'Adres IP', 'name' => 'address', 'value' => $entry->address, 'required' => 1])
-                            @include('form-elements.input-text', ['label' => 'Powód', 'name' => 'reason', 'value' => $entry->reason])
-                        </div>
+                <div class="card-body control-col12">
+                    <div class="row w-100 form-group">
+                        @include('form-elements.input-text', ['label' => 'Adres IP', 'name' => 'address', 'value' => $entry->address, 'required' => 1])
+                    </div>
+                    <div class="row w-100 form-group">
+                        @include('form-elements.input-text', ['label' => 'Powód', 'name' => 'reason', 'value' => $entry->reason])
                     </div>
                 </div>
             </div>

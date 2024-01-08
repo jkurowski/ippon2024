@@ -71,8 +71,8 @@ return [
     'article' => [
         'big_width' => 1060,
         'big_height' => 596,
-        'thumb_width' => 360,
-        'thumb_height' => 360,
+        'thumb_width' => 700,
+        'thumb_height' => 394,
         'file_path' => 'uploads/articles/',
         'thumb_file_path' => 'uploads/articles/thumbs/',
         'preview_file_path' => 'uploads/articles/thumbs/',
@@ -90,6 +90,19 @@ return [
         'height' => 120,
         'file_path' => 'uploads/boxes/',
         'preview_file_path' => 'uploads/boxes/'
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Promotions
+    |--------------------------------------------------------------------------
+    */
+
+    'promotion' => [
+        'width' => 260,
+        'height' => 180,
+        'file_path' => 'uploads/promotion/',
+        'preview_file_path' => 'uploads/promotion/'
     ],
 
     /*

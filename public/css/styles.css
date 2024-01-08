@@ -342,7 +342,6 @@ button:focus,
   -webkit-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0);
   -moz-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0);
   box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0);
-  min-width: 200px;
 }
 .bttn:hover {
   background-size: 100% 100%;
@@ -358,15 +357,9 @@ button:focus,
 .bttn.bttn-border {
   border: 1px solid white;
 }
-.bttn-icon {
-  padding-right: 30px;
-}
 .bttn-icon i {
   font-size: 20px;
   color: var(--main-color);
-  position: absolute;
-  margin: auto;
-  right: 15px;
 }
 .bttn-sm.bttn-icon i {
   font-size: 23px;
@@ -490,6 +483,9 @@ header #topCta a {
 }
 header #topCta span {
   font-size: 12px;
+}
+.header-holder {
+  height: 239px;
 }
 #header.fixed {
   background: white;
@@ -1387,6 +1383,23 @@ section#contact-form {
 }
 /* News
 ================================================== */
+article {
+  margin-bottom: 80px;
+  padding-bottom: 80px;
+  border-bottom: 1px solid #dfdfdf;
+}
+article .news-text {
+  padding-left: 50px;
+}
+article.flex-row-reverse .news-text {
+  padding-left: 0;
+  padding-right: 50px;
+}
+article:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: 0 solid #dfdfdf;
+}
 /* Page header
 ================================================== */
 #page-header {
@@ -1443,11 +1456,44 @@ section#contact-form {
 .no-bottom #page {
   padding-bottom: 0;
 }
+.menu-page h2 {
+  margin-bottom: 30px;
+}
 .left-right-text {
-  padding: 0 130px 0 0;
+  padding: 0 100px 80px;
 }
 .left-right-text h2 {
   margin-bottom: 30px;
+}
+.left-right.row-offset-up .left-right-text {
+  padding: 80px 100px 0;
+}
+.osoba .osoba-img {
+  -ms-flex: 0 0 310px;
+  flex: 0 0 310px;
+  max-width: 310px;
+}
+.osoba .osoba-img img {
+  border: 1px solid #ba8b41;
+}
+.osoba p {
+  color: #2a2a2a;
+  font-size: 15px;
+  line-height: 23px;
+}
+.osoba h2 {
+  color: #212121;
+  font-size: 30px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ba8b41;
+  font-weight: 500;
+}
+.osoba em {
+  color: #1a1a1a;
+  font-size: 18px;
+  margin-bottom: 15px;
+  display: block;
 }
 .row-offset-up {
   margin-top: -80px;
@@ -1524,6 +1570,34 @@ section#contact-form {
 .accordion .collapsing {
   transition-property: height, visibility;
   transition-duration: 0.35s;
+}
+#discounts h2 {
+  margin-bottom: 10px;
+  font-size: 32px;
+}
+#discounts p {
+  font-size: 16px;
+  line-height: 23px;
+}
+#discounts .accordion-code {
+  background: #ba8b41;
+  font-weight: 900;
+  color: white;
+  font-size: 37px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+#discounts .accordion-text {
+  padding: 30px 30px 30px 30px;
+}
+#discounts .accordion-desc {
+  padding: 30px;
+}
+#discounts .accordion-item {
+  border: 0;
+  border-bottom: 1px solid #dfdfdf;
 }
 /* Swipebox
 ================================================== */

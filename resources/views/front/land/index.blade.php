@@ -1,197 +1,216 @@
-@extends('layouts.page', ['body_class' => 'no-top no-bottom land-page'])
+@extends('layouts.page', ['body_class' => 'land-page'])
 
-@section('meta_title', $page->title)
+@section('meta_title', 'Kontakt')
 @section('seo_title', $page->meta_title)
 @section('seo_description', $page->meta_description)
 
 @section('pageheader')
-    @include('layouts.partials.page-header', ['page' => $page, 'header_file' => 'jak-kupic.jpg'])
+    @include('layouts.partials.page-header', ['page' => $page, 'header_file' => 'contact.jpg'])
 @stop
 
 @section('content')
-    <div class="container-fluid p-0">
-        <div class="row no-gutters">
-            <div class="col-12 col-lg-6 d-flex align-items-center justify-content-center">
-                <div class="block-text">
-                    {!! parse_text($page->content) !!}
-                </div>
-            </div>
-            <div class="col-12 col-lg-6">
-                <div class="block-img">
-                    <picture>
-                        <source type="image/webp" srcset="{{ asset('/uploads/kupimy-grunty.webp') }}">
-                        <source type="image/jpeg" srcset="{{ asset('/uploads/kupimy-grunty.jpg') }}">
-                        <img src="{{ asset('/uploads/kupimy-grunty.jpg') }}" alt="Widok budynku, zielone otoczenia, ludzie" width="960" height="680">
-                    </picture>
-                </div>
+<section class="pt-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <p>Ippon Group systematycznie wprowadza do sprzedaży nowe inwestycje. Polityka spółki polega na ekspansji o unikalne lokalizacje, których grunty są nabywane od ich właścicieli w cenach rynkowych. Pozwala to na realizowanie unikalnych, wartościowych projektów inwestycyjnych, które ze względu na atrakcyjność swojej lokalizacji, walory architektoniczne, jakość wykonania i ceny są sprzedawane w stosunkowo krótkim czasie. Dlatego na bieżąco monitorujemy sytuację na rynku działek budowlanych.</p>
+                <p>&nbsp;</p>
+                <p>Jeśli planujesz sprzedać grunty, skontaktuj się z nami. Naszym nadrzędnym celem jest zagwarantowanie kontrahentom w pełni profesjonalnej transakcji, zapewniającej bezpieczeństwo oraz uczciwą cenę. Nasi specjaliści zapewniają kompleksowe wsparcie podczas całego procesu sprzedaży.</p>
             </div>
         </div>
     </div>
+</section>
 
-    <div id="cta" class="m-0 bg-blue">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-lg-8 col-xxl-9 d-flex align-items-center text-center text-lg-start">
-                    <h4>ZOBACZ NASZE DOTYCHCZASOWE <span>REALIZACJE</span></h4>
+<section>
+    <div class="container">
+        <div class="row left-right">
+            <div class="col-6 d-flex align-items-center">
+                <div class="left-right-text">
+                    <p>Bezpłatnie wyceniamy grunty oraz zapewniamy pomoc prawną. Mamy elastyczne podejście do każdej nieruchomości oraz do jej właściciela, co sprzyja zawarciu umowy opartej na obustronnej korzyści. Decydując się na współpracę z nami, nie musisz zastanawiać się nad tym, czy działka znajduje się w złej lokalizacji lub nie została odrolniona.</p>
+                    <p>&nbsp;</p>
+                    <p>Pomożemy Ci ustalić jej status prawny oraz ocenić jej potencjał inwestycyjny. Jesteśmy deweloperem godnym Twojego zaufania.</p>
+                    <a href="#" class="bttn bttn-icon mt-5">WYPEŁNIJ FORMULARZ <i class="ms-3 las la-chevron-circle-right"></i></a>
                 </div>
-                <div class="col-12 col-lg-4 col-xxl-3 text-center text-lg-end mt-4 mt-lg-0">
-                    <a href="{{ route('completed') }}" class="bttn bttn-border">Zrealizowane inwestycje</a>
+            </div>
+            <div class="col-6">
+                <img src="https://placehold.co/840x650" alt="" class="golden-border" width="840" height="650">
+            </div>
+        </div>
+        <div class="row left-right flex-row-reverse row-offset-up">
+            <div class="col-6 d-flex align-items-center">
+                <div class="left-right-text">
+                    <p>Nasza nieprzerwana obecność w branży deweloperskiej pozwoliła zdobyć doświadczenie, które jest gwarancją, że przeprowadzane przez nas transakcje są całkowicie zgodne z obowiązującymi przepisami prawa.</p>
+                    <p>&nbsp;</p>
+                    <p>Wypełnij poniższy formularz, a nasz ekspert skontaktuje się z Tobą w ciągu kilku godzin w celu umówienia spotkania.</p>
+                    <a href="#" class="bttn bttn-icon mt-5">WYPEŁNIJ FORMULARZ <i class="ms-3 las la-chevron-circle-right"></i></a>
                 </div>
+            </div>
+            <div class="col-6">
+                <img src="https://placehold.co/840x650" alt="" class="golden-border" width="840" height="650">
             </div>
         </div>
     </div>
+</section>
 
-    <section id="investCTA">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-lg-6">
-                    <div class="invest-cta">
-                        <div class="row">
-                            <div class="col-12 col-md-5">
-                                <a href="{{ route('front.investment.show', ['slug' => 'abrahama-14']) }}">
-                                    <picture>
-                                        <source type="image/webp" srcset="{{asset('/uploads/box/project-abrahama.webp') }}">
-                                        <source type="image/jpeg" srcset="{{asset('/uploads/box/project-abrahama.jpg') }}">
-                                        <img src="{{asset('/uploads/box/project-abrahama.jpg') }}" alt="Zdjęcie inwestycji Abrahama" width="600" height="493">
-                                    </picture>
-                                </a>
-                            </div>
-                            <div class="col-12 col-md-7 d-flex align-items-center justify-content-center">
-                                <div class="invest-cta-text ps-4 pe-5 w-100">
-                                    <h2><a href="{{ route('front.investment.show', ['slug' => 'abrahama-14']) }}">Abrahama</a></h2>
-                                    <ul class="mb-0 list-unstyled mt-4">
-                                        <li>
-                                            Oddanie inwestycji: <span class="float-end">Q4 2024</span>
-                                        </li>
-                                        <li>
-                                            DOSTĘPNYCH MIESZKAŃ: <span class="float-end">67</span>
-                                        </li>
-                                    </ul>
-                                    <a href="{{ route('front.investment.show', ['slug' => 'abrahama-14']) }}" class="bttn bttn-sm mt-4">ZOBACZ INWESTYCJE</a>
-                                </div>
-                            </div>
+<section id="contact-form">
+    <div class="container">
+        <div class="row d-flex justify-content-center mt-5">
+            <div class="col-12">
+                @if (session('success'))
+                    <div class="alert alert-success border-0">
+                        {{ session('success') }}
+                    </div>
+                @endif
+                @if (session('warning'))
+                    <div class="alert alert-warning border-0">
+                        {{ session('warning') }}
+                    </div>
+                @endif
+                <form method="post" id="contact-form" action="" class="validateForm">
+                    {{ csrf_field() }}
+                    <div class="row">
+                        <div class="col-3 form-input">
+                            <label for="form_name">Imię <span class="text-danger">*</span></label>
+                            <input name="form_name" id="form_name" class="validate[required] form-control @error('form_name') is-invalid @enderror" type="text" value="{{ old('form_name') }}">
+
+                            @error('form_name')
+                            <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                            @enderror
                         </div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-6 mt-4 mt-lg-0">
-                    <div class="invest-cta">
-                        <div class="row">
-                            <div class="col-12 col-md-5">
-                                <a href="{{ route('front.investment.show', ['slug' => 'radarowa']) }}">
-                                <picture>
-                                    <source type="image/webp" srcset="{{asset('/uploads/box/project-radarowa.webp') }}">
-                                    <source type="image/jpeg" srcset="{{asset('/uploads/box/project-radarowa.jpg') }}">
-                                    <img src="{{asset('/uploads/box/project-radarowa.jpg') }}" alt="Zdjęcie inwestycji Radarowa" width="600" height="493">
-                                </picture>
-                                </a>
-                            </div>
-                            <div class="col-12 col-md-7 d-flex align-items-center justify-content-center">
-                                <div class="invest-cta-text ps-4 pe-5 w-100">
-                                    <h2><a href="{{ route('front.investment.show', ['slug' => 'radarowa']) }}">Budynek mieszkalny z lokalami usługami przy ul. Radarowej</a></h2>
-                                    <ul class="mb-0 list-unstyled mt-4">
-                                        <li>INWESTYCJA W PRZYGOTOWANIU.</li>
-                                    </ul>
-                                    <a href="{{ route('front.investment.show', ['slug' => 'radarowa']) }}" class="bttn bttn-sm mt-4">DOWIEDZ SIĘ WIĘCEJ</a>
-                                </div>
-                            </div>
+                        <div class="col-3 form-input">
+                            <label for="form_surname">Nazwisko</label>
+                            <input name="form_surname" id="form_surname" class="form-control @error('form_surname') is-invalid @enderror" type="text" value="{{ old('form_surname') }}">
+
+                            @error('form_surname')
+                            <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                            @enderror
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                        <div class="col-3 form-input">
+                            <label for="form_email">E-mail <span class="text-danger">*</span></label>
+                            <input name="form_email" id="form_email" class="validate[required] form-control @error('form_email') is-invalid @enderror" type="text" value="{{ old('form_email') }}">
 
-    <section id="contact">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="section-title text-center">
-                        <span>KONTAKT Z NAMI</span>
-                        <h2>MASZ PYTANIA? NAPISZ DO NAS!</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row row-apla">
-                <div class="col-12 col-md-6">
-                    <div class="contact-text">
-                        <img src="/images/logo-sg.png" alt="">
-                        <p>&nbsp;</p>
-                        <p>&nbsp;</p>
-                        <h2>Siedziba firmy</h2>
-                        <p>tel. <a href="tel:+48605433401">+48 605 433 401</a></p>
-                        <p>ul. Śliska 3 lok. 1B</p>
-                        <p>00-127 Warszawa</p>
-                        <p>&nbsp;</p>
-                        <h2>Kontakt do Biura Sprzedaży</h2>
-                        <p>tel. <a href="tel:+48607823400">+48 607 823 400</a></p>
-                        <p>ul. Abrahama 14 (parking przy budowie)</p>
-                        <p>03-982 Warszawa</p>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 mt-5 mt-md-0">
-                    <form method="post" id="homepage-form" action="{{ route('contact.index') }}" class="validateForm">
-                        {{ csrf_field() }}
-                        <div class="row">
-                            <div class="col-12 col-sm-6 col-xl-4 form-input">
-                                <label for="form_name">Imię <span class="text-danger">*</span></label>
-                                <input name="form_name" id="form_name" class="validate[required] form-control @error('form_name') is-invalid @enderror" type="text" value="{{ old('form_name') }}">
+                            @error('form_email')
+                            <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                            @enderror
+                        </div>
+                        <div class="col-3 form-input">
+                            <label for="form_phone">Telefon <span class="text-danger">*</span></label>
+                            <input name="form_phone" id="form_phone" class="validate[required] form-control @error('form_phone') is-invalid @enderror" type="text" value="{{ old('form_phone') }}">
 
-                                @error('name')
-                                <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
-                                @enderror
-                            </div>
-                            <div class="col-12 col-sm-6 col-xl-4 form-input col-input-important">
-                                <label for="form_surname">Nazwisko <span class="text-danger">*</span></label>
-                                <input name="form_surname" id="form_surname" class="form-control" type="text" value="{{ old('form_surname') }}">
-                            </div>
-                            <div class="col-12 col-sm-6 col-xl-4 form-input">
-                                <label for="form_email">E-mail <span class="text-danger">*</span></label>
-                                <input name="form_email" id="form_email" class="validate[required] form-control @error('form_email') is-invalid @enderror" type="text" value="{{ old('form_email') }}">
+                            @error('form_phone')
+                            <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                            @enderror
+                        </div>
 
-                                @error('email')
-                                <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
-                                @enderror
-                            </div>
-                            <div class="col-12 col-xl-4 form-input">
-                                <label for="form_phone">Telefon <span class="text-danger">*</span></label>
-                                <input name="form_phone" id="form_phone" class="validate[required] form-control @error('form_phone') is-invalid @enderror" type="text" value="{{ old('form_phone') }}">
+                        <div class="col-3 form-input mt-5">
+                            <label for="form_city">Miasto</label>
+                            <input name="form_city" id="form_city" class="form-control @error('form_city') is-invalid @enderror" type="text" value="{{ old('form_city') }}">
 
-                                @error('phone')
-                                <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
-                                @enderror
-                            </div>
-                            <div class="col-12 mt-1 form-input">
-                                <label for="form_message">Treść wiadomości <span class="text-danger">*</span></label>
-                                <textarea rows="5" cols="1" name="form_message" id="form_message" class="validate[required] form-control @error('form_message') is-invalid @enderror">{{ old('form_message') }}</textarea>
+                            @error('form_city')
+                            <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                            @enderror
+                        </div>
+                        <div class="col-3 form-input mt-5">
+                            <label for="form_street">Ulica</label>
+                            <input name="form_street" id="form_street" class="form-control @error('form_street') is-invalid @enderror" type="text" value="{{ old('form_street') }}">
 
-                                @error('message')
-                                <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                                @enderror
-                            </div>
+                            @error('form_street')
+                            <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                            @enderror
+                        </div>
+                        <div class="col-3 form-input mt-5">
+                            <label for="form_price">Oczekiwana cena</label>
+                            <input name="form_price" id="form_price" class="form-control @error('form_price') is-invalid @enderror" type="text" value="{{ old('form_price') }}">
+
+                            @error('form_price')
+                            <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                            @enderror
+                        </div>
+                        <div class="col-3 form-input mt-5">
+                            <label for="form_date">Oczekiwana data sprzedaży</label>
+                            <input name="form_date" id="form_date" class="form-control @error('form_date') is-invalid @enderror" type="text" value="{{ old('form_date') }}">
+
+                            @error('form_date')
+                            <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                            @enderror
+                        </div>
+
+                        <div class="col-6 form-input mt-5">
+                            <label for="form_book">Numer księgi wieczystej</label>
+                            <input name="form_book" id="form_book" class="form-control @error('form_book') is-invalid @enderror" type="text" value="{{ old('form_book') }}">
+
+                            @error('form_book')
+                            <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                            @enderror
+                        </div>
+                        <div class="col-6 form-input mt-5">
+                            <label for="form_land">Przeznaczenie terenu</label>
+                            <input name="form_land" id="form_land" class="form-control @error('form_land') is-invalid @enderror" type="text" value="{{ old('form_land') }}">
+
+                            @error('form_land')
+                            <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                            @enderror
+                        </div>
+
+                        <div class="col-12 mt-4 form-input">
+                            <label for="form_message">Dodatkowe informacje <span class="text-danger">*</span></label>
+                            <textarea rows="5" cols="1" name="form_message" id="form_message" class="validate[required] form-control @error('form_message') is-invalid @enderror">{{ old('form_message') }}</textarea>
+
+                            @error('form_message')
+                            <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                            @enderror
+                        </div>
+                        <div class="col-8">
                             <div class="rodo-rules">
                                 @foreach ($rules as $r)
-                                    <div class="col-12">
+                                    <div class="col-12 @error('rule_'.$r->id) is-invalid @enderror">
                                         <div class="rodo-rule clearfix">
                                             <input name="rule_{{$r->id}}" id="rule_{{$r->id}}" value="1" type="checkbox" @if($r->required === 1) class="validate[required]" @endif data-prompt-position="topLeft:0">
-                                            <label for="zgoda_{{$r->id}}" class="rules-text">{!! $r->text !!}</label>
+                                            <label for="rule_{{$r->id}}" class="rules-text">
+                                                {!! $r->text !!}
+                                                @error('rule_'.$r->id)
+                                                <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                                                @enderror
+                                            </label>
                                         </div>
                                     </div>
                                 @endforeach
                             </div>
                         </div>
-                        <div class="row row-form-submit">
-                            <div class="col-12 pt-3">
-                                <div class="input text-center">
-                                    <input name="form_page" type="hidden" value="homepage">
-                                    <button class="bttn" type="submit">WYŚLIJ WIADOMOŚĆ</button>
-                                </div>
+                        <div class="col-4 d-flex justify-content-end align-items-end">
+                            <div class="form-submit">
+                                <input name="form_page" type="hidden" value="homepage">
+                                <script type="text/javascript">
+                                    document.write("<button class=\"bttn bttn-icon\" type=\"submit\">WYŚLIJ FORMULARZ<i class=\"ms-2 las la-chevron-circle-right\"></i></button>");
+                                </script>
+                                <noscript>Do poprawnego działania, Java musi być włączona.</noscript>
                             </div>
                         </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 @endsection
+@push('scripts')
+    <script src="{{ asset('js/validation.js') }}" charset="utf-8"></script>
+    <script src="{{ asset('js/pl.js') }}" charset="utf-8"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $(".validateForm").validationEngine({
+                validateNonVisibleFields: true,
+                updatePromptsPosition:true,
+                promptPosition : "topRight:-137px"
+            });
+        });
+        @if (session('success') || session('warning') || $errors->any())
+        $(window).load(function() {
+            const aboveHeight = $('header').outerHeight();
+            $('html, body').stop().animate({
+                scrollTop: $('.validateForm').offset().top-aboveHeight
+            }, 1500, 'easeInOutExpo');
+        });
+        @endif
+    </script>
+@endpush

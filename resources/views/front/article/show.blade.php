@@ -17,7 +17,7 @@
                     <picture>
                         <source type="image/webp" srcset="{{asset('uploads/articles/webp/'.$article->file_webp) }}">
                         <source type="image/jpeg" srcset="{{asset('uploads/articles/'.$article->file) }}">
-                        <img src="{{asset('uploads/articles/'.$article->file) }}" alt="{{ $article->title }}">
+                        <img src="{{asset('uploads/articles/'.$article->file) }}" alt="{{ $article->title }}" class="w-100">
                     </picture>
 
                     <div class="post-details-entry mt-4 mb-3">

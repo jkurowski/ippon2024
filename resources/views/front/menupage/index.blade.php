@@ -1,13 +1,14 @@
-@extends('layouts.page', ['body_class' => 'homepage'])
+@extends('layouts.page', ['body_class' => 'menu-page'])
 
 @section('meta_title', $page->title)
 @section('seo_title', $page->meta_title)
 @section('seo_description', $page->meta_description)
-@section('seo_robots', $page->meta_robots)
+
+@section('pageheader')
+    @include('layouts.partials.page-header', ['page' => $page, 'header_file' => 'contact.jpg'])
+@stop
 
 @section('content')
-    @include('layouts.partials.page-header', ['page' => $page])
-
     <div id="page-content">
         <div class="container">
             <div class="row">

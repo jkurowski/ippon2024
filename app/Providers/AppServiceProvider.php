@@ -82,6 +82,11 @@ class AppServiceProvider extends ServiceProvider
             ]);
         });
 
+        view()->composer('*', function ($view) {
+            $view->with('current_locale', app()->getLocale());
+            $view->with('available_locales', config('app.available_locales'));
+        });
+
         Blade::directive('money', function ($amount) {
             return "<?php echo number_format($amount, 0) . ' zł'; ?>";
         });
