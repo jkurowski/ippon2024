@@ -35,7 +35,7 @@
                                     <a href="">O grupie <i class="ms-2 las la-angle-down"></i></a>
                                     <ul class="mb-0 list-unstyled subnav">
                                         <li><a href="">O nas</a></li>
-                                        <li><a href="">Zarząd</a></li>
+                                        <li><a href="{{ url($current_locale.'/zarzad') }}">Zarząd</a></li>
                                         <li><a href="">Aktualności</a></li>
                                         <li><a href="{{ route('career') }}">Kariera</a></li>
                                     </ul>
@@ -62,7 +62,7 @@
                                         <li><a href="">Jak kupić mieszkanie?</a></li>
                                         <li><a href="{{ route('promotion') }}">Rabaty</a></li>
                                         <li><a href="{{ url($current_locale.'/pod-klucz') }}">Mieszkanie pod klucz</a></li>
-                                        <li><a href="">Blog</a></li>
+                                        <li><a href="{{ url($current_locale.'/blog') }}">Blog</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="{{ route('contact.index') }}">Kontakt</a></li>
