@@ -22,5 +22,9 @@ if (! function_exists('makeGallery')) {
         if ($input[1] == 'slider') {
             return view('front.parse.slider', ['list' => $photos])->render();
         }
+
+        if ($input[1] == 'commercial') {
+            return view('front.parse.commercial', ['list' => $photos])->render();
+        }
     }
 }

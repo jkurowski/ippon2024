@@ -16,6 +16,7 @@ Route::group([
     Route::post('image/set', 'Gallery\ImageController@sort')->name('image.sort');
     Route::post('box/set', 'Box\IndexController@sort')->name('box.sort');
     Route::post('promotion/set', 'Promotion\IndexController@sort')->name('promotion.sort');
+    Route::post('commercial/set', 'Commercial\IndexController@sort')->name('commercial.sort');
 
     //Route::get('article/import', 'Article\IndexController@import')->name('article.import');
     Route::get('promotion/import', 'Promotion\IndexController@import')->name('promotion.import');
@@ -34,7 +35,8 @@ Route::group([
         'greylist' => 'Greylist\IndexController',
         'article' => 'Article\IndexController',
         'box'=> 'Box\IndexController',
-        'promotion'=> 'Promotion\IndexController'
+        'promotion'=> 'Promotion\IndexController',
+        'commercial'=> 'Commercial\IndexController'
     ]);
 
     // Settings

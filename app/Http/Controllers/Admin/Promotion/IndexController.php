@@ -76,20 +76,20 @@ class IndexController extends Controller
         $this->repository->updateOrder($request->get('recordsArray'));
     }
 
-    public function import(){
-        $oldSystemData = DB::table('rabaty')->get();
-
-        foreach ($oldSystemData as $oldData) {
-            $newArticle = new Promotion();
-
-            $newArticle->name = $oldData->nazwa;
-            $newArticle->discount = $oldData->rabat;
-            $newArticle->file = $oldData->plik;
-            $newArticle->description = $oldData->przed;
-            $newArticle->text = $oldData->po;
-            $newArticle->active = $oldData->status;
-
-            $newArticle->save();
-        }
-    }
+//    public function import(){
+//        $oldSystemData = DB::table('rabaty')->get();
+//
+//        foreach ($oldSystemData as $oldData) {
+//            $newArticle = new Promotion();
+//
+//            $newArticle->name = $oldData->nazwa;
+//            $newArticle->discount = $oldData->rabat;
+//            $newArticle->file = $oldData->plik;
+//            $newArticle->description = $oldData->przed;
+//            $newArticle->text = $oldData->po;
+//            $newArticle->active = $oldData->status;
+//
+//            $newArticle->save();
+//        }
+//    }
 }

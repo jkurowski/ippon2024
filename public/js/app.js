@@ -64,6 +64,9 @@ $(document).ready(function () {
 // Lightbox
     $( '.swipebox' ).swipebox({useSVG : false});
 
+// Slider
+    $( '.textSlider ul' ).responsiveSlides({auto:true, pager:false, nav:true, timeout:5000, random:false, speed: 500});
+
 // Youtube
     $('iframe[src*="youtube"]').wrap("<div class='video-container'></div>");
 

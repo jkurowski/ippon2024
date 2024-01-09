@@ -36,6 +36,9 @@ Route::group(['namespace' => 'Front', 'prefix' => '{locale?}', 'where' => ['loca
     Route::get('rabaty',
         'PromotionController@index')->name('promotion');
 
+    Route::get('obiekty-komercyjne',
+        'Commercial\IndexController@index')->name('commercial');
+
     // Inline
     Route::group(['prefix'=>'/inline', 'as' => 'front.inline.'], function() {
         Route::get('/', 'InlineController@index')->name('index');
