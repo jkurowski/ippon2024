@@ -51,7 +51,7 @@
                                 </li>
                                 <li><a href="">Doświadczenie <i class="ms-2 las la-angle-down"></i></a>
                                     <ul class="mb-0 list-unstyled subnav">
-                                        <li><a href="">Obiekty komercyjne</a></li>
+                                        <li><a href="{{ route('commercial') }}">Obiekty komercyjne</a></li>
                                         <li><a href="">Wynajem</a></li>
                                         <li><a href="">Zrealizowane inwestycje</a></li>
                                     </ul>
