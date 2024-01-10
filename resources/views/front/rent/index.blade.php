@@ -17,12 +17,12 @@
                         <div class="rent-item">
                             <div class="rent-thumb">
                                 <span class="img-badge">{{ rentType($r->type) }}</span>
-                                <a href="{{ route('rent.index.show', ['slug' => 'sdfasdf', 'id' => $r->id]) }}">
+                                <a href="{{ route('rent.index.show', ['slug' => slugFromTitle($r->name), 'id' => $r->id]) }}">
                                     <img src="{{ asset('uploads/rents/'.$r->file) }}" alt="{{ $r->name }}">
                                 </a>
                             </div>
                             <h2 class="mb-0">
-                                <a href="{{ route('rent.index.show', ['slug' => 'sdfasdf', 'id' => $r->id]) }}">{{ $r->name }}</a>
+                                <a href="{{ route('rent.index.show', ['slug' => slugFromTitle($r->name), 'id' => $r->id]) }}">{{ $r->name }}</a>
                             </h2>
                         </div>
                     </div>
