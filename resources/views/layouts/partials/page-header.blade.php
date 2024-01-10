@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-12 d-flex justify-content-center position-relative">
                 @include('layouts.partials.breadcrumbs', ['items' => $page->ancestors, 'title' => ($page->content_header) ?: $page->title])
-                <h1>{{($page->page_title) ? : $page->title}}</h1>
+                <h1>{{($page_title) ? : $page->title}}</h1>
             </div>
         </div>
     </div>

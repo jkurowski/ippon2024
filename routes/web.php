@@ -39,6 +39,10 @@ Route::group(['namespace' => 'Front', 'prefix' => '{locale?}', 'where' => ['loca
     Route::get('obiekty-komercyjne',
         'Commercial\IndexController@index')->name('commercial');
 
+    Route::get('wynajem',
+        'Rent\IndexController@index')->name('rent');
+    Route::get('wynajem/{slug},{id}', 'Rent\IndexController@show')->name('rent.index.show');
+
     // Inline
     Route::group(['prefix'=>'/inline', 'as' => 'front.inline.'], function() {
         Route::get('/', 'InlineController@index')->name('index');
