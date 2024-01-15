@@ -22,7 +22,7 @@ class RentService
         $file->storeAs('rents', $name, 'public_uploads');
         $filepath = public_path('uploads/rents/' . $name);
 
-        Image::make($filepath)->resize(840, 480, function ($constraint) {
+        Image::make($filepath)->resize(1140, 590, function ($constraint) {
             $constraint->aspectRatio();
         })->save($filepath);
 

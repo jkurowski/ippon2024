@@ -1510,6 +1510,65 @@ article:last-child {
 .rent-item:hover h2 a {
   color: #ba8b41;
 }
+.invest-item {
+  border: 1px solid #A17939;
+}
+.invest-item-thumb {
+  position: relative;
+}
+.invest-item-desc {
+  padding: 30px;
+  position: relative;
+}
+.invest-item-desc img {
+  position: absolute;
+  right: 30px;
+  top: 30px;
+}
+.invest-item h2 {
+  font-size: 37px;
+  text-transform: uppercase;
+}
+.invest-item h2 a {
+  transition: color 100ms linear;
+}
+.invest-item h2 a:hover {
+  color: #ba8b41;
+}
+.invest-item p {
+  font-size: 16px;
+  line-height: 27px;
+  color: #444;
+}
+.invest-item-city {
+  font-size: 27px;
+  font-family: "Georgia", serif;
+  font-style: oblique;
+  margin-bottom: 15px;
+}
+.planned-item-gold {
+  display: flex;
+  height: 100%;
+  background: linear-gradient(#ba8b41 0%, #916b30 100%);
+  padding: 0 30px;
+  align-items: center;
+  color: white;
+}
+.planned-item-gold h2 {
+  font-size: 37px;
+  margin-bottom: 30px;
+}
+.planned-item-gold h2 a {
+  color: white;
+}
+.planned-item-gold p {
+  margin-bottom: 30px;
+}
+.planned-item-gold a.bttn-link {
+  color: white;
+  font-size: 20px;
+  text-decoration: underline;
+}
 .img-badge {
   display: inline-flex;
   background: #ba8b41;
@@ -1744,6 +1803,96 @@ article:last-child {
 #discounts .accordion-item {
   border: 0;
   border-bottom: 1px solid #dfdfdf;
+}
+#numbers {
+  background: #222;
+  padding: 190px 0 110px;
+  margin-top: 70px;
+}
+#numbers .number {
+  background: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 100px 40px 50px;
+  position: relative;
+}
+#numbers .number-value {
+  font-size: 120px;
+  font-family: "Georgia", serif;
+  color: black;
+  margin-bottom: 30px;
+}
+#numbers .number-text p {
+  font-size: 18px;
+  line-height: 30px;
+  margin: 0;
+  height: 90px;
+}
+#numbers .number-icon {
+  width: 170px;
+  height: 170px;
+  display: block;
+  background: #fff;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -85px;
+  margin: auto;
+  border-radius: 50%;
+  filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.16));
+}
+#mainNews article {
+  background: #fff;
+  border: 1px solid #ba8b41;
+  filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.16));
+}
+#mainNews .article-thumb {
+  position: relative;
+}
+#mainNews .article-thumb img {
+  width: 100%;
+}
+#mainNews .article-thumb a {
+  position: relative;
+  display: block;
+}
+#mainNews .article-thumb a:after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(rgba(186, 139, 65, 0) 0%, #ba8b41 100%);
+  opacity: 0.66;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  content: "";
+}
+#mainNews .article-content {
+  padding: 30px;
+}
+#mainNews .article-content h2 {
+  font-size: 30px;
+  line-height: 32px;
+  margin-bottom: 20px;
+}
+#mainNews .article-content h2 a {
+  color: black;
+  transition: color 100ms linear;
+}
+#mainNews .article-content h2 a:hover {
+  color: #ba8b41;
+}
+#mainNews .article-content p {
+  margin-bottom: 20px;
+}
+#mainNews .bttn-link {
+  font-size: 19px;
+  text-decoration: underline;
+  font-weight: 500;
+  color: black;
+  transition: color 100ms linear;
+}
+#mainNews .bttn-link:hover {
+  color: #ba8b41;
 }
 /* Swipebox
 ================================================== */
@@ -2070,8 +2219,82 @@ html.swipebox-html.swipebox-touch {
   color: var(--main-color-gold);
   font-size: 32px;
 }
-/* Zrealizowane
+.slick-dots {
+  margin: 0;
+  padding: 30px 0 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+.slick-dots li {
+  line-height: normal;
+}
+.slick-dots li button {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 3px solid #BA8B41;
+  margin: 0 3px;
+  text-indent: -999999px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: normal;
+}
+.slick-dots li button:after {
+  width: 13px;
+  height: 13px;
+  background: black;
+  display: block;
+  content: "";
+  border-radius: 50%;
+}
+/* Opinie
 ================================================== */
+.review {
+  position: relative;
+  border: 1px solid #ba8b41;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  padding: 35px;
+}
+.review img.review-quote {
+  width: 52px;
+  height: auto;
+  position: absolute;
+  top: 25px;
+  right: 25px;
+}
+.review-name {
+  font-family: "Georgia", serif;
+  font-size: 22px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.review-star {
+  display: flex;
+  justify-content: start;
+}
+.review-star img {
+  margin-right: 2px;
+}
+.review-content {
+  margin-top: 30px;
+}
+.review-content p {
+  font-size: 14px;
+  line-height: 21px;
+}
+.review-source {
+  margin-top: 20px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  font-size: 12px;
+}
+.review-source img {
+  border-radius: 50%;
+  margin-right: 10px;
+}
 /* Contact
 ================================================== */
 .contact-box {

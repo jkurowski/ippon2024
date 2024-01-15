@@ -10,6 +10,7 @@ if (! function_exists('rentType')) {
             4 => 'Powierzchnia biurowa',
             5 => 'Powierzchnia magazynowa',
             6 => 'Powierzchnia handlowo – magazynowa',
+            7 => 'Powierzchnia parkingowa',
         ];
 
         return $types[$number] ?? '';

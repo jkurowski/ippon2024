@@ -42,6 +42,8 @@
 <script src="{{ asset('/js/bootstrap.bundle.min.js') }}" charset="utf-8"></script>
 <script src="{{ asset('/js/app.min.js') }}" charset="utf-8"></script>
 
+<script src="{{ asset('js/slick.js') }}" charset="utf-8"></script>
+
 <script src="{{ asset('js/validation.js') }}" charset="utf-8"></script>
 <script src="{{ asset('js/pl.js') }}" charset="utf-8"></script>
 
@@ -65,6 +67,36 @@
             validateNonVisibleFields: true,
             updatePromptsPosition:true,
             promptPosition : "topRight:-137px"
+        });
+
+        $('#mainNews .row').slick({
+            infinite: true,
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            centerMode: true,
+            centerPadding: '360px',
+            arrows: false,
+            dots: true,
+        });
+
+        $('#reviewCarousel .row').slick({
+            infinite: true,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            centerMode: true,
+            centerPadding: '60px',
+            arrows: false,
+            dots: true,
+        });
+
+        $('#plannedCarousel').slick({
+            infinite: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            centerMode: true,
+            centerPadding: '240px',
+            arrows: false,
+            dots: true,
         });
 
         @if(settings()->get("popup_status") == 1)
