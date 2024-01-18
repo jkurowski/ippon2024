@@ -9,7 +9,7 @@
 @stop
 
 @section('content')
-    <section id="mainNews" class="rwd-sm p-0">
+    <section id="mainNews" class="rwd-sm p-0 blog-list">
         <div class="container">
             @foreach($articles as $key => $article)
                 <article class="{{ $loop->even ? 'row' : 'row flex-row-reverse' }}">

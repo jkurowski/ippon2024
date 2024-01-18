@@ -1452,19 +1452,19 @@ section#contact-form {
 }
 /* News
 ================================================== */
-article {
+.blog-list article {
   margin-bottom: 80px;
   padding-bottom: 80px;
   border-bottom: 1px solid #dfdfdf;
 }
-article .news-text {
+.blog-list article .news-text {
   padding-left: 50px;
 }
-article.flex-row-reverse .news-text {
+.blog-list article.flex-row-reverse .news-text {
   padding-left: 0;
   padding-right: 50px;
 }
-article:last-child {
+.blog-list article:last-child {
   margin-bottom: 0;
   padding-bottom: 0;
   border-bottom: 0 solid #dfdfdf;
@@ -1840,7 +1840,7 @@ article:last-child {
   border-radius: 50%;
   filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.16));
 }
-#mainNews article {
+#mainNews .news-list article {
   background: #fff;
   border: 1px solid #ba8b41;
   filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.16));

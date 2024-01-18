@@ -471,7 +471,7 @@
         </div>
     </div>
 
-    <div id="mainNews" class="container-fluid">
+    <div id="mainNews" class="container-fluid news-list">
         <div class="row">
 
             <div class="col-4">
