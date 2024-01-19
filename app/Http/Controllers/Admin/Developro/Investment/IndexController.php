@@ -1,14 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Developro;
+namespace App\Http\Controllers\Admin\Developro\Investment;
 
 use App\Http\Controllers\Controller;
-
-// CMS
 use App\Http\Requests\InvestmentFormRequest;
 use App\Models\Investment;
 use App\Repositories\InvestmentRepository;
 use App\Services\InvestmentService;
+use Illuminate\Http\Request;
+
+// CMS
 
 class IndexController extends Controller
 {
@@ -17,16 +18,16 @@ class IndexController extends Controller
 
     public function __construct(InvestmentRepository $repository, InvestmentService $service)
     {
-//        $this->middleware('permission:box-list|box-create|box-edit|box-delete', [
+//        $this->middleware('permission:investment-list|investment-create|investment-edit|investment-delete', [
 //            'only' => ['index','store']
 //        ]);
-//        $this->middleware('permission:box-create', [
+//        $this->middleware('permission:investment-create', [
 //            'only' => ['create','store']
 //        ]);
-//        $this->middleware('permission:box-edit', [
+//        $this->middleware('permission:investment-edit', [
 //            'only' => ['edit','update']
 //        ]);
-//        $this->middleware('permission:box-delete', [
+//        $this->middleware('permission:investment-delete', [
 //            'only' => ['destroy']
 //        ]);
 
@@ -36,14 +37,14 @@ class IndexController extends Controller
 
     public function index()
     {
-        return view('admin.investment.index', ['list' => $this->repository->all()]);
+        return view('admin.developro.investment.index', ['list' => $this->repository->all()]);
     }
 
     public function create()
     {
-        return view('admin.investment.form', [
+        return view('admin.developro.investment.form', [
             'cardTitle' => 'Dodaj inwestycje',
-            'backButton' => route('admin.developro.index')
+            'backButton' => route('admin.developro.investment.index')
         ])->with('entry', Investment::make());
     }
 
@@ -55,19 +56,15 @@ class IndexController extends Controller
             $this->service->uploadThumb($request->name, $request->file('file'), $investment);
         }
 
-        if ($request->hasFile('file_header')) {
-            $this->service->uploadHeader($request->name, $request->file('file_header'), $investment);
-        }
-
-        return redirect(route('admin.developro.index'))->with('success', 'Inwestycja zapisana');
+        return redirect(route('admin.developro.investment.index'))->with('success', 'Inwestycja zapisana');
     }
 
     public function edit(int $id)
     {
-        return view('admin.investment.form', [
+        return view('admin.developro.investment.form', [
             'entry' => $this->repository->find($id),
             'cardTitle' => 'Edytuj inwestycję',
-            'backButton' => route('admin.developro.index')
+            'backButton' => route('admin.developro.investment.index')
         ]);
     }
 
@@ -80,16 +77,26 @@ class IndexController extends Controller
             $this->service->uploadThumb($request->name, $request->file('file'), $investment, true);
         }
 
-        if ($request->hasFile('file_header')) {
-            $this->service->uploadHeader($request->name, $request->file('file_header'), $investment, true);
-        }
-
-        return redirect(route('admin.developro.index'))->with('success', 'Inwestycja zaktualizowana');
+        return redirect(route('admin.developro.investment.index'))->with('success', 'Inwestycja zaktualizowana');
     }
 
+    public function log(Investment $investment){
+        return view('admin.developro.investment.log', ['investment' => $investment]);
+    }
+    public function events(Investment $investment){
+        return view('admin.developro.investment.events', ['investment' => $investment]);
+    }
+    public function eventtable(Investment $investment, Request $request)
+    {
+        return $this->repository->getEventsAsTable($investment, $request);
+    }
+    public function datatable(Investment $investment, Request $request)
+    {
+        return $this->repository->getDataTable($investment, $request->input('minDate'), $request->input('maxDate'));
+    }
     public function destroy(int $id)
     {
         $this->repository->delete($id);
-        return response()->json('Deleted');
+        return response()->json(['status' => 'deleted'], 201);
     }
 }

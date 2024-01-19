@@ -1,15 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Developro;
+namespace App\Http\Controllers\Admin\Developro\Property;
 
 use App\Http\Controllers\Controller;
+
+//CMS
 use App\Http\Requests\PropertyFormRequest;
 use App\Repositories\PropertyRepository;
 use App\Services\PropertyService;
-use Illuminate\Support\Facades\Session;
 
-use App\Models\Investment;
 use App\Models\Floor;
+use App\Models\Investment;
 use App\Models\Property;
 
 class PropertyController extends Controller
@@ -45,18 +46,19 @@ class PropertyController extends Controller
             }
         ));
 
-        return view('admin.investment_property.index', [
+        return view('admin.developro.investment_property.index', [
             'investment' => $investment,
             'floor' => $floor,
-            'list' => $list
+            'list' => $list,
+            'count_property_status' => $list->floorRooms->countBy('status')
         ]);
     }
 
     public function create(Investment $investment, Floor $floor)
     {
-        return view('admin.investment_property.form', [
+        return view('admin.developro.investment_property.form', [
             'cardTitle' => 'Dodaj powierzchnię',
-            'backButton' => route('admin.developro.investment.floor.property.index', [$investment, $floor]),
+            'backButton' => route('admin.developro.investment.properties.index', [$investment, $floor]),
             'floor' => $floor,
             'investment' => $investment,
         ])->with('entry', Property::make());
@@ -65,7 +67,10 @@ class PropertyController extends Controller
     public function store(PropertyFormRequest $request, Investment $investment, Floor $floor)
     {
 
-        $property = $this->repository->create($request->validated());
+        $property = $this->repository->create(array_merge($request->validated(), [
+            'investment_id' => $investment->id,
+            'floor_id' => $floor->id
+        ]));
 
         if ($request->hasFile('file')) {
             $this->service->upload($request->name, $request->file('file'), $property);
@@ -75,25 +80,22 @@ class PropertyController extends Controller
             $this->service->uploadPdf($request->name, $request->file('file_pdf'), $property);
         }
 
-        return redirect(route('admin.developro.investment.floor.property.index', [$investment, $floor]))->with('success', 'Powierzchnia zapisana');
+        return redirect(route('admin.developro.investment.properties.index', [$investment, $floor]))->with('success', 'Powierzchnia zapisana');
     }
 
-    public function edit(Investment $investment, Floor $floor, $id)
+    public function edit(Investment $investment, Floor $floor, Property $property)
     {
-        $property = Property::find($id);
-
-        return view('admin.investment_property.form', [
+        return view('admin.developro.investment_property.form', [
             'cardTitle' => 'Edytuj powierzchnię',
-            'backButton' => route('admin.developro.investment.floor.property.index', [$investment, $floor]),
+            'backButton' => route('admin.developro.investment.properties.index', [$investment, $floor]),
             'floor' => $floor,
             'investment' => $investment,
             'entry' => $property
         ]);
     }
 
-    public function update(PropertyFormRequest $request, Investment $investment, Floor $floor, int $id)
+    public function update(PropertyFormRequest $request, Investment $investment, Floor $floor, Property $property)
     {
-        $property = $this->repository->find($id);
         $this->repository->update($request->validated(), $property);
 
         if ($request->hasFile('file')) {
@@ -104,12 +106,22 @@ class PropertyController extends Controller
             $this->service->uploadPdf($request->name, $request->file('file_pdf'), $property, true);
         }
 
-        return redirect(route('admin.developro.investment.floor.property.index', [$investment, $floor]))->with('success', 'Powierzchnia zaktualizowana');
+        return redirect(route('admin.developro.investment.properties.index', [$investment, $floor]))->with('success', 'Powierzchnia zaktualizowana');
     }
 
     public function destroy(Investment $investment, Floor $floor, int $id)
     {
         $this->repository->delete($id);
         return response()->json('Deleted');
+    }
+
+    public function fetchProperties(Investment $investment) {
+        $properties = $investment->selectProperties()->get();
+        $types = $properties->groupBy('type');
+        $result = [];
+        foreach ($types as $type => $properties) {
+            $result[$type] = $properties;
+        }
+        return response()->json($result);
     }
 }

@@ -7,9 +7,9 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use Intervention\Image\ImageManagerStatic as Image;
 
-class FloorService
+class BuildingFloorService
 {
-    public function uploadPlan(string $title, UploadedFile $file, object $model, int $investment_id, bool $delete = false)
+    public function uploadPlan(string $title, UploadedFile $file, object $model, bool $delete = false)
     {
 
         if ($delete) {
@@ -30,17 +30,16 @@ class FloorService
 
         Image::make($filepath)
             ->resize(
-                config('images.floor.plan_width'),
-                config('images.floor.plan_height'),
+                config('images.floor_plan.width'),
+                config('images.floor_plan.height'),
                 function ($constraint) {
                     $constraint->aspectRatio();
                 }
             )->save($filepath);
 
-        Image::make($filepath)->encode('webp')->save($file_list_path_webp);
+        Image::make($filepath)->encode('webp', 90)->save($file_list_path_webp);
 
         $model->update([
-            'investment_id' => $investment_id,
             'file' => $name,
             'file_webp' => $name_webp
         ]);

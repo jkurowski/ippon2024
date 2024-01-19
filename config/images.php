@@ -7,18 +7,18 @@ return [
     |--------------------------------------------------------------------------
     */
     'investment' => [
-        'thumb_width' => 940,
-        'thumb_height' => 530,
+        'thumb_width' => 840,
+        'thumb_height' => 500,
         'header_width' => 1920,
         'header_height' => 800,
         'carousel_width' => 386,
         'carousel_height' => 450,
-        'file_path' => 'uploads/investments/',
-        'thumb_file_path' => 'uploads/investments/thumbs/',
-        'carousel_file_path' => 'uploads/investments/carousel/',
-        'header_file_path' => 'uploads/investments/header/',
-        'preview_file_path' => 'uploads/investments/thumbs/',
-        'preview_carousel_path' => 'uploads/investments/carousel/',
+        'file_path' => 'investment/',
+        'thumb_file_path' => 'investment/thumbs/',
+        'carousel_file_path' => 'investment/carousel/',
+        'header_file_path' => 'investment/header/',
+        'preview_file_path' => 'investment/thumbs/',
+        'preview_carousel_path' => 'investment/carousel/',
     ],
 
     /*

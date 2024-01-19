@@ -3,9 +3,21 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+
+use Spatie\Activitylog\LogOptions;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
+
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Investment extends Model
 {
+
+    use LogsActivity, HasSlug;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -15,6 +27,7 @@ class Investment extends Model
         'type',
         'status',
         'name',
+        'slug',
         'address',
         'city',
         'date_start',
@@ -28,44 +41,51 @@ class Investment extends Model
         'entry_content',
         'content',
         'end_content',
-        'contact_form',
-        'contact_form_text',
-        'file_thumb',
-        'file_header'
+        'file_thumb'
     ];
 
     /**
-     * Get the investment plan
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * Get the options for generating the slug.
      */
-    public function plan()
+    public function getSlugOptions() : SlugOptions
+    {
+        return SlugOptions::create()
+            ->generateSlugsFrom('name')
+            ->saveSlugsTo('slug');
+    }
+
+    /**
+     * Get investment plan
+     * @return HasOne
+     */
+    public function plan(): HasOne
     {
         return $this->hasOne('App\Models\Plan');
     }
 
     /**
-     * Get your investment floors
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * Get investment floors
+     * @return HasMany
      */
-    public function floors()
+    public function floors(): HasMany
     {
-        return $this->hasMany('App\Models\Floor')->orderBy('position');
+        return $this->hasMany('App\Models\Floor')->orderByDesc('position');
     }
 
     /**
-     * Get the investment floor
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * Get investment floor
+     * @return HasOne
      */
-    public function floor()
+    public function floor(): HasOne
     {
         return $this->hasOne('App\Models\Floor');
     }
 
     /**
      * Get flats belonging to the floors of the investment
-     * @return \Illuminate\Database\Eloquent\Relations\HasManyThrough
+     * @return HasManyThrough
      */
-    public function floorRooms()
+    public function floorRooms(): HasManyThrough
     {
         return $this->hasManyThrough(
             'App\Models\Property',
@@ -78,37 +98,37 @@ class Investment extends Model
     }
 
     /**
-     * Get your investment buildings
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * Get investment building
+     * @return HasOne
      */
-    public function buildings()
-    {
-        return $this->hasMany('App\Models\Building');
-    }
-
-    /**
-     * Get the investment building
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function building()
+    public function building(): HasOne
     {
         return $this->hasOne('App\Models\Building');
     }
 
     /**
-     * Get your investment floors
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * Get investment buildings
+     * @return HasMany
      */
-    public function buildingFloors()
+    public function buildings(): HasMany
+    {
+        return $this->hasMany('App\Models\Building');
+    }
+
+    /**
+     * Get investment floors
+     * @return HasMany
+     */
+    public function buildingFloors(): HasMany
     {
         return $this->hasMany('App\Models\Floor');
     }
 
     /**
      * Get flats belonging to the floors of the investment
-     * @return \Illuminate\Database\Eloquent\Relations\HasManyThrough
+     * @return HasManyThrough
      */
-    public function buildingRooms()
+    public function buildingRooms(): HasManyThrough
     {
         return $this->hasManyThrough(
             'App\Models\Property',
@@ -120,8 +140,63 @@ class Investment extends Model
         );
     }
 
-    public function properties()
+    /**
+     * Get investment properties
+     * @return HasMany
+     */
+    public function properties(): HasMany
     {
         return $this->hasMany('App\Models\Property');
+    }
+
+    /**
+     * Get investment properties
+     * @return HasMany
+     */
+    public function searchProperties(): HasMany
+    {
+        return $this->hasMany('App\Models\Property')->select(['investment_id', 'name', 'status', 'rooms', 'area', 'views', 'active', 'updated_at']);
+    }
+
+    /**
+     * Get investment properties
+     * @return HasMany
+     */
+    public function selectProperties(): HasMany
+    {
+        return $this->hasMany('App\Models\Property')->select(['investment_id', 'id', 'name', 'type']);
+    }
+
+    /**
+     * The "boot" method of the model.
+     *
+     * @return void
+     */
+    public static function boot()
+    {
+        parent::boot();
+
+        self::deleting(function ($investment) {
+            $investment->floors()->each(function($floor) {
+                $floor->delete();
+            });
+
+            $investment->buildings()->each(function($building) {
+                $building->delete();
+            });
+
+            $investment->properties()->each(function($property) {
+                $property->delete();
+            });
+        });
+    }
+
+    public function getActivitylogOptions(): LogOptions
+    {
+        $logOptions = new LogOptions();
+        $logOptions->useLogName('Investycje');
+        $logOptions->logFillable();
+
+        return $logOptions;
     }
 }

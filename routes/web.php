@@ -42,6 +42,9 @@ Route::group(['namespace' => 'Front', 'prefix' => '{locale?}', 'where' => ['loca
     Route::get('jak-kupic-mieszkanie',
         'Static\IndexController@howbuy')->name('static.howbuy');
 
+    Route::get('zrealizowane-inwestycje',
+        'Developro\Completed\IndexController@index')->name('developro.completed');
+
     Route::get('wynajem',
         'Rent\IndexController@index')->name('rent');
     Route::get('wynajem/{slug},{id}', 'Rent\IndexController@show')->name('rent.index.show');

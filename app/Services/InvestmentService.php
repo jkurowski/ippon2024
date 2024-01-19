@@ -22,39 +22,22 @@ class InvestmentService
         }
 
         $name = date('His').'_'.Str::slug($title).'.' . $file->getClientOriginalExtension();
+        $name_webp = date('His') . '_' . Str::slug($title) . '.webp';
+
         $file->storeAs('thumbs', $name, 'investment_uploads');
 
         $filepath = public_path('investment/thumbs/' . $name);
         Image::make($filepath)
             ->fit(
-                config('images.investment_thumb.width'),
-                config('images.investment_thumb.height')
+                config('images.investment.thumb_width'),
+                config('images.investment.thumb_height')
             )
             ->save($filepath);
 
-        $model->update(['file_thumb' => $name]);
-    }
-    public function uploadHeader(string $title, UploadedFile $file, object $model, bool $delete = false)
-    {
+        $file_path_webp = public_path('investment/thumbs/webp/' . $name_webp);
+        Image::make($filepath)->encode('webp')->save($file_path_webp);
 
-        if ($delete) {
-            if (File::isFile(public_path('investment/header/' . $model->file_thumb))) {
-                File::delete(public_path('investment/header/' . $model->file_thumb));
-            }
-        }
-
-        $name = date('His').'_'.Str::slug($title).'.' . $file->getClientOriginalExtension();
-        $file->storeAs('header', $name, 'investment_uploads');
-
-        $filepath = public_path('investment/header/' . $name);
-        Image::make($filepath)
-            ->fit(
-                config('images.investment.header_width'),
-                config('images.investment.header_height')
-            )
-            ->save($filepath);
-
-        $model->update(['file_header' => $name]);
+        $model->update(['file_thumb' => $name, 'file_webp' => $name_webp]);
     }
 
     public function uploadPlan(object $model, UploadedFile $file)
@@ -67,6 +50,8 @@ class InvestmentService
         }
 
         $name = date('His') . '_' . Str::slug($model->name) . '.' . $file->getClientOriginalExtension();
+        $name_webp = date('His') . '_' . Str::slug($model->name) . '.webp';
+
         $file->storeAs('plan', $name, 'investment_uploads');
 
         $filepath = public_path('investment/plan/' . $name);
@@ -78,9 +63,13 @@ class InvestmentService
                 $constraint->upsize();
             })->save($filepath);
 
+        $file_path_webp = public_path('investment/plan/webp/' . $name_webp);
+        Image::make($filepath)->encode('webp')->save($file_path_webp);
+
         Plan::updateOrCreate(
             ['investment_id' => $model->id],
-            ['file' => $name]
+            ['file' => $name],
+            ['file_webp' => $name_webp]
         );
     }
 }

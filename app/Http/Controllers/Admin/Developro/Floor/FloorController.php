@@ -1,16 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Developro;
+namespace App\Http\Controllers\Admin\Developro\Floor;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FloorFormRequest;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\Session;
-
+use App\Models\Floor;
+use App\Models\Investment;
 use App\Repositories\FloorRepository;
 use App\Services\FloorService;
-use App\Models\Investment;
-use App\Models\Floor;
 
 class FloorController extends Controller
 {
@@ -38,7 +35,7 @@ class FloorController extends Controller
 
     public function index(Investment $investment)
     {
-        return view('admin.investment_floor.index', [
+        return view('admin.developro.investment_floor.index', [
             'investment' => $investment,
             'list' => $investment->floors
         ]);
@@ -47,9 +44,9 @@ class FloorController extends Controller
     public function create(Investment $investment)
     {
         $investment->load('plan');
-        return view('admin.investment_floor.form', [
+        return view('admin.developro.investment_floor.form', [
             'cardTitle' => 'Dodaj pietro',
-            'backButton' => route('admin.developro.investment.floor.index', $investment),
+            'backButton' => route('admin.developro.investment.floors.index', $investment),
             'investment' => $investment,
         ])->with('entry', Floor::make());
     }
@@ -62,20 +59,20 @@ class FloorController extends Controller
             $this->service->uploadPlan($request->name, $request->file('file'), $floor, $investment->id);
         }
 
-        return redirect(route('admin.developro.investment.floor.index', $investment))->with('success', 'Nowe piętro dodane');
+        return redirect(route('admin.developro.investment.floors.index', $investment))->with('success', 'Nowe piętro dodane');
     }
 
-    public function edit(Investment $investment, $id)
+    public function edit(Investment $investment, Floor $floor)
     {
-        return view('admin.investment_floor.form', [
+        return view('admin.developro.investment_floor.form', [
             'cardTitle' => 'Edytuj pietro',
-            'backButton' => route('admin.developro.investment.floor.index', $investment),
-            'entry' => Floor::find($id),
+            'backButton' => route('admin.developro.investment.floors.index', $investment),
+            'entry' => $floor,
             'investment' => $investment
         ]);
     }
 
-    public function update(FloorFormRequest $request, Investment $investment, $id)
+    public function update(FloorFormRequest $request, Investment $investment, int $id)
     {
 
         $floor = $this->repository->find($id);
@@ -85,36 +82,20 @@ class FloorController extends Controller
             $this->service->uploadPlan($request->name, $request->file('file'), $floor, $investment->id, true);
         }
 
-        return redirect()->route('admin.developro.investment.floor.index', $investment)->with('success', 'Pietro zaktualizowane');
+        return redirect()->route('admin.developro.investment.floors.index', $investment)->with('success', 'Pietro zaktualizowane');
     }
 
     public function copy(Investment $investment, Floor $floor)
     {
         $newFloor = $floor->replicate();
-        //$newFloor->html = '';
-        //$newFloor->cords = '';
+        $newFloor->html = '';
+        $newFloor->cords = '';
         $newFloor->file = '';
         $newFloor->file_webp = '';
-        $newFloor->name = $floor->name.' - kopia';
         $newFloor->number = $floor->number + 1;
         $newFloor->position = $floor->position + 1;
         $newFloor->save();
-
-        if($floor->properties->count() > 0){
-            foreach($floor->properties as $p) {
-                $newProperty = $p->replicate();
-                $newProperty->name = $p->name.' - kopia';
-                //$newProperty->html = '';
-                //$newProperty->cords = '';
-                $newProperty->file = '';
-                $newProperty->file_webp = '';
-                $newProperty->file_pdf = '';
-                $newProperty->floor_id = $newFloor->id;
-                $newProperty->save();
-            }
-        }
-
-        return redirect()->route('admin.developro.investment.floor.index', $investment)->with('success', 'Pietro skopiowane');
+        return redirect()->route('admin.developro.investment.floors.index', $investment)->with('success', 'Pietro skopiowane');
     }
 
     public function destroy(Investment $investment, Floor $floor)

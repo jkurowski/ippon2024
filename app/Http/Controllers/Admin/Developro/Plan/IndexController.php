@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Developro;
+namespace App\Http\Controllers\Admin\Developro\Plan;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
-// CMS
 use App\Models\Investment;
 use App\Services\InvestmentService;
+use Illuminate\Http\Request;
 
-class PlanController extends Controller
+// CMS
+
+class IndexController extends Controller
 {
     private $service;
 
@@ -21,10 +21,10 @@ class PlanController extends Controller
     public function index(Investment $investment)
     {
         $investment->load('plan');
-        return view('admin.investment_plan.index', ['investment' => $investment]);
+        return view('admin.developro.investment_plan.index', ['investment' => $investment]);
     }
 
-    public function update(Request $request, Investment $investment)
+    public function store(Request $request, Investment $investment)
     {
         if ($request->hasFile('qqfile')) {
             $this->service->uploadPlan($investment, $request->file('qqfile'));
