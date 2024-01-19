@@ -11,6 +11,11 @@
 @section('content')
     <div id="page-content">
         <div class="container">
+            <div class="row">
+                <div class="col-12 mb-5 pb-3">
+                    {!! parse_text($page->content) !!}
+                </div>
+            </div>
             <div class="row justify-content-center">
                 @foreach($investments as $r)
                     <div class="col-6">
