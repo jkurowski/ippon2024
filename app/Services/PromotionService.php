@@ -24,8 +24,8 @@ class PromotionService
 
         Image::make($filepath)
             ->fit(
-                260,
-                180
+                265,
+                199
             )->save($filepath);
 
         $model->update(['file' => $name]);

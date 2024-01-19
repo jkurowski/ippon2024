@@ -99,8 +99,8 @@ return [
     */
 
     'promotion' => [
-        'width' => 260,
-        'height' => 180,
+        'width' => 265,
+        'height' => 199,
         'file_path' => 'uploads/promotion/',
         'preview_file_path' => 'uploads/promotion/'
     ],

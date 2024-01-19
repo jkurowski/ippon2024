@@ -33,7 +33,7 @@
                                     @include('form-elements.html-input-text', ['label' => 'Rabat', 'name' => 'discount', 'value' => $entry->discount, 'required' => 1])
                                 </div>
                                 <div class="row w-100 form-group">
-                                    @include('form-elements.textarea-fullwidth', ['label' => 'Wstęp', 'name' => 'text', 'value' => $entry->text, 'rows' => 5, 'required' => 1])
+                                    @include('form-elements.textarea-fullwidth', ['label' => 'Wstęp', 'name' => 'text', 'value' => $entry->text, 'rows' => 5, 'required' => 1, 'class' => 'tinymce'])
                                 </div>
                                 <div class="row w-100 form-group">
                                     @include('form-elements.textarea-fullwidth', ['label' => 'Rozwinięcie', 'name' => 'description', 'value' => $entry->description, 'rows' => 5, 'required' => 1, 'class' => 'tinymce'])
