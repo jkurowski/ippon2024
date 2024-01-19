@@ -53,7 +53,7 @@
                                     <ul class="mb-0 list-unstyled subnav">
                                         <li><a href="{{ route('commercial') }}">Obiekty komercyjne</a></li>
                                         <li><a href="{{ route('rent') }}">Wynajem</a></li>
-                                        <li><a href="">Zrealizowane inwestycje</a></li>
+                                        <li><a href="{{ route('developro.completed') }}">Zrealizowane inwestycje</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="">Strefa klienta <i class="ms-2 las la-angle-down"></i></a>
