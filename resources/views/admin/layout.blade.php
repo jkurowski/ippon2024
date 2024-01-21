@@ -178,7 +178,7 @@
 <script src="{{ asset('/js/jquery.min.js') }}" charset="utf-8"></script>
 <script src="{{ asset('/js/bootstrap.bundle.min.js') }}" charset="utf-8"></script>
 <script src="{{ asset('/js/jquery-ui.min.js') }}" charset="utf-8"></script>
-<script src="{{ asset('/js/cms.min.js') }}" charset="utf-8"></script>
+<script src="{{ asset('/js/cms.js') }}" charset="utf-8"></script>
 <script>
     $(document).ready(function() {
         $(".btn-add-user").click((d) => {

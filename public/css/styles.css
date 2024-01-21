@@ -522,6 +522,48 @@ header #topCta span {
 #header.fixed #nav nav ul li ul li {
   height: auto;
 }
+#cities {
+  display: flex;
+  padding-right: 80px;
+}
+#cities .city-item {
+  height: 100%;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+}
+#cities .city-item p {
+  font-size: 18px;
+  color: #BA8B41;
+}
+#cities .city-item p strong {
+  font-size: 32px;
+  color: black;
+  text-transform: uppercase;
+}
+#cities .city-item span {
+  color: white;
+  font-size: 22px;
+}
+#cities .city-item:hover {
+  background: linear-gradient(rgba(186, 139, 65, 0) 0%, #916b30 100%);
+}
+#cities .city-item:hover strong {
+  color: white;
+  text-shadow: 0 0 6px #42445a;
+}
+#cities .city-item:hover span {
+  text-shadow: 0 0 6px #42445a;
+}
+#cities .city-item:hover .city-key {
+  background-position: right center;
+}
+#cities .city-key {
+  width: 47px;
+  height: 94px;
+  background: url("../images/key-icon.png") no-repeat left center;
+  margin-right: 18px;
+}
 footer {
   background: #000000;
   padding: 110px 0 55px;

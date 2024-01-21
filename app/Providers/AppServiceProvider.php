@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\City;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Schema;
 use Request;
@@ -85,6 +86,7 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('*', function ($view) {
             $view->with('current_locale', app()->getLocale());
             $view->with('available_locales', config('app.available_locales'));
+            $view->with('cities', City::orderBy('sort', 'ASC')->get());
         });
 
         Blade::directive('money', function ($amount) {

@@ -11,6 +11,20 @@
                 <div class="row no-gutters">
                     <div class="col-12 p-0">
                         <div class="top d-flex justify-content-end">
+                            <div id="cities">
+                                @foreach($cities as $city)
+                                    <a href="#" class="city-item">
+                                        <div class="city-key">
+
+                                        </div>
+                                        <div>
+                                            <p>MIESZKANIA</p>
+                                            <p><strong>{{ $city->name }}</strong></p>
+                                            <span>SPRAWDŹ</span>
+                                        </div>
+                                    </a>
+                                @endforeach
+                            </div>
 
                             <div id="topCta">
                                 <div>
