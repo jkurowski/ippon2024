@@ -3,7 +3,7 @@
 @section('content')
 
 <div id="slider">
-    <img src="https://placehold.co/1920x820" alt="" class="w-100">
+    <img src="{{ asset('/uploads/slider/panel-1.jpg') }}" alt="" class="w-100">
 </div>
 
 <section>
@@ -244,7 +244,7 @@
                 <div class="col-3">
                     <div class="number">
                         <div class="number-icon">
-
+                            <img src="{{ asset('/images/icons/wysoka-jakosc-icon.png') }}" alt="" width="170" height="170">
                         </div>
                         <div class="number-value">92%</div>
                         <div class="number-text">
@@ -255,7 +255,7 @@
                 <div class="col-3">
                     <div class="number">
                         <div class="number-icon">
-
+                            <img src="{{ asset('/images/icons/polecenie-zakupu-icon.png') }}" alt="" width="170" height="170">
                         </div>
                         <div class="number-value">95%</div>
                         <div class="number-text">
@@ -266,7 +266,7 @@
                 <div class="col-3">
                     <div class="number">
                         <div class="number-icon">
-
+                            <img src="{{ asset('/images/icons/atrakcyjna-lokalizacja.png') }}" alt="" width="170" height="170">
                         </div>
                         <div class="number-value">97%</div>
                         <div class="number-text">
@@ -277,7 +277,7 @@
                 <div class="col-3">
                     <div class="number">
                         <div class="number-icon">
-
+                            <img src="{{ asset('/images/icons/oddane-mieszkania-icon.png') }}" alt="" width="170" height="170">
                         </div>
                         <div class="number-value">100%</div>
                         <div class="number-text">
