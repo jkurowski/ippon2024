@@ -24,6 +24,7 @@
                     <thead class="thead-default">
                     <tr>
                         <th>Nazwa</th>
+                        <th class="text-center">Status</th>
                         <th>Data modyfikacji</th>
                         <th></th>
                     </tr>
@@ -32,6 +33,7 @@
                     @foreach ($list as $item)
                         <tr id="recordsArray_{{ $item->id }}">
                             <td>{{ $item->name }}</td>
+                            <td class="text-center">{!! status($item->active) !!}</td>
                             <td>{{ $item->updated_at }}</td>
                             <td class="option-120">
                                 <div class="btn-group">

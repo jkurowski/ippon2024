@@ -22,6 +22,9 @@
                             @include('form-elements.back-route-button')
                             <div class="card-body control-col12">
                                 <div class="row w-100 form-group">
+                                    @include('form-elements.html-select', ['label' => 'Status', 'name' => 'active', 'selected' => $entry->active, 'select' => ['1' => 'Pokaż na liście', '0' => 'Ukryj na liście']])
+                                </div>
+                                <div class="row w-100 form-group">
                                     @include('form-elements.html-input-text', ['label' => 'Nazwa', 'name' => 'name', 'value' => $entry->name, 'required' => 1])
                                 </div>
                             </div>
