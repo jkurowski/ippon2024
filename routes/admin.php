@@ -19,6 +19,7 @@ Route::group([
     Route::post('commercial/set', 'Commercial\IndexController@sort')->name('commercial.sort');
     Route::post('rent/set', 'Rent\IndexController@sort')->name('rent.sort');
     Route::post('city/set', 'City\IndexController@sort')->name('city.sort');
+    Route::post('job/set', 'Job\IndexController@sort')->name('job.sort');
 
     //Route::get('article/import', 'Article\IndexController@import')->name('article.import');
     Route::get('promotion/import', 'Promotion\IndexController@import')->name('promotion.import');
@@ -40,7 +41,8 @@ Route::group([
         'promotion'=> 'Promotion\IndexController',
         'commercial'=> 'Commercial\IndexController',
         'rent'=> 'Rent\IndexController',
-        'city'=> 'City\IndexController'
+        'city'=> 'City\IndexController',
+        'job'=> 'Job\IndexController'
     ]);
 
     // Settings

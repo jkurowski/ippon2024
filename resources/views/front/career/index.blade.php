@@ -51,145 +51,22 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-8">
-                    <div class="accordion" id="accordionExample">
+                    <div class="accordion" id="accordionJob">
+                        @foreach($jobs as $key => $job)
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    Kierownik Projektu <br><span>Olsztyn</span>
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ $job->id }}" aria-expanded="@if($key == 0) true @else false @endif" aria-controls="collapse{{ $job->id }}">
+                                    {{ $job->name }} <br><span>{{ $job->city }}</span>
                                 </button>
                             </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                            <div id="collapse{{ $job->id }}" class="accordion-collapse collapse @if($key == 0) show @endif" data-bs-parent="#accordionJob">
                                 <div class="accordion-body">
-                                    <p><strong>Miejsce pracy</strong></p>
-                                    <p>Olsztyn</p>
-                                    <p>&nbsp;</p>
-                                    <p><strong>Obowiązki</strong></p>
-                                    <ul>
-                                        <li>Zarządzanie inwestycjami deweloperskimi lub komercyjnymi,</li>
-                                        <li>Koordynacja inwestycji i monitorowanie kluczowych procesów, począwszy od fazy koncepcyjnej projektu do przekazania obiektu do użytkowania,</li>
-                                        <li>Kontrola jakościowa, terminowa i finansowa prac budowlanych,</li>
-                                        <li>Bliska współpraca z wszystkimi zespołami w strukturach firmy,</li>
-                                        <li>Współpraca ze stronami zaangażowanymi w proces inwestycyjny oraz instytucjami zewnętrznymi.</li>
-                                    </ul>
-                                    <p>&nbsp;</p>
-                                    <p><strong>Wymagania</strong></p>
-                                    <ul>
-                                        <li>Wykształcenie wyższe kierunkowe techniczne w specjalności konstrukcyjno-budowlanej,</li>
-                                        <li>Uprawnienia budowlane,</li>
-                                        <li>Umiejętność planowania, przygotowania i prowadzenia inwestycji,</li>
-                                        <li>Znajomość programu Autocad,</li>
-                                        <li>Znajomość obowiązującego Prawa Budowlanego i Warunków Technicznych,</li>
-                                        <li>Znajomość technologii i materiałów budowlanych,</li>
-                                        <li>Prawo jazdy kat. B,</li>
-                                        <li>Zaangażowanie, odpowiedzialność,</li>
-                                        <li>Wysoka organizacja pracy własnej, samodzielność, inicjatywa, sumienność w wykonywaniu zadań,</li>
-                                        <li>Doświadczenie w pracy przy obsłudze inwestycji budowlanych.</li>
-                                    </ul>
-                                    <p>&nbsp;</p>
-                                    <p><strong>Oferujemy</strong></p>
-                                    <ul>
-                                        <li>Bardzo dobrze płatne stanowisko, warunki do uzgodnienia na rozmowie kwalifikacyjnej,</li>
-                                        <li>Stabilne zatrudnienie ukierunkowane na wieloletnią współpracę i możliwość awansu,</li>
-                                        <li>Bardzo dobrą atmosferę i wsparcie na każdym etapie pracy,</li>
-                                        <li>Umożliwienie rozwoju zawodowego w tym szkoleń w zakresie zarządzania, finansowym i zawodowym,</li>
-                                        <li>Perspektywę awansu zawodowego,</li>
-                                        <li>Niezbędne narzędzia pracy.</li>
-                                    </ul>
+                                    {!! $job->text !!}
+                                    <a href="mailto:{{ $job->email }}?subject=Oferta pracy: {{ $job->name }}" class="mt-4 bttn bttn-icon">APLIKUJ <i class="ms-5 las la-chevron-circle-right"></i></a>
                                 </div>
                             </div>
                         </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Kierownik Projektu <br><span>Olsztyn</span>
-                                </button>
-                            </h2>
-                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <p><strong>Miejsce pracy</strong></p>
-                                    <p>Olsztyn</p>
-                                    <p>&nbsp;</p>
-                                    <p><strong>Obowiązki</strong></p>
-                                    <ul>
-                                        <li>Zarządzanie inwestycjami deweloperskimi lub komercyjnymi,</li>
-                                        <li>Koordynacja inwestycji i monitorowanie kluczowych procesów, począwszy od fazy koncepcyjnej projektu do przekazania obiektu do użytkowania,</li>
-                                        <li>Kontrola jakościowa, terminowa i finansowa prac budowlanych,</li>
-                                        <li>Bliska współpraca z wszystkimi zespołami w strukturach firmy,</li>
-                                        <li>Współpraca ze stronami zaangażowanymi w proces inwestycyjny oraz instytucjami zewnętrznymi.</li>
-                                    </ul>
-                                    <p>&nbsp;</p>
-                                    <p><strong>Wymagania</strong></p>
-                                    <ul>
-                                        <li>Wykształcenie wyższe kierunkowe techniczne w specjalności konstrukcyjno-budowlanej,</li>
-                                        <li>Uprawnienia budowlane,</li>
-                                        <li>Umiejętność planowania, przygotowania i prowadzenia inwestycji,</li>
-                                        <li>Znajomość programu Autocad,</li>
-                                        <li>Znajomość obowiązującego Prawa Budowlanego i Warunków Technicznych,</li>
-                                        <li>Znajomość technologii i materiałów budowlanych,</li>
-                                        <li>Prawo jazdy kat. B,</li>
-                                        <li>Zaangażowanie, odpowiedzialność,</li>
-                                        <li>Wysoka organizacja pracy własnej, samodzielność, inicjatywa, sumienność w wykonywaniu zadań,</li>
-                                        <li>Doświadczenie w pracy przy obsłudze inwestycji budowlanych.</li>
-                                    </ul>
-                                    <p>&nbsp;</p>
-                                    <p><strong>Oferujemy</strong></p>
-                                    <ul>
-                                        <li>Bardzo dobrze płatne stanowisko, warunki do uzgodnienia na rozmowie kwalifikacyjnej,</li>
-                                        <li>Stabilne zatrudnienie ukierunkowane na wieloletnią współpracę i możliwość awansu,</li>
-                                        <li>Bardzo dobrą atmosferę i wsparcie na każdym etapie pracy,</li>
-                                        <li>Umożliwienie rozwoju zawodowego w tym szkoleń w zakresie zarządzania, finansowym i zawodowym,</li>
-                                        <li>Perspektywę awansu zawodowego,</li>
-                                        <li>Niezbędne narzędzia pracy.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    Kierownik Projektu <br><span>Olsztyn</span>
-                                </button>
-                            </h2>
-                            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <p><strong>Miejsce pracy</strong></p>
-                                    <p>Olsztyn</p>
-                                    <p>&nbsp;</p>
-                                    <p><strong>Obowiązki</strong></p>
-                                    <ul>
-                                        <li>Zarządzanie inwestycjami deweloperskimi lub komercyjnymi,</li>
-                                        <li>Koordynacja inwestycji i monitorowanie kluczowych procesów, począwszy od fazy koncepcyjnej projektu do przekazania obiektu do użytkowania,</li>
-                                        <li>Kontrola jakościowa, terminowa i finansowa prac budowlanych,</li>
-                                        <li>Bliska współpraca z wszystkimi zespołami w strukturach firmy,</li>
-                                        <li>Współpraca ze stronami zaangażowanymi w proces inwestycyjny oraz instytucjami zewnętrznymi.</li>
-                                    </ul>
-                                    <p>&nbsp;</p>
-                                    <p><strong>Wymagania</strong></p>
-                                    <ul>
-                                        <li>Wykształcenie wyższe kierunkowe techniczne w specjalności konstrukcyjno-budowlanej,</li>
-                                        <li>Uprawnienia budowlane,</li>
-                                        <li>Umiejętność planowania, przygotowania i prowadzenia inwestycji,</li>
-                                        <li>Znajomość programu Autocad,</li>
-                                        <li>Znajomość obowiązującego Prawa Budowlanego i Warunków Technicznych,</li>
-                                        <li>Znajomość technologii i materiałów budowlanych,</li>
-                                        <li>Prawo jazdy kat. B,</li>
-                                        <li>Zaangażowanie, odpowiedzialność,</li>
-                                        <li>Wysoka organizacja pracy własnej, samodzielność, inicjatywa, sumienność w wykonywaniu zadań,</li>
-                                        <li>Doświadczenie w pracy przy obsłudze inwestycji budowlanych.</li>
-                                    </ul>
-                                    <p>&nbsp;</p>
-                                    <p><strong>Oferujemy</strong></p>
-                                    <ul>
-                                        <li>Bardzo dobrze płatne stanowisko, warunki do uzgodnienia na rozmowie kwalifikacyjnej,</li>
-                                        <li>Stabilne zatrudnienie ukierunkowane na wieloletnią współpracę i możliwość awansu,</li>
-                                        <li>Bardzo dobrą atmosferę i wsparcie na każdym etapie pracy,</li>
-                                        <li>Umożliwienie rozwoju zawodowego w tym szkoleń w zakresie zarządzania, finansowym i zawodowym,</li>
-                                        <li>Perspektywę awansu zawodowego,</li>
-                                        <li>Niezbędne narzędzia pracy.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -327,10 +204,4 @@
 
         </div>
     </section>
-
 @endsection
-@push('scripts')
-    <script type="text/javascript">
-
-    </script>
-@endpush

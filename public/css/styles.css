@@ -283,9 +283,9 @@ iframe {
 .text-gold {
   color: var(--main-color-gold) !important;
 }
-@media (min-width: 1770px) {
+@media (min-width: 1570px) {
   .container {
-    max-width: 1720px;
+    max-width: 1520px;
   }
 }
 :focus,

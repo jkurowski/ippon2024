@@ -29,11 +29,13 @@
                     <p>Bezpłatnie wyceniamy grunty oraz zapewniamy pomoc prawną. Mamy elastyczne podejście do każdej nieruchomości oraz do jej właściciela, co sprzyja zawarciu umowy opartej na obustronnej korzyści. Decydując się na współpracę z nami, nie musisz zastanawiać się nad tym, czy działka znajduje się w złej lokalizacji lub nie została odrolniona.</p>
                     <p>&nbsp;</p>
                     <p>Pomożemy Ci ustalić jej status prawny oraz ocenić jej potencjał inwestycyjny. Jesteśmy deweloperem godnym Twojego zaufania.</p>
-                    <a href="#" class="bttn bttn-icon mt-5">WYPEŁNIJ FORMULARZ <i class="ms-3 las la-chevron-circle-right"></i></a>
+                    <a href="#contact-form" data-offset="-60" class="bttn bttn-icon mt-5 scroll-to">WYPEŁNIJ FORMULARZ <i class="ms-3 las la-chevron-circle-right"></i></a>
                 </div>
             </div>
             <div class="col-6">
-                <img src="https://placehold.co/840x650" alt="" class="golden-border" width="840" height="650">
+                <div class="p-3">
+                    <img src="{{ asset('/images/grunty-1.jpg') }}" alt="" class="golden-border" width="840" height="650">
+                </div>
             </div>
         </div>
         <div class="row left-right flex-row-reverse row-offset-up">
@@ -42,11 +44,13 @@
                     <p>Nasza nieprzerwana obecność w branży deweloperskiej pozwoliła zdobyć doświadczenie, które jest gwarancją, że przeprowadzane przez nas transakcje są całkowicie zgodne z obowiązującymi przepisami prawa.</p>
                     <p>&nbsp;</p>
                     <p>Wypełnij poniższy formularz, a nasz ekspert skontaktuje się z Tobą w ciągu kilku godzin w celu umówienia spotkania.</p>
-                    <a href="#" class="bttn bttn-icon mt-5">WYPEŁNIJ FORMULARZ <i class="ms-3 las la-chevron-circle-right"></i></a>
+                    <a href="#contact-form" data-offset="-60" class="bttn bttn-icon mt-5 scroll-to">WYPEŁNIJ FORMULARZ <i class="ms-3 las la-chevron-circle-right"></i></a>
                 </div>
             </div>
             <div class="col-6">
-                <img src="https://placehold.co/840x650" alt="" class="golden-border" width="840" height="650">
+                <div class="p-3">
+                    <img src="{{ asset('/images/grunty-2.jpg') }}" alt="" class="golden-border" width="840" height="650">
+                </div>
             </div>
         </div>
     </div>
