@@ -146,14 +146,14 @@
                             <a href="{{route('admin.commercial.index')}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
-                                </span> Obiekty na wynajem
+                                </span> Obiekty komercyjne
                             </a>
                         </li>
                         <li class="{{ Request::routeIs('admin.rent.*') ? 'active' : '' }}">
                             <a href="{{route('admin.rent.index')}}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
-                                </span> Obiekty komercyjne
+                                </span> Obiekty na wynajem
                             </a>
                         </li>
                         <li class="{{ Request::routeIs('admin.developro.*') ? 'active' : '' }}">

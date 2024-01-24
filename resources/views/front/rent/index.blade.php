@@ -1,4 +1,4 @@
-@extends('layouts.page', ['body_class' => 'menu-page'])
+@extends('layouts.page', ['body_class' => 'menu-page no-bottom'])
 
 @section('meta_title', $page->title)
 @section('seo_title', $page->meta_title)
