@@ -26,7 +26,7 @@
                                 <div class="invest-item-desc">
                                     <div class="invest-item-header">
                                         <h2 class="mb-0">{{ $r->name }}</h2>
-                                        <div class="invest-item-city">Olsztyn, Sikorskiego</div>
+                                        <div class="invest-item-city">{{ $r->address }}</div>
                                     </div>
                                     @if($r->file_logo)
                                         <img src="{{ asset('investment/logo/'.$r->file_logo) }}" alt="Logo {{ $r->name }}">
