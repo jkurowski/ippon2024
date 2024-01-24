@@ -45,6 +45,14 @@ Route::group(['namespace' => 'Front', 'prefix' => '{locale?}', 'where' => ['loca
     Route::get('zrealizowane-inwestycje',
         'Developro\Completed\IndexController@index')->name('developro.completed');
 
+    Route::get('aktualne-inwestycje',
+        'Developro\Current\IndexController@index')->name('developro.current');
+
+    Route::get('planowane-inwestycje',
+        'Developro\Planned\IndexController@index')->name('developro.planned');
+
+
+
     Route::get('wynajem',
         'Rent\IndexController@index')->name('rent');
     Route::get('wynajem/{slug},{id}', 'Rent\IndexController@show')->name('rent.index.show');
@@ -60,6 +68,15 @@ Route::group(['namespace' => 'Front', 'prefix' => '{locale?}', 'where' => ['loca
     Route::group(['prefix' => 'blog', 'as' => 'front.news.'], function() {
         Route::get('/',         'ArticleController@index')->name('index');
         Route::get('/{slug}',   'ArticleController@show')->name('show');
+    });
+
+    // DeveloPro
+    Route::group(['namespace' => 'Developro', 'prefix' => '/i', 'as' => 'developro.'], function () {
+        Route::get('/{slug}', 'InvestmentController@index')->name('investment.index');
+        Route::get('/{slug}/{page}', 'Page\IndexController@index')->name('investment.page');
+
+        Route::get('/i/{slug}/pietro/{floor}', 'InvestmentFloorController@index')->name('floor');
+        Route::get('/i/{slug}/pietro/{floor}/m/{property}', 'InvestmentPropertyController@index')->name('property');
     });
 
     Route::get('{uri}', 'MenuController@index')->where('uri', '([A-Za-z0-9\-\/]+)');

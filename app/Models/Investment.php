@@ -44,6 +44,11 @@ class Investment extends Model
         'file_thumb'
     ];
 
+    public function investmentPage()
+    {
+        return $this->hasOne(InvestmentPage::class);
+    }
+
     /**
      * Get the options for generating the slug.
      */

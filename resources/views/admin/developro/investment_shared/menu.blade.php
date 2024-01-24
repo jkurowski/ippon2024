@@ -27,6 +27,8 @@
 
         <a class="nav-link {{ Request::routeIs('admin.developro.investment.plan.index') ? ' active' : '' }}" href="{{route('admin.developro.investment.plan.index', $investment)}}"><span class="fe-image"></span> Plan inwestycji</a>
 
+        <a class="nav-link {{ Request::routeIs('admin.developro.investment.page.index') ? ' active' : '' }}" href="{{route('admin.developro.investment.page.index', $investment)}}"><span class="fe-file"></span> Strony tekstowe</a>
+
         <a class="nav-link {{ Request::routeIs('admin.developro.investment.search.index') ? ' active' : '' }}" href="{{route('admin.developro.investment.search.index', $investment)}}"><span class="fe-search"></span> Wyszukiwarka</a>
 
         <a class="nav-link {{ Request::routeIs('admin.developro.investment.log') ? ' active' : '' }}" href="{{route('admin.developro.investment.log', $investment)}}"><span class="fe-activity"></span> Logi aktywności</a>
