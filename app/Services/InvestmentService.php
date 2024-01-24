@@ -40,6 +40,29 @@ class InvestmentService
         $model->update(['file_thumb' => $name, 'file_webp' => $name_webp]);
     }
 
+    public function uploadLogo(string $title, UploadedFile $file, object $model, bool $delete = false)
+    {
+
+        if ($delete) {
+            if (File::isFile(public_path('investment/logo/' . $model->file_logo))) {
+                File::delete(public_path('investment/logo/' . $model->file_logo));
+            }
+        }
+
+        $name = date('His').'_logo-'.Str::slug($title).'.' . $file->getClientOriginalExtension();
+        $file->storeAs('logo', $name, 'investment_uploads');
+
+        $filepath = public_path('investment/logo/' . $name);
+        Image::make($filepath)
+            ->fit(
+                config('images.investment.logo_width'),
+                config('images.investment.logo_height')
+            )
+            ->save($filepath);
+
+        $model->update(['file_logo' => $name]);
+    }
+
     public function uploadPlan(object $model, UploadedFile $file)
     {
 

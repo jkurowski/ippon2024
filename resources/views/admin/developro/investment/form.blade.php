@@ -113,6 +113,16 @@
                     </div>
 
                     <div class="row w-100 mb-4">
+                        @include('form-elements.html-input-file', [
+                            'label' => 'Logo',
+                            'sublabel' => '(wymiary: '.config('images.investment.logo_width').'px / '.config('images.investment.logo_height').'px)',
+                            'name' => 'logo',
+                            'file' => $entry->file_logo,
+                            'file_preview' => config('images.investment.preview_logofile_path')
+                            ])
+                    </div>
+
+                    <div class="row w-100 mb-4">
                         @include('form-elements.textarea-fullwidth', ['label' => 'Opis inwestycji', 'name' => 'content', 'value' => $entry->content, 'rows' => 11, 'class' => 'tinymce', 'required' => 1])
                     </div>
 

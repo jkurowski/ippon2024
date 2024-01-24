@@ -18,6 +18,7 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Nazwa</th>
+                            <th scope="col">Adres</th>
                             <th scope="col" class="text-center">Status</th>
                             <th scope="col">Typ</th>
                             <th scope="col">Data modyfikacji</th>
@@ -39,6 +40,7 @@
                                     <a href="{{route('admin.developro.investment.houses.index', $p)}}">{{ $p->name }}</a>
                                 @endif
                             </td>
+                            <td>{{ $p->address }}</td>
                             <td><span class="badge inwest-list-status-{{ $p->status }}">{{ investmentStatus($p->status) }}</span></td>
                             <td>{{ investmentType($p->type) }}</td>
                             <td>{{ $p->updated_at }}</td>

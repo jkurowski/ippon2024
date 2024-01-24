@@ -1644,8 +1644,13 @@ section#contact-form {
   line-height: 27px;
   color: #222 !important;
 }
+.invest-item-holder {
+  padding: 30px 15px;
+  height: 100%;
+}
 .invest-item {
   border: 1px solid #A17939;
+  height: 100%;
 }
 .invest-item-thumb {
   position: relative;
@@ -1660,7 +1665,7 @@ section#contact-form {
   top: 30px;
 }
 .invest-item h2 {
-  font-size: 37px;
+  font-size: 34px;
   text-transform: uppercase;
 }
 .invest-item h2 a {

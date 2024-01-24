@@ -9,6 +9,8 @@ return [
     'investment' => [
         'thumb_width' => 840,
         'thumb_height' => 500,
+        'logo_width' => 180,
+        'logo_height' => 80,
         'header_width' => 1920,
         'header_height' => 800,
         'carousel_width' => 386,
@@ -18,6 +20,7 @@ return [
         'carousel_file_path' => 'investment/carousel/',
         'header_file_path' => 'investment/header/',
         'preview_file_path' => 'investment/thumbs/',
+        'preview_logofile_path' => 'investment/logo/',
         'preview_carousel_path' => 'investment/carousel/',
     ],
 

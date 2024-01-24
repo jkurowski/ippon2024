@@ -1,4 +1,4 @@
-@extends('layouts.page', ['body_class' => 'no-bottom'])
+@extends('layouts.page', ['body_class' => ''])
 
 @section('meta_title', $page->title)
 @section('seo_title', $page->meta_title)
@@ -14,13 +14,24 @@
             <div class="row justify-content-center">
                 @foreach($investments as $r)
                     <div class="col-6">
-                        <div class="rent-item">
-                            <div class="rent-thumb">
-                                <img src="{{ asset('investment/thumbs/'.$r->file_thumb) }}" alt="{{ $r->name }}">
-                            </div>
-                            <h2 class="pb-4 golden-color light2-bg">{{ $r->name }}</h2>
-                            <div class="rent-item-desc">
-                                <p>{{ $r->entry_content }}</p>
+                        <div class="invest-item-holder">
+                            <div class="invest-item">
+                                <div class="invest-item-thumb">
+                                    <span class="img-badge">Inwestycja planowana</span>
+                                    <a href="#">
+                                        <img src="{{ asset('investment/thumbs/'.$r->file_thumb) }}" alt="{{ $r->name }}">
+                                    </a>
+                                </div>
+                                <div class="invest-item-desc">
+                                    <div class="invest-item-header">
+                                        <h2 class="mb-0"><a href="#">{{ $r->name }}</a></h2>
+                                        <div class="invest-item-city">Olsztyn, Sikorskiego</div>
+                                    </div>
+                                    @if($r->file_logo)
+                                        <img src="{{ asset('investment/logo/'.$r->file_logo) }}" alt="Logo {{ $r->name }}">
+                                    @endif
+                                    <p>{{ $r->entry_content }}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
