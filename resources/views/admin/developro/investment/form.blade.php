@@ -22,7 +22,7 @@
                 <div class="card-body control-col12">
 
                     <div class="row w-100 mb-4">
-                        <div class="col-6">
+                        <div class="col-4">
                             @include('form-elements.html-select', [
                                 'label' => 'Typ inwestycji',
                                 'name' => 'type',
@@ -33,7 +33,7 @@
                                     '3' => 'Inwestycja z domami'
                             ]])
                         </div>
-                        <div class="col-6">
+                        <div class="col-4">
                             @include('form-elements.html-select', [
                                 'label' => 'Status inwestycji',
                                 'name' => 'status',
@@ -43,6 +43,16 @@
                                     '2' => 'Inwestycja zakończona',
                                     '3' => 'Inwestycja planowana',
                                     '4' => 'Inwestycja ukryta'
+                            ]])
+                        </div>
+                        <div class="col-4">
+                            @include('form-elements.html-select', [
+                                'label' => 'Moduł DeveloPro',
+                                'name' => 'developro',
+                                'selected' => $entry->developro,
+                                'select' => [
+                                    '1' => 'Tak',
+                                    '0' => 'Nie'
                             ]])
                         </div>
                     </div>
@@ -119,6 +129,16 @@
                             'name' => 'logo',
                             'file' => $entry->file_logo,
                             'file_preview' => config('images.investment.preview_logofile_path')
+                            ])
+                    </div>
+
+                    <div class="row w-100 mb-4">
+                        @include('form-elements.html-input-file', [
+                            'label' => 'Nagłówek',
+                            'sublabel' => '(wymiary: '.config('images.investment.header_width').'px / '.config('images.investment.header_height').'px)',
+                            'name' => 'header',
+                            'file' => $entry->file_header,
+                            'file_preview' => config('images.investment.header_file_path')
                             ])
                     </div>
 

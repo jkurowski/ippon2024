@@ -5,7 +5,14 @@
 @section('seo_description', $page->meta_description)
 
 @section('pageheader')
-    @include('layouts.partials.page-header', ['page_title' => $investment->name, 'page' => $page, 'header_file' => 'zrealizowane.jpg'])
+    @include('layouts.partials.developro-header', [
+    'investmentName' => $investment->name,
+    'investmentSlug' => $investment->slug,
+    'investmentPages' => $investment->pages,
+    'investmentLogo' => $investment->file_logo,
+    'investmentHeader' => $investment->file_header,
+    'header_file' => 'zrealizowane.jpg'
+    ])
 @stop
 
 @section('content')

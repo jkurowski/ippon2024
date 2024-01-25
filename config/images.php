@@ -9,10 +9,10 @@ return [
     'investment' => [
         'thumb_width' => 840,
         'thumb_height' => 500,
-        'logo_width' => 180,
-        'logo_height' => 80,
+        'logo_width' => 380,
+        'logo_height' => 170,
         'header_width' => 1920,
-        'header_height' => 800,
+        'header_height' => 300,
         'carousel_width' => 386,
         'carousel_height' => 450,
         'file_path' => 'investment/',

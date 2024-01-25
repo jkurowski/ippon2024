@@ -26,6 +26,7 @@ class Investment extends Model
     protected $fillable = [
         'type',
         'status',
+        'developro',
         'name',
         'slug',
         'address',
@@ -42,7 +43,8 @@ class Investment extends Model
         'content',
         'end_content',
         'file_thumb',
-        'file_logo'
+        'file_logo',
+        'file_header'
     ];
 
     public function investmentPage()
@@ -144,6 +146,15 @@ class Investment extends Model
             'id',
             'id'
         );
+    }
+
+    /**
+     * Get investment pages
+     * @return HasMany
+     */
+    public function pages(): HasMany
+    {
+        return $this->hasMany('App\Models\InvestmentPage');
     }
 
     /**

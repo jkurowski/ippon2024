@@ -63,6 +63,28 @@ class InvestmentService
         $model->update(['file_logo' => $name]);
     }
 
+    public function uploadHeader(string $title, UploadedFile $file, object $model, bool $delete = false)
+    {
+        if ($delete) {
+            if (File::isFile(public_path('investment/header/' . $model->file_header))) {
+                File::delete(public_path('investment/header/' . $model->file_header));
+            }
+        }
+
+        $name = date('His').'_header-'.Str::slug($title).'.' . $file->getClientOriginalExtension();
+        $file->storeAs('header', $name, 'investment_uploads');
+
+        $filepath = public_path('investment/header/' . $name);
+        Image::make($filepath)
+            ->fit(
+                config('images.investment.header_width'),
+                config('images.investment.header_height')
+            )
+            ->save($filepath);
+
+        $model->update(['file_header' => $name]);
+    }
+
     public function uploadPlan(object $model, UploadedFile $file)
     {
 

@@ -60,6 +60,10 @@ class IndexController extends Controller
             $this->service->uploadLogo($request->name, $request->file('logo'), $investment);
         }
 
+        if ($request->hasFile('header')) {
+            $this->service->uploadHeader($request->name, $request->file('header'), $investment);
+        }
+
         return redirect(route('admin.developro.investment.index'))->with('success', 'Inwestycja zapisana');
     }
 
@@ -83,6 +87,10 @@ class IndexController extends Controller
 
         if ($request->hasFile('logo')) {
             $this->service->uploadLogo($request->name, $request->file('logo'), $investment, true);
+        }
+
+        if ($request->hasFile('header')) {
+            $this->service->uploadHeader($request->name, $request->file('header'), $investment, true);
         }
 
         return redirect(route('admin.developro.investment.index'))->with('success', 'Inwestycja zaktualizowana');

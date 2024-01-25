@@ -1788,6 +1788,28 @@ section#contact-form {
 #page-header .breadcrumb {
   margin: 0;
 }
+#page-header.investment-header h1 {
+  text-align: right;
+  margin-bottom: 60px;
+}
+#page-header.investment-header h1:before,
+#page-header.investment-header h1:after {
+  display: none;
+}
+#page-header.investment-header nav {
+  position: static;
+}
+#page-header.investment-header nav ul {
+  display: flex;
+  justify-content: end;
+}
+#page-header.investment-header nav ul li {
+  margin-left: 60px;
+}
+#page-header.investment-header nav ul a {
+  font-size: 23px;
+  color: white;
+}
 /* Page layout
 ================================================== */
 #page {

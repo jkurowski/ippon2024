@@ -29,6 +29,7 @@ class InvestmentFormRequest extends FormRequest
             'status' => 'integer',
             'name' => 'required|string|min:5|max:100',
             'contact_form' => 'boolean',
+            'developro' => 'boolean',
             'contact_form_text' => '',
             'address' => '',
             'city' => '',

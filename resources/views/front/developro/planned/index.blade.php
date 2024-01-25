@@ -18,14 +18,28 @@
                             <div class="invest-item">
                                 <div class="invest-item-thumb">
                                     <span class="img-badge">Inwestycja planowana</span>
-                                    <a href="#">
+                                    @if($r->developro)
+                                    <a href="{{ route('developro.investment.index', $r->slug) }}">
                                         <img src="{{ asset('investment/thumbs/'.$r->file_thumb) }}" alt="{{ $r->name }}">
                                     </a>
+                                    @else
+                                        <img src="{{ asset('investment/thumbs/'.$r->file_thumb) }}" alt="{{ $r->name }}">
+                                    @endif
                                 </div>
                                 <div class="invest-item-desc">
                                     <div class="invest-item-header">
-                                        <h2 class="mb-0"><a href="#">{{ $r->name }}</a></h2>
-                                        <div class="invest-item-city">{{ $r->address }}</div>
+                                        @if($r->developro)
+                                        <h2 class="mb-0">
+                                            <a href="{{ route('developro.investment.index', $r->slug) }}">{{ $r->name }}</a>
+                                        </h2>
+                                        @else
+                                            <h2 class="mb-0">{{ $r->name }}</h2>
+                                        @endif
+                                        @if($r->address)
+                                            <div class="invest-item-city">{{ $r->address }}</div>
+                                        @else
+                                            <div class="invest-item-city"> &nbsp;</div>
+                                        @endif
                                     </div>
                                     @if($r->file_logo)
                                         <img src="{{ asset('investment/logo/'.$r->file_logo) }}" alt="Logo {{ $r->name }}">
