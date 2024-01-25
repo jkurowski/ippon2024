@@ -5,9 +5,11 @@
 @endif
     <div class="container">
         <div class="row">
-            <div class="col-3 d-flex justify-content-center align-items-center">
+            <div class="col-3">
                 @if($investmentLogo)
-                    <img src="{{ asset('investment/logo/'.$investmentLogo) }}" alt="Logo {{ $investmentName }}">
+                    <div class="investment-header-logo d-flex justify-content-center align-items-center">
+                        <img src="{{ asset('investment/logo/'.$investmentLogo) }}" alt="Logo {{ $investmentName }}">
+                    </div>
                 @endif
             </div>
             <div class="col-9">
