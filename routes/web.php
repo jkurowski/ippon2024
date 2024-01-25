@@ -73,6 +73,8 @@ Route::group(['namespace' => 'Front', 'prefix' => '{locale?}', 'where' => ['loca
     // DeveloPro
     Route::group(['namespace' => 'Developro', 'prefix' => '/i', 'as' => 'developro.'], function () {
         Route::get('/{slug}', 'InvestmentController@index')->name('investment.index');
+        Route::get('/{slug}/kontakt', 'Contact\IndexController@index')->name('investment.contact');
+
         Route::get('/{slug}/{page}', 'Page\IndexController@index')->name('investment.page');
 
         Route::get('/i/{slug}/pietro/{floor}', 'InvestmentFloorController@index')->name('floor');

@@ -1568,6 +1568,10 @@ section#contact-form {
 .main-room-footer i {
   font-size: 20px;
 }
+.investment-contact section#contact-form {
+  padding: 0 !important;
+  background: none;
+}
 /* News
 ================================================== */
 .blog-list article {
@@ -2471,8 +2475,16 @@ html.swipebox-html.swipebox-touch {
   height: 100%;
 }
 .contact-box p,
-.contact-box li a {
+.contact-box li a,
+.contact-box p a {
   color: black;
+}
+.contact-box li a,
+.contact-box p a {
+  transition: all 100ms linear;
+}
+.contact-box a:hover {
+  color: #a67b39;
 }
 .contact-box h2 {
   font-size: 23px;
