@@ -6,14 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 class InvestmentArticles extends Model
 {
     /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'investments_articles';
-
-
-    /**
      * The attributes that are mass assignable.
      *
      * @var array
@@ -22,6 +14,13 @@ class InvestmentArticles extends Model
         'investment_id',
         'title',
         'date',
-        'content'
+        'content',
+        'content_entry',
+        'meta_title',
+        'meta_description',
+        'meta_robots',
+        'active',
+        'file',
+        'file_webp'
     ];
 }

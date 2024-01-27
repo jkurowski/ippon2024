@@ -24,6 +24,16 @@ class BaseRepository implements EloquentRepositoryInterface
         return $this->model->orderBy('sort', $order)->get();
     }
 
+    public function allSortBy($field, $order): Collection
+    {
+        return $this->model->orderBy($field, $order)->get();
+    }
+
+    public function allSortByWhere($whereField, $whereCondition, $field, $order): Collection
+    {
+        return $this->model->where($whereField, $whereCondition)->orderBy($field, $order)->get();
+    }
+
     public function idDesc(): Collection
     {
         return $this->model->orderBy('id', 'desc')->get();

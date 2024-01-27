@@ -24,10 +24,15 @@ class InvestArticlesFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required',
+            'investment_id' => 'integer',
+            'active' => 'boolean',
+            'title' => 'required|string|min:2|max:190',
+            'content_entry' => 'required|string|min:5',
+            'content' => 'required|string|min:5',
             'date' => 'required',
-            'content' => 'required',
-            'investment_id' => ''
+            'meta_title' => '',
+            'meta_description' => '',
+            'meta_robots' => ''
         ];
     }
 }
