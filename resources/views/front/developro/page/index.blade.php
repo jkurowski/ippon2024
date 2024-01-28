@@ -16,7 +16,7 @@
 @stop
 
 @section('content')
-    <div id="page-content">
+    <div id="page-content" class="invest-{{ $investment->slug }}">
         <div class="container">
             <div class="col-12">
                 {!! $investment_page->content !!}

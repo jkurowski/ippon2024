@@ -20,7 +20,6 @@ class IndexController extends Controller
     {
         $sliders = Slider::all()->sortBy("sort");
         $rules = RodoRules::orderBy('sort')->whereStatus(1)->get();
-        $properties = Property::where('homepage', 1)->get();
         $popup = 0;
 
         $investments_soon = Investment::whereStatus(4)->get();
@@ -46,7 +45,6 @@ class IndexController extends Controller
             'rules',
             'sliders',
             'popup',
-            'properties',
             'articles',
             'investments_soon',
             'reviews'
