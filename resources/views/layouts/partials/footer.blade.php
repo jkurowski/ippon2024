@@ -4,7 +4,7 @@
             <div class="col-3 d-flex justify-content-center text-center">
                 <div class="f-logo">
                     <img src="{{ asset('/images/logo-ippon-footer.png') }}" alt="">
-                    <h5>Czas buduje wartość</h5>
+                    <h5>Czas buduje wartość.</h5>
                 </div>
             </div>
             <div class="col-3">

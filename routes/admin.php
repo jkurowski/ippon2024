@@ -64,7 +64,9 @@ Route::group([
     Route::group(['namespace' => 'Rodo', 'prefix' => '/rodo', 'as' => 'rodo.'], function () {
 
         Route::resources([
-            'clients' => 'ClientController'
+            'clients' => 'ClientController',
+            'rules' => 'RulesController',
+            'settings' => 'SettingsController',
         ]);
     });
 
@@ -80,6 +82,12 @@ Route::group([
         Route::get('inbox', 'Inbox\IndexController@index')->name('inbox.index');
         Route::get('inbox/datatable', 'Inbox\IndexController@datatable')->name('inbox.datatable');
         Route::delete('inbox/{id}', 'Inbox\IndexController@destroy')->name('inbox.destroy');
+
+        // Statistics
+        Route::group(['namespace' => 'Statistics','prefix'=>'/statistics', 'as' => 'statistics.'], function () {
+            Route::get('/', 'IndexController@index')->name('index');
+            Route::get('/rooms', 'IndexController@rooms')->name('rooms');
+        });
 
         // Settings
         Route::group(['namespace' => 'Statistics','prefix'=>'/statistics', 'as' => 'statistics.'], function () {

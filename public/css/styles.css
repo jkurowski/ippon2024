@@ -2700,6 +2700,10 @@ html.swipebox-html.swipebox-touch {
   width: 100%;
   margin-bottom: 10px;
 }
+#contact-form .rodo-obligation p {
+  font-size: 12px;
+  line-height: 16px;
+}
 #contact-form .rodo-rule {
   display: flex;
   padding-top: 20px;

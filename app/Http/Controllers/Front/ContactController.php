@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ContactFormRequest;
 
 use App\Models\Page;
+use App\Models\RodoSettings;
 use Illuminate\Support\Facades\Mail;
 
 use App\Mail\MailSend;
@@ -24,6 +25,7 @@ class ContactController extends Controller
         $page = Page::where('id', 1)->first();
 
         return view('front.contact.index', [
+            'obligation' => RodoSettings::find(1),
             'rules' => RodoRules::orderBy('sort')->whereStatus(1)->get(),
             'page' => $page
         ]);

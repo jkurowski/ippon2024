@@ -127,11 +127,11 @@
                                     <span class="bullet bullet-dot"></span>
                                 </span> Leads</a>
                         </li>
-                        <li {{ Request::routeIs('admin.crm.contact.*') ? 'class=active' : '' }}>
-                            <a href="{{ route('admin.crm.contact.index') }}">
+                        <li {{ Request::routeIs('admin.rodo.*') ? 'class=active' : '' }}>
+                            <a href="{{ route('admin.rodo.clients.index') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
-                                </span> Kontakty</a>
+                                </span> Rodo</a>
                         </li>
                     </ul>
                 </li>

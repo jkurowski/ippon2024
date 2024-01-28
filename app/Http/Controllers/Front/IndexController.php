@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Article;
 use App\Models\Investment;
 use App\Models\Review;
+use App\Models\RodoSettings;
 use Illuminate\Http\Request;
 
 // CMS
@@ -19,6 +20,8 @@ class IndexController extends Controller
     public function index(Request $request)
     {
         $sliders = Slider::all()->sortBy("sort");
+
+        $obligation = RodoSettings::find(1);
         $rules = RodoRules::orderBy('sort')->whereStatus(1)->get();
         $popup = 0;
 
@@ -43,6 +46,7 @@ class IndexController extends Controller
 
         return view('front.homepage.index', compact(
             'rules',
+            'obligation',
             'sliders',
             'popup',
             'articles',

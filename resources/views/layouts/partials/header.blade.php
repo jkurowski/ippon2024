@@ -4,7 +4,7 @@
             <a href="/">
                 <img src="{{ asset('images/logo.png') }}" alt="" width="224" height="233">
             </a>
-            <p>Czas buduje wartość</p>
+            <p>Czas buduje wartość.</p>
         </div>
         <div id="nav">
             <div class="container-fluid p-0">
