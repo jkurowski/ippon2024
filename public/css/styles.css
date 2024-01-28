@@ -963,6 +963,7 @@ div[class*='col-'].slick-slide {
   top: 0;
   padding: 10px 0;
   border-bottom: 1px solid #ececec;
+  margin-bottom: 20px;
 }
 #roomsList .property-list-item:hover {
   top: -5px;
