@@ -19,13 +19,26 @@
             <div class="row justify-content-center">
                 @foreach($investments as $r)
                     <div class="col-6">
-                        <div class="rent-item">
-                            <div class="rent-thumb">
-                                <img src="{{ asset('investment/thumbs/'.$r->file_thumb) }}" alt="{{ $r->name }}">
-                            </div>
-                            <h2 class="pb-4 golden-color light2-bg">{{ $r->name }}</h2>
-                            <div class="rent-item-desc">
-                                <p>{{ $r->entry_content }}</p>
+                        <div class="invest-item-holder">
+                            <div class="invest-item">
+                                <div class="invest-item-thumb">
+                                    <span class="img-badge">Inwestycja zakończona</span>
+                                    <img src="{{ asset('investment/thumbs/'.$r->file_thumb) }}" alt="{{ $r->name }}">
+                                </div>
+                                <div class="invest-item-desc">
+                                    <div class="invest-item-header">
+                                        <h2 class="mb-0">{{ $r->name }}</h2>
+                                        @if($r->address)
+                                            <div class="invest-item-city">{{ $r->address }}</div>
+                                        @else
+                                            <div class="invest-item-city"> &nbsp;</div>
+                                        @endif
+                                    </div>
+                                    @if($r->file_logo)
+                                        <img src="{{ asset('investment/logo/'.$r->file_logo) }}" alt="Logo {{ $r->name }}">
+                                    @endif
+                                    <p>{{ $r->entry_content }}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
