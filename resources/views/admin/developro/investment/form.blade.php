@@ -42,7 +42,8 @@
                                     '1' => 'Inwestycja w sprzedaży',
                                     '2' => 'Inwestycja zakończona',
                                     '3' => 'Inwestycja planowana',
-                                    '4' => 'Inwestycja ukryta'
+                                    '4' => 'Inwestycja już wkrótce',
+                                    '5' => 'Inwestycja ukryta'
                             ]])
                         </div>
                         <div class="col-4">

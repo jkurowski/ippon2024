@@ -13,7 +13,7 @@ class LandController extends Controller
     {
         return view('front.land.index', [
             'rules' => RodoRules::orderBy('sort')->whereStatus(1)->get(),
-            'page' => Page::where('id', 7)->first()
+            'page' => Page::where('id', 13)->first()
         ]);
     }
 
