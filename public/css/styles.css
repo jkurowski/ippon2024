@@ -1104,16 +1104,16 @@ div[class*='col-'].slick-slide {
   border-color: #3B852C transparent transparent transparent;
 }
 .status-badge.status-2 {
-  background: #cbcbcb;
+  background: #FFAA00;
 }
 .status-badge.status-2:after {
-  border-color: #b5b5b5 transparent transparent transparent;
+  border-color: #C98A0E transparent transparent transparent;
 }
 .status-badge.status-3 {
-  background: #dba056;
+  background: #FF0000;
 }
 .status-badge.status-3:after {
-  border-color: #9d713a transparent transparent transparent;
+  border-color: #A31313 transparent transparent transparent;
 }
 .status-badge.status-4 {
   background: #dba056;

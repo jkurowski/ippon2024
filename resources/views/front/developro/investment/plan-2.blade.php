@@ -20,6 +20,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
+                    {!! $investment_page->content !!}
+                </div>
+                <div class="col-12 mt-5">
                     @if($investment->plan)
                         <div id="plan-holder">
                             <div class="plan-holder-info">Z planu budynku wybierz piętro lub <a href="#filtr" class="scroll-link" data-offset="90"><b>użyj wyszukiwarki</b></a></div>

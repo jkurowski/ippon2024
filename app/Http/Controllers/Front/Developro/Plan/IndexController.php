@@ -52,10 +52,12 @@ class IndexController extends Controller
         $properties = $investment_room->floorRooms;
 
         $menu_page = Page::where('id', $this->pageId)->first();
+        $investmentPage = $investment->investmentPage()->where('slug', 'mieszkania')->first();
 
         return view('front.developro.investment.plan-2', [
             'investment' => $investment,
             'properties' => $properties,
+            'investment_page' => $investmentPage,
             'page' => $menu_page,
             'uniqueRooms' => $this->repository->getUniqueRooms($investment_room->properties)
         ]);
