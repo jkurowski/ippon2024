@@ -1,4 +1,4 @@
-@extends('layouts.page', ['body_class' => 'no-bottom'])
+@extends('layouts.page', ['body_class' => ''])
 
 @section('meta_title', $page->title)
 @section('seo_title', $page->meta_title)
@@ -12,7 +12,7 @@
     <div id="page-content">
         <div class="container">
             <div class="row">
-                <div class="col-12 mb-5 pb-3">
+                <div class="col-12 mb-5">
                     {!! parse_text($page->content) !!}
                 </div>
             </div>
