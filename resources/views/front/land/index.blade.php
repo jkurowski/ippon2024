@@ -165,6 +165,11 @@
                             @enderror
                         </div>
                         <div class="col-8">
+                            @if($obligation)
+                                <div class="rodo-obligation mt-3">
+                                    {!! $obligation->obligation !!}
+                                </div>
+                            @endif
                             <div class="rodo-rules">
                                 @foreach ($rules as $r)
                                     <div class="col-12 @error('rule_'.$r->id) is-invalid @enderror">
