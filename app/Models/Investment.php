@@ -102,7 +102,7 @@ class Investment extends Model
             'floor_id',
             'id',
             'id'
-        );
+        )->select('properties.*', 'floors.number as floor_number');
     }
 
     /**

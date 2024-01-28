@@ -2,16 +2,8 @@
     <div class="container-fluid">
         @if($properties->count() > 0)
             @foreach($properties as $room)
-                <div class="row">
-                    @if($room->price)
-                        <span class="ribbon1"><span>Oferta specjalna</span></span>
-                    @endif
-                    <div class="col col-top">
-                        <a href="{{route('front.developro.property', ['slug' => $investment->slug, 'floor' => $room->floor_id, 'property' => $room->id])}}">
-                            <h2>{{$room->name_list}}<br><span>{{$room->number}}</span></h2>
-                        </a>
-                    </div>
-                    <div class="col">
+                <div class="row property-list-item">
+                    <div class="col-2">
                         @if($room->file)
                             <picture>
                                 <source type="image/webp" srcset="/investment/property/list/webp/{{$room->file_webp}}">
@@ -20,20 +12,50 @@
                             </picture>
                         @endif
                     </div>
-                    <div class="col">
-                        <ul class="mb-0 list-unstyled">
-                            @if($room->price)
-                                <li>cena: <b>@money($room->price)</b></li>
-                            @endif
-                            <li>pokoje: <b>{{$room->rooms}}</b></li>
-                            <li>pow.: <b>{{$room->area}} m<sup>2</sup></b></li>
-                        </ul>
+
+                    <div class="col-8 d-flex align-items-center ps-4">
+                        <div class="row w-100">
+                            <div class="col-12">
+                                <h2 class="poppins">{{$room->name}}</h2>
+                            </div>
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="row">
+                                            <div class="col-4 property-list-item-stat">
+                                                <img src="{{ asset('/images/floor-icon.svg') }}" alt="Ikonka piętra" class="me-3"> Piętro {{$room->floor_number}}
+                                            </div>
+                                            <div class="col-4 property-list-item-stat">
+                                                <img src="{{ asset('/images/room-icon.svg') }}" alt="Ikonka pokoi" class="me-3"> {{$room->rooms}}
+                                                @if ($room->rooms == 1)
+                                                    pokój
+                                                @else
+                                                    pokoje
+                                                @endif
+                                            </div>
+                                            <div class="col-4 property-list-item-stat">
+                                                <img src="{{ asset('/images/area-icon.svg') }}" alt="Ikonka powierzchni" class="me-3"> {{$room->area}} m<sup>2</sup>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="property-list-item-option">
+                                            <span class="option-1"></span>
+                                            <span class="option-2"></span>
+                                            <span class="option-3"></span>
+                                            <span class="option-4"></span>
+                                            <span class="option-5"></span>
+                                            <span class="option-6"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col justify-content-center">
-                        <span class="badge room-list-status-{{ $room->status }}">{{ roomStatus($room->status) }}</span>
-                    </div>
-                    <div class="col justify-content-end col-list-btn">
-                        <a href="{{route('front.developro.property', ['slug' => $investment->slug, 'floor' => $room->floor_id, 'property' => $room->id])}}" class="bttn">ZOBACZ</a>
+
+                    <div class="col-2 d-flex align-items-center">
+                        {!! roomStatusBadge($room->status) !!}
+                        <a href="" class="bttn bttn-icon">POKAŻ MIESZKANIE <i class="ms-4 las la-file"></i></a>
                     </div>
                 </div>
             @endforeach
