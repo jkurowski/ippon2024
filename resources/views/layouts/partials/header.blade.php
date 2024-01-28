@@ -59,7 +59,7 @@
                                     <a href="">Mieszkania <i class="ms-2 las la-angle-down"></i></a>
                                     <ul class="mb-0 list-unstyled subnav">
                                         <li><a href="{{ route('developro.current') }}">W sprzedaży</a></li>
-                                        <li><a href="">Już wkrótce</a></li>
+                                        <li><a href="{{ route('developro.soon') }}">Już wkrótce</a></li>
                                         <li><a href="{{ route('developro.planned') }}">Planowane</a></li>
                                     </ul>
                                 </li>

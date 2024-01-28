@@ -51,6 +51,9 @@ Route::group(['namespace' => 'Front', 'prefix' => '{locale?}', 'where' => ['loca
     Route::get('planowane-inwestycje',
         'Developro\Planned\IndexController@index')->name('developro.planned');
 
+    Route::get('inwestycje-juz-wkrotce',
+        'Developro\Soon\IndexController@index')->name('developro.soon');
+
 
 
     Route::get('wynajem',
