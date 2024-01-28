@@ -42,7 +42,8 @@ Route::group([
         'commercial'=> 'Commercial\IndexController',
         'rent'=> 'Rent\IndexController',
         'city'=> 'City\IndexController',
-        'job'=> 'Job\IndexController'
+        'job'=> 'Job\IndexController',
+        'review' => 'Review\IndexController'
     ]);
 
     // Settings

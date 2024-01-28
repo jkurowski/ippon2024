@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Models\Article;
+use App\Models\Investment;
+use App\Models\Review;
 use Illuminate\Http\Request;
 
 // CMS
@@ -20,6 +22,9 @@ class IndexController extends Controller
         $rules = RodoRules::orderBy('sort')->whereStatus(1)->get();
         $properties = Property::where('homepage', 1)->get();
         $popup = 0;
+
+        $investments_soon = Investment::whereStatus(4)->get();
+        $reviews = Review::all();
 
         $articles = Article::where('status', 1)->orderBy('id', 'DESC')->limit(2)->get();
 
@@ -42,7 +47,9 @@ class IndexController extends Controller
             'sliders',
             'popup',
             'properties',
-            'articles'
+            'articles',
+            'investments_soon',
+            'reviews'
         ));
     }
 

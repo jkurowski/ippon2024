@@ -24,45 +24,45 @@
             </div>
         </div>
 
-        <div class="row mt-3">
-            <div class="col-6">
-                <div class="invest-item">
-                    <div class="invest-item-thumb">
-                        <span class="img-badge">Inwestrycja planowana</span>
-                        <a href="#">
-                            <img src="https://placehold.co/840x520" alt="Nazwa">
-                        </a>
-                    </div>
-                    <div class="invest-item-desc">
-                        <div class="invest-item-header">
-                            <h2 class="mb-0"><a href="#">Osiedle tempo</a></h2>
-                            <div class="invest-item-city">Olsztyn, Sikorskiego</div>
+        <div class="row justify-content-center mt-3">
+            @foreach($investments_soon as $r)
+                <div class="col-6">
+                    <div class="invest-item-holder">
+                        <div class="invest-item">
+                            <div class="invest-item-thumb">
+                                <span class="img-badge">Inwestycja już wkrótce</span>
+                                @if($r->developro)
+                                    <a href="{{ route('developro.investment.index', $r->slug) }}">
+                                        <img src="{{ asset('investment/thumbs/'.$r->file_thumb) }}" alt="{{ $r->name }}">
+                                    </a>
+                                @else
+                                    <img src="{{ asset('investment/thumbs/'.$r->file_thumb) }}" alt="{{ $r->name }}">
+                                @endif
+                            </div>
+                            <div class="invest-item-desc">
+                                <div class="invest-item-header">
+                                    @if($r->developro)
+                                        <h2 class="mb-0">
+                                            <a href="{{ route('developro.investment.index', $r->slug) }}">{{ $r->name }}</a>
+                                        </h2>
+                                    @else
+                                        <h2 class="mb-0">{{ $r->name }}</h2>
+                                    @endif
+                                    @if($r->address)
+                                        <div class="invest-item-city">{{ $r->address }}</div>
+                                    @else
+                                        <div class="invest-item-city"> &nbsp;</div>
+                                    @endif
+                                </div>
+                                @if($r->file_logo)
+                                    <img src="{{ asset('investment/logo/'.$r->file_logo) }}" alt="Logo {{ $r->name }}">
+                                @endif
+                                <p>{{ $r->entry_content }}</p>
+                            </div>
                         </div>
-                        <img src="https://placehold.co/180x80?text=Logo" alt="Nazwa">
-                        <p>TEMPO to nowoczesne osiedle, skierowane do osób aktywnych, które chcą mieć wszędzie blisko. Blisko do komunikacji miejskiej, ścieżek rowerowych i sklepów. To miejsce dla osób które chcą szybko dojechać do centrum miasta, do pracy, czy na Uniwersytet Warmiński-Mazurski. Funkcjonalne mieszkania od 27 - 68 m2 wyposażone w elektroniczne klamki wejściowe</p>
-                        <a href="" class="bttn bttn-icon mt-4">ZOBACZ MIESZKANIA<i class="ms-4 las la-chevron-circle-right"></i></a>
                     </div>
                 </div>
-            </div>
-            <div class="col-6">
-                <div class="invest-item">
-                    <div class="invest-item-thumb">
-                        <span class="img-badge">Inwestrycja planowana</span>
-                        <a href="#">
-                            <img src="https://placehold.co/840x520" alt="Nazwa">
-                        </a>
-                    </div>
-                    <div class="invest-item-desc">
-                        <div class="invest-item-header">
-                            <h2 class="mb-0"><a href="#">Osiedle tempo</a></h2>
-                            <div class="invest-item-city">Olsztyn, Sikorskiego</div>
-                        </div>
-                        <img src="https://placehold.co/180x80?text=Logo" alt="Nazwa">
-                        <p>TEMPO to nowoczesne osiedle, skierowane do osób aktywnych, które chcą mieć wszędzie blisko. Blisko do komunikacji miejskiej, ścieżek rowerowych i sklepów. To miejsce dla osób które chcą szybko dojechać do centrum miasta, do pracy, czy na Uniwersytet Warmiński-Mazurski. Funkcjonalne mieszkania od 27 - 68 m2 wyposażone w elektroniczne klamki wejściowe</p>
-                        <a href="" class="bttn bttn-icon mt-4">ZOBACZ MIESZKANIA<i class="ms-4 las la-chevron-circle-right"></i></a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
@@ -301,153 +301,30 @@
 
     <div id="reviewCarousel" class="container-fluid">
         <div class="row">
+            @foreach($reviews as $review)
             <div class="col-3">
                 <div class="review">
                     <img src="{{ asset('images/quote.svg') }}" alt="Opinia klienta" class="review-quote">
-                    <div class="review-name">Paulina r. Piotr g.</div>
+                    <div class="review-name">{{ $review->author }}</div>
                     <div class="review-star">
-                        <img src="{{ asset('images/quote-star.svg') }}" alt="Rate icon">
-                        <img src="{{ asset('images/quote-star.svg') }}" alt="Rate icon">
-                        <img src="{{ asset('images/quote-star.svg') }}" alt="Rate icon">
-                        <img src="{{ asset('images/quote-star.svg') }}" alt="Rate icon">
-                        <img src="{{ asset('images/quote-star.svg') }}" alt="Rate icon">
+                        @for ($i = 1; $i <= 5; $i++)
+                            @if ($i <= $review->rating)
+                                <img src="{{ asset('images/quote-star.svg') }}" alt="Filled Rate icon">
+                            @else
+                                <img src="{{ asset('images/quote-star.svg') }}" alt="Empty Rate icon">
+                            @endif
+                        @endfor
                     </div>
+
                     <div class="review-content">
-                        <p>"Odebraliśmy klucze do naszego mieszkania i chcemy jeszcze raz z całego serca podziękować za tak cudowną obsługę i troskę o zadowolenie klientów. Jesteśmy pod ogromnym wrażeniem tego osiedla (pod każdym względem) i bardzo się cieszymy, że to właśnie u Was kupiliśmy swoje pierwsze mieszkanie.</p>
-                        <p>&nbsp;</p>
-                        <p>Mamy nadzieję, że zadowolenie Waszych klientów zachęci pozostałych do zakupy u Was swojego mieszkania. Jeszcze raz bardzo dziękujemy"</p>
+                        {!! $review->content !!}
                     </div>
                     <div class="review-source">
-                        <img src="https://placehold.co/35x35" alt=""> Opinie Facebook
+                        {!! reviewType($review->type) !!}
                     </div>
                 </div>
             </div>
-            <div class="col-3">
-                <div class="review">
-                    <img src="{{ asset('images/quote.svg') }}" alt="Opinia klienta" class="review-quote">
-                    <div class="review-name">Paulina r. Piotr g.</div>
-                    <div class="review-star">
-                        <img src="{{ asset('images/quote-star.svg') }}" alt="Rate icon">
-                        <img src="{{ asset('images/quote-star.svg') }}" alt="Rate icon">
-                        <img src="{{ asset('images/quote-star.svg') }}" alt="Rate icon">
-                        <img src="{{ asset('images/quote-star.svg') }}" alt="Rate icon">
-                        <img src="{{ asset('images/quote-star.svg') }}" alt="Rate icon">
-                    </div>
-                    <div class="review-content">
-                        <p>"Odebraliśmy klucze do naszego mieszkania i chcemy jeszcze raz z całego serca podziękować za tak cudowną obsługę i troskę o zadowolenie klientów. Jesteśmy pod ogromnym wrażeniem tego osiedla (pod każdym względem) i bardzo się cieszymy, że to właśnie u Was kupiliśmy swoje pierwsze mieszkanie.</p>
-                        <p>&nbsp;</p>
-                        <p>Mamy nadzieję, że zadowolenie Waszych klientów zachęci pozostałych do zakupy u Was swojego mieszkania. Jeszcze raz bardzo dziękujemy"</p>
-                    </div>
-                    <div class="review-source">
-                        <img src="https://placehold.co/35x35" alt=""> Opinie Facebook
-                    </div>
-                </div>
-            </div>
-            <div class="col-3">
-                <div class="review">
-                    <img src="{{ asset('images/quote.svg') }}" alt="Opinia klienta" class="review-quote">
-                    <div class="review-name">Paulina r. Piotr g.</div>
-                    <div class="review-star">
-                        <img src="{{ asset('images/quote-star.svg') }}" alt="Rate icon">
-                        <img src="{{ asset('images/quote-star.svg') }}" alt="Rate icon">
-                        <img src="{{ asset('images/quote-star.svg') }}" alt="Rate icon">
-                        <img src="{{ asset('images/quote-star.svg') }}" alt="Rate icon">
-                        <img src="{{ asset('images/quote-star.svg') }}" alt="Rate icon">
-                    </div>
-                    <div class="review-content">
-                        <p>"Odebraliśmy klucze do naszego mieszkania i chcemy jeszcze raz z całego serca podziękować za tak cudowną obsługę i troskę o zadowolenie klientów. Jesteśmy pod ogromnym wrażeniem tego osiedla (pod każdym względem) i bardzo się cieszymy, że to właśnie u Was kupiliśmy swoje pierwsze mieszkanie.</p>
-                        <p>&nbsp;</p>
-                        <p>Mamy nadzieję, że zadowolenie Waszych klientów zachęci pozostałych do zakupy u Was swojego mieszkania. Jeszcze raz bardzo dziękujemy"</p>
-                    </div>
-                    <div class="review-source">
-                        <img src="https://placehold.co/35x35" alt=""> Opinie Facebook
-                    </div>
-                </div>
-            </div>
-            <div class="col-3">
-                <div class="review">
-                    <img src="{{ asset('images/quote.svg') }}" alt="Opinia klienta" class="review-quote">
-                    <div class="review-name">Paulina r. Piotr g.</div>
-                    <div class="review-star">
-                        <img src="{{ asset('images/quote-star.svg') }}" alt="Rate icon">
-                        <img src="{{ asset('images/quote-star.svg') }}" alt="Rate icon">
-                        <img src="{{ asset('images/quote-star.svg') }}" alt="Rate icon">
-                        <img src="{{ asset('images/quote-star.svg') }}" alt="Rate icon">
-                        <img src="{{ asset('images/quote-star.svg') }}" alt="Rate icon">
-                    </div>
-                    <div class="review-content">
-                        <p>"Odebraliśmy klucze do naszego mieszkania i chcemy jeszcze raz z całego serca podziękować za tak cudowną obsługę i troskę o zadowolenie klientów. Jesteśmy pod ogromnym wrażeniem tego osiedla (pod każdym względem) i bardzo się cieszymy, że to właśnie u Was kupiliśmy swoje pierwsze mieszkanie.</p>
-                        <p>&nbsp;</p>
-                        <p>Mamy nadzieję, że zadowolenie Waszych klientów zachęci pozostałych do zakupy u Was swojego mieszkania. Jeszcze raz bardzo dziękujemy"</p>
-                    </div>
-                    <div class="review-source">
-                        <img src="https://placehold.co/35x35" alt=""> Opinie Facebook
-                    </div>
-                </div>
-            </div>
-            <div class="col-3">
-                <div class="review">
-                    <img src="{{ asset('images/quote.svg') }}" alt="Opinia klienta" class="review-quote">
-                    <div class="review-name">Paulina r. Piotr g.</div>
-                    <div class="review-star">
-                        <img src="{{ asset('images/quote-star.svg') }}" alt="Rate icon">
-                        <img src="{{ asset('images/quote-star.svg') }}" alt="Rate icon">
-                        <img src="{{ asset('images/quote-star.svg') }}" alt="Rate icon">
-                        <img src="{{ asset('images/quote-star.svg') }}" alt="Rate icon">
-                        <img src="{{ asset('images/quote-star.svg') }}" alt="Rate icon">
-                    </div>
-                    <div class="review-content">
-                        <p>"Odebraliśmy klucze do naszego mieszkania i chcemy jeszcze raz z całego serca podziękować za tak cudowną obsługę i troskę o zadowolenie klientów. Jesteśmy pod ogromnym wrażeniem tego osiedla (pod każdym względem) i bardzo się cieszymy, że to właśnie u Was kupiliśmy swoje pierwsze mieszkanie.</p>
-                        <p>&nbsp;</p>
-                        <p>Mamy nadzieję, że zadowolenie Waszych klientów zachęci pozostałych do zakupy u Was swojego mieszkania. Jeszcze raz bardzo dziękujemy"</p>
-                    </div>
-                    <div class="review-source">
-                        <img src="https://placehold.co/35x35" alt=""> Opinie Facebook
-                    </div>
-                </div>
-            </div>
-            <div class="col-3">
-                <div class="review">
-                    <img src="{{ asset('images/quote.svg') }}" alt="Opinia klienta" class="review-quote">
-                    <div class="review-name">Paulina r. Piotr g.</div>
-                    <div class="review-star">
-                        <img src="{{ asset('images/quote-star.svg') }}" alt="Rate icon">
-                        <img src="{{ asset('images/quote-star.svg') }}" alt="Rate icon">
-                        <img src="{{ asset('images/quote-star.svg') }}" alt="Rate icon">
-                        <img src="{{ asset('images/quote-star.svg') }}" alt="Rate icon">
-                        <img src="{{ asset('images/quote-star.svg') }}" alt="Rate icon">
-                    </div>
-                    <div class="review-content">
-                        <p>"Odebraliśmy klucze do naszego mieszkania i chcemy jeszcze raz z całego serca podziękować za tak cudowną obsługę i troskę o zadowolenie klientów. Jesteśmy pod ogromnym wrażeniem tego osiedla (pod każdym względem) i bardzo się cieszymy, że to właśnie u Was kupiliśmy swoje pierwsze mieszkanie.</p>
-                        <p>&nbsp;</p>
-                        <p>Mamy nadzieję, że zadowolenie Waszych klientów zachęci pozostałych do zakupy u Was swojego mieszkania. Jeszcze raz bardzo dziękujemy"</p>
-                    </div>
-                    <div class="review-source">
-                        <img src="https://placehold.co/35x35" alt=""> Opinie Facebook
-                    </div>
-                </div>
-            </div>
-            <div class="col-3">
-                <div class="review">
-                    <img src="{{ asset('images/quote.svg') }}" alt="Opinia klienta" class="review-quote">
-                    <div class="review-name">Paulina r. Piotr g.</div>
-                    <div class="review-star">
-                        <img src="{{ asset('images/quote-star.svg') }}" alt="Rate icon">
-                        <img src="{{ asset('images/quote-star.svg') }}" alt="Rate icon">
-                        <img src="{{ asset('images/quote-star.svg') }}" alt="Rate icon">
-                        <img src="{{ asset('images/quote-star.svg') }}" alt="Rate icon">
-                        <img src="{{ asset('images/quote-star.svg') }}" alt="Rate icon">
-                    </div>
-                    <div class="review-content">
-                        <p>"Odebraliśmy klucze do naszego mieszkania i chcemy jeszcze raz z całego serca podziękować za tak cudowną obsługę i troskę o zadowolenie klientów. Jesteśmy pod ogromnym wrażeniem tego osiedla (pod każdym względem) i bardzo się cieszymy, że to właśnie u Was kupiliśmy swoje pierwsze mieszkanie.</p>
-                        <p>&nbsp;</p>
-                        <p>Mamy nadzieję, że zadowolenie Waszych klientów zachęci pozostałych do zakupy u Was swojego mieszkania. Jeszcze raz bardzo dziękujemy"</p>
-                    </div>
-                    <div class="review-source">
-                        <img src="https://placehold.co/35x35" alt=""> Opinie Facebook
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>

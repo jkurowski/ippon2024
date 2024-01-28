@@ -95,6 +95,12 @@
                                     <span class="bullet bullet-dot"></span>
                                 </span> Oferty pracy</a>
                         </li>
+                        <li {{ Request::routeIs('admin.review.*') ? 'class=active' : '' }}>
+                            <a href="{{ route('admin.review.index') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span> Opinie</a>
+                        </li>
                         <li class="d-none">
                             <a href="">
                                 <span class="menu-bullet">
