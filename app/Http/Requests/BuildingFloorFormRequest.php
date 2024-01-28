@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class FloorFormRequest extends FormRequest
+class BuildingFloorFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -38,6 +38,11 @@ class FloorFormRequest extends FormRequest
                 'required',
                 'integer',
                 Rule::exists('investments', 'id'), // Check if investment with the specified id exists
+            ],
+            'building_id' => [
+                'required',
+                'integer',
+                Rule::exists('buildings', 'id'), // Check if investment with the specified id exists
             ],
             'area_range' => ''
         ];

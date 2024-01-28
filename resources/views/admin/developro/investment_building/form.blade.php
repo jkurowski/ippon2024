@@ -63,7 +63,7 @@
 
                         @include('form-elements.html-input-file', [
                             'label' => 'Rzut budynku',
-                            'sublabel' => '(wymiary: '.config('images.building_plan.width').'px / '.config('images.building_plan.height').'px)',
+                            'sublabel' => '(wymiary: '.config('images.building.width').'px / '.config('images.building.height').'px)',
                             'name' => 'file',
                             'file' => $entry->file,
                             'file_preview' => config('images.building_plan.preview_file_path')

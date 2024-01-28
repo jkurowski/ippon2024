@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 
 // CMS
 use App\Repositories\BuildingFloorRepository;
-use App\Http\Requests\FloorFormRequest;
+use App\Http\Requests\BuildingFloorFormRequest;
 use App\Services\BuildingFloorService;
 
 use App\Models\Investment;
@@ -58,7 +58,7 @@ class BuildingFloorController extends Controller
         ])->with('entry', Building::make());
     }
 
-    public function store(FloorFormRequest $request, Investment $investment, Building $building)
+    public function store(BuildingFloorFormRequest $request, Investment $investment, Building $building)
     {
 
         $floor = $this->repository->create($request->validated());
@@ -81,7 +81,7 @@ class BuildingFloorController extends Controller
         ]);
     }
 
-    public function update(FloorFormRequest $request, Investment $investment, Building $building, Floor $floor)
+    public function update(BuildingFloorFormRequest $request, Investment $investment, Building $building, Floor $floor)
     {
         $this->repository->update($request->validated(), $floor);
 

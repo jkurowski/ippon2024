@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class BuildingFormRequest extends FormRequest
 {
@@ -25,7 +26,12 @@ class BuildingFormRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'number' => 'required|string|max:255'
+            'number' => 'required|string|max:255',
+            'investment_id' => [
+                'required',
+                'integer',
+                Rule::exists('investments', 'id'), // Check if investment with the specified id exists
+            ],
         ];
     }
 }

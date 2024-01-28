@@ -30,8 +30,8 @@ class BuildingFloorService
 
         Image::make($filepath)
             ->resize(
-                config('images.floor_plan.width'),
-                config('images.floor_plan.height'),
+                config('images.floor.width'),
+                config('images.floor.height'),
                 function ($constraint) {
                     $constraint->aspectRatio();
                 }

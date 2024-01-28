@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class PropertyFormRequest extends FormRequest
 {
@@ -42,7 +43,11 @@ class PropertyFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'investment_id' => 'required',
+            'investment_id' => [
+                'required',
+                'integer',
+                Rule::exists('investments', 'id'), // Check if investment with the specified id exists
+            ],
             'floor_id' => '',
             'status' => 'required',
             'name' => 'required|string|max:255',

@@ -69,7 +69,7 @@
                             @include('form-elements.input-text', ['label' => 'Kolejność', 'name' => 'position', 'value' => $entry->position, 'required' => 1])
                             @include('form-elements.input-text', ['label' => 'Zakres pow. w wyszukiwarce xx-xx', 'sublabel' => '(zakresy oddzielone przecinkiem)', 'name' => 'area_range', 'value' => $entry->area_range])
                             @include('form-elements.input-text', ['label' => 'Zakres cen w wyszukiwarce xx-xx', 'sublabel' => '(zakresy oddzielone przecinkiem)', 'name' => 'price_range', 'value' => $entry->price_range])
-                            @include('form-elements.html-input-file', ['label' => 'Plan piętra', 'sublabel' => '(wymiary: '.config('images.floor_plan.width').'px / '.config('images.floor_plan.height').'px)', 'name' => 'file'])
+                            @include('form-elements.html-input-file', ['label' => 'Plan piętra', 'sublabel' => '(wymiary: '.config('images.floor.width').'px / '.config('images.floor.height').'px)', 'name' => 'file'])
 
                         </div>
                     </div>

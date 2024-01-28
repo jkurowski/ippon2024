@@ -30,8 +30,8 @@ class BuildingService
 
         Image::make($filepath)
             ->resize(
-                config('images.building_plan.width'),
-                config('images.building_plan.height'),
+                config('images.building.width'),
+                config('images.building.height'),
                 function ($constraint) {
                     $constraint->aspectRatio();
                 }
