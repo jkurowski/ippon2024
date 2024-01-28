@@ -35,7 +35,7 @@
                     <h4>BIURO SPRZEDAŻY</h4>
                     <p>ul. Barcza 50</p>
                     <p>Godziny otwarcia:</p>
-                    <p>pn.-pt. 8:00 - 16:00</p>
+                    <p>pn.-pt. 9:00 - 17:00</p>
                     <ul class="mb-0 list-unstyled icon-list-contact">
                         <li><img src="{{ asset('images/phone-icon-svg.svg') }}" alt=""> <a href="tel:+48724222323">+48 724 222 323</a></li>
                         <li><img src="{{ asset('images/phone-icon-svg.svg') }}" alt=""> <a href="tel:+48609884219">+48 609 884 219</a></li>
