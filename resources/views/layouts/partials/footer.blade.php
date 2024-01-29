@@ -48,7 +48,7 @@
         <div class="row mt-5">
             <div class="col-12">
                 <div class="text-center">
-                    <a href="">Polityka prywatności</a>
+                    <a href="/pl/polityka-prywatnosci">Polityka prywatności</a>
                 </div>
             </div>
         </div>

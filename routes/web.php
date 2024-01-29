@@ -73,6 +73,12 @@ Route::group(['namespace' => 'Front', 'prefix' => '{locale?}', 'where' => ['loca
         Route::get('/{slug}',   'ArticleController@show')->name('show');
     });
 
+    // Articles
+    Route::group(['prefix' => 'aktualnosci', 'as' => 'front.articles.'], function() {
+        Route::get('/',         'NewsController@index')->name('index');
+        Route::get('/{slug}',   'NewsController@show')->name('show');
+    });
+
     // DeveloPro
     Route::group(['namespace' => 'Developro', 'prefix' => '/i', 'as' => 'developro.'], function () {
         Route::get('/{slug}', 'InvestmentController@index')->name('investment.index');

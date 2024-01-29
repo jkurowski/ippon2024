@@ -75,6 +75,12 @@
                             <a href="{{ route('admin.article.index') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
+                                </span> Blog</a>
+                        </li>
+                        <li {{ Request::routeIs('admin.news.*') ? 'class=active' : '' }}>
+                            <a href="{{ route('admin.news.index') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
                                 </span> Aktualności</a>
                         </li>
                         <li {{ Request::routeIs('admin.slider.*') ? 'class=active' : '' }}>

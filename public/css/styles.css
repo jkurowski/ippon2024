@@ -2190,6 +2190,7 @@ section#contact-form {
   font-weight: 400;
   background: #6C6546;
   padding: 10px;
+  flex-wrap: wrap;
 }
 .timeline-wrapper .day-head h2 {
   font-size: 24px;
@@ -2197,6 +2198,8 @@ section#contact-form {
   margin: 0;
   color: white !important;
   padding-left: 10px;
+  line-height: 27px;
+  width: calc(100% - 85px);
 }
 .timeline-wrapper .day:nth-child(2) {
   margin-top: 180px;

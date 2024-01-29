@@ -22,7 +22,8 @@ Route::group([
     Route::post('job/set', 'Job\IndexController@sort')->name('job.sort');
 
     //Route::get('article/import', 'Article\IndexController@import')->name('article.import');
-    Route::get('promotion/import', 'Promotion\IndexController@import')->name('promotion.import');
+    //Route::get('news/import', 'News\IndexController@import')->name('news.import');
+    //Route::get('promotion/import', 'Promotion\IndexController@import')->name('promotion.import');
 
     Route::get('user/datatable', 'User\IndexController@datatable')->name('user.datatable');
 
@@ -37,6 +38,7 @@ Route::group([
         'role' => 'Role\IndexController',
         'greylist' => 'Greylist\IndexController',
         'article' => 'Article\IndexController',
+        'news' => 'News\IndexController',
         'box'=> 'Box\IndexController',
         'promotion'=> 'Promotion\IndexController',
         'commercial'=> 'Commercial\IndexController',

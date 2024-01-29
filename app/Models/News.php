@@ -5,15 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\Traits\LogsActivity;
 
-class Article extends Model
+class News extends Model
 {
 
-    protected static $logName = 'Blog';
-
-    const IMG_WIDTH = 1110;
-    const IMG_HEIGHT = 600;
-    const THUMB_WIDTH = 350;
-    const THUMB_HEIGHT = 189;
+    protected static $logName = 'Aktualnosci';
 
     /**
      * The attributes that are mass assignable.
