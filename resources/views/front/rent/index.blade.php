@@ -11,7 +11,7 @@
 @section('content')
     <div id="page-content">
         <div class="container">
-            <div class="row">
+            <div class="row justify-content-center">
                 @foreach($rents as $r)
                     <div class="col-6">
                         <div class="rent-item">
