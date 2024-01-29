@@ -9,7 +9,7 @@
 @stop
 
 @section('content')
-    <section class="pt-0">
+    <section class="p-0">
         <div class="container">
             <div class="row left-right">
                 <div class="col-6 d-flex align-items-center">
@@ -145,23 +145,17 @@
                     <img src="https://www.ippon.group/files/upload/wykres_pl.png" alt="" class="m-auto">
                 </div>
                 <div class="col-6">
-                    <div class="p-5 pt-0">
+                    <div class="pe-5 ps-5">
                         <p>W naszym działaniu wykorzystujemy model zintegrowanego biznesu, na który składają się różne etapy procesu inwestycyjnego: od zarządzania nieruchomościami, po zakup gruntu, projektowanie i budowę nieruchomości, na wynajmie i sprzedaży powierzchni kończąc. Realizujemy inwestycje wykonane według własnych projektów, gdzie czynnikiem decydującym jest aktualne zapotrzebowanie rynku i dostosowanie projektów do wymagań naszych klientów.</p>
                     </div>
                 </div>
                 <div class="col-6">
-                    <div class="p-5 pt-0">
+                    <div class="pe-5 ps-5">
                         <p>Każdy z wymienionych wyżej etapów przebiega w ściśle określony i ustandaryzowany sposób, co pozwala nam przewidzieć ewentualne wyzwania i zareagować w najkrótszym możliwym czasie. Stawiamy sobie jasny cel: zbudowanie wiodącej marki w branży deweloperskiej, kojarzonej z jakością, prestiżem i oryginalnością. Mamy świadomość wpływu naszej pracy na kreowanie przestrzeni miejskiej. Dlatego tak ważna jest dla nas wysoka jakość inwestycji.</p>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-12 pt-5 pb-5 mb-5 text-center">
-                    [ Karuzela nagród ]
-                </div>
-            </div>
         </div>
-
     </section>
 @endsection
 
