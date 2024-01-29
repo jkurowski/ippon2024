@@ -29,7 +29,7 @@
                             <div id="topCta">
                                 <div>
                                     <p>INFOLINIA</p>
-                                    <a href="tel:">89 526 55 58</a>
+                                    <a href="{{ route('contact.index') }}">89 526 55 58</a>
                                     <span>MASZ PYTANIA? NAPISZ DO NAS!</span>
                                 </div>
                             </div>

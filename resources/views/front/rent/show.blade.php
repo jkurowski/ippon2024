@@ -15,7 +15,7 @@
             <div class="col-6">
                 <img src="{{ asset('uploads/rents/'.$rent->file) }}" alt="{{ $rent->name }}" class="mb-5">
                 <h2 class="mb-3">{{ $rent->name }}</h2>
-                {!! $rent->text !!}
+                {!! parse_text($rent->text) !!}
                 <a href="{{ route('rent') }}" class="bttn mt-4">WRÓĆ DO LISTY</a>
             </div>
         </div>
