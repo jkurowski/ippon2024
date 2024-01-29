@@ -63,7 +63,7 @@
 
         </div>
 
-        <div class="container mt-5 pt-5 mb-5 pb-5">
+        <div class="container mt-5 pt-5">
             <div class="row">
                 <div class="col-12 text-center">
                     <h2 class="section-title text-uppercase"><span class="text-gold">Nagrody </span> <br>i wyróżnienia</h2>
@@ -76,7 +76,7 @@
             </div>
         </div>
 
-        <div id="awardsCarousel" class="container-fluid mt-5 pt-4">
+        <div id="awardsCarousel" class="container-fluid mt-5 pt-4 mb-5 pb-5">
             <div class="row">
                 @foreach($awards as $award)
                     <div class="col-4">
