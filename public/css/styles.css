@@ -2190,6 +2190,27 @@ section#contact-form {
 }
 /* Awards
 ================================================== */
+#awardsCarousel .slick-slide {
+  opacity: 0.3;
+  transition: opacity 200ms linear;
+}
+#awardsCarousel .slick-slide h3 {
+  color: transparent;
+  transition: color 200ms linear;
+}
+#awardsCarousel .slick-slide p {
+  color: transparent;
+  transition: color 200ms linear;
+}
+#awardsCarousel .slick-slide.slick-current {
+  opacity: 1;
+}
+#awardsCarousel .slick-slide.slick-current h3 {
+  color: black;
+}
+#awardsCarousel .slick-slide.slick-current p {
+  color: black;
+}
 .award {
   border: 1px solid #BA8B41;
   text-align: center;

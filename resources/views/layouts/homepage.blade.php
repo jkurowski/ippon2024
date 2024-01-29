@@ -86,8 +86,8 @@
             slidesToScroll: 1,
             centerMode: true,
             centerPadding: '80px',
-            arrows: false,
-            dots: true
+            arrows: true,
+            dots: false
         });
 
         $('#reviewCarousel .row').slick({
