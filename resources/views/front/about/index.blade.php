@@ -126,7 +126,7 @@
                         <div class="container paralaxa-bottom paralaxa-bottom-more inline pt-5">
                             <div class="row">
                                 <div class="col-12 text-center">
-                                    <img src="https://www.ippon.group/public/gfx/template/deweloper-roku-2022.jpg" alt="Deweloper godny zaufania" class="d-block m-auto">
+                                    <img src="{{ asset('/images/deweloper-roku-2023.png') }}" alt="Deweloper godny zaufania" class="d-block m-auto">
                                     <h2 class="section-title text-uppercase mt-5"><span class="text-gold">Deweloper </span> <br>godny zaufania</h2>
                                 </div>
 
