@@ -78,70 +78,36 @@
 
     <div class="container-fluid">
         <div class="row mt-3" id="plannedCarousel">
+            @foreach($investments_planned as $ip)
             <div class="col-12">
                 <div class="planned-item row no-gutters">
                     <div class="col-8">
-                        <a href=""><img src="https://placehold.co/840x520" alt="Nazwa" class="w-100"></a>
+                        @if($ip->developro)
+                            <a href="{{ route('developro.investment.index', $ip->slug) }}">
+                                <img src="{{ asset('investment/thumbs/'.$ip->file_thumb) }}" alt="{{ $ip->name }}" class="w-100">
+                            </a>
+                        @else
+                            <img src="{{ asset('investment/thumbs/'.$ip->file_thumb) }}" alt="{{ $r->name }}" class="w-100">
+                        @endif
                     </div>
                     <div class="col-4">
                         <div class="planned-item-gold">
                             <div class="planned-item-desc">
-                                <h2><a href="">WARMIA LUXURY RESIDENCE</a></h2>
-                                <p>Jedyny w Polsce projekt luksusowych apartamentów, które zostały idealnie wkomponowane w krajobraz Naterek. Położone nad jednym z najpiękniejszych jezior Warmii i Mazur, pośród zapierających dech lasów.</p>
-                                <a href="" class="bttn-link">Zobacz więcej</a>
+                                @if($ip->developro)
+                                <h2><a href="{{ route('developro.investment.index', $ip->slug) }}">{{ $ip->name }}</a></h2>
+                                @else
+                                    <h2>{{ $ip->name }}</h2>
+                                @endif
+                                <p>{{ $ip->entry_content }}</p>
+                                @if($ip->developro)
+                                <a href="{{ route('developro.investment.index', $ip->slug) }}" class="bttn-link">Zobacz więcej</a>
+                                @endif
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-12">
-                <div class="planned-item row no-gutters">
-                    <div class="col-8">
-                        <a href=""><img src="https://placehold.co/840x520" alt="Nazwa" class="w-100"></a>
-                    </div>
-                    <div class="col-4">
-                        <div class="planned-item-gold">
-                            <div class="planned-item-desc">
-                                <h2><a href="">WARMIA LUXURY RESIDENCE</a></h2>
-                                <p>Jedyny w Polsce projekt luksusowych apartamentów, które zostały idealnie wkomponowane w krajobraz Naterek. Położone nad jednym z najpiękniejszych jezior Warmii i Mazur, pośród zapierających dech lasów.</p>
-                                <a href="" class="bttn-link">Zobacz więcej</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12">
-                <div class="planned-item row no-gutters">
-                    <div class="col-8">
-                        <a href="#"><img src="https://placehold.co/840x520" alt="Nazwa" class="w-100"></a>
-                    </div>
-                    <div class="col-4">
-                        <div class="planned-item-gold">
-                            <div class="planned-item-desc">
-                                <h2><a href="">WARMIA LUXURY RESIDENCE</a></h2>
-                                <p>Jedyny w Polsce projekt luksusowych apartamentów, które zostały idealnie wkomponowane w krajobraz Naterek. Położone nad jednym z najpiękniejszych jezior Warmii i Mazur, pośród zapierających dech lasów.</p>
-                                <a href="" class="bttn-link">Zobacz więcej</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12">
-                <div class="planned-item row no-gutters">
-                    <div class="col-8">
-                        <a href="#"><img src="https://placehold.co/840x520" alt="Nazwa" class="w-100"></a>
-                    </div>
-                    <div class="col-4">
-                        <div class="planned-item-gold">
-                            <div class="planned-item-desc">
-                                <h2><a href="">WARMIA LUXURY RESIDENCE</a></h2>
-                                <p>Jedyny w Polsce projekt luksusowych apartamentów, które zostały idealnie wkomponowane w krajobraz Naterek. Położone nad jednym z najpiękniejszych jezior Warmii i Mazur, pośród zapierających dech lasów.</p>
-                                <a href="" class="bttn-link">Zobacz więcej</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>

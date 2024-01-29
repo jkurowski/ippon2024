@@ -35,7 +35,7 @@
 
 <!-- Styles -->
 <link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet">
-<link href="{{ asset('/css/styles.min.css?v=2901a') }}" rel="stylesheet">
+<link href="{{ asset('/css/styles.min.css?v=2901b') }}" rel="stylesheet">
 
 <!-- jQuery -->
 <script src="{{ asset('/js/jquery.min.js') }}" charset="utf-8"></script>
@@ -95,7 +95,7 @@
             slidesToScroll: 1,
             centerMode: true,
             centerPadding: '240px',
-            arrows: false,
+            arrows: true,
             dots: true,
         });
 

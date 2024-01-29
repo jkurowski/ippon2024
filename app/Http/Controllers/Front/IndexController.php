@@ -26,6 +26,7 @@ class IndexController extends Controller
         $popup = 0;
 
         $investments_soon = Investment::whereStatus(4)->get();
+        $investments_planned = Investment::whereStatus(3)->get();
         $reviews = Review::all();
 
         $articles = Article::where('status', 1)->orderBy('id', 'DESC')->limit(2)->get();
@@ -51,6 +52,7 @@ class IndexController extends Controller
             'popup',
             'articles',
             'investments_soon',
+            'investments_planned',
             'reviews'
         ));
     }

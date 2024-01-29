@@ -1775,6 +1775,27 @@ section#contact-form {
   font-style: oblique;
   margin-bottom: 15px;
 }
+#plannedCarousel .slick-slide {
+  opacity: 0.1;
+  transition: opacity 200ms linear;
+}
+#plannedCarousel .slick-slide.slick-current {
+  opacity: 1;
+}
+#plannedCarousel .slick-arrow {
+  font-size: 50px;
+  color: #BA8B41;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  left: 50px;
+  z-index: 30;
+}
+#plannedCarousel .slick-arrow.slick-next {
+  right: 50px;
+  left: auto;
+}
 .planned-item-gold {
   display: flex;
   height: 100%;
@@ -1786,6 +1807,7 @@ section#contact-form {
 .planned-item-gold h2 {
   font-size: 37px;
   margin-bottom: 30px;
+  color: white;
 }
 .planned-item-gold h2 a {
   color: white;
@@ -2664,6 +2686,11 @@ html.swipebox-html.swipebox-touch {
 }
 .slick-dots li {
   line-height: normal;
+  opacity: 0.4;
+  transition: all 200ms linear;
+}
+.slick-dots li.slick-active {
+  opacity: 1;
 }
 .slick-dots li button {
   width: 25px;
