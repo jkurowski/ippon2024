@@ -334,7 +334,7 @@
                     </div>
                     <div class="article-content">
                         <h2><a href="">{{ $n->title }}</a></h2>
-                        <p>{{ $n->entry_content }}.</p>
+                        <p>{{ $n->content_entry }}.</p>
                         <a href="{{route('front.articles.show', $n->slug)}}" class="bttn-link">Czytaj więcej</a>
                     </div>
                 </article>
