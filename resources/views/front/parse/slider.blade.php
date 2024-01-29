@@ -1,6 +1,6 @@
 @if($list->count() > 0)
 <div class="textSlider container pt-5 pb-5">
-    <div class="row">
+    <div class="row p-0 m-0">
         <ul class="list-unstyled mb-0">
     @foreach ($list as $p)
             <li>
