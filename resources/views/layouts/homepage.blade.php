@@ -72,11 +72,12 @@
         $('#mainNews .row').slick({
             infinite: true,
             slidesToShow: 2,
-            slidesToScroll: 2,
+            slidesToScroll: 1,
             centerMode: true,
             centerPadding: '360px',
             arrows: false,
             dots: true,
+            initialSlide: 1,
         });
 
         $('#reviewCarousel .row').slick({

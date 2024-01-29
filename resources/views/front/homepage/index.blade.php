@@ -316,63 +316,30 @@
 
     <div id="mainNews" class="container-fluid news-list">
         <div class="row">
-
+            @foreach($news as $n)
             <div class="col-4">
-                <article>
+                <article class="border-article">
                     <div class="article-thumb">
-                        <a href=""><img src="https://placehold.co/830x567" alt=""></a>
+                        <span class="article-date">{{ $n->date }}</span>
+                        @if($n->file)
+                            <a href="{{route('front.articles.show', $n->slug)}}">
+                                <picture>
+                                    <source type="image/webp" srcset="{{asset('/uploads/news/thumbs/webp/'.$n->file_webp) }}">
+                                    <source type="image/jpeg" srcset="{{asset('/uploads/news/thumbs/'.$n->file) }}">
+                                    <img src="{{asset('/uploads/news/thumbs/'.$n->file) }}" alt="{{ $n->title }}" width="700" height="394">
+                                </picture>
+                            </a>
+                        @endif
                         <div class="img-gradient"></div>
                     </div>
                     <div class="article-content">
-                        <h2><a href="">Ippon Group Liderem Nieruchomości Otodom 2022</a></h2>
-                        <p>O konkursie, obecnych i planowanych inwestycjach oraz o działaniach prospołecznych, z Prezes Za...</p>
-                        <a href="" class="bttn-link">Czytaj więcej</a>
+                        <h2><a href="">{{ $n->title }}</a></h2>
+                        <p>{{ $n->entry_content }}.</p>
+                        <a href="{{route('front.articles.show', $n->slug)}}" class="bttn-link">Czytaj więcej</a>
                     </div>
                 </article>
             </div>
-
-            <div class="col-4">
-                <article>
-                    <div class="article-thumb">
-                        <a href=""><img src="https://placehold.co/830x567" alt=""></a>
-                        <div class="img-gradient"></div>
-                    </div>
-                    <div class="article-content">
-                        <h2><a href="">Ippon Group Liderem Nieruchomości Otodom 2022</a></h2>
-                        <p>O konkursie, obecnych i planowanych inwestycjach oraz o działaniach prospołecznych, z Prezes Za...</p>
-                        <a href="" class="bttn-link">Czytaj więcej</a>
-                    </div>
-                </article>
-            </div>
-
-            <div class="col-4">
-                <article>
-                    <div class="article-thumb">
-                        <a href=""><img src="https://placehold.co/830x567" alt=""></a>
-                        <div class="img-gradient"></div>
-                    </div>
-                    <div class="article-content">
-                        <h2><a href="">Ippon Group Liderem Nieruchomości Otodom 2022</a></h2>
-                        <p>O konkursie, obecnych i planowanych inwestycjach oraz o działaniach prospołecznych, z Prezes Za...</p>
-                        <a href="" class="bttn-link">Czytaj więcej</a>
-                    </div>
-                </article>
-            </div>
-
-            <div class="col-4">
-                <article>
-                    <div class="article-thumb">
-                        <a href=""><img src="https://placehold.co/830x567" alt=""></a>
-                        <div class="img-gradient"></div>
-                    </div>
-                    <div class="article-content">
-                        <h2><a href="">Ippon Group Liderem Nieruchomości Otodom 2022</a></h2>
-                        <p>O konkursie, obecnych i planowanych inwestycjach oraz o działaniach prospołecznych, z Prezes Za...</p>
-                        <a href="" class="bttn-link">Czytaj więcej</a>
-                    </div>
-                </article>
-            </div>
-
+            @endforeach
         </div>
     </div>
 </section>

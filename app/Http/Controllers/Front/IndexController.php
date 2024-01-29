@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
-use App\Models\Article;
 use App\Models\Investment;
+use App\Models\News;
 use App\Models\Review;
 use App\Models\RodoSettings;
 use Illuminate\Http\Request;
@@ -13,7 +13,6 @@ use Illuminate\Http\Request;
 use App\Models\Slider;
 use App\Models\RodoRules;
 use Illuminate\Support\Facades\Cookie;
-use App\Models\Property;
 
 class IndexController extends Controller
 {
@@ -29,7 +28,7 @@ class IndexController extends Controller
         $investments_planned = Investment::whereStatus(3)->get();
         $reviews = Review::all();
 
-        $articles = Article::where('status', 1)->orderBy('id', 'DESC')->limit(2)->get();
+        $news = News::where('status', 1)->orderBy('date', 'DESC')->limit(5)->get();
 
         if(settings()->get("popup_status") == "1") {
             if(settings()->get("popup_mode") == "1") {
@@ -50,7 +49,7 @@ class IndexController extends Controller
             'obligation',
             'sliders',
             'popup',
-            'articles',
+            'news',
             'investments_soon',
             'investments_planned',
             'reviews'

@@ -2124,10 +2124,20 @@ section#contact-form {
   border-radius: 50%;
   filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.16));
 }
-#mainNews .news-list article {
+#mainNews .border-article {
   background: #fff;
   border: 1px solid #ba8b41;
   filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.16));
+}
+#mainNews .article-date {
+  background: linear-gradient(#ba8b41 0, #916b30 100%);
+  font-size: 16px;
+  color: #fff;
+  position: absolute;
+  z-index: 20;
+  padding: 3px 11px;
+  bottom: 0;
+  left: 0;
 }
 #mainNews .article-thumb {
   position: relative;
