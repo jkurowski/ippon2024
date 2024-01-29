@@ -2194,6 +2194,10 @@ section#contact-form {
   opacity: 0.3;
   transition: opacity 200ms linear;
 }
+#awardsCarousel .slick-slide .award {
+  border: 1px solid transparent;
+  transition: border 200ms linear;
+}
 #awardsCarousel .slick-slide h3 {
   color: transparent;
   transition: color 200ms linear;
@@ -2211,8 +2215,10 @@ section#contact-form {
 #awardsCarousel .slick-slide.slick-current p {
   color: black;
 }
-.award {
+#awardsCarousel .slick-slide.slick-current .award {
   border: 1px solid #BA8B41;
+}
+.award {
   text-align: center;
   padding: 50px 30px;
 }
@@ -2220,15 +2226,16 @@ section#contact-form {
   margin: 0 auto 35px;
 }
 .award h3 {
-  font-size: 20px;
+  font-size: 25px;
   font-family: 'Poppins', sans-serif;
   text-transform: uppercase;
   margin-bottom: 20px;
   font-style: normal;
 }
 .award p {
-  font-size: 18px;
-  line-height: 30px;
+  font-size: 16px;
+  line-height: 25px;
+  text-align: justify;
 }
 /* Inwestycja Slow
 ================================================== */
