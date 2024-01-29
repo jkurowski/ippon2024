@@ -1619,8 +1619,11 @@ section#contact-form {
   -moz-box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.46);
   box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.46);
 }
+.main-room-img {
+  padding-top: 20px;
+}
 .main-room-header {
-  padding: 40px 50px;
+  padding: 40px 50px 20px;
 }
 .main-room-header h2 {
   font-size: 37px;
@@ -2085,9 +2088,10 @@ section#contact-form {
   border-bottom: 1px solid #dfdfdf;
 }
 #numbers {
-  background: #222;
+  background: #222 url('../uploads/files/numbersBg.jpg') no-repeat center fixed;
+  background-size: cover;
   padding: 190px 0 110px;
-  margin-top: 70px;
+  margin-top: 96px;
 }
 #numbers .number {
   background: rgba(255, 255, 255, 0.8);

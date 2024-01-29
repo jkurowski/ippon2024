@@ -129,11 +129,11 @@
                             <h2 class="poppins"><a href="#">MIESZKANIA <br><b>1 POKOJOWE</b></a></h2>
                             <p>Powierzchnia: <span>27m<sup>2</sup></span></p>
                             <div class="main-room-img">
-                                <a href="#"><img src="https://placehold.co/600x400" alt=""></a>
+                                <a href="#"><img src="{{ asset('/uploads/files/mieszkania-1-pokoje.jpg') }}" alt="Dostępne mieszkania 1-pokojowe"></a>
                             </div>
                         </div>
                         <div class="main-room-footer">
-                            <a href="#" class="bttn bttn-icon">Zobacz mieszkania <i class="las la-chevron-circle-right"></i></a>
+                            <a href="#" class="bttn bttn-icon">Zobacz mieszkania <i class="ms-3 las la-chevron-circle-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -141,13 +141,13 @@
                     <div class="main-room">
                         <div class="main-room-header text-center">
                             <h2 class="poppins"><a href="#">MIESZKANIA <br><b>2 POKOJOWE</b></a></h2>
-                            <p>Powierzchnia: <span>27m<sup>2</sup></span></p>
+                            <p>Powierzchnia: <span>35-48m<sup>2</sup></span></p>
                             <div class="main-room-img">
-                                <a href="#"><img src="https://placehold.co/600x400" alt=""></a>
+                                <a href="#"><img src="{{ asset('/uploads/files/mieszkania-2-pokoje.jpg') }}" alt="Dostępne mieszkania 2-pokojowe"></a>
                             </div>
                         </div>
                         <div class="main-room-footer">
-                            <a href="#" class="bttn bttn-icon">Zobacz mieszkania <i class="las la-chevron-circle-right"></i></a>
+                            <a href="#" class="bttn bttn-icon">Zobacz mieszkania <i class="ms-3 las la-chevron-circle-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -155,13 +155,13 @@
                     <div class="main-room">
                         <div class="main-room-header text-center">
                             <h2 class="poppins"><a href="#">MIESZKANIA <br><b>3 POKOJOWE</b></a></h2>
-                            <p>Powierzchnia: <span>27m<sup>2</sup></span></p>
+                            <p>Powierzchnia: <span>50-61m<sup>2</sup></span></p>
                             <div class="main-room-img">
-                                <a href="#"><img src="https://placehold.co/600x400" alt=""></a>
+                                <a href="#"><img src="{{ asset('/uploads/files/mieszkania-3-pokoje.jpg') }}" alt="Dostępne mieszkania 3-pokojowe"></a>
                             </div>
                         </div>
                         <div class="main-room-footer">
-                            <a href="#" class="bttn bttn-icon">Zobacz mieszkania <i class="las la-chevron-circle-right"></i></a>
+                            <a href="#" class="bttn bttn-icon">Zobacz mieszkania <i class="ms-3 las la-chevron-circle-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -169,13 +169,13 @@
                     <div class="main-room">
                         <div class="main-room-header text-center">
                             <h2 class="poppins"><a href="#">MIESZKANIA <br><b>4 POKOJOWE</b></a></h2>
-                            <p>Powierzchnia: <span>27m<sup>2</sup></span></p>
+                            <p>Powierzchnia: <span>60-80m<sup>2</sup></span></p>
                             <div class="main-room-img">
-                                <a href="#"><img src="https://placehold.co/600x400" alt=""></a>
+                                <a href="#"><img src="{{ asset('/uploads/files/mieszkania-4-pokoje.jpg') }}" alt="Dostępne mieszkania 4-pokojowe"></a>
                             </div>
                         </div>
                         <div class="main-room-footer">
-                            <a href="#" class="bttn bttn-icon">Zobacz mieszkania <i class="las la-chevron-circle-right"></i></a>
+                            <a href="#" class="bttn bttn-icon">Zobacz mieszkania <i class="ms-3 las la-chevron-circle-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -198,7 +198,7 @@
                     <p>Jesteśmy wiodącą firmą deweloperską specjalizującą się w realizacji projektów branży mieszkaniowej oraz komercyjnej. Czterokrotnie zostaliśmy nagrodzeni tytułem Deweloper Roku. Budujemy mieszkania, apartamenty oraz domy na terenie całego kraju.</p>
                     <p>&nbsp;</p>
                     <p>W naszych projektach wprowadzamy innowacyjne rozwiązania i kreujemy nowe standardy na rynku. Jako jedyny deweloper zaoferowaliśmy apartamenty z ogrodami zimowymi w Olsztynie. Dbamy o jakość użytych materiałów oraz o komfort i funkcjonalność naszych mieszkań.</p>
-                    <a href="#" class="bttn bttn-icon mt-5">Sprawdź <i class="ms-5 las la-chevron-circle-right"></i></a>
+                    <a href="{{ route('about') }}" class="bttn bttn-icon mt-5">Sprawdź <i class="ms-5 las la-chevron-circle-right"></i></a>
                 </div>
             </div>
         </div>
