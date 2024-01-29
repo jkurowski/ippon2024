@@ -20,13 +20,61 @@
 <div id="property">
     <div class="container">
         <div class="row">
+            <div class="col-6">
+                <div class="property-desc">
+                    <h2>{{ $property->name }}</h2>
+                    <h4>{{ floorLevel($floor->number, false) }}</h4>
+                    <ul class="mb-0 list-unstyled mt-4">
+                        <li>Budynek: <span></span></li>
+                        <li>Piętro: <span>{{ $floor->number }}</span></li>
+                        <li>Pokoje: <span>{{ $property->rooms }}</span></li>
+                        <li>Powierzchnia: <span>{{ $property->area }} m<sup>2</sup></span></li>
+                        <li>Aneks/Kuchnia: <span>{{ kitchenType($property->kitchen_type) }}</span></li>
+                        @if($property->storeroom)<li>Spiżarnia: <span>{{ $property->storeroom }}</span></li>@endif
+                        @if($property->garden_area)<li>Ogródek:<span>{{$property->garden_area}} m<sup>2</sup></span></li>@endif
+                        @if($property->balcony_area)<li>Balkon:<span>{{$property->balcony_area}} m<sup>2</sup></span></li>@endif
+                        @if($property->balcony_area_2)<li>Balkon 2:<span>{{$property->balcony_area_2}} m<sup>2</sup></span></li>@endif
+                        @if($property->terrace_area)<li>Taras:<span>{{$property->terrace_area}} m<sup>2</sup></span></li>@endif
+                        @if($property->terrace_area_2)<li>Taras 2:<span>{{$property->terrace_area_2}} m<sup>2</sup></span></li>@endif
+                        @if($property->loggia_area)<li>Taras 2:<span>{{$property->loggia_area}} m<sup>2</sup></span></li>@endif
+                        @if($property->parking_space)<li>Miejsce postojowe:<span>{{$property->parking_space}}</span></li>@endif
+                        @if($property->garage)<li>Garaż:<span>{{$property->garage}}</span></li>@endif
+                        @if($property->deadline)<li>Termin oddania: <span>{{ $property->deadline }}</span></li>@endif
+                        @if($property->price)<li>Cena: <span>{{ $property->price }} zł</span></li>@endif
+                    </ul>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="property-img">
+                    @if($property->file)
+                        <div class="property-img">
+                            <a href="{{ asset('/investment/property/'.$property->file) }}" class="swipebox">
+                                <picture>
+                                    <source type="image/webp" srcset="{{ asset('/investment/property/thumbs/webp/'.$property->file_webp) }}">
+                                    <source type="image/jpeg" srcset="{{ asset('/investment/property/thumbs/'.$property->file) }}">
+                                    <img src="{{ asset('/investment/property/thumbs/'.$property->file) }}" alt="{{$property->name}}">
+                                </picture>
+                            </a>
+                        </div>
+                    @endif
+
+                    <img src="{{ asset('/images/property-features.png') }}" alt="Atuty mieszkania" class="mt-4">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container d-none">
+        <div class="row">
             <div class="col-12 col-xl-5">
                 <div id="propertyNav" class="row">
                     <div class="col-12 col-sm-4">
                         @if($prev) <a href="{{route('front.investment.property.index', [$investment->slug, $floor, $prev->id])}}" class="bttn">Poprzednie</a>@endif
                     </div>
                     <div class="col-12 col-sm-4">
-                        <a href="{{route('front.investment.floor.index', [$investment->slug, $floor])}}" class="bttn">Plan piętra</a>
+                        <a href="{{route('developro.floor', [$investment->slug, $floor])}}" class="bttn">Plan piętra</a>
                     </div>
                     <div class="col-12 col-sm-4">
                         @if($next) <a href="{{route('front.investment.property.index', [$investment->slug, $floor, $next->id])}}" class="bttn">Następne</a>@endif
@@ -37,7 +85,7 @@
                         {{ roomStatus($property->status )}}
                     </div>
                     @if($property->price)
-                        <h6 class="propertyPrice">@money($property->price)</h6>
+                        <h6 class="propertyPrice"></h6>
                     @endif
                     <ul class="list-unstyled">
                         <li>Pokoje:<span>{{$property->rooms}}</span></li>
@@ -76,7 +124,7 @@
                     <div class="container">
                         <div class="row d-flex">
                             <div class="col-12">
-                                <form method="post" id="contact-form" action="{{route('contact.property', $property->id)}}" class="validateForm">
+                                <form method="post" id="contact-form" action="" class="validateForm">
                                     {{ csrf_field() }}
                                     <div class="col-12">
                                         <div class="text-center">

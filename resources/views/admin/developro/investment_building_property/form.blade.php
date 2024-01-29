@@ -127,7 +127,7 @@
                                 <div class="row w-100 form-group">
                                     <div class="container">
                                         <div class="row">
-                                            <div class="col-6">
+                                            <div class="col-4">
                                                 @include('form-elements.html-select', ['label' => 'Pokoje', 'name' => 'rooms', 'selected' => $entry->rooms, 'select' => [
                                                   '1' => '1',
                                                   '2' => '2',
@@ -138,8 +138,18 @@
                                                   ]
                                               ])
                                             </div>
-                                            <div class="col-6">
+                                            <div class="col-4">
                                                 @include('form-elements.input-text', ['label' => 'Powierzchnia', 'name' => 'area', 'value' => $entry->area, 'required' => 1])
+                                            </div>
+                                            <div class="col-4">
+                                                @include('form-elements.html-select', [
+                                                     'label' => 'Aneks / kuchnia',
+                                                     'name' => 'kitchen type',
+                                                     'selected' => $entry->kitchen_type,
+                                                     'select' => [
+                                                         '1' => 'Aneks',
+                                                         '2' => 'Kuchnia'
+                                                 ]])
                                             </div>
                                         </div>
                                     </div>
@@ -164,6 +174,12 @@
                                 </div>
                                 <div class="row w-100 form-group">
                                     @include('form-elements.input-text', ['label' => 'Loggia', 'sublabel'=> 'Pow. w m<sup>2</sup>, tylko liczby', 'name' => 'loggia_area', 'value' => $entry->loggia_area])
+                                </div>
+                                <div class="row w-100 form-group">
+                                    @include('form-elements.input-text', ['label' => 'Spiżarnia', 'sublabel'=> 'Pow. w m<sup>2</sup>, tylko liczby', 'name' => 'storeroom', 'value' => $entry->storeroom])
+                                </div>
+                                <div class="row w-100 form-group">
+                                    @include('form-elements.input-text', ['label' => 'Termin oddania', 'name' => 'deadline', 'value' => $entry->deadline])
                                 </div>
                                 <div class="row w-100 form-group">
                                     @include('form-elements.html-input-text-count', ['label' => 'Nagłówek strony', 'sublabel'=> 'Meta tag - title', 'name' => 'meta_title', 'value' => $entry->meta_title, 'maxlength' => 60])

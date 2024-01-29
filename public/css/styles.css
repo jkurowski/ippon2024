@@ -1130,14 +1130,15 @@ div[class*='col-'].slick-slide {
   margin-top: -387px;
 }
 .property .property-desc ul li {
-  color: #fff;
+  color: #000;
   font-size: 18px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid #A9542B;
   padding: 12px 0;
 }
 .property .property-desc ul li span {
   float: right;
-  font-weight: 600;
+  font-weight: 500;
+  font-size: 20px;
 }
 .property .property-desc .bttn {
   border-color: white;
@@ -1149,18 +1150,12 @@ div[class*='col-'].slick-slide {
   border-color: #ae935d;
 }
 .property .property-img {
-  padding: 35px 0 0;
+  padding: 35px 0 0 10px;
 }
-.property .property-img img {
-  border: 10px solid white;
-  -webkit-box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.38);
-  -moz-box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.38);
-  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.38);
-}
-.property .property-desc {
-  background: var(--main-color-blue);
-  padding: 30px;
-  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.38);
+.property .property-desc h2 {
+  font-size: 40px;
+  font-style: oblique;
+  text-transform: uppercase;
 }
 .property #contact .form-container {
   padding: 40px;

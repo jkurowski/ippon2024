@@ -38,6 +38,9 @@ class Property extends Model
         'loggia_area',
         'parking_space',
         'garage',
+        'storeroom',
+        'deadline',
+        'kitchen_type',
         'type',
         'html',
         'cords',
@@ -56,7 +59,7 @@ class Property extends Model
      * @param int $id
      * @return Property
      */
-    public function findNext(int $investment, int $id): Property
+    public function findNext(int $investment, int $id)
     {
         return $this->where('investment_id', $investment)->where('id', '>', $id)->first();
     }
@@ -67,7 +70,7 @@ class Property extends Model
      * @param int $id
      * @return Property
      */
-    public function findPrev(int $investment, int $id): Property
+    public function findPrev(int $investment, int $id)
     {
         return $this->where('investment_id', $investment)->where('id', '<', $id)->first();
     }

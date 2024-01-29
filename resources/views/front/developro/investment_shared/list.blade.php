@@ -55,7 +55,7 @@
 
                     <div class="col-2 d-flex align-items-center">
                         {!! roomStatusBadge($room->status) !!}
-                        <a href="" class="bttn bttn-icon">POKAŻ MIESZKANIE <i class="ms-4 las la-file"></i></a>
+                        <a href="{{ route('developro.property', [$investment->slug, $room, Str::slug($room->name), floorLevel($room->floor_number, true), number2RoomsName($room->rooms, true), round(floatval($room->area), 2).'-m2']) }}" class="bttn bttn-icon">POKAŻ MIESZKANIE <i class="ms-4 las la-file"></i></a>
                     </div>
                 </div>
             @endforeach

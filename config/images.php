@@ -34,8 +34,8 @@ return [
     */
 
     'plan' => [
-        'width' => 2250,
-        'height' => 2250
+        'width' => 1600,
+        'height' => 1600
     ],
 
     /*
@@ -45,8 +45,8 @@ return [
     */
 
     'building' => [
-        'width' => 2250,
-        'height' => 2250
+        'width' => 1600,
+        'height' => 1600
     ],
 
     /*
@@ -56,8 +56,8 @@ return [
     */
 
     'floor' => [
-        'width' => 2250,
-        'height' => 2250
+        'width' => 1600,
+        'height' => 1600
     ],
 
     /*

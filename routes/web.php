@@ -83,10 +83,11 @@ Route::group(['namespace' => 'Front', 'prefix' => '{locale?}', 'where' => ['loca
         Route::get('/{slug}/aktualnosci', 'Article\IndexController@index')->name('investment.news');
         Route::get('/{slug}/aktualnosci/{article}', 'Article\IndexController@show')->name('investment.news.show');
 
-        Route::get('/{slug}/{page}', 'Page\IndexController@index')->name('investment.page');
+        Route::get('/{slug}/pietro/{floor}', 'InvestmentFloorController@index')->name('floor');
+        Route::get('/{slug}/{property},{propertySlug},{propertyFloor},{propertyRooms},{propertyArea}', 'InvestmentPropertyController@index')->name('property');
 
-        Route::get('/i/{slug}/pietro/{floor}', 'InvestmentFloorController@index')->name('floor');
-        Route::get('/i/{slug}/pietro/{floor}/m/{property}', 'InvestmentPropertyController@index')->name('property');
+        //Route::get('/{slug}/{page}', 'Page\IndexController@index')->name('investment.page');
+
     });
 
     Route::get('{uri}', 'MenuController@index')->where('uri', '([A-Za-z0-9\-\/]+)');
