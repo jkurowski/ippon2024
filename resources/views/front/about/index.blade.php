@@ -1,312 +1,167 @@
-@extends('layouts.page', ['body_class' => 'no-top no-bottom about-page'])
+@extends('layouts.page', ['body_class' => 'about-page'])
 
-@section('meta_title', 'O nas')
+@section('meta_title', $page->title)
 @section('seo_title', $page->meta_title)
 @section('seo_description', $page->meta_description)
 
 @section('pageheader')
-    @include('layouts.partials.page-header', ['page' => $page])
+    @include('layouts.partials.page-header', ['page_title' => '', 'page' => $page, 'header_file' => 'contact.jpg'])
 @stop
 
 @section('content')
-    <div class="container-fluid p-0">
-        <div class="row no-gutters">
-            <div class="col-12 col-xl-6 d-flex align-items-center justify-content-center">
-                <div class="block-text">
-                    <p><strong>Nadrzędnym celem SG Development jest profesjonalna realizacja inwestycji mieszkaniowych, usługowych i handlowych.</strong></p>
-                    <p>&nbsp;</p>
-                    <p>Wszystkie oferowane przez nas mieszkania i lokale usługowe wykonywane są zgodnie z zasadami najwyższej staranności, fachowości oraz troską o każdy detal.</p>
-                    <p>&nbsp;</p>
-                    <p>Zależy nam, aby klienci korzystający z naszych usług czuli się komfortowo.</p>
-                    <p class="pt-5 pb-3"><strong>Współpracujemy z:</strong></p>
-                    <div class="row">
-                        <div class="col-4">
-                            <div class="border-gradient">
-                                <div class="partner-logo">
-                                    <img src="{{ asset('/uploads/unibep-logo.png') }}" width="332" height="221" alt="Unibep logo">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="border-gradient">
-                                <div class="partner-logo">
-                                    <img src="{{ asset('/uploads/orlik-jantar.png') }}" width="332" height="221" alt="Orlik Jantar logo">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="border-gradient">
-                                <div class="partner-logo">
-                                    <img src="{{ asset('/uploads/wsm-ochota-logo.png') }}" width="332" height="221" alt="WSM Ochota logo">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-xl-6">
-                <div class="block-img">
-                    <picture>
-                        <source type="image/webp" srcset="{{ asset('/uploads/o-nas.webp') }}">
-                        <source type="image/jpeg" srcset="{{ asset('/uploads/o-nas.jpg') }}">
-                        <img src="{{ asset('/uploads/o-nas.jpg') }}" alt="Widok budynku, zielone otoczenia, ludzie" width="960" height="680">
-                    </picture>
-                </div>
-            </div>
-        </div>
-        <div class="row flex-row-reverse no-gutters">
-            <div class="col-12 col-xl-6 d-flex align-items-center justify-content-center">
-                <div class="block-text">
-
-                    <p><strong>Gwarantujemy im bezpieczeństwo i spokój poprzez kreowanie wysokiej jakości życia. Zadowolenie naszych klientów i zaufanie, którym nas obdarzyli, są nagrodą za naszą pracę.</strong></p>
-                    <p>&nbsp;</p>
-                    <p>Dbamy o wysoki poziom architektoniczny budynków, o estetykę wnętrz i stworzenie przyjaznego mieszkańcom otoczenia. Dążymy do utrzymania najwyższych standardów w relacjach z klientem.</p>
-
-                    <div class="row">
-                        <div class="col-12 col-md-4">
-                            <div class="icon-box icon-box-white d-flex">
-                                <div class="icon-box-img">
-                                    <img src="/uploads/about/1.png" alt="2 atrakcyjne lokalizacje do wyboru">
-                                </div>
-                                <div class="icon-box-text ps-4 pe-3 d-flex align-items-center">
-                                    <p>Atrakcyjne lokalizacje</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-4">
-                            <div class="icon-box icon-box-white d-flex">
-                                <div class="icon-box-img">
-                                    <img src="/uploads/about/2.png" alt="Szeroki wybór mieszkań">
-                                </div>
-                                <div class="icon-box-text ps-4 pe-3 d-flex align-items-center">
-                                    <p>Szeroki wybór mieszkań</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-4">
-                            <div class="icon-box icon-box-white d-flex">
-                                <div class="icon-box-img">
-                                    <img src="/uploads/about/3.png" alt="Zaufani partnerzy">
-                                </div>
-                                <div class="icon-box-text ps-4 pe-3 d-flex align-items-center">
-                                    <p>Zaufani partnerzy</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-4">
-                            <div class="icon-box icon-box-white d-flex">
-                                <div class="icon-box-img">
-                                    <img src="/uploads/about/4.png" alt="Duże balkony">
-                                </div>
-                                <div class="icon-box-text ps-4 pe-3 d-flex align-items-center">
-                                    <p>Duże balkony</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-4">
-                            <div class="icon-box icon-box-white d-flex">
-                                <div class="icon-box-img">
-                                    <img src="/uploads/about/5.png" alt="Panoramiczne okna">
-                                </div>
-                                <div class="icon-box-text ps-4 pe-3 d-flex align-items-center">
-                                    <p>Panoramiczne okna</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-4">
-                            <div class="icon-box icon-box-white d-flex">
-                                <div class="icon-box-img">
-                                    <img src="/uploads/about/6.png" alt="Dbałość o ergonomię">
-                                </div>
-                                <div class="icon-box-text ps-4 pe-3 d-flex align-items-center">
-                                    <p>Dbałość o ergonomię</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-xl-6">
-                <div class="block-img">
-                    <picture>
-                        <source type="image/webp" srcset="{{ asset('/uploads/o-nas-2.webp') }}">
-                        <source type="image/jpeg" srcset="{{ asset('/uploads/o-nas-2.jpg') }}">
-                        <img src="{{ asset('/uploads/o-nas-2.jpg') }}" alt="Widok budynku, zielone otoczenia, ludzie" width="960" height="680">
-                    </picture>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="cta" class="m-0 bg-blue">
+    <section class="pt-0">
         <div class="container">
-            <div class="row">
-                <div class="col-12 col-lg-8 col-xxl-9 d-flex align-items-center text-center text-lg-start">
-                    <h4>ZOBACZ NASZE DOTYCHCZASOWE <span>REALIZACJE</span></h4>
+            <div class="row left-right">
+                <div class="col-6 d-flex align-items-center">
+                    <div class="left-right-text">
+                        <h2>Czas buduje wartość.</h2>
+                        <p>Ippon Group Sp. z o.o. działa na rynku od 2017 roku, zaś jej spółki zależne od 2013 roku. Początkowo zajmowaliśmy się budową i wynajmem powierzchni handlowo-usługowych. W ciągu kolejnych kilku lat rozszerzyliśmy swoją działalność również o branżę deweloperską. Intensywny rozwój działalności w różnych projektach wymógł na nas stworzenie jednej wiodącej marki jaką stała się Spółka Ippon Group.</p>
+                        <p>&nbsp;</p>
+                        <p>Założyciele firmy już w chwili tworzeniu mogli się pochwalić swoim doświadczeniem w branży, dzięki czemu dziś Ippon Group rozwija się dynamicznie i konsekwentnie realizuje założoną strategię. Główny nacisk firma kładzie na ekologię, zaawansowane rozwiązania i jakość.</p>
+                    </div>
                 </div>
-                <div class="col-12 col-lg-4 col-xxl-3 text-center text-lg-end mt-4 mt-lg-0">
-                    <a href="{{ route('completed') }}" class="bttn bttn-border">Zrealizowane inwestycje</a>
+                <div class="col-6">
+                    <img src="https://ipponnew.test/images/inline/pracuj-z-najlepszymi.jpg" alt="" class="golden-border" width="840" height="650">
+                </div>
+            </div>
+
+            <div class="row left-right flex-row-reverse row-offset-up">
+                <div class="col-6 d-flex align-items-center">
+                    <div class="left-right-text">
+                        <h2>Jakość</h2>
+                        <p>Dbanie o najwyższą jakość przejawia się w każdym miejscu działalności naszych spółek: w codziennej pracy, w relacjach z Klientami, w zastosowaniu wysokiej klasy materiałów i technologii przy realizacji projektów. Dzięki temu wiemy, że dostarczamy produkty najwyższej jakości, które podążają za współczesnymi trendami i ochroną środowiska.</p>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <img src="https://ipponnew.test/images/inline/kariera-poznajmy-sie.jpg" alt="" class="golden-border">
+                </div>
+            </div>
+
+            <div class="row left-right row-offset-up">
+                <div class="col-6 d-flex align-items-center">
+                    <div class="left-right-text">
+                        <h2>Zaawansowane rozwiązania</h2>
+                        <p>Stawiamy na najbardziej zaawansowane rozwiązania technologiczne, które pozwalają nam uzyskać wysoką sprawność naszych aktywów i docelowo budują wizerunek grupy, która inwestuje efektywnie i przyjaźnie dla środowiska. W efekcie tych działań, nasi mieszkańcy mają zapewnione bezpieczeństwo, dostęp do nowoczesnych rozwiązań oraz gwarancję najwyższej jakości materiałów.</p>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <img src="https://ipponnew.test/images/inline/pracuj-z-najlepszymi.jpg" alt="" class="golden-border" width="840" height="650">
+                </div>
+            </div>
+
+            <div class="row left-right flex-row-reverse row-offset-up">
+                <div class="col-6 d-flex align-items-center">
+                    <div class="left-right-text">
+                        <h2>Deweloper mieszkaniowy</h2>
+                        <p>Realizujemy projekty mieszkaniowe w całej Polsce. W Olsztynie wybudowaliśmy osiedle wielorodzinne – Aurora, składające się z 9 nowoczesnych budynków o łącznej ilości 658 mieszkań. Nowe osiedle zbudowane zostało z najwyższej jakości materiałów. Wyróżnia się na tle innych olsztyńskich inwestycji oryginalnym designem, wpisującym się w najnowsze trendy architektoniczne. (<a href="https://www.aurora.olsztyn.pl" target="_blank">www.aurora.olsztyn.pl</a>)</p>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <img src="https://ipponnew.test/images/inline/kariera-poznajmy-sie.jpg" alt="" class="golden-border">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container mt-5 pt-5">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2 class="section-title text-uppercase"><span class="text-gold">Nagrody </span> <br>i wyróżnienia</h2>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-8 text-center">
+                    <p>Nasza praca i realizowane projekty doceniane są w ogólnopolskich konkursach i zestawieniach. Zdobyliśmy tytuł Lidera Nieruchomości OtoDom 2022 oraz znaleźliśmy się w czołówce Ogólnopolskiego Rankingu Najlepszych Deweloperów Mieszkaniowych, opublikowanym w „Dzienniku Gazecie Prawnej”. Czterokrotnie zostaliśmy nagrodzeni tytułem Deweloper Roku 2023 oraz w latach 2022,2021,2020.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 pt-5 pb-5 mb-5 text-center">
+                    [ Karuzela nagród ]
                 </div>
             </div>
         </div>
-    </div>
 
-    <section id="investCTA">
         <div class="container">
-            <div class="row">
-                <div class="col-12 col-lg-6">
-                    <div class="invest-cta">
-                        <div class="row">
-                            <div class="col-12 col-md-5">
-                                <a href="{{ route('front.investment.show', ['slug' => 'abrahama-14']) }}">
-                                    <picture>
-                                        <source type="image/webp" srcset="{{asset('/uploads/box/project-abrahama.webp') }}">
-                                        <source type="image/jpeg" srcset="{{asset('/uploads/box/project-abrahama.jpg') }}">
-                                        <img src="{{asset('/uploads/box/project-abrahama.jpg') }}" alt="Zdjecie biura sprzedaży" width="600" height="493">
-                                    </picture>
-                                </a>
-                            </div>
-                            <div class="col-12 col-md-7 d-flex align-items-center justify-content-center">
-                                <div class="invest-cta-text ps-4 pe-5 w-100">
-                                    <h2><a href="{{ route('front.investment.show', ['slug' => 'abrahama-14']) }}">Abrahama</a></h2>
-                                    <ul class="mb-0 list-unstyled mt-4">
-                                        <li>
-                                            Oddanie inwestycji: <span class="float-end">Q4 2024</span>
-                                        </li>
-                                        <li>
-                                            DOSTĘPNYCH MIESZKAŃ: <span class="float-end">67</span>
-                                        </li>
-                                    </ul>
-                                    <a href="{{ route('front.investment.show', ['slug' => 'abrahama-14']) }}" class="bttn bttn-sm mt-4">ZOBACZ INWESTYCJE</a>
+            <div class="row left-right">
+                <div class="col-6 d-flex align-items-center">
+                    <div class="left-right-text">
+                        <h2>Społecznie odpowiedzialni</h2>
+                        <p>Od wielu lat angażujemy się również w życie Polaków w ramach społecznej odpowiedzialności biznesu. Jesteśmy m.in. ambasadorem Fundacji „Przyszłość dla Dzieci”, opiekującej się ponad 400 dziećmi z całego regionu. Ippon Group jest ponadto jednym z Najbardziej Hojnych Darczyńców Wielkiej Orkiestry Świątecznej Pomocy, mogącym pochwalić się podsiadaniem wielu Złotych Serduszek.</p>
+                        <p>&nbsp;</p>
+                        <p>Na wsparcie mogą również liczyć szpitale i Domy Pomocy Społecznej. Ippon przekazał szpitalom darowizny, które umożliwiają większe możliwości badań specjalistycznych i opieki nad pacjentami wyposażając szpitale w sprzęt zwiększający komfort pacjentów.</p>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <img src="https://ipponnew.test/images/inline/pracuj-z-najlepszymi.jpg" alt="" class="golden-border" width="840" height="650">
+                </div>
+            </div>
+
+            <div class="row left-right flex-row-reverse row-offset-up">
+                <div class="col-6 d-flex align-items-center">
+                    <div class="left-right-text">
+                        <h2>Projekty komercyjne</h2>
+                        <p>Firma Ippon Group, to nie tylko deweloper mieszkaniowy. W swoim portfolio posiada także obiekty handlowe oraz punkty street mall . Takie obiekty znajdują się już m.in. w : Olsztynie, Koszalinie, Bydgoszczy, Mrągowie i innych miejscowościach. Priorytetem spółki jest jej dalszy rozwój. Również aktywnie rozbudowujemy bank ziemi pod nowe inwestycje oraz dynamicznie rozszerzamy działalność parków handlowych.</p>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <img src="https://ipponnew.test/images/inline/kariera-poznajmy-sie.jpg" alt="" class="golden-border">
+                </div>
+            </div>
+        </div>
+
+        <div class="inwestycja-lokalizacja mt-5 pt-5">
+            <div class="paralaxa" style="background: url('https://www.ippon.group/files/upload/o-nas-paralaxa.jpg') no-repeat center fixed;background-size: cover"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="container paralaxa-bottom paralaxa-bottom-more inline pt-5">
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <img src="https://www.ippon.group/public/gfx/template/deweloper-roku-2022.jpg" alt="Deweloper godny zaufania" class="d-block m-auto">
+                                    <h2 class="section-title text-uppercase mt-5"><span class="text-gold">Deweloper </span> <br>godny zaufania</h2>
+                                </div>
+
+                                <div class="col-12 text-center col-mobile" data-modaleditortext="16">
+                                    <p>Gwarancją jakości naszych realizacji jest współpraca z najlepszymi architektami i generalnymi wykonawcami, którzy sprostają oczekiwaniom naszym i naszych klientów. Tworzymy niezwykłe projekty z zachowaniem zasad funkcjonalności i wykorzystania naturalnego światła. Doskonale koordynujemy projekty czego efektem jest oddanie naszych inwestycji w terminie.</p>
+                                    <p>&nbsp;</p>
+                                    <p>Z każdym rokiem liczba naszych inwestycji rośnie, a wraz z nią zwiększa się liczba zadowolonych klientów. Naszą wizytówką jest wybudowane i oddane do użytkowania Osiedle Aurora w Olsztynie. Oprócz osiedli mieszkaniowych realizujemy projekty komercyjne. Nasze budynki znajdują się na terenie całego kraju.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-lg-6 mt-4 mt-lg-0">
-                    <div class="invest-cta">
-                        <div class="row">
-                            <div class="col-12 col-md-5">
-                                <a href="{{ route('front.investment.show', ['slug' => 'radarowa']) }}">
-                                    <picture>
-                                        <source type="image/webp" srcset="{{asset('/uploads/box/project-radarowa.webp') }}">
-                                        <source type="image/jpeg" srcset="{{asset('/uploads/box/project-radarowa.jpg') }}">
-                                        <img src="{{asset('/uploads/box/project-radarowa.jpg') }}" alt="Zdjęcie inwestycji Radarowa" width="600" height="493">
-                                    </picture>
-                                </a>
-                            </div>
-                            <div class="col-12 col-md-7 d-flex align-items-center justify-content-center">
-                                <div class="invest-cta-text ps-4 pe-5 w-100">
-                                    <h2><a href="{{ route('front.investment.show', ['slug' => 'radarowa']) }}">Budynek mieszkalny z lokalami usługami przy ul. Radarowej</a></h2>
-                                    <ul class="mb-0 list-unstyled mt-4">
-                                        <li>INWESTYCJA W PRZYGOTOWANIU.</li>
-                                    </ul>
-                                    <a href="{{ route('front.investment.show', ['slug' => 'radarowa']) }}" class="bttn bttn-sm mt-4">DOWIEDZ SIĘ WIĘCEJ</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
-    </section>
 
-    <section id="contact">
-        <div class="container">
+
+        <div class="container mt-5 pt-5">
             <div class="row">
+                <div class="col-12 text-center">
+                    <h2 class="section-title text-uppercase"><span class="text-gold">Budujemy </span> <br>zaufanie</h2>
+                </div>
+            </div>
+            <div class="row justify-content-center">
                 <div class="col-12">
-                    <div class="section-title text-center">
-                        <span>KONTAKT Z NAMI</span>
-                        <h2>MASZ PYTANIA? NAPISZ DO NAS!</h2>
+                    <img src="https://www.ippon.group/files/upload/wykres_pl.png" alt="" class="m-auto">
+                </div>
+                <div class="col-6">
+                    <div class="p-5 pt-0">
+                        <p>W naszym działaniu wykorzystujemy model zintegrowanego biznesu, na który składają się różne etapy procesu inwestycyjnego: od zarządzania nieruchomościami, po zakup gruntu, projektowanie i budowę nieruchomości, na wynajmie i sprzedaży powierzchni kończąc. Realizujemy inwestycje wykonane według własnych projektów, gdzie czynnikiem decydującym jest aktualne zapotrzebowanie rynku i dostosowanie projektów do wymagań naszych klientów.</p>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="p-5 pt-0">
+                        <p>Każdy z wymienionych wyżej etapów przebiega w ściśle określony i ustandaryzowany sposób, co pozwala nam przewidzieć ewentualne wyzwania i zareagować w najkrótszym możliwym czasie. Stawiamy sobie jasny cel: zbudowanie wiodącej marki w branży deweloperskiej, kojarzonej z jakością, prestiżem i oryginalnością. Mamy świadomość wpływu naszej pracy na kreowanie przestrzeni miejskiej. Dlatego tak ważna jest dla nas wysoka jakość inwestycji.</p>
                     </div>
                 </div>
             </div>
-            <div class="row row-apla">
-                <div class="col-12 col-md-6">
-                    <div class="contact-text">
-                        <img src="/images/logo-sg.png" alt="">
-                        <p>&nbsp;</p>
-                        <p>&nbsp;</p>
-                        <h2>Siedziba firmy</h2>
-                        <p>tel. <a href="tel:+48605433401">+48 605 433 401</a></p>
-                        <p>ul. Śliska 3 lok. 1B</p>
-                        <p>00-127 Warszawa</p>
-                        <p>&nbsp;</p>
-                        <h2>Kontakt do Biura Sprzedaży</h2>
-                        <p>tel. <a href="tel:+48607823400">+48 607 823 400</a></p>
-                        <p>e-mail: <a href="mailto:kontakt@sgdevelopment.pl">kontakt@sgdevelopment.pl</a></p>
-                        <p>Biuro sprzedaży bezpośrednio przy inwestycji ul. Abrahama 14</p>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 mt-5 mt-md-0">
-                    <form method="post" id="homepage-form" action="{{ route('contact.index') }}" class="validateForm">
-                        {{ csrf_field() }}
-                        <div class="row">
-                            <div class="col-12 col-sm-6 col-xl-4 form-input">
-                                <label for="form_name">Imię <span class="text-danger">*</span></label>
-                                <input name="form_name" id="form_name" class="validate[required] form-control @error('form_name') is-invalid @enderror" type="text" value="{{ old('form_name') }}">
-
-                                @error('name')
-                                <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
-                                @enderror
-                            </div>
-                            <div class="col-12 col-sm-6 col-xl-4 form-input col-input-important">
-                                <label for="form_surname">Nazwisko <span class="text-danger">*</span></label>
-                                <input name="form_surname" id="form_surname" class="form-control" type="text" value="{{ old('form_surname') }}">
-                            </div>
-                            <div class="col-12 col-sm-6 col-xl-4 form-input">
-                                <label for="form_email">E-mail <span class="text-danger">*</span></label>
-                                <input name="form_email" id="form_email" class="validate[required] form-control @error('form_email') is-invalid @enderror" type="text" value="{{ old('form_email') }}">
-
-                                @error('email')
-                                <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
-                                @enderror
-                            </div>
-                            <div class="col-12 col-xl-4 form-input">
-                                <label for="form_phone">Telefon <span class="text-danger">*</span></label>
-                                <input name="form_phone" id="form_phone" class="validate[required] form-control @error('form_phone') is-invalid @enderror" type="text" value="{{ old('form_phone') }}">
-
-                                @error('phone')
-                                <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
-                                @enderror
-                            </div>
-                            <div class="col-12 mt-1 form-input">
-                                <label for="form_message">Treść wiadomości <span class="text-danger">*</span></label>
-                                <textarea rows="5" cols="1" name="form_message" id="form_message" class="validate[required] form-control @error('form_message') is-invalid @enderror">{{ old('form_message') }}</textarea>
-
-                                @error('message')
-                                <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                                @enderror
-                            </div>
-                            <div class="rodo-rules">
-                                @foreach ($rules as $r)
-                                    <div class="col-12">
-                                        <div class="rodo-rule clearfix">
-                                            <input name="rule_{{$r->id}}" id="rule_{{$r->id}}" value="1" type="checkbox" @if($r->required === 1) class="validate[required]" @endif data-prompt-position="topLeft:0">
-                                            <label for="zgoda_{{$r->id}}" class="rules-text">{!! $r->text !!}</label>
-                                        </div>
-                                    </div>
-                                @endforeach
-                            </div>
-                        </div>
-                        <div class="row row-form-submit">
-                            <div class="col-12 pt-3">
-                                <div class="input text-center">
-                                    <input name="form_page" type="hidden" value="homepage">
-                                    <button class="bttn" type="submit">WYŚLIJ WIADOMOŚĆ</button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
+            <div class="row">
+                <div class="col-12 pt-5 pb-5 mb-5 text-center">
+                    [ Karuzela nagród ]
                 </div>
             </div>
         </div>
+
     </section>
 @endsection
-@push('scripts')
-    <script type="text/javascript">
 
-    </script>
-@endpush

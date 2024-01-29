@@ -24,6 +24,9 @@ Route::middleware(['restrictIp'])->group(function () {
 Route::group(['namespace' => 'Front', 'prefix' => '{locale?}', 'where' => ['locale' => '(?!admin)*[a-z]{2}'],], function() {
     Route::get('/', 'IndexController@index')->name('index');
 
+    Route::get('o-nas',
+        'AboutController@index')->name('about');
+
     Route::get('kariera',
         'CareerController@index')->name('career');
 

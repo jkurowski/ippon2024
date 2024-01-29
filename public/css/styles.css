@@ -1578,6 +1578,9 @@ section#contact-form {
 .paralaxa-bottom h2 {
   margin-bottom: 30px;
 }
+.paralaxa-bottom.paralaxa-bottom {
+  margin-top: -140px;
+}
 .inwestycja-atut {
   text-align: center;
   margin-bottom: 90px;
@@ -1918,13 +1921,13 @@ section#contact-form {
   margin-bottom: 30px;
 }
 .left-right-text {
-  padding: 0 100px 80px;
+  padding: 0 30px 80px;
 }
 .left-right-text h2 {
   margin-bottom: 30px;
 }
 .left-right.row-offset-up .left-right-text {
-  padding: 80px 100px 0;
+  padding: 0 30px;
 }
 .osoba .osoba-img {
   -ms-flex: 0 0 310px;
