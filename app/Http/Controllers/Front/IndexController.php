@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Models\Award;
 use App\Models\Investment;
 use App\Models\News;
 use App\Models\Review;
@@ -26,6 +27,7 @@ class IndexController extends Controller
 
         $investments_soon = Investment::whereStatus(4)->get();
         $investments_planned = Investment::whereStatus(3)->get();
+        $awards = Award::all();
         $reviews = Review::all();
 
         $news = News::where('status', 1)->orderBy('date', 'DESC')->limit(5)->get();
@@ -50,10 +52,10 @@ class IndexController extends Controller
             'sliders',
             'popup',
             'news',
+            'awards',
             'investments_soon',
             'investments_planned',
             'reviews'
         ));
     }
-
 }

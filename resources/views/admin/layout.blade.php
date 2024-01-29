@@ -107,6 +107,12 @@
                                     <span class="bullet bullet-dot"></span>
                                 </span> Opinie</a>
                         </li>
+                        <li {{ Request::routeIs('admin.awards.*') ? 'class=active' : '' }}>
+                            <a href="{{ route('admin.awards.index') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span> Nagrody</a>
+                        </li>
                         <li class="d-none">
                             <a href="">
                                 <span class="menu-bullet">

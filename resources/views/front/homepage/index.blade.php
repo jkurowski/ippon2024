@@ -303,6 +303,18 @@
             </div>
         </div>
     </div>
+
+    <div id="awardsCarousel" class="container-fluid">
+        <div class="row">
+            @foreach($awards as $award)
+                <div class="col-3">
+                    <img src="{{asset('/uploads/awards/'.$award->file) }}" alt="">
+                    <h3>{{ $award->name }}</h3>
+                    {!! $award->text !!}
+                </div>
+            @endforeach
+        </div>
+    </div>
 </section>
 
 <section>

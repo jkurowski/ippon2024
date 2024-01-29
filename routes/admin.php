@@ -20,6 +20,7 @@ Route::group([
     Route::post('rent/set', 'Rent\IndexController@sort')->name('rent.sort');
     Route::post('city/set', 'City\IndexController@sort')->name('city.sort');
     Route::post('job/set', 'Job\IndexController@sort')->name('job.sort');
+    Route::post('awards/set', 'Awards\IndexController@sort')->name('awards.sort');
 
     //Route::get('article/import', 'Article\IndexController@import')->name('article.import');
     //Route::get('news/import', 'News\IndexController@import')->name('news.import');
@@ -45,7 +46,8 @@ Route::group([
         'rent'=> 'Rent\IndexController',
         'city'=> 'City\IndexController',
         'job'=> 'Job\IndexController',
-        'review' => 'Review\IndexController'
+        'review' => 'Review\IndexController',
+        'awards' => 'Awards\IndexController',
     ]);
 
     // Settings
