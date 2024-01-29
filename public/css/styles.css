@@ -2323,6 +2323,10 @@ section#contact-form {
 #photos-list {
   margin: 35px 0;
 }
+#textSlider {
+  padding-left: 0;
+  padding-right: 0;
+}
 /* Swipebox
 ================================================== */
 html.swipebox-html.swipebox-touch {
