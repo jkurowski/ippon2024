@@ -27,7 +27,7 @@ class IndexController extends Controller
 
         $investments_soon = Investment::whereStatus(4)->get();
         $investments_planned = Investment::whereStatus(3)->get();
-        $awards = Award::all();
+        $awards = Award::orderBy('sort')->get();
         $reviews = Review::all();
 
         $news = News::where('status', 1)->orderBy('date', 'DESC')->limit(5)->get();
