@@ -2218,6 +2218,20 @@ section#contact-form {
 #awardsCarousel .slick-slide.slick-current .award {
   border: 1px solid #BA8B41;
 }
+#awardsCarousel .slick-arrow {
+  font-size: 50px;
+  color: #BA8B41;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  left: 50px;
+  z-index: 30;
+}
+#awardsCarousel .slick-arrow.slick-next {
+  right: 50px;
+  left: auto;
+}
 .award {
   text-align: center;
   padding: 50px 30px;

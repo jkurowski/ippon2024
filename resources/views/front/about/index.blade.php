@@ -63,7 +63,7 @@
 
         </div>
 
-        <div class="container mt-5 pt-5">
+        <div class="container mt-5 pt-5 mb-5 pb-5">
             <div class="row">
                 <div class="col-12 text-center">
                     <h2 class="section-title text-uppercase"><span class="text-gold">Nagrody </span> <br>i wyróżnienia</h2>
@@ -74,10 +74,19 @@
                     <p>Nasza praca i realizowane projekty doceniane są w ogólnopolskich konkursach i zestawieniach. Zdobyliśmy tytuł Lidera Nieruchomości OtoDom 2022 oraz znaleźliśmy się w czołówce Ogólnopolskiego Rankingu Najlepszych Deweloperów Mieszkaniowych, opublikowanym w „Dzienniku Gazecie Prawnej”. Czterokrotnie zostaliśmy nagrodzeni tytułem Deweloper Roku 2023 oraz w latach 2022,2021,2020.</p>
                 </div>
             </div>
+        </div>
+
+        <div id="awardsCarousel" class="container-fluid mt-5 pt-4">
             <div class="row">
-                <div class="col-12 pt-5 pb-5 mb-5 text-center">
-                    [ Karuzela nagród ]
-                </div>
+                @foreach($awards as $award)
+                    <div class="col-4">
+                        <div class="award">
+                            <img src="{{asset('/uploads/awards/'.$award->file) }}" alt="">
+                            <h3>{{ $award->name }}</h3>
+                            {!! $award->text !!}
+                        </div>
+                    </div>
+                @endforeach
             </div>
         </div>
 
@@ -158,4 +167,21 @@
         </div>
     </section>
 @endsection
+@push('scripts')
+    <script src="{{ asset('js/slick.js') }}" charset="utf-8"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#awardsCarousel .row').slick({
+                infinite: true,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                centerMode: true,
+                centerPadding: '80px',
+                arrows: true,
+                dots: false
+            });
+
+        });
+    </script>
+@endpush
 
