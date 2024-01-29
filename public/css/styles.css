@@ -2318,6 +2318,11 @@ section#contact-form {
 .list-post h2 a {
   color: #b1844c;
 }
+/* Text gallery
+================================================== */
+#photos-list {
+  margin: 35px 0;
+}
 /* Swipebox
 ================================================== */
 html.swipebox-html.swipebox-touch {
