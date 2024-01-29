@@ -2188,6 +2188,27 @@ section#contact-form {
 #mainNews .bttn-link:hover {
   color: #ba8b41;
 }
+/* Awards
+================================================== */
+.award {
+  border: 1px solid #BA8B41;
+  text-align: center;
+  padding: 50px 30px;
+}
+.award img {
+  margin: 0 auto 35px;
+}
+.award h3 {
+  font-size: 20px;
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  font-style: normal;
+}
+.award p {
+  font-size: 18px;
+  line-height: 30px;
+}
 /* Inwestycja Slow
 ================================================== */
 /* Timeline

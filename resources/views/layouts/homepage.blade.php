@@ -80,6 +80,16 @@
             initialSlide: 1,
         });
 
+        $('#awardsCarousel .row').slick({
+            infinite: true,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            centerMode: true,
+            centerPadding: '80px',
+            arrows: false,
+            dots: true
+        });
+
         $('#reviewCarousel .row').slick({
             infinite: true,
             slidesToShow: 3,

@@ -34,10 +34,10 @@
                                 </div>
                             </div>
 
-                            <div id="lang">
+                            <div id="lang" class="d-none">
                                 <ul class="mb-0 list-unstyled d-flex">
                                     <li><a href=""><img src="{{ asset('/images/flag-en.png') }}" alt=""></a></li>
-                                    <li class="d-none"><a href=""><img src="{{ asset('/images/flag-de.png') }}" alt=""></a></li>
+                                    <li><a href=""><img src="{{ asset('/images/flag-de.png') }}" alt=""></a></li>
                                 </ul>
                             </div>
                         </div>
