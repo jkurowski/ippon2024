@@ -50,7 +50,7 @@
                                     <ul class="mb-0 list-unstyled subnav">
                                         <li><a href="">O nas</a></li>
                                         <li><a href="{{ url($current_locale.'/zarzad') }}">Zarząd</a></li>
-                                        <li><a href="{{ route('front.news.index') }}">Aktualności</a></li>
+                                        <li><a href="{{ route('front.articles.index') }}">Aktualności</a></li>
                                         <li><a href="{{ route('career') }}">Kariera</a></li>
                                     </ul>
                                 </li>
