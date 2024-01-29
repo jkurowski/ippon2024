@@ -26,7 +26,7 @@
                     <h4>{{ floorLevel($floor->number, false) }}</h4>
                     <ul class="mb-0 list-unstyled mt-4">
                         <li>Budynek: <span>B4.1</span></li>
-                        <li>Piętro: <span>{{ $floor->number }}</span></li>
+                        <li>Piętro: <span> @if($floor->number == 0) parter @else {{ $floor->number }} @endif</span></li>
                         <li>Pokoje: <span>{{ $property->rooms }}</span></li>
                         <li>Powierzchnia: <span>{{ $property->area }} m<sup>2</sup></span></li>
                         <li>Aneks/Kuchnia: <span>{{ kitchenType($property->kitchen_type) }}</span></li>
