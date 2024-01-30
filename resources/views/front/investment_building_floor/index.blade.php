@@ -1,21 +1,40 @@
-@extends('layouts.page', ['body_class' => 'investments'])
-@section('meta_title', $investment->name .' - '.$investment->floor->name)
+@extends('layouts.page', ['body_class' => 'investment-contact'])
+
+@section('meta_title', $page->title)
+@section('seo_title', $page->meta_title)
+@section('seo_description', $page->meta_description)
+
+@section('pageheader')
+    @include('layouts.partials.developro-header', [
+    'investmentName' => $investment->name,
+    'investmentSlug' => $investment->slug,
+    'investmentPages' => $investment->pages,
+    'investmentLogo' => $investment->file_logo,
+    'investmentHeader' => $investment->file_header,
+    'header_file' => 'zrealizowane.jpg'
+    ])
+@stop
 
 @section('content')
     <div class="container">
-        <div class="row border-bottom pb-3 mb-3">
+        <div class="row justify-content-center text-center">
             <div class="col-8">
-                <h1>{{$investment->name}} - {{$investment->building->name}} - {{$investment->floor->name}}</h1>
-            </div>
-            <div class="col-4 text-right">
-                <a href="#" class="bttn bttn-right"><i class="las la-arrow-left"></i> Wróć do listy</a>
+                <h1 class="mb-5">{{$investment->name}} - {{$investment->building->name}} - {{$investment->floor->name}}</h1>
             </div>
         </div>
 
         <div class="row pb-4">
-            <div class="col-4">@if($prev_floor) <a href="#" class="bttn bttn-right"><i class="las la-arrow-left"></i> {{$prev_floor->name}}</a> @endif</div>
-            <div class="col-4"></div>
-            <div class="col-4 text-right">@if($next_floor) <a href="#" class="bttn">{{$next_floor->name}} <i class="las la-arrow-right"></i></a> @endif</div>
+            <div class="col-4">
+                @if($prev_floor)
+                    <a href="{{route('developro.floor', [$investment->slug, $prev_floor, Str::slug($prev_floor->name)])}}" class="bttn bttn-icon"><i class="las la-arrow-left me-5"></i>{{$prev_floor->name}}</a>
+                @endif
+            </div>
+            <div class="col-4 d-flex justify-content-center"><a href="{{ route('developro.investment.plan', $investment->slug) }}" class="bttn ps-5 pe-5">Plan budynku</a></div>
+            <div class="col-4 text-end">
+                @if($next_floor)
+                    <a href="{{route('developro.floor', [$investment->slug, $next_floor, Str::slug($next_floor->name)])}}" class="bttn bttn-icon">{{$next_floor->name}} <i class="ms-5 las la-arrow-right"></i></a>
+                @endif
+            </div>
         </div>
 
         <div class="row">
