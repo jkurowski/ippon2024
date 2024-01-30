@@ -1499,7 +1499,7 @@ section {
   padding: 3rem 0 !important;
 }
 section#contact-form {
-  padding: 90px 0 !important;
+  padding: 0 0 90px !important;
   background: url("../images/contact-form-bg.jpg") no-repeat top center;
   background-size: cover;
 }

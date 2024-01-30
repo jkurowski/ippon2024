@@ -72,5 +72,13 @@
         </div>
     </div>
 
-    @include('front.contact.form')
+    <div class="container pt-5 mt-5">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="section-title text-uppercase"><span class="text-gold">Masz pytania?</span> <br>Napisz do nas!</h2>
+            </div>
+        </div>
+    </div>
+
+    @include('front.contact.form', [ 'page_name' => 'Kontakt'])
 @endsection

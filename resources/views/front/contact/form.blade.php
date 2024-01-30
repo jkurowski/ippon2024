@@ -1,12 +1,5 @@
 <section id="contact-form">
     <div class="container">
-
-        <div class="row">
-            <div class="col-12 text-center">
-                <h2 class="section-title text-uppercase"><span class="text-gold">Masz pytania?</span> <br>Napisz do nas!</h2>
-            </div>
-        </div>
-
         <div class="row d-flex justify-content-center mt-5">
             <div class="col-12">
                 @if (session('success'))
@@ -82,7 +75,7 @@
                         </div>
                         <div class="col-4 d-flex justify-content-end align-items-end">
                             <div class="form-submit">
-                                <input name="form_page" type="hidden" value="homepage">
+                                <input name="form_page" type="hidden" value="{{ $page_name }}">
                                 <script type="text/javascript">
                                     document.write("<button class=\"bttn bttn-icon\" type=\"submit\">WYŚLIJ WIADOMOŚĆ <i class=\"ms-5 las la-chevron-circle-right\"></i></button>");
                                 </script>

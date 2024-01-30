@@ -26,6 +26,7 @@ class InvestPageFormRequest extends FormRequest
         return [
             'investment_id' => 'integer',
             'active' => 'boolean',
+            'contact_form' => 'boolean',
             'title' => 'required|string|min:2|max:190',
             'content' => 'required|string|min:5',
             'meta_title' => '',

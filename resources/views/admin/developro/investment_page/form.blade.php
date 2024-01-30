@@ -24,6 +24,11 @@
                                 <div class="row w-100 form-group">
                                     @include('form-elements.html-select', ['label' => 'Status', 'name' => 'active', 'selected' => $entry->active, 'select' => ['1' => 'Pokaż na liście', '0' => 'Ukryj na liście']])
                                 </div>
+
+                                <div class="row w-100 form-group">
+                                    @include('form-elements.html-select', ['label' => 'Formularz kontaktowy', 'name' => 'contact_form', 'selected' => $entry->contact_form, 'select' => ['0' => 'Nie', '1' => 'Tak']])
+                                </div>
+
                                 <div class="row w-100 form-group">
                                     @include('form-elements.html-input-text', ['label' => 'Tytuł strony', 'name' => 'title', 'value' => $entry->title, 'required' => 1])
                                 </div>

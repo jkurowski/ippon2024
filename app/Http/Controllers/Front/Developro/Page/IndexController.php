@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Front\Developro\Page;
 
 use App\Http\Controllers\Controller;
 use App\Models\Page;
+use App\Models\RodoRules;
+use App\Models\RodoSettings;
 use App\Repositories\InvestmentRepository;
 
 class IndexController extends Controller
@@ -26,7 +28,9 @@ class IndexController extends Controller
         return view('front.developro.page.index', [
             'investment' => $investment,
             'page' => $menu_page,
-            'investment_page' => $investmentPage
+            'investment_page' => $investmentPage,
+            'obligation' => RodoSettings::find(1),
+            'rules' => RodoRules::orderBy('sort')->whereStatus(1)->get()
         ]);
     }
 }

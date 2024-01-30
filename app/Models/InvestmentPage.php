@@ -21,6 +21,7 @@ class InvestmentPage extends Model
         'meta_robots',
         'sort',
         'active',
+        'contact_form',
         'cta_text',
         'cta_button',
         'cta_link'
