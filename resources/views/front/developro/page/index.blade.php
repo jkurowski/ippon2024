@@ -26,7 +26,7 @@
         </div>
 
     @if($investment_page->contact_form)
-            <div class="container">
+            <div class="container mt-5 pt-5">
                 <div class="row">
                     <div class="col-12 text-center">
                         <h2>Masz pytania? Napisz do nas!</h2>
