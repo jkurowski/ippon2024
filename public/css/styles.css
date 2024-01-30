@@ -2151,7 +2151,7 @@ section#contact-form {
 }
 #mainNews .article-thumb a:after {
   position: absolute;
-  top: 0;
+  top: calc(100% - 90px);
   bottom: 0;
   left: 0;
   right: 0;
