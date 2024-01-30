@@ -145,7 +145,8 @@ class Investment extends Model
             'building_id',
             'id',
             'id'
-        );
+        )->join('floors', 'properties.floor_id', '=', 'floors.id')
+            ->select('properties.*', 'floors.number as floor_number');
     }
 
     /**

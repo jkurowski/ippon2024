@@ -92,7 +92,7 @@ Route::group(['namespace' => 'Front', 'prefix' => '{locale?}', 'where' => ['loca
         Route::get('/{slug}/aktualnosci', 'Article\IndexController@index')->name('investment.news');
         Route::get('/{slug}/aktualnosci/{article}', 'Article\IndexController@show')->name('investment.news.show');
 
-        Route::get('/{slug}/pietro/{floor}', 'InvestmentFloorController@index')->name('floor');
+        Route::get('/{slug}/pietro/{floor},{floorSlug}', 'InvestmentBuildingFloorController@index')->name('floor');
         Route::get('/{slug}/{property},{propertySlug},{propertyFloor},{propertyRooms},{propertyArea}', 'InvestmentPropertyController@index')->name('property');
 
         Route::get('/{slug}/{page}', 'Page\IndexController@index')->name('investment.page');

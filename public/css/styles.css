@@ -934,9 +934,6 @@ div[class*='col-'].slick-slide {
   margin-left: -20px;
   z-index: 10;
 }
-#plan {
-  padding: 40px;
-}
 #plan-holder {
   padding: 15px;
 }

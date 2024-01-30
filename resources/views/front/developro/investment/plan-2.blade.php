@@ -18,29 +18,24 @@
 @section('content')
     <div id="page-content">
         <div class="container">
-            <div class="row">
-                <div class="col-12">
+            <div class="row justify-content-center">
+                <div class="col-10">
                     {!! $investment_page->content !!}
                 </div>
+            </div>
+            <div class="row">
                 <div class="col-12 mt-5">
-                    @if($investment->plan)
-                        <div id="plan-holder">
-                            <div class="plan-holder-info">Z planu budynku wybierz piętro lub <a href="#filtr" class="scroll-link" data-offset="90"><b>użyj wyszukiwarki</b></a></div>
-                            <img src="{{ asset('/investment/plan/'.$investment->plan->file) }}" alt="{{$investment->name}}" id="invesmentplan" usemap="#invesmentplan">
+                    @if($building->file)
+                        <div id="plan">
+                            <div id="plan-holder"><img src="{{ asset('/investment/building/'.$building->file.'') }}" alt="{{$building->name}}" id="invesmentplan" usemap="#invesmentplan"></div>
                             <map name="invesmentplan">
-                                @foreach($investment->floors as $floor)
-                                    @if($floor->html)
-                                        <area
-                                                shape="poly"
-                                                href="#"
-                                                title="{{$floor->name}}"
-                                                alt="floor-{{$floor->id}}"
-                                                data-item="{{$floor->id}}"
-                                                data-floornumber="{{$floor->id}}"
-                                                data-floortype="{{$floor->type}}"
-                                                coords="{{cords($floor->html)}}">
-                                    @endif
-                                @endforeach
+                                <map name="invesmentplan">
+                                    @foreach($investment->buildingFloors as $floor)
+                                        @if($floor->html)
+                                            <area shape="poly" href="{{route('developro.floor', [$investment->slug, $floor, Str::slug($floor->name)])}}" data-item="{{$floor->id}}" title="{{$floor->name}}" alt="floor-{{$floor->id}}" data-floornumber="{{$floor->id}}" data-floortype="{{$floor->type}}" coords="{{cords($floor->html)}}">
+                                        @endif
+                                    @endforeach
+                                </map>
                             </map>
                         </div>
                     @endif

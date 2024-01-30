@@ -18,8 +18,10 @@
 @section('content')
     <div id="page-content" class="invest-{{ $investment->slug }}">
         <div class="container">
-            <div class="col-12">
-                {!! $investment->content !!}
+            <div class="row">
+                <div class="col-12">
+                    {!! $investment->content !!}
+                </div>
             </div>
         </div>
         <div id="cta">

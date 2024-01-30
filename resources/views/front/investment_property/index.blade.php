@@ -71,13 +71,13 @@
             <div class="col-12 col-xl-5">
                 <div id="propertyNav" class="row">
                     <div class="col-12 col-sm-4">
-                        @if($prev) <a href="{{route('front.investment.property.index', [$investment->slug, $floor, $prev->id])}}" class="bttn">Poprzednie</a>@endif
+                        @if($prev) <a href="#" class="bttn">Poprzednie</a>@endif
                     </div>
                     <div class="col-12 col-sm-4">
-                        <a href="{{route('developro.floor', [$investment->slug, $floor])}}" class="bttn">Plan piętra</a>
+                        <a href="#" class="bttn">Plan piętra</a>
                     </div>
                     <div class="col-12 col-sm-4">
-                        @if($next) <a href="{{route('front.investment.property.index', [$investment->slug, $floor, $next->id])}}" class="bttn">Następne</a>@endif
+                        @if($next) <a href="#" class="bttn">Następne</a>@endif
                     </div>
                 </div>
                 <div class="property-desc">

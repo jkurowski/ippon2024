@@ -1,16 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\Front\Developro\Plan;
+namespace App\Http\Controllers\Front\Developro;
 
 use App\Http\Controllers\Controller;
+
+use App\Models\Investment;
 use App\Models\Building;
+use App\Models\Floor;
 use App\Models\Page;
-use App\Models\RodoRules;
-use App\Models\RodoSettings;
 use App\Repositories\InvestmentRepository;
 use Illuminate\Http\Request;
 
-class IndexController extends Controller
+class InvestmentBuildingFloorController extends Controller
 {
     private InvestmentRepository $repository;
     private int $pageId;
@@ -21,15 +22,17 @@ class IndexController extends Controller
         $this->pageId = 11;
     }
 
-    public function index($language, $slug, Request $request)
+    public function index($language, $slug, Floor $floor, $floorSlug, Request $request)
     {
-        $investment = $this->repository->findBySlug($slug);
+        $investment = Investment::where('slug', '=', $slug)->firstOrFail();
         $building = Building::find(1);
 
         $investment_room = $investment->load(array(
-            'buildingRooms' => function($query) use ($building, $request)
+            'buildingRooms' => function($query) use ($building, $floor, $request)
             {
+                $query->where('properties.floor_id', $floor->id);
                 $query->where('properties.building_id', $building->id);
+
                 if ($request->input('rooms')) {
                     $query->where('rooms', $request->input('rooms'));
                 }
@@ -43,22 +46,28 @@ class IndexController extends Controller
                     $query->orderBy($column, $direction);
                 }
             },
-            'buildingFloors' => function($query) use ($building)
+            'building' => function($query) use ($building)
             {
-                $query->where('building_id', $building->id);
+                $query->where('id', $building->id);
+            },
+            'floor' => function($query) use ($floor)
+            {
+                $query->where('id', $floor->id);
             }
         ));
 
         $menu_page = Page::where('id', $this->pageId)->first();
         $investmentPage = $investment->investmentPage()->where('slug', 'mieszkania')->first();
 
-        return view('front.developro.investment.plan-2', [
-            'investment' => $investment,
-            'building' => $building,
+        return view('front.investment_building_floor.index', [
+            'investment' => $investment_room,
             'properties' => $investment->buildingRooms,
+            'next_floor' => $floor->findNext($investment->id, $building->id, $floor->id),
+            'prev_floor' => $floor->findPrev($investment->id, $building->id, $floor->id),
+            'uniqueRooms' => $this->repository->getUniqueRooms($investment_room->properties),
             'investment_page' => $investmentPage,
-            'page' => $menu_page,
-            'uniqueRooms' => $this->repository->getUniqueRooms($investment_room->properties)
+            'page' => $menu_page
         ]);
     }
+
 }
