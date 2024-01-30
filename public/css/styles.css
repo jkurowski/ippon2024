@@ -272,6 +272,9 @@ iframe {
   display: block;
   border: 0;
 }
+.font-style-normal {
+  font-style: normal !important;
+}
 .navbar {
   justify-content: flex-end;
   padding: 0;
@@ -2254,6 +2257,20 @@ section#contact-form {
 }
 /* Inwestycja Slow
 ================================================== */
+.invest-osiedle-slow .slow-icon {
+  flex: 0 0 auto;
+  width: 20%;
+}
+.invest-osiedle-slow .slow-icon img {
+  margin: 40px auto;
+}
+.invest-osiedle-slow .slow-icon h4 {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-size: 20px;
+  font-weight: 500;
+}
 /* Timeline
 ================================================== */
 #timeline {
