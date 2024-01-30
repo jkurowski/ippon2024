@@ -39,6 +39,7 @@
                                         </div>
                                     </div>
                                     <div class="col-6">
+                                        @if($room->additional)
                                         @php
                                             $atutyArray = json_decode($room->additional);
                                         @endphp
@@ -50,6 +51,7 @@
                                                 @endif
                                             @endfor
                                         </div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
