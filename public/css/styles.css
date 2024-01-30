@@ -191,6 +191,44 @@ button {
 }
 /* Fonty
 ================================================== */
+@font-face {
+  font-family: 'Rostemary';
+  src: url(../fonts/Rostemary.woff) format("woff"), url(../fonts/Rostemary.ttf) format("truetype");
+}
+.rostemary {
+  font-family: 'Rostemary', serif !important;
+  font-size: 70px;
+  font-style: normal;
+  line-height: normal;
+  position: relative;
+  color: #433F20;
+}
+.rostemary.brown {
+  color: #A9542B;
+}
+.rostemary span {
+  background: white;
+  position: relative;
+}
+.rostemary span:after,
+.rostemary span:before {
+  content: "";
+  position: absolute;
+  width: 200px;
+  background: #A9542B;
+  height: 2px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.rostemary span:after {
+  right: -240px;
+  left: auto;
+}
+.rostemary span:before {
+  left: -240px;
+  right: auto;
+}
 /* Nadpisz Bootstrap
 ================================================== */
 body {
@@ -1498,7 +1536,7 @@ div[class*='col-'].slick-slide {
 section {
   padding: 3rem 0 !important;
 }
-section#contact-form {
+#contactForm {
   padding: 0 0 90px !important;
   background: url("../images/contact-form-bg.jpg") no-repeat top center;
   background-size: cover;
