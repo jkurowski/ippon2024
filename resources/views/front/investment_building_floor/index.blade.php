@@ -24,11 +24,24 @@
                     <div id="plan">
                         <div id="plan-holder"><img src="{{ asset('/investment/floor/'.$investment->floor->file.'') }}" alt="{{$investment->floor->name}}" id="invesmentplan" usemap="#invesmentplan"></div>
                         <map name="invesmentplan">
-                            @if($properties)
-                                @foreach($properties as $r)
-                                <area shape="poly" href="{{ route('developro.property', [$investment->slug, $r, Str::slug($r->name), floorLevel($r->floor_number, true), number2RoomsName($r->rooms, true), round(floatval($r->area), 2).'-m2']) }}" data-item="{{$r->id}}" title="{{$r->name}}" alt="{{$r->slug}}" data-roomnumber="{{$r->number}}" data-roomtype="{{$r->typ}}" data-roomstatus="{{$r->status}}" coords="@if($r->html) {{cords($r->html)}} @endif">
-                                @endforeach
-                            @endif
+                                @if($properties)
+                                    @foreach($properties as $r)
+                                        @if($r->html)
+                                            <area
+                                                    shape="poly"
+                                                    href="{{ route('developro.property', [$investment->slug, $r, Str::slug($r->name), floorLevel($r->floor_number, true), number2RoomsName($r->rooms, true), round(floatval($r->area), 2).'-m2']) }}"
+                                                    data-item="{{$r->id}}"
+                                                    title="{{$r->name}}<br>Powierzchnia: <b class=fr>{{$r->area}} m<sup>2</sup></b><br />Pokoje: <b class=fr>{{$r->rooms}}</b><br><b>{{ roomStatus($r->status) }}</b>"
+                                                    alt="{{$r->slug}}"
+                                                    data-roomnumber="{{$r->number}}"
+                                                    data-roomtype="{{$r->typ}}"
+                                                    data-roomstatus="{{$r->status}}"
+                                                    coords="{{cords($r->html)}}"
+                                                    class="inline status-{{$r->status}}"
+                                            >
+                                        @endif
+                                    @endforeach
+                                @endif
                         </map>
                     </div>
                 @endif
@@ -43,5 +56,6 @@
 @endsection
 @push('scripts')
     <script src="{{ asset('/js/plan/imagemapster.js') }}" charset="utf-8"></script>
+    <script src="{{ asset('/js/plan/tip.js') }}" charset="utf-8"></script>
     <script src="{{ asset('/js/plan/floor.js') }}" charset="utf-8"></script>
 @endpush
