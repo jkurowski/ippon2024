@@ -853,7 +853,7 @@ footer .f-logo h5 {
   position: relative;
   top: 0;
   left: 0;
-  display: block;
+  display: flex !important;
 }
 .slick-track:before,
 .slick-track:after {
@@ -869,7 +869,7 @@ footer .f-logo h5 {
 .slick-slide {
   display: none;
   float: left;
-  height: 100%;
+  height: inherit !important;
   min-height: 1px;
   padding: 0;
   position: relative;
@@ -2128,6 +2128,7 @@ section#contact-form {
   background: #fff;
   border: 1px solid #ba8b41;
   filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.16));
+  height: 100%;
 }
 #mainNews .article-date {
   background: linear-gradient(#ba8b41 0, #916b30 100%);
@@ -2796,6 +2797,7 @@ html.swipebox-html.swipebox-touch {
   border: 1px solid #ba8b41;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
   padding: 35px;
+  height: 100%;
 }
 .review img.review-quote {
   width: 52px;
