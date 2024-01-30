@@ -39,13 +39,16 @@
                                         </div>
                                     </div>
                                     <div class="col-6">
+                                        @php
+                                            $atutyArray = json_decode($room->additional);
+                                        @endphp
+
                                         <div class="property-list-item-option">
-                                            <span class="option-1"></span>
-                                            <span class="option-2"></span>
-                                            <span class="option-3"></span>
-                                            <span class="option-4"></span>
-                                            <span class="option-5"></span>
-                                            <span class="option-6"></span>
+                                            @for($i = 1; $i <= 6; $i++)
+                                                @if(in_array($i, $atutyArray))
+                                                    <span class="option-{{ $i }}"></span>
+                                                @endif
+                                            @endfor
                                         </div>
                                     </div>
                                 </div>

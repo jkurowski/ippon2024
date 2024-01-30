@@ -31,6 +31,7 @@ class Property extends Model
         'rooms',
         'area',
         'price',
+        'additional',
         'garden_area',
         'balcony_area',
         'balcony_area_2',
