@@ -3199,6 +3199,27 @@ html.swipebox-html.swipebox-touch {
   .sellers a strong {
     font-size: 30px;
   }
+  .blog-list article {
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #dfdfdf;
+  }
+  .blog-list article .news-text {
+    padding-left: 20px;
+  }
+  .blog-list article .news-text h2 {
+    font-size: 36px;
+    line-height: 39px;
+  }
+  .blog-list article .news-text p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 27px;
+  }
+  .blog-list article.flex-row-reverse .news-text {
+    padding-left: 0;
+    padding-right: 20px;
+  }
 }
 @media (max-width: 1199.98px) {
   li,
@@ -3337,6 +3358,13 @@ html.swipebox-html.swipebox-touch {
   #page-header h1:before {
     left: -130px;
   }
+  .blog-list article .news-text {
+    padding-left: 0;
+  }
+  .blog-list article.flex-row-reverse .news-text {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 /* end of 1199.98 */
 @media (max-width: 991.98px) {
@@ -3436,6 +3464,14 @@ html.swipebox-html.swipebox-touch {
     width: 100%;
     text-align: center;
   }
+  .blog-list article .news-text h2 {
+    font-size: 27px;
+    line-height: 29px;
+  }
+  .blog-list article .news-text p {
+    font-size: 16px;
+    line-height: 25px;
+  }
 }
 /* end of 767.98 */
 @media (max-width: 575.98px) {
@@ -3520,6 +3556,22 @@ html.swipebox-html.swipebox-touch {
   #discounts img {
     width: 110px;
     margin-top: 30px;
+  }
+  .blog-list article .news-text p {
+    font-size: 14px;
+    line-height: 21px;
+  }
+  .blog-list article {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #dfdfdf;
+  }
+  .post-details .bttn,
+  .blog-list article .bttn {
+    padding: 10px 15px;
+    justify-content: center;
+    width: 100%;
+    font-size: 16px;
   }
 }
 /* end of 575.98 */
