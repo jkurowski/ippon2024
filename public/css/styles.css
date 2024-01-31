@@ -3593,6 +3593,9 @@ html.swipebox-html.swipebox-touch {
     padding-left: 15px;
     padding-right: 15px;
   }
+  .img-badge {
+    font-size: 11px;
+  }
 }
 /* end of 575.98 */
 @media (max-width: 480px) {
