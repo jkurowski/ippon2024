@@ -5,7 +5,7 @@
 @section('seo_description', $page->meta_description)
 
 @section('pageheader')
-    @include('layouts.partials.page-header', ['page_title' => '', 'page' => $page, 'header_file' => 'contact.jpg'])
+    @include('layouts.partials.page-header', ['page_title' => '', 'page' => $page, 'header_file' => $page->file_header])
 @stop
 
 @section('content')
@@ -21,7 +21,7 @@
                     </div>
                 </div>
                 <div class="col-6">
-                    <img src="https://ipponnew.test/images/inline/pracuj-z-najlepszymi.jpg" alt="" class="golden-border" width="840" height="650">
+                    <img src="/images/inline/pracuj-z-najlepszymi.jpg" alt="" class="golden-border" width="840" height="650">
                 </div>
             </div>
 
@@ -33,7 +33,7 @@
                     </div>
                 </div>
                 <div class="col-6">
-                    <img src="https://ipponnew.test/images/inline/kariera-poznajmy-sie.jpg" alt="" class="golden-border">
+                    <img src="/images/inline/kariera-poznajmy-sie.jpg" alt="" class="golden-border">
                 </div>
             </div>
 
@@ -45,7 +45,7 @@
                     </div>
                 </div>
                 <div class="col-6">
-                    <img src="https://ipponnew.test/images/inline/pracuj-z-najlepszymi.jpg" alt="" class="golden-border" width="840" height="650">
+                    <img src="/images/inline/pracuj-z-najlepszymi.jpg" alt="" class="golden-border" width="840" height="650">
                 </div>
             </div>
 
@@ -57,7 +57,7 @@
                     </div>
                 </div>
                 <div class="col-6">
-                    <img src="https://ipponnew.test/images/inline/kariera-poznajmy-sie.jpg" alt="" class="golden-border">
+                    <img src="/images/inline/kariera-poznajmy-sie.jpg" alt="" class="golden-border">
                 </div>
             </div>
 
@@ -101,7 +101,7 @@
                     </div>
                 </div>
                 <div class="col-6">
-                    <img src="https://ipponnew.test/images/inline/pracuj-z-najlepszymi.jpg" alt="" class="golden-border" width="840" height="650">
+                    <img src="/images/inline/pracuj-z-najlepszymi.jpg" alt="" class="golden-border" width="840" height="650">
                 </div>
             </div>
 
@@ -113,7 +113,7 @@
                     </div>
                 </div>
                 <div class="col-6">
-                    <img src="https://ipponnew.test/images/inline/kariera-poznajmy-sie.jpg" alt="" class="golden-border">
+                    <img src="/images/inline/kariera-poznajmy-sie.jpg" alt="" class="golden-border">
                 </div>
             </div>
         </div>
@@ -180,7 +180,6 @@
                 arrows: true,
                 dots: false
             });
-
         });
     </script>
 @endpush
