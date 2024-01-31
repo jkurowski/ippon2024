@@ -54,7 +54,7 @@
                             'sublabel' => '(wymiary: '.config('images.investment.header_width').'px / '.config('images.investment.header_height').'px)',
                             'name' => 'header',
                             'file' => $entry->file_header,
-                            'file_preview' => config('images.investment.header_file_path')
+                            'file_preview' => 'uploads/header/'
                             ])
                     </div>
 
