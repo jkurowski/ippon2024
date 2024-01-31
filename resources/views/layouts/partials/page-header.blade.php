@@ -1,5 +1,5 @@
 @if($header_file)
-    <div id="page-header" style="background:#222 url('{{ asset('/uploads/header/'.$header_file) }}')">
+    <div id="page-header" style="background: #222 url('{{ asset('/uploads/header/'.$header_file) }}') no-repeat cover">
 @else
     <div id="page-header" style="background:#222">
 @endif
