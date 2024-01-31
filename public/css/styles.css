@@ -3501,6 +3501,22 @@ html.swipebox-html.swipebox-touch {
   #discounts .accordion-text {
     padding: 30px 0;
   }
+  #discounts li,
+  #discounts p {
+    font-size: 14px;
+    line-height: 22px;
+  }
+  #discounts p.bttn {
+    width: 100%;
+    padding: 10px 15px;
+    text-align: center;
+    justify-content: center;
+  }
+  #discounts h2 {
+    margin-bottom: 10px;
+    font-size: 25px;
+    line-height: 29px;
+  }
 }
 /* end of 575.98 */
 @media (max-width: 480px) {
