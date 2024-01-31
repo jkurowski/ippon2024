@@ -10,11 +10,11 @@
 
 @section('content')
     <div class="container">
-        <div class="row pb-5">
-            <div class="col-4 d-flex justify-content-center align-items-center">
-                <img src="{{ asset('images/logo.png') }}" alt="" width="224" height="233">
+        <div class="row pb-4 pb-md-5">
+            <div class="col-12 col-xl-4 d-flex justify-content-center align-items-center">
+                <img src="{{ asset('images/logo.png') }}" alt="" width="224" height="233" class="contact-logo">
             </div>
-            <div class="col-4">
+            <div class="col-12 col-md-6 col-xl-4 mb-4 mb-md-0">
                 <div class="contact-box">
                     <h2>IPPON GROUP</h2>
                     <p>Ippon Group Sp. z o.o.</p>
@@ -22,7 +22,7 @@
                     <p>00-034 Warszawa</p>
                 </div>
             </div>
-            <div class="col-4">
+            <div class="col-12 col-md-6 col-xl-4">
                 <div class="contact-box">
                     <h2>KONTAKT</h2>
                     <p>ul. Żelazna 4,</p>
@@ -41,7 +41,7 @@
 
 
         <div class="row">
-            <div class="col-4">
+            <div class="col-12 col-md-6 col-xl-4 mb-4 mb-md-0">
                 <div class="contact-box">
                     <h2>BIURO SPRZEDAŻY</h2>
                     <p>ul. Żelazna 4,</p>
@@ -55,10 +55,10 @@
                     <a href="https://maps.app.goo.gl/Sv3KkJU2Dpxm9gX87" class="bttn bttn-icon mt-5" target="_blank">JAK DOJECHAĆ <i class="ms-3 las la-chevron-circle-right"></i></a>
                 </div>
             </div>
-            <div class="col-8">
-                <div class="d-flex align-items-center">
+            <div class="col-12 col-md-6 col-xl-8 d-flex align-items-center">
+                <div class="d-flex align-items-center w-100">
                     <img src="{{ asset('/images/contact-img.jpg') }}" class="golden-border" alt="">
-                    <div class="ps-5 sellers">
+                    <div class="ps-4 ps-xxl-5 sellers">
                         <h2>Sylwia Sokal</h2>
                         <a href="mailto:s.sokal@ippon.Group">s.sokal@ippon.group</a>
                         <a href="tel:+48724222323"><strong>+48 724 222 323</strong></a>
@@ -72,7 +72,7 @@
         </div>
     </div>
 
-    <div class="container pt-5 mt-5">
+    <div class="container pt-4 mt-4 pt-md-5 mt-md-5">
         <div class="row">
             <div class="col-12 text-center">
                 <h2 class="section-title text-uppercase"><span class="text-gold">Masz pytania?</span> <br>Napisz do nas!</h2>

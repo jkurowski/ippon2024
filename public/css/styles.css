@@ -3024,6 +3024,12 @@ html.swipebox-html.swipebox-touch {
   color: white;
 }
 @media (max-width: 1669.98px) {
+  li,
+  p {
+    margin: 0;
+    font-size: 18px;
+    line-height: 25px;
+  }
   .header-holder {
     height: 205px;
   }
@@ -3053,8 +3059,25 @@ html.swipebox-html.swipebox-touch {
   #cities .city-item span {
     font-size: 17px;
   }
+  .contact-page .golden-border {
+    width: 465px;
+  }
+  .contact-page .contact-box h2 {
+    font-size: 23px;
+    padding-bottom: 15px;
+    margin: 0 0 15px;
+  }
+  .contact-page .contact-box .bttn {
+    margin-top: 20px !important;
+  }
 }
 @media (max-width: 1399.98px) {
+  #page {
+    padding: 60px 0;
+  }
+  #contactForm {
+    padding: 0 0 60px !important;
+  }
   .header-holder {
     height: 170px;
   }
@@ -3132,6 +3155,16 @@ html.swipebox-html.swipebox-touch {
   }
   #cities .city-item span {
     font-size: 14px;
+  }
+  .sellers h2 {
+    font-size: 26px;
+    line-height: 40px;
+  }
+  .sellers a {
+    font-size: 18px;
+  }
+  .sellers a strong {
+    font-size: 30px;
   }
 }
 @media (max-width: 1199.98px) {
@@ -3229,6 +3262,29 @@ html.swipebox-html.swipebox-touch {
     margin-top: 20px;
     width: 150px;
   }
+  #page-header {
+    height: 185px;
+  }
+  #page-header nav {
+    top: -30px;
+  }
+  .contact-logo {
+    width: 150px;
+    margin-bottom: 40px;
+  }
+  .contact-page .golden-border {
+    display: none;
+  }
+  .sellers h2 {
+    font-size: 34px;
+    line-height: 50px;
+  }
+  .sellers a {
+    font-size: 21px;
+  }
+  .sellers a strong {
+    font-size: 32px;
+  }
 }
 /* end of 1199.98 */
 @media (max-width: 991.98px) {
@@ -3261,6 +3317,20 @@ html.swipebox-html.swipebox-touch {
   footer .f-logo h5 {
     font-size: 17px;
   }
+  #page-header h1:after,
+  #page-header h1:before {
+    width: 170px;
+  }
+  #page-header h1:before {
+    left: -190px;
+  }
+  #page-header h1:after {
+    right: -190px;
+  }
+  .sellers h2 {
+    font-size: 33px;
+    line-height: 50px;
+  }
 }
 /* end of 991.98 */
 @media (max-width: 767.98px) {
@@ -3285,9 +3355,31 @@ html.swipebox-html.swipebox-touch {
   footer {
     padding: 30px 0;
   }
+  #page {
+    padding: 30px 0;
+  }
+  #contactForm {
+    padding: 0 0 30px !important;
+  }
+  .contact-logo {
+    width: 100px;
+    margin-bottom: 40px;
+  }
+  .sellers {
+    padding: 0 !important;
+    width: 100%;
+    text-align: center;
+  }
 }
 /* end of 767.98 */
 @media (max-width: 575.98px) {
+  h2 {
+    font-size: 31px;
+    line-height: 40px;
+  }
+  .section-title:before {
+    width: 300px;
+  }
   .header-holder {
     height: 85px;
   }
@@ -3318,8 +3410,31 @@ html.swipebox-html.swipebox-touch {
   footer {
     padding: 30px 15px;
   }
+  #page {
+    padding: 30px 15px;
+  }
+  li,
+  p {
+    font-size: 16px;
+    line-height: 22px;
+  }
+  .contact-box {
+    padding: 15px;
+  }
+  .contact-box h2:after {
+    width: 225px;
+  }
 }
 /* end of 575.98 */
+@media (max-width: 480px) {
+  h2 {
+    font-size: 28px;
+    line-height: 35px;
+  }
+  .section-title:before {
+    width: 300px;
+  }
+}
 /* end of 359.98 */
 /* end of 359.98 */
 @-webkit-keyframes bs-notify-fadeOut {

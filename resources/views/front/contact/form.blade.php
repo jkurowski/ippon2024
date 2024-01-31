@@ -1,6 +1,6 @@
-<section id="contact-form">
+<section id="contactForm">
     <div class="container">
-        <div class="row d-flex justify-content-center mt-5">
+        <div class="row d-flex justify-content-center mt-3 mt-sm-5">
             <div class="col-12">
                 @if (session('success'))
                     <div class="alert alert-success border-0">
@@ -15,7 +15,7 @@
                 <form method="post" id="contact-form" action="" class="validateForm">
                     {{ csrf_field() }}
                     <div class="row">
-                        <div class="col-12 col-md-4 form-input">
+                        <div class="col-12 mb-4 mb-md-0 col-md-4 form-input">
                             <label for="form_name">Imię <span class="text-danger">*</span></label>
                             <input name="form_name" id="form_name" class="validate[required] form-control @error('form_name') is-invalid @enderror" type="text" value="{{ old('form_name') }}">
 
@@ -23,11 +23,11 @@
                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                             @enderror
                         </div>
-                        <div class="col-12 col-md-4 form-input col-input-important">
+                        <div class="col-12 mb-4 mb-md-0 col-md-4 form-input col-input-important">
                             <label for="form_surnames">Nazwisko <span class="text-danger">*</span></label>
                             <input name="form_surnames" id="form_surnames" class="form-control" type="text" value="{{ old('form_surname') }}">
                         </div>
-                        <div class="col-12 col-md-4 form-input">
+                        <div class="col-12 mb-4 mb-md-0 col-md-4 form-input">
                             <label for="form_email">E-mail <span class="text-danger">*</span></label>
                             <input name="form_email" id="form_email" class="validate[required] form-control @error('form_email') is-invalid @enderror" type="text" value="{{ old('form_email') }}">
 
@@ -51,7 +51,7 @@
                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                             @enderror
                         </div>
-                        <div class="col-8">
+                        <div class="col-12 col-md-8">
                             @if($obligation)
                                 <div class="rodo-obligation mt-3">
                                     {!! $obligation->obligation !!}
@@ -73,7 +73,7 @@
                                 @endforeach
                             </div>
                         </div>
-                        <div class="col-4 d-flex justify-content-end align-items-end">
+                        <div class="col-12 col-md-4 d-flex justify-content-end align-items-end">
                             <div class="form-submit">
                                 <input name="form_page" type="hidden" value="{{ $page_name }}">
                                 <script type="text/javascript">
