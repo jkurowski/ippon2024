@@ -42,7 +42,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 p-0">
+                    <div class="col-12 p-0 d-flex align-items-center justify-content-end">
                         <nav>
                             <ul class="mb-0 list-unstyled d-flex justify-content-end">
                                 <li>
@@ -82,6 +82,7 @@
                                 <li><a href="{{ route('contact.index') }}">Kontakt</a></li>
                             </ul>
                         </nav>
+                        <div id="triggermenu" class="d-flex d-xl-none"><i class="las la-bars me-4"></i> MENU</div>
                     </div>
                 </div>
             </div>
