@@ -3229,6 +3229,12 @@ html.swipebox-html.swipebox-touch {
     font-size: 28px;
     line-height: 30px;
   }
+  .osoba .osoba-img {
+    -ms-flex: 0 0 240px;
+    flex: 0 0 240px;
+    max-width: 240px;
+    padding-right: 30px;
+  }
 }
 @media (max-width: 1199.98px) {
   li,
@@ -3387,6 +3393,12 @@ html.swipebox-html.swipebox-touch {
   .invest-item-city {
     font-size: 21px;
     margin-bottom: 10px;
+  }
+  .osoba .osoba-img {
+    -ms-flex: 0 0 160px;
+    flex: 0 0 160px;
+    max-width: 160px;
+    padding-right: 30px;
   }
 }
 /* end of 1199.98 */
@@ -3637,6 +3649,19 @@ html.swipebox-html.swipebox-touch {
     width: 80px;
     border: 10px solid #fff;
     right: 10px;
+  }
+  .osoba .osoba-img {
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 30px;
+  }
+  .osoba .osoba-img img {
+    margin: 0 auto;
+    width: 170px;
+  }
+  .osoba.d-flex {
+    display: block !important;
   }
 }
 /* end of 575.98 */
