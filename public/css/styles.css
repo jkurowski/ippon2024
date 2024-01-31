@@ -230,10 +230,10 @@ button {
   right: auto;
 }
 @font-face {
-  font-family: 'Abuget';
+  font-family: abuget;
   font-style: normal;
   font-weight: 400;
-  src: local('Abuget'), url('https://fonts.cdnfonts.com/s/77885/Abuget.woff') format('woff');
+  src: local('Abuget'), url(https://fonts.cdnfonts.com/s/77885/Abuget.woff) format('woff');
 }
 .slow-header {
   display: flex;
@@ -3428,6 +3428,13 @@ html.swipebox-html.swipebox-touch {
   #page-header h1:after,
   #page-header h1:before {
     display: none;
+  }
+  .rent-item {
+    margin-bottom: 40px;
+  }
+  .rent-item h2 {
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }
 /* end of 991.98 */
