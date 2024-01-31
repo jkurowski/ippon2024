@@ -76,7 +76,7 @@
                 <div class="container">
                     <div class="row pt-5 mt-5">
                         <div class="col-12 text-center">
-                            <h2>Masz pytania? <span class="rostemary">Napisz do nas!</span></h2>
+                            <h2 class="slow-header"><span class="abuget brown">Masz pytania?</span> <span class="rostemary">Napisz do nas!</span></h2>
                         </div>
                     </div>
 

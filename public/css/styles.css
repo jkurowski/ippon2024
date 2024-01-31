@@ -196,10 +196,10 @@ button {
   src: url(../fonts/Rostemary.woff) format("woff"), url(../fonts/Rostemary.ttf) format("truetype");
 }
 .rostemary {
-  font-family: 'Rostemary', serif !important;
-  font-size: 70px;
+  font-family: 'Playfair Display', serif;
+  font-size: 50px;
   font-style: normal;
-  line-height: normal;
+  line-height: 50px;
   position: relative;
   color: #433F20;
 }
@@ -228,6 +228,29 @@ button {
 .rostemary span:before {
   left: -240px;
   right: auto;
+}
+@font-face {
+  font-family: abuget;
+  font-style: normal;
+  font-weight: 400;
+  src: local('Abuget'), url(https://fonts.cdnfonts.com/s/77885/Abuget.woff) format('woff');
+}
+.slow-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.slow-header span {
+  margin: 0 7px;
+  font-style: normal;
+}
+.slow-header .abuget {
+  font-family: 'Abuget', sans-serif;
+  font-size: 98px;
+  padding-top: 20px;
+}
+.slow-header .abuget.brown {
+  color: #A9542B;
 }
 /* Nadpisz Bootstrap
 ================================================== */
