@@ -13,7 +13,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 @foreach($investments as $r)
-                    <div class="col-6">
+                    <div class="col-12 col-lg-6">
                         <div class="invest-item-holder">
                             <div class="invest-item">
                                 <div class="invest-item-thumb">

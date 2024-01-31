@@ -3103,6 +3103,11 @@ html.swipebox-html.swipebox-touch {
   #page-header h1:before {
     left: -220px;
   }
+  .invest-item-desc img {
+    top: -50px;
+    width: 100px;
+    border: 10px solid white;
+  }
 }
 @media (max-width: 1399.98px) {
   #page {
@@ -3626,6 +3631,12 @@ html.swipebox-html.swipebox-touch {
   .invest-item p {
     font-size: 14px;
     line-height: 21px;
+  }
+  .invest-item-desc img {
+    top: -47px;
+    width: 80px;
+    border: 10px solid #fff;
+    right: 10px;
   }
 }
 /* end of 575.98 */
