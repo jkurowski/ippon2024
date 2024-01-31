@@ -12,13 +12,13 @@
     <div id="page-content">
         <div class="container">
             <div class="row">
-                <div class="col-12 mb-5">
+                <div class="col-12 mb-2 mb-lg-5">
                     {!! parse_text($page->content) !!}
                 </div>
             </div>
             <div class="row justify-content-center">
                 @foreach($investments as $r)
-                    <div class="col-6">
+                    <div class="col-12 col-lg-6">
                         <div class="invest-item-holder">
                             <div class="invest-item">
                                 <div class="invest-item-thumb">

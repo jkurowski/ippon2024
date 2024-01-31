@@ -3369,6 +3369,20 @@ html.swipebox-html.swipebox-touch {
     padding-left: 0;
     padding-right: 0;
   }
+  .invest-item-desc {
+    padding: 20px;
+  }
+  .invest-item h2 {
+    font-size: 27px;
+  }
+  .invest-item p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .invest-item-city {
+    font-size: 21px;
+    margin-bottom: 10px;
+  }
 }
 /* end of 1199.98 */
 @media (max-width: 991.98px) {
@@ -3436,6 +3450,9 @@ html.swipebox-html.swipebox-touch {
     padding-left: 15px;
     padding-right: 15px;
   }
+  .invest-item-holder {
+    padding: 30px 15px 0;
+  }
 }
 /* end of 991.98 */
 @media (max-width: 767.98px) {
@@ -3482,6 +3499,9 @@ html.swipebox-html.swipebox-touch {
   .blog-list article .news-text p {
     font-size: 16px;
     line-height: 25px;
+  }
+  .invest-item-holder {
+    padding: 30px 0 0;
   }
 }
 /* end of 767.98 */
@@ -3596,6 +3616,17 @@ html.swipebox-html.swipebox-touch {
   .img-badge {
     font-size: 11px;
   }
+  .invest-item h2 {
+    font-size: 21px;
+  }
+  .invest-item-city {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  .invest-item p {
+    font-size: 14px;
+    line-height: 21px;
+  }
 }
 /* end of 575.98 */
 @media (max-width: 480px) {
@@ -3605,6 +3636,11 @@ html.swipebox-html.swipebox-touch {
   }
   .section-title:before {
     width: 300px;
+  }
+  li,
+  p {
+    font-size: 14px;
+    line-height: 23px;
   }
 }
 /* end of 359.98 */
