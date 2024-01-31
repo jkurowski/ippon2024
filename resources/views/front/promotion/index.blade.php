@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-8">
+                <div class="col-12 col-xl-8">
                     <div class="col-12 mt-5">
                         <div class="accordion" id="discounts">
                             @foreach ($list as $item)
