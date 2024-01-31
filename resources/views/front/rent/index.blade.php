@@ -13,7 +13,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 @foreach($rents as $r)
-                    <div class="col-6">
+                    <div class="col-12 col-lg-6">
                         <div class="rent-item">
                             <div class="rent-thumb">
                                 <span class="img-badge">{{ rentType($r->type) }}</span>

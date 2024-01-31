@@ -11,9 +11,9 @@
 
 @section('content')
     <div class="container">
-        <div class="row d-flex justify-content-center">
-            <div class="col-6">
-                <img src="{{ asset('uploads/rents/'.$rent->file) }}" alt="{{ $rent->name }}" class="mb-5">
+        <div class="row d-flex justify-content-center rent-item-detail">
+            <div class="col-12 col-xxl-6">
+                <img src="{{ asset('uploads/rents/'.$rent->file) }}" alt="{{ $rent->name }}" class="mb-5 w-100">
                 <h2 class="mb-3">{{ $rent->name }}</h2>
                 {!! parse_text($rent->text) !!}
                 <a href="{{ route('rent') }}" class="bttn mt-4">WRÓĆ DO LISTY</a>

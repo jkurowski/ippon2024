@@ -230,10 +230,10 @@ button {
   right: auto;
 }
 @font-face {
-  font-family: abuget;
+  font-family: 'Abuget';
   font-style: normal;
   font-weight: 400;
-  src: local('Abuget'), url(https://fonts.cdnfonts.com/s/77885/Abuget.woff) format('woff');
+  src: local('Abuget'), url('https://fonts.cdnfonts.com/s/77885/Abuget.woff') format('woff');
 }
 .slow-header {
   display: flex;
@@ -3220,6 +3220,10 @@ html.swipebox-html.swipebox-touch {
     padding-left: 0;
     padding-right: 20px;
   }
+  .rent-item h2 {
+    font-size: 28px;
+    line-height: 30px;
+  }
 }
 @media (max-width: 1199.98px) {
   li,
@@ -3567,11 +3571,20 @@ html.swipebox-html.swipebox-touch {
     border-bottom: 1px solid #dfdfdf;
   }
   .post-details .bttn,
-  .blog-list article .bttn {
+  .blog-list article .bttn,
+  .rent-item-detail .bttn {
     padding: 10px 15px;
     justify-content: center;
     width: 100%;
     font-size: 16px;
+  }
+  .rent-item h2 {
+    font-size: 23px;
+    line-height: 28px;
+    margin: -15px 15px 0;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }
 /* end of 575.98 */
