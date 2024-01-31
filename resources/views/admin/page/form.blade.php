@@ -47,6 +47,17 @@
                     <div class="row w-100 form-group">
                         @include('form-elements.html-input-text', ['label' => 'Indeksowanie', 'sublabel'=> 'Meta tag - robots', 'name' => 'meta_robots', 'value' => $entry->meta_robots])
                     </div>
+
+                    <div class="row w-100 mb-4">
+                        @include('form-elements.html-input-file', [
+                            'label' => 'Nagłówek',
+                            'sublabel' => '(wymiary: '.config('images.investment.header_width').'px / '.config('images.investment.header_height').'px)',
+                            'name' => 'header',
+                            'file' => $entry->file_header,
+                            'file_preview' => config('images.investment.header_file_path')
+                            ])
+                    </div>
+
                     <div class="row w-100 form-group">
                         @include('form-elements.textarea-fullwidth', ['label' => 'Wprowadź tekst', 'name' => 'content', 'value' => $entry->content, 'rows' => 11, 'class' => 'tinymce', 'required' => 1])
                     </div>

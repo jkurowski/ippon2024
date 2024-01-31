@@ -1961,6 +1961,9 @@ section {
   font-size: 14px;
   color: white;
 }
+#page-header nav .breadcrumb-item:before {
+  color: white;
+}
 #page-header .breadcrumb {
   margin: 0;
 }
@@ -3047,12 +3050,6 @@ html.swipebox-html.swipebox-touch {
   color: white;
 }
 @media (max-width: 1669.98px) {
-  li,
-  p {
-    margin: 0;
-    font-size: 18px;
-    line-height: 25px;
-  }
   .header-holder {
     height: 205px;
   }
@@ -3092,6 +3089,19 @@ html.swipebox-html.swipebox-touch {
   }
   .contact-page .contact-box .bttn {
     margin-top: 20px !important;
+  }
+  #page-header h1 {
+    font-size: 45px;
+  }
+  #page-header h1:after,
+  #page-header h1:before {
+    width: 200px;
+  }
+  #page-header h1:after {
+    right: -220px;
+  }
+  #page-header h1:before {
+    left: -220px;
   }
 }
 @media (max-width: 1399.98px) {
@@ -3191,6 +3201,12 @@ html.swipebox-html.swipebox-touch {
   }
 }
 @media (max-width: 1199.98px) {
+  li,
+  p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 30px;
+  }
   .header-holder {
     height: 100px;
   }
@@ -3285,12 +3301,6 @@ html.swipebox-html.swipebox-touch {
     margin-top: 20px;
     width: 150px;
   }
-  #page-header {
-    height: 185px;
-  }
-  #page-header nav {
-    top: -30px;
-  }
   .contact-logo {
     width: 150px;
     margin-bottom: 40px;
@@ -3307,6 +3317,25 @@ html.swipebox-html.swipebox-touch {
   }
   .sellers a strong {
     font-size: 32px;
+  }
+  #page-header {
+    height: 185px;
+  }
+  #page-header nav {
+    top: -50px;
+  }
+  #page-header h1 {
+    font-size: 35px;
+  }
+  #page-header h1:after,
+  #page-header h1:before {
+    width: 110px;
+  }
+  #page-header h1:after {
+    right: -130px;
+  }
+  #page-header h1:before {
+    left: -130px;
   }
 }
 /* end of 1199.98 */
@@ -3353,6 +3382,20 @@ html.swipebox-html.swipebox-touch {
   .sellers h2 {
     font-size: 33px;
     line-height: 50px;
+  }
+  #page-header {
+    height: 135px;
+  }
+  #page-header nav {
+    display: none;
+  }
+  #page-header h1 {
+    font-size: 29px;
+    text-align: center;
+  }
+  #page-header h1:after,
+  #page-header h1:before {
+    display: none;
   }
 }
 /* end of 991.98 */
@@ -3446,6 +3489,13 @@ html.swipebox-html.swipebox-touch {
   }
   .contact-box h2:after {
     width: 225px;
+  }
+  #page-header {
+    height: 95px;
+  }
+  #page-header h1 {
+    font-size: 23px;
+    text-align: center;
   }
 }
 /* end of 575.98 */

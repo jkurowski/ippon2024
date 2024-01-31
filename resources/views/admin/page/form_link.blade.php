@@ -3,10 +3,10 @@
 
 @section('content')
     @if(Route::is('admin.url.edit'))
-        <form method="POST" action="{{route('admin.url.update', $entry->id)}}">
+        <form method="POST" action="{{route('admin.url.update', $entry->id)}}" enctype="multipart/form-data">
             @method('PUT')
             @else
-        <form method="POST" action="{{route('admin.url.store')}}">
+        <form method="POST" action="{{route('admin.url.store')}}" enctype="multipart/form-data">
             @endif
             @csrf
             <div class="container">
@@ -57,6 +57,17 @@
                         <div class="row w-100 form-group">
                             @include('form-elements.html-input-text', ['label' => 'Indeksowanie', 'sublabel'=> 'Meta tag - robots', 'name' => 'meta_robots', 'value' => $entry->meta_robots])
                         </div>
+
+                        <div class="row w-100 mb-4">
+                            @include('form-elements.html-input-file', [
+                                'label' => 'Nagłówek',
+                                'sublabel' => '(wymiary: '.config('images.investment.header_width').'px / '.config('images.investment.header_height').'px)',
+                                'name' => 'header',
+                                'file' => $entry->file_header,
+                                'file_preview' => 'uploads/header/'
+                                ])
+                        </div>
+
                     </div>
                 </div>
             </div>

@@ -13,8 +13,8 @@ use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
-    private $repository;
-    private $service;
+    private InvestmentRepository $repository;
+    private InvestmentService $service;
 
     public function __construct(InvestmentRepository $repository, InvestmentService $service)
     {

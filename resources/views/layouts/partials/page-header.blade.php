@@ -1,4 +1,8 @@
-<div id="page-header" style="background:#222 url('/images/blue-bg-2.jpg') no-repeat top center">
+@if($header_file)
+    <div id="page-header" style="background:#222 url('{{ asset('/uploads/header/'.$header_file) }}')">
+@else
+    <div id="page-header" style="background:#222">
+@endif
     <div class="container">
         <div class="row">
             <div class="col-12 d-flex justify-content-center position-relative">

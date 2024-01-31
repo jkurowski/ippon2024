@@ -33,7 +33,7 @@ Route::group(['namespace' => 'Front', 'prefix' => '{locale?}', 'where' => ['loca
     Route::get('kontakt',
         'ContactController@index')->name('contact.index');
 
-    Route::get('zakup-gruntow',
+    Route::get('zakup-gruntu',
         'LandController@index')->name('land');
 
     Route::get('rabaty',

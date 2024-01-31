@@ -22,9 +22,10 @@ class Page extends Model
         'title',
         'content',
         'content_header',
+        'file_header',
         'meta_title',
         'meta_description',
-        'meta_robots'
+        'meta_robots',
     ];
 
     public static function mainmenu()

@@ -8,12 +8,13 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\PageFormRequest;
 use App\Models\Page;
 use App\Repositories\PageRepository;
+use App\Services\PageService;
 
 class IndexController extends Controller
 {
-    private $repository;
-
-    public function __construct(PageRepository $repository)
+    private PageRepository $repository;
+    private PageService $service;
+    public function __construct(PageRepository $repository, PageService $service)
     {
 //        $this->middleware('permission:page-list|page-create|page-edit|page-delete', ['only' => ['index','store']]);
 //        $this->middleware('permission:page-create', ['only' => ['create','store']]);
@@ -21,6 +22,7 @@ class IndexController extends Controller
 //        $this->middleware('permission:page-delete', ['only' => ['destroy']]);
 
         $this->repository = $repository;
+        $this->service = $service;
     }
 
     public function index()
@@ -41,7 +43,12 @@ class IndexController extends Controller
 
     public function store(PageFormRequest $request)
     {
-        $this->repository->create($request->validated());
+        $page = $this->repository->create($request->validated());
+
+        if ($request->hasFile('header')) {
+            $this->service->uploadHeader($request->title, $request->file('header'), $page);
+        }
+
         return redirect(route('admin.page.index'))->with('success', 'Strona dodana');
     }
 
@@ -59,6 +66,10 @@ class IndexController extends Controller
     {
         $page = $this->repository->find($id);
         $this->repository->update($request->validated(), $page);
+
+        if ($request->hasFile('header')) {
+            $this->service->uploadHeader($request->title, $request->file('header'), $page, true);
+        }
 
         return redirect(route('admin.page.index'))->with('success', 'Strona zaktualizowana');
     }
