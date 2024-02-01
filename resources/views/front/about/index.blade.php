@@ -24,7 +24,6 @@
                     <img src="/images/inline/pracuj-z-najlepszymi.jpg" alt="" class="golden-border w-100" width="840" height="650">
                 </div>
             </div>
-
             <div class="row left-right flex-row-reverse row-offset-up">
                 <div class="col-12 col-xl-6 d-flex align-items-center">
                     <div class="left-right-text">
