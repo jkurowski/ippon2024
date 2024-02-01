@@ -45,6 +45,7 @@ class Investment extends Model
         'file_thumb',
         'file_logo',
         'file_header',
+        'carousel_id',
         'lat',
         'lng',
         'zoom'
@@ -63,6 +64,15 @@ class Investment extends Model
         return SlugOptions::create()
             ->generateSlugsFrom('name')
             ->saveSlugsTo('slug');
+    }
+
+    /**
+     * Get carousel images from gallery
+     * @return HasMany
+     */
+    public function carousel()
+    {
+        return $this->hasMany(Image::class, 'gallery_id', 'carousel_id');
     }
 
     /**

@@ -1895,6 +1895,7 @@ section {
   position: absolute;
   top: 10px;
   left: -10px;
+  z-index: 100;
 }
 .img-badge.img-badge-right {
   justify-content: start;
@@ -1994,6 +1995,7 @@ section {
   height: 100%;
   border-radius: 10px;
   border: 1px solid #ba8b41;
+  width: 100%;
 }
 /* Page layout
 ================================================== */
@@ -3264,6 +3266,20 @@ html.swipebox-html.swipebox-touch {
     margin-top: 0;
     padding: 15px 0;
   }
+  .inwestycja-atut {
+    margin-bottom: 40px;
+  }
+  .inwestycja-atut h4 {
+    font-size: 20px;
+    line-height: 24px;
+    padding: 0;
+  }
+  #page-header.investment-header nav ul li {
+    margin-left: 36px;
+  }
+  #page-header.investment-header nav ul li a {
+    font-size: 21px;
+  }
 }
 @media (max-width: 1199.98px) {
   li,
@@ -3463,6 +3479,32 @@ html.swipebox-html.swipebox-touch {
   .empty-ippon {
     padding: 90px;
   }
+  #cta {
+    padding: 80px 0 40px;
+    margin-top: 40px;
+  }
+  .investment-header {
+    position: relative;
+    margin-bottom: 60px;
+  }
+  #page-header.investment-header h1 {
+    text-align: right;
+    margin-bottom: 0;
+  }
+  #page-header .investment-header-logo {
+    height: 120px;
+  }
+  #page-header.investment-header .col-12.invest-header-nav {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -60px;
+    background: #ba8b41;
+    padding: 14px 0;
+  }
+  #page-header.investment-header .col-12.invest-header-nav ul {
+    justify-content: center;
+  }
 }
 /* end of 1199.98 */
 @media (max-width: 991.98px) {
@@ -3572,6 +3614,32 @@ html.swipebox-html.swipebox-touch {
   section {
     padding: 2rem 0 !important;
   }
+  .inwestycja-atut .icon {
+    padding: 8px;
+    width: 113px;
+    margin: 0 auto 15px;
+  }
+  .inwestycja-atut .icon img {
+    padding: 13px;
+  }
+  #page-header.investment-header nav ul li {
+    margin: 0 15px;
+  }
+  #page-header.investment-header nav ul li a {
+    font-size: 18px;
+  }
+  #page-header.investment-header .col-12.invest-header-nav {
+    bottom: -59px;
+  }
+  #page-header.investment-header .col-12.invest-header-nav nav {
+    display: block;
+  }
+  #page-header .investment-header-logo {
+    height: 90px;
+  }
+  #page-header .investment-header-logo img {
+    width: 80%;
+  }
 }
 /* end of 991.98 */
 @media (max-width: 767.98px) {
@@ -3647,6 +3715,18 @@ html.swipebox-html.swipebox-touch {
   }
   .section-title:before {
     width: 450px;
+  }
+  #page-header.investment-header .col-12.invest-header-nav {
+    bottom: -58px;
+  }
+  #page-header .investment-header-logo {
+    height: 80px;
+  }
+  #page-header.investment-header nav ul li {
+    margin: 0 7px;
+  }
+  #page-header.investment-header nav ul li a {
+    font-size: 16px;
   }
 }
 /* end of 767.98 */
@@ -3876,6 +3956,35 @@ html.swipebox-html.swipebox-touch {
     margin-bottom: 10px;
     font-size: 25px;
     line-height: 29px;
+  }
+  .inwestycja-atut {
+    margin-bottom: 25px;
+  }
+  .inwestycja-atut h4 {
+    font-size: 14px;
+    line-height: 17px;
+  }
+  .investment-header {
+    margin-bottom: 75px;
+  }
+  #page-header.investment-header nav ul li {
+    margin: 7px 14px;
+    line-height: normal;
+  }
+  #page-header.investment-header .col-12.invest-header-nav {
+    bottom: auto;
+    top: 95px;
+    padding: 0;
+  }
+  #page-header.investment-header .col-12.invest-header-nav ul {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  #page-header .investment-header-logo {
+    height: 60px;
+  }
+  #page-header .investment-header-logo img {
+    width: 60%;
   }
 }
 /* end of 575.98 */

@@ -141,6 +141,15 @@
                     </div>
 
                     <div class="row w-100 mb-4">
+                        @include('form-elements.html-select', [
+                                'label' => 'Karuzela jako miniaturka',
+                                'name' => 'carousel_id',
+                                'selected' => $entry->carousel_id,
+                                'select' => $galleryList
+                            ])
+                    </div>
+
+                    <div class="row w-100 mb-4">
                         @include('form-elements.html-input-file', [
                             'label' => 'Logo',
                             'sublabel' => '(wymiary: '.config('images.investment.logo_width').'px / '.config('images.investment.logo_height').'px)',
