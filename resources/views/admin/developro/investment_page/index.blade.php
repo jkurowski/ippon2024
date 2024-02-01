@@ -13,7 +13,7 @@
         <div class="card mt-3">
             <div class="card-body card-body-rem p-0">
                 <div class="table-overflow">
-                    <table class="table data-table mb-0 w-100">
+                    <table id="sortable" class="table data-table mb-0 w-100">
                         <thead class="thead-default">
                         <tr>
                             <th>Tytuł</th>
@@ -32,6 +32,7 @@
                                 <td class="text-center">{{ $item->updated_at }}</td>
                                 <td class="option-120">
                                     <div class="btn-group">
+                                        <span class="btn action-button move-button me-1"><i class="fe-move"></i></span>
                                         <a href="{{route('admin.developro.investment.page.edit', [$investment, $item->id])}}" class="btn action-button me-1" data-bs-toggle="tooltip" data-placement="top" data-bs-title="Edytuj wpis"><i class="fe-edit"></i></a>
                                         <form method="POST" action="{{route('admin.developro.investment.page.destroy', [$investment, $item->id])}}">
                                             {{ csrf_field() }}
@@ -58,4 +59,13 @@
         </div>
     </div>
 @endsection
+@push('scripts')
+    <script type="text/javascript">
+        //<![CDATA[
+        $(document).ready(function(){
+            $("#sortable tbody.content").sortuj('{{route('admin.investment_page.sort')}}');
+        });
+        //]]>
+    </script>
+@endpush
 

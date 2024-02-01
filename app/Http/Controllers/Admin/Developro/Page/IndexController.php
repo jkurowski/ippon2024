@@ -9,6 +9,7 @@ use App\Models\Investment;
 use App\Repositories\InvestmentPageRepository;
 use App\Http\Requests\InvestPageFormRequest;
 use App\Models\InvestmentPage;
+use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
@@ -60,5 +61,10 @@ class IndexController extends Controller
     {
         $this->repository->delete($id);
         return response()->json('Deleted');
+    }
+
+    public function sort(Request $request)
+    {
+        $this->repository->updateOrder($request->get('recordsArray'));
     }
 }
