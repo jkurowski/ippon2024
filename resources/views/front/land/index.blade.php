@@ -21,44 +21,44 @@
     </div>
 </section>
 
-<section>
+<section class="pt-0 pt-xl-5">
     <div class="container">
         <div class="row left-right">
-            <div class="col-6 d-flex align-items-center">
+            <div class="col-12 col-xl-6 d-flex align-items-center">
                 <div class="left-right-text">
                     <p>Bezpłatnie wyceniamy grunty oraz zapewniamy pomoc prawną. Mamy elastyczne podejście do każdej nieruchomości oraz do jej właściciela, co sprzyja zawarciu umowy opartej na obustronnej korzyści. Decydując się na współpracę z nami, nie musisz zastanawiać się nad tym, czy działka znajduje się w złej lokalizacji lub nie została odrolniona.</p>
                     <p>&nbsp;</p>
                     <p>Pomożemy Ci ustalić jej status prawny oraz ocenić jej potencjał inwestycyjny. Jesteśmy deweloperem godnym Twojego zaufania.</p>
-                    <a href="#contact-form" data-offset="-60" class="bttn bttn-icon mt-5 scroll-to">WYPEŁNIJ FORMULARZ <i class="ms-3 las la-chevron-circle-right"></i></a>
+                    <a href="#contact-form" data-offset="-60" class="bttn bttn-icon mt-3 mt-sm-5 scroll-to">WYPEŁNIJ FORMULARZ <i class="ms-3 las la-chevron-circle-right"></i></a>
                 </div>
             </div>
-            <div class="col-6">
-                <div class="p-3">
-                    <img src="{{ asset('/images/grunty-1.jpg') }}" alt="" class="golden-border" width="840" height="650">
+            <div class="col-12 col-xl-6">
+                <div class="p-0 p-xl-3">
+                    <img src="{{ asset('/images/grunty-1.jpg') }}" alt="" class="golden-border w-100" width="840" height="650">
                 </div>
             </div>
         </div>
         <div class="row left-right flex-row-reverse row-offset-up">
-            <div class="col-6 d-flex align-items-center">
+            <div class="col-12 col-xl-6 d-flex align-items-center">
                 <div class="left-right-text">
                     <p>Nasza nieprzerwana obecność w branży deweloperskiej pozwoliła zdobyć doświadczenie, które jest gwarancją, że przeprowadzane przez nas transakcje są całkowicie zgodne z obowiązującymi przepisami prawa.</p>
                     <p>&nbsp;</p>
                     <p>Wypełnij poniższy formularz, a nasz ekspert skontaktuje się z Tobą w ciągu kilku godzin w celu umówienia spotkania.</p>
-                    <a href="#contact-form" data-offset="-60" class="bttn bttn-icon mt-5 scroll-to">WYPEŁNIJ FORMULARZ <i class="ms-3 las la-chevron-circle-right"></i></a>
+                    <a href="#contact-form" data-offset="-60" class="bttn bttn-icon mt-3 mt-sm-5 scroll-to">WYPEŁNIJ FORMULARZ <i class="ms-3 las la-chevron-circle-right"></i></a>
                 </div>
             </div>
-            <div class="col-6">
-                <div class="p-3">
-                    <img src="{{ asset('/images/grunty-2.jpg') }}" alt="" class="golden-border" width="840" height="650">
+            <div class="col-12 col-xl-6">
+                <div class="p-0 p-xl-3">
+                    <img src="{{ asset('/images/grunty-2.jpg') }}" alt="" class="golden-border w-100" width="840" height="650">
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<section id="contact-form">
+<section id="contact-form" class="pt-0 pt-lg-5">
     <div class="container">
-        <div class="row d-flex justify-content-center mt-5">
+        <div class="row d-flex justify-content-center mt-3 mt-sm-5">
             <div class="col-12">
                 @if (session('success'))
                     <div class="alert alert-success border-0">
@@ -73,7 +73,7 @@
                 <form method="post" id="contact-form" action="" class="validateForm">
                     {{ csrf_field() }}
                     <div class="row">
-                        <div class="col-3 form-input">
+                        <div class="col-12 col-sm-4 col-lg-3 form-input">
                             <label for="form_name">Imię <span class="text-danger">*</span></label>
                             <input name="form_name" id="form_name" class="validate[required] form-control @error('form_name') is-invalid @enderror" type="text" value="{{ old('form_name') }}">
 
@@ -81,7 +81,7 @@
                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                             @enderror
                         </div>
-                        <div class="col-3 form-input">
+                        <div class="col-12 col-sm-4 col-lg-3 form-input mt-4 mt-sm-0">
                             <label for="form_surname">Nazwisko</label>
                             <input name="form_surname" id="form_surname" class="form-control @error('form_surname') is-invalid @enderror" type="text" value="{{ old('form_surname') }}">
 
@@ -89,7 +89,7 @@
                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                             @enderror
                         </div>
-                        <div class="col-3 form-input">
+                        <div class="col-12 col-sm-4 col-lg-3 form-input mt-4 mt-sm-0">
                             <label for="form_email">E-mail <span class="text-danger">*</span></label>
                             <input name="form_email" id="form_email" class="validate[required] form-control @error('form_email') is-invalid @enderror" type="text" value="{{ old('form_email') }}">
 
@@ -97,7 +97,7 @@
                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                             @enderror
                         </div>
-                        <div class="col-3 form-input">
+                        <div class="col-12 col-sm-4 col-lg-3 form-input mt-4 mt-sm-5 mt-lg-0">
                             <label for="form_phone">Telefon <span class="text-danger">*</span></label>
                             <input name="form_phone" id="form_phone" class="validate[required] form-control @error('form_phone') is-invalid @enderror" type="text" value="{{ old('form_phone') }}">
 
@@ -106,7 +106,7 @@
                             @enderror
                         </div>
 
-                        <div class="col-3 form-input mt-5">
+                        <div class="col-12 col-sm-4 col-lg-3 form-input mt-4 mt-sm-5">
                             <label for="form_city">Miasto</label>
                             <input name="form_city" id="form_city" class="form-control @error('form_city') is-invalid @enderror" type="text" value="{{ old('form_city') }}">
 
@@ -114,7 +114,7 @@
                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                             @enderror
                         </div>
-                        <div class="col-3 form-input mt-5">
+                        <div class="col-12 col-sm-4 col-lg-3 form-input mt-4 mt-sm-5">
                             <label for="form_street">Ulica</label>
                             <input name="form_street" id="form_street" class="form-control @error('form_street') is-invalid @enderror" type="text" value="{{ old('form_street') }}">
 
@@ -122,7 +122,7 @@
                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                             @enderror
                         </div>
-                        <div class="col-3 form-input mt-5">
+                        <div class="col-12 col-sm-6 col-lg-3 form-input mt-4 mt-sm-5">
                             <label for="form_price">Oczekiwana cena</label>
                             <input name="form_price" id="form_price" class="form-control @error('form_price') is-invalid @enderror" type="text" value="{{ old('form_price') }}">
 
@@ -130,7 +130,7 @@
                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                             @enderror
                         </div>
-                        <div class="col-3 form-input mt-5">
+                        <div class="col-12 col-sm-6 col-lg-3 form-input mt-4 mt-sm-5">
                             <label for="form_date">Oczekiwana data sprzedaży</label>
                             <input name="form_date" id="form_date" class="form-control @error('form_date') is-invalid @enderror" type="text" value="{{ old('form_date') }}">
 
@@ -139,7 +139,7 @@
                             @enderror
                         </div>
 
-                        <div class="col-6 form-input mt-5">
+                        <div class="col-12 col-sm-6 form-input mt-4 mt-sm-5">
                             <label for="form_book">Numer księgi wieczystej</label>
                             <input name="form_book" id="form_book" class="form-control @error('form_book') is-invalid @enderror" type="text" value="{{ old('form_book') }}">
 
@@ -147,7 +147,7 @@
                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                             @enderror
                         </div>
-                        <div class="col-6 form-input mt-5">
+                        <div class="col-12 col-sm-6 form-input mt-4 mt-sm-5">
                             <label for="form_land">Przeznaczenie terenu</label>
                             <input name="form_land" id="form_land" class="form-control @error('form_land') is-invalid @enderror" type="text" value="{{ old('form_land') }}">
 
@@ -164,7 +164,7 @@
                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                             @enderror
                         </div>
-                        <div class="col-8">
+                        <div class="col-12 col-xl-8">
                             @if($obligation)
                                 <div class="rodo-obligation mt-3">
                                     {!! $obligation->obligation !!}
@@ -186,7 +186,7 @@
                                 @endforeach
                             </div>
                         </div>
-                        <div class="col-4 d-flex justify-content-end align-items-end">
+                        <div class="col-12 col-xl-4 d-flex justify-content-end align-items-end">
                             <div class="form-submit">
                                 <input name="form_page" type="hidden" value="homepage">
                                 <script type="text/javascript">

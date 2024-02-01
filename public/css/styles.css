@@ -3446,6 +3446,9 @@ html.swipebox-html.swipebox-touch {
   .left-right-smalltext.text-end div {
     padding: 0;
   }
+  #contact-form label {
+    font-size: 15px;
+  }
 }
 /* end of 1199.98 */
 @media (max-width: 991.98px) {
@@ -3728,7 +3731,8 @@ html.swipebox-html.swipebox-touch {
   .post-details .bttn,
   .blog-list article .bttn,
   .rent-item-detail .bttn,
-  .accordion .accordion-body .bttn {
+  .accordion .accordion-body .bttn,
+  .left-right-text .bttn {
     padding: 10px 15px;
     justify-content: center;
     width: 100%;
