@@ -126,56 +126,56 @@
                 <div class="col-3">
                     <div class="main-room">
                         <div class="main-room-header text-center">
-                            <h2 class="poppins"><a href="#">MIESZKANIA <br><b>1 POKOJOWE</b></a></h2>
+                            <h2 class="poppins"><a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=1#filtr">MIESZKANIA <br><b>1 POKOJOWE</b></a></h2>
                             <p>Powierzchnia: <span>27m<sup>2</sup></span></p>
                             <div class="main-room-img">
-                                <a href="#"><img src="{{ asset('/uploads/files/mieszkania-1-pokoje.jpg') }}" alt="Dostępne mieszkania 1-pokojowe"></a>
+                                <a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=1#filtr"><img src="{{ asset('/uploads/files/mieszkania-1-pokoje.jpg') }}" alt="Dostępne mieszkania 1-pokojowe"></a>
                             </div>
                         </div>
                         <div class="main-room-footer">
-                            <a href="#" class="bttn bttn-icon">Zobacz mieszkania <i class="ms-3 las la-chevron-circle-right"></i></a>
+                            <a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=1#filtr" class="bttn bttn-icon">Zobacz mieszkania <i class="ms-3 las la-chevron-circle-right"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-3">
                     <div class="main-room">
                         <div class="main-room-header text-center">
-                            <h2 class="poppins"><a href="#">MIESZKANIA <br><b>2 POKOJOWE</b></a></h2>
+                            <h2 class="poppins"><a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=2#filtr">MIESZKANIA <br><b>2 POKOJOWE</b></a></h2>
                             <p>Powierzchnia: <span>35-48m<sup>2</sup></span></p>
                             <div class="main-room-img">
-                                <a href="#"><img src="{{ asset('/uploads/files/mieszkania-2-pokoje.jpg') }}" alt="Dostępne mieszkania 2-pokojowe"></a>
+                                <a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=2#filtr"><img src="{{ asset('/uploads/files/mieszkania-2-pokoje.jpg') }}" alt="Dostępne mieszkania 2-pokojowe"></a>
                             </div>
                         </div>
                         <div class="main-room-footer">
-                            <a href="#" class="bttn bttn-icon">Zobacz mieszkania <i class="ms-3 las la-chevron-circle-right"></i></a>
+                            <a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=2#filtr" class="bttn bttn-icon">Zobacz mieszkania <i class="ms-3 las la-chevron-circle-right"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-3">
                     <div class="main-room">
                         <div class="main-room-header text-center">
-                            <h2 class="poppins"><a href="#">MIESZKANIA <br><b>3 POKOJOWE</b></a></h2>
+                            <h2 class="poppins"><a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=3#filtr">MIESZKANIA <br><b>3 POKOJOWE</b></a></h2>
                             <p>Powierzchnia: <span>50-61m<sup>2</sup></span></p>
                             <div class="main-room-img">
-                                <a href="#"><img src="{{ asset('/uploads/files/mieszkania-3-pokoje.jpg') }}" alt="Dostępne mieszkania 3-pokojowe"></a>
+                                <a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=3#filtr"><img src="{{ asset('/uploads/files/mieszkania-3-pokoje.jpg') }}" alt="Dostępne mieszkania 3-pokojowe"></a>
                             </div>
                         </div>
                         <div class="main-room-footer">
-                            <a href="#" class="bttn bttn-icon">Zobacz mieszkania <i class="ms-3 las la-chevron-circle-right"></i></a>
+                            <a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=3#filtr" class="bttn bttn-icon">Zobacz mieszkania <i class="ms-3 las la-chevron-circle-right"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-3">
                     <div class="main-room">
                         <div class="main-room-header text-center">
-                            <h2 class="poppins"><a href="#">MIESZKANIA <br><b>4 POKOJOWE</b></a></h2>
+                            <h2 class="poppins"><a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=4#filtr">MIESZKANIA <br><b>4 POKOJOWE</b></a></h2>
                             <p>Powierzchnia: <span>60-80m<sup>2</sup></span></p>
                             <div class="main-room-img">
-                                <a href="#"><img src="{{ asset('/uploads/files/mieszkania-4-pokoje.jpg') }}" alt="Dostępne mieszkania 4-pokojowe"></a>
+                                <a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=4#filtr"><img src="{{ asset('/uploads/files/mieszkania-4-pokoje.jpg') }}" alt="Dostępne mieszkania 4-pokojowe"></a>
                             </div>
                         </div>
                         <div class="main-room-footer">
-                            <a href="#" class="bttn bttn-icon">Zobacz mieszkania <i class="ms-3 las la-chevron-circle-right"></i></a>
+                            <a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=4#filtr" class="bttn bttn-icon">Zobacz mieszkania <i class="ms-3 las la-chevron-circle-right"></i></a>
                         </div>
                     </div>
                 </div>
