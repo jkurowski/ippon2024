@@ -75,7 +75,7 @@
                                     'label' => 'Miasto',
                                     'name' => 'city',
                                     'selected' => $entry->city,
-                                    'select' => $cities
+                                    'select' => $citiesMenu
                                 ])
                         </div>
                     </div>

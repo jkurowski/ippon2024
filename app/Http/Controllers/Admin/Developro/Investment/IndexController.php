@@ -44,7 +44,7 @@ class IndexController extends Controller
     public function create()
     {
         return view('admin.developro.investment.form', [
-            'cities' => City::pluck('name', 'id'),
+            'citiesMenu' => City::pluck('name', 'id'),
             'cardTitle' => 'Dodaj inwestycje',
             'backButton' => route('admin.developro.investment.index')
         ])->with('entry', Investment::make());
@@ -73,7 +73,7 @@ class IndexController extends Controller
     {
         return view('admin.developro.investment.form', [
             'entry' => $this->repository->find($id),
-            'cities' => City::pluck('name', 'id'),
+            'citiesMenu' => City::pluck('name', 'id'),
             'cardTitle' => 'Edytuj inwestycję',
             'backButton' => route('admin.developro.investment.index')
         ]);
