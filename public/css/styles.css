@@ -3108,6 +3108,9 @@ html.swipebox-html.swipebox-touch {
     width: 100px;
     border: 10px solid white;
   }
+  .row-offset-up {
+    margin-top: -40px;
+  }
 }
 @media (max-width: 1399.98px) {
   #page {
@@ -3234,6 +3237,16 @@ html.swipebox-html.swipebox-touch {
     flex: 0 0 240px;
     max-width: 240px;
     padding-right: 30px;
+  }
+  .row-offset-up {
+    margin-top: 0;
+  }
+  .left-right-text {
+    padding: 30px;
+  }
+  .left-right-text h2 {
+    margin-bottom: 10px;
+    font-size: 37px;
   }
 }
 @media (max-width: 1199.98px) {
@@ -3400,6 +3413,17 @@ html.swipebox-html.swipebox-touch {
     max-width: 160px;
     padding-right: 30px;
   }
+  .left-right-text {
+    padding: 0 0 40px;
+  }
+  .left-right-text h2 {
+    margin-bottom: 12px;
+    font-size: 35px;
+    text-align: center;
+  }
+  .left-right.row-offset-up .left-right-text {
+    padding: 40px 0;
+  }
 }
 /* end of 1199.98 */
 @media (max-width: 991.98px) {
@@ -3470,6 +3494,42 @@ html.swipebox-html.swipebox-touch {
   .invest-item-holder {
     padding: 30px 15px 0;
   }
+  .paralaxa-bottom {
+    margin-top: -20px;
+    padding: 22px 20px 0;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  h2 {
+    font-size: 36px;
+    line-height: 42px;
+  }
+  .timeline-wrapper .day:nth-child(2n+1) {
+    float: none;
+    clear: none;
+    width: 100%;
+  }
+  .timeline-wrapper .day:nth-child(even) {
+    float: none;
+    clear: none;
+    width: 100%;
+  }
+  .timeline-wrapper .day-head:after,
+  .timeline-wrapper .day-head:before {
+    display: none;
+  }
+  #timeline {
+    padding: 0;
+  }
+  .timeline-wrapper .day,
+  .timeline-wrapper .day:nth-child(2) {
+    margin-top: 30px;
+  }
+  .timeline-wrapper .day {
+    position: relative;
+    z-index: 20;
+    background: white;
+  }
 }
 /* end of 991.98 */
 @media (max-width: 767.98px) {
@@ -3520,6 +3580,18 @@ html.swipebox-html.swipebox-touch {
   .invest-item-holder {
     padding: 30px 0 0;
   }
+  .paralaxa {
+    height: 200px;
+  }
+  .paralaxa-bottom {
+    margin-top: -10px;
+    padding: 22px 0 0;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .paralaxa-bottom.paralaxa-bottom {
+    margin-top: -50px;
+  }
 }
 /* end of 767.98 */
 @media (max-width: 575.98px) {
@@ -3566,7 +3638,7 @@ html.swipebox-html.swipebox-touch {
   li,
   p {
     font-size: 16px;
-    line-height: 22px;
+    line-height: 28px;
   }
   .contact-box {
     padding: 15px;
@@ -3662,6 +3734,68 @@ html.swipebox-html.swipebox-touch {
   }
   .osoba.d-flex {
     display: block !important;
+  }
+  .award {
+    padding: 20px;
+  }
+  .award h3 {
+    font-size: 16px;
+    margin-bottom: 0;
+  }
+  .award img {
+    margin: 0 auto 15px;
+    width: 210px;
+  }
+  .section-title {
+    margin-bottom: 1rem !important;
+  }
+  #awardsCarousel .slick-slide p {
+    display: none;
+  }
+  #awardsCarousel .slick-arrow {
+    left: 0;
+    top: 60px;
+    bottom: auto;
+  }
+  #awardsCarousel .slick-arrow.slick-next {
+    right: 0;
+  }
+  .paralaxa-bottom img {
+    width: 260px;
+  }
+  .rwd-fullwidth {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+  .left-right-text h2 {
+    margin-bottom: 20px;
+    font-size: 27px;
+    line-height: 29px;
+  }
+  .day-body {
+    padding: 17px;
+  }
+  .day-body p {
+    font-size: 16px;
+    line-height: 26px;
+  }
+  .timeline-wrapper .day-head h2 {
+    font-size: 22px;
+    line-height: 26px;
+    width: calc(100% - 57px);
+    padding-left: 15px;
+  }
+  .timeline-wrapper .day-date span {
+    font-size: 9px;
+  }
+  .timeline-wrapper .day-date i {
+    font-size: 18px;
+  }
+  .timeline-wrapper .day-date {
+    margin: 0;
+    padding: 14px 0;
+    height: 55px;
+    width: 55px;
   }
 }
 /* end of 575.98 */
