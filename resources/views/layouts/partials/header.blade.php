@@ -72,7 +72,7 @@
                                 </li>
                                 <li><a href="">Strefa klienta <i class="ms-2 las la-angle-down"></i></a>
                                     <ul class="mb-0 list-unstyled subnav">
-                                        <li><a href="">Panel klienta</a></li>
+                                        <li class="d-none"><a href="">Panel klienta</a></li>
                                         <li><a href="{{ route('static.howbuy') }}">Jak kupić mieszkanie?</a></li>
                                         <li><a href="{{ route('promotion') }}">Rabaty</a></li>
                                         <li><a href="{{ url($current_locale.'/pod-klucz') }}">Mieszkanie pod klucz</a></li>
