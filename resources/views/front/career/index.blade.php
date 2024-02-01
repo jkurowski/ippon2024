@@ -12,7 +12,7 @@
     <section class="pt-0">
         <div class="container">
             <div class="row left-right">
-                <div class="col-6 d-flex align-items-center">
+                <div class="col-12 col-xl-6 d-flex align-items-center">
                     <div class="left-right-text">
                         <h2>Pracuj z najlepszymi</h2>
                         <p>Oferujemy stabilne zatrudnienie i ciągły rozwój w strukturach jednego z najszybciej rozwijających się deweloperów w kraju.</p>
@@ -22,12 +22,12 @@
                         <p>Dołącz do nas, jeżeli cenisz sobie przyjazną atmosferę w pracy, jesteś pełen zapału i gotów na nowe wyzwania!</p>
                     </div>
                 </div>
-                <div class="col-6">
+                <div class="col-12 col-xl-6">
                     <img src="{{ asset('/images/inline/pracuj-z-najlepszymi.jpg') }}" alt="" class="golden-border" width="840" height="650">
                 </div>
             </div>
             <div class="row left-right flex-row-reverse row-offset-up">
-                <div class="col-6 d-flex align-items-center">
+                <div class="col-12 col-xl-6 d-flex align-items-center">
                     <div class="left-right-text">
                         <h2>Poznajmy się</h2>
                         <p>Proces rekrutacyjny to rozmowa, w czasie której koncentrujemy się na doświadczeniu, umiejętnościach i kompetencjach, które są związane z konkretnym stanowiskiem pracy.</p>
@@ -35,7 +35,7 @@
                         <p>Chętnie odpowiadamy na wszystkie pytania, abyś mógł lepiej poznać wartości i misję Firmy.</p>
                     </div>
                 </div>
-                <div class="col-6">
+                <div class="col-12 col-xl-6">
                     <img src="{{ asset('/images/inline/kariera-poznajmy-sie.jpg') }}" alt="" class="golden-border">
                 </div>
             </div>
@@ -50,7 +50,7 @@
                 </div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-8">
+                <div class="col-12 col-lg-8">
                     <div class="accordion" id="accordionJob">
                         @foreach($jobs as $key => $job)
                         <div class="accordion-item">
@@ -82,9 +82,9 @@
             </div>
 
             <div class="row justify-content-center">
-                <div class="col-8">
+                <div class="col-12 col-lg-8">
                     <div class="row">
-                        <div class="col-4">
+                        <div class="col-6 col-sm-4">
                             <div class="career-iconbox">
                                 <div class="career-iconbox-img">
                                     <img src="{{ asset('/images/icons/stabilne-zatrudnienie.png') }}" alt="" width="135" height="135">
@@ -92,7 +92,7 @@
                                 <p>STABILNE <br>ZATRUDNIENIE</p>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-6 col-sm-4">
                             <div class="career-iconbox">
                                 <div class="career-iconbox-img">
                                     <img src="{{ asset('/images/icons/praca-z-najlepszymi.png') }}" alt="" width="135" height="135">
@@ -100,7 +100,7 @@
                                 <p>PRACA Z NAJLEPSZYMI <br>W BRANŻY</p>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-6 col-sm-4">
                             <div class="career-iconbox">
                                 <div class="career-iconbox-img">
                                     <img src="{{ asset('/images/icons/szkolenia.png') }}" alt="" width="135" height="135">
@@ -108,7 +108,7 @@
                                 <p>SZKOLENIA</p>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-6 col-sm-4">
                             <div class="career-iconbox">
                                 <div class="career-iconbox-img">
                                     <img src="{{ asset('/images/icons/wolne-weekendy.png') }}" alt="" width="135" height="135">
@@ -116,7 +116,7 @@
                                 <p>WOLNE WEEKENDY</p>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-6 col-sm-4">
                             <div class="career-iconbox">
                                 <div class="career-iconbox-img">
                                     <img src="{{ asset('/images/icons/realny-wplyw.png') }}" alt="" width="135" height="135">
@@ -124,7 +124,7 @@
                                 <p>REALNY WPŁYW <br>NA POWSTAJĄCE INWESTYCJE</p>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-6 col-sm-4">
                             <div class="career-iconbox">
                                 <div class="career-iconbox-img">
                                     <img src="{{ asset('/images/icons/swieza-kawa.png') }}" alt="" width="135" height="135">
@@ -147,12 +147,12 @@
             </div>
 
             <div class="row">
-                <div class="col-5">
-                    <div class="left-right-image pe-5">
-                        <img src="{{ asset('/images/inline/rekrutacja-aplikacja.jpg') }}" alt="" class="golden-border" width="670" height="410">
+                <div class="col-12 col-lg-5">
+                    <div class="left-right-image pe-0 pe-lg-5">
+                        <img src="{{ asset('/images/inline/rekrutacja-aplikacja.jpg') }}" alt="" class="golden-border w-100" width="670" height="410">
                     </div>
                 </div>
-                <div class="col-7 d-flex align-items-center left-right-smalltext">
+                <div class="col-12 col-lg-7 d-flex align-items-center left-right-smalltext mt-4 mt-lg-0">
                     <div>
                         <h3>APLIKACJA</h3>
                         <p>Prześlij do nas swoje CV na adres: <a href="mailto:sekretariat@ippon.group">sekretariat@ippon.group</a>. Opisz siebie i zaprezentuj swoje dotychczasowe osiągnięcia.</p>
@@ -161,12 +161,12 @@
             </div>
 
             <div class="row flex-row-reverse row-offset-up-50">
-                <div class="col-5">
-                    <div class="left-right-image ps-5">
-                        <img src="{{ asset('/images/inline/rekrutacja-selekcja.jpg') }}" alt="" class="golden-border" width="670" height="410">
+                <div class="col-12 col-lg-5">
+                    <div class="left-right-image ps-0 ps-lg-5">
+                        <img src="{{ asset('/images/inline/rekrutacja-selekcja.jpg') }}" alt="" class="golden-border w-100" width="670" height="410">
                     </div>
                 </div>
-                <div class="col-7 d-flex align-items-center left-right-smalltext text-end">
+                <div class="col-12 col-lg-7 d-flex align-items-center left-right-smalltext text-start text-lg-end mt-4 mt-lg-0">
                     <div>
                         <h3>SELEKCJA</h3>
                         <p>Jeżeli Twoje doświadczenie jest zgodne z naszymi oczekiwaniami, skontaktujemy się z Tobą i zaprosimy na rozmowę rekrutacyjną do siedziby firmy.</p>
@@ -175,12 +175,12 @@
             </div>
 
             <div class="row row-offset-up-50">
-                <div class="col-5">
-                    <div class="left-right-image pe-5">
-                        <img src="{{ asset('/images/inline/rekrutacja-rozmowa.jpg') }}" alt="" class="golden-border" width="670" height="410">
+                <div class="col-12 col-lg-5">
+                    <div class="left-right-image pe-0 pe-lg-5">
+                        <img src="{{ asset('/images/inline/rekrutacja-rozmowa.jpg') }}" alt="" class="golden-border w-100" width="670" height="410">
                     </div>
                 </div>
-                <div class="col-7 d-flex align-items-center left-right-smalltext">
+                <div class="col-12 col-lg-7 d-flex align-items-center left-right-smalltext mt-4 mt-lg-0">
                     <div>
                         <h3>ROZMOWA</h3>
                         <p>Na spotkaniu poznamy się bliżej. Opowiemy o strukturze firmy, kulturze organizacyjnej oraz przybliżymy zakres obowiązków na danym stanowisku pracy. Zadamy Ci kilka pytań, by lepiej poznać Ciebie i Twoje doświadczenie zawodowe.</p>
@@ -189,12 +189,12 @@
             </div>
 
             <div class="row flex-row-reverse row-offset-up-50">
-                <div class="col-5">
-                    <div class="left-right-image ps-5">
-                        <img src="{{ asset('/images/inline/rekrutacja-decyzja.jpg') }}" alt="" class="golden-border" width="670" height="410">
+                <div class="col-12 col-lg-5">
+                    <div class="left-right-image ps-0 ps-lg-5">
+                        <img src="{{ asset('/images/inline/rekrutacja-decyzja.jpg') }}" alt="" class="golden-border w-100" width="670" height="410">
                     </div>
                 </div>
-                <div class="col-7 d-flex align-items-center left-right-smalltext text-end">
+                <div class="col-12 col-lg-7 d-flex align-items-center left-right-smalltext text-start text-lg-end mt-4 mt-lg-0">
                     <div>
                         <h3>DECYZJA</h3>
                         <p>Po rozmowie kwalifikacyjnej otrzymasz od nas informację zwrotną, dotyczącą ostatecznej decyzji związanej z rekrutacją. Wybranym kandydatom złożymy ofertę dopasowaną do ich profilu kompetencji, doświadczenia i stanowiska.</p>

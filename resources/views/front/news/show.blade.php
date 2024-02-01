@@ -12,7 +12,7 @@
 @section('content')
     <div class="container">
         <div class="row d-flex justify-content-center">
-            <div class="col-8">
+            <div class="col-12 col-xl-8">
                 <div class="post-details">
                     @if($article->file)
                     <picture>
@@ -28,7 +28,7 @@
                     <div class="post-details-text">
                         <p>{!! parse_text($article->content) !!}</p>
                     </div>
-                    <a href="{{route('front.articles.index')}}" class="bttn mt-5">WRÓĆ DO LISTY</a>
+                    <a href="{{route('front.articles.index')}}" class="bttn mt-3 mt-md-5">WRÓĆ DO LISTY</a>
                 </div>
             </div>
         </div>

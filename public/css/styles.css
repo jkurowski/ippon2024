@@ -3248,6 +3248,22 @@ html.swipebox-html.swipebox-touch {
     margin-bottom: 10px;
     font-size: 37px;
   }
+  .career-iconbox-img {
+    width: 165px;
+    height: 165px;
+    margin: 0 auto 15px;
+  }
+  .career-iconbox img {
+    width: 70px;
+  }
+  .career-iconbox p {
+    font-size: 18px;
+    line-height: 25px;
+  }
+  .row-offset-up-50 {
+    margin-top: 0;
+    padding: 15px 0;
+  }
 }
 @media (max-width: 1199.98px) {
   li,
@@ -3424,6 +3440,12 @@ html.swipebox-html.swipebox-touch {
   .left-right.row-offset-up .left-right-text {
     padding: 40px 0;
   }
+  .left-right-smalltext div {
+    padding: 0;
+  }
+  .left-right-smalltext.text-end div {
+    padding: 0;
+  }
 }
 /* end of 1199.98 */
 @media (max-width: 991.98px) {
@@ -3530,6 +3552,9 @@ html.swipebox-html.swipebox-touch {
     z-index: 20;
     background: white;
   }
+  section {
+    padding: 2rem 0 !important;
+  }
 }
 /* end of 991.98 */
 @media (max-width: 767.98px) {
@@ -3591,6 +3616,20 @@ html.swipebox-html.swipebox-touch {
   }
   .paralaxa-bottom.paralaxa-bottom {
     margin-top: -50px;
+  }
+  .career-iconbox-img {
+    width: 115px;
+    height: 115px;
+  }
+  .career-iconbox img {
+    width: 50px;
+  }
+  .career-iconbox p {
+    font-size: 16px;
+    line-height: 22px;
+  }
+  .section-title:before {
+    width: 450px;
   }
 }
 /* end of 767.98 */
@@ -3688,7 +3727,8 @@ html.swipebox-html.swipebox-touch {
   }
   .post-details .bttn,
   .blog-list article .bttn,
-  .rent-item-detail .bttn {
+  .rent-item-detail .bttn,
+  .accordion .accordion-body .bttn {
     padding: 10px 15px;
     justify-content: center;
     width: 100%;
@@ -3796,6 +3836,19 @@ html.swipebox-html.swipebox-touch {
     padding: 14px 0;
     height: 55px;
     width: 55px;
+  }
+  section {
+    padding: 1rem 0 !important;
+  }
+  .accordion .accordion-header button {
+    font-size: 23px;
+    padding: 15px;
+  }
+  .accordion .accordion-body {
+    padding: 0 15px 15px;
+  }
+  h3 {
+    font-size: 24px;
   }
 }
 /* end of 575.98 */
