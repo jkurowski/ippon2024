@@ -44,7 +44,10 @@ class Investment extends Model
         'end_content',
         'file_thumb',
         'file_logo',
-        'file_header'
+        'file_header',
+        'lat',
+        'lng',
+        'zoom'
     ];
 
     public function investmentPage()

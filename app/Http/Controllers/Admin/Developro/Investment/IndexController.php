@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Developro\Investment;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\InvestmentFormRequest;
+use App\Models\City;
 use App\Models\Investment;
 use App\Repositories\InvestmentRepository;
 use App\Services\InvestmentService;
@@ -43,6 +44,7 @@ class IndexController extends Controller
     public function create()
     {
         return view('admin.developro.investment.form', [
+            'cities' => City::pluck('name', 'id'),
             'cardTitle' => 'Dodaj inwestycje',
             'backButton' => route('admin.developro.investment.index')
         ])->with('entry', Investment::make());
@@ -71,6 +73,7 @@ class IndexController extends Controller
     {
         return view('admin.developro.investment.form', [
             'entry' => $this->repository->find($id),
+            'cities' => City::pluck('name', 'id'),
             'cardTitle' => 'Edytuj inwestycję',
             'backButton' => route('admin.developro.investment.index')
         ]);

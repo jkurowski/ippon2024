@@ -44,6 +44,9 @@ class InvestmentFormRequest extends FormRequest
             'entry_content' => '',
             'content' => '',
             'end_content' => '',
+            'lat' => '',
+            'lng' => '',
+            'zoom' => 'integer'
         ];
     }
 
