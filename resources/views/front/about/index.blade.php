@@ -33,7 +33,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-xl-6">
-                    <img src="/images/inline/jakosc.jpg" alt="" class="golden-border w-100" width="840" height="650">
+                    <img src="{{ asset('/uploads/files/o-nas/jakosc.jpg') }}" alt="" class="golden-border w-100" width="840" height="650">
                 </div>
             </div>
 
