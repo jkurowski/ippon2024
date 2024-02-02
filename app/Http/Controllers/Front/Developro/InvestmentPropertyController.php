@@ -28,7 +28,7 @@ class InvestmentPropertyController extends Controller
 
         $similar = Property::select('properties.*', 'floors.number as floor_number')
             ->where('rooms', $property->rooms)
-            ->where('id', '<>', $property->id)
+            ->where('properties.id', '<>', $property->id)
             ->join('floors', 'properties.floor_id', '=', 'floors.id')
             ->inRandomOrder()
             ->limit(3)
