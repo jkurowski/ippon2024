@@ -2400,6 +2400,26 @@ section {
   right: 50px;
   left: auto;
 }
+.similar-rooms {
+  position: relative;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  padding: 20px;
+}
+.similar-rooms h2 {
+  font-size: 31px;
+  font-style: normal;
+  font-weight: 600;
+  margin: 15px 0;
+}
+.similar-rooms .property-list-item-stat {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 600;
+}
+.similar-rooms .status-badge {
+  font-size: 17px;
+}
 /* Timeline
 ================================================== */
 #timeline {

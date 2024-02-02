@@ -62,6 +62,51 @@
                 </div>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-12 mt-5 pt-5">
+                <h2 class="slow-header justify-content-center"><span class="rostemary">Mieszkania</span> <span class="abuget brown">Podobne</span></h2>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            @foreach($similar as $room)
+            <div class="col-4 p-4">
+                <div class="similar-rooms">
+                    {!! roomStatusBadge($room->status) !!}
+                    @if($room->file)
+                        <a href="{{ route('developro.property', [$investment->slug, $room, Str::slug($room->name), floorLevel($room->floor_number, true), number2RoomsName($room->rooms, true), round(floatval($room->area), 2).'-m2']) }}">
+                        <picture>
+                            <source type="image/webp" srcset="/investment/property/list/webp/{{$room->file_webp}}">
+                            <source type="image/jpeg" srcset="/investment/property/list/{{$room->file}}">
+                            <img src="/investment/property/list/{{$room->file}}" alt="{{$room->name}}" class="w-100">
+                        </picture>
+                        </a>
+                    @endif
+                    <h2 class="poppins"><a href="{{ route('developro.property', [$investment->slug, $room, Str::slug($room->name), floorLevel($room->floor_number, true), number2RoomsName($room->rooms, true), round(floatval($room->area), 2).'-m2']) }}">{{$room->name}}</a></h2>
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-4 property-list-item-stat">
+                                <img src="{{ asset('/images/floor-icon.svg') }}" alt="Ikonka piętra" class="me-3"> Piętro {{$room->floor_number}}
+                            </div>
+                            <div class="col-4 property-list-item-stat">
+                                <img src="{{ asset('/images/room-icon.svg') }}" alt="Ikonka pokoi" class="me-3"> {{$room->rooms}}
+                                @if ($room->rooms == 1)
+                                    pokój
+                                @else
+                                    pokoje
+                                @endif
+                            </div>
+                            <div class="col-4 property-list-item-stat">
+                                <img src="{{ asset('/images/area-icon.svg') }}" alt="Ikonka powierzchni" class="me-3"> {{$room->area}} m<sup>2</sup>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="{{ route('developro.property', [$investment->slug, $room, Str::slug($room->name), floorLevel($room->floor_number, true), number2RoomsName($room->rooms, true), round(floatval($room->area), 2).'-m2']) }}" class="bttn bttn-icon mt-4">POKAŻ MIESZKANIE <i class="ms-4 las la-file"></i></a>
+                </div>
+            </div>
+            @endforeach
+        </div>
     </div>
 
 

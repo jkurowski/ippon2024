@@ -98,6 +98,11 @@ class Property extends Model
         return $logOptions;
     }
 
+    public function floor()
+    {
+        return $this->belongsTo(Floor::class);
+    }
+
     public function investment()
     {
         return $this->belongsTo(Investment::class);

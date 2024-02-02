@@ -26,6 +26,12 @@ class InvestmentPropertyController extends Controller
         $page = Page::where('id', $this->pageId)->first();
         $floor = Floor::find($property->floor_id);
 
+        $similar = Property::select('properties.*', 'floors.number as floor_number')
+            ->where('rooms', $property->rooms)
+            ->join('floors', 'properties.floor_id', '=', 'floors.id')
+            ->limit(3)
+            ->get();
+
         return view('front.investment_property.index', [
             'investment' => $investment,
             'floor' => $floor,
@@ -33,7 +39,8 @@ class InvestmentPropertyController extends Controller
             'rules' => RodoRules::orderBy('sort')->whereStatus(1)->get(),
             'next' => $property->findNext(1, $property->id),
             'prev' => $property->findPrev(1, $property->id),
-            'page' => $page
+            'page' => $page,
+            'similar' => $similar
         ]);
     }
 }
