@@ -40,8 +40,8 @@ class InvestmentPropertyController extends Controller
             'floor' => $floor,
             'property' => $property,
             'rules' => RodoRules::orderBy('sort')->whereStatus(1)->get(),
-            'next' => $property->findNext(1, $property->id),
-            'prev' => $property->findPrev(1, $property->id),
+            'next' => $property->findNext($investment->id, $property->id, $property->floor_id),
+            'prev' => $property->findPrev($investment->id, $property->id, $property->floor_id),
             'page' => $page,
             'similar' => $similar,
             'obligation' => RodoSettings::find(1)

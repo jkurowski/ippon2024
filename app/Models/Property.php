@@ -60,9 +60,15 @@ class Property extends Model
      * @param int $id
      * @return Property
      */
-    public function findNext(int $investment, int $id)
+    public function findNext(int $investment, int $id, ?int $floor_id = null)
     {
-        return $this->where('investment_id', $investment)->where('id', '>', $id)->first();
+        $query = $this->where('investment_id', $investment)->where('number_order', '>', $id);
+
+        if (!is_null($floor_id)) {
+            $query->where('floor_id', $floor_id);
+        }
+
+        return $query->first();
     }
 
     /**
@@ -71,9 +77,15 @@ class Property extends Model
      * @param int $id
      * @return Property
      */
-    public function findPrev(int $investment, int $id)
+    public function findPrev(int $investment, int $id, ?int $floor_id = null)
     {
-        return $this->where('investment_id', $investment)->where('id', '<', $id)->first();
+        $query = $this->where('investment_id', $investment)->where('number_order', '<', $id)->orderByDesc('number_order');
+
+        if (!is_null($floor_id)) {
+            $query->where('floor_id', $floor_id);
+        }
+
+        return $query->first();
     }
 
     /**

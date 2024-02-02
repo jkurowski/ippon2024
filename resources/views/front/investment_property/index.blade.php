@@ -46,6 +46,17 @@
                 </div>
             </div>
             <div class="col-6">
+                <div id="propertyNav" class="row">
+                    <div class="col-12 col-sm-4">
+                        @if($prev) <a href="{{ route('developro.property', [$investment->slug, $prev, Str::slug($prev->name), $floor->number, number2RoomsName($prev->rooms, true), round(floatval($prev->area), 2).'-m2']) }}" class="bttn bttn-slow justify-content-center"><i class="las la-arrow-left me-5"></i>{{ $prev->name }}</a>@endif
+                    </div>
+                    <div class="col-12 col-sm-4">
+                        <a href="{{route('developro.floor', [$investment->slug, $floor, Str::slug($floor->name)])}}" class="bttn justify-content-center bttn-slow">Wróć do planu</a>
+                    </div>
+                    <div class="col-12 col-sm-4">
+                        @if($next) <a href="{{ route('developro.property', [$investment->slug, $next, Str::slug($next->name), $floor->number, number2RoomsName($next->rooms, true), round(floatval($next->area), 2).'-m2']) }}" class="bttn bttn-slow justify-content-center">{{ $next->name }} <i class="ms-5 las la-arrow-right"></i></a>@endif
+                    </div>
+                </div>
                 <div class="property-img">
                     @if($property->file)
                         <div class="property-img">
@@ -103,7 +114,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="{{ route('developro.property', [$investment->slug, $room, Str::slug($room->name), floorLevel($room->floor_number, true), number2RoomsName($room->rooms, true), round(floatval($room->area), 2).'-m2']) }}" class="bttn bttn-icon mt-4">POKAŻ MIESZKANIE <i class="ms-4 las la-file"></i></a>
+                    <a href="{{ route('developro.property', [$investment->slug, $room, Str::slug($room->name), floorLevel($room->floor_number, true), number2RoomsName($room->rooms, true), round(floatval($room->area), 2).'-m2']) }}" class="bttn bttn-icon mt-4 bttn-slow">POKAŻ MIESZKANIE <i class="ms-4 las la-file"></i></a>
                 </div>
             </div>
             @endforeach
@@ -132,7 +143,7 @@
                     <ul class="mb-0 list-unstyled icon-list-contact">
                         <li><img src="{{ asset('images/envelop-icon-svg.svg') }}" alt=""> <a href="mailto:mieszkania@ippon.group">mieszkania@ippon.group</a></li>
                     </ul>
-                    <a href="https://maps.app.goo.gl/Sv3KkJU2Dpxm9gX87" class="bttn bttn-icon mt-5" target="_blank">JAK DOJECHAĆ <i class="ms-3 las la-chevron-circle-right"></i></a>
+                    <a href="https://maps.app.goo.gl/Sv3KkJU2Dpxm9gX87" class="bttn bttn-icon mt-5 bttn-slow" target="_blank">JAK DOJECHAĆ <i class="ms-3 las la-chevron-circle-right"></i></a>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-xl-8 d-flex align-items-center">

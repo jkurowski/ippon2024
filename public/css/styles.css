@@ -399,10 +399,10 @@ button:focus,
   line-height: normal;
   position: relative;
   border: 1px solid var(--main-color-gold);
-  -webkit-transition: background-size 200ms linear, box-shadow 200ms linear;
-  -moz-transition: background-size 200ms linear, box-shadow 200ms linear;
-  -o-transition: background-size 200ms linear, box-shadow 200ms linear;
-  transition: background-size 200ms linear, box-shadow 200ms linear;
+  -webkit-transition: background-size 200ms linear, box-shadow 200ms, color 100ms linear;
+  -moz-transition: background-size 200ms linear, box-shadow 200ms, color 100ms linear;
+  -o-transition: background-size 200ms linear, box-shadow 200ms, color 100ms linear;
+  transition: background-size 200ms linear, box-shadow 200ms, color 100ms linear;
   -webkit-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0);
   -moz-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0);
   box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0);
@@ -420,6 +420,15 @@ button:focus,
 }
 .bttn.bttn-border {
   border: 1px solid white;
+}
+.bttn.bttn-slow {
+  background: linear-gradient(#f1ede2 0%, #e2d5b1 100%);
+  border: 5px solid #F1EDE2;
+  color: #433F20;
+  padding: 9px 15px;
+}
+.bttn.bttn-slow:hover {
+  color: #2e2b13 !important;
 }
 .bttn-icon i {
   font-size: 20px;

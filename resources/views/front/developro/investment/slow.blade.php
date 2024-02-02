@@ -27,7 +27,7 @@
                         <p>Skorzystaj z <b>wiat grillowych</b> lub <b>miejsc na ognisko</b> z miejscami do siedzenia. Odpocznij na hamakach wśród drzew oraz odpręż się <b>ćwicząc jogę</b>. Teren dookoła osiedla zachęca do spacerów oraz jazdy na rowerze.</p>
                         <p>&nbsp;</p>
                         <p>Do twojej dyspozycji jest <b>boisko wielofunkcyjne</b> do gry w piłkę nożną, koszykówkę, tenisa, a dla dzieci <b>place zabaw</b>.</p>
-                        <a href="{{ route('developro.investment.page', [$investment->slug, 'mieszkania']) }}" class="bttn bttn-icon mt-4">ZOBACZ MIESZKANIA <i class="ms-3 las la-chevron-circle-right"></i></a>
+                        <a href="{{ route('developro.investment.page', [$investment->slug, 'mieszkania']) }}" class="bttn bttn-icon mt-4 bttn-slow">ZOBACZ MIESZKANIA <i class="ms-3 las la-chevron-circle-right"></i></a>
                     </div>
                 </div>
                 <div class="col-12 col-xl-6">
@@ -41,7 +41,7 @@
                         <p>Osiedle SLOW to aż 2,14 ha powierzchni terenów zielonych. Zostało zaprojektowane z myślą o środowisku, niskich kosztach eksploatacyjnych i oszczędności przyszłych mieszkańców. Zainstalowane zostaną kolektory słoneczne do ogrzewania ciepłej wody użytkowej. Ich zastosowanie znacząco wpłynie na zmniejszenie kwoty miesięcznych rachunków oraz pozytywnie wpłynie na środowisko.
                         <p>&nbsp;</p>
                         <p>W zależności od piętra mieszkania posiadają balkon, loggie lub ogródek.</p>
-                        <a href="{{ route('developro.investment.page', [$investment->slug, 'mieszkania']) }}" class="bttn bttn-icon mt-4">ZOBACZ MIESZKANIA <i class="ms-3 las la-chevron-circle-right"></i></a>
+                        <a href="{{ route('developro.investment.page', [$investment->slug, 'mieszkania']) }}" class="bttn bttn-icon mt-4 bttn-slow">ZOBACZ MIESZKANIA <i class="ms-3 las la-chevron-circle-right"></i></a>
                     </div>
                 </div>
                 <div class="col-12 col-xl-6">
@@ -58,7 +58,7 @@
                         <p>Slow life to filozofia życia. To realizacja swoich pasji, spotkania z rodziną i przyjaciółmi, wsłuchiwanie się w odgłosy otaczającej natury. Ciesz się życiem, znajdź czas na aktywność i na odpoczynek.</p>
                         <p>&nbsp;</p>
                         <p>Najważniejsze, abyś był szczęśliwy</p>
-                        <a href="{{ route('developro.investment.page', [$investment->slug, 'mieszkania']) }}" class="bttn bttn-icon mt-4">ZOBACZ MIESZKANIA <i class="ms-3 las la-chevron-circle-right"></i></a>
+                        <a href="{{ route('developro.investment.page', [$investment->slug, 'mieszkania']) }}" class="bttn bttn-icon mt-4 bttn-slow">ZOBACZ MIESZKANIA <i class="ms-3 las la-chevron-circle-right"></i></a>
                     </div>
                 </div>
                 <div class="col-12 col-xl-6">
