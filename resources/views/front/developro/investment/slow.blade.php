@@ -45,7 +45,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-xl-6">
-                    <img src="https://placehold.co/840x760" alt="" class="golden-border w-100" width="840" height="760">
+                    <img src="{{ asset('/uploads/files/osiedle-slow/ekologiczne-rozwiazania.jpg') }}" alt="" class="golden-border w-100" width="840" height="760">
                 </div>
             </div>
 
@@ -62,7 +62,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-xl-6">
-                    <img src="https://placehold.co/840x760" alt="Wizualizacja osiedla Aurora" class="golden-border w-100" width="840" height="760">
+                    <img src="{{ asset('/uploads/files/osiedle-slow/slow-life.jpg') }}" alt="Wizualizacja osiedla Aurora" class="golden-border w-100" width="840" height="760">
                 </div>
             </div>
 
@@ -70,7 +70,7 @@
                 <div class="col-12 col-xl-6 d-flex align-items-center">
                     <div class="left-right-text">
                         <h2 class="slow-header justify-content-start"><span class="rostemary">Zobacz jak <br>wygląda życie w rytmie</span> <span class="abuget brown">Slow</span></h2>
-                        <p>Quisque viverra, nisi non viverra pulvinar, velit nulla tempor turpis, egestas pretium lacus lorem quis ante. Nunc mollis quis nisl eget convallis. Maecenas a odio hendrerit, egestas nisl ac, fermentum purus. Proin eleifend fermentum velit vel scelerisque. Nullam lacinia laoreet viverra. Duis at rhoncus purus, ac bibendum odio. Nullam sodales gravida diam.</p>
+                        <p>Osiedle SLOW to miejsce dla osób które w myśl filozofii slow life, chcą mieszkać na cichym, kameralnym osiedlu, blisko przyrody i terenów rekreacyjnych.</p>
                     </div>
                 </div>
                 <div class="col-12 col-xl-6">
@@ -154,7 +154,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-xl-6">
-                    <img src="https://placehold.co/840x760" alt="" class="golden-border w-100" width="840" height="760">
+                    <img src="{{ asset('/uploads/files/osiedle-slow/spotkania-slow.jpg') }}" alt="" class="golden-border w-100" width="840" height="760">
                 </div>
             </div>
             <div class="row left-right flex-row-reverse row-offset-up">
@@ -169,7 +169,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-xl-6">
-                    <img src="https://placehold.co/840x760" alt="" class="golden-border w-100" width="840" height="760">
+                    <img src="{{ asset('/uploads/files/osiedle-slow/slow-relaks.jpg') }}" alt="" class="golden-border w-100" width="840" height="760">
                 </div>
             </div>
 
@@ -183,7 +183,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-xl-6">
-                    <img src="https://placehold.co/840x760" alt="Wizualizacja osiedla Aurora" class="golden-border w-100" width="840" height="760">
+                    <img src="{{ asset('/uploads/files/osiedle-slow/slow-sport.jpg') }}" alt="Wizualizacja osiedla Aurora" class="golden-border w-100" width="840" height="760">
                 </div>
             </div>
 
@@ -195,7 +195,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-xl-6">
-                    <img src="https://placehold.co/840x760" alt="" class="golden-border w-100" width="840" height="760">
+                    <img src="{{ asset('/uploads/files/osiedle-slow/slow-nature.jpg') }}" alt="" class="golden-border w-100" width="840" height="760">
                 </div>
             </div>
 
