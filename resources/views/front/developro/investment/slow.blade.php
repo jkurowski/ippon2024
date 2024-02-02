@@ -31,7 +31,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-xl-6">
-                    <img src="https://placehold.co/840x760" alt="" class="golden-border w-100" width="840" height="670">
+                    <img src="{{ asset('/uploads/files/osiedle-slow/zyj-w-rytmie-slow.jpg') }}" alt="" class="golden-border w-100" width="840" height="760">
                 </div>
             </div>
             <div class="row left-right flex-row-reverse row-offset-up">
@@ -45,7 +45,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-xl-6">
-                    <img src="https://placehold.co/840x760" alt="" class="golden-border w-100" width="840" height="650">
+                    <img src="https://placehold.co/840x760" alt="" class="golden-border w-100" width="840" height="760">
                 </div>
             </div>
 
@@ -62,7 +62,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-xl-6">
-                    <img src="https://placehold.co/840x760" alt="Wizualizacja osiedla Aurora" class="golden-border w-100" width="840" height="650">
+                    <img src="https://placehold.co/840x760" alt="Wizualizacja osiedla Aurora" class="golden-border w-100" width="840" height="760">
                 </div>
             </div>
 
@@ -154,7 +154,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-xl-6">
-                    <img src="https://placehold.co/840x760" alt="" class="golden-border w-100" width="840" height="670">
+                    <img src="https://placehold.co/840x760" alt="" class="golden-border w-100" width="840" height="760">
                 </div>
             </div>
             <div class="row left-right flex-row-reverse row-offset-up">
@@ -169,7 +169,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-xl-6">
-                    <img src="https://placehold.co/840x760" alt="" class="golden-border w-100" width="840" height="650">
+                    <img src="https://placehold.co/840x760" alt="" class="golden-border w-100" width="840" height="760">
                 </div>
             </div>
 
@@ -183,7 +183,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-xl-6">
-                    <img src="https://placehold.co/840x760" alt="Wizualizacja osiedla Aurora" class="golden-border w-100" width="840" height="650">
+                    <img src="https://placehold.co/840x760" alt="Wizualizacja osiedla Aurora" class="golden-border w-100" width="840" height="760">
                 </div>
             </div>
 
@@ -195,7 +195,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-xl-6">
-                    <img src="https://placehold.co/840x760" alt="" class="golden-border w-100" width="840" height="650">
+                    <img src="https://placehold.co/840x760" alt="" class="golden-border w-100" width="840" height="760">
                 </div>
             </div>
 
@@ -209,7 +209,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-xl-6">
-                    <img src="https://placehold.co/840x760" alt="Wizualizacja osiedla Aurora" class="golden-border w-100" width="840" height="650">
+                    <img src="{{ asset('/uploads/files/osiedle-slow/aktywnosc-w-rytmie-slow.jpg') }}" alt="Wizualizacja osiedla Aurora" class="golden-border w-100" width="840" height="760">
                 </div>
             </div>
 
@@ -223,7 +223,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-xl-6">
-                    <img src="https://placehold.co/840x760" alt="" class="golden-border w-100" width="840" height="650">
+                    <img src="{{ asset('/uploads/files/osiedle-slow/zabawa-w-rytmie-slow.jpg') }}" alt="" class="golden-border w-100" width="840" height="760">
                 </div>
             </div>
         </div>
