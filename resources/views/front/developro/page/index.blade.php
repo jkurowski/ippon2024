@@ -29,7 +29,7 @@
             <div class="container mt-5 pt-5">
                 <div class="row">
                     <div class="col-12 text-center">
-                        <h2>Masz pytania? Napisz do nas!</h2>
+                        <h2 class="slow-header justify-content-center"><span class="rostemary">Masz pytania?</span> <span class="abuget brown">Napisz do nas!</span></h2>
                     </div>
                 </div>
             </div>

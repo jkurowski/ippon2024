@@ -19,7 +19,7 @@
     <div class="container">
         <div class="row justify-content-center text-center">
             <div class="col-8">
-                <h1 class="mb-5">{{$investment->name}} - {{$investment->building->name}} - {{$investment->floor->name}}</h1>
+                <h1 class="slow-header justify-content-center mb-5"><span class="rostemary brown">{{$investment->name}} - {{$investment->building->name}} - {{$investment->floor->name}}</span></h1>
             </div>
         </div>
 

@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row border-bottom pb-3 mb-3">
             <div class="col-8">
-                <h1>{{$investment->name}} - {{$investment->building->name}} - {{$investment->floor->name}}</h1>
+                <h1 class="slow-header justify-content-center"><span class="rostemary brown">{{$investment->name}} - {{$investment->building->name}} - {{$investment->floor->name}}</span></h1>
             </div>
             <div class="col-4 text-right">
                 <a href="{{route('front.investment.building.index', [$investment, $investment->building])}}" class="bttn bttn-right"><i class="las la-arrow-left"></i> Wróć do listy</a>
