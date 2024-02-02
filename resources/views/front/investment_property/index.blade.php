@@ -77,9 +77,9 @@
                     @if($room->file)
                         <a href="{{ route('developro.property', [$investment->slug, $room, Str::slug($room->name), floorLevel($room->floor_number, true), number2RoomsName($room->rooms, true), round(floatval($room->area), 2).'-m2']) }}">
                         <picture>
-                            <source type="image/webp" srcset="/investment/property/list/webp/{{$room->file_webp}}">
-                            <source type="image/jpeg" srcset="/investment/property/list/{{$room->file}}">
-                            <img src="/investment/property/list/{{$room->file}}" alt="{{$room->name}}" class="w-100">
+                            <source type="image/webp" srcset="/investment/property/thumbs/webp/{{$room->file_webp}}">
+                            <source type="image/jpeg" srcset="/investment/property/thumbs/{{$room->file}}">
+                            <img src="/investment/property/thumbs/{{$room->file}}" alt="{{$room->name}}" class="w-100">
                         </picture>
                         </a>
                     @endif
