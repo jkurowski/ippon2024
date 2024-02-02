@@ -5,15 +5,16 @@
 @section('seo_description', $page->meta_description)
 
 @section('pageheader')
-    @include('layouts.partials.property-header', [
-    'title' => $property->name,
-    'header_file' => 'rooms.jpg',
-    'items' => [
-        ['uri'=> 'i/'.$investment->slug, 'title'=> $investment->name],
-        ['uri'=> 'i/'.$investment->slug.'/pietro/'.$floor->id, 'title'=>$floor->name]
-        ]
+    @include('layouts.partials.developro-header', [
+    'investmentName' => $investment->name,
+    'investmentSlug' => $investment->slug,
+    'investmentPages' => $investment->pages,
+    'investmentLogo' => $investment->file_logo,
+    'investmentHeader' => $investment->file_header,
+    'header_file' => 'zrealizowane.jpg'
     ])
 @stop
+
 
 @section('content')
 
@@ -22,7 +23,7 @@
         <div class="row">
             <div class="col-6">
                 <div class="property-desc">
-                    <h2>{{ $property->name }}</h2>
+                    <h1 class="text-uppercase">{{ $property->name }}</h1>
                     <h4>{{ floorLevel($floor->number, false) }}</h4>
                     <ul class="mb-0 list-unstyled mt-4">
                         <li>Budynek: <span>B4.1</span></li>
