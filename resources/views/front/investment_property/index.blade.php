@@ -110,6 +110,47 @@
         </div>
     </div>
 
+    <div class="container pt-4 mt-4 pt-md-5 mt-md-5">
+        <div class="row">
+            <div class="col-12 text-center m-4">
+                <h2 class="slow-header justify-content-center"><span class="rostemary">Jesteś zainteresowany?</span> <span class="abuget brown">Masz pytania?</span></h2>
+                <h2 class="slow-header justify-content-center"><span class="rostemary">Skontaktuj się z nami!</span></h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-12 col-md-6 col-xl-4 mb-4 mb-md-0">
+                <div class="contact-box">
+                    <h2>BIURO SPRZEDAŻY</h2>
+                    <p>ul. Żelazna 4,</p>
+                    <p>10-419 Olsztyn</p>
+                    <p>&nbsp;</p>
+                    <p>Godziny otwarcia:</p>
+                    <p>pn.-pt. 9:00 - 17:00</p>
+                    <ul class="mb-0 list-unstyled icon-list-contact">
+                        <li><img src="{{ asset('images/envelop-icon-svg.svg') }}" alt=""> <a href="mailto:mieszkania@ippon.group">mieszkania@ippon.group</a></li>
+                    </ul>
+                    <a href="https://maps.app.goo.gl/Sv3KkJU2Dpxm9gX87" class="bttn bttn-icon mt-5" target="_blank">JAK DOJECHAĆ <i class="ms-3 las la-chevron-circle-right"></i></a>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-xl-8 d-flex align-items-center">
+                <div class="d-flex align-items-center w-100">
+                    <img src="{{ asset('/images/contact-img.jpg') }}" class="golden-border" alt="">
+                    <div class="ps-4 ps-xxl-5 sellers">
+                        <h2>Sylwia Sokal</h2>
+                        <a href="mailto:s.sokal@ippon.Group">s.sokal@ippon.group</a>
+                        <a href="tel:+48724222323"><strong>+48 724 222 323</strong></a>
+                        <hr>
+                        <h2>Elżbieta Kalinowska</h2>
+                        <a href="mailto:e.kalinowska@ippon.group">e.kalinowska@ippon.group</a>
+                        <a href="tel:+48609884219"><strong>+48 609 884 219</strong></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="container pt-4 mt-4 pt-md-5 mt-md-5">
         <div class="row">
