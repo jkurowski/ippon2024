@@ -59,7 +59,6 @@
                     <img src="{{ asset('/uploads/files/o-nas/deweloper-mieszkaniowy.jpg') }}" alt="Wizualizacja osiedla Aurora" class="golden-border w-100" width="840" height="650">
                 </div>
             </div>
-
         </div>
 
         <div class="container mt-5 pt-0 pt-sm-5">

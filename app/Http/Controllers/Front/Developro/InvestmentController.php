@@ -54,11 +54,16 @@ class InvestmentController extends Controller
 
         $page = Page::where('id', $this->pageId)->first();
 
-        return view('front.developro.investment.index', [
-            'investment' => $investment,
-            'properties' => $properties,
-            'uniqueRooms' => $this->repository->getUniqueRooms($investment_room->properties),
-            'page' => $page
-        ]);
+        if($investment->id == 5){
+            return view('front.developro.investment.slow', [
+                'investment' => $investment,
+                'page' => $page
+            ]);
+        } else {
+            return view('front.developro.investment.index', [
+                'investment' => $investment,
+                'page' => $page
+            ]);
+        }
     }
 }
