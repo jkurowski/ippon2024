@@ -1,4 +1,4 @@
-@extends('layouts.page', ['body_class' => 'property'])
+@extends('layouts.page', ['body_class' => 'property no-bottom'])
 
 @section('meta_title', $property->name)
 @section('seo_title', $investment->name.' - '.$floor->name.' - '.$property->name)
@@ -22,7 +22,7 @@
     <div class="container">
         <div class="row">
             <div class="col-6">
-                <div class="property-desc">
+                <div class="property-desc pe-5">
                     <h1 class="text-uppercase">{{ $property->name }}</h1>
                     <h4>{{ floorLevel($floor->number, false) }}</h4>
                     <ul class="mb-0 list-unstyled mt-4">
@@ -111,6 +111,15 @@
     </div>
 
 
+    <div class="container pt-4 mt-4 pt-md-5 mt-md-5">
+        <div class="row">
+            <div class="col-12 text-center m-4">
+                <h2 class="slow-header justify-content-center"><span class="abuget brown">Masz pytania?</span><span class="rostemary">Napisz do nas</span></h2>
+            </div>
+        </div>
+    </div>
+
+    @include('front.contact.form', [ 'page_name' => $investment->name .' - '. $property->name])
 
     <div class="container d-none">
         <div class="row">

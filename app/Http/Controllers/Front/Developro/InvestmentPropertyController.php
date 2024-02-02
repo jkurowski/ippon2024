@@ -8,6 +8,7 @@ use App\Models\Investment;
 use App\Models\Page;
 use App\Models\Property;
 use App\Models\RodoRules;
+use App\Models\RodoSettings;
 
 class InvestmentPropertyController extends Controller
 {
@@ -42,7 +43,8 @@ class InvestmentPropertyController extends Controller
             'next' => $property->findNext(1, $property->id),
             'prev' => $property->findPrev(1, $property->id),
             'page' => $page,
-            'similar' => $similar
+            'similar' => $similar,
+            'obligation' => RodoSettings::find(1)
         ]);
     }
 }
