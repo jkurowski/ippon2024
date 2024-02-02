@@ -35,7 +35,7 @@
 
 <!-- Styles -->
 <link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet">
-<link href="{{ asset('/css/styles.min.css?v=0202b') }}" rel="stylesheet">
+<link href="{{ asset('/css/styles.min.css?v=0202c') }}" rel="stylesheet">
 
 <!-- jQuery -->
 <script src="{{ asset('/js/jquery.min.js') }}" charset="utf-8"></script>
