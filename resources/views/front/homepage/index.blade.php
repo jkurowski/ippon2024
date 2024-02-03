@@ -29,7 +29,7 @@
                 <div class="col-6">
                     <div class="invest-item-holder">
                         <div class="invest-item">
-                            <div class="invest-item-thumb">
+                            <div class="invest-item-thumb img-overflow">
                                 <span class="img-badge">Inwestycja już wkrótce</span>
                                 @if($r->developro)
                                     <a href="{{ route('developro.investment.index', $r->slug) }}">
@@ -82,13 +82,15 @@
             <div class="col-12">
                 <div class="planned-item row no-gutters">
                     <div class="col-8">
-                        @if($ip->developro)
-                            <a href="{{ route('developro.investment.index', $ip->slug) }}">
-                                <img src="{{ asset('investment/thumbs/'.$ip->file_thumb) }}" alt="{{ $ip->name }}" class="w-100">
-                            </a>
-                        @else
-                            <img src="{{ asset('investment/thumbs/'.$ip->file_thumb) }}" alt="{{ $r->name }}" class="w-100">
-                        @endif
+                        <div class="img-overflow">
+                            @if($ip->developro)
+                                <a href="{{ route('developro.investment.index', $ip->slug) }}">
+                                    <img src="{{ asset('investment/thumbs/'.$ip->file_thumb) }}" alt="{{ $ip->name }}" class="w-100">
+                                </a>
+                            @else
+                                <img src="{{ asset('investment/thumbs/'.$ip->file_thumb) }}" alt="{{ $r->name }}" class="w-100">
+                            @endif
+                        </div>
                     </div>
                     <div class="col-4">
                         <div class="planned-item-gold">
@@ -124,7 +126,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-3">
-                    <div class="main-room">
+                    <div data-aos="fade-up" data-aos-offset="500" data-aos-delay="0" class="main-room">
                         <div class="main-room-header text-center">
                             <h2 class="poppins"><a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=1#filtr">MIESZKANIA <br><b>1 POKOJOWE</b></a></h2>
                             <p>Powierzchnia: <span>27m<sup>2</sup></span></p>
@@ -138,7 +140,7 @@
                     </div>
                 </div>
                 <div class="col-3">
-                    <div class="main-room">
+                    <div data-aos="fade-up" data-aos-offset="500" data-aos-delay="100" class="main-room">
                         <div class="main-room-header text-center">
                             <h2 class="poppins"><a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=2#filtr">MIESZKANIA <br><b>2 POKOJOWE</b></a></h2>
                             <p>Powierzchnia: <span>35-48m<sup>2</sup></span></p>
@@ -152,7 +154,7 @@
                     </div>
                 </div>
                 <div class="col-3">
-                    <div class="main-room">
+                    <div data-aos="fade-up" data-aos-offset="500" data-aos-delay="200" class="main-room">
                         <div class="main-room-header text-center">
                             <h2 class="poppins"><a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=3#filtr">MIESZKANIA <br><b>3 POKOJOWE</b></a></h2>
                             <p>Powierzchnia: <span>50-61m<sup>2</sup></span></p>
@@ -166,7 +168,7 @@
                     </div>
                 </div>
                 <div class="col-3">
-                    <div class="main-room">
+                    <div data-aos="fade-up" data-aos-offset="500" data-aos-delay="300" class="main-room">
                         <div class="main-room-header text-center">
                             <h2 class="poppins"><a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=4#filtr">MIESZKANIA <br><b>4 POKOJOWE</b></a></h2>
                             <p>Powierzchnia: <span>60-80m<sup>2</sup></span></p>
@@ -190,10 +192,10 @@
             <div class="col-12 text-center">
                 <h2 class="section-title text-uppercase"><span class="text-gold">Deweloper</span> <br>godny zaufania</h2>
             </div>
-            <div class="col-6">
+            <div class="col-6" data-aos="fade-right" data-aos-offset="500">
                 <img src="{{ asset('images/deweloper-roku-2023.jpg') }}" alt="" width="840" height="600">
             </div>
-            <div class="col-6 d-flex align-items-center">
+            <div class="col-6 d-flex align-items-center" data-aos="fade-left" data-aos-offset="500">
                 <div class="section-text ps-5">
                     <p>Jesteśmy wiodącą firmą deweloperską specjalizującą się w realizacji projektów branży mieszkaniowej oraz komercyjnej. Czterokrotnie zostaliśmy nagrodzeni tytułem Deweloper Roku. Budujemy mieszkania, apartamenty oraz domy na terenie całego kraju.</p>
                     <p>&nbsp;</p>
@@ -208,7 +210,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-3">
-                    <div class="number">
+                    <div class="number" data-aos="fade-up" data-aos-offset="500" data-aos-delay="0">
                         <div class="number-icon">
                             <img src="{{ asset('/images/icons/wysoka-jakosc-icon.png') }}" alt="" width="170" height="170">
                         </div>
@@ -219,7 +221,7 @@
                     </div>
                 </div>
                 <div class="col-3">
-                    <div class="number">
+                    <div class="number" data-aos="fade-up" data-aos-offset="500" data-aos-delay="100">
                         <div class="number-icon">
                             <img src="{{ asset('/images/icons/polecenie-zakupu-icon.png') }}" alt="" width="170" height="170">
                         </div>
@@ -230,7 +232,7 @@
                     </div>
                 </div>
                 <div class="col-3">
-                    <div class="number">
+                    <div class="number" data-aos="fade-up" data-aos-offset="500" data-aos-delay="200">
                         <div class="number-icon">
                             <img src="{{ asset('/images/icons/atrakcyjna-lokalizacja.png') }}" alt="" width="170" height="170">
                         </div>
@@ -241,7 +243,7 @@
                     </div>
                 </div>
                 <div class="col-3">
-                    <div class="number">
+                    <div class="number" data-aos="fade-up" data-aos-offset="500" data-aos-delay="300">
                         <div class="number-icon">
                             <img src="{{ asset('/images/icons/oddane-mieszkania-icon.png') }}" alt="" width="170" height="170">
                         </div>

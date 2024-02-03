@@ -22,7 +22,7 @@
     <div class="container">
         <div class="row">
             <div class="col-6">
-                <div class="property-desc pe-5">
+                <div class="property-desc pe-4">
                     <h1 class="text-uppercase">{{ $property->name }}</h1>
                     <h4>{{ floorLevel($floor->number, false) }}</h4>
                     <ul class="mb-0 list-unstyled mt-4">
@@ -43,6 +43,22 @@
                         @if($property->deadline)<li>Termin oddania: <span>{{ $property->deadline }}</span></li>@endif
                         @if($property->price)<li>Cena: <span>{{ $property->price }} zł</span></li>@endif
                     </ul>
+                </div>
+
+                <div class="pe-4">
+                    <div class="row mt-5">
+                        <div class="col-4">
+                            @if($property->file_pdf && $property->status <> 3)
+                                <a href="{{ asset('/investment/property/pdf/'.$property->file_pdf) }}" target="_blank" class="bttn bttn-slow w-100 justify-content-center ">POBIERZ KARTĘ <i class="ms-4 las la-download"></i></a>
+                            @endif
+                        </div>
+                        <div class="col-4">
+
+                        </div>
+                        <div class="col-4">
+                            <a href="#contactForm" data-offset="0" target="_blank" class="bttn bttn-slow w-100 justify-content-center bttn-slow-red scroll-to">ZAPYTAJ O MIESZKANIE</a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-6">
