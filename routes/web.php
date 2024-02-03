@@ -82,6 +82,9 @@ Route::group(['namespace' => 'Front', 'prefix' => '{locale?}', 'where' => ['loca
         Route::get('/{slug}',   'NewsController@show')->name('show');
     });
 
+    // Lokalizacja
+    Route::get('/lokalizacja/{slug}', 'Map\IndexController@index')->name('map');
+
     // DeveloPro
     Route::group(['namespace' => 'Developro', 'prefix' => '/i', 'as' => 'developro.'], function () {
         Route::get('/{slug}', 'InvestmentController@index')->name('investment.index');

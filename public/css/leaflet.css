@@ -475,7 +475,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	}
 .leaflet-popup-content {
 	margin: 13px 19px;
-    font-family: 'Montserrat',sans-serif;
+    font-family: 'Poppins',sans-serif;
     text-transform: uppercase;
     letter-spacing: 1.2px;
     text-align: center;
@@ -513,7 +513,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	}
 .leaflet-popup-content-wrapper,
 .leaflet-popup-tip {
-    background: #213c13;
+    background: #ba8b41;
     color: #fff;
     box-shadow: 0 3px 14px rgba(0,0,0,0.4);
 	}

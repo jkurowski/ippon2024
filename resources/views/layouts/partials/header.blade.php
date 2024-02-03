@@ -13,7 +13,7 @@
                         <div class="top d-flex justify-content-end">
                             <div id="cities">
                                 @foreach($cities as $city)
-                                    <a href="#" class="city-item">
+                                    <a href="{{ route('map', $city->slug) }}" class="city-item">
                                         <div class="city-key">
 
                                         </div>
