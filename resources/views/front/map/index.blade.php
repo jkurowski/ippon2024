@@ -86,24 +86,22 @@
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             }).addTo(map);
 
-            @foreach ($investments as $p)
-            customIcon = L.divIcon({
-                className: 'custom-marker',
-                html: '<img src="{{ asset('investment/logo/'.$p->file_logo) }}" alt="Logo {{ $p->name }}">',
-                iconSize: [90, 90],
-                iconAnchor: [45, 20]
-            });
-            @endforeach
-
             let markers = [
                 @foreach ($investments as $p)
-                    [{{$p->lat}}, {{$p->lng}}, '{{$p->name}}'],
+                    [{{$p->lat}}, {{$p->lng}}, '{{$p->name}}', '{{$p->file_logo}}'],
                 @endforeach
                 ],
                 route = L.featureGroup().addTo(map),
                 n = markers.length;
 
             for (let i = 0; i < n; i++) {
+                const customIcon = L.divIcon({
+                    className: 'custom-marker',
+                    html: '<img src="/investment/logo/'+markers[i][3]+'" alt="Logo '+markers[i][2]+'">',
+                    iconSize: [90, 90],
+                    iconAnchor: [45, 20]
+                });
+
                 let marker = new L.Marker([markers[i][0], markers[i][1]], { icon: customIcon }).bindPopup(markers[i][2]);
                 route.addLayer(marker);
             }
