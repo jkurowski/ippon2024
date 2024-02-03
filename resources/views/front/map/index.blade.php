@@ -106,7 +106,7 @@
                 route.addLayer(marker);
             }
 
-            map.fitBounds(route.getBounds(), {padding: [80, 80]});
+            map.fitBounds(route.getBounds(), {padding: [40, 40]});
         </script>
 
         <script src="{{ asset('js/slick.js') }}" charset="utf-8"></script>
