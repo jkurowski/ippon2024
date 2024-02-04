@@ -21,9 +21,9 @@
     <div class="container-fluid pt-5">
         <div class="row">
             <div class="col-12">
-                <div id="locationInvestThumb">
+                <div id="locationInvestThumb" @if($investments->count() <= 3) class="container d-flex justify-content-center" @endif >
                     @foreach($investments as $r)
-                    <div class="locationInvest">
+                    <div class="locationInvest @if($investments->count() <= 3) col-12 col-sm-10 col-lg-6 @endif">
                         <div class="invest-item-holder p-0">
                             <div class="invest-item">
                                 <div class="invest-item-thumb img-overflow">
@@ -127,7 +127,7 @@
 
             map.fitBounds(route.getBounds(), {padding: [40, 40]});
         </script>
-
+        @if($investments->count() > 3)
         <script src="{{ asset('js/slick.js') }}" charset="utf-8"></script>
         <script type="text/javascript">
             $(document).ready(function(){
@@ -145,5 +145,6 @@
                 });
             });
         </script>
+        @endif
     @endpush
 @endif
