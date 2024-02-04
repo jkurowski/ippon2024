@@ -3044,7 +3044,7 @@ html.swipebox-html.swipebox-touch {
   margin: 0;
   padding: 30px 0 0;
   list-style: none;
-  display: flex;
+  display: flex !important;
   justify-content: center;
 }
 .slick-dots li {
