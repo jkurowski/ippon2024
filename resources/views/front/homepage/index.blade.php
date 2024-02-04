@@ -11,7 +11,7 @@
             <picture>
                 <source type="image/webp" srcset="{{asset('/uploads/slider/webp/'.$panel->file_webp) }}">
                 <source type="image/jpeg" srcset="{{asset('/uploads/slider/'.$panel->file) }}">
-                <img src="{{asset('/uploads/slider/'.$panel->file) }}" alt="{{ $panel->title }}" width="700" height="394" class="w-100">
+                <img src="{{asset('/uploads/slider/'.$panel->file) }}" alt="{{ $panel->title }}" width="700" height="394" class="w-100" alt="{{ $panel->file_alt }}">
             </picture>
             @if($panel->link)
             </a>
