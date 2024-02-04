@@ -88,7 +88,9 @@
 
             let markers = [
                 @foreach ($investments as $p)
+                    @if($p->marker == 1)
                     [{{$p->lat}}, {{$p->lng}}, '{{$p->name}}', '{{$p->file_logo}}'],
+                    @endif
                 @endforeach
                 ],
                 route = L.featureGroup().addTo(map),

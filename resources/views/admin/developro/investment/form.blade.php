@@ -67,16 +67,26 @@
                     </div>
 
                     <div class="row w-100 mb-4">
-                        <div class="col-6">
+                        <div class="col-4">
                             @include('form-elements.html-input-text', ['label' => 'Adres inwestycji', 'name' => 'address', 'value' => $entry->address])
                         </div>
-                        <div class="col-6">
+                        <div class="col-4">
                             @include('form-elements.html-select', [
                                     'label' => 'Miasto',
                                     'name' => 'city',
                                     'selected' => $entry->city,
                                     'select' => $citiesMenu
                                 ])
+                        </div>
+                        <div class="col-4">
+                            @include('form-elements.html-select', [
+                                'label' => 'Pokaż na mapie',
+                                'name' => 'marker',
+                                'selected' => $entry->marker,
+                                'select' => [
+                                    '1' => 'Tak',
+                                    '0' => 'Nie'
+                            ]])
                         </div>
                     </div>
 

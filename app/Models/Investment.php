@@ -48,7 +48,8 @@ class Investment extends Model
         'carousel_id',
         'lat',
         'lng',
-        'zoom'
+        'zoom',
+        'marker'
     ];
 
     public function investmentPage()
