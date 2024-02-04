@@ -317,7 +317,7 @@
                         <div class="container-fluid p-0">
                             <div class="row no-gutters">
                                 <div class="col-8">
-                                    <img src="https://placehold.co/1920x960" alt="">
+                                    <img src="{{ asset('/uploads/files/osiedle-slow/zycie-slow/wiecej-szczescia.jpg') }}" alt="" width="1280" height="640" class="w-100">
                                 </div>
                                 <div class="col-4">
                                     <div class="slowLast-desc d-flex align-items-center">
