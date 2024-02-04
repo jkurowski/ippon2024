@@ -23,9 +23,7 @@
                     <div class="left-right-text">
                         <h2 class="slow-header justify-content-start"><span class="rostemary">Żyj w rytmie</span> <span class="abuget brown">Slow</span></h2>
                         <p>Osiedle Slow powstało z myślą o tych, którzy cenią sobie spokój, <b>ekologiczne rozwiązania</b> oraz <b>aktywny wypoczynek</b>. Zadbaj o Siebie i spędzaj czas z bliskimi i rodziną w przygotowanych strefach „Slow Relaks”.</p>
-                        <p>&nbsp;</p>
                         <p>Skorzystaj z <b>wiat grillowych</b> lub <b>miejsc na ognisko</b> z miejscami do siedzenia. Odpocznij na hamakach wśród drzew oraz odpręż się <b>ćwicząc jogę</b>. Teren dookoła osiedla zachęca do spacerów oraz jazdy na rowerze.</p>
-                        <p>&nbsp;</p>
                         <p>Do twojej dyspozycji jest <b>boisko wielofunkcyjne</b> do gry w piłkę nożną, koszykówkę, tenisa, a dla dzieci <b>place zabaw</b>.</p>
                         <a href="{{ route('developro.investment.page', [$investment->slug, 'mieszkania']) }}" class="bttn bttn-icon mt-4 bttn-slow">ZOBACZ MIESZKANIA <i class="ms-3 las la-chevron-circle-right"></i></a>
                     </div>
@@ -38,8 +36,7 @@
                 <div class="col-12 col-xl-6 d-flex align-items-center">
                     <div class="left-right-text">
                         <h2 class="slow-header justify-content-start"><span class="abuget brown">Ekologiczne</span> <span class="rostemary">rozwiązania</span></h2>
-                        <p>Osiedle SLOW to aż 2,14 ha powierzchni terenów zielonych. Zostało zaprojektowane z myślą o środowisku, niskich kosztach eksploatacyjnych i oszczędności przyszłych mieszkańców. Zainstalowane zostaną kolektory słoneczne do ogrzewania ciepłej wody użytkowej. Ich zastosowanie znacząco wpłynie na zmniejszenie kwoty miesięcznych rachunków oraz pozytywnie wpłynie na środowisko.
-                        <p>&nbsp;</p>
+                        <p>Osiedle SLOW to <b>aż 2,14 ha powierzchni terenów zielonych</b>. Zostało zaprojektowane z myślą o środowisku, niskich kosztach eksploatacyjnych i <b>oszczędności</b> przyszłych mieszkańców. Zainstalowane zostaną <b>kolektory słoneczne</b> do ogrzewania ciepłej wody użytkowej. Ich zastosowanie znacząco wpłynie na zmniejszenie kwoty miesięcznych rachunków oraz pozytywnie wpłynie na środowisko.
                         <p>W zależności od piętra mieszkania posiadają balkon, loggie lub ogródek.</p>
                         <a href="{{ route('developro.investment.page', [$investment->slug, 'mieszkania']) }}" class="bttn bttn-icon mt-4 bttn-slow">ZOBACZ MIESZKANIA <i class="ms-3 las la-chevron-circle-right"></i></a>
                     </div>
@@ -53,11 +50,9 @@
                 <div class="col-12 col-xl-6 d-flex align-items-center">
                     <div class="left-right-text">
                         <h2 class="slow-header justify-content-start"><span class="abuget brown">Slow</span> <span class="rostemary">life</span></h2>
-                        <p>Czym jest slow life? To życie w równowadze z otaczającym światem, przyrodą, a przede wszystkim życie w spokoju z samym sobą. To dbanie o siebie, o innych, o środowisko.</p>
-                        <p>&nbsp;</p>
-                        <p>Slow life to filozofia życia. To realizacja swoich pasji, spotkania z rodziną i przyjaciółmi, wsłuchiwanie się w odgłosy otaczającej natury. Ciesz się życiem, znajdź czas na aktywność i na odpoczynek.</p>
-                        <p>&nbsp;</p>
-                        <p>Najważniejsze, abyś był szczęśliwy</p>
+                        <p>Czym jest slow life? To życie w <b>równowadze</b> z otaczającym światem, przyrodą, a przede wszystkim życie w spokoju z samym sobą. <b>To dbanie o siebie, o innych, o środowisko</b>.</p>
+                        <p>Slow life to filozofia życia. To realizacja swoich pasji, <b>spotkania</b> z rodziną i przyjaciółmi, wsłuchiwanie się w odgłosy otaczającej <b>natury</b>. Ciesz się życiem, znajdź czas na aktywność i na odpoczynek.</p>
+                        <p><b>Najważniejsze, abyś był szczęśliwy</b>.</p>
                         <a href="{{ route('developro.investment.page', [$investment->slug, 'mieszkania']) }}" class="bttn bttn-icon mt-4 bttn-slow">ZOBACZ MIESZKANIA <i class="ms-3 las la-chevron-circle-right"></i></a>
                     </div>
                 </div>
@@ -156,9 +151,8 @@
                 <div class="col-12 col-xl-6 d-flex align-items-center">
                     <div class="left-right-text">
                         <h2 class="slow-header justify-content-start"><span class="rostemary">Spotkania w rytmie</span> <span class="abuget brown">Slow</span></h2>
-                        <p>Wiemy jak istotne jest budowanie relacji z drugim człowiekiem. Wspólnie spędzony czas z rodziną i przyjaciółmi poprawia samopoczucie i wprawia w pozytywny nastrój.</p>
-                        <p>&nbsp;</p>
-                        <p>W przygotowanych strefach spotkań, zadbaliśmy o miejsce na ognisko oraz wiaty grillowe. Mile spędzisz czas na towarzyskich rozmowach, słuchając śpiewu ptaków i odgłosów natury.</p>
+                        <p>Wiemy jak istotne jest <b>budowanie relacji z drugim człowiekiem</b>. Wspólnie spędzony czas z rodziną i przyjaciółmi poprawia samopoczucie i wprawia w pozytywny nastrój.</p>
+                        <p>W przygotowanych <b>Strefach spotkań</b>, zadbaliśmy o miejsce na <b>ognisko</b> oraz <b>wiaty grillowe</b>. Mile spędzisz czas na towarzyskich rozmowach, słuchając śpiewu ptaków i odgłosów natury.</p>
                     </div>
                 </div>
                 <div class="col-12 col-xl-6">
@@ -169,11 +163,9 @@
                 <div class="col-12 col-xl-6 d-flex align-items-center">
                     <div class="left-right-text">
                         <h2 class="slow-header justify-content-start"><span class="abuget brown">Slow</span> <span class="rostemary">relaks</span></h2>
-                        <p>Zanurz się w kojących odgłosach natury. Odnajdź swoją prywatną przestrzeń w specjalnie dla Ciebie przygotowanych strefach relaksu.
-                        <p>&nbsp;</p>
-                        <p>Lubisz czytać? Idealnym miejscem będzie strefa z hamakami, gdzie wygodnie położysz się ze swoją ulubioną książką.
-                        <p>&nbsp;</p>
-                        <p>Relaksuje Cię joga, lubisz medytować? Skorzystaj z przygotowanej przestrzeni do ćwiczeń, na której wygodnie rozłożysz matę i wśród szumu drzew, oddasz się treningowi dla ciała i umysłu.</p>
+                        <p>Zanurz się w kojących odgłosach natury. Odnajdź swoją prywatną przestrzeń w specjalnie dla Ciebie przygotowanych <b>Strefach relaksu</b>.
+                        <p>Lubisz czytać? Idealnym miejscem będzie <b>strefa z hamakami</b>, gdzie wygodnie położysz się ze swoją ulubioną książką.
+                        <p>Relaksuje Cię joga, lubisz medytować? Skorzystaj z przygotowanej <b>przestrzeni do ćwiczeń</b>, na której wygodnie rozłożysz matę i wśród szumu drzew, oddasz się treningowi dla ciała i umysłu.</p>
                     </div>
                 </div>
                 <div class="col-12 col-xl-6">
@@ -186,7 +178,6 @@
                     <div class="left-right-text">
                         <h2 class="slow-header justify-content-start"><span class="abuget brown">Slow</span> <span class="rostemary">sport</span></h2>
                         <p>Regularne uprawianie sportu, poprawia kondycję, samopoczucie oraz wpływa na dobry stan zdrowia.</p>
-                        <p>&nbsp;</p>
                         <p>Mieszkańcy osiedla skorzystają z <b>boiska wielofunkcyjnego</b>, gdzie na utwardzonej powierzchni będą mogli grać w piłkę nożną, tenisa czy koszykówkę.</p>
                     </div>
                 </div>
@@ -200,7 +191,6 @@
                     <div class="left-right-text">
                         <h2 class="slow-header justify-content-start"><span class="abuget brown">Slow</span> <span class="rostemary">nature</span></h2>
                         <p>Zwierzęta domowe także znajdą na osiedlu swoje radosne miejsce. Specjalnie dla psów powstanie <b>tor agility</b>.</p>
-                        <p>&nbsp;</p>
                         <p>Ta psia dyscyplina sportu, wpływa pozytywnie na zwinność zwierząt oraz rozwija ich koncentrację. Stwórz zgrany zespół ze swoim pupilem i razem pokonujcie przygotowane przeszkody.</p>
                     </div>
                 </div>
@@ -213,8 +203,7 @@
                 <div class="col-12 col-xl-6 d-flex align-items-center">
                     <div class="left-right-text">
                         <h2 class="slow-header justify-content-start"><span class="rostemary">Aktywność <br>w rytmie</span><span class="abuget brown">Slow</span></h2>
-                        <p>Skorzystaj z sieci chodników oplatających całe osiedle, by w cieniu drzew: pospacerować, pobiegać, lub pojeździć na rowerze.</p>
-                        <p>&nbsp;</p>
+                        <p>Korzystaj z ponad <b>5 kilometrów naturalnych</b>, utwardzonych ścieżek spacerowych, by w cieniu drzew: pospacerować, pobiegać, lub jeździć na rowerze.</p>
                         <p>Wybierz się na romantyczny spacer wzdłuż brzegu jeziora, wsłuchując się w odgłosy natury.</p>
                     </div>
                 </div>
@@ -227,9 +216,7 @@
                 <div class="col-12 col-xl-6 d-flex align-items-center">
                     <div class="left-right-text">
                         <h2 class="slow-header justify-content-start"><span class="rostemary">Zabawa w rytmie</span> <span class="abuget brown">Slow</span></h2>
-                        <p>Osiedle Slow to idealne miejsce dla rodzin z dziećmi.</p>
-                        <p>&nbsp;</p>
-                        <p>Dla najmłodszych przygotowaliśmy specjalne place zabaw oraz miejsca z grami edukacyjnymi i zręcznościowymi.</p>
+                        <p>Osiedle Slow to idealne <b>miejsce dla rodzin z dziećmi</b>. Ilość terenów zielonych i roślinności sprzyja odpoczynkowi, a ścieżki dookoła osiedla zachęcają do spacerów lub jazdy na rowerze. Dla najmłodszych przygotowaliśmy duże i bezpieczne <b>place zabaw</b>.</p>
                     </div>
                 </div>
                 <div class="col-12 col-xl-6">
