@@ -9,8 +9,8 @@ return [
     'investment' => [
         'thumb_width' => 840,
         'thumb_height' => 500,
-        'logo_width' => 380,
-        'logo_height' => 170,
+        'logo_width' => 180,
+        'logo_height' => 80,
         'header_width' => 1920,
         'header_height' => 300,
         'carousel_width' => 386,
