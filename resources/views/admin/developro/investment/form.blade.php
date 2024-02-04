@@ -176,7 +176,7 @@
                     </div>
 
                     <div class="row w-100 mb-4">
-                        @include('form-elements.textarea-fullwidth', ['label' => 'Krótki opis na liście', 'name' => 'entry_content', 'value' => $entry->entry_content, 'rows' => 11, 'class' => 'tinymce', 'required' => 1])
+                        @include('form-elements.textarea-fullwidth', ['label' => 'Krótki opis na liście', 'name' => 'entry_content', 'value' => $entry->entry_content, 'rows' => 5, 'class' => 'tinymce', 'required' => 1])
                     </div>
 
 
