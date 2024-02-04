@@ -2,9 +2,17 @@
 
 @section('content')
 
-<div id="slider">
-    <img src="{{ asset('/uploads/slider/panel-1.jpg') }}" alt="" class="w-100">
-</div>
+<ul id="slider" class="mb-0 list-unstyled">
+    @foreach($sliders as $panel)
+        <li>
+            <picture>
+                <source type="image/webp" srcset="{{asset('/uploads/slider/webp/'.$panel->file_webp) }}">
+                <source type="image/jpeg" srcset="{{asset('/uploads/slider/'.$panel->file) }}">
+                <img src="{{asset('/uploads/slider/'.$panel->file) }}" alt="{{ $panel->title }}" width="700" height="394" class="w-100">
+            </picture>
+        </li>
+    @endforeach
+</ul>
 
 <section>
     <div class="container">

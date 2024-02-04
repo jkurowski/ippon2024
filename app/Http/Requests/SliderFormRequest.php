@@ -24,14 +24,14 @@ class SliderFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|min:5|max:100',
-            'text' => 'required|min:5|max:120',
+            'title' => 'required|string|min:5|max:100',
             'file_alt' => '',
             'link' => '',
             'link_button' => '',
             'link_target' => '',
             'opacity' => '',
             'active' => '',
+            'color' => '',
             'sort' => ''
         ];
     }

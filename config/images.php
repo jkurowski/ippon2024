@@ -141,7 +141,7 @@ return [
 
     'slider' => [
         'big_width' => 1920,
-        'big_height' => 900,
+        'big_height' => 770,
         'thumb_width' => 248,
         'thumb_height' => 140,
         'file_path' => 'uploads/slider/',

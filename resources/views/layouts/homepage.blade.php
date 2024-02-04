@@ -65,6 +65,15 @@
     AOS.init();
 
     $(document).ready(function(){
+        $("#slider").responsiveSlides({
+            auto:true,
+            pager:false,
+            nav:false,
+            timeout:4000,
+            random:false,
+            speed: 500
+        });
+
         $(".validateForm").validationEngine({
             validateNonVisibleFields: true,
             updatePromptsPosition:true,
