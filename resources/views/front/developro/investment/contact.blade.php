@@ -42,7 +42,7 @@
                 <div class="col-4">
                     <div class="contact-box">
                         <h2>BIURO SPRZEDAŻY</h2>
-                        <p>ul. Żelazna 4,</p>
+                        <p>Ul. Barcza 50,</p>
                         <p>10-419 Olsztyn</p>
                         <p>&nbsp;</p>
                         <p>Godziny otwarcia:</p>
