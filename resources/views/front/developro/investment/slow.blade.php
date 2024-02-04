@@ -199,7 +199,9 @@
                 <div class="col-12 col-xl-6 d-flex align-items-center">
                     <div class="left-right-text">
                         <h2 class="slow-header justify-content-start"><span class="abuget brown">Slow</span> <span class="rostemary">nature</span></h2>
-                        <p>Quisque viverra, nisi non viverra pulvinar, velit nulla tempor turpis, egestas pretium lacus lorem quis ante. Nunc mollis quis nisl eget convallis. Maecenas a odio hendrerit, egestas nisl ac, fermentum purus. Proin eleifend fermentum velit vel scelerisque. Nullam lacinia laoreet viverra. Duis at rhoncus purus, ac bibendum odio. Nullam sodales gravida diam.</p>
+                        <p>Zwierzęta domowe także znajdą na osiedlu swoje radosne miejsce. Specjalnie dla psów powstanie tor agility.</p>
+                        <p>&nbsp;</p>
+                        <p>Ta psia dyscyplina sportu, wpływa pozytywnie na zwinność zwierząt oraz rozwija ich koncentrację. Stwórz zgrany zespół ze swoim pupilem i razem pokonujcie przygotowane przeszkody.</p>
                     </div>
                 </div>
                 <div class="col-12 col-xl-6">
