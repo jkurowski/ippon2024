@@ -1064,7 +1064,7 @@ div[class*='col-'].slick-slide {
   margin-top: 30px;
 }
 #roomsList .bttn:hover {
-  color: #433F20;
+  color: #433F20 !important;
 }
 #roomsList h2 {
   font-size: 23px;
