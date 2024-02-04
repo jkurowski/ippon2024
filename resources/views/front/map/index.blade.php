@@ -37,6 +37,11 @@
                                     @endif
                                 </div>
                                 <div class="invest-item-desc">
+                                    @if($r->file_logo)
+                                        <div class="invest-item-logo">
+                                            <img src="{{ asset('investment/logo/'.$r->file_logo) }}" alt="Logo {{ $r->name }}">
+                                        </div>
+                                    @endif
                                     <div class="invest-item-header">
                                         @if($r->developro)
                                             <h2 class="mb-0">
@@ -50,6 +55,7 @@
                                         @else
                                             <div class="invest-item-city"> &nbsp;</div>
                                         @endif
+                                        <p>{{ $r->entry_content }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -89,7 +95,7 @@
             let markers = [
                 @foreach ($investments as $p)
                     @if($p->marker == 1)
-                    [{{$p->lat}}, {{$p->lng}}, '{{$p->name}}', '{{$p->file_logo}}'],
+                    [{{$p->lat}}, {{$p->lng}}, '{{$p->name}}', '{{$p->file_logo}}', '{{$p->slug}}', {{$p->developro}}],
                     @endif
                 @endforeach
                 ],
@@ -97,12 +103,23 @@
                 n = markers.length;
 
             for (let i = 0; i < n; i++) {
-                const customIcon = L.divIcon({
-                    className: 'custom-marker',
-                    html: '<img src="/investment/logo/'+markers[i][3]+'" alt="Logo '+markers[i][2]+'">',
-                    iconSize: [90, 90],
-                    iconAnchor: [45, 20]
-                });
+                let customIcon = L.divIcon();
+
+                if(markers[i][5] === 1){
+                    customIcon = L.divIcon({
+                        className: 'custom-marker',
+                        html: '<a href="/pl/i/'+markers[i][4]+'"><img src="/investment/logo/'+markers[i][3]+'" alt="Logo '+markers[i][2]+'"></a>',
+                        iconSize: [90, 90],
+                        iconAnchor: [45, 20]
+                    });
+                } else {
+                    customIcon = L.divIcon({
+                        className: 'custom-marker',
+                        html: '<img src="/investment/logo/'+markers[i][3]+'" alt="Logo '+markers[i][2]+'">',
+                        iconSize: [90, 90],
+                        iconAnchor: [45, 20]
+                    });
+                }
 
                 let marker = new L.Marker([markers[i][0], markers[i][1]], { icon: customIcon }).bindPopup(markers[i][2]);
                 route.addLayer(marker);
