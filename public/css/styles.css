@@ -2431,7 +2431,7 @@ section {
 #slowCarousel .slow-carousel-item {
   width: 200px;
   height: 200px;
-  background: #A9542B;
+  background: #ae5122;
   border-radius: 50%;
   display: block;
   margin: 0 auto 15px;
@@ -2443,11 +2443,20 @@ section {
   font-size: 20px;
   font-weight: 500;
 }
+#slowEcoCarousel ul,
+#slowCarousel ul {
+  display: none;
+}
+#slowEcoCarousel ul.slick-initialized,
+#slowCarousel ul.slick-initialized {
+  display: block;
+}
 .slow-ecocarousel-item {
   background: #fff;
   border: 1px solid #ba8b41;
   filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.16));
   margin: 0 20px;
+  height: 100%;
 }
 .slow-ecocarousel-item img {
   width: 100%;

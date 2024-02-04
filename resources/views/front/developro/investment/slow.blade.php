@@ -90,44 +90,52 @@
             <div id="slowCarousel" class="mt-5">
                 <ul class="mb-0 list-unstyled">
                     <li>
-                        <div class="slow-carousel-item"></div>
-                        <h3 class="mb-0 text-center">ŚCIEŻKI SPACEROWE</h3>
+                        <div class="slow-carousel-item">
+                            <img src="{{ asset('/uploads/files/osiedle-slow/piktogramy/boisko-wielofunkcyjne.png') }}" alt="">
+                        </div>
+                        <h3 class="mb-0 text-center">BOISKO WIELOFUNKCYJNE</h3>
                     </li>
                     <li>
-                        <div class="slow-carousel-item"></div>
-                        <h3 class="mb-0 text-center">ŚCIEŻKI SPACEROWE</h3>
+                        <div class="slow-carousel-item">
+                            <img src="{{ asset('/uploads/files/osiedle-slow/piktogramy/kolektory-sloneczne.png') }}" alt="">
+                        </div>
+                        <h3 class="mb-0 text-center">KOLEKTORY SŁONECZNE</h3>
                     </li>
                     <li>
-                        <div class="slow-carousel-item"></div>
-                        <h3 class="mb-0 text-center">ŚCIEŻKI SPACEROWE</h3>
+                        <div class="slow-carousel-item">
+                            <img src="{{ asset('/uploads/files/osiedle-slow/piktogramy/place-zabaw.png') }}" alt="">
+                        </div>
+                        <h3 class="mb-0 text-center">PLACE ZABAW</h3>
                     </li>
                     <li>
-                        <div class="slow-carousel-item"></div>
-                        <h3 class="mb-0 text-center">ŚCIEŻKI SPACEROWE</h3>
+                        <div class="slow-carousel-item">
+                            <img src="{{ asset('/uploads/files/osiedle-slow/piktogramy/sciezki-lesne.png') }}" alt="">
+                        </div>
+                        <h3 class="mb-0 text-center">ŚCIEŻKI LEŚNE</h3>
                     </li>
                     <li>
-                        <div class="slow-carousel-item"></div>
-                        <h3 class="mb-0 text-center">ŚCIEŻKI SPACEROWE</h3>
+                        <div class="slow-carousel-item">
+                            <img src="{{ asset('/uploads/files/osiedle-slow/piktogramy/strefa-do-jogi.png') }}" alt="">
+                        </div>
+                        <h3 class="mb-0 text-center">STREFA DO JOGI</h3>
                     </li>
                     <li>
-                        <div class="slow-carousel-item"></div>
-                        <h3 class="mb-0 text-center">ŚCIEŻKI SPACEROWE</h3>
+                        <div class="slow-carousel-item">
+                            <img src="{{ asset('/uploads/files/osiedle-slow/piktogramy/strefa-z-hamakami.png') }}" alt="">
+                        </div>
+                        <h3 class="mb-0 text-center">STREFA Z HAMAKAMI</h3>
                     </li>
                     <li>
-                        <div class="slow-carousel-item"></div>
-                        <h3 class="mb-0 text-center">ŚCIEŻKI SPACEROWE</h3>
+                        <div class="slow-carousel-item">
+                            <img src="{{ asset('/uploads/files/osiedle-slow/piktogramy/tor-agility.png') }}" alt="">
+                        </div>
+                        <h3 class="mb-0 text-center">TOR AGILITY</h3>
                     </li>
                     <li>
-                        <div class="slow-carousel-item"></div>
-                        <h3 class="mb-0 text-center">ŚCIEŻKI SPACEROWE</h3>
-                    </li>
-                    <li>
-                        <div class="slow-carousel-item"></div>
-                        <h3 class="mb-0 text-center">ŚCIEŻKI SPACEROWE</h3>
-                    </li>
-                    <li>
-                        <div class="slow-carousel-item"></div>
-                        <h3 class="mb-0 text-center">ŚCIEŻKI SPACEROWE</h3>
+                        <div class="slow-carousel-item">
+                            <img src="{{ asset('/uploads/files/osiedle-slow/piktogramy/wiaty-grillowe.png') }}" alt="">
+                        </div>
+                        <h3 class="mb-0 text-center">WIATY GRILLOWE</h3>
                     </li>
                 </ul>
             </div>
@@ -243,78 +251,46 @@
                 <ul class="mb-0 list-unstyled">
                     <li>
                         <div class="slow-ecocarousel-item">
-                            <img src="https://placehold.co/600x400" alt="">
+                            <img src="{{ asset('/uploads/files/osiedle-slow/srodowisko/kolektory-sloneczne.jpg') }}" alt="" width="630" height="420">
                             <div class="slow-ecocarousel-desc">
-                                <h3>Kolektory słoneczne</h3>
-                                <p>W trosce o środowisko zastosowaliśmy kolektory słoneczne do podgrzewania ciepłej wody użytkowej.</p>
-                                <p>&nbsp;</p>
-                                <p>Jest to rozwiązanie całkowicie przyjazne dla środowiska. Umożliwia wykorzystanie zasobów energii odnawialnej, nie emitując przy tym hałasu.</p>
+                                <h3>KOLEKTORY SŁONECZNE</h3>
+                                <p>W trosce o środowisko zastosowaliśmy kolektory słoneczne do podgrzewania ciepłej wody użytkowej. Jest to rozwiązanie całkowicie przyjazne dla środowiska. Umożliwia wykorzystanie zasobów energii odnawialnej, nie emitując przy tym hałasu.</p>
                             </div>
                         </div>
                     </li>
                     <li>
                         <div class="slow-ecocarousel-item">
-                            <img src="https://placehold.co/600x400" alt="">
+                            <img src="{{ asset('/uploads/files/osiedle-slow/srodowisko/teren-zielony.jpg') }}" alt="" width="630" height="420">
                             <div class="slow-ecocarousel-desc">
-                                <h3>Kolektory słoneczne</h3>
-                                <p>W trosce o środowisko zastosowaliśmy kolektory słoneczne do podgrzewania ciepłej wody użytkowej.</p>
-                                <p>&nbsp;</p>
-                                <p>Jest to rozwiązanie całkowicie przyjazne dla środowiska. Umożliwia wykorzystanie zasobów energii odnawialnej, nie emitując przy tym hałasu.</p>
+                                <h3>TEREN ZIELONY</h3>
+                                <p>Osiedle Slow to 2,14 ha powierzchni terenów zielonych. Przebywanie w lesie wzmacnia naszą odporność i pozytywnie wpływa na samopoczucie. W lesie głębiej oddychamy, obniża się poziom kortyzolu - hormonu stresu. Przebywanie w przyrodzie koi nerwy i oczyszcza umysł.</p>
                             </div>
                         </div>
                     </li>
                     <li>
                         <div class="slow-ecocarousel-item">
-                            <img src="https://placehold.co/600x400" alt="">
+                            <img src="{{ asset('/uploads/files/osiedle-slow/srodowisko/ekotransport.jpg') }}" alt="" width="630" height="420">
                             <div class="slow-ecocarousel-desc">
-                                <h3>Kolektory słoneczne</h3>
-                                <p>W trosce o środowisko zastosowaliśmy kolektory słoneczne do podgrzewania ciepłej wody użytkowej.</p>
-                                <p>&nbsp;</p>
-                                <p>Jest to rozwiązanie całkowicie przyjazne dla środowiska. Umożliwia wykorzystanie zasobów energii odnawialnej, nie emitując przy tym hałasu.</p>
+                                <h3>EKOTRANSPORT</h3>
+                                <p>Korzystanie z ekologicznych środków transportu, pozytywnie wpływa na stan zdrowia i kondycję, ale także na otaczające nas środowisko. Na terenie osiedla znajdują się stojaki na rowery, oraz sieć chodników po których z łatwością można się przemieszczać, ciesząc oko widokiem terenów zielonych.</p>
                             </div>
                         </div>
                     </li>
                     <li>
                         <div class="slow-ecocarousel-item">
-                            <img src="https://placehold.co/600x400" alt="">
+                            <img src="{{ asset('/uploads/files/osiedle-slow/srodowisko/oswietlenie.jpg') }}" alt="" width="630" height="420">
                             <div class="slow-ecocarousel-desc">
-                                <h3>Kolektory słoneczne</h3>
-                                <p>W trosce o środowisko zastosowaliśmy kolektory słoneczne do podgrzewania ciepłej wody użytkowej.</p>
-                                <p>&nbsp;</p>
-                                <p>Jest to rozwiązanie całkowicie przyjazne dla środowiska. Umożliwia wykorzystanie zasobów energii odnawialnej, nie emitując przy tym hałasu.</p>
+                                <h3>OŚWIETLENIE</h3>
+                                <p>Zastosowanie oświetlenia LED oraz czujników ruchu na klatkach schodowych, pozwala na mniejsze zużycie prądu oraz niższe opłaty za energię.</p>
                             </div>
                         </div>
                     </li>
                     <li>
                         <div class="slow-ecocarousel-item">
-                            <img src="https://placehold.co/600x400" alt="">
+                            <img src="{{ asset('/uploads/files/osiedle-slow/srodowisko/domki-dla-zwierzat.jpg') }}" alt="" width="630" height="420">
                             <div class="slow-ecocarousel-desc">
-                                <h3>Kolektory słoneczne</h3>
-                                <p>W trosce o środowisko zastosowaliśmy kolektory słoneczne do podgrzewania ciepłej wody użytkowej.</p>
-                                <p>&nbsp;</p>
-                                <p>Jest to rozwiązanie całkowicie przyjazne dla środowiska. Umożliwia wykorzystanie zasobów energii odnawialnej, nie emitując przy tym hałasu.</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="slow-ecocarousel-item">
-                            <img src="https://placehold.co/600x400" alt="">
-                            <div class="slow-ecocarousel-desc">
-                                <h3>Kolektory słoneczne</h3>
-                                <p>W trosce o środowisko zastosowaliśmy kolektory słoneczne do podgrzewania ciepłej wody użytkowej.</p>
-                                <p>&nbsp;</p>
-                                <p>Jest to rozwiązanie całkowicie przyjazne dla środowiska. Umożliwia wykorzystanie zasobów energii odnawialnej, nie emitując przy tym hałasu.</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="slow-ecocarousel-item">
-                            <img src="https://placehold.co/600x400" alt="">
-                            <div class="slow-ecocarousel-desc">
-                                <h3>Kolektory słoneczne</h3>
-                                <p>W trosce o środowisko zastosowaliśmy kolektory słoneczne do podgrzewania ciepłej wody użytkowej.</p>
-                                <p>&nbsp;</p>
-                                <p>Jest to rozwiązanie całkowicie przyjazne dla środowiska. Umożliwia wykorzystanie zasobów energii odnawialnej, nie emitując przy tym hałasu.</p>
+                                <h3>DOMKI DLA ZWIERZĄT</h3>
+                                <p>Slow life to życie w harmonii z otaczającą nas przyrodą. Dla leśnych zwierząt powstaną domki na drzewach, które dadzą im schronienie w okresie zimowym.</p>
                             </div>
                         </div>
                     </li>
@@ -344,10 +320,8 @@
                                 <div class="col-4">
                                     <div class="slowLast-desc d-flex align-items-center">
                                         <div class="pe-5 ps-5">
-                                            <h3>LEPSZE ZDROWIE</h3>
-                                            <p>Zwalniając, łatwiej poradzić sobie z lękiem i stresem, które towarzyszą codziennym obowiązkom.</p>
-                                            <p>&nbsp;</p>
-                                            <p>Jeszcze więcej korzyści przynosi świadome jedzenie oraz ruch.</p>
+                                            <h3>WIĘCEJ SZCZĘŚCIA</h3>
+                                            <p>Uważne i świadome życie, sprawia że docenia się małe rzeczy występujące w ciągu całego dnia i dostrzega się ich ogromną wartość.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -358,15 +332,13 @@
                         <div class="container-fluid p-0">
                             <div class="row no-gutters">
                                 <div class="col-8">
-                                    <img src="https://placehold.co/1920x960" alt="">
+                                    <img src="{{ asset('/uploads/files/osiedle-slow/zycie-slow/lepsze-zdrowie.jpg') }}" alt="" width="1280" height="640">
                                 </div>
                                 <div class="col-4">
                                     <div class="slowLast-desc d-flex align-items-center">
                                         <div class="pe-5 ps-5">
                                             <h3>LEPSZE ZDROWIE</h3>
-                                            <p>Zwalniając, łatwiej poradzić sobie z lękiem i stresem, które towarzyszą codziennym obowiązkom.</p>
-                                            <p>&nbsp;</p>
-                                            <p>Jeszcze więcej korzyści przynosi świadome jedzenie oraz ruch.</p>
+                                            <p>Zwalniając, łatwiej poradzić sobie z lękiem i stresem, które towarzyszą codziennym obowiązkom. Jeszcze więcej korzyści przynosi świadome jedzenie oraz ruch.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -377,15 +349,13 @@
                         <div class="container-fluid p-0">
                             <div class="row no-gutters">
                                 <div class="col-8">
-                                    <img src="https://placehold.co/1920x960" alt="">
+                                    <img src="{{ asset('/uploads/files/osiedle-slow/zycie-slow/lepszy-sen.jpg') }}" alt="" width="1280" height="640">
                                 </div>
                                 <div class="col-4">
                                     <div class="slowLast-desc d-flex align-items-center">
                                         <div class="pe-5 ps-5">
-                                            <h3>LEPSZE ZDROWIE</h3>
-                                            <p>Zwalniając, łatwiej poradzić sobie z lękiem i stresem, które towarzyszą codziennym obowiązkom.</p>
-                                            <p>&nbsp;</p>
-                                            <p>Jeszcze więcej korzyści przynosi świadome jedzenie oraz ruch.</p>
+                                            <h3>LEPSZY SEN</h3>
+                                            <p>Spokojny sen to czas na regenerację organizmu i walkę z wszelkiego rodzaju chorobami. Zwalniając tempo podaje się organizmowi pomocną dłoń podczas regeneracji i przyspiesza ładowanie baterii.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -396,15 +366,30 @@
                         <div class="container-fluid p-0">
                             <div class="row no-gutters">
                                 <div class="col-8">
-                                    <img src="https://placehold.co/1920x960" alt="">
+                                    <img src="{{ asset('/uploads/files/osiedle-slow/zycie-slow/silniejsze-relacje.jpg') }}" alt="" width="1280" height="640">
                                 </div>
                                 <div class="col-4">
                                     <div class="slowLast-desc d-flex align-items-center">
                                         <div class="pe-5 ps-5">
-                                            <h3>LEPSZE ZDROWIE</h3>
-                                            <p>Zwalniając, łatwiej poradzić sobie z lękiem i stresem, które towarzyszą codziennym obowiązkom.</p>
-                                            <p>&nbsp;</p>
-                                            <p>Jeszcze więcej korzyści przynosi świadome jedzenie oraz ruch.</p>
+                                            <h3>SILNIEJSZE RELACJE</h3>
+                                            <p>Spędzanie więcej czasu z bliskimi i stawianie relacji ponad pracą lub mediami społecznościowymi wzmacnia prawdziwą komunikację i relacje.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="container-fluid p-0">
+                            <div class="row no-gutters">
+                                <div class="col-8">
+                                    <img src="{{ asset('/uploads/files/osiedle-slow/zycie-slow/zwiekszona-produktywnosc.jpg') }}" alt="" width="1280" height="640">
+                                </div>
+                                <div class="col-4">
+                                    <div class="slowLast-desc d-flex align-items-center">
+                                        <div class="pe-5 ps-5">
+                                            <h3>ZWIĘKSZONA PRODUKTYWNOŚĆ</h3>
+                                            <p>Od rezygnacji z wielozadaniowości do skupienia się na sensownej pracy. Work life balance to jedna z ważniejszych kwestii slow life.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -428,7 +413,9 @@
                 centerMode: true,
                 centerPadding: '0',
                 arrows: false,
-                dots: false
+                dots: false,
+                autoplay: true,
+                autoplaySpeed: 3000,
             });
 
             $('#slowEcoCarousel ul').slick({
@@ -438,7 +425,9 @@
                 centerMode: true,
                 centerPadding: '290px',
                 arrows: false,
-                dots: true
+                dots: true,
+                autoplay: true,
+                autoplaySpeed: 3000
             });
 
             $('#slowLastCarousel ul').slick({
@@ -448,7 +437,9 @@
                 centerMode: false,
                 centerPadding: '0',
                 arrows: true,
-                dots: false
+                dots: false,
+                autoplay: true,
+                autoplaySpeed: 3000
             });
         });
     </script>
