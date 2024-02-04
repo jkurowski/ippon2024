@@ -14,6 +14,7 @@ class City extends Model
     protected $fillable = [
         'name',
         'slug',
+        'file_header',
         'active'
     ];
 }

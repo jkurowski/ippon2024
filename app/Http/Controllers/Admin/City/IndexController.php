@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\City;
 
 use App\Http\Controllers\Controller;
+use App\Services\CityService;
 use Illuminate\Http\Request;
 
 // CMS
@@ -13,10 +14,11 @@ use App\Models\City;
 class IndexController extends Controller
 {
     private CityRepository $repository;
-
-    public function __construct(CityRepository $repository)
+    private CityService $service;
+    public function __construct(CityRepository $repository, CityService $service)
     {
         $this->repository = $repository;
+        $this->service = $service;
     }
 
     public function index()
@@ -34,7 +36,12 @@ class IndexController extends Controller
 
     public function store(CityFormRequest $request)
     {
-        $this->repository->create($request->validated());
+        $city = $this->repository->create($request->validated());
+
+        if ($request->hasFile('header')) {
+            $this->service->uploadHeader($request->name, $request->file('header'), $city);
+        }
+
         return redirect(route('admin.city.index'))->with('success', 'Nowy wpis dodany');
     }
 
@@ -50,6 +57,11 @@ class IndexController extends Controller
     public function update(CityFormRequest $request, City $city)
     {
         $this->repository->update($request->validated(), $city);
+
+        if ($request->hasFile('header')) {
+            $this->service->uploadHeader($request->name, $request->file('header'), $city, true);
+        }
+
         return redirect(route('admin.city.index'))->with('success', 'Wpis zaktualizowany');
     }
 

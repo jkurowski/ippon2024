@@ -5,7 +5,7 @@
 @section('seo_description', $page->meta_description)
 
 @section('pageheader')
-    @include('layouts.partials.page-header', ['page_title' => 'Inwestycje '.$city->name, 'page' => $page, 'header_file' => $page->file_header])
+    @include('layouts.partials.page-header', ['page_title' => 'Inwestycje '.$city->name, 'page' => $page, 'header_file' => $city->file_header])
 @stop
 
 @section('content')
