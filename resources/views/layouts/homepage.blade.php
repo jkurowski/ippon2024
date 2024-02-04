@@ -40,7 +40,7 @@
 <!-- jQuery -->
 <script src="{{ asset('/js/jquery.min.js') }}" charset="utf-8"></script>
 <script src="{{ asset('/js/bootstrap.bundle.min.js') }}" charset="utf-8"></script>
-<script src="{{ asset('/js/app.min.js') }}" charset="utf-8"></script>
+<script src="{{ asset('/js/app.js') }}" charset="utf-8"></script>
 
 <script src="{{ asset('js/slick.js') }}" charset="utf-8"></script>
 
@@ -65,6 +65,11 @@
     AOS.init();
 
     $(document).ready(function(){
+        $('.number-value span').counterUp({
+            delay: 100,
+            time: 3000
+        });
+
         $("#slider").responsiveSlides({
             auto:true,
             pager:false,
@@ -133,6 +138,7 @@
             }, {{ settings()->get("popup_timeout") }} );
         @endif
     });
+
     @if(session('success') || session('warning') || $errors->any())
     $(window).load(function() {
         const aboveHeight = $('header').outerHeight();

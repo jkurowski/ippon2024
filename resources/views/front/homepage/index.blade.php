@@ -140,16 +140,16 @@
         <div class="container">
             <div class="row">
                 <div class="col-3">
-                    <div data-aos="fade-up" data-aos-offset="500" data-aos-delay="0" class="main-room">
+                    <div data-aos="fade-up" data-aos-offset="500" data-aos-delay="0" class="main-room main-room-disable">
                         <div class="main-room-header text-center">
-                            <h2 class="poppins"><a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=1#filtr">MIESZKANIA <br><b>1 POKOJOWE</b></a></h2>
+                            <h2 class="poppins">MIESZKANIA <br><b>1 POKOJOWE</b></h2>
                             <p>Powierzchnia: <span>27m<sup>2</sup></span></p>
                             <div class="main-room-img">
-                                <a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=1#filtr"><img src="{{ asset('/uploads/files/mieszkania-1-pokoje.jpg') }}" alt="Dostępne mieszkania 1-pokojowe"></a>
+                                <img src="{{ asset('/uploads/files/mieszkania-1-pokoje.jpg') }}" alt="Dostępne mieszkania 1-pokojowe">
                             </div>
                         </div>
                         <div class="main-room-footer">
-                            <a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=1#filtr" class="bttn bttn-icon">Zobacz mieszkania <i class="ms-3 las la-chevron-circle-right"></i></a>
+                            <span class="bttn bttn-icon">Zobacz mieszkania <i class="ms-3 las la-chevron-circle-right"></i></span>
                         </div>
                     </div>
                 </div>
@@ -182,16 +182,18 @@
                     </div>
                 </div>
                 <div class="col-3">
-                    <div data-aos="fade-up" data-aos-offset="500" data-aos-delay="300" class="main-room">
+                    <div data-aos="fade-up" data-aos-offset="500" data-aos-delay="300" class="main-room main-room-disable">
                         <div class="main-room-header text-center">
-                            <h2 class="poppins"><a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=4#filtr">MIESZKANIA <br><b>4 POKOJOWE</b></a></h2>
+                            <h2 class="poppins">
+                                MIESZKANIA <br><b>4 POKOJOWE</b>
+                            </h2>
                             <p>Powierzchnia: <span>60-80m<sup>2</sup></span></p>
                             <div class="main-room-img">
-                                <a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=4#filtr"><img src="{{ asset('/uploads/files/mieszkania-4-pokoje.jpg') }}" alt="Dostępne mieszkania 4-pokojowe"></a>
+                                <img src="{{ asset('/uploads/files/mieszkania-4-pokoje.jpg') }}" alt="Dostępne mieszkania 4-pokojowe">
                             </div>
                         </div>
                         <div class="main-room-footer">
-                            <a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=4#filtr" class="bttn bttn-icon">Zobacz mieszkania <i class="ms-3 las la-chevron-circle-right"></i></a>
+                            <span class="bttn bttn-icon">Zobacz mieszkania <i class="ms-3 las la-chevron-circle-right"></i></span>
                         </div>
                     </div>
                 </div>
@@ -224,44 +226,44 @@
         <div class="container">
             <div class="row">
                 <div class="col-3">
-                    <div class="number" data-aos="fade-up" data-aos-offset="500" data-aos-delay="0">
+                    <div class="number">
                         <div class="number-icon">
                             <img src="{{ asset('/images/icons/wysoka-jakosc-icon.png') }}" alt="" width="170" height="170">
                         </div>
-                        <div class="number-value">92%</div>
+                        <div class="number-value"><span data-value="92">92</span>%</div>
                         <div class="number-text">
                             <p>mieszkańców naszego osiedla ocenia wysoką jakość wykończenia naszych mieszkań</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-3">
-                    <div class="number" data-aos="fade-up" data-aos-offset="500" data-aos-delay="100">
+                    <div class="number">
                         <div class="number-icon">
                             <img src="{{ asset('/images/icons/polecenie-zakupu-icon.png') }}" alt="" width="170" height="170">
                         </div>
-                        <div class="number-value">95%</div>
+                        <div class="number-value"><span data-value="95">95</span>%</div>
                         <div class="number-text">
                             <p>mieszkańców zdecydowanie poleciłoby swoim znajomym zakup mieszkania na naszych osiedlach</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-3">
-                    <div class="number" data-aos="fade-up" data-aos-offset="500" data-aos-delay="200">
+                    <div class="number">
                         <div class="number-icon">
                             <img src="{{ asset('/images/icons/atrakcyjna-lokalizacja.png') }}" alt="" width="170" height="170">
                         </div>
-                        <div class="number-value">97%</div>
+                        <div class="number-value"><span data-value="97">97</span>%</div>
                         <div class="number-text">
                             <p>mieszkańców jest zadowolonych z atrakcyjnej lokalizacji naszych inwestycji</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-3">
-                    <div class="number" data-aos="fade-up" data-aos-offset="500" data-aos-delay="300">
+                    <div class="number">
                         <div class="number-icon">
                             <img src="{{ asset('/images/icons/oddane-mieszkania-icon.png') }}" alt="" width="170" height="170">
                         </div>
-                        <div class="number-value">100%</div>
+                        <div class="number-value"><span data-value="100">100</span>%</div>
                         <div class="number-text">
                             <p>oddanych mieszkań w terminie</p>
                         </div>

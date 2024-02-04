@@ -1734,6 +1734,10 @@ section {
 .main-room-footer i {
   font-size: 20px;
 }
+.main-room.main-room-disable > * {
+  opacity: 0.2 !important;
+  filter: grayscale(100%);
+}
 .investment-contact section#contact-form {
   padding: 0 !important;
   background: none;

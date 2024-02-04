@@ -152,14 +152,14 @@
                 <div class="contact-box">
                     <h2>BIURO SPRZEDAŻY</h2>
                     <p>Ul. Barcza 50,</p>
-                    <p>10-419 Olsztyn</p>
+                    <p>10-685 Olsztyn</p>
                     <p>&nbsp;</p>
                     <p>Godziny otwarcia:</p>
                     <p>pn.-pt. 9:00 - 17:00</p>
                     <ul class="mb-0 list-unstyled icon-list-contact">
                         <li><img src="{{ asset('images/envelop-icon-svg.svg') }}" alt=""> <a href="mailto:mieszkania@ippon.group">mieszkania@ippon.group</a></li>
                     </ul>
-                    <a href="https://maps.app.goo.gl/Sv3KkJU2Dpxm9gX87" class="bttn bttn-icon mt-5 bttn-slow" target="_blank">JAK DOJECHAĆ <i class="ms-3 las la-chevron-circle-right"></i></a>
+                    <a href="https://maps.app.goo.gl/ZfoTQcN5eBbvaj7b7" class="bttn bttn-icon mt-5 bttn-slow" target="_blank">JAK DOJECHAĆ <i class="ms-3 las la-chevron-circle-right"></i></a>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-xl-8 d-flex align-items-center">
