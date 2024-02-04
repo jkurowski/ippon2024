@@ -47,7 +47,7 @@
                                         <div class="property-list-item-option">
                                             @for($i = 1; $i <= 6; $i++)
                                                 @if(in_array($i, $atutyArray))
-                                                    <span class="option-{{ $i }}"></span>
+                                                    <span class="option-{{ $i }}" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{{ toolTip($i) }}"></span>
                                                 @endif
                                             @endfor
                                         </div>
@@ -73,3 +73,11 @@
         @endif
     </div>
 </div>
+@push('scripts')
+    <script>
+        const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        });
+    </script>
+@endpush
