@@ -5,11 +5,17 @@
 <ul id="slider" class="mb-0 list-unstyled">
     @foreach($sliders as $panel)
         <li>
+            @if($panel->link)
+            <a href="{{ $panel->link }}" target="{{ $panel->link_target }}">
+            @endif
             <picture>
                 <source type="image/webp" srcset="{{asset('/uploads/slider/webp/'.$panel->file_webp) }}">
                 <source type="image/jpeg" srcset="{{asset('/uploads/slider/'.$panel->file) }}">
                 <img src="{{asset('/uploads/slider/'.$panel->file) }}" alt="{{ $panel->title }}" width="700" height="394" class="w-100">
             </picture>
+            @if($panel->link)
+            </a>
+            @endif
         </li>
     @endforeach
 </ul>
