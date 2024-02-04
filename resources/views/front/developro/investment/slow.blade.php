@@ -332,7 +332,7 @@
                         <div class="container-fluid p-0">
                             <div class="row no-gutters">
                                 <div class="col-8">
-                                    <img src="{{ asset('/uploads/files/osiedle-slow/zycie-slow/lepsze-zdrowie.jpg') }}" alt="" width="1280" height="640">
+                                    <img src="{{ asset('/uploads/files/osiedle-slow/zycie-slow/lepsze-zdrowie.jpg') }}" alt="" width="1280" height="640" class="w-100">
                                 </div>
                                 <div class="col-4">
                                     <div class="slowLast-desc d-flex align-items-center">
@@ -349,7 +349,7 @@
                         <div class="container-fluid p-0">
                             <div class="row no-gutters">
                                 <div class="col-8">
-                                    <img src="{{ asset('/uploads/files/osiedle-slow/zycie-slow/lepszy-sen.jpg') }}" alt="" width="1280" height="640">
+                                    <img src="{{ asset('/uploads/files/osiedle-slow/zycie-slow/lepszy-sen.jpg') }}" alt="" width="1280" height="640" class="w-100">
                                 </div>
                                 <div class="col-4">
                                     <div class="slowLast-desc d-flex align-items-center">
@@ -366,7 +366,7 @@
                         <div class="container-fluid p-0">
                             <div class="row no-gutters">
                                 <div class="col-8">
-                                    <img src="{{ asset('/uploads/files/osiedle-slow/zycie-slow/silniejsze-relacje.jpg') }}" alt="" width="1280" height="640">
+                                    <img src="{{ asset('/uploads/files/osiedle-slow/zycie-slow/silniejsze-relacje.jpg') }}" alt="" width="1280" height="640" class="w-100">
                                 </div>
                                 <div class="col-4">
                                     <div class="slowLast-desc d-flex align-items-center">
@@ -383,7 +383,7 @@
                         <div class="container-fluid p-0">
                             <div class="row no-gutters">
                                 <div class="col-8">
-                                    <img src="{{ asset('/uploads/files/osiedle-slow/zycie-slow/zwiekszona-produktywnosc.jpg') }}" alt="" width="1280" height="640">
+                                    <img src="{{ asset('/uploads/files/osiedle-slow/zycie-slow/zwiekszona-produktywnosc.jpg') }}" alt="" width="1280" height="640" class="w-100">
                                 </div>
                                 <div class="col-4">
                                     <div class="slowLast-desc d-flex align-items-center">
