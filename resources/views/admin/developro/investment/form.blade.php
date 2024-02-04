@@ -137,10 +137,6 @@
                     </div>
 
                     <div class="row w-100 mb-4">
-                        @include('form-elements.html-input-text', ['label' => 'Krótki opis na liście', 'name' => 'entry_content', 'value' => $entry->entry_content])
-                    </div>
-
-                    <div class="row w-100 mb-4">
                         @include('form-elements.html-input-file', [
                             'label' => 'Miniaturka',
                             'sublabel' => '(wymiary: '.config('images.investment.thumb_width').'px / '.config('images.investment.thumb_height').'px)',
@@ -178,6 +174,11 @@
                             'file_preview' => config('images.investment.header_file_path')
                             ])
                     </div>
+
+                    <div class="row w-100 mb-4">
+                        @include('form-elements.textarea-fullwidth', ['label' => 'Krótki opis na liście', 'name' => 'entry_content', 'value' => $entry->entry_content, 'rows' => 11, 'class' => 'tinymce', 'required' => 1])
+                    </div>
+
 
                     <div class="row w-100 mb-4">
                         @include('form-elements.textarea-fullwidth', ['label' => 'Opis inwestycji', 'name' => 'content', 'value' => $entry->content, 'rows' => 11, 'class' => 'tinymce', 'required' => 1])

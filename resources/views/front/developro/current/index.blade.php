@@ -36,7 +36,7 @@
                                     @if($r->file_logo)
                                         <img src="{{ asset('investment/logo/'.$r->file_logo) }}" alt="Logo {{ $r->name }}">
                                     @endif
-                                    <p>{{ $r->entry_content }}</p>
+                                    <p>{!! $r->entry_content !!}</p>
                                 </div>
                             </div>
                         </div>

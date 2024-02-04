@@ -55,7 +55,7 @@
                                         @else
                                             <div class="invest-item-city"> &nbsp;</div>
                                         @endif
-                                        <p>{{ $r->entry_content }}</p>
+                                        <p>{!! $r->entry_content !!}</p>
                                     </div>
                                 </div>
                             </div>
