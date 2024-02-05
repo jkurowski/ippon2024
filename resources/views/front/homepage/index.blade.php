@@ -28,7 +28,7 @@
             </div>
         </div>
         <div class="row left-right">
-            <div class="col-12 col-xl-6 d-flex align-items-center">
+            <div data-aos="fade-right" data-aos-offset="300" data-aos-delay="0" class="col-12 col-xl-6 d-flex align-items-center">
                 <div class="left-right-text current-item">
                     <h2 class="mb-0">OSIEDLE AURORA ETAP 4</h2>
                     <div class="invest-item-city">Olsztyn, ul. Barcza</div>
@@ -62,7 +62,7 @@
                     <a href="https://www.aurora.olsztyn.pl/" target="_blank" class="bttn bttn-icon mt-5">ZOBACZ MIESZKANIA <i class="ms-3 las la-chevron-circle-right"></i></a>
                 </div>
             </div>
-            <div class="col-12 col-xl-6">
+            <div data-aos="fade-left" data-aos-offset="300" data-aos-delay="0" class="col-12 col-xl-6">
                 <div class="invest-item-thumb">
                     <span class="img-badge">Inwestycja aktualna</span>
                     <img src="{{ asset('/uploads/files/aurora-4.jpg') }}" alt="" class="golden-border w-100" width="840" height="760">
@@ -70,7 +70,7 @@
             </div>
         </div>
         <div class="row left-right flex-row-reverse row-offset-up">
-            <div class="col-12 col-xl-6 d-flex align-items-center">
+            <div data-aos="fade-left" data-aos-offset="400" data-aos-delay="0" class="col-12 col-xl-6 d-flex align-items-center">
                 <div class="left-right-text current-item">
                     <h2 class="mb-0">OSIEDLE SLOW</h2>
                     <div class="invest-item-city">Olsztyn, ul.Kordeckiego</div>
@@ -104,7 +104,7 @@
                     <a href="/pl/i/osiedle-slow" class="bttn bttn-icon mt-5">ZOBACZ MIESZKANIA <i class="ms-3 las la-chevron-circle-right"></i></a>
                 </div>
             </div>
-            <div class="col-12 col-xl-6">
+            <div data-aos="fade-right" data-aos-offset="400" data-aos-delay="0" class="col-12 col-xl-6">
                 <div class="invest-item-thumb">
                     <span class="img-badge">Inwestycja aktualna</span>
                     <img src="{{ asset('/uploads/files/osiedle-slow/ekologiczne-rozwiazania.jpg') }}" alt="" class="golden-border w-100" width="840" height="760">
