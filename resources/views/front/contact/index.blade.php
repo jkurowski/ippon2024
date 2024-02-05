@@ -18,8 +18,8 @@
                 <div class="contact-box">
                     <h2>IPPON GROUP</h2>
                     <p>Ippon Group Sp. z o.o.</p>
-                    <p>ul. Warecka 11 a,</p>
-                    <p>00-034 Warszawa</p>
+                    <p>ul. Aleja Armii Ludowej 26,</p>
+                    <p>00-609 Warszawa</p>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-xl-4">
