@@ -20,7 +20,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    {!! $investment_page->content !!}
+                    {!! parse_text($investment_page->content) !!}
                 </div>
             </div>
         </div>
