@@ -1,6 +1,21 @@
 <div id="filtr">
     <div class="container-fluid">
         <form method="get" class="row" action="#filtr">
+            @if($floorFiltr || $floors == '0' )
+                <div class="col">
+                    <div class="fake-select fake-select-icon">
+                        <i class="las la-layer-group"></i>
+                        <select name="floor" id="filtr-rooms">
+                            <option value="">Piętro</option>
+                            <option value="">Wszystkie piętra</option>
+                            <option value="0" @if(request()->input('floor') == '0') selected @endif>parter</option>
+                            <option value="1" @if(request()->input('floor') == '1') selected @endif>1 piętro</option>
+                            <option value="2" @if(request()->input('floor') == '2') selected @endif>2 piętro</option>
+                        </select>
+                    </div>
+                </div>
+            @endif
+
             <div class="col">
                 <div class="fake-select fake-select-icon">
                     <i class="las la-door-open"></i>
@@ -29,7 +44,7 @@
                     <div class="fake-select fake-select-icon">
                         <i class="las la-expand-arrows-alt"></i>
                         <select name="area" id="filtr-area">
-                            <option value="">Powierzchnia</option>
+                            <option value="">Metraż</option>
                             {!! area2Select($area_range) !!}
                         </select>
                     </div>

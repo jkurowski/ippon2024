@@ -40,7 +40,7 @@
                         </div>
                     @endif
 
-                    @include('front.developro.investment_shared.filtr', ['area_range' => $investment->area_range])
+                    @include('front.developro.investment_shared.filtr', ['area_range' => $investment->area_range,  'floors' => $floors, 'floorFiltr' => 1])
                     @include('front.investment_shared.sort')
 
                     @include('front.developro.investment_shared.list', ['investment' => $investment])

@@ -16,6 +16,8 @@
                     <div class="col-12 col-lg-6">
                         @if($r->id == 4)
                             <a href="https://www.aurora.olsztyn.pl/" target="_blank">
+                        @else
+                            <a href="{{ route('developro.investment.index', $r->slug) }}">
                         @endif
                         <div class="invest-item-holder">
                             <div class="invest-item">
@@ -35,9 +37,7 @@
                                 </div>
                             </div>
                         </div>
-                        @if($r->id == 4)
                         </a>
-                        @endif
                     </div>
                 @endforeach
             </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front\Developro\Plan;
 
 use App\Http\Controllers\Controller;
 use App\Models\Building;
+use App\Models\Floor;
 use App\Models\Page;
 use App\Models\RodoRules;
 use App\Models\RodoSettings;
@@ -36,6 +37,21 @@ class IndexController extends Controller
                 if ($request->input('status')) {
                     $query->where('status', $request->input('status'));
                 }
+
+                if ($request->exists('floor')) {
+                    $floorValue = $request->input('floor');
+
+                    // Check if $floorValue is a positive integer
+                    if (ctype_digit($floorValue) || $floorValue === '0') {
+                        $floor = Floor::where('number', '=', $floorValue)->first();
+
+                        // Check if $floor is not null before using its id
+                        if ($floor) {
+                            $query->where('floor_id', $floor->id);
+                        }
+                    }
+                }
+
                 if ($request->input('sort')) {
                     $order_param = explode(':', $request->input('sort'));
                     $column = $order_param[0];
@@ -58,6 +74,7 @@ class IndexController extends Controller
             'properties' => $investment->buildingRooms,
             'investment_page' => $investmentPage,
             'page' => $menu_page,
+            'floors' => $request->input('floor'),
             'uniqueRooms' => $this->repository->getUniqueRooms($investment_room->properties)
         ]);
     }

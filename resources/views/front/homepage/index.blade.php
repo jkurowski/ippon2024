@@ -26,6 +26,26 @@
             <form method="get" class="row" action="/pl/i/osiedle-slow/mieszkania#filtr">
                 <div class="col">
                     <div class="fake-select fake-select-icon">
+                        <i class="las la-building"></i>
+                        <select name="invest" id="filtr-rooms">
+                            <option value="">Inwestycja</option>
+                            <option value="1" >Osiedle Slow</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="fake-select fake-select-icon">
+                        <i class="las la-layer-group"></i>
+                        <select name="floor" id="filtr-rooms">
+                            <option value="">Piętro</option>
+                            <option value="0" >parter</option>
+                            <option value="1" >1 piętro</option>
+                            <option value="2" >2 piętro</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="fake-select fake-select-icon">
                         <i class="las la-door-open"></i>
                         <select name="rooms" id="filtr-rooms">
                             <option value="">Ilość pokoi</option>
@@ -50,7 +70,7 @@
                     <div class="fake-select fake-select-icon">
                         <i class="las la-expand-arrows-alt"></i>
                         <select name="area" id="filtr-area">
-                            <option value="">Powierzchnia</option>
+                            <option value="">Metraż</option>
                             <option value="35-36">35-36 m²</option>
                             <option value=" 49-56"> 49-56 m²</option>
                         </select>
