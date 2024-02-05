@@ -1306,6 +1306,29 @@ div[class*='col-'].slick-slide {
   text-align: center;
   margin: 10px 0 25px;
 }
+.slider-holder #filtr {
+  background: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  bottom: 40px;
+  z-index: 20;
+}
+.slider-holder #filtr i {
+  color: #BA8B41;
+}
+.slider-holder #filtr .fake-select-input {
+  background: rgba(0, 0, 0, 0.1);
+}
+.slider-holder #filtr .bttn {
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  padding: 0;
+}
+.slider-holder #filtr .bttn i {
+  color: white;
+}
 .fake-select {
   position: relative;
   cursor: pointer;

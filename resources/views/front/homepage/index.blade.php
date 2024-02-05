@@ -2,23 +2,68 @@
 
 @section('content')
 
-<ul id="slider" class="mb-0 list-unstyled">
-    @foreach($sliders as $panel)
-        <li>
-            @if($panel->link)
-            <a href="{{ $panel->link }}" target="{{ $panel->link_target }}">
-            @endif
-            <picture>
-                <source type="image/webp" srcset="{{asset('/uploads/slider/webp/'.$panel->file_webp) }}">
-                <source type="image/jpeg" srcset="{{asset('/uploads/slider/'.$panel->file) }}">
-                <img src="{{asset('/uploads/slider/'.$panel->file) }}" alt="{{ $panel->title }}" width="700" height="394" class="w-100" alt="{{ $panel->file_alt }}">
-            </picture>
-            @if($panel->link)
-            </a>
-            @endif
-        </li>
-    @endforeach
-</ul>
+<div class="slider-holder position-relative">
+    <ul id="slider" class="mb-0 list-unstyled">
+        @foreach($sliders as $panel)
+            <li>
+                @if($panel->link)
+                    <a href="{{ $panel->link }}" target="{{ $panel->link_target }}">
+                        @endif
+                        <picture>
+                            <source type="image/webp" srcset="{{asset('/uploads/slider/webp/'.$panel->file_webp) }}">
+                            <source type="image/jpeg" srcset="{{asset('/uploads/slider/'.$panel->file) }}">
+                            <img src="{{asset('/uploads/slider/'.$panel->file) }}" alt="{{ $panel->title }}" width="700" height="394" class="w-100" alt="{{ $panel->file_alt }}">
+                        </picture>
+                        @if($panel->link)
+                    </a>
+                @endif
+            </li>
+        @endforeach
+    </ul>
+
+    <div id="filtr">
+        <div class="container-fluid">
+            <form method="get" class="row" action="/pl/i/osiedle-slow/mieszkania#filtr">
+                <div class="col">
+                    <div class="fake-select fake-select-icon">
+                        <i class="las la-door-open"></i>
+                        <select name="rooms" id="filtr-rooms">
+                            <option value="">Ilość pokoi</option>
+                            <option value="2" >2 pokoje</option>
+                            <option value="3" >3 pokoje</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="fake-select fake-select-icon">
+                        <i class="las la-tags"></i>
+                        <select name="status" id="filtr-status">
+                            <option value="">Status</option>
+                            <option value="1" >Na sprzedaż</option>
+                            <option value="2" >Rezerwacja</option>
+                            <option value="3" >Sprzedane</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="fake-select fake-select-icon">
+                        <i class="las la-expand-arrows-alt"></i>
+                        <select name="area" id="filtr-area">
+                            <option value="">Powierzchnia</option>
+                            <option value="35-36">35-36 m²</option>
+                            <option value=" 49-56"> 49-56 m²</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col">
+                    <button type="submit" id="filtr-button" class="bttn bttn-icon">Szukaj <i class="ms-3 las la-search"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 
 <section>
     <div class="container">

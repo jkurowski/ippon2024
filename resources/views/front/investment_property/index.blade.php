@@ -75,15 +75,13 @@
                 </div>
                 <div class="property-img">
                     @if($property->file)
-                        <div class="property-img">
-                            <a href="{{ asset('/investment/property/'.$property->file) }}" class="swipebox">
-                                <picture>
-                                    <source type="image/webp" srcset="{{ asset('/investment/property/thumbs/webp/'.$property->file_webp) }}">
-                                    <source type="image/jpeg" srcset="{{ asset('/investment/property/thumbs/'.$property->file) }}">
-                                    <img src="{{ asset('/investment/property/thumbs/'.$property->file) }}" alt="{{$property->name}}">
-                                </picture>
-                            </a>
-                        </div>
+                        <a href="{{ asset('/investment/property/'.$property->file) }}" class="swipebox">
+                            <picture>
+                                <source type="image/webp" srcset="{{ asset('/investment/property/thumbs/webp/'.$property->file_webp) }}">
+                                <source type="image/jpeg" srcset="{{ asset('/investment/property/thumbs/'.$property->file) }}">
+                                <img src="{{ asset('/investment/property/thumbs/'.$property->file) }}" alt="{{$property->name}}">
+                            </picture>
+                        </a>
                     @endif
 
                     <img src="{{ asset('/images/property-features.png') }}" alt="Atuty mieszkania" class="mt-4">
