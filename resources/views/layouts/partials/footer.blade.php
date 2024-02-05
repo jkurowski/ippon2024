@@ -11,8 +11,8 @@
                 <div class="footer-box ps-0 ps-lg-5">
                     <h4>IPPON GROUP</h4>
                     <p>Ippon Group Sp. z o.o.</p>
-                    <p>ul. Warecka 11 a</p>
-                    <p>00-034 Warszawa</p>
+                    <p>ul. Aleja Armii Ludowej 26</p>
+                    <p>00-609 Warszawa</p>
                     <img src="{{ asset('/images/pzfd-logo-white.png') }}" class="pzfd-logo" alt="PZFD logo" width="290" height="99">
                 </div>
             </div>
