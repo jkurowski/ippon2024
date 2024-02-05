@@ -1745,6 +1745,19 @@ section {
   padding: 0 !important;
   background: none;
 }
+.current-item p {
+  font-size: 16px;
+  line-height: 27px;
+}
+.current-stat {
+  font-size: 14px;
+}
+.current-stat span {
+  font-size: 26px;
+  font-weight: 300;
+  color: #BA8B41;
+  display: block;
+}
 /* Slider
 ================================================== */
 #slider .rslides {

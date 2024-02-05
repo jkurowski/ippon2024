@@ -27,6 +27,90 @@
                 <h2 class="section-title text-uppercase"><span class="text-gold">Poznaj inwestycje</span> <br>w sprzedaży</h2>
             </div>
         </div>
+        <div class="row left-right">
+            <div class="col-12 col-xl-6 d-flex align-items-center">
+                <div class="left-right-text current-item">
+                    <h2 class="mb-0">OSIEDLE AURORA ETAP 4</h2>
+                    <div class="invest-item-city">Olsztyn, ul. Barcza</div>
+                    <p>W sprzedaży <strong>ostatnie</strong>, <strong>gotowe do odbioru</strong> apartamenty na 6 piętrze. Klienci mogą jeszcze wybierać w mieszkaniach -3 i -4 pokojowych o metrażu od 71 do 94 mkw. Apartamenty posiadają <strong>panoramiczne okna</strong>, <strong>wysokość</strong> pomieszczeń <strong>3m</strong> oraz duże <strong>tarasy</strong> do 53 mkw, z których można podziwiać widok na Park. W sprzedaży także lokale z prywatnymi <strong>ogrodami zimowymi</strong>, które można zaaranżować jako prywatny ogród lub powiększyć strefę mieszkalną o dodatkową przestrzeń. Mieszkańcy skorzystają z <strong>miejsc parkingowych</strong> w hali garażowej, naziemnych miejsc postojowych oraz komórek lokatorskich.</p>
+                    <div class="row mt-5">
+                        <div class="col-3">
+                            <div class="current-stat text-center">
+                                <span>135</span>
+                                ilość mieszkań
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="current-stat text-center">
+                                <span>6</span>
+                                liczba pięter
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="current-stat text-center">
+                                <span>35-134 m<sup>2</sup></span>
+                                powierzchnia
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="current-stat text-center">
+                                <span>Q4 2023</span>
+                                termin oddania
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://www.aurora.olsztyn.pl/" target="_blank" class="bttn bttn-icon mt-5">ZOBACZ MIESZKANIA <i class="ms-3 las la-chevron-circle-right"></i></a>
+                </div>
+            </div>
+            <div class="col-12 col-xl-6">
+                <div class="invest-item-thumb">
+                    <span class="img-badge">Inwestycja aktualna</span>
+                    <img src="{{ asset('/uploads/files/aurora-4.jpg') }}" alt="" class="golden-border w-100" width="840" height="760">
+                </div>
+            </div>
+        </div>
+        <div class="row left-right flex-row-reverse row-offset-up">
+            <div class="col-12 col-xl-6 d-flex align-items-center">
+                <div class="left-right-text current-item">
+                    <h2 class="mb-0">OSIEDLE SLOW</h2>
+                    <div class="invest-item-city">Olsztyn, ul.Kordeckiego</div>
+                    <p>Rozpoczęcie sprzedaży 1 kwartał 2024r. Osiedle Slow to kameralne osiedle, z dala od centrum miasta, dla osób które cenią sobie bliskość terenów rekreacyjnych, ale także chcą mieszkać na bezpiecznym i nowoczesnym osiedlu. W specjalnych strefach spotkań powstaną miejsca na ognisko oraz wiaty grillowe z miejscami do siedzenia.</p>
+                    <div class="row mt-5">
+                        <div class="col-3">
+                            <div class="current-stat text-center">
+                                <span>39</span>
+                                ilość mieszkań
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="current-stat text-center">
+                                <span>2</span>
+                                liczba pięter
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="current-stat text-center">
+                                <span>35-56 m<sup>2</sup></span>
+                                powierzchnia
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="current-stat text-center">
+                                <span>Q3 2025</span>
+                                termin oddania
+                            </div>
+                        </div>
+                    </div>
+                    <a href="/pl/i/osiedle-slow" class="bttn bttn-icon mt-5">ZOBACZ MIESZKANIA <i class="ms-3 las la-chevron-circle-right"></i></a>
+                </div>
+            </div>
+            <div class="col-12 col-xl-6">
+                <div class="invest-item-thumb">
+                    <span class="img-badge">Inwestycja aktualna</span>
+                    <img src="{{ asset('/uploads/files/osiedle-slow/ekologiczne-rozwiazania.jpg') }}" alt="" class="golden-border w-100" width="840" height="760">
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
