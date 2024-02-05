@@ -1012,16 +1012,13 @@ div[class*='col-'].slick-slide {
   margin-left: -20px;
   z-index: 10;
 }
-#plan-holder {
-  padding: 15px;
-}
 .floor-nav {
   position: sticky;
   top: 110px;
 }
 #sortList select {
-  background: #e77427;
-  color: white;
+  background: #e2d5b2;
+  color: #433f20;
   padding: 8px 15px;
   font-size: 13px;
 }

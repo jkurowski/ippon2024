@@ -1,7 +1,7 @@
 <div id="filtr">
     <div class="container-fluid">
-        <form method="get" class="row" action="">
-            <div class="col-6 col-md-3">
+        <form method="get" class="row" action="#filtr">
+            <div class="col">
                 <div class="fake-select fake-select-icon">
                     <i class="las la-door-open"></i>
                     <select name="rooms" id="filtr-rooms">
@@ -12,7 +12,7 @@
                     </select>
                 </div>
             </div>
-            <div class="col-6 col-md-3">
+            <div class="col">
                 <div class="fake-select fake-select-icon">
                     <i class="las la-tags"></i>
                     <select name="status" id="filtr-status">
@@ -25,7 +25,7 @@
             </div>
 
             @if($area_range)
-                <div class="col-6 col-md-3">
+                <div class="col">
                     <div class="fake-select fake-select-icon">
                         <i class="las la-expand-arrows-alt"></i>
                         <select name="area" id="filtr-area">
@@ -35,7 +35,7 @@
                     </div>
                 </div>
             @endif
-            <div class="col-6 col-md-3">
+            <div class="col">
                 <button type="submit" id="filtr-button" class="bttn bttn-icon bttn-slow">Szukaj <i class="ms-3 las la-search"></i></button>
             </div>
         </form>
