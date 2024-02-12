@@ -40,11 +40,11 @@
                 <div class="col-12 col-xl-6 d-flex align-items-center">
                     <div class="left-right-text">
                         <h2>Zaawansowane rozwiązania</h2>
-                        <p>Stawiamy na najbardziej zaawansowane rozwiązania technologiczne, które pozwalają nam uzyskać wysoką sprawność naszych aktywów i docelowo budują wizerunek grupy, która inwestuje efektywnie i przyjaźnie dla środowiska. W efekcie tych działań, nasi mieszkańcy mają zapewnione bezpieczeństwo, dostęp do nowoczesnych rozwiązań oraz gwarancję najwyższej jakości materiałów.</p>
+                        <p>We wszystkich naszych projektach, stosujemy zaawansowane rozwiązania technologiczne. Współpracujemy tylko z z najlepszymi architektami i dekoratorami wnętrz. Każde mieszkanie, dopracowane jest w najmniejszych szczegółach, by zagwarantować komfort i wygodę przyszłych mieszkańców. Z myślą o ekologii, wdrażamy rozwiązania, które realnie wpływają na środowisko. Stosujemy m.in.: kolektory słoneczne, oświetlenie LED oraz zbiorniki retencyjne, które wykorzystują wody opadowe do podlewania roślinności w częściach wspólnych na osiedlu. Takie działania to nie tylko ochrona środowiska, ale także realne oszczędności na rachunkach naszych mieszkańców.</p>
                     </div>
                 </div>
                 <div class="col-12 col-xl-6">
-                    <img src="{{ asset('/uploads/files/o-nas/zaawansowane-rozwiazania.jpg') }}" alt="Wizualizacja osiedla Aurora" class="golden-border w-100" width="840" height="650">
+                    <img src="{{ asset('/uploads/files/o-nas/zaawansowane-rozwiazania-2.jpg') }}" alt="Wizualizacja osiedla Aurora" class="golden-border w-100" width="840" height="650">
                 </div>
             </div>
 
@@ -173,6 +173,8 @@
                 infinite: true,
                 slidesToShow: 3,
                 slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 4000,
                 centerMode: true,
                 centerPadding: '80px',
                 arrows: true,
@@ -200,4 +202,3 @@
         });
     </script>
 @endpush
-

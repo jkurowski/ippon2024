@@ -103,7 +103,28 @@
             centerMode: true,
             centerPadding: '80px',
             arrows: true,
-            dots: false
+            autoplay: true,
+            autoplaySpeed: 4000,
+            dots: false,
+            responsive: [
+                {
+                    breakpoint: 1400,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        centerPadding: '120px',
+                    }
+                },
+                {
+                    breakpoint: 577,
+                    settings: {
+                        centerMode: false,
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        centerPadding: '10px',
+                    }
+                }
+            ]
         });
 
         $('#reviewCarousel .row').slick({

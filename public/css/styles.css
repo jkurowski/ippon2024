@@ -1227,6 +1227,12 @@ div[class*='col-'].slick-slide {
   background: #ae935d;
   border-color: #ae935d;
 }
+.property .property-desc .status-badge {
+  top: 7px;
+  right: 15px;
+  font-size: 19px;
+  padding: 4px 55px;
+}
 .property .property-img {
   padding: 35px 0 0 10px;
 }

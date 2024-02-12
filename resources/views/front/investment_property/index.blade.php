@@ -23,6 +23,7 @@
         <div class="row">
             <div class="col-6">
                 <div class="property-desc pe-4">
+                    {!! roomStatusBadge($property->status) !!}
                     <h1 class="text-uppercase">{{ $property->name }}</h1>
                     <h4>{{ floorLevel($floor->number, false) }}</h4>
                     <ul class="mb-0 list-unstyled mt-4">
