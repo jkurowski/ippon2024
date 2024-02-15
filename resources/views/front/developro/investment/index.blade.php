@@ -24,6 +24,7 @@
                 </div>
             </div>
         </div>
+        @if($investment->id <> 6 && $investment->id <> 7)
         <div id="cta">
             <div class="container">
                 <div class="row">
@@ -38,5 +39,6 @@
                 </div>
             </div>
         </div>
+        @endif
     </div>
 @endsection
