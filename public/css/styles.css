@@ -230,10 +230,10 @@ button {
   right: auto;
 }
 @font-face {
-  font-family: abuget;
+  font-family: 'Abuget';
   font-style: normal;
   font-weight: 400;
-  src: local('Abuget'), url(https://fonts.cdnfonts.com/s/77885/Abuget.woff) format('woff');
+  src: local('Abuget'), url('https://fonts.cdnfonts.com/s/77885/Abuget.woff') format('woff');
 }
 .slow-header {
   display: flex;
@@ -3438,6 +3438,17 @@ html.swipebox-html.swipebox-touch {
 }
 .openmenu #triggermenu:hover {
   color: white;
+}
+@media (max-width: 1939.98px) {
+  header .top {
+    height: 130px;
+  }
+  .header-holder {
+    height: 210px;
+  }
+  header #logo {
+    padding: 18px 0;
+  }
 }
 @media (max-width: 1669.98px) {
   .header-holder {
