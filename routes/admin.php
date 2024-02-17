@@ -32,6 +32,7 @@ Route::group([
     Route::get('user/datatable', 'User\IndexController@datatable')->name('user.datatable');
 
     Route::resources([
+        'dictionary' => 'Dictionary\IndexController',
         'page' => 'Page\IndexController',
         'url' => 'Url\IndexController',
         'gallery' => 'Gallery\IndexController',
@@ -52,6 +53,8 @@ Route::group([
         'review' => 'Review\IndexController',
         'awards' => 'Awards\IndexController',
     ]);
+
+    Route::get('dictionary/{slug}/{locale}/edit', 'Dictionary\IndexController@edit')->name('dictionary.edit');
 
     // Settings
     Route::group(['prefix'=>'/settings', 'as' => 'settings.'], function () {

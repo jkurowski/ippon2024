@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CommercialFormRequest extends FormRequest
+class DictionaryFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -19,24 +19,26 @@ class CommercialFormRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, mixed>
+     * @return array
      */
     public function rules()
     {
         return [
-            'name' => 'required|string|min:5|max:100',
-            'gallery_id' => '',
-            'text' => 'required'
+            'translation' => 'required',
+            'dictionary_slug' => 'required',
+            'dictionary_locale' => 'required'
         ];
     }
 
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
     public function messages()
     {
         return [
-            'name.required' => 'To pole jest wymagane',
-            'name.max.string' => 'Maksymalna ilość znaków: 100',
-            'name.min.string' => 'Minimalna ilość znaków: 5',
-            'text.required' => 'To pole jest wymagane'
+            'translation.required' => 'To pole jest wymagane'
         ];
     }
 }

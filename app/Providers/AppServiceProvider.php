@@ -9,6 +9,7 @@ use App\Observers\CityObserver;
 use App\Observers\InvestmentArticleObserver;
 use App\Observers\InvestmentPageObserver;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Schema;
 use Request;
 use Illuminate\Support\ServiceProvider;
@@ -92,6 +93,9 @@ class AppServiceProvider extends ServiceProvider
             $view->with('current_locale', app()->getLocale());
             $view->with('available_locales', config('app.available_locales'));
             $view->with('cities', City::orderBy('sort', 'ASC')->get());
+
+            $currentRoute = Route::current();
+            $view->with('currentRoute', $currentRoute);
         });
 
         Blade::directive('money', function ($amount) {

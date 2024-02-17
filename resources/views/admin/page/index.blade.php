@@ -48,13 +48,18 @@
                                 <td class="option-120">
                                     <div class="btn-group">
                                         @if($page->type == 1)
-                                        <a href="{{ settings()->get("page_url") }}{{$page->uri}}" class="btn action-button me-1" data-toggle="tooltip" data-placement="top" title="Otwórz stronę" target="_blank"><i class="fe-link"></i></a>
+                                        <a href="{{ settings()->get("page_url") }}{{$page->uri}}" class="btn action-button me-3" data-toggle="tooltip" data-placement="top" title="Otwórz stronę" target="_blank"><i class="fe-link"></i></a>
+
+                                        <a href="{{route('admin.page.edit', ['page' => $page->id, 'lang' => 'en'])}}" class="btn action-button lang-button me-1" data-toggle="tooltip" data-placement="top" title="Edytuj"><img src="{{ asset('/cms/flags/en.png') }}" alt="Tłumaczenie: en"></a>
+
                                         <a href="{{route('admin.page.edit', $page->id)}}" class="btn action-button me-1" data-toggle="tooltip" data-placement="top" title="Edytuj"><i class="fe-edit"></i></a>
                                         @else
-                                        <a href="{{$page->url}}" class="btn action-button me-1" data-toggle="tooltip" data-placement="top" title="Otwórz stronę" target="_blank"><i class="fe-link"></i></a>
+                                        <a href="{{$page->url}}" class="btn action-button me-3" data-toggle="tooltip" data-placement="top" title="Otwórz stronę" target="_blank"><i class="fe-link"></i></a>
+
+                                        <a href="{{route('admin.url.edit', ['url' => $page->id, 'lang' => 'en'])}}" class="btn action-button lang-button me-1" data-toggle="tooltip" data-placement="top" title="Edytuj"><img src="{{ asset('/cms/flags/en.png') }}" alt="Tłumaczenie: en"></a>
                                         <a href="{{route('admin.url.edit', $page->id)}}" class="btn action-button me-1" data-toggle="tooltip" data-placement="top" title="Edytuj"><i class="fe-edit"></i></a>
                                         @endif
-                                        <form method="POST" action="{{route('admin.page.destroy', $page->id)}}">
+                                        <form method="POST" action="{{route('admin.page.destroy', $page->id)}}" class="d-none">
                                             {{ csrf_field() }}
                                             {{ method_field('DELETE') }}
                                             <button type="submit" class="btn action-button confirm" data-toggle="tooltip" data-placement="top" title="Usuń" data-id="{{ $page->id }}"><i class="fe-trash-2"></i></button>

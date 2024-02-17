@@ -21,6 +21,7 @@
             <div class="card mt-3">
                 @include('form-elements.back-route-button')
                 <div class="card-body control-col12">
+                    @if(!Request::get('lang'))
                     <div class="row w-100 form-group">
                         @include('form-elements.html-select', ['label' => 'Status', 'name' => 'active', 'selected' => $entry->active, 'select' => ['1' => 'Pokaż na liście', '0' => 'Ukryj na liście']])
                     </div>
@@ -32,6 +33,7 @@
                                 'select' => $selectMenu
                             ])
                     </div>
+                    @endif
                     <div class="row w-100 form-group">
                         @include('form-elements.html-input-text', ['label' => 'Tytuł strony', 'name' => 'title', 'value' => $entry->title, 'required' => 1])
                     </div>
@@ -47,7 +49,7 @@
                     <div class="row w-100 form-group">
                         @include('form-elements.html-input-text', ['label' => 'Indeksowanie', 'sublabel'=> 'Meta tag - robots', 'name' => 'meta_robots', 'value' => $entry->meta_robots])
                     </div>
-
+                    @if(!Request::get('lang'))
                     <div class="row w-100 mb-4">
                         @include('form-elements.html-input-file', [
                             'label' => 'Nagłówek',
@@ -57,13 +59,14 @@
                             'file_preview' => 'uploads/header/'
                             ])
                     </div>
-
+                    @endif
                     <div class="row w-100 form-group">
-                        @include('form-elements.textarea-fullwidth', ['label' => 'Wprowadź tekst', 'name' => 'content', 'value' => $entry->content, 'rows' => 11, 'class' => 'tinymce', 'required' => 1])
+                        @include('form-elements.textarea-fullwidth', ['label' => 'Wprowadź tekst', 'name' => 'content', 'value' => $entry->content, 'rows' => 21, 'class' => 'tinymce', 'required' => 1])
                     </div>
                 </div>
             </div>
         </div>
+            <input type="hidden" name="lang" value="{{$current_locale}}">
             @include('form-elements.submit', ['name' => 'submit', 'value' => 'Zapisz'])
         </form>
         @include('form-elements.tintmce')

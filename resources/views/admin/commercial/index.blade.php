@@ -37,7 +37,10 @@
                             <td>{{ $item->updated_at }}</td>
                             <td class="option-120">
                                 <div class="btn-group">
-                                    <span class="btn action-button move-button me-1"><i class="fe-move"></i></span>
+                                    <span class="btn action-button move-button me-3"><i class="fe-move"></i></span>
+
+                                    <a href="{{route('admin.commercial.edit', ['commercial' => $item->id, 'lang' => 'en'])}}" class="btn action-button lang-button me-1" data-toggle="tooltip" data-placement="top" title="Edytuj"><img src="{{ asset('/cms/flags/en.png') }}" alt="Tłumaczenie: en"></a>
+
                                     <a href="{{route('admin.commercial.edit', $item->id)}}" class="btn action-button me-1" data-toggle="tooltip" data-placement="top" title="Edytuj wpis"><i class="fe-edit"></i></a>
                                     <form method="POST" action="{{route('admin.commercial.destroy', $item->id)}}">
                                         {{ csrf_field() }}

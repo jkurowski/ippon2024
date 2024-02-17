@@ -230,10 +230,10 @@ button {
   right: auto;
 }
 @font-face {
-  font-family: 'Abuget';
+  font-family: abuget;
   font-style: normal;
   font-weight: 400;
-  src: local('Abuget'), url('https://fonts.cdnfonts.com/s/77885/Abuget.woff') format('woff');
+  src: local('Abuget'), url(https://fonts.cdnfonts.com/s/77885/Abuget.woff) format('woff');
 }
 .slow-header {
   display: flex;
@@ -3304,6 +3304,12 @@ html.swipebox-html.swipebox-touch {
 .review-source img {
   border-radius: 50%;
   margin-right: 10px;
+}
+/* How to buy
+================================================== */
+.howtobuy-page img {
+  position: sticky;
+  top: 130px;
 }
 /* Contact
 ================================================== */

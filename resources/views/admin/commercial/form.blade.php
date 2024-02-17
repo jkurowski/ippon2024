@@ -24,6 +24,7 @@
                                 <div class="row w-100 form-group">
                                     @include('form-elements.html-input-text', ['label' => 'Nazwa', 'name' => 'name', 'value' => $entry->name, 'required' => 1])
                                 </div>
+                                @if(!Request::get('lang'))
                                 <div class="row w-100 form-group">
                                     @include('form-elements.html-select', [
                                             'label' => 'Galeria',
@@ -32,12 +33,14 @@
                                             'select' => $selectMenu
                                         ])
                                 </div>
+                                @endif
                                 <div class="row w-100 form-group">
                                     @include('form-elements.textarea-fullwidth', ['label' => 'Opis', 'name' => 'text', 'value' => $entry->text, 'rows' => 21, 'class' => 'tinymce', 'required' => 1])
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <input type="hidden" name="lang" value="{{$current_locale}}">
                     @include('form-elements.submit', ['name' => 'submit', 'value' => 'Zapisz'])
                 </form>
                 @include('form-elements.tintmce')

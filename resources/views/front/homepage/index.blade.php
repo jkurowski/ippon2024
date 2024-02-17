@@ -28,7 +28,7 @@
                     <div class="fake-select fake-select-icon">
                         <i class="las la-building"></i>
                         <select name="invest" id="filtr-rooms">
-                            <option value="">Inwestycja</option>
+                            <option value="">@lang('website.select-option-investment')</option>
                             <option value="1" >Osiedle Slow</option>
                         </select>
                     </div>
@@ -37,10 +37,10 @@
                     <div class="fake-select fake-select-icon">
                         <i class="las la-layer-group"></i>
                         <select name="floor" id="filtr-rooms">
-                            <option value="">Piętro</option>
-                            <option value="0" >parter</option>
-                            <option value="1" >1 piętro</option>
-                            <option value="2" >2 piętro</option>
+                            <option value="">@lang('website.select-option-floor')</option>
+                            <option value="0" >@lang('website.select-option-floor-groundfloor')</option>
+                            <option value="1" >@lang('website.select-option-floor-1')</option>
+                            <option value="2" >@lang('website.select-option-floor-2')</option>
                         </select>
                     </div>
                 </div>
@@ -48,9 +48,9 @@
                     <div class="fake-select fake-select-icon">
                         <i class="las la-door-open"></i>
                         <select name="rooms" id="filtr-rooms">
-                            <option value="">Ilość pokoi</option>
-                            <option value="2" >2 pokoje</option>
-                            <option value="3" >3 pokoje</option>
+                            <option value="">@lang('website.select-option-rooms')</option>
+                            <option value="2" >@lang('website.select-option-rooms-2')</option>
+                            <option value="3" >@lang('website.select-option-rooms-3')</option>
                         </select>
                     </div>
                 </div>
@@ -59,9 +59,9 @@
                         <i class="las la-tags"></i>
                         <select name="status" id="filtr-status">
                             <option value="">Status</option>
-                            <option value="1" >Na sprzedaż</option>
-                            <option value="2" >Rezerwacja</option>
-                            <option value="3" >Sprzedane</option>
+                            <option value="1" >@lang('website.property-status-1')</option>
+                            <option value="2" >@lang('website.property-status-2')</option>
+                            <option value="3" >@lang('website.property-status-3')</option>
                         </select>
                     </div>
                 </div>
@@ -70,14 +70,14 @@
                     <div class="fake-select fake-select-icon">
                         <i class="las la-expand-arrows-alt"></i>
                         <select name="area" id="filtr-area">
-                            <option value="">Metraż</option>
+                            <option value="">@lang('website.property-area')</option>
                             <option value="35-36">35-36 m²</option>
                             <option value=" 49-56"> 49-56 m²</option>
                         </select>
                     </div>
                 </div>
                 <div class="col">
-                    <button type="submit" id="filtr-button" class="bttn bttn-icon">Szukaj <i class="ms-3 las la-search"></i></button>
+                    <button type="submit" id="filtr-button" class="bttn bttn-icon">@lang('website.button-search') <i class="ms-3 las la-search"></i></button>
                 </div>
             </form>
         </div>
@@ -183,7 +183,11 @@
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
+                @if($current_locale == 'pl')
                 <h2 class="section-title text-uppercase"><span class="text-gold">Już</span> <br>wkrótce</h2>
+                @else
+                <h2 class="section-title text-uppercase"><span class="text-gold">Soon</span></h2>
+                @endif
             </div>
         </div>
 
@@ -193,7 +197,7 @@
                     <div class="invest-item-holder">
                         <div class="invest-item">
                             <div class="invest-item-thumb img-overflow">
-                                <span class="img-badge">Inwestycja już wkrótce</span>
+                                <span class="img-badge">@lang('website.investment-status-4')</span>
                                 @if($r->developro)
                                     <a href="{{ route('developro.investment.index', $r->slug) }}">
                                         <img src="{{ asset('investment/thumbs/'.$r->file_thumb) }}" alt="{{ $r->name }}">
@@ -220,7 +224,7 @@
                                 @if($r->file_logo)
                                     <img src="{{ asset('investment/logo/'.$r->file_logo) }}" alt="Logo {{ $r->name }}">
                                 @endif
-                                <p>{{ $r->entry_content }}</p>
+                                <p>{!! $r->entry_content !!}</p>
                             </div>
                         </div>
                     </div>
@@ -234,7 +238,11 @@
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
+                @if($current_locale == 'pl')
                 <h2 class="section-title text-uppercase"><span class="text-gold">Inwestycje</span> <br>planowane</h2>
+                @else
+                <h2 class="section-title text-uppercase"><span class="text-gold">Planned </span> <br>investments</h2>
+                @endif
             </div>
         </div>
     </div>
@@ -263,9 +271,9 @@
                                 @else
                                     <h2>{{ $ip->name }}</h2>
                                 @endif
-                                <p>{{ $ip->entry_content }}</p>
+                                <p>{!! $ip->entry_content !!}</p>
                                 @if($ip->developro)
-                                <a href="{{ route('developro.investment.index', $ip->slug) }}" class="bttn-link">Zobacz więcej</a>
+                                <a href="{{ route('developro.investment.index', $ip->slug) }}" class="bttn-link">@lang('website.button-see-more')</a>
                                 @endif
                             </div>
                         </div>
@@ -281,7 +289,11 @@
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
+                @if($current_locale == 'pl')
                 <h2 class="section-title text-uppercase"><span class="text-gold">Dostępne</span> <br>mieszkania</h2>
+                @else
+                <h2 class="section-title text-uppercase"><span class="text-gold">Available </span> <br>apartments</h2>
+                @endif
             </div>
         </div>
     </div>
@@ -291,58 +303,76 @@
                 <div class="col-3">
                     <div data-aos="fade-up" data-aos-offset="500" data-aos-delay="0" class="main-room main-room-disable">
                         <div class="main-room-header text-center">
-                            <h2 class="poppins">MIESZKANIA <br><b>1 POKOJOWE</b></h2>
-                            <p>Powierzchnia: <span>27m<sup>2</sup></span></p>
+                            @if($current_locale == 'pl')
+                                <h2 class="poppins">MIESZKANIA <br><b>1 POKOJOWE</b></h2>
+                            @else
+                                <h2 class="poppins">1-room <br><b>APARTMENTS</b></h2>
+                            @endif
+
+                            <p>@lang('website.property-area'): <span>27m<sup>2</sup></span></p>
                             <div class="main-room-img">
                                 <img src="{{ asset('/uploads/files/mieszkania-1-pokoje.jpg') }}" alt="Dostępne mieszkania 1-pokojowe">
                             </div>
                         </div>
                         <div class="main-room-footer">
-                            <span class="bttn bttn-icon">Zobacz mieszkania <i class="ms-3 las la-chevron-circle-right"></i></span>
+                            <span class="bttn bttn-icon">@lang('website.button-show-properties') <i class="ms-3 las la-chevron-circle-right"></i></span>
                         </div>
                     </div>
                 </div>
                 <div class="col-3">
                     <div data-aos="fade-up" data-aos-offset="500" data-aos-delay="100" class="main-room">
                         <div class="main-room-header text-center">
-                            <h2 class="poppins"><a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=2#filtr">MIESZKANIA <br><b>2 POKOJOWE</b></a></h2>
-                            <p>Powierzchnia: <span>35-48m<sup>2</sup></span></p>
+                            @if($current_locale == 'pl')
+                                <h2 class="poppins"><a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=2#filtr">MIESZKANIA <br><b>1 POKOJOWE</b></a></h2>
+                            @else
+                                <h2 class="poppins"><a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=2#filtr">2-room <br><b>APARTMENTS</b></a></h2>
+                            @endif
+
+                            <p>@lang('website.property-area'): <span>35-48m<sup>2</sup></span></p>
                             <div class="main-room-img">
                                 <a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=2#filtr"><img src="{{ asset('/uploads/files/mieszkania-2-pokoje.jpg') }}" alt="Dostępne mieszkania 2-pokojowe"></a>
                             </div>
                         </div>
                         <div class="main-room-footer">
-                            <a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=2#filtr" class="bttn bttn-icon">Zobacz mieszkania <i class="ms-3 las la-chevron-circle-right"></i></a>
+                            <a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=2#filtr" class="bttn bttn-icon">@lang('website.button-show-properties') <i class="ms-3 las la-chevron-circle-right"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-3">
                     <div data-aos="fade-up" data-aos-offset="500" data-aos-delay="200" class="main-room">
                         <div class="main-room-header text-center">
-                            <h2 class="poppins"><a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=3#filtr">MIESZKANIA <br><b>3 POKOJOWE</b></a></h2>
-                            <p>Powierzchnia: <span>50-61m<sup>2</sup></span></p>
+                            @if($current_locale == 'pl')
+                                <h2 class="poppins"><a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=3#filtr">MIESZKANIA <br><b>1 POKOJOWE</b></a></h2>
+                            @else
+                                <h2 class="poppins"><a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=3#filtr">3-room <br><b>APARTMENTS</b></a></h2>
+                            @endif
+
+                            <p>@lang('website.property-area'): <span>50-61m<sup>2</sup></span></p>
                             <div class="main-room-img">
                                 <a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=3#filtr"><img src="{{ asset('/uploads/files/mieszkania-3-pokoje.jpg') }}" alt="Dostępne mieszkania 3-pokojowe"></a>
                             </div>
                         </div>
                         <div class="main-room-footer">
-                            <a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=3#filtr" class="bttn bttn-icon">Zobacz mieszkania <i class="ms-3 las la-chevron-circle-right"></i></a>
+                            <a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=3#filtr" class="bttn bttn-icon">@lang('website.button-show-properties') <i class="ms-3 las la-chevron-circle-right"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-3">
                     <div data-aos="fade-up" data-aos-offset="500" data-aos-delay="300" class="main-room main-room-disable">
                         <div class="main-room-header text-center">
-                            <h2 class="poppins">
-                                MIESZKANIA <br><b>4 POKOJOWE</b>
-                            </h2>
-                            <p>Powierzchnia: <span>60-80m<sup>2</sup></span></p>
+                            @if($current_locale == 'pl')
+                                <h2 class="poppins">MIESZKANIA <br><b>4 POKOJOWE</b></h2>
+                            @else
+                                <h2 class="poppins">4-room <br><b>APARTMENTS</b></h2>
+                            @endif
+
+                            <p>@lang('website.property-area'): <span>60-80m<sup>2</sup></span></p>
                             <div class="main-room-img">
                                 <img src="{{ asset('/uploads/files/mieszkania-4-pokoje.jpg') }}" alt="Dostępne mieszkania 4-pokojowe">
                             </div>
                         </div>
                         <div class="main-room-footer">
-                            <span class="bttn bttn-icon">Zobacz mieszkania <i class="ms-3 las la-chevron-circle-right"></i></span>
+                            <span class="bttn bttn-icon">@lang('website.button-show-properties') <i class="ms-3 las la-chevron-circle-right"></i></span>
                         </div>
                     </div>
                 </div>
@@ -355,17 +385,27 @@
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
-                <h2 class="section-title text-uppercase"><span class="text-gold">Deweloper</span> <br>godny zaufania</h2>
+                @if($current_locale == 'pl')
+                    <h2 class="section-title text-uppercase"><span class="text-gold">Deweloper</span> <br>godny zaufania</h2>
+                @else
+                    <h2 class="section-title text-uppercase"><span class="text-gold">A Reliable</span> <br>developer</h2>
+                @endif
             </div>
             <div class="col-6" data-aos="fade-right" data-aos-offset="500">
                 <img src="{{ asset('images/deweloper-roku-2023.jpg') }}" alt="" width="840" height="600">
             </div>
             <div class="col-6 d-flex align-items-center" data-aos="fade-left" data-aos-offset="500">
                 <div class="section-text ps-5">
+                    @if($current_locale == 'pl')
                     <p>Jesteśmy wiodącą firmą deweloperską specjalizującą się w realizacji projektów branży mieszkaniowej oraz komercyjnej. Czterokrotnie zostaliśmy nagrodzeni tytułem Deweloper Roku. Budujemy mieszkania, apartamenty oraz domy na terenie całego kraju.</p>
                     <p>&nbsp;</p>
                     <p>W naszych projektach wprowadzamy innowacyjne rozwiązania i kreujemy nowe standardy na rynku. Jako jedyny deweloper zaoferowaliśmy apartamenty z ogrodami zimowymi w Olsztynie. Dbamy o jakość użytych materiałów oraz o komfort i funkcjonalność naszych mieszkań.</p>
-                    <a href="{{ route('about') }}" class="bttn bttn-icon mt-5">Sprawdź <i class="ms-5 las la-chevron-circle-right"></i></a>
+                    @else
+                        <p>We are a leading property development company specializing in residential and commercial projects. We have been awarded the Developer of the Year title four times. We build apartments, condominiums, and houses throughout the country.</p>
+                        <p>&nbsp;</p>
+                        <p>In our projects, we introduce innovative solutions and set new standards in the market. As the only developer, we have offered apartments with winter gardens in Olsztyn. We prioritize the quality of materials used and the comfort and functionality of our residences.</p>
+                    @endif
+                    <a href="{{ route('about') }}" class="bttn bttn-icon mt-5">@lang('website.button-see-more') <i class="ms-5 las la-chevron-circle-right"></i></a>
                 </div>
             </div>
         </div>
@@ -381,7 +421,7 @@
                         </div>
                         <div class="number-value"><span data-value="92">92</span>%</div>
                         <div class="number-text">
-                            <p>mieszkańców naszego osiedla ocenia wysoką jakość wykończenia naszych mieszkań</p>
+                            <p>@lang('website.numbers-text-1')</p>
                         </div>
                     </div>
                 </div>
@@ -392,7 +432,7 @@
                         </div>
                         <div class="number-value"><span data-value="95">95</span>%</div>
                         <div class="number-text">
-                            <p>mieszkańców zdecydowanie poleciłoby swoim znajomym zakup mieszkania na naszych osiedlach</p>
+                            <p>@lang('website.numbers-text-2')</p>
                         </div>
                     </div>
                 </div>
@@ -403,7 +443,7 @@
                         </div>
                         <div class="number-value"><span data-value="97">97</span>%</div>
                         <div class="number-text">
-                            <p>mieszkańców jest zadowolonych z atrakcyjnej lokalizacji naszych inwestycji</p>
+                            <p>@lang('website.numbers-text-3')</p>
                         </div>
                     </div>
                 </div>
@@ -414,7 +454,7 @@
                         </div>
                         <div class="number-value"><span data-value="100">100</span>%</div>
                         <div class="number-text">
-                            <p>oddanych mieszkań w terminie</p>
+                            <p>@lang('website.numbers-text-4')</p>
                         </div>
                     </div>
                 </div>
@@ -427,7 +467,11 @@
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
-                <h2 class="section-title text-uppercase"><span class="text-gold">Opinie</span> <br>klientów</h2>
+                @if($current_locale == 'pl')
+                    <h2 class="section-title text-uppercase"><span class="text-gold">Opinie</span> <br>klientów</h2>
+                @else
+                    <h2 class="section-title text-uppercase"><span class="text-gold">Clients </span> <br>opinions</h2>
+                @endif
             </div>
         </div>
     </div>
@@ -466,7 +510,11 @@
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
-                <h2 class="section-title text-uppercase"><span class="text-gold">Poznaj</span> <br>nas lepiej</h2>
+                @if($current_locale == 'pl')
+                    <h2 class="section-title text-uppercase"><span class="text-gold">Poznaj</span> <br>nas lepiej</h2>
+                @else
+                    <h2 class="section-title text-uppercase"><span class="text-gold">Know </span> <br>us better</h2>
+                @endif
             </div>
         </div>
     </div>
@@ -490,7 +538,11 @@
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
-                <h2 class="section-title text-uppercase"><span class="text-gold">Aktualności</span></h2>
+                @if($current_locale == 'pl')
+                    <h2 class="section-title text-uppercase"><span class="text-gold">Aktualności</span></h2>
+                @else
+                    <h2 class="section-title text-uppercase"><span class="text-gold">News</span></h2>
+                @endif
             </div>
         </div>
     </div>
@@ -516,7 +568,7 @@
                     <div class="article-content">
                         <h2><a href="">{{ $n->title }}</a></h2>
                         <p>{{ $n->content_entry }}.</p>
-                        <a href="{{route('front.articles.show', $n->slug)}}" class="bttn-link">Czytaj więcej</a>
+                        <a href="{{route('front.articles.show', $n->slug)}}" class="bttn-link">@lang('website.button-see-more')</a>
                     </div>
                 </article>
             </div>
@@ -528,7 +580,11 @@
 <div class="container pt-5">
     <div class="row">
         <div class="col-12 text-center">
-            <h2 class="section-title text-uppercase"><span class="text-gold">Masz pytania?</span> <br>Napisz do nas!</h2>
+            @if($current_locale == 'pl')
+                <h2 class="section-title text-uppercase"><span class="text-gold">Masz pytania?</span> <br>Napisz do nas!</h2>
+            @else
+                <h2 class="section-title text-uppercase"><span class="text-gold">Have more questions?</span> <br>Write to us!</h2>
+            @endif
         </div>
     </div>
 </div>

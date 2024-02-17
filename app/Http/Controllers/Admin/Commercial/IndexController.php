@@ -40,6 +40,10 @@ class IndexController extends Controller
 
     public function edit(Commercial $commercial)
     {
+        if(request()->get('lang')) {
+            app()->setLocale(request()->get('lang'));
+        }
+
         return view('admin.commercial.form', [
             'selectMenu' => Gallery::where('id', '!=', $commercial->gallery_id)->pluck('name', 'id'),
             'entry' => $this->repository->find($commercial->id),
@@ -50,6 +54,10 @@ class IndexController extends Controller
 
     public function update(CommercialFormRequest $request, int $id)
     {
+        if(request()->get('lang')) {
+            app()->setLocale(request()->get('lang'));
+        }
+
         $entry = $this->repository->find($id);
         $this->repository->update($request->validated(), $entry);
         return redirect(route('admin.commercial.index'))->with('success', 'Wpis zaktualizowany');

@@ -18,9 +18,9 @@
 
                                         </div>
                                         <div>
-                                            <p>MIESZKANIA</p>
+                                            <p class="text-uppercase">@lang('website.properties')</p>
                                             <p><strong>{{ $city->name }}</strong></p>
-                                            <span>SPRAWDŹ</span>
+                                            <span>@lang('website.top-properties-view-all')</span>
                                         </div>
                                     </a>
                                 @endforeach
@@ -28,16 +28,17 @@
 
                             <div id="topCta">
                                 <div>
-                                    <p>INFOLINIA</p>
-                                    <a href="{{ route('contact.index') }}">89 526 55 58</a>
-                                    <span>MASZ PYTANIA? NAPISZ DO NAS!</span>
+                                    <p>@lang('website.top-cta-label')</p>
+                                    <a href="{{ route('contact.index') }}">@lang('website.top-cta-phonenumber')</a>
+                                    <span>@lang('website.top-cta-text')</span>
                                 </div>
                             </div>
 
                             <div id="lang" class="d-none">
                                 <ul class="mb-0 list-unstyled d-flex">
-                                    <li><a href=""><img src="{{ asset('/images/flag-en.png') }}" alt=""></a></li>
-                                    <li><a href=""><img src="{{ asset('/images/flag-de.png') }}" alt=""></a></li>
+                                    @foreach($available_locales as $available_locale => $locale_name)
+                                    <li><a href="#" @if($available_locale === $current_locale) class="active" @endif><img src="{{ asset('/images/flag-'.$current_locale.'.png') }}" alt=""></a></li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
@@ -46,40 +47,40 @@
                         <nav>
                             <ul class="mb-0 list-unstyled d-flex justify-content-end">
                                 <li>
-                                    <a href="">O grupie <i class="ms-2 las la-angle-down"></i></a>
+                                    <a href="">@lang('website.menu-about-group') <i class="ms-2 las la-angle-down"></i></a>
                                     <ul class="mb-0 list-unstyled subnav">
-                                        <li><a href="{{ route('about') }}">O nas</a></li>
-                                        <li><a href="{{ url($current_locale.'/zarzad') }}">Zarząd</a></li>
-                                        <li><a href="{{ route('front.articles.index') }}">Aktualności</a></li>
-                                        <li><a href="{{ route('career') }}">Kariera</a></li>
+                                        <li><a href="{{ route('about') }}">@lang('website.menu-about-us')</a></li>
+                                        <li><a href="{{ url($current_locale.'/zarzad') }}">@lang('website.menu-management')</a></li>
+                                        <li><a href="{{ route('front.articles.index') }}">@lang('website.menu-news')</a></li>
+                                        <li><a href="{{ route('career') }}">@lang('website.menu-career')</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="{{ route('land') }}">Zakup gruntu</a></li>
+                                <li><a href="{{ route('land') }}">@lang('website.menu-lands')</a></li>
                                 <li>
-                                    <a href="">Mieszkania <i class="ms-2 las la-angle-down"></i></a>
+                                    <a href="">@lang('website.menu-apartaments') <i class="ms-2 las la-angle-down"></i></a>
                                     <ul class="mb-0 list-unstyled subnav">
-                                        <li><a href="{{ route('developro.current') }}">W sprzedaży</a></li>
-                                        <li><a href="{{ route('developro.soon') }}">Już wkrótce</a></li>
-                                        <li><a href="{{ route('developro.planned') }}">Planowane</a></li>
+                                        <li><a href="{{ route('developro.current') }}">@lang('website.menu-investment-in-sales')</a></li>
+                                        <li><a href="{{ route('developro.soon') }}">@lang('website.menu-investment-soon')</a></li>
+                                        <li><a href="{{ route('developro.planned') }}">@lang('website.menu-investment-planned')</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="">Doświadczenie <i class="ms-2 las la-angle-down"></i></a>
+                                <li><a href="">@lang('website.menu-investment-experience') <i class="ms-2 las la-angle-down"></i></a>
                                     <ul class="mb-0 list-unstyled subnav">
-                                        <li><a href="{{ route('commercial') }}">Obiekty komercyjne</a></li>
-                                        <li><a href="{{ route('rent') }}">Wynajem</a></li>
-                                        <li><a href="{{ route('developro.completed') }}">Zrealizowane inwestycje</a></li>
+                                        <li><a href="{{ route('commercial') }}">@lang('website.menu-commercial-buildings')</a></li>
+                                        <li><a href="{{ route('rent') }}">@lang('website.menu-rent')</a></li>
+                                        <li><a href="{{ route('developro.completed') }}">@lang('website.menu-completed-investments')</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="">Strefa klienta <i class="ms-2 las la-angle-down"></i></a>
+                                <li><a href="">@lang('website.menu-investment-customer-zone') <i class="ms-2 las la-angle-down"></i></a>
                                     <ul class="mb-0 list-unstyled subnav">
                                         <li class="d-none"><a href="">Panel klienta</a></li>
-                                        <li><a href="{{ route('static.howbuy') }}">Jak kupić mieszkanie?</a></li>
-                                        <li><a href="{{ route('promotion') }}">Rabaty</a></li>
-                                        <li><a href="{{ url($current_locale.'/pod-klucz') }}">Mieszkanie pod klucz</a></li>
+                                        <li><a href="{{ route('static.howbuy') }}">@lang('website.menu-howtobuy')</a></li>
+                                        <li><a href="{{ route('promotion') }}">@lang('website.menu-discounts')</a></li>
+                                        <li><a href="{{ url($current_locale.'/pod-klucz') }}">@lang('website.menu-turnkey-apartment')</a></li>
                                         <li><a href="{{ url($current_locale.'/blog') }}">Blog</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="{{ route('contact.index') }}">Kontakt</a></li>
+                                <li><a href="{{ route('contact.index') }}">@lang('website.menu-contact')</a></li>
                             </ul>
                         </nav>
                         <div id="triggermenu" class="d-flex d-xl-none"><i class="las la-bars me-4"></i> MENU</div>
