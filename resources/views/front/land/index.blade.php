@@ -12,11 +12,19 @@
 <section class="pt-0">
     <div class="container">
         <div class="row">
+            @if($current_locale == 'pl')
             <div class="col-12">
                 <p>Ippon Group systematycznie wprowadza do sprzedaży nowe inwestycje. Polityka spółki polega na ekspansji o unikalne lokalizacje, których grunty są nabywane od ich właścicieli w cenach rynkowych. Pozwala to na realizowanie unikalnych, wartościowych projektów inwestycyjnych, które ze względu na atrakcyjność swojej lokalizacji, walory architektoniczne, jakość wykonania i ceny są sprzedawane w stosunkowo krótkim czasie. Dlatego na bieżąco monitorujemy sytuację na rynku działek budowlanych.</p>
                 <p>&nbsp;</p>
                 <p>Jeśli planujesz sprzedać grunty, skontaktuj się z nami. Naszym nadrzędnym celem jest zagwarantowanie kontrahentom w pełni profesjonalnej transakcji, zapewniającej bezpieczeństwo oraz uczciwą cenę. Nasi specjaliści zapewniają kompleksowe wsparcie podczas całego procesu sprzedaży.</p>
             </div>
+            @else
+            <div class="col-12">
+                <p>Ippon Group consistently introduces new investments for sale. The company's policy focuses on expansion into unique locations, acquiring land from owners at market prices. This allows for the realization of unique, valuable investment projects that, due to the attractiveness of their location, architectural qualities, quality of execution, and pricing, are sold relatively quickly. Therefore, we continuously monitor the situation in the market for building plots.</p>
+                <p>&nbsp;</p>
+                <p>If you are planning to sell land, please contact us. Our primary goal is to ensure our contractors a fully professional transaction, providing safety and a fair price. Our specialists provide comprehensive support throughout the entire sales process.</p>
+            </div>
+            @endif
         </div>
     </div>
 </section>
@@ -26,10 +34,16 @@
         <div class="row left-right">
             <div class="col-12 col-xl-6 d-flex align-items-center">
                 <div class="left-right-text">
+                    @if($current_locale == 'pl')
                     <p>Bezpłatnie wyceniamy grunty oraz zapewniamy pomoc prawną. Mamy elastyczne podejście do każdej nieruchomości oraz do jej właściciela, co sprzyja zawarciu umowy opartej na obustronnej korzyści. Decydując się na współpracę z nami, nie musisz zastanawiać się nad tym, czy działka znajduje się w złej lokalizacji lub nie została odrolniona.</p>
                     <p>&nbsp;</p>
                     <p>Pomożemy Ci ustalić jej status prawny oraz ocenić jej potencjał inwestycyjny. Jesteśmy deweloperem godnym Twojego zaufania.</p>
-                    <a href="#contact-form" data-offset="-60" class="bttn bttn-icon mt-3 mt-sm-5 scroll-to">WYPEŁNIJ FORMULARZ <i class="ms-3 las la-chevron-circle-right"></i></a>
+                    @else
+                        <p>We offer free land valuation and provide legal assistance. We have a flexible approach to every property and its owner, which facilitates the conclusion of an agreement based on mutual benefit. By choosing to work with us, you don't have to worry about whether the plot is in a bad location or has not been developed for agricultural use.</p>
+                        <p>&nbsp;</p>
+                        <p>We will help you determine its legal status and assess its investment potential. We are a developer worthy of your trust.</p>
+                    @endif
+                    <a href="#contact-form" data-offset="-60" class="bttn bttn-icon mt-3 mt-sm-5 scroll-to">@lang('website.fill-form') <i class="ms-3 las la-chevron-circle-right"></i></a>
                 </div>
             </div>
             <div class="col-12 col-xl-6">
@@ -41,10 +55,16 @@
         <div class="row left-right flex-row-reverse row-offset-up">
             <div class="col-12 col-xl-6 d-flex align-items-center">
                 <div class="left-right-text">
+                    @if($current_locale == 'pl')
                     <p>Nasza nieprzerwana obecność w branży deweloperskiej pozwoliła zdobyć doświadczenie, które jest gwarancją, że przeprowadzane przez nas transakcje są całkowicie zgodne z obowiązującymi przepisami prawa.</p>
                     <p>&nbsp;</p>
                     <p>Wypełnij poniższy formularz, a nasz ekspert skontaktuje się z Tobą w ciągu kilku godzin w celu umówienia spotkania.</p>
-                    <a href="#contact-form" data-offset="-60" class="bttn bttn-icon mt-3 mt-sm-5 scroll-to">WYPEŁNIJ FORMULARZ <i class="ms-3 las la-chevron-circle-right"></i></a>
+                    @else
+                        <p>Our uninterrupted presence in the real estate industry has allowed us to gain experience, which ensures that the transactions we conduct are fully compliant with the applicable legal regulations.</p>
+                        <p>&nbsp;</p>
+                        <p>Please fill out the form below, and our expert will contact you within a few hours to schedule a meeting.</p>
+                    @endif
+                    <a href="#contact-form" data-offset="-60" class="bttn bttn-icon mt-3 mt-sm-5 scroll-to">@lang('website.fill-form') <i class="ms-3 las la-chevron-circle-right"></i></a>
                 </div>
             </div>
             <div class="col-12 col-xl-6">
@@ -74,7 +94,7 @@
                     {{ csrf_field() }}
                     <div class="row">
                         <div class="col-12 col-sm-4 col-lg-3 form-input">
-                            <label for="form_name">Imię <span class="text-danger">*</span></label>
+                            <label for="form_name">@lang('website.form-label-name') <span class="text-danger">*</span></label>
                             <input name="form_name" id="form_name" class="validate[required] form-control @error('form_name') is-invalid @enderror" type="text" value="{{ old('form_name') }}">
 
                             @error('form_name')
@@ -82,7 +102,7 @@
                             @enderror
                         </div>
                         <div class="col-12 col-sm-4 col-lg-3 form-input mt-4 mt-sm-0">
-                            <label for="form_surname">Nazwisko</label>
+                            <label for="form_surname">@lang('website.form-label-lastname')</label>
                             <input name="form_surname" id="form_surname" class="form-control @error('form_surname') is-invalid @enderror" type="text" value="{{ old('form_surname') }}">
 
                             @error('form_surname')
@@ -90,7 +110,7 @@
                             @enderror
                         </div>
                         <div class="col-12 col-sm-4 col-lg-3 form-input mt-4 mt-sm-0">
-                            <label for="form_email">E-mail <span class="text-danger">*</span></label>
+                            <label for="form_email">@lang('website.form-label-email') <span class="text-danger">*</span></label>
                             <input name="form_email" id="form_email" class="validate[required] form-control @error('form_email') is-invalid @enderror" type="text" value="{{ old('form_email') }}">
 
                             @error('form_email')
@@ -98,7 +118,7 @@
                             @enderror
                         </div>
                         <div class="col-12 col-sm-4 col-lg-3 form-input mt-4 mt-sm-5 mt-lg-0">
-                            <label for="form_phone">Telefon <span class="text-danger">*</span></label>
+                            <label for="form_phone">@lang('website.form-label-phone') <span class="text-danger">*</span></label>
                             <input name="form_phone" id="form_phone" class="validate[required] form-control @error('form_phone') is-invalid @enderror" type="text" value="{{ old('form_phone') }}">
 
                             @error('form_phone')
@@ -107,7 +127,7 @@
                         </div>
 
                         <div class="col-12 col-sm-4 col-lg-3 form-input mt-4 mt-sm-5">
-                            <label for="form_city">Miasto</label>
+                            <label for="form_city">@lang('website.form-label-city')</label>
                             <input name="form_city" id="form_city" class="form-control @error('form_city') is-invalid @enderror" type="text" value="{{ old('form_city') }}">
 
                             @error('form_city')
@@ -115,7 +135,7 @@
                             @enderror
                         </div>
                         <div class="col-12 col-sm-4 col-lg-3 form-input mt-4 mt-sm-5">
-                            <label for="form_street">Ulica</label>
+                            <label for="form_street">@lang('website.form-label-street')</label>
                             <input name="form_street" id="form_street" class="form-control @error('form_street') is-invalid @enderror" type="text" value="{{ old('form_street') }}">
 
                             @error('form_street')
@@ -123,7 +143,7 @@
                             @enderror
                         </div>
                         <div class="col-12 col-sm-6 col-lg-3 form-input mt-4 mt-sm-5">
-                            <label for="form_price">Oczekiwana cena</label>
+                            <label for="form_price">@lang('website.form-label-expected-price')</label>
                             <input name="form_price" id="form_price" class="form-control @error('form_price') is-invalid @enderror" type="text" value="{{ old('form_price') }}">
 
                             @error('form_price')
@@ -131,7 +151,7 @@
                             @enderror
                         </div>
                         <div class="col-12 col-sm-6 col-lg-3 form-input mt-4 mt-sm-5">
-                            <label for="form_date">Oczekiwana data sprzedaży</label>
+                            <label for="form_date">@lang('website.form-label-expected-sale-date')</label>
                             <input name="form_date" id="form_date" class="form-control @error('form_date') is-invalid @enderror" type="text" value="{{ old('form_date') }}">
 
                             @error('form_date')
@@ -140,7 +160,7 @@
                         </div>
 
                         <div class="col-12 col-sm-6 form-input mt-4 mt-sm-5">
-                            <label for="form_book">Numer księgi wieczystej</label>
+                            <label for="form_book">@lang('website.form-label-mortgage-number')</label>
                             <input name="form_book" id="form_book" class="form-control @error('form_book') is-invalid @enderror" type="text" value="{{ old('form_book') }}">
 
                             @error('form_book')
@@ -148,7 +168,7 @@
                             @enderror
                         </div>
                         <div class="col-12 col-sm-6 form-input mt-4 mt-sm-5">
-                            <label for="form_land">Przeznaczenie terenu</label>
+                            <label for="form_land">@lang('website.form-label-land-designation')</label>
                             <input name="form_land" id="form_land" class="form-control @error('form_land') is-invalid @enderror" type="text" value="{{ old('form_land') }}">
 
                             @error('form_land')
@@ -157,7 +177,7 @@
                         </div>
 
                         <div class="col-12 mt-4 form-input">
-                            <label for="form_message">Dodatkowe informacje <span class="text-danger">*</span></label>
+                            <label for="form_message">@lang('website.form-label-additional-information') <span class="text-danger">*</span></label>
                             <textarea rows="5" cols="1" name="form_message" id="form_message" class="validate[required] form-control @error('form_message') is-invalid @enderror">{{ old('form_message') }}</textarea>
 
                             @error('form_message')
