@@ -117,7 +117,11 @@
                                 <div class="career-iconbox-img">
                                     <img src="{{ asset('/images/icons/stabilne-zatrudnienie.png') }}" alt="" width="135" height="135">
                                 </div>
-                                <p>STABILNE <br>ZATRUDNIENIE</p>
+                                @if($current_locale == 'pl')
+                                <p>STABLE <br>EMPLOYMENT</p>
+                                @else
+                                <p>STABLE <br>EMPLOYMENT</p>
+                                @endif
                             </div>
                         </div>
                         <div class="col-6 col-sm-4">
@@ -125,7 +129,11 @@
                                 <div class="career-iconbox-img">
                                     <img src="{{ asset('/images/icons/praca-z-najlepszymi.png') }}" alt="" width="135" height="135">
                                 </div>
+                                @if($current_locale == 'pl')
                                 <p>PRACA Z NAJLEPSZYMI <br>W BRANŻY</p>
+                                @else
+                                    <p>COLLABORATION WITH <br>THE BEST IN THE INDUSTRY</p>
+                                @endif
                             </div>
                         </div>
                         <div class="col-6 col-sm-4">
@@ -133,7 +141,11 @@
                                 <div class="career-iconbox-img">
                                     <img src="{{ asset('/images/icons/szkolenia.png') }}" alt="" width="135" height="135">
                                 </div>
+                                @if($current_locale == 'pl')
                                 <p>SZKOLENIA</p>
+                                @else
+                                    <p>TRAINING</p>
+                                @endif
                             </div>
                         </div>
                         <div class="col-6 col-sm-4">
@@ -141,7 +153,11 @@
                                 <div class="career-iconbox-img">
                                     <img src="{{ asset('/images/icons/wolne-weekendy.png') }}" alt="" width="135" height="135">
                                 </div>
+                                @if($current_locale == 'pl')
                                 <p>WOLNE WEEKENDY</p>
+                                @else
+                                    <p>WEEKENDS OFF</p>
+                                @endif
                             </div>
                         </div>
                         <div class="col-6 col-sm-4">
@@ -149,7 +165,11 @@
                                 <div class="career-iconbox-img">
                                     <img src="{{ asset('/images/icons/realny-wplyw.png') }}" alt="" width="135" height="135">
                                 </div>
+                                @if($current_locale == 'pl')
                                 <p>REALNY WPŁYW <br>NA POWSTAJĄCE INWESTYCJE</p>
+                                @else
+                                    <p>TANGIBLE INFLUENCE <br>ON THE DEVELOPMENT OF PROJECTS</p>
+                                @endif
                             </div>
                         </div>
                         <div class="col-6 col-sm-4">
@@ -157,7 +177,11 @@
                                 <div class="career-iconbox-img">
                                     <img src="{{ asset('/images/icons/swieza-kawa.png') }}" alt="" width="135" height="135">
                                 </div>
+                                @if($current_locale == 'pl')
                                 <p>CODZIENNIE ŚWIEŻO <br>ZMIELONA KAWA</p>
+                                @else
+                                    <p>FRESHLY COFFEE DAILY!</p>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -170,7 +194,11 @@
         <div class="container">
             <div class="row mb-4">
                 <div class="col-12 text-center">
+                    @if($current_locale == 'pl')
                     <h2 class="section-title text-uppercase"><span class="text-gold">Przebieg</span> <br>rekrutacji</h2>
+                    @else
+                    <h2 class="section-title text-uppercase"><span class="text-gold">Recruitment</span> <br>process</h2>
+                    @endif
                 </div>
             </div>
 
@@ -182,8 +210,13 @@
                 </div>
                 <div class="col-12 col-lg-7 d-flex align-items-center left-right-smalltext mt-4 mt-lg-0">
                     <div>
+                        @if($current_locale == 'pl')
                         <h3>APLIKACJA</h3>
                         <p>Prześlij do nas swoje CV na adres: <a href="mailto:sekretariat@ippon.group">sekretariat@ippon.group</a>. Opisz siebie i zaprezentuj swoje dotychczasowe osiągnięcia.</p>
+                        @else
+                            <h3>JOB APPLICATION</h3>
+                            <p>Send us your CV to the following email address: <a href="mailto:sekretariat@ippon.group">sekretariat@ippon.group</a> or use the recruitment form below. Describe yourself and showcase your past achievements.</p>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -196,8 +229,13 @@
                 </div>
                 <div class="col-12 col-lg-7 d-flex align-items-center left-right-smalltext text-start text-lg-end mt-4 mt-lg-0">
                     <div>
+                        @if($current_locale == 'pl')
                         <h3>SELEKCJA</h3>
                         <p>Jeżeli Twoje doświadczenie jest zgodne z naszymi oczekiwaniami, skontaktujemy się z Tobą i zaprosimy na rozmowę rekrutacyjną do siedziby firmy.</p>
+                        @else
+                            <h3>SELECTION</h3>
+                            <p>If your experience aligns with our expectations, we will get in touch with you and invite you for a recruitment interview at our company headquarters.</p>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -210,8 +248,13 @@
                 </div>
                 <div class="col-12 col-lg-7 d-flex align-items-center left-right-smalltext mt-4 mt-lg-0">
                     <div>
+                        @if($current_locale == 'pl')
                         <h3>ROZMOWA</h3>
                         <p>Na spotkaniu poznamy się bliżej. Opowiemy o strukturze firmy, kulturze organizacyjnej oraz przybliżymy zakres obowiązków na danym stanowisku pracy. Zadamy Ci kilka pytań, by lepiej poznać Ciebie i Twoje doświadczenie zawodowe.</p>
+                        @else
+                            <h3>INTERVIEW</h3>
+                            <p>During the meeting, we will get to know each other better. We will discuss the company's structure, organizational culture, and provide an overview of the job responsibilities for the specific position. We will also ask you a few questions to better understand you and your professional experience.</p>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -224,8 +267,13 @@
                 </div>
                 <div class="col-12 col-lg-7 d-flex align-items-center left-right-smalltext text-start text-lg-end mt-4 mt-lg-0">
                     <div>
+                        @if($current_locale == 'pl')
                         <h3>DECYZJA</h3>
                         <p>Po rozmowie kwalifikacyjnej otrzymasz od nas informację zwrotną, dotyczącą ostatecznej decyzji związanej z rekrutacją. Wybranym kandydatom złożymy ofertę dopasowaną do ich profilu kompetencji, doświadczenia i stanowiska.</p>
+                        @else
+                            <h3>DECISION</h3>
+                            <p>After the qualification interview, you will receive feedback from us regarding the final recruitment decision. To selected candidates, we will extend an offer tailored to their profile of competencies, experience, and position.</p>
+                        @endif
                     </div>
                 </div>
             </div>
