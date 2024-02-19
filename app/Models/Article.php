@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\Translatable\HasTranslations;
 
 class Article extends Model
 {
-
+    use HasTranslations;
+    public array $translatable = ['title', 'content_entry', 'content', 'meta_title', 'meta_description'];
     protected static $logName = 'Blog';
 
     const IMG_WIDTH = 1110;

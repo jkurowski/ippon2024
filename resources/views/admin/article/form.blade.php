@@ -21,9 +21,11 @@
     <div class="card mt-3">
         @include('form-elements.back-route-button')
         <div class="card-body control-col12">
+            @if(!Request::get('lang'))
             <div class="row w-100 form-group">
                 @include('form-elements.html-select', ['label' => 'Status', 'name' => 'status', 'selected' => $entry->status, 'select' => ['1' => 'Pokaż na liście', '0' => 'Ukryj na liście']])
             </div>
+            @endif
             <div class="row w-100 form-group">
                 @include('form-elements.html-input-text', ['label' => 'Tytuł wpisu', 'name' => 'title', 'value' => $entry->title, 'required' => 1])
             </div>
@@ -33,6 +35,7 @@
             <div class="row w-100 form-group">
                 @include('form-elements.html-input-text-count', ['label' => 'Opis strony', 'sublabel'=> 'Meta tag - description', 'name' => 'meta_description', 'value' => $entry->meta_description, 'maxlength' => 158])
             </div>
+            @if(!Request::get('lang'))
             <div class="row w-100 form-group">
                 @include('form-elements.html-input-text', ['label' => 'Indeksowanie', 'sublabel'=> 'Meta tag - robots', 'name' => 'meta_robots', 'value' => $entry->meta_robots])
             </div>
@@ -60,6 +63,7 @@
             <div class="row w-100 form-group">
                 @include('form-elements.html-input-text', ['label' => 'Atrybut ALT zdjęcia', 'name' => 'file_alt', 'value' => $entry->file_alt])
             </div>
+                @endif
             <div class="row w-100 form-group">
                 @include('form-elements.html-input-text', ['label' => 'Wprowadzenie', 'name' => 'content_entry', 'value' => $entry->content_entry, 'required' => 1])
             </div>
@@ -69,6 +73,7 @@
         </div>
     </div>
 </div>
+        <input type="hidden" name="lang" value="{{$current_locale}}">
 @include('form-elements.submit', ['name' => 'submit', 'value' => 'Zapisz'])
 </form>
 @include('form-elements.tintmce')
