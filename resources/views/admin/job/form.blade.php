@@ -21,24 +21,32 @@
                         <div class="card mt-3">
                             @include('form-elements.back-route-button')
                             <div class="card-body control-col12">
+                                @if(!Request::get('lang'))
                                 <div class="row w-100 form-group">
                                     @include('form-elements.html-select', ['label' => 'Status', 'name' => 'active', 'selected' => $entry->active, 'select' => ['1' => 'Pokaż na liście', '0' => 'Ukryj na liście']])
                                 </div>
+                                @endif
+
                                 <div class="row w-100 form-group">
                                     @include('form-elements.html-input-text', ['label' => 'Nazwa', 'name' => 'name', 'value' => $entry->name, 'required' => 1])
                                 </div>
+
+                                    @if(!Request::get('lang'))
                                 <div class="row w-100 form-group">
                                     @include('form-elements.html-input-text', ['label' => 'Miasto', 'name' => 'city', 'value' => $entry->city, 'required' => 1])
                                 </div>
                                 <div class="row w-100 form-group">
                                     @include('form-elements.html-input-text', ['label' => 'Adres e-mail', 'name' => 'email', 'value' => $entry->email, 'required' => 1])
                                 </div>
+                                @endif
+
                                 <div class="row w-100 form-group">
                                     @include('form-elements.textarea-fullwidth', ['label' => 'Treść ogłoszenia', 'name' => 'text', 'value' => $entry->text, 'rows' => 21, 'class' => 'tinymce', 'required' => 1])
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <input type="hidden" name="lang" value="{{$current_locale}}">
                     @include('form-elements.submit', ['name' => 'submit', 'value' => 'Zapisz'])
                 </form>
         @include('form-elements.tintmce')

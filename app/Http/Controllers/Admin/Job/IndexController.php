@@ -40,6 +40,10 @@ class IndexController extends Controller
 
     public function edit(Job $job)
     {
+        if(request()->get('lang')) {
+            app()->setLocale(request()->get('lang'));
+        }
+
         return view('admin.job.form', [
             'entry' => $this->repository->find($job->id),
             'cardTitle' => 'Edytuj wpis',
@@ -49,6 +53,10 @@ class IndexController extends Controller
 
     public function update(JobFormRequest $request, Job $job)
     {
+        if(request()->get('lang')) {
+            app()->setLocale(request()->get('lang'));
+        }
+
         $this->repository->update($request->validated(), $job);
         return redirect(route('admin.job.index'))->with('success', 'Wpis zaktualizowany');
     }
