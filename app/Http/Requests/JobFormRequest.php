@@ -25,10 +25,10 @@ class JobFormRequest extends FormRequest
     {
         return [
             'name' => 'required|string|min:5|max:100',
-            'city' => 'required|string|min:5|max:100',
-            'email' => 'required|string|min:5|max:120',
+            'city' => 'string|min:5|max:100',
+            'email' => 'string|min:5|max:120',
             'text' => 'required',
-            'active' => 'boolean'
+            'active' => ''
         ];
     }
 
