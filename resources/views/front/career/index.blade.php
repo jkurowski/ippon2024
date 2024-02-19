@@ -13,6 +13,7 @@
         <div class="container">
             <div class="row left-right">
                 <div class="col-12 col-xl-6 d-flex align-items-center">
+                    @if($current_locale == 'pl')
                     <div class="left-right-text">
                         <h2>Pracuj z najlepszymi</h2>
                         <p>Oferujemy stabilne zatrudnienie i ciągły rozwój w strukturach jednego z najszybciej rozwijających się deweloperów w kraju.</p>
@@ -21,6 +22,16 @@
                         <p>&nbsp;</p>
                         <p>Dołącz do nas, jeżeli cenisz sobie przyjazną atmosferę w pracy, jesteś pełen zapału i gotów na nowe wyzwania!</p>
                     </div>
+                    @else
+                    <div class="left-right-text">
+                        <h2>Work with the best team</h2>
+                        <p>We offer stable employment and continuous development within one of the fastest-growing developers in the country.</p>
+                        <p>&nbsp;</p>
+                        <p>Our team consists of professionals for whom the real estate market is a passion, and the goal is the collaborative creation of new investment projects.</p>
+                        <p>&nbsp;</p>
+                        <p>Join us if you value a friendly work atmosphere, are full of enthusiasm, and ready for new challenges!</p>
+                    </div>
+                    @endif
                 </div>
                 <div class="col-12 col-xl-6">
                     <img src="{{ asset('/images/inline/pracuj-z-najlepszymi.jpg') }}" alt="" class="golden-border" width="840" height="650">
@@ -28,12 +39,21 @@
             </div>
             <div class="row left-right flex-row-reverse row-offset-up">
                 <div class="col-12 col-xl-6 d-flex align-items-center">
+                    @if($current_locale == 'pl')
                     <div class="left-right-text">
                         <h2>Poznajmy się</h2>
                         <p>Proces rekrutacyjny to rozmowa, w czasie której koncentrujemy się na doświadczeniu, umiejętnościach i kompetencjach, które są związane z konkretnym stanowiskiem pracy.</p>
                         <p>&nbsp;</p>
                         <p>Chętnie odpowiadamy na wszystkie pytania, abyś mógł lepiej poznać wartości i misję Firmy.</p>
                     </div>
+                    @else
+                        <div class="left-right-text">
+                            <h2>Let's get to know each other</h2>
+                            <p>The recruitment process is a conversation during which we focus on the experience, skills, and competencies related to the specific job position.</p>
+                            <p>&nbsp;</p>
+                            <p>We are happy to answer any questions so that you can better understand the values and mission of the Company.</p>
+                        </div>
+                    @endif
                 </div>
                 <div class="col-12 col-xl-6">
                     <img src="{{ asset('/images/inline/kariera-poznajmy-sie.jpg') }}" alt="" class="golden-border">
@@ -46,7 +66,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
+                    @if($current_locale == 'pl')
                     <h2 class="section-title text-uppercase"><span class="text-gold">Aktualnie</span> <br>poszukujemy</h2>
+                    @else
+                    <h2 class="section-title text-uppercase"><span class="text-gold">Currently</span> <br>we are looking for</h2>
+                    @endif
                 </div>
             </div>
             <div class="row justify-content-center">
@@ -77,7 +101,11 @@
         <div class="container">
             <div class="row mb-4">
                 <div class="col-12 text-center">
+                    @if($current_locale == 'pl')
                     <h2 class="section-title text-uppercase"><span class="text-gold">Oferujemy</span></h2>
+                    @else
+                    <h2 class="section-title text-uppercase"><span class="text-gold">We offer</span></h2>
+                    @endif
                 </div>
             </div>
 
@@ -201,7 +229,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 @endsection

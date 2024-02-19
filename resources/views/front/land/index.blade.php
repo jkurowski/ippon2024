@@ -210,7 +210,7 @@
                             <div class="form-submit">
                                 <input name="form_page" type="hidden" value="homepage">
                                 <script type="text/javascript">
-                                    document.write("<button class=\"bttn bttn-icon\" type=\"submit\">WYŚLIJ FORMULARZ<i class=\"ms-2 las la-chevron-circle-right\"></i></button>");
+                                    document.write("<button class=\"bttn bttn-icon\" type=\"submit\">@lang('website.button-send-message') <i class=\"ms-5 las la-chevron-circle-right\"></i></button>");
                                 </script>
                                 <noscript>Do poprawnego działania, Java musi być włączona.</noscript>
                             </div>

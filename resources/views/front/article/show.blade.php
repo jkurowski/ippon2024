@@ -27,7 +27,7 @@
                     <div class="post-details-text">
                         <p>{!! parse_text($article->content) !!}</p>
                     </div>
-                    <a href="{{route('front.news.index')}}" class="bttn mt-3 mt-md-5">WRÓĆ DO LISTY</a>
+                    <a href="{{route('front.news.index')}}" class="bttn mt-3 mt-md-5">@lang('website.button-back-to-list')</a>
                 </div>
             </div>
         </div>

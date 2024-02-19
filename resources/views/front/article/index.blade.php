@@ -41,7 +41,7 @@
                             </h2>
                             <p>{{ $article->content_entry }}</p>
                             @if($article->content)
-                                <a href="{{route('front.news.show', $article->slug)}}" class="bttn mt-4 mt-xl-5">CZYTAJ WIĘCEJ</a>
+                                <a href="{{route('front.news.show', $article->slug)}}" class="bttn mt-4 mt-xl-5">@lang('website.button-read-more')</a>
                             @endif
                         </div>
                     </div>

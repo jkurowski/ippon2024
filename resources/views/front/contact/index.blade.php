@@ -75,7 +75,11 @@
     <div class="container pt-4 mt-4 pt-md-5 mt-md-5">
         <div class="row">
             <div class="col-12 text-center">
-                <h2 class="section-title text-uppercase"><span class="text-gold">Masz pytania?</span> <br>Napisz do nas!</h2>
+                @if($current_locale == 'pl')
+                    <h2 class="section-title text-uppercase"><span class="text-gold">Masz pytania?</span> <br>Napisz do nas!</h2>
+                @else
+                    <h2 class="section-title text-uppercase"><span class="text-gold">Have more questions?</span> <br>Write to us!</h2>
+                @endif
             </div>
         </div>
     </div>

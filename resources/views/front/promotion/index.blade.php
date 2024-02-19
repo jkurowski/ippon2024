@@ -31,7 +31,7 @@
                                                 <div class="accordion-text">
                                                     <h2>{{ $item->name }}</h2>
                                                     <p>{!! $item->text !!}</p>
-                                                    <p class="bttn bttn-icon mt-3">Zobacz kod <i class="ms-3 las la-plus-circle"></i></p>
+                                                    <p class="bttn bttn-icon mt-3">@lang('website.button-discount-code') <i class="ms-3 las la-plus-circle"></i></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -56,6 +56,3 @@
         </div>
     </div>
 @endsection
-@push('scripts')
-
-@endpush

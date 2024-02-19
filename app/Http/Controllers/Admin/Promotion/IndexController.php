@@ -47,6 +47,10 @@ class IndexController extends Controller
 
     public function edit(Promotion $promotion)
     {
+        if(request()->get('lang')) {
+            app()->setLocale(request()->get('lang'));
+        }
+
         return view('admin.promotion.form', [
             'entry' => $promotion,
             'cardTitle' => 'Edytuj wpis',
@@ -56,6 +60,10 @@ class IndexController extends Controller
 
     public function update(PromotionFormRequest $request, Promotion $promotion)
     {
+        if(request()->get('lang')) {
+            app()->setLocale(request()->get('lang'));
+        }
+
         $this->repository->update($request->validated(), $promotion);
 
         if ($request->hasFile('file')) {
