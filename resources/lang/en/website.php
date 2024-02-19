@@ -24,6 +24,7 @@ return [
     'button-show-properties' => 'Check apartments',
     'button-send-message' => 'SEND MESSAGE',
     'button-discount-code' => 'Discount code',
+    'button-application' => 'SEND APPLICATION',
     'investment-status-1' => 'Investment in sales',
     'investment-status-2' => 'Investment completed',
     'investment-status-3' => 'Planned investment',

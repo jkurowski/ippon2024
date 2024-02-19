@@ -24,6 +24,7 @@
   'button-show-properties' => 'Zobacz mieszkania',
   'button-send-message' => 'WYŚLIJ WIADOMOŚĆ',
   'button-discount-code' => 'Zobacz kod',
+  'button-application' => 'APLIKUJ',
   'investment-status-1' => 'Inwestycja w sprzedaży',
   'investment-status-2' => 'Inwestycja zakończona',
   'investment-status-3' => 'Inwestycja planowana',

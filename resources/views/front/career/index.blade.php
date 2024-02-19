@@ -86,7 +86,7 @@
                             <div id="collapse{{ $job->id }}" class="accordion-collapse collapse @if($key == 0) show @endif" data-bs-parent="#accordionJob">
                                 <div class="accordion-body">
                                     {!! $job->text !!}
-                                    <a href="mailto:{{ $job->email }}?subject=Oferta pracy: {{ $job->name }}" class="mt-4 bttn bttn-icon">APLIKUJ <i class="ms-5 las la-chevron-circle-right"></i></a>
+                                    <a href="mailto:{{ $job->email }}?subject=Oferta pracy: {{ $job->name }}" class="mt-4 bttn bttn-icon">@lang('website.button-application') <i class="ms-5 las la-chevron-circle-right"></i></a>
                                 </div>
                             </div>
                         </div>
