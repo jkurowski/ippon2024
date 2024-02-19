@@ -25,10 +25,10 @@ class RentFormRequest extends FormRequest
     {
         return [
             'name' => 'required|string|min:5|max:100|unique:rents,name,'.$this->route()->rent,
-            'area' => 'required|string',
+            'area' => 'string',
             'text' => 'required',
-            'type' => 'integer',
-            'active' => 'boolean',
+            'type' => '',
+            'active' => '',
             'meta_title' => '',
             'meta_description' => '',
             'meta_robots' => ''

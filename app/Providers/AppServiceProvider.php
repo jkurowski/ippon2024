@@ -5,9 +5,11 @@ namespace App\Providers;
 use App\Models\City;
 use App\Models\InvestmentArticles;
 use App\Models\InvestmentPage;
+use App\Models\Rent;
 use App\Observers\CityObserver;
 use App\Observers\InvestmentArticleObserver;
 use App\Observers\InvestmentPageObserver;
+use App\Observers\RentObserver;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Schema;
@@ -116,5 +118,6 @@ class AppServiceProvider extends ServiceProvider
         InvestmentPage::observe(InvestmentPageObserver::class);
         InvestmentArticles::observe(InvestmentArticleObserver::class);
         City::observe(CityObserver::class);
+        Rent::observe(RentObserver::class);
     }
 }

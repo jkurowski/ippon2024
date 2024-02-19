@@ -21,6 +21,7 @@
                         <div class="card mt-3">
                             @include('form-elements.back-route-button')
                             <div class="card-body control-col12">
+                                @if(!Request::get('lang'))
                                 <div class="row w-100 form-group">
                                     @include('form-elements.html-select', ['label' => 'Status', 'name' => 'active', 'selected' => $entry->active, 'select' => ['1' => 'Pokaż na liście', '0' => 'Ukryj na liście']])
                                 </div>
@@ -35,21 +36,22 @@
                                         '7' => 'Parking',
                                     ]])
                                 </div>
-
+                                @endif
                                 <div class="row w-100 form-group">
                                     @include('form-elements.html-input-text', ['label' => 'Nazwa', 'name' => 'name', 'value' => $entry->name, 'required' => 1])
                                 </div>
-
+                                @if(!Request::get('lang'))
                                 <div class="row w-100 form-group">
                                     @include('form-elements.html-input-text', ['label' => 'Powierzchnia', 'name' => 'area', 'value' => $entry->area, 'required' => 1])
                                 </div>
-
+                                @endif
                                 <div class="row w-100 form-group">
                                     @include('form-elements.html-input-text-count', ['label' => 'Nagłówek strony', 'sublabel'=> 'Meta tag - title', 'name' => 'meta_title', 'value' => $entry->meta_title, 'maxlength' => 60])
                                 </div>
                                 <div class="row w-100 form-group">
                                     @include('form-elements.html-input-text-count', ['label' => 'Opis strony', 'sublabel'=> 'Meta tag - description', 'name' => 'meta_description', 'value' => $entry->meta_description, 'maxlength' => 158])
                                 </div>
+                                    @if(!Request::get('lang'))
                                 <div class="row w-100 form-group">
                                     @include('form-elements.html-input-text', ['label' => 'Indeksowanie', 'sublabel'=> 'Meta tag - robots', 'name' => 'meta_robots', 'value' => $entry->meta_robots])
                                 </div>
@@ -62,12 +64,14 @@
                                         'file' => $entry->file
                                     ])
                                 </div>
+                                    @endif
                                 <div class="row w-100 form-group">
                                     @include('form-elements.textarea-fullwidth', ['label' => 'Treść', 'name' => 'text', 'value' => $entry->text, 'rows' => 21, 'class' => 'tinymce', 'required' => 1])
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <input type="hidden" name="lang" value="{{$current_locale}}">
                     @include('form-elements.submit', ['name' => 'submit', 'value' => 'Zapisz'])
                 </form>
                 @include('form-elements.tintmce')

@@ -48,6 +48,10 @@ class IndexController extends Controller
 
     public function edit(Rent $rent)
     {
+        if(request()->get('lang')) {
+            app()->setLocale(request()->get('lang'));
+        }
+
         return view('admin.rent.form', [
             'entry' => $this->repository->find($rent->id),
             'cardTitle' => 'Edytuj wpis',
@@ -57,6 +61,10 @@ class IndexController extends Controller
 
     public function update(RentFormRequest $request, int $id)
     {
+        if(request()->get('lang')) {
+            app()->setLocale(request()->get('lang'));
+        }
+
         $entry = $this->repository->find($id);
         $this->repository->update($request->validated(), $entry);
 
