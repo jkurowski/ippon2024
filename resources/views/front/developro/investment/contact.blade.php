@@ -20,14 +20,15 @@
         <div class="container">
             @if($investment->id <> 5)
             <div class="row">
-                <div class="col-4">
+                <div class="col-12 col-xl-4">
                     <div class="contact-box">
                         {!! $investment_page->content !!}
                     </div>
                 </div>
-                <div class="col-8">
-                    <div class="ps-5">
+                <div class="col-12 col-xl-8">
+                    <div class="ps-0 ps-xl-3 ps-xxl-5">
                         @include('front.contact.form', ['page_name' => $investment->name.' - Kontakt'])
+                        <style>#contactForm {background:none}</style>
                     </div>
                 </div>
             </div>

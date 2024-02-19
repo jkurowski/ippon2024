@@ -51,7 +51,7 @@
                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                             @enderror
                         </div>
-                        <div class="col-12 col-md-8">
+                        <div class="col-12 col-xxl-8">
                             @if($obligation)
                                 <div class="rodo-obligation mt-3">
                                     {!! $obligation->obligation !!}
@@ -73,7 +73,7 @@
                                 @endforeach
                             </div>
                         </div>
-                        <div class="col-12 col-md-4 d-flex justify-content-end align-items-end">
+                        <div class="col-12 col-xxl-4 d-flex justify-content-end align-items-end">
                             <div class="form-submit">
                                 <input name="form_page" type="hidden" value="{{ $page_name }}">
                                 <script type="text/javascript">

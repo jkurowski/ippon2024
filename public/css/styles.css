@@ -3518,6 +3518,9 @@ html.swipebox-html.swipebox-touch {
   .row-offset-up {
     margin-top: -40px;
   }
+  .section-title:before {
+    width: 100%;
+  }
 }
 @media (max-width: 1399.98px) {
   #page {
@@ -3684,6 +3687,9 @@ html.swipebox-html.swipebox-touch {
   }
   #page-header.investment-header nav ul li a {
     font-size: 21px;
+  }
+  .section-half-text {
+    padding: 0;
   }
 }
 @media (max-width: 1199.98px) {
@@ -3909,6 +3915,47 @@ html.swipebox-html.swipebox-touch {
   }
   #page-header.investment-header .col-12.invest-header-nav ul {
     justify-content: center;
+  }
+  .openmenu {
+    overflow: hidden;
+  }
+  .openmenu header nav {
+    position: fixed;
+    display: block;
+    left: 0;
+    right: 0;
+    top: 100px;
+    bottom: 0;
+    background: #ba8b41;
+    z-index: 9999;
+    padding-top: 20px;
+    overflow: scroll;
+  }
+  .openmenu #header.fixed #nav nav ul li,
+  .openmenu header #nav nav ul li {
+    height: auto;
+    display: block;
+    width: 300px;
+    text-align: center;
+    margin: 0 auto;
+  }
+  .openmenu #header.fixed #nav nav ul li a,
+  .openmenu header #nav nav ul li a {
+    color: white;
+  }
+  .openmenu #header.fixed #nav nav ul li ul,
+  .openmenu header #nav nav ul li ul {
+    position: static;
+    display: block;
+    width: 100%;
+    background: none;
+  }
+  .openmenu #header.fixed #nav nav ul li.nav-main,
+  .openmenu header #nav nav ul li.nav-main {
+    border: 1px dashed white;
+    margin: 20px auto;
+    width: 300px;
+    padding: 15px 0;
   }
 }
 /* end of 1199.98 */
@@ -4390,6 +4437,34 @@ html.swipebox-html.swipebox-touch {
   }
   #page-header .investment-header-logo img {
     width: 60%;
+  }
+  .openmenu header nav {
+    top: 85px;
+  }
+  .section-half .container-fluid {
+    padding: 0;
+  }
+  .col-mobile {
+    padding: 0;
+  }
+  .col-mobile p {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .col-mobile .row,
+  .col-mobile * {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .no-cta {
+    margin-top: 30px;
+  }
+  #cta {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+  #contactForm .container {
+    padding: 20px 0 0;
   }
 }
 /* end of 575.98 */
