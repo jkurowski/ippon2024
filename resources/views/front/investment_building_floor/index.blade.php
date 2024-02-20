@@ -1,4 +1,4 @@
-@extends('layouts.page', ['body_class' => 'investment-contact'])
+@extends('layouts.page', ['body_class' => 'investment-floor'])
 
 @section('meta_title', $page->title)
 @section('seo_title', $page->meta_title)
