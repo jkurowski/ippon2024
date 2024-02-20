@@ -1736,6 +1736,13 @@ div[class*='col-'].slick-slide {
     justify-content: center;
     padding: 8px;
   }
+  #roomsList .bttn {
+    padding: 10px 20px;
+    border: 1px solid #f1ede2;
+    margin-top: 0;
+    justify-content: center;
+    width: 100%;
+  }
 }
 /* Homepage
 ================================================== */
