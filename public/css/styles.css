@@ -1631,6 +1631,17 @@ div[class*='col-'].slick-slide {
     font-size: 18px;
     padding: 20px 0;
   }
+  .floor-nav-row .bttn {
+    width: 100%;
+    margin: 4px 0;
+  }
+  #filtr .fake-select {
+    margin: 4px 0;
+  }
+  #filtr .bttn-slow {
+    border: 1px solid #f1ede2;
+    height: 56px;
+  }
 }
 @media (max-width: 767.98px) {
   #roomsList h2 {
@@ -1646,9 +1657,6 @@ div[class*='col-'].slick-slide {
     margin: 0 auto;
     max-width: 100%;
     width: auto;
-  }
-  #plan {
-    padding: 20px;
   }
   #filtr {
     padding: 15px 0 20px;
@@ -1721,6 +1729,12 @@ div[class*='col-'].slick-slide {
   .similar-rooms .bttn.bttn-slow {
     width: 100%;
     justify-content: center;
+  }
+  .floor-nav-row .bttn {
+    width: 100%;
+    margin: 4px 0;
+    justify-content: center;
+    padding: 8px;
   }
 }
 /* Homepage

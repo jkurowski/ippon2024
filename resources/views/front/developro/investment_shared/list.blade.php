@@ -3,7 +3,7 @@
         @if($properties->count() > 0)
             @foreach($properties as $room)
                 <div class="row property-list-item">
-                    <div class="col-2">
+                    <div class="col-12 col-lg-2">
                         @if($room->file)
                             <picture>
                                 <source type="image/webp" srcset="/investment/property/list/webp/{{$room->file_webp}}">
@@ -13,14 +13,14 @@
                         @endif
                     </div>
 
-                    <div class="col-8 d-flex align-items-center ps-4">
+                    <div class="col-12 col-lg-8 d-flex align-items-center ps-0 ps-lg-4">
                         <div class="row w-100">
                             <div class="col-12">
                                 <h2 class="poppins">{{$room->name}}</h2>
                             </div>
                             <div class="col-12">
                                 <div class="row">
-                                    <div class="col-6">
+                                    <div class="col-12 col-lg-6">
                                         <div class="row">
                                             <div class="col-4 property-list-item-stat">
                                                 <img src="{{ asset('/images/floor-icon.svg') }}" alt="Ikonka piętra" class="me-3"> Piętro {{$room->floor_number}}
@@ -38,7 +38,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-12 col-lg-6">
                                         @if($room->additional)
                                         @php
                                             $atutyArray = json_decode($room->additional);
@@ -58,7 +58,7 @@
                         </div>
                     </div>
 
-                    <div class="col-2 d-flex align-items-center">
+                    <div class="col-12 col-lg-2 d-flex align-items-center">
                         {!! roomStatusBadge($room->status) !!}
                         <a href="{{ route('developro.property', [$investment->slug, $room, Str::slug($room->name), floorLevel($room->floor_number, true), number2RoomsName($room->rooms, true), round(floatval($room->area), 2).'-m2']) }}" class="bttn bttn-icon">POKAŻ MIESZKANIE <i class="ms-4 las la-file"></i></a>
                     </div>
