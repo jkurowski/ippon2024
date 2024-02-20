@@ -22,10 +22,10 @@
                                 <div class="row">
                                     <div class="col-12 col-lg-6">
                                         <div class="row">
-                                            <div class="col-4 property-list-item-stat">
+                                            <div class="col-12 col-sm-4 property-list-item-stat mb-3 mb-lg-0">
                                                 <img src="{{ asset('/images/floor-icon.svg') }}" alt="Ikonka piętra" class="me-3"> Piętro {{$room->floor_number}}
                                             </div>
-                                            <div class="col-4 property-list-item-stat">
+                                            <div class="col-12 col-sm-4 property-list-item-stat mb-3 mb-lg-0">
                                                 <img src="{{ asset('/images/room-icon.svg') }}" alt="Ikonka pokoi" class="me-3"> {{$room->rooms}}
                                                 @if ($room->rooms == 1)
                                                     pokój
@@ -33,7 +33,7 @@
                                                     pokoje
                                                 @endif
                                             </div>
-                                            <div class="col-4 property-list-item-stat">
+                                            <div class="col-12 col-sm-4 property-list-item-stat">
                                                 <img src="{{ asset('/images/area-icon.svg') }}" alt="Ikonka powierzchni" class="me-3"> {{$room->area}} m<sup>2</sup>
                                             </div>
                                         </div>
