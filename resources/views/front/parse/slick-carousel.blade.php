@@ -33,12 +33,15 @@
                         breakpoint: 990,
                         settings: {
                             slidesToShow: 2,
+                            centerPadding: '20px',
                         }
                     },
                     {
                         breakpoint: 480,
                         settings: {
                             slidesToShow: 1,
+                            centerMode: false,
+                            centerPadding: '0px',
                         }
                     }
                 ]
