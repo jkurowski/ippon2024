@@ -1598,6 +1598,9 @@ div[class*='col-'].slick-slide {
   .property .property-desc .bttn {
     margin-top: 0;
   }
+  .property .property-desc .status-badge {
+    right: -9px;
+  }
 }
 @media (max-width: 991.98px) {
   #roomsList .row {
@@ -1674,11 +1677,21 @@ div[class*='col-'].slick-slide {
     padding: 18px;
   }
   .property .property-desc {
-    padding: 20px;
+    padding: 0;
+  }
+  .property .property-desc h1 {
+    margin-top: 60px;
+  }
+  .property .property-desc .status-badge {
+    top: -50px;
+    font-size: 17px;
   }
   .property .property-desc ul li {
     font-size: 14px;
     padding: 8px 0;
+  }
+  .property .property-desc ul li span {
+    font-size: 16px;
   }
   .property .property-desc .bttn {
     width: 100%;
@@ -3521,6 +3534,22 @@ html.swipebox-html.swipebox-touch {
   .section-title:before {
     width: 100%;
   }
+  .investment-contact .d-flex img,
+  .property-contact .d-flex img {
+    width: 560px;
+  }
+  .sellers h2 {
+    font-size: 26px;
+  }
+  .sellers a {
+    font-size: 18px;
+  }
+  .sellers a strong {
+    font-size: 30px;
+  }
+  .similar-rooms .property-list-item-stat {
+    font-size: 12px;
+  }
 }
 @media (max-width: 1399.98px) {
   #page {
@@ -4207,6 +4236,18 @@ html.swipebox-html.swipebox-touch {
   }
   .invest-osiedle-slow .slow-icon h4 {
     font-size: 12px;
+  }
+  .rostemary span:before,
+  .rostemary span::after {
+    width: 60px;
+  }
+  .rostemary span::before {
+    left: -70px;
+    right: auto;
+  }
+  .rostemary span::after {
+    right: -70px;
+    left: auto;
   }
 }
 /* end of 767.98 */

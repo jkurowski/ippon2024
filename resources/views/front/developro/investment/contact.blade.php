@@ -39,8 +39,8 @@
                 </div>
             </div>
 
-            <div class="row mt-5">
-                <div class="col-4">
+            <div class="row mt-3 mt-sm-5">
+                <div class="col-12 col-xxl-4 order-2 order-xxl-1">
                     <div class="contact-box">
                         <h2>BIURO SPRZEDAŻY</h2>
                         <p>Ul. Barcza 50,</p>
@@ -54,10 +54,10 @@
                         <a href="https://maps.app.goo.gl/ZfoTQcN5eBbvaj7b7" class="bttn bttn-icon mt-5" target="_blank">JAK DOJECHAĆ <i class="ms-3 las la-chevron-circle-right"></i></a>
                     </div>
                 </div>
-                <div class="col-8">
-                    <div class="d-flex align-items-center">
-                        <img src="{{ asset('/images/contact-img.jpg') }}" class="golden-border" alt="">
-                        <div class="ps-5 sellers">
+                <div class="col-12 col-xxl-8 order-1 order-xxl-2 mb-4 mb-xxl-0">
+                    <div class="d-flex align-items-center justify-content-center justify-content-lg-start">
+                        <img src="{{ asset('/images/contact-img.jpg') }}" class="golden-border d-none d-lg-block" alt="">
+                        <div class="ps-0 ps-lg-5 sellers text-center text-lg-start">
                             <h2>Sylwia Sokal</h2>
                             <a href="mailto:s.sokal@ippon.Group">s.sokal@ippon.group</a>
                             <a href="tel:+48724222323"><strong>+48 724 222 323</strong></a>
@@ -75,7 +75,7 @@
         @if($investment->id == 5)
             <div id="contactForm">
                 <div class="container">
-                    <div class="row pt-5 mt-5">
+                    <div class="row pt-5 mt-0 mt-sm-5">
                         <div class="col-12 text-center">
                             <h2 class="slow-header"><span class="abuget brown">Masz pytania?</span> <span class="rostemary">Napisz do nas!</span></h2>
                         </div>
@@ -85,6 +85,7 @@
                         <div class="col-12">
                             @include('front.contact.form', ['page_name' => $investment->name.' - Kontakt'])
                         </div>
+                        <style>#contactForm #contactForm {background:none}</style>
                     </div>
                 </div>
             </div>
