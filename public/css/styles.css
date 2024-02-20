@@ -1680,7 +1680,7 @@ div[class*='col-'].slick-slide {
     padding: 0;
   }
   .property .property-desc h1 {
-    margin-top: 60px;
+    margin-top: 50px;
   }
   .property .property-desc .status-badge {
     top: -50px;
@@ -1717,6 +1717,10 @@ div[class*='col-'].slick-slide {
   #filtr h2 {
     font-size: 20px;
     margin: 10px 0 15px;
+  }
+  .similar-rooms .bttn.bttn-slow {
+    width: 100%;
+    justify-content: center;
   }
 }
 /* Homepage
