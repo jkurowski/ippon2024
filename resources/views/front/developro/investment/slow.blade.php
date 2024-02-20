@@ -74,7 +74,7 @@
             </div>
         </div>
 
-        <section class="mt-5 pt-5 mb-5 pb-5">
+        <section class="mt-0 mt-sm-5 pt-0 pt-sm-5 mb-5 pb-0 pb-sm-5">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -136,7 +136,7 @@
             </div>
         </section>
 
-        <section class="mt-5 pt-5 mb-5 pb-5">
+        <section class="mt-5 pt-5 mb-5 pb-5 d-none">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -225,7 +225,7 @@
             </div>
         </div>
 
-        <section class="mt-5 pt-5">
+        <section class="mt-0 mt-sm-5 pt-5">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -235,7 +235,7 @@
             </div>
         </section>
 
-        <section class="mb-5 pb-5">
+        <section class="mb-5 pb-0 pb-sm-5">
             <div id="slowEcoCarousel">
                 <ul class="mb-0 list-unstyled">
                     <li>
@@ -303,12 +303,12 @@
                     <li>
                         <div class="container-fluid p-0">
                             <div class="row no-gutters">
-                                <div class="col-8">
+                                <div class="col-12 col-lg-8">
                                     <img src="{{ asset('/uploads/files/osiedle-slow/zycie-slow/wiecej-szczescia.jpg') }}" alt="" width="1280" height="640" class="w-100">
                                 </div>
-                                <div class="col-4">
+                                <div class="col-12 col-lg-4">
                                     <div class="slowLast-desc d-flex align-items-center">
-                                        <div class="pe-5 ps-5">
+                                        <div class="pe-4 pe-lg-5 ps-4 ps-lg-5 pt-4 pt-lg-0 pb-4 pb-lg-0">
                                             <h3>WIĘCEJ SZCZĘŚCIA</h3>
                                             <p>Uważne i świadome życie, sprawia że docenia się małe rzeczy występujące w ciągu całego dnia i dostrzega się ich ogromną wartość.</p>
                                         </div>
@@ -320,12 +320,12 @@
                     <li>
                         <div class="container-fluid p-0">
                             <div class="row no-gutters">
-                                <div class="col-8">
+                                <div class="col-12 col-lg-8">
                                     <img src="{{ asset('/uploads/files/osiedle-slow/zycie-slow/lepsze-zdrowie.jpg') }}" alt="" width="1280" height="640" class="w-100">
                                 </div>
-                                <div class="col-4">
+                                <div class="col-12 col-lg-4">
                                     <div class="slowLast-desc d-flex align-items-center">
-                                        <div class="pe-5 ps-5">
+                                        <div class="pe-4 pe-lg-5 ps-4 ps-lg-5 pt-4 pt-lg-0 pb-4 pb-lg-0">
                                             <h3>LEPSZE ZDROWIE</h3>
                                             <p>Zwalniając, łatwiej poradzić sobie z lękiem i stresem, które towarzyszą codziennym obowiązkom. Jeszcze więcej korzyści przynosi świadome jedzenie oraz ruch.</p>
                                         </div>
@@ -337,12 +337,12 @@
                     <li>
                         <div class="container-fluid p-0">
                             <div class="row no-gutters">
-                                <div class="col-8">
+                                <div class="col-12 col-lg-8">
                                     <img src="{{ asset('/uploads/files/osiedle-slow/zycie-slow/lepszy-sen.jpg') }}" alt="" width="1280" height="640" class="w-100">
                                 </div>
-                                <div class="col-4">
+                                <div class="col-12 col-lg-4">
                                     <div class="slowLast-desc d-flex align-items-center">
-                                        <div class="pe-5 ps-5">
+                                        <div class="pe-4 pe-lg-5 ps-4 ps-lg-5 pt-4 pt-lg-0 pb-4 pb-lg-0">
                                             <h3>LEPSZY SEN</h3>
                                             <p>Spokojny sen to czas na regenerację organizmu i walkę z wszelkiego rodzaju chorobami. Zwalniając tempo podaje się organizmowi pomocną dłoń podczas regeneracji i przyspiesza ładowanie baterii.</p>
                                         </div>
@@ -354,12 +354,12 @@
                     <li>
                         <div class="container-fluid p-0">
                             <div class="row no-gutters">
-                                <div class="col-8">
+                                <div class="col-12 col-lg-8">
                                     <img src="{{ asset('/uploads/files/osiedle-slow/zycie-slow/silniejsze-relacje.jpg') }}" alt="" width="1280" height="640" class="w-100">
                                 </div>
-                                <div class="col-4">
+                                <div class="col-12 col-lg-4">
                                     <div class="slowLast-desc d-flex align-items-center">
-                                        <div class="pe-5 ps-5">
+                                        <div class="pe-4 pe-lg-5 ps-4 ps-lg-5 pt-4 pt-lg-0 pb-4 pb-lg-0">
                                             <h3>SILNIEJSZE RELACJE</h3>
                                             <p>Spędzanie więcej czasu z bliskimi i stawianie relacji ponad pracą lub mediami społecznościowymi wzmacnia prawdziwą komunikację i relacje.</p>
                                         </div>
@@ -371,12 +371,12 @@
                     <li>
                         <div class="container-fluid p-0">
                             <div class="row no-gutters">
-                                <div class="col-8">
+                                <div class="col-12 col-lg-8">
                                     <img src="{{ asset('/uploads/files/osiedle-slow/zycie-slow/zwiekszona-produktywnosc.jpg') }}" alt="" width="1280" height="640" class="w-100">
                                 </div>
-                                <div class="col-4">
+                                <div class="col-12 col-lg-4">
                                     <div class="slowLast-desc d-flex align-items-center">
-                                        <div class="pe-5 ps-5">
+                                        <div class="pe-4 pe-lg-5 ps-4 ps-lg-5 pt-4 pt-lg-0 pb-4 pb-lg-0">
                                             <h3>ZWIĘKSZONA PRODUKTYWNOŚĆ</h3>
                                             <p>Od rezygnacji z wielozadaniowości do skupienia się na sensownej pracy. Work life balance to jedna z ważniejszych kwestii slow life.</p>
                                         </div>
@@ -405,6 +405,26 @@
                 dots: false,
                 autoplay: true,
                 autoplaySpeed: 3000,
+                responsive: [
+                    {
+                        breakpoint: 1200,
+                        settings: {
+                            slidesToShow: 3,
+                        }
+                    },
+                    {
+                        breakpoint: 800,
+                        settings: {
+                            slidesToShow: 2,
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1,
+                        }
+                    }
+                ]
             });
 
             $('#slowEcoCarousel ul').slick({
@@ -416,7 +436,26 @@
                 arrows: false,
                 dots: true,
                 autoplay: true,
-                autoplaySpeed: 3000
+                autoplaySpeed: 3000,
+                responsive: [
+                    {
+                        breakpoint: 1400,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1,
+                            centerPadding: '120px',
+                            centerMode: false,
+                        }
+                    },
+                    {
+                        breakpoint: 800,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                            centerPadding: '0',
+                        }
+                    }
+                ]
             });
 
             $('#slowLastCarousel ul').slick({

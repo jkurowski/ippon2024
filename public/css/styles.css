@@ -3691,6 +3691,10 @@ html.swipebox-html.swipebox-touch {
   .section-half-text {
     padding: 0;
   }
+  .slowLast-desc h3 {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
 }
 @media (max-width: 1199.98px) {
   li,
@@ -4092,6 +4096,13 @@ html.swipebox-html.swipebox-touch {
   #page-header .investment-header-logo img {
     width: 80%;
   }
+  .rostemary {
+    font-size: 40px;
+    line-height: 40px;
+  }
+  .slow-header .abuget {
+    font-size: 80px;
+  }
 }
 /* end of 991.98 */
 @media (max-width: 767.98px) {
@@ -4459,12 +4470,44 @@ html.swipebox-html.swipebox-touch {
   .no-cta {
     margin-top: 30px;
   }
-  #cta {
+  #cta,
+  #slowLastCarousel {
     margin-left: -15px;
     margin-right: -15px;
   }
   #contactForm .container {
     padding: 20px 0 0;
+  }
+  .slow-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .rostemary {
+    font-size: 30px;
+    line-height: 30px;
+  }
+  .slow-header .abuget {
+    font-size: 60px;
+  }
+  .rostemary,
+  .slow-header .abuget {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  .slow-ecocarousel-item {
+    margin: 0 5px;
+  }
+  .slowLast-desc {
+    height: 260px;
+  }
+  #slowLastCarousel .slick-arrow {
+    left: 10px;
+  }
+  #slowLastCarousel .slick-arrow.slick-next {
+    right: 10px;
   }
 }
 /* end of 575.98 */
