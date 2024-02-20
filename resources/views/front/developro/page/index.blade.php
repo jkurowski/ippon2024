@@ -59,3 +59,8 @@
         @endif
     </div>
 @endsection
+@push('scripts')
+    <script type="text/javascript">
+        AOS.init();
+    </script>
+@endpush
