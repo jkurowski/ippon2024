@@ -26,7 +26,7 @@
         </div>
 
         @if($investment_page->contact_form)
-            <div class="container mt-5 pt-5">
+            <div class="container mt-0 mt-sm-5 pt-5">
                 <div class="row">
                     <div class="col-12 text-center">
                         <h2 class="slow-header justify-content-center"><span class="rostemary">Masz pytania?</span> <span class="abuget brown">Napisz do nas!</span></h2>
@@ -34,6 +34,7 @@
                 </div>
             </div>
             @include('front.contact.form', [ 'page_name' => $investment->name.' - Kontakt'])
+            <style>#contactForm{background:none}</style>
         @endif
 
         @if($investment_page->cta_text && $investment_page->cta_button && $investment_page->cta_link)
