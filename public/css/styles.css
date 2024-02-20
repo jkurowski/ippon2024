@@ -4547,6 +4547,21 @@ html.swipebox-html.swipebox-touch {
   .invest-osiedle-slow .slow-icon {
     width: 50%;
   }
+  div[class*="col-"].slick-slide {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .slick-dots {
+    padding: 0;
+  }
+  .slick-dots li button {
+    width: 15px;
+    height: 15px;
+  }
+  .slick-dots li button::after {
+    width: 7px;
+    height: 7px;
+  }
 }
 /* end of 359.98 */
 /* end of 359.98 */
