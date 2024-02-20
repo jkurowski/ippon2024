@@ -3589,6 +3589,21 @@ html.swipebox-html.swipebox-touch {
   .similar-rooms .property-list-item-stat {
     font-size: 12px;
   }
+  .main-room-header h2 {
+    font-size: 28px;
+    line-height: 29px;
+    margin-bottom: 15px;
+  }
+  .main-room-header {
+    padding: 30px 30px 20px;
+  }
+  .main-room-footer {
+    padding: 15px 15px;
+  }
+  .main-room-footer .bttn {
+    padding: 9px;
+    justify-content: center;
+  }
 }
 @media (max-width: 1399.98px) {
   #page {

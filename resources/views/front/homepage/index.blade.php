@@ -191,9 +191,9 @@
             </div>
         </div>
 
-        <div class="row justify-content-center mt-3">
+        <div class="row justify-content-center mt-0 mt-lg-3">
             @foreach($investments_soon as $r)
-                <div class="col-6">
+                <div class="col-12 col-lg-6">
                     <div class="invest-item-holder">
                         <div class="invest-item">
                             <div class="invest-item-thumb img-overflow">
