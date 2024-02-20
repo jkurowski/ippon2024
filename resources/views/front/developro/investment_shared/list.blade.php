@@ -14,7 +14,7 @@
                     </div>
 
                     <div class="col-12 col-lg-8 d-flex align-items-center ps-3 ps-lg-4">
-                        <div class="row w-100">
+                        <div class="row w-auto w-lg-100">
                             <div class="col-12">
                                 <h2 class="poppins">{{$room->name}}</h2>
                             </div>
