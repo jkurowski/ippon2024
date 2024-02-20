@@ -33,7 +33,7 @@
                 </div>
             </div>
             <div class="row left-right flex-row-reverse row-offset-up">
-                <div class="col-12 col-xl-6 d-flex align-items-center">
+                <div class="col-12 col-xl-6 d-flex align-items-center" data-aos="fade-up" data-aos-offset="500" data-aos-delay="0">
                     <div class="left-right-text">
                         <h2 class="slow-header justify-content-start"><span class="abuget brown">Ekologiczne</span> <span class="rostemary">rozwiązania</span></h2>
                         <p>Osiedle SLOW to <b>aż 2,14 ha powierzchni terenów zielonych</b>. Zostało zaprojektowane z myślą o środowisku, niskich kosztach eksploatacyjnych i <b>oszczędności</b> przyszłych mieszkańców. Zainstalowane zostaną <b>kolektory słoneczne</b> do ogrzewania ciepłej wody użytkowej. Ich zastosowanie znacząco wpłynie na zmniejszenie kwoty miesięcznych rachunków oraz pozytywnie wpłynie na środowisko.
@@ -41,14 +41,14 @@
                         <a href="{{ route('developro.investment.page', [$investment->slug, 'mieszkania']) }}" class="bttn bttn-icon mt-4 bttn-slow">ZOBACZ MIESZKANIA <i class="ms-3 las la-chevron-circle-right"></i></a>
                     </div>
                 </div>
-                <div class="col-12 col-xl-6">
+                <div class="col-12 col-xl-6" data-aos="fade-up" data-aos-offset="500" data-aos-delay="0">
                     <img src="{{ asset('/uploads/files/osiedle-slow/ekologiczne-rozwiazania.jpg') }}" alt="" class="golden-border w-100" width="840" height="760">
                 </div>
             </div>
 
             <div class="row left-right row-offset-up">
                 <div class="col-12 col-xl-6 d-flex align-items-center">
-                    <div class="left-right-text">
+                    <div class="left-right-text" data-aos="fade-up" data-aos-offset="500" data-aos-delay="0">
                         <h2 class="slow-header justify-content-start"><span class="abuget brown">Slow</span> <span class="rostemary">life</span></h2>
                         <p>Czym jest slow life? To życie w <b>równowadze</b> z otaczającym światem, przyrodą, a przede wszystkim życie w spokoju z samym sobą. <b>To dbanie o siebie, o innych, o środowisko</b>.</p>
                         <p>Slow life to filozofia życia. To realizacja swoich pasji, <b>spotkania</b> z rodziną i przyjaciółmi, wsłuchiwanie się w odgłosy otaczającej <b>natury</b>. Ciesz się życiem, znajdź czas na aktywność i na odpoczynek.</p>
@@ -56,19 +56,19 @@
                         <a href="{{ route('developro.investment.page', [$investment->slug, 'mieszkania']) }}" class="bttn bttn-icon mt-4 bttn-slow">ZOBACZ MIESZKANIA <i class="ms-3 las la-chevron-circle-right"></i></a>
                     </div>
                 </div>
-                <div class="col-12 col-xl-6">
+                <div class="col-12 col-xl-6" data-aos="fade-up" data-aos-offset="500" data-aos-delay="0">
                     <img src="{{ asset('/uploads/files/osiedle-slow/slow-life.jpg') }}" alt="Wizualizacja osiedla Aurora" class="golden-border w-100" width="840" height="760">
                 </div>
             </div>
 
             <div class="row left-right flex-row-reverse row-offset-up">
                 <div class="col-12 col-xl-6 d-flex align-items-center">
-                    <div class="left-right-text">
+                    <div class="left-right-text" data-aos="fade-up" data-aos-offset="500" data-aos-delay="0">
                         <h2 class="slow-header justify-content-start"><span class="rostemary">Zobacz jak <br>wygląda życie w rytmie</span> <span class="abuget brown">Slow</span></h2>
                         <p>Osiedle SLOW to miejsce dla osób które w myśl filozofii slow life, chcą mieszkać na cichym, kameralnym osiedlu, blisko przyrody i terenów rekreacyjnych.</p>
                     </div>
                 </div>
-                <div class="col-12 col-xl-6">
+                <div class="col-12 col-xl-6" data-aos="fade-up" data-aos-offset="500" data-aos-delay="0">
                     <iframe title="YouTube video player" src="https://www.youtube.com/embed/5OleowHAz7k?si=r9R-kaftgCff8ZXu" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
                 </div>
             </div>
@@ -149,77 +149,77 @@
         <div class="container">
             <div class="row left-right">
                 <div class="col-12 col-xl-6 d-flex align-items-center">
-                    <div class="left-right-text">
+                    <div class="left-right-text" data-aos="fade-up" data-aos-offset="500" data-aos-delay="0">
                         <h2 class="slow-header justify-content-start"><span class="rostemary">Spotkania w rytmie</span> <span class="abuget brown">Slow</span></h2>
                         <p>Wiemy jak istotne jest <b>budowanie relacji z drugim człowiekiem</b>. Wspólnie spędzony czas z rodziną i przyjaciółmi poprawia samopoczucie i wprawia w pozytywny nastrój.</p>
                         <p>W przygotowanych <b>Strefach spotkań</b>, zadbaliśmy o miejsce na <b>ognisko</b> oraz <b>wiaty grillowe</b>. Mile spędzisz czas na towarzyskich rozmowach, słuchając śpiewu ptaków i odgłosów natury.</p>
                     </div>
                 </div>
-                <div class="col-12 col-xl-6">
+                <div class="col-12 col-xl-6" data-aos="fade-up" data-aos-offset="500" data-aos-delay="0">
                     <img src="{{ asset('/uploads/files/osiedle-slow/spotkania-slow.jpg') }}" alt="" class="golden-border w-100" width="840" height="760">
                 </div>
             </div>
             <div class="row left-right flex-row-reverse row-offset-up">
                 <div class="col-12 col-xl-6 d-flex align-items-center">
-                    <div class="left-right-text">
+                    <div class="left-right-text" data-aos="fade-up" data-aos-offset="500" data-aos-delay="0">
                         <h2 class="slow-header justify-content-start"><span class="abuget brown">Slow</span> <span class="rostemary">relaks</span></h2>
                         <p>Zanurz się w kojących odgłosach natury. Odnajdź swoją prywatną przestrzeń w specjalnie dla Ciebie przygotowanych <b>Strefach relaksu</b>.
                         <p>Lubisz czytać? Idealnym miejscem będzie <b>strefa z hamakami</b>, gdzie wygodnie położysz się ze swoją ulubioną książką.
                         <p>Relaksuje Cię joga, lubisz medytować? Skorzystaj z przygotowanej <b>przestrzeni do ćwiczeń</b>, na której wygodnie rozłożysz matę i wśród szumu drzew, oddasz się treningowi dla ciała i umysłu.</p>
                     </div>
                 </div>
-                <div class="col-12 col-xl-6">
+                <div class="col-12 col-xl-6" data-aos="fade-up" data-aos-offset="500" data-aos-delay="0">
                     <img src="{{ asset('/uploads/files/osiedle-slow/slow-relaks.jpg') }}" alt="" class="golden-border w-100" width="840" height="760">
                 </div>
             </div>
 
             <div class="row left-right row-offset-up">
                 <div class="col-12 col-xl-6 d-flex align-items-center">
-                    <div class="left-right-text">
+                    <div class="left-right-text" data-aos="fade-up" data-aos-offset="500" data-aos-delay="0">
                         <h2 class="slow-header justify-content-start"><span class="abuget brown">Slow</span> <span class="rostemary">sport</span></h2>
                         <p>Regularne uprawianie sportu, poprawia kondycję, samopoczucie oraz wpływa na dobry stan zdrowia.</p>
                         <p>Mieszkańcy osiedla skorzystają z <b>boiska wielofunkcyjnego</b>, gdzie na utwardzonej powierzchni będą mogli grać w piłkę nożną, tenisa czy koszykówkę.</p>
                     </div>
                 </div>
-                <div class="col-12 col-xl-6">
+                <div class="col-12 col-xl-6" data-aos="fade-up" data-aos-offset="500" data-aos-delay="0">
                     <img src="{{ asset('/uploads/files/osiedle-slow/slow-sport.jpg') }}" alt="Wizualizacja osiedla Aurora" class="golden-border w-100" width="840" height="760">
                 </div>
             </div>
 
             <div class="row left-right flex-row-reverse row-offset-up">
                 <div class="col-12 col-xl-6 d-flex align-items-center">
-                    <div class="left-right-text">
+                    <div class="left-right-text" data-aos="fade-up" data-aos-offset="500" data-aos-delay="0">
                         <h2 class="slow-header justify-content-start"><span class="abuget brown">Slow</span> <span class="rostemary">nature</span></h2>
                         <p>Zwierzęta domowe także znajdą na osiedlu swoje radosne miejsce. Specjalnie dla psów powstanie <b>tor agility</b>.</p>
                         <p>Ta psia dyscyplina sportu, wpływa pozytywnie na zwinność zwierząt oraz rozwija ich koncentrację. Stwórz zgrany zespół ze swoim pupilem i razem pokonujcie przygotowane przeszkody.</p>
                     </div>
                 </div>
-                <div class="col-12 col-xl-6">
+                <div class="col-12 col-xl-6" data-aos="fade-up" data-aos-offset="500" data-aos-delay="0">
                     <img src="{{ asset('/uploads/files/osiedle-slow/slow-nature.jpg') }}" alt="" class="golden-border w-100" width="840" height="760">
                 </div>
             </div>
 
             <div class="row left-right row-offset-up">
                 <div class="col-12 col-xl-6 d-flex align-items-center">
-                    <div class="left-right-text">
+                    <div class="left-right-text" data-aos="fade-up" data-aos-offset="500" data-aos-delay="0">
                         <h2 class="slow-header justify-content-start"><span class="rostemary">Aktywność <br>w rytmie</span><span class="abuget brown">Slow</span></h2>
                         <p>Korzystaj z ponad <b>5 kilometrów naturalnych</b>, utwardzonych ścieżek spacerowych, by w cieniu drzew: pospacerować, pobiegać, lub jeździć na rowerze.</p>
                         <p>Wybierz się na romantyczny spacer wzdłuż brzegu jeziora, wsłuchując się w odgłosy natury.</p>
                     </div>
                 </div>
-                <div class="col-12 col-xl-6">
+                <div class="col-12 col-xl-6" data-aos="fade-up" data-aos-offset="500" data-aos-delay="0">
                     <img src="{{ asset('/uploads/files/osiedle-slow/aktywnosc-w-rytmie-slow.jpg') }}" alt="Wizualizacja osiedla Aurora" class="golden-border w-100" width="840" height="760">
                 </div>
             </div>
 
             <div class="row left-right flex-row-reverse row-offset-up">
                 <div class="col-12 col-xl-6 d-flex align-items-center">
-                    <div class="left-right-text">
+                    <div class="left-right-text" data-aos="fade-up" data-aos-offset="500" data-aos-delay="0">
                         <h2 class="slow-header justify-content-start"><span class="rostemary">Zabawa w rytmie</span> <span class="abuget brown">Slow</span></h2>
                         <p>Osiedle Slow to idealne <b>miejsce dla rodzin z dziećmi</b>. Ilość terenów zielonych i roślinności sprzyja odpoczynkowi, a ścieżki dookoła osiedla zachęcają do spacerów lub jazdy na rowerze. Dla najmłodszych przygotowaliśmy duże i bezpieczne <b>place zabaw</b>.</p>
                     </div>
                 </div>
-                <div class="col-12 col-xl-6">
+                <div class="col-12 col-xl-6" data-aos="fade-up" data-aos-offset="500" data-aos-delay="0">
                     <img src="{{ asset('/uploads/files/osiedle-slow/zabawa-w-rytmie-slow.jpg') }}" alt="" class="golden-border w-100" width="840" height="760">
                 </div>
             </div>
@@ -240,7 +240,9 @@
                 <ul class="mb-0 list-unstyled">
                     <li>
                         <div class="slow-ecocarousel-item">
-                            <img src="{{ asset('/uploads/files/osiedle-slow/srodowisko/kolektory-sloneczne.jpg') }}" alt="" width="630" height="420">
+                            <div class="img-overflow">
+                                <img src="{{ asset('/uploads/files/osiedle-slow/srodowisko/kolektory-sloneczne.jpg') }}" alt="" width="630" height="420">
+                            </div>
                             <div class="slow-ecocarousel-desc">
                                 <h3>KOLEKTORY SŁONECZNE</h3>
                                 <p>W trosce o środowisko zastosowaliśmy kolektory słoneczne do podgrzewania ciepłej wody użytkowej. Jest to rozwiązanie całkowicie przyjazne dla środowiska. Umożliwia wykorzystanie zasobów energii odnawialnej, nie emitując przy tym hałasu.</p>
@@ -249,7 +251,9 @@
                     </li>
                     <li>
                         <div class="slow-ecocarousel-item">
+                            <div class="img-overflow">
                             <img src="{{ asset('/uploads/files/osiedle-slow/srodowisko/teren-zielony.jpg') }}" alt="" width="630" height="420">
+                            </div>
                             <div class="slow-ecocarousel-desc">
                                 <h3>TEREN ZIELONY</h3>
                                 <p>Osiedle Slow to 2,14 ha powierzchni terenów zielonych. Przebywanie w lesie wzmacnia naszą odporność i pozytywnie wpływa na samopoczucie. W lesie głębiej oddychamy, obniża się poziom kortyzolu - hormonu stresu. Przebywanie w przyrodzie koi nerwy i oczyszcza umysł.</p>
@@ -258,7 +262,9 @@
                     </li>
                     <li>
                         <div class="slow-ecocarousel-item">
+                            <div class="img-overflow">
                             <img src="{{ asset('/uploads/files/osiedle-slow/srodowisko/ekotransport.jpg') }}" alt="" width="630" height="420">
+                            </div>
                             <div class="slow-ecocarousel-desc">
                                 <h3>EKOTRANSPORT</h3>
                                 <p>Korzystanie z ekologicznych środków transportu, pozytywnie wpływa na stan zdrowia i kondycję, ale także na otaczające nas środowisko. Na terenie osiedla znajdują się stojaki na rowery, oraz sieć chodników po których z łatwością można się przemieszczać, ciesząc oko widokiem terenów zielonych.</p>
@@ -267,7 +273,9 @@
                     </li>
                     <li>
                         <div class="slow-ecocarousel-item">
+                            <div class="img-overflow">
                             <img src="{{ asset('/uploads/files/osiedle-slow/srodowisko/oswietlenie.jpg') }}" alt="" width="630" height="420">
+                            </div>
                             <div class="slow-ecocarousel-desc">
                                 <h3>OŚWIETLENIE</h3>
                                 <p>Zastosowanie oświetlenia LED oraz czujników ruchu na klatkach schodowych, pozwala na mniejsze zużycie prądu oraz niższe opłaty za energię.</p>
@@ -276,7 +284,9 @@
                     </li>
                     <li>
                         <div class="slow-ecocarousel-item">
+                            <div class="img-overflow">
                             <img src="{{ asset('/uploads/files/osiedle-slow/srodowisko/domki-dla-zwierzat.jpg') }}" alt="" width="630" height="420">
+                            </div>
                             <div class="slow-ecocarousel-desc">
                                 <h3>DOMKI DLA ZWIERZĄT</h3>
                                 <p>Slow life to życie w harmonii z otaczającą nas przyrodą. Dla leśnych zwierząt powstaną domki na drzewach, które dadzą im schronienie w okresie zimowym.</p>
@@ -394,6 +404,8 @@
 @push('scripts')
     <script src="{{ asset('js/slick.js') }}" charset="utf-8"></script>
     <script type="text/javascript">
+        AOS.init();
+
         $(document).ready(function(){
             $('#slowCarousel ul').slick({
                 infinite: true,
