@@ -15,7 +15,7 @@
                 @foreach($rents as $r)
                     <div class="col-12 col-lg-6">
                         <div class="rent-item">
-                            <div class="rent-thumb">
+                            <div class="rent-thumb img-overflow">
                                 <span class="img-badge">{{ rentType($r->type) }}</span>
                                 <a href="{{ route('rent.index.show', ['slug' => $r->slug, 'id' => $r->id]) }}">
                                     <img src="{{ asset('uploads/rents/'.$r->file) }}" alt="{{ $r->name }}">

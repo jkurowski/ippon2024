@@ -54,7 +54,7 @@
         </div>
         <div class="row left-right flex-row-reverse row-offset-up">
             <div class="col-12 col-xl-6 d-flex align-items-center">
-                <div class="left-right-text">
+                <div class="left-right-text" data-aos="fade-up" data-aos-offset="500" data-aos-delay="0">
                     @if($current_locale == 'pl')
                     <p>Nasza nieprzerwana obecność w branży deweloperskiej pozwoliła zdobyć doświadczenie, które jest gwarancją, że przeprowadzane przez nas transakcje są całkowicie zgodne z obowiązującymi przepisami prawa.</p>
                     <p>&nbsp;</p>
@@ -68,7 +68,7 @@
                 </div>
             </div>
             <div class="col-12 col-xl-6">
-                <div class="p-0 p-xl-3">
+                <div class="p-0 p-xl-3" data-aos="fade-up" data-aos-offset="500" data-aos-delay="0">
                     <img src="{{ asset('/images/grunty-2.jpg') }}" alt="" class="golden-border w-100" width="840" height="650">
                 </div>
             </div>
@@ -226,6 +226,8 @@
     <script src="{{ asset('js/validation.js') }}" charset="utf-8"></script>
     <script src="{{ asset('js/pl.js') }}" charset="utf-8"></script>
     <script type="text/javascript">
+        AOS.init();
+
         $(document).ready(function(){
             $(".validateForm").validationEngine({
                 validateNonVisibleFields: true,

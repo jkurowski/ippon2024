@@ -37,8 +37,10 @@
                                                 @endforeach
                                             </ul>
                                         </div>
-                                        @else
+                                    @else
+                                    <div class="img-overflow">
                                         <img src="{{ asset('investment/thumbs/'.$r->file_thumb) }}" alt="{{ $r->name }}">
+                                    </div>
                                     @endif
                                 </div>
                                 <div class="invest-item-desc">

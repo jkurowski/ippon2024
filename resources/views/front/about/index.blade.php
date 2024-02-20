@@ -26,36 +26,36 @@
             </div>
             <div class="row left-right flex-row-reverse row-offset-up">
                 <div class="col-12 col-xl-6 d-flex align-items-center">
-                    <div class="left-right-text">
+                    <div class="left-right-text" data-aos="fade-up" data-aos-offset="500" data-aos-delay="0">
                         <h2>Jakość</h2>
                         <p>Dbanie o najwyższą jakość przejawia się w każdym miejscu działalności naszych spółek: w codziennej pracy, w relacjach z Klientami, w zastosowaniu wysokiej klasy materiałów i technologii przy realizacji projektów. Dzięki temu wiemy, że dostarczamy produkty najwyższej jakości, które podążają za współczesnymi trendami i ochroną środowiska.</p>
                     </div>
                 </div>
-                <div class="col-12 col-xl-6">
+                <div class="col-12 col-xl-6" data-aos="fade-up" data-aos-offset="500" data-aos-delay="0">
                     <img src="{{ asset('/uploads/files/o-nas/jakosc.jpg') }}" alt="" class="golden-border w-100" width="840" height="650">
                 </div>
             </div>
 
             <div class="row left-right row-offset-up">
                 <div class="col-12 col-xl-6 d-flex align-items-center">
-                    <div class="left-right-text">
+                    <div class="left-right-text" data-aos="fade-up" data-aos-offset="500" data-aos-delay="0">
                         <h2>Zaawansowane rozwiązania</h2>
                         <p>We wszystkich naszych projektach, stosujemy zaawansowane rozwiązania technologiczne. Współpracujemy tylko z z najlepszymi architektami i dekoratorami wnętrz. Każde mieszkanie, dopracowane jest w najmniejszych szczegółach, by zagwarantować komfort i wygodę przyszłych mieszkańców. Z myślą o ekologii, wdrażamy rozwiązania, które realnie wpływają na środowisko. Stosujemy m.in.: kolektory słoneczne, oświetlenie LED oraz zbiorniki retencyjne, które wykorzystują wody opadowe do podlewania roślinności w częściach wspólnych na osiedlu. Takie działania to nie tylko ochrona środowiska, ale także realne oszczędności na rachunkach naszych mieszkańców.</p>
                     </div>
                 </div>
-                <div class="col-12 col-xl-6">
+                <div class="col-12 col-xl-6" data-aos="fade-up" data-aos-offset="500" data-aos-delay="0">
                     <img src="{{ asset('/uploads/files/o-nas/zaawansowane-rozwiazania-2.jpg') }}" alt="Wizualizacja osiedla Aurora" class="golden-border w-100" width="840" height="650">
                 </div>
             </div>
 
             <div class="row left-right flex-row-reverse row-offset-up">
                 <div class="col-12 col-xl-6 d-flex align-items-center">
-                    <div class="left-right-text">
+                    <div class="left-right-text" data-aos="fade-up" data-aos-offset="500" data-aos-delay="0">
                         <h2>Deweloper mieszkaniowy</h2>
                         <p>Realizujemy projekty mieszkaniowe w całej Polsce. W Olsztynie wybudowaliśmy osiedle wielorodzinne – Aurora, składające się z 9 nowoczesnych budynków o łącznej ilości 658 mieszkań. Nowe osiedle zbudowane zostało z najwyższej jakości materiałów. Wyróżnia się na tle innych olsztyńskich inwestycji oryginalnym designem, wpisującym się w najnowsze trendy architektoniczne. (<a href="https://www.aurora.olsztyn.pl" target="_blank">www.aurora.olsztyn.pl</a>)</p>
                     </div>
                 </div>
-                <div class="col-12 col-xl-6">
+                <div class="col-12 col-xl-6" data-aos="fade-up" data-aos-offset="500" data-aos-delay="0">
                     <img src="{{ asset('/uploads/files/o-nas/deweloper-mieszkaniowy.jpg') }}" alt="Wizualizacja osiedla Aurora" class="golden-border w-100" width="840" height="650">
                 </div>
             </div>
@@ -91,26 +91,26 @@
         <div class="container">
             <div class="row left-right">
                 <div class="col-12 col-xl-6 d-flex align-items-center">
-                    <div class="left-right-text">
+                    <div class="left-right-text" data-aos="fade-up" data-aos-offset="500" data-aos-delay="0">
                         <h2>Społecznie odpowiedzialni</h2>
                         <p>Od wielu lat angażujemy się również w życie Polaków w ramach społecznej odpowiedzialności biznesu. Jesteśmy m.in. ambasadorem Fundacji „Przyszłość dla Dzieci”, opiekującej się ponad 400 dziećmi z całego regionu. Ippon Group jest ponadto jednym z Najbardziej Hojnych Darczyńców Wielkiej Orkiestry Świątecznej Pomocy, mogącym pochwalić się podsiadaniem wielu Złotych Serduszek.</p>
                         <p>&nbsp;</p>
                         <p>Na wsparcie mogą również liczyć szpitale i Domy Pomocy Społecznej. Ippon przekazał szpitalom darowizny, które umożliwiają większe możliwości badań specjalistycznych i opieki nad pacjentami wyposażając szpitale w sprzęt zwiększający komfort pacjentów.</p>
                     </div>
                 </div>
-                <div class="col-12 col-xl-6">
+                <div class="col-12 col-xl-6" data-aos="fade-up" data-aos-offset="500" data-aos-delay="0">
                     <img src="{{ asset('/uploads/files/o-nas/spolecznie-odpowiedzialni.jpg') }}" alt="Wizualizacja osiedla Aurora" class="golden-border w-100" width="840" height="650">
                 </div>
             </div>
 
             <div class="row left-right flex-row-reverse row-offset-up">
                 <div class="col-12 col-xl-6 d-flex align-items-center">
-                    <div class="left-right-text">
+                    <div class="left-right-text" data-aos="fade-up" data-aos-offset="500" data-aos-delay="0">
                         <h2>Projekty komercyjne</h2>
                         <p>Firma Ippon Group, to nie tylko deweloper mieszkaniowy. W swoim portfolio posiada także obiekty handlowe oraz punkty street mall . Takie obiekty znajdują się już m.in. w : Olsztynie, Koszalinie, Bydgoszczy, Mrągowie i innych miejscowościach. Priorytetem spółki jest jej dalszy rozwój. Również aktywnie rozbudowujemy bank ziemi pod nowe inwestycje oraz dynamicznie rozszerzamy działalność parków handlowych.</p>
                     </div>
                 </div>
-                <div class="col-12 col-xl-6">
+                <div class="col-12 col-xl-6" data-aos="fade-up" data-aos-offset="500" data-aos-delay="0">
                     <img src="{{ asset('/uploads/files/o-nas/projekty-komercyjne.jpg') }}" alt="Wizualizacja osiedla Aurora" class="golden-border w-100" width="840" height="650">
                 </div>
             </div>
@@ -129,9 +129,9 @@
                                 </div>
 
                                 <div class="col-12 text-start text-xl-center col-mobile">
-                                    <p>Gwarancją jakości naszych realizacji jest współpraca z najlepszymi architektami i generalnymi wykonawcami, którzy sprostają oczekiwaniom naszym i naszych klientów. Tworzymy niezwykłe projekty z zachowaniem zasad funkcjonalności i wykorzystania naturalnego światła. Doskonale koordynujemy projekty czego efektem jest oddanie naszych inwestycji w terminie.</p>
+                                    <p data-aos="fade-left" data-aos-offset="200" data-aos-delay="0">Gwarancją jakości naszych realizacji jest współpraca z najlepszymi architektami i generalnymi wykonawcami, którzy sprostają oczekiwaniom naszym i naszych klientów. Tworzymy niezwykłe projekty z zachowaniem zasad funkcjonalności i wykorzystania naturalnego światła. Doskonale koordynujemy projekty czego efektem jest oddanie naszych inwestycji w terminie.</p>
                                     <p>&nbsp;</p>
-                                    <p>Z każdym rokiem liczba naszych inwestycji rośnie, a wraz z nią zwiększa się liczba zadowolonych klientów. Naszą wizytówką jest wybudowane i oddane do użytkowania Osiedle Aurora w Olsztynie. Oprócz osiedli mieszkaniowych realizujemy projekty komercyjne. Nasze budynki znajdują się na terenie całego kraju.</p>
+                                    <p data-aos="fade-right" data-aos-offset="200" data-aos-delay="0">Z każdym rokiem liczba naszych inwestycji rośnie, a wraz z nią zwiększa się liczba zadowolonych klientów. Naszą wizytówką jest wybudowane i oddane do użytkowania Osiedle Aurora w Olsztynie. Oprócz osiedli mieszkaniowych realizujemy projekty komercyjne. Nasze budynki znajdują się na terenie całego kraju.</p>
                                 </div>
                             </div>
                         </div>
@@ -152,12 +152,12 @@
                     <img src="https://www.ippon.group/files/upload/wykres_pl.png" alt="" class="m-auto">
                 </div>
                 <div class="col-12 col-xl-6">
-                    <div class="pe-0 pe-xl-5 ps-0 ps-xl-5">
+                    <div class="pe-0 pe-xl-5 ps-0 ps-xl-5" data-aos="fade-left" data-aos-offset="200" data-aos-delay="0">
                         <p>W naszym działaniu wykorzystujemy model zintegrowanego biznesu, na który składają się różne etapy procesu inwestycyjnego: od zarządzania nieruchomościami, po zakup gruntu, projektowanie i budowę nieruchomości, na wynajmie i sprzedaży powierzchni kończąc. Realizujemy inwestycje wykonane według własnych projektów, gdzie czynnikiem decydującym jest aktualne zapotrzebowanie rynku i dostosowanie projektów do wymagań naszych klientów.</p>
                     </div>
                 </div>
                 <div class="col-12 col-xl-6 mt-4 mt-xl-0">
-                    <div class="pe-0 pe-xl-5 ps-0 ps-xl-5">
+                    <div class="pe-0 pe-xl-5 ps-0 ps-xl-5" data-aos="fade-right" data-aos-offset="200" data-aos-delay="0">
                         <p>Każdy z wymienionych wyżej etapów przebiega w ściśle określony i ustandaryzowany sposób, co pozwala nam przewidzieć ewentualne wyzwania i zareagować w najkrótszym możliwym czasie. Stawiamy sobie jasny cel: zbudowanie wiodącej marki w branży deweloperskiej, kojarzonej z jakością, prestiżem i oryginalnością. Mamy świadomość wpływu naszej pracy na kreowanie przestrzeni miejskiej. Dlatego tak ważna jest dla nas wysoka jakość inwestycji.</p>
                     </div>
                 </div>
@@ -168,6 +168,8 @@
 @push('scripts')
     <script src="{{ asset('js/slick.js') }}" charset="utf-8"></script>
     <script type="text/javascript">
+        AOS.init();
+
         $(document).ready(function(){
             $('#awardsCarousel .row').slick({
                 infinite: true,

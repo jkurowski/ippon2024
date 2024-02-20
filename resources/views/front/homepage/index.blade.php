@@ -85,7 +85,7 @@
 </div>
 
 
-<section class="pe-3 pe-sm-0 ps-3 ps-sm-0 pt-4 pt-sm-0">
+<section class="pe-3 pe-sm-0 ps-3 ps-sm-0">
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
@@ -93,7 +93,7 @@
             </div>
         </div>
         <div class="row left-right">
-            <div data-aos="fade-right" data-aos-offset="300" data-aos-delay="0" class="col-12 col-xl-6 d-flex align-items-center">
+            <div data-aos="fade-right" data-aos-offset="300" data-aos-delay="0" class="order-2 order-xl-1 col-12 col-xl-6 d-flex align-items-center">
                 <div class="left-right-text current-item">
                     <h2 class="mb-0">OSIEDLE AURORA ETAP 4</h2>
                     <div class="invest-item-city">Olsztyn, ul. Barcza</div>
@@ -127,7 +127,7 @@
                     <a href="https://www.aurora.olsztyn.pl/" target="_blank" class="bttn bttn-icon mt-3 mt-sm-5">ZOBACZ MIESZKANIA <i class="ms-3 las la-chevron-circle-right"></i></a>
                 </div>
             </div>
-            <div data-aos="fade-left" data-aos-offset="300" data-aos-delay="0" class="col-12 col-xl-6">
+            <div data-aos="fade-left" data-aos-offset="300" data-aos-delay="0" class="mb-4 mb-xl-0 order-1 order-xl-2 col-12 col-xl-6">
                 <div class="invest-item-thumb">
                     <span class="img-badge">Inwestycja aktualna</span>
                     <img src="{{ asset('/uploads/files/aurora-4.jpg') }}" alt="" class="golden-border w-100" width="840" height="760">
@@ -135,7 +135,7 @@
             </div>
         </div>
         <div class="row left-right flex-row-reverse row-offset-up">
-            <div data-aos="fade-left" data-aos-offset="400" data-aos-delay="0" class="col-12 col-xl-6 d-flex align-items-center">
+            <div data-aos="fade-left" data-aos-offset="400" data-aos-delay="0" class="order-2 order-xl-1 col-12 col-xl-6 d-flex align-items-center">
                 <div class="left-right-text current-item">
                     <h2 class="mb-0">OSIEDLE SLOW</h2>
                     <div class="invest-item-city">Olsztyn, ul.Kordeckiego</div>
@@ -169,7 +169,7 @@
                     <a href="/pl/i/osiedle-slow" class="bttn bttn-icon mt-3 mt-sm-5">ZOBACZ MIESZKANIA <i class="ms-3 las la-chevron-circle-right"></i></a>
                 </div>
             </div>
-            <div data-aos="fade-right" data-aos-offset="400" data-aos-delay="0" class="col-12 col-xl-6">
+            <div data-aos="fade-right" data-aos-offset="400" data-aos-delay="0" class="mb-4 mb-xl-0 order-1 order-xl-2 col-12 col-xl-6">
                 <div class="invest-item-thumb">
                     <span class="img-badge">Inwestycja aktualna</span>
                     <img src="{{ asset('/uploads/files/osiedle-slow/ekologiczne-rozwiazania.jpg') }}" alt="" class="golden-border w-100" width="840" height="760">
@@ -300,7 +300,7 @@
     <div class="light-bg pt-5 pb-5">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-sm-6 col-xl-3 mb-4 mb-xl-0">
+                <div class="col-12 col-sm-6 col-xl-3 mb-4 mb-xl-0 d-none d-sm-block">
                     <div data-aos="fade-up" data-aos-offset="500" data-aos-delay="0" class="main-room main-room-disable">
                         <div class="main-room-header text-center">
                             @if($current_locale == 'pl')
@@ -311,7 +311,7 @@
 
                             <p>@lang('website.property-area'): <span>27m<sup>2</sup></span></p>
                             <div class="main-room-img">
-                                <img src="{{ asset('/uploads/files/mieszkania-1-pokoje.jpg') }}" alt="Dostępne mieszkania 1-pokojowe">
+                                <img src="{{ asset('/uploads/files/mieszkania-1-pokoje.jpg') }}" alt="Dostępne mieszkania 1-pokojowe" class="m-auto">
                             </div>
                         </div>
                         <div class="main-room-footer">
@@ -330,7 +330,7 @@
 
                             <p>@lang('website.property-area'): <span>35-48m<sup>2</sup></span></p>
                             <div class="main-room-img">
-                                <a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=2#filtr"><img src="{{ asset('/uploads/files/mieszkania-2-pokoje.jpg') }}" alt="Dostępne mieszkania 2-pokojowe"></a>
+                                <a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=2#filtr"><img src="{{ asset('/uploads/files/mieszkania-2-pokoje.jpg') }}" alt="Dostępne mieszkania 2-pokojowe" class="m-auto"></a>
                             </div>
                         </div>
                         <div class="main-room-footer">
@@ -349,7 +349,7 @@
 
                             <p>@lang('website.property-area'): <span>50-61m<sup>2</sup></span></p>
                             <div class="main-room-img">
-                                <a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=3#filtr"><img src="{{ asset('/uploads/files/mieszkania-3-pokoje.jpg') }}" alt="Dostępne mieszkania 3-pokojowe"></a>
+                                <a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=3#filtr"><img src="{{ asset('/uploads/files/mieszkania-3-pokoje.jpg') }}" alt="Dostępne mieszkania 3-pokojowe" class="m-auto"></a>
                             </div>
                         </div>
                         <div class="main-room-footer">
@@ -357,7 +357,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-sm-6 col-xl-3">
+                <div class="col-12 col-sm-6 col-xl-3 d-none d-sm-block">
                     <div data-aos="fade-up" data-aos-offset="500" data-aos-delay="300" class="main-room main-room-disable">
                         <div class="main-room-header text-center">
                             @if($current_locale == 'pl')
@@ -368,7 +368,7 @@
 
                             <p>@lang('website.property-area'): <span>60-80m<sup>2</sup></span></p>
                             <div class="main-room-img">
-                                <img src="{{ asset('/uploads/files/mieszkania-4-pokoje.jpg') }}" alt="Dostępne mieszkania 4-pokojowe">
+                                <img src="{{ asset('/uploads/files/mieszkania-4-pokoje.jpg') }}" alt="Dostępne mieszkania 4-pokojowe" class="m-auto">
                             </div>
                         </div>
                         <div class="main-room-footer">

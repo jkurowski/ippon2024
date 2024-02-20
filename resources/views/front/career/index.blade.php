@@ -40,14 +40,14 @@
             <div class="row left-right flex-row-reverse row-offset-up">
                 <div class="col-12 col-xl-6 d-flex align-items-center">
                     @if($current_locale == 'pl')
-                    <div class="left-right-text">
+                    <div class="left-right-text" data-aos="fade-up" data-aos-offset="500" data-aos-delay="0">
                         <h2>Poznajmy się</h2>
                         <p>Proces rekrutacyjny to rozmowa, w czasie której koncentrujemy się na doświadczeniu, umiejętnościach i kompetencjach, które są związane z konkretnym stanowiskiem pracy.</p>
                         <p>&nbsp;</p>
                         <p>Chętnie odpowiadamy na wszystkie pytania, abyś mógł lepiej poznać wartości i misję Firmy.</p>
                     </div>
                     @else
-                        <div class="left-right-text">
+                        <div class="left-right-text" data-aos="fade-up" data-aos-offset="500" data-aos-delay="0">
                             <h2>Let's get to know each other</h2>
                             <p>The recruitment process is a conversation during which we focus on the experience, skills, and competencies related to the specific job position.</p>
                             <p>&nbsp;</p>
@@ -55,7 +55,7 @@
                         </div>
                     @endif
                 </div>
-                <div class="col-12 col-xl-6">
+                <div class="col-12 col-xl-6" data-aos="fade-up" data-aos-offset="500" data-aos-delay="0">
                     <img src="{{ asset('/images/inline/kariera-poznajmy-sie.jpg') }}" alt="" class="golden-border">
                 </div>
             </div>
@@ -113,7 +113,7 @@
                 <div class="col-12 col-lg-8">
                     <div class="row">
                         <div class="col-6 col-sm-4">
-                            <div class="career-iconbox">
+                            <div data-aos="fade-up" data-aos-offset="300" data-aos-delay="100" class="career-iconbox">
                                 <div class="career-iconbox-img">
                                     <img src="{{ asset('/images/icons/stabilne-zatrudnienie.png') }}" alt="" width="135" height="135">
                                 </div>
@@ -125,7 +125,7 @@
                             </div>
                         </div>
                         <div class="col-6 col-sm-4">
-                            <div class="career-iconbox">
+                            <div data-aos="fade-up" data-aos-offset="300" data-aos-delay="200" class="career-iconbox">
                                 <div class="career-iconbox-img">
                                     <img src="{{ asset('/images/icons/praca-z-najlepszymi.png') }}" alt="" width="135" height="135">
                                 </div>
@@ -137,7 +137,7 @@
                             </div>
                         </div>
                         <div class="col-6 col-sm-4">
-                            <div class="career-iconbox">
+                            <div data-aos="fade-up" data-aos-offset="300" data-aos-delay="300" class="career-iconbox">
                                 <div class="career-iconbox-img">
                                     <img src="{{ asset('/images/icons/szkolenia.png') }}" alt="" width="135" height="135">
                                 </div>
@@ -149,7 +149,7 @@
                             </div>
                         </div>
                         <div class="col-6 col-sm-4">
-                            <div class="career-iconbox">
+                            <div data-aos="fade-up" data-aos-offset="300" data-aos-delay="100" class="career-iconbox">
                                 <div class="career-iconbox-img">
                                     <img src="{{ asset('/images/icons/wolne-weekendy.png') }}" alt="" width="135" height="135">
                                 </div>
@@ -161,7 +161,7 @@
                             </div>
                         </div>
                         <div class="col-6 col-sm-4">
-                            <div class="career-iconbox">
+                            <div data-aos="fade-up" data-aos-offset="300" data-aos-delay="200" class="career-iconbox">
                                 <div class="career-iconbox-img">
                                     <img src="{{ asset('/images/icons/realny-wplyw.png') }}" alt="" width="135" height="135">
                                 </div>
@@ -173,7 +173,7 @@
                             </div>
                         </div>
                         <div class="col-6 col-sm-4">
-                            <div class="career-iconbox">
+                            <div data-aos="fade-up" data-aos-offset="300" data-aos-delay="300" class="career-iconbox">
                                 <div class="career-iconbox-img">
                                     <img src="{{ asset('/images/icons/swieza-kawa.png') }}" alt="" width="135" height="135">
                                 </div>
@@ -204,12 +204,12 @@
 
             <div class="row">
                 <div class="col-12 col-lg-5">
-                    <div class="left-right-image pe-0 pe-lg-5">
+                    <div class="left-right-image pe-0 pe-lg-5" data-aos="fade-right" data-aos-offset="300" data-aos-delay="0">
                         <img src="{{ asset('/images/inline/rekrutacja-aplikacja.jpg') }}" alt="" class="golden-border w-100" width="670" height="410">
                     </div>
                 </div>
                 <div class="col-12 col-lg-7 d-flex align-items-center left-right-smalltext mt-4 mt-lg-0">
-                    <div>
+                    <div data-aos="fade-left" data-aos-offset="300" data-aos-delay="0">
                         @if($current_locale == 'pl')
                         <h3>APLIKACJA</h3>
                         <p>Prześlij do nas swoje CV na adres: <a href="mailto:sekretariat@ippon.group">sekretariat@ippon.group</a>. Opisz siebie i zaprezentuj swoje dotychczasowe osiągnięcia.</p>
@@ -223,12 +223,12 @@
 
             <div class="row flex-row-reverse row-offset-up-50">
                 <div class="col-12 col-lg-5">
-                    <div class="left-right-image ps-0 ps-lg-5">
+                    <div class="left-right-image ps-0 ps-lg-5" data-aos="fade-left" data-aos-offset="300" data-aos-delay="0">
                         <img src="{{ asset('/images/inline/rekrutacja-selekcja.jpg') }}" alt="" class="golden-border w-100" width="670" height="410">
                     </div>
                 </div>
                 <div class="col-12 col-lg-7 d-flex align-items-center left-right-smalltext text-start text-lg-end mt-4 mt-lg-0">
-                    <div>
+                    <div data-aos="fade-right" data-aos-offset="300" data-aos-delay="0">
                         @if($current_locale == 'pl')
                         <h3>SELEKCJA</h3>
                         <p>Jeżeli Twoje doświadczenie jest zgodne z naszymi oczekiwaniami, skontaktujemy się z Tobą i zaprosimy na rozmowę rekrutacyjną do siedziby firmy.</p>
@@ -242,12 +242,12 @@
 
             <div class="row row-offset-up-50">
                 <div class="col-12 col-lg-5">
-                    <div class="left-right-image pe-0 pe-lg-5">
+                    <div class="left-right-image pe-0 pe-lg-5" data-aos="fade-right" data-aos-offset="300" data-aos-delay="0">
                         <img src="{{ asset('/images/inline/rekrutacja-rozmowa.jpg') }}" alt="" class="golden-border w-100" width="670" height="410">
                     </div>
                 </div>
                 <div class="col-12 col-lg-7 d-flex align-items-center left-right-smalltext mt-4 mt-lg-0">
-                    <div>
+                    <div data-aos="fade-left" data-aos-offset="300" data-aos-delay="0">
                         @if($current_locale == 'pl')
                         <h3>ROZMOWA</h3>
                         <p>Na spotkaniu poznamy się bliżej. Opowiemy o strukturze firmy, kulturze organizacyjnej oraz przybliżymy zakres obowiązków na danym stanowisku pracy. Zadamy Ci kilka pytań, by lepiej poznać Ciebie i Twoje doświadczenie zawodowe.</p>
@@ -261,12 +261,12 @@
 
             <div class="row flex-row-reverse row-offset-up-50">
                 <div class="col-12 col-lg-5">
-                    <div class="left-right-image ps-0 ps-lg-5">
+                    <div class="left-right-image ps-0 ps-lg-5" data-aos="fade-left" data-aos-offset="300" data-aos-delay="0">
                         <img src="{{ asset('/images/inline/rekrutacja-decyzja.jpg') }}" alt="" class="golden-border w-100" width="670" height="410">
                     </div>
                 </div>
                 <div class="col-12 col-lg-7 d-flex align-items-center left-right-smalltext text-start text-lg-end mt-4 mt-lg-0">
-                    <div>
+                    <div data-aos="fade-right" data-aos-offset="300" data-aos-delay="0">
                         @if($current_locale == 'pl')
                         <h3>DECYZJA</h3>
                         <p>Po rozmowie kwalifikacyjnej otrzymasz od nas informację zwrotną, dotyczącą ostatecznej decyzji związanej z rekrutacją. Wybranym kandydatom złożymy ofertę dopasowaną do ich profilu kompetencji, doświadczenia i stanowiska.</p>
@@ -280,3 +280,8 @@
         </div>
     </section>
 @endsection
+@push('scripts')
+    <script type="text/javascript">
+        AOS.init();
+    </script>
+@endpush

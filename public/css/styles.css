@@ -2522,8 +2522,10 @@ section {
 .img-overflow img {
   transition: scale 200ms linear;
 }
-.slick-slide:hover .img-overflow img,
-.invest-item-holder:hover .img-overflow img {
+.slick-slide:hover .img-overflow img {
+  scale: 1.1;
+}
+.img-overflow:hover img {
   scale: 1.1;
 }
 #mainNews .border-article {
@@ -3992,6 +3994,9 @@ html.swipebox-html.swipebox-touch {
   }
   .left-right.row-offset-up .left-right-text {
     padding: 40px 0;
+  }
+  .left-right.row-offset-up .order-2 .left-right-text {
+    padding: 0;
   }
   .left-right-smalltext div {
     padding: 0;

@@ -16,7 +16,7 @@
                     <div class="col-12 col-lg-6">
                         <div class="invest-item-holder">
                             <div class="invest-item">
-                                <div class="invest-item-thumb">
+                                <div class="invest-item-thumb img-overflow">
                                     <span class="img-badge">Inwestycja planowana</span>
                                     @if($r->developro)
                                     <a href="{{ route('developro.investment.index', $r->slug) }}">

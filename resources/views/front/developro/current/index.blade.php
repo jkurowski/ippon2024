@@ -21,7 +21,7 @@
                         @endif
                         <div class="invest-item-holder">
                             <div class="invest-item">
-                                <div class="invest-item-thumb">
+                                <div class="invest-item-thumb img-overflow">
                                     <span class="img-badge">Inwestycja aktualna</span>
                                     <img src="{{ asset('investment/thumbs/'.$r->file_thumb) }}" alt="{{ $r->name }}">
                                 </div>
