@@ -3507,6 +3507,16 @@ html.swipebox-html.swipebox-touch {
   header #logo {
     padding: 18px 0;
   }
+  .planned-item-desc p {
+    font-size: 16px;
+    line-height: 23px;
+  }
+  .planned-item-desc h2 {
+    font-size: 30px;
+    line-height: 30px;
+    margin-bottom: 10px;
+    color: #fff;
+  }
 }
 @media (max-width: 1669.98px) {
   .header-holder {
@@ -3603,6 +3613,32 @@ html.swipebox-html.swipebox-touch {
   .main-room-footer .bttn {
     padding: 9px;
     justify-content: center;
+  }
+  .planned-item-desc p {
+    font-size: 13px;
+    line-height: 17px;
+  }
+  .planned-item-desc h2 {
+    font-size: 25px;
+    line-height: 25px;
+  }
+  #numbers .number {
+    padding: 60px 20px 30px;
+  }
+  #numbers .number-icon {
+    width: 140px;
+    height: 140px;
+    top: -70px;
+  }
+  #numbers .number-value {
+    font-size: 90px;
+    margin-bottom: 10px;
+  }
+  #numbers .number-text p {
+    font-size: 15px;
+    line-height: 25px;
+    margin: 0;
+    height: 75px;
   }
 }
 @media (max-width: 1399.98px) {
@@ -3777,6 +3813,9 @@ html.swipebox-html.swipebox-touch {
   .slowLast-desc h3 {
     font-size: 32px;
     margin-bottom: 20px;
+  }
+  .planned-item-gold {
+    padding: 30px;
   }
 }
 @media (max-width: 1199.98px) {
@@ -4051,6 +4090,22 @@ html.swipebox-html.swipebox-touch {
     margin: 40px auto 20px;
     width: 131px;
   }
+  #numbers {
+    padding: 110px 0 40px;
+    margin-top: 50px;
+  }
+  #numbers .number-icon {
+    width: 110px;
+    height: 110px;
+    top: -55px;
+  }
+  #numbers .number-value {
+    font-size: 70px;
+  }
+  #numbers .number-text p {
+    font-size: 13px;
+    line-height: 19px;
+  }
 }
 /* end of 1199.98 */
 @media (max-width: 991.98px) {
@@ -4302,6 +4357,10 @@ html.swipebox-html.swipebox-touch {
   .rostemary span::after {
     right: -70px;
     left: auto;
+  }
+  .slider-holder #filtr {
+    background: #000000;
+    position: static;
   }
 }
 /* end of 767.98 */
@@ -4623,6 +4682,40 @@ html.swipebox-html.swipebox-touch {
   }
   .invest-osiedle-slow .slow-icon {
     width: 33.33333%;
+  }
+  #numbers .number-value {
+    font-size: 46px;
+  }
+  #numbers .number-icon {
+    width: 80px;
+    height: 80px;
+    top: -21px;
+  }
+  #numbers .number-text p {
+    height: 125px;
+  }
+  #numbers {
+    padding: 60px 0 40px;
+    margin-top: 30px;
+  }
+  #mainNews {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .current-stat span {
+    font-size: 14px;
+  }
+  .current-stat {
+    font-size: 8px;
+  }
+  #plannedCarousel .slick-arrow {
+    top: -130px;
+    bottom: auto;
+    left: 10px;
+  }
+  #plannedCarousel .slick-arrow.slick-next {
+    right: 10px;
+    left: auto;
   }
 }
 /* end of 575.98 */

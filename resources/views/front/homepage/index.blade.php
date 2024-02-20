@@ -24,7 +24,7 @@
     <div id="filtr">
         <div class="container-fluid">
             <form method="get" class="row" action="/pl/i/osiedle-slow/mieszkania#filtr">
-                <div class="col">
+                <div class="col-12 col-sm-6 col-md">
                     <div class="fake-select fake-select-icon">
                         <i class="las la-building"></i>
                         <select name="invest" id="filtr-rooms">
@@ -33,7 +33,7 @@
                         </select>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-12 col-sm-6 col-md">
                     <div class="fake-select fake-select-icon">
                         <i class="las la-layer-group"></i>
                         <select name="floor" id="filtr-rooms">
@@ -44,7 +44,7 @@
                         </select>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-12 col-sm-6 col-md">
                     <div class="fake-select fake-select-icon">
                         <i class="las la-door-open"></i>
                         <select name="rooms" id="filtr-rooms">
@@ -54,7 +54,7 @@
                         </select>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-12 col-sm-6 col-md">
                     <div class="fake-select fake-select-icon">
                         <i class="las la-tags"></i>
                         <select name="status" id="filtr-status">
@@ -66,7 +66,7 @@
                     </div>
                 </div>
 
-                <div class="col">
+                <div class="col-12 col-sm-6 col-md">
                     <div class="fake-select fake-select-icon">
                         <i class="las la-expand-arrows-alt"></i>
                         <select name="area" id="filtr-area">
@@ -76,8 +76,8 @@
                         </select>
                     </div>
                 </div>
-                <div class="col">
-                    <button type="submit" id="filtr-button" class="bttn bttn-icon">@lang('website.button-search') <i class="ms-3 las la-search"></i></button>
+                <div class="col-12 col-sm-6 col-md">
+                    <button type="submit" id="filtr-button" class="bttn bttn-icon pt-3 pt-sm-0 pb-3 pb-sm-0">@lang('website.button-search') <i class="ms-3 las la-search"></i></button>
                 </div>
             </form>
         </div>
@@ -85,7 +85,7 @@
 </div>
 
 
-<section>
+<section class="pe-3 pe-sm-0 ps-3 ps-sm-0 pt-4 pt-sm-0">
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
@@ -98,7 +98,7 @@
                     <h2 class="mb-0">OSIEDLE AURORA ETAP 4</h2>
                     <div class="invest-item-city">Olsztyn, ul. Barcza</div>
                     <p>W sprzedaży <strong>ostatnie</strong>, <strong>gotowe do odbioru</strong> apartamenty na 6 piętrze. Klienci mogą jeszcze wybierać w mieszkaniach -3 i -4 pokojowych o metrażu od 71 do 94 mkw. Apartamenty posiadają <strong>panoramiczne okna</strong>, <strong>wysokość</strong> pomieszczeń <strong>3m</strong> oraz duże <strong>tarasy</strong> do 53 mkw, z których można podziwiać widok na Park. W sprzedaży także lokale z prywatnymi <strong>ogrodami zimowymi</strong>, które można zaaranżować jako prywatny ogród lub powiększyć strefę mieszkalną o dodatkową przestrzeń. Mieszkańcy skorzystają z <strong>miejsc parkingowych</strong> w hali garażowej, naziemnych miejsc postojowych oraz komórek lokatorskich.</p>
-                    <div class="row mt-5">
+                    <div class="row mt-3 mt-sm-5">
                         <div class="col-3">
                             <div class="current-stat text-center">
                                 <span>135</span>
@@ -124,7 +124,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="https://www.aurora.olsztyn.pl/" target="_blank" class="bttn bttn-icon mt-5">ZOBACZ MIESZKANIA <i class="ms-3 las la-chevron-circle-right"></i></a>
+                    <a href="https://www.aurora.olsztyn.pl/" target="_blank" class="bttn bttn-icon mt-3 mt-sm-5">ZOBACZ MIESZKANIA <i class="ms-3 las la-chevron-circle-right"></i></a>
                 </div>
             </div>
             <div data-aos="fade-left" data-aos-offset="300" data-aos-delay="0" class="col-12 col-xl-6">
@@ -140,7 +140,7 @@
                     <h2 class="mb-0">OSIEDLE SLOW</h2>
                     <div class="invest-item-city">Olsztyn, ul.Kordeckiego</div>
                     <p>Rozpoczęcie sprzedaży 1 kwartał 2024r. Osiedle Slow to kameralne osiedle, z dala od centrum miasta, dla osób które cenią sobie bliskość terenów rekreacyjnych, ale także chcą mieszkać na bezpiecznym i nowoczesnym osiedlu. W specjalnych strefach spotkań powstaną miejsca na ognisko oraz wiaty grillowe z miejscami do siedzenia.</p>
-                    <div class="row mt-5">
+                    <div class="row mt-3 mt-sm-5">
                         <div class="col-3">
                             <div class="current-stat text-center">
                                 <span>39</span>
@@ -166,7 +166,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="/pl/i/osiedle-slow" class="bttn bttn-icon mt-5">ZOBACZ MIESZKANIA <i class="ms-3 las la-chevron-circle-right"></i></a>
+                    <a href="/pl/i/osiedle-slow" class="bttn bttn-icon mt-3 mt-sm-5">ZOBACZ MIESZKANIA <i class="ms-3 las la-chevron-circle-right"></i></a>
                 </div>
             </div>
             <div data-aos="fade-right" data-aos-offset="400" data-aos-delay="0" class="col-12 col-xl-6">
@@ -179,7 +179,7 @@
     </div>
 </section>
 
-<section>
+<section class="pe-3 pe-sm-0 ps-3 ps-sm-0">
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
@@ -252,7 +252,7 @@
             @foreach($investments_planned as $ip)
             <div class="col-12">
                 <div class="planned-item row no-gutters">
-                    <div class="col-8">
+                    <div class="col-12 col-xxl-8">
                         <div class="img-overflow">
                             @if($ip->developro)
                                 <a href="{{ route('developro.investment.index', $ip->slug) }}">
@@ -263,7 +263,7 @@
                             @endif
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-12 col-xxl-4">
                         <div class="planned-item-gold">
                             <div class="planned-item-desc">
                                 @if($ip->developro)
@@ -300,7 +300,7 @@
     <div class="light-bg pt-5 pb-5">
         <div class="container">
             <div class="row">
-                <div class="col-3">
+                <div class="col-12 col-sm-6 col-xl-3 mb-4 mb-xl-0">
                     <div data-aos="fade-up" data-aos-offset="500" data-aos-delay="0" class="main-room main-room-disable">
                         <div class="main-room-header text-center">
                             @if($current_locale == 'pl')
@@ -319,11 +319,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-3">
+                <div class="col-12 col-sm-6 col-xl-3 mb-4 mb-xl-0">
                     <div data-aos="fade-up" data-aos-offset="500" data-aos-delay="100" class="main-room">
                         <div class="main-room-header text-center">
                             @if($current_locale == 'pl')
-                                <h2 class="poppins"><a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=2#filtr">MIESZKANIA <br><b>1 POKOJOWE</b></a></h2>
+                                <h2 class="poppins"><a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=2#filtr">MIESZKANIA <br><b>2 POKOJOWE</b></a></h2>
                             @else
                                 <h2 class="poppins"><a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=2#filtr">2-room <br><b>APARTMENTS</b></a></h2>
                             @endif
@@ -338,11 +338,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-3">
+                <div class="col-12 col-sm-6 col-xl-3">
                     <div data-aos="fade-up" data-aos-offset="500" data-aos-delay="200" class="main-room">
                         <div class="main-room-header text-center">
                             @if($current_locale == 'pl')
-                                <h2 class="poppins"><a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=3#filtr">MIESZKANIA <br><b>1 POKOJOWE</b></a></h2>
+                                <h2 class="poppins"><a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=3#filtr">MIESZKANIA <br><b>3 POKOJOWE</b></a></h2>
                             @else
                                 <h2 class="poppins"><a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=3#filtr">3-room <br><b>APARTMENTS</b></a></h2>
                             @endif
@@ -357,7 +357,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-3">
+                <div class="col-12 col-sm-6 col-xl-3">
                     <div data-aos="fade-up" data-aos-offset="500" data-aos-delay="300" class="main-room main-room-disable">
                         <div class="main-room-header text-center">
                             @if($current_locale == 'pl')
@@ -381,7 +381,7 @@
     </div>
 </section>
 
-<section>
+<section class="pe-3 pe-sm-0 ps-3 ps-sm-0">
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
@@ -391,11 +391,11 @@
                     <h2 class="section-title text-uppercase"><span class="text-gold">A Reliable</span> <br>developer</h2>
                 @endif
             </div>
-            <div class="col-6" data-aos="fade-right" data-aos-offset="500">
+            <div class="col-12 col-lg-6" data-aos="fade-right" data-aos-offset="500">
                 <img src="{{ asset('images/deweloper-roku-2023.jpg') }}" alt="" width="840" height="600">
             </div>
-            <div class="col-6 d-flex align-items-center" data-aos="fade-left" data-aos-offset="500">
-                <div class="section-text ps-5">
+            <div class="col-12 col-lg-6 d-flex align-items-center" data-aos="fade-left" data-aos-offset="500">
+                <div class="section-text ps-0 ps-lg-5 mt-4 mt-lg-0">
                     @if($current_locale == 'pl')
                     <p>Jesteśmy wiodącą firmą deweloperską specjalizującą się w realizacji projektów branży mieszkaniowej oraz komercyjnej. Czterokrotnie zostaliśmy nagrodzeni tytułem Deweloper Roku. Budujemy mieszkania, apartamenty oraz domy na terenie całego kraju.</p>
                     <p>&nbsp;</p>
@@ -414,7 +414,7 @@
     <div id="numbers">
         <div class="container">
             <div class="row">
-                <div class="col-3">
+                <div class="col-6 col-lg-3 mb-5 mb-lg-0">
                     <div class="number">
                         <div class="number-icon">
                             <img src="{{ asset('/images/icons/wysoka-jakosc-icon.png') }}" alt="" width="170" height="170">
@@ -425,7 +425,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-3">
+                <div class="col-6 col-lg-3 mb-5 mb-lg-0">
                     <div class="number">
                         <div class="number-icon">
                             <img src="{{ asset('/images/icons/polecenie-zakupu-icon.png') }}" alt="" width="170" height="170">
@@ -436,7 +436,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-3">
+                <div class="col-6 col-lg-3">
                     <div class="number">
                         <div class="number-icon">
                             <img src="{{ asset('/images/icons/atrakcyjna-lokalizacja.png') }}" alt="" width="170" height="170">
@@ -447,7 +447,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-3">
+                <div class="col-6 col-lg-3">
                     <div class="number">
                         <div class="number-icon">
                             <img src="{{ asset('/images/icons/oddane-mieszkania-icon.png') }}" alt="" width="170" height="170">
@@ -463,7 +463,7 @@
     </div>
 </section>
 
-<section>
+<section class="d-none d-xxl-block">
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
@@ -506,7 +506,7 @@
     </div>
 </section>
 
-<section>
+<section class="d-none d-lg-block">
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
@@ -589,5 +589,11 @@
     </div>
 </div>
 
-@include('front.contact.form', [ 'page_name' => 'Strona główna'])
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            @include('front.contact.form', [ 'page_name' => 'Strona główna'])
+        </div>
+    </div>
+</div>
 @endsection

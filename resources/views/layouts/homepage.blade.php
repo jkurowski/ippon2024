@@ -94,6 +94,29 @@
             arrows: false,
             dots: true,
             initialSlide: 1,
+            responsive: [
+                {
+                    breakpoint: 1400,
+                    settings: {
+                        centerPadding: '120px',
+                    }
+                },
+                {
+                    breakpoint: 900,
+                    settings: {
+                        slidesToShow: 1,
+                        centerPadding: '70px',
+                    }
+                },
+                {
+                    breakpoint: 500,
+                    settings: {
+                        slidesToShow: 1,
+                        centerMode: false,
+                        centerPadding: '0px',
+                    }
+                }
+            ]
         });
 
         $('#awardsCarousel .row').slick({
@@ -145,6 +168,29 @@
             centerPadding: '240px',
             arrows: true,
             dots: true,
+            responsive: [
+                {
+                    breakpoint: 1400,
+                    settings: {
+                        centerPadding: '120px',
+                    }
+                },
+                {
+                    breakpoint: 900,
+                    settings: {
+                        slidesToShow: 1,
+                        centerPadding: '70px',
+                    }
+                },
+                {
+                    breakpoint: 500,
+                    settings: {
+                        slidesToShow: 1,
+                        centerMode: false,
+                        centerPadding: '0px',
+                    }
+                }
+            ]
         });
 
         @if(settings()->get("popup_status") == 1)
