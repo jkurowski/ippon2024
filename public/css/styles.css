@@ -230,10 +230,10 @@ button {
   right: auto;
 }
 @font-face {
-  font-family: 'Abuget';
+  font-family: abuget;
   font-style: normal;
   font-weight: 400;
-  src: local('Abuget'), url('https://fonts.cdnfonts.com/s/77885/Abuget.woff') format('woff');
+  src: local('Abuget'), url(https://fonts.cdnfonts.com/s/77885/Abuget.woff) format('woff');
 }
 .slow-header {
   display: flex;
@@ -1788,6 +1788,7 @@ section {
   width: 55px;
   height: 55px;
   background: white url('../images/hr.png') no-repeat center center;
+  background-size: 50px 50px;
   display: block;
   content: "";
   margin: auto;

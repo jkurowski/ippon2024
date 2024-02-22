@@ -18,7 +18,7 @@
                 <div class="contact-box">
                     <h2>IPPON GROUP</h2>
                     <p>Ippon Group Sp. z o.o.</p>
-                    <p>ul. Aleja Armii Ludowej 26,</p>
+                    <p>ul. Aleja Armii Ludowej 26, 8 piętro</p>
                     <p>00-609 Warszawa</p>
                 </div>
             </div>
