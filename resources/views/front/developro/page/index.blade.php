@@ -61,6 +61,6 @@
 @endsection
 @push('scripts')
     <script type="text/javascript">
-        AOS.init();
+        AOS.init({disable: 'mobile'});
     </script>
 @endpush

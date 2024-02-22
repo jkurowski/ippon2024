@@ -226,7 +226,7 @@
     <script src="{{ asset('js/validation.js') }}" charset="utf-8"></script>
     <script src="{{ asset('js/pl.js') }}" charset="utf-8"></script>
     <script type="text/javascript">
-        AOS.init();
+        AOS.init({disable: 'mobile'});
 
         $(document).ready(function(){
             $(".validateForm").validationEngine({

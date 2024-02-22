@@ -130,14 +130,14 @@
             <div class="col-12 col-lg-8 d-flex align-items-center inline">
                 <div class="ps-0 ps-lg-5 pt-4 pt-lg-0">
                     @if($current_locale == 'pl')
-                    <h2 data-modaltytul="10">Developer Agreement - Notarial Deed</h2>
+                    <h2 data-modaltytul="10">Umowa deweloperska – akt notarialny</h2>
                     <div data-modaleditortext="10">
                         <p>Kolejną umową, którą podpisujemy z deweloperem jest tzw. umowa deweloperska. Na 2 dni przed jej podpisaniem musi nastąpić wyrównanie opłaty do 10% wartości mieszkania. W przeciwieństwie do umowy rezerwacyjnej, umowa deweloperska jest podpisywana w kancelarii notarialnej, a za czynności notariusza należy opłacić tzw. taksę (zgodnie z ustawą deweloperską, cena taksy obciąża po połowie nabywcę mieszkania oraz dewelopera).</p>
                         <p>&nbsp;</p>
                         <p>Gdy już podpiszemy umowę deweloperską, aktualizuje się obowiązek płatności rat. Raty płacimy zgodnie z harmonogramem płatności zapisanym w umowie deweloperskiej. Dbając o bezpieczeństwo środków naszych nabywców – harmonogram jest zawsze kompatybilny z postępami prac na budowie – płacisz za tyle, ile zrealizowaliśmy!</p>
                     </div>
                     @else
-                        <h2 data-modaltytul="10">Umowa deweloperska – akt notarialny</h2>
+                        <h2 data-modaltytul="10">Developer Agreement - Notarial Deed</h2>
                         <div data-modaleditortext="10">
                             <p>The next agreement we sign with the developer is the so-called developer agreement. It's necessary to balance the payment to 10% of the apartment's value within 2 days before signing this agreement. Unlike the reservation agreement, the developer agreement is signed in a notary's office, and the notary's fee (in accordance with the developer law) is split between the apartment buyer and the developer.</p>
                             <p>&nbsp;</p>

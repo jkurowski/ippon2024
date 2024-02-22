@@ -168,7 +168,7 @@
 @push('scripts')
     <script src="{{ asset('js/slick.js') }}" charset="utf-8"></script>
     <script type="text/javascript">
-        AOS.init();
+        AOS.init({disable: 'mobile'});
 
         $(document).ready(function(){
             $('#awardsCarousel .row').slick({
