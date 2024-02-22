@@ -151,7 +151,7 @@
                 <div class="contact-box">
                     <h2>BIURO SPRZEDAŻY</h2>
                     <p>ul. Żelazna 4,</p>
-                    <p>10-685 Olsztyn</p>
+                    <p>10-419 Olsztyn</p>
                     <p>&nbsp;</p>
                     <p>Godziny otwarcia:</p>
                     <p>pn.-pt. 9:00 - 17:00</p>
