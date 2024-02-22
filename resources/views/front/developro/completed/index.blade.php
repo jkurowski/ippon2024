@@ -20,9 +20,9 @@
                 @foreach($investments as $r)
                     <div class="col-12 col-lg-6">
                         <div class="invest-item-holder">
-                            <div class="invest-item">
+                            <div class="invest-item position-relative">
+                                <span class="img-badge">Inwestycja zakończona</span>
                                 <div class="invest-item-thumb">
-                                    <span class="img-badge">Inwestycja zakończona</span>
                                     @if($r->carousel->count() > 0)
                                         <div class="textSlider commercial-slider">
                                             <ul class="list-unstyled mb-0">

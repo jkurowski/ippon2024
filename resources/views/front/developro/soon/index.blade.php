@@ -15,9 +15,9 @@
                 @foreach($investments as $r)
                     <div class="col-12 col-lg-6">
                         <div class="invest-item-holder">
-                            <div class="invest-item">
+                            <div class="invest-item position-relative">
+                                <span class="img-badge">Inwestycja już wkrótce</span>
                                 <div class="invest-item-thumb img-overflow">
-                                    <span class="img-badge">Inwestycja już wkrótce</span>
                                     @if($r->developro)
                                         <a href="{{ route('developro.investment.index', $r->slug) }}">
                                             <img src="{{ asset('investment/thumbs/'.$r->file_thumb) }}" alt="{{ $r->name }}">

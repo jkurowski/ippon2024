@@ -20,9 +20,9 @@
                             <a href="{{ route('developro.investment.index', $r->slug) }}">
                         @endif
                         <div class="invest-item-holder">
-                            <div class="invest-item">
+                            <div class="invest-item position-relative">
+                                <span class="img-badge">Inwestycja aktualna</span>
                                 <div class="invest-item-thumb img-overflow">
-                                    <span class="img-badge">Inwestycja aktualna</span>
                                     <img src="{{ asset('investment/thumbs/'.$r->file_thumb) }}" alt="{{ $r->name }}">
                                 </div>
                                 <div class="invest-item-desc">

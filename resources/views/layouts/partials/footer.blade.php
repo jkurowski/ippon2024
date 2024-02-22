@@ -33,7 +33,7 @@
             <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                 <div class="footer-box">
                     <h4>@lang('website.footer-label-sales-office')</h4>
-                    <p>ul. Barcza 50</p>
+                    <p>ul. Żelazna 4</p>
                     <p>@lang('website.footer-opening-hours-label'):</p>
                     <p>@lang('website.footer-opening-hours-text-2')</p>
                     <ul class="mb-0 list-unstyled icon-list-contact">
