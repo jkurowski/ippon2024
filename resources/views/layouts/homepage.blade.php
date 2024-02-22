@@ -62,7 +62,7 @@
     </div>
 @endif
 <script type="text/javascript">
-    AOS.init();
+    AOS.init({disable: 'mobile'});
 
     $(document).ready(function(){
         $('.number-value span').counterUp({
