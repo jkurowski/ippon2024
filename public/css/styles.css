@@ -230,10 +230,10 @@ button {
   right: auto;
 }
 @font-face {
-  font-family: abuget;
+  font-family: 'Abuget';
   font-style: normal;
   font-weight: 400;
-  src: local('Abuget'), url(https://fonts.cdnfonts.com/s/77885/Abuget.woff) format('woff');
+  src: local('Abuget'), url('https://fonts.cdnfonts.com/s/77885/Abuget.woff') format('woff');
 }
 .slow-header {
   display: flex;
@@ -3585,8 +3585,8 @@ html.swipebox-html.swipebox-touch {
   .section-title:before {
     width: 100%;
   }
-  .investment-contact .d-flex img,
-  .property-contact .d-flex img {
+  .investment-contact .d-flex img.golden-border,
+  .property-contact .d-flex img.golden-border {
     width: 560px;
   }
   .sellers h2 {
