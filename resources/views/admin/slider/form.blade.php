@@ -56,6 +56,9 @@
                                     @include('form-elements.html-input-file', ['label' => 'Zdjęcie', 'sublabel' => '(wymiary: '.config('images.slider.big_width').'px / '.config('images.slider.big_height').'px)', 'name' => 'file'])
                                 </div>
                                 <div class="row w-100 form-group">
+                                    @include('form-elements.html-input-file', ['label' => 'Zdjęcie mobile', 'sublabel' => '(wymiary: 800px / 800px)', 'name' => 'file_mobile'])
+                                </div>
+                                <div class="row w-100 form-group">
                                     @include('form-elements.html-input-text', ['label' => 'Atrybut ALT zdjęcia', 'name' => 'file_alt', 'value' => $entry->file_alt])
                                 </div>
                             </div>

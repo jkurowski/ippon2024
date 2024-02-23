@@ -10,9 +10,14 @@
                     <a href="{{ $panel->link }}" target="{{ $panel->link_target }}">
                         @endif
                         <picture>
-                            <source type="image/webp" srcset="{{asset('/uploads/slider/webp/'.$panel->file_webp) }}">
-                            <source type="image/jpeg" srcset="{{asset('/uploads/slider/'.$panel->file) }}">
-                            <img src="{{asset('/uploads/slider/'.$panel->file) }}" alt="{{ $panel->title }}" width="700" height="394" class="w-100" alt="{{ $panel->file_alt }}">
+                            <!-- Use webp and jpeg images above 800px -->
+                            <source type="image/webp" srcset="{{ asset('/uploads/slider/webp/'.$panel->file_webp) }}" media="(min-width: 801px)">
+                            <source type="image/jpeg" srcset="{{ asset('/uploads/slider/'.$panel->file) }}" media="(min-width: 801px)">
+
+                            <!-- Use mobile image below 800px -->
+                            <source type="image/jpeg" srcset="{{ asset('/uploads/slider/mobile/'.$panel->file_mobile) }}" media="(max-width: 800px)">
+
+                            <img src="{{asset('/uploads/slider/'.$panel->file) }}" width="700" height="394" class="w-100" alt="{{ $panel->file_alt }}">
                         </picture>
                         @if($panel->link)
                     </a>

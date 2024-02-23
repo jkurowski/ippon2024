@@ -8,7 +8,7 @@
   'select-option-floor-2' => '2 piętro',
   'select-option-floor-3' => '3 piętro',
   'select-option-floor-4' => '4 piętro',
-  'select-option-rooms' => 'Ilość pokoi',
+  'select-option-rooms' => 'Pokoje',
   'select-option-rooms-1' => '1 pokój',
   'select-option-rooms-2' => '2 pokoje',
   'select-option-rooms-3' => '3 pokoje',

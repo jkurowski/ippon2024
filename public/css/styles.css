@@ -4723,6 +4723,22 @@ html.swipebox-html.swipebox-touch {
     right: 10px;
     left: auto;
   }
+  .fake-select.fake-select-icon .fake-select-input {
+    padding-left: 42px;
+  }
+  .fake-select-input {
+    height: 42px;
+    padding: 0 15px;
+    line-height: 42px;
+  }
+  .fake-select-input:after {
+    top: 10px;
+  }
+  .fake-select i {
+    left: 5px;
+    font-size: 32px;
+    top: 5px;
+  }
 }
 /* end of 575.98 */
 @media (max-width: 480px) {

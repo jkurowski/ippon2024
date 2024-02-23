@@ -56,6 +56,10 @@ class IndexController extends Controller
             $this->service->upload($request->title, $request->file('file'), $slider);
         }
 
+        if ($request->hasFile('file_mobile')) {
+            $this->service->uploadMobile($request->title, $request->file('file_mobile'), $slider);
+        }
+
         return redirect(route('admin.slider.index'))->with('success', 'Nowy obrazek dodany');
     }
 
@@ -74,6 +78,10 @@ class IndexController extends Controller
 
         if ($request->hasFile('file')) {
             $this->service->upload($request->title, $request->file('file'), $slider, true);
+        }
+
+        if ($request->hasFile('file_mobile')) {
+            $this->service->uploadMobile($request->title, $request->file('file_mobile'), $slider, true);
         }
 
         return redirect(route('admin.slider.index'))->with('success', 'Obrazek zaktualizowany');
