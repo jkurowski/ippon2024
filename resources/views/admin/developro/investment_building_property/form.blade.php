@@ -221,6 +221,16 @@
                                         'file_preview' => config('images.property.preview_pdf_path')
                                     ])
                                 </div>
+                                <div class="row w-100 form-group">
+                                    @include('form-elements.html-input-file-pdf', [
+                                        'label' => 'Plan 3d .pdf',
+                                        'sublabel' =>
+                                        'Plan do pobrania',
+                                        'name' => 'file_3d',
+                                        'file' => $entry->file_3d,
+                                        'file_preview' => config('images.property.preview_pdf_path')
+                                    ])
+                                </div>
                             </div>
                         </div>
                         <input type="hidden" name="floor_id" value="{{ $floor->id }}">

@@ -86,4 +86,18 @@ class PropertyService
         $file->storeAs('property/pdf', $name, 'investment_uploads');
         $model->update(['file_pdf' => $name]);
     }
+
+    public function upload3d(string $title, UploadedFile $file, object $model, bool $delete = false)
+    {
+
+        if ($delete) {
+            if (File::isFile(public_path('investment/property/pdf/' . $model->file_3d))) {
+                File::delete(public_path('investment/property/pdf/' . $model->file_3d));
+            }
+        }
+
+        $name = date('His').'_3d_'.Str::slug($title).'.' . $file->getClientOriginalExtension();
+        $file->storeAs('property/pdf', $name, 'investment_uploads');
+        $model->update(['file_3d' => $name]);
+    }
 }

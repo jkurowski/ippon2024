@@ -54,7 +54,9 @@
                             @endif
                         </div>
                         <div class="col-12 col-sm-4">
-
+                            @if($property->file_3d && $property->status <> 3)
+                                <a href="{{ asset('/investment/property/pdf/'.$property->file_3d) }}" target="_blank" class="bttn bttn-slow w-100 justify-content-center ">KARTA 3D<i class="ms-4 las la-download"></i></a>
+                            @endif
                         </div>
                         <div class="col-12 col-sm-4">
                             <a href="#contactForm" data-offset="0" target="_blank" class="bttn bttn-slow w-100 justify-content-center bttn-slow-red scroll-to">ZAPYTAJ O MIESZKANIE</a>

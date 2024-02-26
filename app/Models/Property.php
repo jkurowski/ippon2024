@@ -46,6 +46,7 @@ class Property extends Model
         'html',
         'cords',
         'file',
+        'file_3d',
         'file_pdf',
         'file_webp',
         'meta_title',

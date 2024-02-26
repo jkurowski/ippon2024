@@ -82,6 +82,10 @@ class BuildingPropertyController extends Controller
             $this->service->uploadPdf($request->name, $request->file('file_pdf'), $property);
         }
 
+        if ($request->hasFile('file_3d')) {
+            $this->service->upload3d($request->name, $request->file('file_3d'), $property);
+        }
+
         return redirect()->route('admin.developro.investment.building.floor.properties.index', [$investment, $building, $floor])->with('success', 'Powierzchnia zapisana');
     }
 
@@ -108,6 +112,10 @@ class BuildingPropertyController extends Controller
 
         if ($request->hasFile('file_pdf')) {
             $this->service->uploadPdf($request->name, $request->file('file_pdf'), $property, true);
+        }
+
+        if ($request->hasFile('file_3d')) {
+            $this->service->upload3d($request->name, $request->file('file_3d'), $property, true);
         }
 
         return redirect()->route('admin.developro.investment.building.floor.properties.index', [$investment, $building, $floor])->with('success', 'Powierzchnia zaktualizowana');

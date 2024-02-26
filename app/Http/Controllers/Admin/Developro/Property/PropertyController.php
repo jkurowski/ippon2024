@@ -80,6 +80,10 @@ class PropertyController extends Controller
             $this->service->uploadPdf($request->name, $request->file('file_pdf'), $property);
         }
 
+        if ($request->hasFile('file_3d')) {
+            $this->service->upload3d($request->name, $request->file('file_3d'), $property);
+        }
+
         return redirect(route('admin.developro.investment.properties.index', [$investment, $floor]))->with('success', 'Powierzchnia zapisana');
     }
 
@@ -104,6 +108,10 @@ class PropertyController extends Controller
 
         if ($request->hasFile('file_pdf')) {
             $this->service->uploadPdf($request->name, $request->file('file_pdf'), $property, true);
+        }
+
+        if ($request->hasFile('file_3d')) {
+            $this->service->upload3d($request->name, $request->file('file_3d'), $property, true);
         }
 
         return redirect(route('admin.developro.investment.properties.index', [$investment, $floor]))->with('success', 'Powierzchnia zaktualizowana');
