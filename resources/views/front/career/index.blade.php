@@ -118,7 +118,7 @@
                                     <img src="{{ asset('/images/icons/stabilne-zatrudnienie.png') }}" alt="" width="135" height="135">
                                 </div>
                                 @if($current_locale == 'pl')
-                                <p>STABLE <br>EMPLOYMENT</p>
+                                <p>STABILNE <br>ZATRUDNIENIE</p>
                                 @else
                                 <p>STABLE <br>EMPLOYMENT</p>
                                 @endif
@@ -132,7 +132,7 @@
                                 @if($current_locale == 'pl')
                                 <p>PRACA Z NAJLEPSZYMI <br>W BRANŻY</p>
                                 @else
-                                    <p>COLLABORATION WITH <br>THE BEST IN THE INDUSTRY</p>
+                                <p>COLLABORATION WITH <br>THE BEST IN THE INDUSTRY</p>
                                 @endif
                             </div>
                         </div>
