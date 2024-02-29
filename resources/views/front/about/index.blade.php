@@ -26,36 +26,44 @@
             </div>
             <div class="row left-right flex-row-reverse row-offset-up">
                 <div class="col-12 col-xl-6 d-flex align-items-center">
-                    <div class="left-right-text" data-aos="fade-up" data-aos-offset="500" data-aos-delay="0">
+                    <div class="left-right-text" data-aos="fade-up" data-aos-offset="200" data-aos-delay="0">
                         <h2>Jakość</h2>
                         <p>Dbanie o najwyższą jakość przejawia się w każdym miejscu działalności naszych spółek: w codziennej pracy, w relacjach z Klientami, w zastosowaniu wysokiej klasy materiałów i technologii przy realizacji projektów. Dzięki temu wiemy, że dostarczamy produkty najwyższej jakości, które podążają za współczesnymi trendami i ochroną środowiska.</p>
                     </div>
                 </div>
-                <div class="col-12 col-xl-6" data-aos="fade-up" data-aos-offset="500" data-aos-delay="0">
+                <div class="col-12 col-xl-6" data-aos="fade-up" data-aos-offset="200" data-aos-delay="0">
                     <img src="{{ asset('/uploads/files/o-nas/jakosc.jpg') }}" alt="" class="golden-border w-100" width="840" height="650">
+                </div>
+            </div>
+
+            <div class="row mt-0 mt-xl-5 pt-5">
+                <div class="col-12">
+                    <video muted playsinline loop autoplay id="movie" data-aos="fade-up" data-aos-offset="200" data-aos-delay="0">
+                        <source src="/uploads/files/movie.mp4" type="video/mp4">
+                    </video>
                 </div>
             </div>
 
             <div class="row left-right row-offset-up">
                 <div class="col-12 col-xl-6 d-flex align-items-center">
-                    <div class="left-right-text" data-aos="fade-up" data-aos-offset="500" data-aos-delay="0">
+                    <div class="left-right-text" data-aos="fade-up" data-aos-offset="200" data-aos-delay="0">
                         <h2>Zaawansowane rozwiązania</h2>
                         <p>We wszystkich naszych projektach, stosujemy zaawansowane rozwiązania technologiczne. Współpracujemy tylko z z najlepszymi architektami i dekoratorami wnętrz. Każde mieszkanie, dopracowane jest w najmniejszych szczegółach, by zagwarantować komfort i wygodę przyszłych mieszkańców. Z myślą o ekologii, wdrażamy rozwiązania, które realnie wpływają na środowisko. Stosujemy m.in.: kolektory słoneczne, oświetlenie LED oraz zbiorniki retencyjne, które wykorzystują wody opadowe do podlewania roślinności w częściach wspólnych na osiedlu. Takie działania to nie tylko ochrona środowiska, ale także realne oszczędności na rachunkach naszych mieszkańców.</p>
                     </div>
                 </div>
-                <div class="col-12 col-xl-6" data-aos="fade-up" data-aos-offset="500" data-aos-delay="0">
+                <div class="col-12 col-xl-6" data-aos="fade-up" data-aos-offset="200" data-aos-delay="0">
                     <img src="{{ asset('/uploads/files/o-nas/zaawansowane-rozwiazania-2.jpg') }}" alt="Wizualizacja osiedla Aurora" class="golden-border w-100" width="840" height="650">
                 </div>
             </div>
 
             <div class="row left-right flex-row-reverse row-offset-up">
                 <div class="col-12 col-xl-6 d-flex align-items-center">
-                    <div class="left-right-text" data-aos="fade-up" data-aos-offset="500" data-aos-delay="0">
+                    <div class="left-right-text" data-aos="fade-up" data-aos-offset="200" data-aos-delay="0">
                         <h2>Deweloper mieszkaniowy</h2>
                         <p>Realizujemy projekty mieszkaniowe w całej Polsce. W Olsztynie wybudowaliśmy osiedle wielorodzinne – Aurora, składające się z 9 nowoczesnych budynków o łącznej ilości 658 mieszkań. Nowe osiedle zbudowane zostało z najwyższej jakości materiałów. Wyróżnia się na tle innych olsztyńskich inwestycji oryginalnym designem, wpisującym się w najnowsze trendy architektoniczne. (<a href="https://www.aurora.olsztyn.pl" target="_blank">www.aurora.olsztyn.pl</a>)</p>
                     </div>
                 </div>
-                <div class="col-12 col-xl-6" data-aos="fade-up" data-aos-offset="500" data-aos-delay="0">
+                <div class="col-12 col-xl-6" data-aos="fade-up" data-aos-offset="200" data-aos-delay="0">
                     <img src="{{ asset('/uploads/files/o-nas/deweloper-mieszkaniowy.jpg') }}" alt="Wizualizacja osiedla Aurora" class="golden-border w-100" width="840" height="650">
                 </div>
             </div>

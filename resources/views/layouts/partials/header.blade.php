@@ -90,3 +90,19 @@
         </div>
     </header>
 </div>
+<div id="widget">
+    <ul>
+        <li class="d-none">
+            <a rel="nofollow" target="_blank" class="Shield" href="#" data-toggle="modal" data-target="#covidModal"><span>Jesteśmy bezpieczni</span></a>
+        </li>
+        <li>
+            <a rel="nofollow" target="_blank" class="Facebook" href="https://www.facebook.com/ippongroup"><span>Facebook</span></a>
+        </li>
+        <li>
+            <a rel="nofollow" target="_blank" class="Instagram" href="https://www.instagram.com/deweloper_ippon.group/"><span>Instagram</span></a>
+        </li>
+        <li>
+            <a rel="nofollow" target="_blank" class="Youtube" href="https://www.youtube.com/channel/UCMq2YxcdW0AH5rZBq_KqI6w"><span>Youtube</span></a>
+        </li>
+    </ul>
+</div>
