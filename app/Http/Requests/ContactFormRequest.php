@@ -29,8 +29,7 @@ class ContactFormRequest extends FormRequest
             'form_email' => 'required|email:rfc',
             'form_message' => 'required',
             'form_phone' => 'required',
-            'rule_1' => 'required',
-            'rule_2' => 'required'
+            'rule_4' => 'required'
         ];
 
         return $rules;

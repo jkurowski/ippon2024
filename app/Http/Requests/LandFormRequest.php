@@ -36,8 +36,7 @@ class LandFormRequest extends FormRequest
             'form_book' => '',
             'form_land' => '',
             'form_page' => '',
-            'rule_1' => 'required',
-            'rule_2' => 'required'
+            'rule_4' => 'required'
         ];
 
         return $rules;
