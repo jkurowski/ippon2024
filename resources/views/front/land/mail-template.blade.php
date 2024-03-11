@@ -24,10 +24,16 @@
                         <p style="text-align:center">{{ config('app.name') }}</p>
                         <p><b>Wiadomość wysłana: <?= date("d.m.Y - H:i:s"); ?></b></p>
                         <hr style="border:0;border-bottom:1px solid #ececec" />
-                        <p><b>Imię:</b> {{ $request->form_name }}</p>
                         <p><b>E-mail:</b> {{ $request->form_email }}</p>
                         @isset($request->form_phone)<p style="margin:0"><b>Telefon:</b> {{ $request->form_phone }}</p>@endisset
-                        <p><b>Temat:</b> {{ $request->form_subject }}</p>
+                        <p><b>Imię:</b> {{ $request->form_name }}</p>
+                        @isset($request->form_surname)<p><b>Nazwisko:</b> {{ $request->form_surname }}</p>@endisset
+                        @isset($request->form_city)<p><b>Miasto:</b> {{ $request->form_city }}</p>@endisset
+                        @isset($request->form_street)<p><b>Ulica:</b> {{ $request->form_street }}</p>@endisset
+                        @isset($request->form_price)<p><b>Cena:</b> {{ $request->form_price }}</p>@endisset
+                        @isset($request->form_date)<p><b>Data:</b> {{ $request->form_date }}</p>@endisset
+                        @isset($request->form_book)<p><b>Księga:</b> {{ $request->form_book }}</p>@endisset
+                        @isset($request->form_land)<p><b>Przeznaczenie:</b> {{ $request->form_land }}</p>@endisset
                         <hr style="border:0;border-bottom:1px solid #ececec" />
                         <p>{{ $request->form_message }}</p>
                     </td>

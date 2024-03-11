@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\DatabaseNotification;
 
 class ClientMessage extends Model
 {
@@ -23,20 +24,41 @@ class ClientMessage extends Model
         'parent_id',
         'user_id',
         'client_id',
+        'notification_id',
         'message',
         'source',
+        'investment',
+        'building',
+        'floor',
+        'property',
+        'rooms',
+        'area',
         'ip',
-        'mark_at',
-        'arguments'
+        'mark_at'
     ];
+
+    public function investments()
+    {
+        return $this->hasOne(Investment::class, 'id', 'investment');
+    }
 
     public function answers()
     {
         return $this->hasMany(self::class, 'parent_id')->latest();
     }
 
+    public function notification()
+    {
+        return $this->hasOne(DatabaseNotification::class, 'id', 'notification_id');
+    }
+
+    public function utms()
+    {
+        return $this->hasMany(ClientMessageArgument::class, 'msg_id');
+    }
+
     public function client()
     {
-        return $this->belongsTo(Client::class, 'client_id');
+        return $this->belongsTo(Client::class);
     }
 }

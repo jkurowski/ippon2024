@@ -5,7 +5,7 @@
         <div class="card-head container-fluid">
             <div class="row">
                 <div class="col-6 pl-0">
-                    <h4 class="page-title"><i class="fe-check-circle"></i><a href="{{route('admin.crm.clients.index')}}">Klienci</a><span class="d-inline-flex me-2 ms-2">/</span><a href="{{ route('admin.crm.clients.show', $client->id) }}">{{$client->name}}</a><span class="d-inline-flex me-2 ms-2">/</span>Zgody RODO</h4>
+                    <h4 class="page-title"><i class="fe-check-circle"></i><a href="{{ route('admin.crm.inbox.index') }}">Wiadomości</a><span class="d-inline-flex me-2 ms-2">/</span>Zgody RODO</h4>
                 </div>
                 <div class="col-6 d-flex justify-content-end align-items-center form-group-submit"></div>
             </div>

@@ -32,9 +32,11 @@ Route::group(['namespace' => 'Front', 'prefix' => '{locale?}', 'where' => ['loca
 
     Route::get('kontakt',
         'ContactController@index')->name('contact.index');
+    Route::post('/kontakt', 'ContactController@contact')->name('contact.form');
+    Route::post('/i/{slug}/{property},{propertySlug},{propertyFloor},{propertyRooms},{propertyArea}', 'ContactController@property')->name('contact.property');
 
-    Route::get('zakup-gruntu',
-        'LandController@index')->name('land');
+    Route::get('zakup-gruntu', 'LandController@index')->name('land');
+    Route::post('zakup-gruntu', 'LandController@form')->name('land.form');
 
     Route::get('rabaty',
         'PromotionController@index')->name('promotion');

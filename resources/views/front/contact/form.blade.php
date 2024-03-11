@@ -7,9 +7,9 @@
                         {{ session('success') }}
                     </div>
                 @endif
-                @if (session('warning'))
+                @if (session('error'))
                     <div class="alert alert-warning border-0">
-                        {{ session('warning') }}
+                        {{ session('error') }}
                     </div>
                 @endif
                 <form method="post" id="contact-form" action="" class="validateForm">

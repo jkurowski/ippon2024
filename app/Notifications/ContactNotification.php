@@ -48,7 +48,8 @@ class ContactNotification extends Notification
             'form_subject' => $this->request->input('form_subject'),
             'form_phone' => $this->request->input('form_phone'),
             'ip' => $this->request->ip(),
-            'url' => $this->request->headers->get('referer')
+            'url' => $this->request->headers->get('referer'),
+            'notification_id' => $this->id,
         ];
     }
 }
