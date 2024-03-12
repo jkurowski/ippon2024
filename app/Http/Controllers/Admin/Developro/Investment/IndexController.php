@@ -125,4 +125,46 @@ class IndexController extends Controller
         $this->repository->delete($id);
         return response()->json(['status' => 'deleted'], 201);
     }
+
+    function isFileUploadAllowed() {
+        // Check if file uploads are allowed by checking the value of 'file_uploads' directive
+        $fileUploadsEnabled = ini_get('file_uploads');
+
+        // Check if both 'upload_max_filesize' and 'post_max_size' directives allow file uploads
+        $uploadMaxFilesize = ini_get('upload_max_filesize');
+        $postMaxSize = ini_get('post_max_size');
+        $uploadMaxFilesizeBytes = $this->return_bytes($uploadMaxFilesize);
+        $postMaxSizeBytes = $this->return_bytes($postMaxSize);
+        $maxUploadSize = min($uploadMaxFilesizeBytes, $postMaxSizeBytes);
+
+        return [
+            'file_uploads_enabled' => $fileUploadsEnabled,
+            'max_upload_size' => $maxUploadSize
+        ];
+    }
+
+// Helper function to convert ini sizes to bytes
+    function return_bytes($val) {
+        $val = trim($val);
+        $last = strtolower($val[strlen($val)-1]);
+        $val = (int)$val; // Cast the value to integer
+        switch($last) {
+            case 'g':
+                $val *= 1024;
+            case 'm':
+                $val *= 1024;
+            case 'k':
+                $val *= 1024;
+        }
+        return $val;
+    }
+
+    public function test(){
+        $uploadStatus = $this->isFileUploadAllowed();
+        if ($uploadStatus['file_uploads_enabled']) {
+            echo "File uploads are allowed. Maximum upload size: " . $uploadStatus['max_upload_size'] . " bytes";
+        } else {
+            echo "File uploads are not allowed on this server.";
+        }
+    }
 }

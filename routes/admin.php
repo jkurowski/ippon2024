@@ -130,11 +130,16 @@ Route::group([
 // DeveloPro
     Route::group(['namespace' => 'Developro', 'prefix' => '/developro', 'as' => 'developro.'], function () {
 
+
+        Route::get('investment/test', 'Investment\IndexController@test')->name('test');
+
+
         Route::resources([
             'investment' => 'Investment\IndexController'
         ]);
 
         Route::group(['prefix' => '/investment', 'as' => 'investment.'], function () {
+
             Route::resources([
                 '{investment}/page' => 'Page\IndexController',
                 '{investment}/article' => 'Article\IndexController',
@@ -150,6 +155,7 @@ Route::group([
             ]);
 
             Route::get('{investment}/log', 'Investment\IndexController@log')->name('log');
+
             Route::get('{investment}/datatable', 'Investment\IndexController@datatable')->name('log.datatable');
             Route::get('{investment}/events', 'Investment\IndexController@events')->name('events');
             Route::get('{investment}/eventTable', 'Investment\IndexController@eventtable')->name('eventtable');
