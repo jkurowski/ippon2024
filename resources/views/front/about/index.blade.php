@@ -125,7 +125,7 @@
         </div>
 
         <div class="inwestycja-lokalizacja mt-5 pt-0 pt-xl-5 rwd-fullwidth">
-            <div class="paralaxa" style="background: url('https://www.ippon.group/files/upload/o-nas-paralaxa.jpg') no-repeat center fixed;background-size: cover"></div>
+            <div class="paralaxa" style="background: url('{{ asset('images/o-nas-paralaxa.jpg') }}') no-repeat center fixed;background-size: cover"></div>
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -157,7 +157,7 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-12">
-                    <img src="https://www.ippon.group/files/upload/wykres_pl.png" alt="" class="m-auto">
+                    <img src="{{ asset('images/wykres_pl.png') }}" alt="" class="m-auto">
                 </div>
                 <div class="col-12 col-xl-6">
                     <div class="pe-0 pe-xl-5 ps-0 ps-xl-5" data-aos="fade-left" data-aos-offset="200" data-aos-delay="0">
