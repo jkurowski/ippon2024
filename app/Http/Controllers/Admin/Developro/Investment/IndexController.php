@@ -88,6 +88,9 @@ class IndexController extends Controller
         $this->repository->update($request->validated(), $investment);
 
         if ($request->hasFile('file')) {
+
+            dd($request->hasFile('file'));
+
             $this->service->uploadThumb($request->name, $request->file('file'), $investment, true);
         }
 

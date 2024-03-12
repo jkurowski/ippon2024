@@ -26,9 +26,6 @@ class InvestmentService
             $name = date('His').'_'.Str::slug($title).'.' . $file->getClientOriginalExtension();
             $name_webp = date('His') . '_' . Str::slug($title) . '.webp';
 
-
-            dd($name);
-
             $file->storeAs('thumbs', $name, 'investment_uploads');
 
             $filepath = public_path('investment/thumbs/' . $name);
