@@ -21,7 +21,7 @@ class IndexController extends Controller
     public function index()
     {
         $page = Page::find(8);
-        $rents = $this->repository->allSort('ASC');
+        $rents = $this->repository->allSortByWhere('active', 1, 'sort','ASC');
         return view('front.rent.index', compact('page', 'rents'));
     }
 
