@@ -14,30 +14,37 @@ class InvestmentService
 {
     public function uploadThumb(string $title, UploadedFile $file, object $model, bool $delete = false)
     {
-
-        if ($delete) {
-            if (File::isFile(public_path('investment/thumbs/' . $model->file_thumb))) {
-                File::delete(public_path('investment/thumbs/' . $model->file_thumb));
+        try {
+            if ($delete) {
+                if (File::isFile(public_path('investment/thumbs/' . $model->file_thumb))) {
+                    if (!File::delete(public_path('investment/thumbs/' . $model->file_thumb))) {
+                        throw new \Exception('Failed to delete the existing thumbnail.');
+                    }
+                }
             }
+
+            $name = date('His').'_'.Str::slug($title).'.' . $file->getClientOriginalExtension();
+            $name_webp = date('His') . '_' . Str::slug($title) . '.webp';
+
+            $file->storeAs('thumbs', $name, 'investment_uploads');
+
+            $filepath = public_path('investment/thumbs/' . $name);
+            Image::make($filepath)
+                ->fit(
+                    config('images.investment.thumb_width'),
+                    config('images.investment.thumb_height')
+                )
+                ->save($filepath);
+
+            $file_path_webp = public_path('investment/thumbs/webp/' . $name_webp);
+            Image::make($filepath)->encode('webp')->save($file_path_webp);
+
+            $model->update(['file_thumb' => $name, 'file_webp' => $name_webp]);
+
+            return ['success' => true, 'message' => 'Thumbnail uploaded successfully.'];
+        } catch (\Exception $e) {
+            return ['success' => false, 'message' => $e->getMessage()];
         }
-
-        $name = date('His').'_'.Str::slug($title).'.' . $file->getClientOriginalExtension();
-        $name_webp = date('His') . '_' . Str::slug($title) . '.webp';
-
-        $file->storeAs('thumbs', $name, 'investment_uploads');
-
-        $filepath = public_path('investment/thumbs/' . $name);
-        Image::make($filepath)
-            ->fit(
-                config('images.investment.thumb_width'),
-                config('images.investment.thumb_height')
-            )
-            ->save($filepath);
-
-        $file_path_webp = public_path('investment/thumbs/webp/' . $name_webp);
-        Image::make($filepath)->encode('webp')->save($file_path_webp);
-
-        $model->update(['file_thumb' => $name, 'file_webp' => $name_webp]);
     }
 
     public function uploadLogo(string $title, UploadedFile $file, object $model, bool $delete = false)
