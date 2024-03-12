@@ -88,7 +88,7 @@ class IndexController extends Controller
         $this->repository->update($request->validated(), $investment);
 
 
-        dd($request);
+        dd($request->hasFile('file'));
 
 
         if ($request->hasFile('file')) {
