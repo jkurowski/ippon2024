@@ -12,6 +12,7 @@ use App\Models\RodoSettings;
 use App\Repositories\Client\ClientRepository;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Http;
 
 use App\Mail\MailSend;
 use http\Cookie;
@@ -79,11 +80,44 @@ class ContactController extends Controller
 
     function contact(ContactFormRequest $request, Recipient $recipient)
     {
+
         $recipient->notify(new ContactNotification($request));
         $lastNotificationId = DB::table('notifications')->latest()->value('id');
 
         $client = $this->repository->createClient($request, $lastNotificationId);
         Mail::to(settings()->get("page_email"))->send(new ChatSend($request, $client));
+
+        $url = 'https://ippon.thtg.io/api/v1/public/client';
+
+        // Filter the keys that start with "rule_"
+        $ruleFields = collect($request)->filter(function ($value, $key) {
+            return strpos($key, 'rule_') === 0;
+        })->all();
+
+        $data = [
+            'name' => $request->get('form_name'), // required
+            'surname' => 'Brak', // required
+            'email' => $request->get('form_email'),
+            'phone' => $request->get('form_phone'),
+            'message' => $request->get('form_message'),
+            'source' => 'www', // required
+            'sourceDetails' => $request->url(), // required
+            'callback' => request()->getRequestUri(), // required
+            'dataAgreements' => http_build_query($ruleFields, 'dataAgreements')
+        ];
+
+        $response = Http::withHeaders([
+            'Content-Type' => 'application/json',
+            'Authorization' => 'Thtg 6f5e816d496470c2cd66a964ad97d045ca78b625'
+        ])->post($url, $data);
+
+        if ($response->successful()) {
+            $result = $response->json();
+            dd($result);
+        } else {
+            $errorMessage = $response->json()['message'] ?? 'Unknown error occurred.';
+            dd($errorMessage);
+        }
 
 //        if( count(Mail::failures()) == 0 ) {
 //            $cookie_name = 'dp_';
