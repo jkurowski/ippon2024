@@ -46,6 +46,7 @@
 
 <script src="{{ asset('js/validation.js') }}" charset="utf-8"></script>
 <script src="{{ asset('js/pl.js') }}" charset="utf-8"></script>
+<script src="https://www.google.com/recaptcha/api.js"></script>
 
 @if(settings()->get("popup_status") == 1)
     <div class="modal" tabindex="-1" id="popModal">
@@ -82,7 +83,8 @@
         $(".validateForm").validationEngine({
             validateNonVisibleFields: true,
             updatePromptsPosition:true,
-            promptPosition : "topRight:-137px"
+            promptPosition : "topRight:-137px",
+            autoPositionUpdate: false
         });
 
         $('#mainNews .row').slick({
@@ -205,6 +207,16 @@
             }, {{ settings()->get("popup_timeout") }} );
         @endif
     });
+
+    function onRecaptchaSuccess(token) {
+        $(".validateForm").validationEngine('updatePromptsPosition');
+        const isValid = $(".validateForm").validationEngine('validate');
+        if (isValid) {
+            $("#contact-form").submit();
+        } else {
+            grecaptcha.reset();
+        }
+    }
 
     @if(session('success') || session('warning') || $errors->any())
     $(window).load(function() {

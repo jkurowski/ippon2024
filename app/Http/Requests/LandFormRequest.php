@@ -2,10 +2,22 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\ReCaptchaV3;
 use Illuminate\Foundation\Http\FormRequest;
 
 class LandFormRequest extends FormRequest
 {
+    /**
+     * Perform any additional validation before the main validation rules.
+     *
+     * @return void
+     */
+    public function prepareForValidation()
+    {
+        //$requestData = $this->all();
+        //dd($requestData);
+    }
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -36,9 +48,20 @@ class LandFormRequest extends FormRequest
             'form_book' => '',
             'form_land' => '',
             'form_page' => '',
-            'rule_4' => 'required'
+            'g-recaptcha-response' => ['required', new ReCaptchaV3()]
         ];
 
         return $rules;
+    }
+
+    public function messages()
+    {
+        return [
+            'form_name.required' => 'To pole jest wymagane',
+            'form_email.required' => 'To pole jest wymagane',
+            'form_email.email' => 'Nieprawidłowy adres e-mail',
+            'form_message.required' => 'To pole jest wymagane',
+            'form_phone.required' => 'To pole jest wymagane'
+        ];
     }
 }

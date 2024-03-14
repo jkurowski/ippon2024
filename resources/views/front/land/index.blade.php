@@ -206,11 +206,14 @@
                                 @endforeach
                             </div>
                         </div>
+
+                        {{ $errors }}
+
                         <div class="col-12 col-xl-4 d-flex justify-content-end align-items-end">
                             <div class="form-submit">
-                                <input name="form_page" type="hidden" value="homepage">
+                                <input name="form_page" type="hidden" value="land-form">
                                 <script type="text/javascript">
-                                    document.write("<button class=\"bttn bttn-icon\" type=\"submit\">@lang('website.button-send-message') <i class=\"ms-5 las la-chevron-circle-right\"></i></button>");
+                                    document.write("<button type=\"submit\" class=\"g-recaptcha bttn bttn-icon\" data-sitekey=\"{{ config('services.recaptcha_v3.siteKey') }}\" data-callback=\"onRecaptchaSuccess\" data-action=\"submitContact\">@lang('website.button-send-message') <i class=\"ms-5 las la-chevron-circle-right\"></i></button>");
                                 </script>
                                 <noscript>Do poprawnego działania, Java musi być włączona.</noscript>
                             </div>
@@ -225,6 +228,8 @@
 @push('scripts')
     <script src="{{ asset('js/validation.js') }}" charset="utf-8"></script>
     <script src="{{ asset('js/pl.js') }}" charset="utf-8"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+
     <script type="text/javascript">
         AOS.init({disable: 'mobile'});
 
@@ -232,9 +237,27 @@
             $(".validateForm").validationEngine({
                 validateNonVisibleFields: true,
                 updatePromptsPosition:true,
-                promptPosition : "topRight:-137px"
+                promptPosition : "topRight:-137px",
+                autoPositionUpdate: false
             });
         });
+
+        function onRecaptchaSuccess() {
+
+            console.log("onRecaptchaSuccess");
+
+            $(".validateForm").validationEngine('updatePromptsPosition');
+            const isValid = $(".validateForm").validationEngine('validate');
+
+            if (isValid) {
+                console.log("Form is valid");
+                $("#contact-form").submit();
+            } else {
+                console.log("Form is not valid, reset reCaptcha");
+                grecaptcha.reset();
+            }
+        }
+
         @if (session('success') || session('warning') || $errors->any())
         $(window).load(function() {
             const aboveHeight = $('header').outerHeight();

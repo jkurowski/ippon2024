@@ -12,7 +12,7 @@
                         {{ session('error') }}
                     </div>
                 @endif
-                <form method="post" id="contact-form" action="" class="validateForm">
+                <form method="post" id="contact-form" action="{{ route('contact.form') }}" class="validateForm">
                     {{ csrf_field() }}
                     <div class="row">
                         <div class="col-12 mb-4 mb-md-0 col-md-4 form-input">
@@ -77,7 +77,7 @@
                             <div class="form-submit">
                                 <input name="form_page" type="hidden" value="{{ $page_name }}">
                                 <script type="text/javascript">
-                                    document.write("<button class=\"bttn bttn-icon\" type=\"submit\">@lang('website.button-send-message') <i class=\"ms-5 las la-chevron-circle-right\"></i></button>");
+                                    document.write("<button type=\"submit\" class=\"g-recaptcha bttn bttn-icon\" data-sitekey=\"{{ config('services.recaptcha_v3.siteKey') }}\" data-callback=\"onRecaptchaSuccess\" data-action=\"submitContact\">@lang('website.button-send-message') <i class=\"ms-5 las la-chevron-circle-right\"></i></button>");
                                 </script>
                                 <noscript>Do poprawnego działania, Java musi być włączona.</noscript>
                             </div>
@@ -91,14 +91,27 @@
 @push('scripts')
     <script src="{{ asset('js/validation.js') }}" charset="utf-8"></script>
     <script src="{{ asset('js/pl.js') }}" charset="utf-8"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
             $(".validateForm").validationEngine({
                 validateNonVisibleFields: true,
                 updatePromptsPosition:true,
-                promptPosition : "topRight:-137px"
+                promptPosition : "topRight:-137px",
+                autoPositionUpdate: false
             });
         });
+
+        function onRecaptchaSuccess(token) {
+            $(".validateForm").validationEngine('updatePromptsPosition');
+            const isValid = $(".validateForm").validationEngine('validate');
+            if (isValid) {
+                $("#contact-form").submit();
+            } else {
+                grecaptcha.reset();
+            }
+        }
+
         @if (session('success') || session('warning') || $errors->any())
         $(window).load(function() {
             const aboveHeight = $('header').outerHeight();

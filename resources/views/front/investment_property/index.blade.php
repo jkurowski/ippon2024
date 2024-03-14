@@ -190,26 +190,4 @@
 
     @include('front.contact.form', [ 'page_name' => $investment->name .' - '. $property->name])
 </div>
-
 @endsection
-@push('scripts')
-    <script src="{{ asset('/js/validation.js') }}" charset="utf-8"></script>
-    <script src="{{ asset('/js/pl.js') }}" charset="utf-8"></script>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $(".validateForm").validationEngine({
-                validateNonVisibleFields: true,
-                updatePromptsPosition:true,
-                promptPosition : "topRight:-137px"
-            });
-        });
-        @if (session('success')||session('warning')||$errors->any())
-        $(window).load(function() {
-            const aboveHeight = $('header').outerHeight();
-            $('html, body').stop().animate({
-                scrollTop: $('.validateForm').offset().top-aboveHeight
-            }, 1500, 'easeInOutExpo');
-        });
-        @endif
-    </script>
-@endpush
