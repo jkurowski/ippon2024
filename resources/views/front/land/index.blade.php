@@ -206,9 +206,6 @@
                                 @endforeach
                             </div>
                         </div>
-
-                        {{ $errors }}
-
                         <div class="col-12 col-xl-4 d-flex justify-content-end align-items-end">
                             <div class="form-submit">
                                 <input name="form_page" type="hidden" value="land-form">
