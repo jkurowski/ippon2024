@@ -188,6 +188,6 @@
         </div>
     </div>
 
-    @include('front.contact.form', [ 'page_name' => $investment->name .' - '. $property->name])
+    @include('front.contact.property-form', [ 'page_name' => $investment->name .' - '. $property->name, 'investment' => $investment, 'property' => $room ])
 </div>
 @endsection

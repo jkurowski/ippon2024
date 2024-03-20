@@ -44,19 +44,44 @@ class ContactController extends Controller
         ]);
     }
 
-    function property(ContactFormRequest $request, $lang, $slug, $id)
+    function property(ContactFormRequest $request, Recipient $recipient, $lang, $slug, $property)
     {
-
         try {
-            $property = Property::find($id);
+            $property = Property::find($property);
 
             if (!$property) {
                 return redirect()->back()->with('error', 'Nie znaleziono lokalu z tym numerem.');
             }
 
-            $client = $this->repository->createClient($request, $property);
-            $property->notify(new PropertyNotification($request, $property));
-            Mail::to(settings()->get("page_email"))->send(new ChatSend($request, $client, $property));
+            $recipient->notify(new ContactNotification($request));
+            $lastNotificationId = DB::table('notifications')->latest()->value('id');
+
+            $client = $this->repository->createClient($request, $lastNotificationId);
+            Mail::to('mieszkania@ippon.group')->send(new ChatSend($request, $client, $property));
+
+            $url = 'https://ippon.thtg.io/api/v1/public/client';
+
+            // Filter the keys that start with "rule_"
+            $ruleFields = collect($request)->filter(function ($value, $key) {
+                return strpos($key, 'rule_') === 0;
+            })->all();
+
+            $data = [
+                'name' => $request->get('form_name'), // required
+                'surname' => 'Brak', // required
+                'email' => $request->get('form_email'),
+                'phone' => $request->get('form_phone'),
+                'message' => $request->get('form_message'),
+                'source' => 'www', // required
+                'sourceDetails' => $request->url(), // required
+                'callback' => request()->getRequestUri(), // required
+                'dataAgreements' => http_build_query($ruleFields, 'dataAgreements')
+            ];
+
+            $response = Http::withHeaders([
+                'Content-Type' => 'application/json',
+                'Authorization' => 'Thtg 6f5e816d496470c2cd66a964ad97d045ca78b625'
+            ])->post($url, $data);
 
 //            if( count(Mail::failures()) == 0 ) {
 //                $cookie_name = 'dp_';
@@ -68,6 +93,7 @@ class ContactController extends Controller
 //                    }
 //                }
 //            }
+
         } catch (\Throwable $exception) {
             dd($exception);
         }
@@ -111,13 +137,13 @@ class ContactController extends Controller
             'Authorization' => 'Thtg 6f5e816d496470c2cd66a964ad97d045ca78b625'
         ])->post($url, $data);
 
-        if ($response->successful()) {
-            $result = $response->json();
-            dd($result);
-        } else {
-            $errorMessage = $response->json()['message'] ?? 'Unknown error occurred.';
-            dd($errorMessage);
-        }
+//        if ($response->successful()) {
+//            $result = $response->json();
+//            //dd($result);
+//        } else {
+//            $errorMessage = $response->json()['message'] ?? 'Unknown error occurred.';
+//            //dd($errorMessage);
+//        }
 
 //        if( count(Mail::failures()) == 0 ) {
 //            $cookie_name = 'dp_';
