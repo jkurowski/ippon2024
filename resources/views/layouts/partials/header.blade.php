@@ -96,7 +96,7 @@
             <a rel="nofollow" target="_blank" class="Shield" href="#" data-toggle="modal" data-target="#covidModal"><span>Jesteśmy bezpieczni</span></a>
         </li>
         <li>
-            <a rel="nofollow" target="_blank" class="Shield" href="{{ route('clipboard.index') }}"><i id="clipboardcount">0</i><span>Schowek</span></a>
+            <a rel="nofollow" target="_blank" class="Shield" href="{{ route('clipboard.index') }}"><i id="clipboardcount">{{ $itemCount }}</i><span>Schowek</span></a>
         </li>
         <li>
             <a rel="nofollow" target="_blank" class="Facebook" href="https://www.facebook.com/ippongroup"><span>Facebook</span></a>

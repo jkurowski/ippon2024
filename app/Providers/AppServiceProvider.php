@@ -98,6 +98,10 @@ class AppServiceProvider extends ServiceProvider
 
             $currentRoute = Route::current();
             $view->with('currentRoute', $currentRoute);
+
+            $items = session('clipboard.items');
+            $itemCount = count($items);
+            $view->with('itemCount', $itemCount);
         });
 
         Blade::directive('money', function ($amount) {
