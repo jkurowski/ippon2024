@@ -63,7 +63,7 @@
                             </div>
 
                             <div class="col-12 col-sm-6 mt-4">
-                                <button id="addToFav" class="bttn bttn-slow w-100 justify-content-center bttn-slow-red" data-id="{{$property->id}}">DODAJ DO SCHOWKA<i class="ms-4 las la-clipboard-list"></i></button>
+                                <button id="addToFav" class="bttn bttn-slow w-100 justify-content-center bttn-slow-red" data-id="{{$property->id}}">DODAJ DO SCHOWKA<i class="ms-4 las la-heart"></i></button>
                                 <div id="clipboardmessage"></div>
                             </div>
                         </div>
