@@ -60,7 +60,10 @@ Route::group(['namespace' => 'Front', 'prefix' => '{locale?}', 'where' => ['loca
     Route::get('inwestycje-juz-wkrotce',
         'Developro\Soon\IndexController@index')->name('developro.soon');
 
-
+    Route::post('/clipboard', 'Clipboard\IndexController@store')->name('clipboard.store');
+    Route::post('/clipboard/send', 'Clipboard\IndexController@send')->name('clipboard.send');
+    Route::get('/clipboard', 'Clipboard\IndexController@index')->name('clipboard.index');
+    Route::delete('/clipboard', 'Clipboard\IndexController@destroy')->name('clipboard.destroy');
 
     Route::get('wynajem',
         'Rent\IndexController@index')->name('rent');

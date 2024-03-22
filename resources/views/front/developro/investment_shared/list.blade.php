@@ -60,7 +60,9 @@
 
                     <div class="col-12 col-lg-2 d-flex align-items-center">
                         {!! roomStatusBadge($room->status) !!}
-                        <a href="{{ route('developro.property', [$investment->slug, $room, Str::slug($room->name), floorLevel($room->floor_number, true), number2RoomsName($room->rooms, true), round(floatval($room->area), 2).'-m2']) }}" class="bttn bttn-icon">POKAŻ MIESZKANIE <i class="ms-4 las la-file"></i></a>
+                        @if(Route::currentRouteName() === 'clipboard.index')
+                            <button id="addToFav" class="bttn mt-3" data-id="{{$room->id}}"><i class="lar la-trash-alt me-3"></i> USUŃ ZE SCHOWKA</button>
+                        @endif
                     </div>
                 </div>
             @endforeach

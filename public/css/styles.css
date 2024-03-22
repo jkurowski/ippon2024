@@ -1871,7 +1871,9 @@ div[class*='col-'].slick-slide {
   background: #b1844b;
 }
 .Shield:before {
-  content: "\f0e9";
+  font-family: 'Line Awesome Free' !important;
+  font-weight: 900 !important;
+  content: "\f46d";
 }
 #widget a.Shield span {
   min-width: 186px;
@@ -1912,6 +1914,23 @@ div[class*='col-'].slick-slide {
 }
 .Twitter:before {
   content: "\f099";
+}
+#widget i {
+  width: 20px;
+  height: 20px;
+  background: red;
+  border-radius: 50%;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  margin-left: 5px;
+  position: absolute;
+  top: -6px;
+  right: 2px;
+  font-style: normal;
+  line-height: normal;
 }
 /* Homepage
 ================================================== */
