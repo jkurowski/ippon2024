@@ -99,7 +99,7 @@ class AppServiceProvider extends ServiceProvider
             $currentRoute = Route::current();
             $view->with('currentRoute', $currentRoute);
 
-            $items = session('clipboard.items');
+            $items = session('clipboard.items') ?? []; // Use the null coalescing operator to provide a default empty array if $items is null
             $itemCount = count($items);
             $view->with('itemCount', $itemCount);
         });
