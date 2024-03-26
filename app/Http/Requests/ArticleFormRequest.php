@@ -32,7 +32,8 @@ class ArticleFormRequest extends FormRequest
             'file_alt' => '',
             'meta_title' => '',
             'meta_description' => '',
-            'meta_robots' => ''
+            'meta_robots' => '',
+            'date' => ''
         ];
     }
 

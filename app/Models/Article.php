@@ -32,6 +32,7 @@ class Article extends Model
         'file_facebook',
         'file_alt',
         'meta_title',
+        'date',
         'meta_description',
         'status',
         'sort'

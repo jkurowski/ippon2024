@@ -21,6 +21,7 @@ class News extends Model
         'content_entry',
         'content',
         'file',
+        'date',
         'file_webp',
         'file_facebook',
         'file_alt',
