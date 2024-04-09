@@ -4920,6 +4920,9 @@ html.swipebox-html.swipebox-touch {
     font-size: 32px;
     top: 5px;
   }
+  .ratio-16x9 {
+    --bs-aspect-ratio: calc(16 / 9 * 100%);
+  }
 }
 /* end of 575.98 */
 @media (max-width: 480px) {
