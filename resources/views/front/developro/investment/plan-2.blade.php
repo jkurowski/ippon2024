@@ -26,7 +26,7 @@
             <div class="row">
                 <div class="col-12 mt-5">
                     @if($building->file)
-                        <div id="plan">
+                        <div id="plan" class="d-none">
                             <div id="plan-holder"><img src="{{ asset('/investment/building/'.$building->file.'') }}" alt="{{$building->name}}" id="invesmentplan" usemap="#invesmentplan"></div>
                             <map name="invesmentplan">
                                 <map name="invesmentplan">
@@ -39,7 +39,14 @@
                             </map>
                         </div>
                     @endif
-
+                        <div class="ratio ratio-16x9">
+                    <iframe
+                            frameborder="0" src="https://v4-jeff.prod.resimo.io/ippon/slow/#/?app=jeff&jeff-building=1&lang=pl"
+                            allow="fullscreen"
+                            class="jeff-iframe"
+                            style="border:0;margin:0;padding:0"
+                    ></iframe>
+                        </div>
                     @include('front.developro.investment_shared.filtr', ['area_range' => $investment->area_range,  'floors' => $floors, 'floorFiltr' => 1])
                     @include('front.investment_shared.sort')
 
