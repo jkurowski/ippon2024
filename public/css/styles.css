@@ -230,10 +230,10 @@ button {
   right: auto;
 }
 @font-face {
-  font-family: abuget;
+  font-family: 'Abuget';
   font-style: normal;
   font-weight: 400;
-  src: local('Abuget'), url(https://fonts.cdnfonts.com/s/77885/Abuget.woff) format('woff');
+  src: local('Abuget'), url('https://fonts.cdnfonts.com/s/77885/Abuget.woff') format('woff');
 }
 .slow-header {
   display: flex;
@@ -4922,6 +4922,7 @@ html.swipebox-html.swipebox-touch {
   }
   .ratio-16x9 {
     --bs-aspect-ratio: calc(16 / 9 * 100%);
+    min-height: 85vh;
   }
 }
 /* end of 575.98 */
