@@ -106,7 +106,7 @@
                     <div class="row mt-3 mt-sm-5">
                         <div class="col-3">
                             <div class="current-stat text-center">
-                                <span>132</span>
+                                <span>2</span>
                                 ilość mieszkań
                             </div>
                         </div>
