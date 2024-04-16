@@ -102,11 +102,11 @@
                 <div class="left-right-text current-item">
                     <h2 class="mb-0"><a href="https://www.aurora.olsztyn.pl/" target="_blank">OSIEDLE AURORA ETAP 4</a></h2>
                     <div class="invest-item-city">Olsztyn, ul. Barcza</div>
-                    <p>W sprzedaży <strong>ostatnie</strong>, <strong>gotowe do odbioru</strong> apartamenty na 6 piętrze. Klienci mogą jeszcze wybierać w mieszkaniach -3 i -4 pokojowych o metrażu od 71 do 94 mkw. Apartamenty posiadają <strong>panoramiczne okna</strong>, <strong>wysokość</strong> pomieszczeń <strong>3m</strong> oraz duże <strong>tarasy</strong> do 53 mkw, z których można podziwiać widok na Park. W sprzedaży także lokale z prywatnymi <strong>ogrodami zimowymi</strong>, które można zaaranżować jako prywatny ogród lub powiększyć strefę mieszkalną o dodatkową przestrzeń. Mieszkańcy skorzystają z <strong>miejsc parkingowych</strong> w hali garażowej, naziemnych miejsc postojowych oraz komórek lokatorskich.</p>
+                    <p><b>Mieszkania dostępne od ręki. W sprzedaży pozostały już ostatnie 2 apartamenty</b>. Klienci mogą jeszcze wybierać w mieszkaniach 3 pokojowych. Na 6 piętrze, znajdują się apartamenty o powierzchni 64 m2 oraz 70 m2. Posiadają szerokie, panoramiczne okna  oraz duże tarasy do 31 m2. Mieszkańcy skorzystają z miejsc parkingowych w hali garażowej, naziemnych miejsc postojowych oraz komórek lokatorskich.</p>
                     <div class="row mt-3 mt-sm-5">
                         <div class="col-3">
                             <div class="current-stat text-center">
-                                <span>135</span>
+                                <span>132</span>
                                 ilość mieszkań
                             </div>
                         </div>
@@ -118,7 +118,7 @@
                         </div>
                         <div class="col-3">
                             <div class="current-stat text-center">
-                                <span>35-134 m<sup>2</sup></span>
+                                <span>64-70 m<sup>2</sup></span>
                                 powierzchnia
                             </div>
                         </div>
