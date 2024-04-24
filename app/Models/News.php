@@ -3,11 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\Translatable\HasTranslations;
 
 class News extends Model
 {
-
+    use HasTranslations;
+    public array $translatable = ['title', 'content_entry', 'content', 'meta_title', 'meta_description'];
     protected static $logName = 'Aktualnosci';
 
     /**

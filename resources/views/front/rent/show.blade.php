@@ -16,7 +16,7 @@
                 <img src="{{ asset('uploads/rents/'.$rent->file) }}" alt="{{ $rent->name }}" class="mt-4 mb-sm-5 w-100">
                 <h2 class="mb-3">{{ $rent->name }}</h2>
                 {!! parse_text($rent->text) !!}
-                <a href="{{ route('rent') }}" class="bttn mt-4">WRÓĆ DO LISTY</a>
+                <a href="{{ route('rent') }}" class="bttn mt-4">@lang('website.button-back-to-list')</a>
             </div>
         </div>
     </div>

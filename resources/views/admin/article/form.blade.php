@@ -35,6 +35,7 @@
             <div class="row w-100 form-group">
                 @include('form-elements.html-input-text-count', ['label' => 'Opis strony', 'sublabel'=> 'Meta tag - description', 'name' => 'meta_description', 'value' => $entry->meta_description, 'maxlength' => 158])
             </div>
+
             @if(!Request::get('lang'))
             <div class="row w-100 form-group">
                 @include('form-elements.html-input-text', ['label' => 'Indeksowanie', 'sublabel'=> 'Meta tag - robots', 'name' => 'meta_robots', 'value' => $entry->meta_robots])
@@ -63,7 +64,8 @@
             <div class="row w-100 form-group">
                 @include('form-elements.html-input-text', ['label' => 'Atrybut ALT zdjęcia', 'name' => 'file_alt', 'value' => $entry->file_alt])
             </div>
-                @endif
+            @endif
+
             <div class="row w-100 form-group">
                 @include('form-elements.html-input-text', ['label' => 'Wprowadzenie', 'name' => 'content_entry', 'value' => $entry->content_entry, 'required' => 1])
             </div>

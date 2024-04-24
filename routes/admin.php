@@ -27,7 +27,7 @@ Route::group([
 
     //Route::get('article/import', 'Article\IndexController@import')->name('article.import');
     //Route::get('news/import', 'News\IndexController@import')->name('news.import');
-    //Route::get('promotion/import', 'Promotion\IndexController@import')->name('promotion.import');
+    Route::get('news/translate', 'News\IndexController@translate');
 
     Route::get('user/datatable', 'User\IndexController@datatable')->name('user.datatable');
 
