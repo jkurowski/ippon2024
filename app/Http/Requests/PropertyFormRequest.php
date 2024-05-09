@@ -57,6 +57,7 @@ class PropertyFormRequest extends FormRequest
             'highlighted' => '',
             'homepage' => '',
             'rooms' => 'required|integer',
+            'virtual_walk' => '',
             'area' => '',
             'additional' => '',
             'garden_area' => '',

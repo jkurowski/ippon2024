@@ -231,6 +231,9 @@
                                         'file_preview' => config('images.property.preview_pdf_path')
                                     ])
                                 </div>
+                                <div class="row w-100 form-group">
+                                    @include('form-elements.input-text', ['label' => 'Spacer 3D', 'sublabel'=> 'Link do spaceru 3D', 'name' => 'virtual_walk', 'value' => $entry->virtual_walk])
+                                </div>
                             </div>
                         </div>
                         <input type="hidden" name="floor_id" value="{{ $floor->id }}">

@@ -189,6 +189,12 @@ button {
   width: 100%;
   height: 100%;
 }
+.modal-backdrop {
+  z-index: 9990;
+}
+.modal {
+  z-index: 9999;
+}
 /* Fonty
 ================================================== */
 @font-face {
@@ -230,10 +236,10 @@ button {
   right: auto;
 }
 @font-face {
-  font-family: 'Abuget';
+  font-family: abuget;
   font-style: normal;
   font-weight: 400;
-  src: local('Abuget'), url('https://fonts.cdnfonts.com/s/77885/Abuget.woff') format('woff');
+  src: local('Abuget'), url(https://fonts.cdnfonts.com/s/77885/Abuget.woff) format('woff');
 }
 .slow-header {
   display: flex;
@@ -3637,8 +3643,11 @@ html.swipebox-html.swipebox-touch {
   padding: 10px 15px;
   background: rgba(255, 255, 255, 0.5);
 }
-/* Rodo
+/* Osidle Tempo
 ================================================== */
+.invest-osiedle-tempo h2 {
+  margin-bottom: 35px;
+}
 /* Footer
 ================================================== */
 /* Responsive
