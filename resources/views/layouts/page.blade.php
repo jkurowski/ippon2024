@@ -9,7 +9,7 @@
     <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="@hasSection('seo_description')@yield('seo_description')@else{{ settings()->get("page_description") }}@endif">
-    <meta name="robots" content="@hasSection('seo_robots')@yield('seo_robots')@else{{ settings()->get("page_robots") }}@endif">
+    <meta name="robots" content="@hasSection('seo_robots')@yield('seo_robots')@else index, follow @endif">
     <meta name="author" content="{{ settings()->get("page_author") }}">
 
     @hasSection('opengraph')@yield('opengraph')@endif

@@ -3,9 +3,7 @@
 @section('meta_title', $page->title)
 @section('seo_title', $page->meta_title)
 @section('seo_description', $page->meta_description)
-@section('seo_robots')
-    noindex, nofollow
-@endsection
+@section('seo_robots')noindex, nofollow @endsection
 
 @section('pageheader')
     @include('layouts.partials.developro-header', [
