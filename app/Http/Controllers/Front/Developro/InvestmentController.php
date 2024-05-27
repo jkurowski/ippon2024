@@ -61,13 +61,13 @@ class InvestmentController extends Controller
                 'page' => $page
             ]);
         }
-        else if($investment->id == 7)
-        {
-            return view('front.developro.investment.tempo', [
-                'investment' => $investment,
-                'page' => $page
-            ]);
-        }
+//        else if($investment->id == 7)
+//        {
+//            return view('front.developro.investment.tempo', [
+//                'investment' => $investment,
+//                'page' => $page
+//            ]);
+//        }
         else
         {
             return view('front.developro.investment.index', [
