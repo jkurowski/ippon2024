@@ -49,15 +49,15 @@
             <div class="row left-right row-offset-up">
                 <div class="col-12 col-xl-6 d-flex align-items-center">
                     <div class="left-right-text" data-aos="fade-up" data-aos-offset="500" data-aos-delay="0">
-                        <h2 class="slow-header justify-content-start"><span class="abuget brown">Slow</span> <span class="rostemary">life</span></h2>
-                        <p>Czym jest slow life? To życie w <b>równowadze</b> z otaczającym światem, przyrodą, a przede wszystkim życie w spokoju z samym sobą. <b>To dbanie o siebie, o innych, o środowisko</b>.</p>
-                        <p>Slow life to filozofia życia. To realizacja swoich pasji, <b>spotkania</b> z rodziną i przyjaciółmi, wsłuchiwanie się w odgłosy otaczającej <b>natury</b>. Ciesz się życiem, znajdź czas na aktywność i na odpoczynek.</p>
-                        <p><b>Najważniejsze, abyś był szczęśliwy</b>.</p>
+                        <h2 class="slow-header justify-content-start"><span class="rostemary">Dodatkowe metry</span> <span class="abuget brown">gratis</span></h2>
+                        <p>Każde mieszkanie osiedla Slow zostało indywidualnie zaprojektowane przez architektów wnętrz, dzięki temu uzyskaliśmy ich wyjątkową funkcjonalność i ergonomię. Odkryj komfortowe mieszkania z poddaszem na drugim piętrze. Zyskaj dodatkową przestrzeń i <b>powiększ swoje mieszkanie nawet o 26 m<sup>2</sup></b>.</p>
+                        <p>&nbsp;</p>
+                        <p>Zamieszkaj w 2-poziomowym mieszkaniu o metrażu nawet do <b>80 m<sup>2</sup></b>.</p>
                         <a href="{{ route('developro.investment.page', [$investment->slug, 'mieszkania']) }}" class="bttn bttn-icon mt-4 bttn-slow">ZOBACZ MIESZKANIA <i class="ms-3 las la-chevron-circle-right"></i></a>
                     </div>
                 </div>
                 <div class="col-12 col-xl-6" data-aos="fade-up" data-aos-offset="500" data-aos-delay="0">
-                    <img src="{{ asset('/uploads/files/osiedle-slow/slow-life.jpg') }}" alt="Wizualizacja osiedla Aurora" class="golden-border w-100" width="840" height="760">
+                    <img src="{{ asset('/uploads/files/osiedle-slow/dodatkowe-metry.jpg') }}" alt="Wizualizacja osiedla Aurora" class="golden-border w-100" width="840" height="760">
                 </div>
             </div>
 
