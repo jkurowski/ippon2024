@@ -3645,8 +3645,117 @@ html.swipebox-html.swipebox-touch {
 }
 /* Osidle Tempo
 ================================================== */
+@font-face {
+  font-family: gilroy-bold;
+  font-style: normal;
+  font-weight: 400;
+  src: local('Gilroy-Bold'), url(https://fonts.cdnfonts.com/s/16219/Gilroy-Bold.woff) format('woff');
+}
+@font-face {
+  font-family: gilroy-heavy;
+  font-style: normal;
+  font-weight: 400;
+  src: local('Gilroy-Heavy'), url(https://fonts.cdnfonts.com/s/16219/Gilroy-Heavy.woff) format('woff');
+}
+@font-face {
+  font-family: gilroy-medium;
+  font-style: normal;
+  font-weight: 400;
+  src: local('Gilroy-Medium'), url(https://fonts.cdnfonts.com/s/16219/Gilroy-Medium.woff) format('woff');
+}
 .invest-osiedle-tempo h2 {
   margin-bottom: 35px;
+  font-family: 'Gilroy-Bold', sans-serif;
+  font-style: normal;
+  font-size: 50px;
+}
+.invest-osiedle-tempo h3 {
+  margin: 15px 0;
+  font-family: 'Gilroy-Bold', sans-serif;
+  font-style: normal;
+  font-size: 36px;
+  text-align: center;
+}
+.invest-osiedle-tempo-timeline .timeline-wrapper:after {
+  border-left: 3px solid #DAE120;
+}
+.invest-osiedle-tempo-timeline .timeline-wrapper .day:nth-child(2n+1) .day-head:after {
+  border-left-color: #2858A8;
+}
+.invest-osiedle-tempo-timeline .timeline-wrapper .day-head,
+.invest-osiedle-tempo-timeline .timeline-wrapper .day:nth-child(2n) .day-head:before,
+.invest-osiedle-tempo-timeline .timeline-wrapper .day:nth-child(2n+1) .day-head:before {
+  background-color: #2858A8;
+}
+.invest-osiedle-tempo-timeline h2 {
+  font-family: 'Gilroy-Bold', sans-serif;
+  font-style: normal;
+  text-transform: uppercase;
+}
+.invest-osiedle-tempo-timeline .timeline-wrapper .day-date {
+  color: #2858a8;
+}
+.invest-osiedle-tempo-post h1.post-details-title {
+  font-family: 'Gilroy-Bold', sans-serif;
+  font-style: normal;
+  text-transform: uppercase;
+  font-size: 50px;
+  color: #2858A8;
+}
+.atut-tempo h3 {
+  font-size: 24px;
+  color: #222;
+}
+.atut-tempo h3 span {
+  color: #dae120;
+}
+.atut-tempo img {
+  margin: 0 auto;
+}
+.atut-tempo-lokalizacja h3 {
+  color: #282828;
+  font-weight: normal;
+  font-size: 18px;
+}
+.atut-tempo-lokalizacja h3 span {
+  font-size: 19px;
+  color: #2858a8;
+}
+.atut-tempo-lokalizacja h3 strong {
+  display: block;
+  font-size: 32px;
+  text-align: center;
+  width: 100%;
+  color: #dae120;
+}
+.atut-tempo-red h3 strong {
+  color: #ee1e3c;
+}
+.atut-tempo-green h3 strong {
+  color: #dae120;
+}
+#atut-tempo-carousel {
+  min-height: 292px;
+  padding: 0 60px;
+}
+#atut-tempo-carousel .slick-slider {
+  display: none;
+}
+#atut-tempo-carousel .slick-slider.slick-initialized {
+  display: block;
+}
+#atut-tempo-carousel button {
+  background: #dae120;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+#atut-tempo-carousel button.slick-prev {
+  left: 15px;
+}
+#atut-tempo-carousel button.slick-next {
+  right: 15px;
 }
 /* Footer
 ================================================== */

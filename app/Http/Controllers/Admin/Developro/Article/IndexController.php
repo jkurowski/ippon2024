@@ -24,7 +24,7 @@ class IndexController extends Controller
 
     public function index(Investment $investment)
     {
-        return view('admin.developro.investment_article.index', ['list' => $this->repository->allSortBy('date', 'ASC'), 'investment' => $investment]);
+        return view('admin.developro.investment_article.index', ['list' => $this->repository->allSortByWhere('investment_id', $investment->id, 'date', 'ASC'), 'investment' => $investment]);
     }
 
     public function create(Investment $investment)

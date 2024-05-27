@@ -33,4 +33,15 @@ class IndexController extends Controller
             'rules' => RodoRules::orderBy('sort')->whereStatus(1)->get()
         ]);
     }
+
+    public function temp()
+    {
+        $investment = $this->repository->findBySlug('osiedle-tempo');
+        $menu_page = Page::where('id', $this->pageId)->first();
+
+        return view('front.developro.page.temp', [
+            'investment' => $investment,
+            'page' => $menu_page
+        ]);
+    }
 }

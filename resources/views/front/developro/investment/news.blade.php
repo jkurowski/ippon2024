@@ -16,7 +16,7 @@
 @stop
 
 @section('content')
-    <div id="page-content">
+    <div id="page-content" class="invest-{{ $investment->slug }}-timeline">
         <div class="container">
             <div class="row">
                 <div class="col-12">
