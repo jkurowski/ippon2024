@@ -44,4 +44,15 @@ class IndexController extends Controller
             'page' => $menu_page
         ]);
     }
+
+    public function temp2()
+    {
+        $investment = $this->repository->findBySlug('osiedle-synergia');
+        $menu_page = Page::where('id', $this->pageId)->first();
+
+        return view('front.developro.page.location-synergia', [
+            'investment' => $investment,
+            'page' => $menu_page
+        ]);
+    }
 }

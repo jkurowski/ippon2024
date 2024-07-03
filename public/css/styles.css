@@ -3643,6 +3643,21 @@ html.swipebox-html.swipebox-touch {
   padding: 10px 15px;
   background: rgba(255, 255, 255, 0.5);
 }
+/* Osidle Synergia
+================================================== */
+.modern {
+  font-family: 'Modern Age', sans-serif;
+}
+.invest-osiedle-synergia h2 {
+  margin-bottom: 35px;
+  font-family: 'Modern Age', sans-serif;
+  font-style: normal;
+  font-size: 50px;
+  color: #4A7265;
+}
+.invest-osiedle-synergia h2 span {
+  color: #C08982;
+}
 /* Osidle Tempo
 ================================================== */
 @font-face {

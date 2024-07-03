@@ -68,6 +68,13 @@ class InvestmentController extends Controller
                 'page' => $page
             ]);
         }
+        else if($investment->id == 6 && auth()->check())
+        {
+            return view('front.developro.investment.synergia', [
+                'investment' => $investment,
+                'page' => $page
+            ]);
+        }
         else
         {
             return view('front.developro.investment.index', [
