@@ -444,6 +444,20 @@ button:focus,
 .bttn.bttn-slow.bttn-slow-red:hover {
   color: white !important;
 }
+.bttn.bttn-synergia {
+  background: #4a7265;
+  border: 5px solid #c08982;
+  color: #fff;
+  padding: 9px 15px;
+  position: relative;
+  bottom: 0;
+  transition: background-size 200ms linear, box-shadow 200ms, color 100ms linear, border-color 100ms linear, bottom 100ms linear;
+}
+.bttn.bttn-synergia:hover {
+  color: #fff !important;
+  border: 5px solid #eabebb;
+  bottom: 2px;
+}
 .bttn-icon i {
   font-size: 20px;
   color: var(--main-color);
@@ -3646,11 +3660,29 @@ html.swipebox-html.swipebox-touch {
 /* Osidle Synergia
 ================================================== */
 .modern {
-  font-family: 'Modern Age', sans-serif;
+  font-family: "museo-sans", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+.icon-synergia h3 {
+  font-family: "museo-sans", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  color: #4A7265;
+  text-transform: uppercase;
+  margin-bottom: 0;
+  font-size: 25px;
+}
+.icon-synergia span {
+  font-family: "museo-sans", sans-serif;
+  font-weight: 700;
+  color: #C08982;
+  font-size: 23px;
 }
 .invest-osiedle-synergia h2 {
   margin-bottom: 35px;
-  font-family: 'Modern Age', sans-serif;
+  font-family: "museo-sans", sans-serif;
+  font-weight: 700;
   font-style: normal;
   font-size: 50px;
   color: #4A7265;
