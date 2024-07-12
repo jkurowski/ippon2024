@@ -102,6 +102,7 @@ Route::group(['namespace' => 'Front', 'prefix' => '{locale?}', 'where' => ['loca
         Route::get('/{slug}/aktualnosci/{article}', 'Article\IndexController@show')->name('investment.news.show');
 
         Route::get('/{slug}/pietro/{floor},{floorSlug}', 'InvestmentBuildingFloorController@index')->name('floor');
+
         Route::get('/{slug}/{property},{propertySlug},{propertyFloor},{propertyRooms},{propertyArea}', 'InvestmentPropertyController@index')->name('property');
 
         Route::get('/osiedle-tempo/lokalizacja', 'Page\IndexController@temp')->name('investment.temp');

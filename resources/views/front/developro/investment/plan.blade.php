@@ -36,7 +36,7 @@
                                 @if($floor->html)
                                     <area
                                             shape="poly"
-                                            href="#"
+                                            href="{{route('developro.floor', [$investment->slug, $floor, Str::slug($floor->name)])}}"
                                             title="{{$floor->name}}"
                                             alt="floor-{{$floor->id}}"
                                             data-item="{{$floor->id}}"

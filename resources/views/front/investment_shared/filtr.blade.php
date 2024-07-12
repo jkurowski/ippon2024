@@ -14,9 +14,11 @@
                 <label for="filtr-rooms" class="w-100">Pokoje</label>
                 <select name="rooms" id="filtr-rooms">
                     <option value="">Wszystkie</option>
-                    @foreach($uniqueRooms as $room)
-                        <option value="{{ $room }}" @if(request()->input('rooms') == $room) selected @endif>{{ $room }}</option>
-                    @endforeach
+                    @if($uniqueRooms)
+                        @foreach($uniqueRooms as $room)
+                            <option value="{{ $room }}" @if(request()->input('rooms') == $room) selected @endif>{{ $room }}</option>
+                        @endforeach
+                    @endif
                 </select>
             </div>
             <div class="col-12 col-sm">
