@@ -68,14 +68,28 @@ class IndexController extends Controller
         $menu_page = Page::where('id', $this->pageId)->first();
         $investmentPage = $investment->investmentPage()->where('slug', 'mieszkania')->first();
 
-        return view('front.developro.investment.plan-2', [
-            'investment' => $investment,
-            'building' => $building,
-            'properties' => $investment->buildingRooms,
-            'investment_page' => $investmentPage,
-            'page' => $menu_page,
-            'floors' => $request->input('floor'),
-            'uniqueRooms' => $this->repository->getUniqueRooms($investment_room->properties)
-        ]);
+        if($investment->type == 1){
+            return view('front.developro.investment.plan-2', [
+                'investment' => $investment,
+                'building' => $building,
+                'properties' => $investment->buildingRooms,
+                'investment_page' => $investmentPage,
+                'page' => $menu_page,
+                'floors' => $request->input('floor'),
+                'uniqueRooms' => $this->repository->getUniqueRooms($investment_room->properties)
+            ]);
+        }
+
+        if($investment->type == 2){
+            return view('front.developro.investment.plan', [
+                'investment' => $investment,
+                'building' => $building,
+                'properties' => $investment->buildingRooms,
+                'investment_page' => $investmentPage,
+                'page' => $menu_page,
+                'floors' => $request->input('floor'),
+                'uniqueRooms' => $this->repository->getUniqueRooms($investment_room->properties)
+            ]);
+        }
     }
 }
