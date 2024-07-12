@@ -39,6 +39,7 @@
                             </map>
                         </div>
                     @endif
+                    @if($investment->id == 5)
                         <div class="ratio ratio-16x9">
                     <iframe
                             frameborder="0" src="https://v4-jeff.prod.resimo.io/ippon/slow/#/?app=jeff&jeff-building=1&lang=pl"
@@ -47,6 +48,7 @@
                             style="border:0;margin:0;padding:0"
                     ></iframe>
                         </div>
+                    @endif
                     @include('front.developro.investment_shared.filtr', ['area_range' => $investment->area_range,  'floors' => $floors, 'floorFiltr' => 1])
                     @include('front.investment_shared.sort')
 
