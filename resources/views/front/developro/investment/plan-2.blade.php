@@ -18,11 +18,13 @@
 @section('content')
     <div id="page-content">
         <div class="container">
+            @if($investment_page->content)
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-10">
                     {!! $investment_page->content !!}
                 </div>
             </div>
+            @endif
             <div class="row">
                 <div class="col-12 mt-5">
                     @if($building->file)
