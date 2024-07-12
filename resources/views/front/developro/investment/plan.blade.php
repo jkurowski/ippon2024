@@ -16,47 +16,46 @@
 @stop
 
 @section('content')
-    <div id="page-content">
-        <div class="container">
-            @if($investment_page->content)
-                <div class="row justify-content-center">
-                    <div class="col-12 col-lg-10">
-                        {!! $investment_page->content !!}
-                    </div>
+<div id="page-content">
+    <div class="container">
+        @if($investment_page->content)
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-10">
+                    {!! $investment_page->content !!}
                 </div>
-            @endif
-            <div class="row">
-                <div class="col-12 mt-5">
-                    @if($investment->plan)
-                            <img src="{{ asset('/investment/plan/'.$investment->plan->file) }}" alt="{{$investment->name}}" id="invesmentplan" usemap="#invesmentplan">
+            </div>
+        @endif
+        <div class="row">
+            <div class="col-12 mt-5">
+                @if($investment->plan)
+                    <img src="{{ asset('/investment/plan/'.$investment->plan->file) }}" alt="{{$investment->name}}" id="invesmentplan" usemap="#invesmentplan">
 
-                            @if($investment->type == 2)
-                                <map name="invesmentplan">
-                                    @foreach($investment->floors as $floor)
-                                        @if($floor->html)
-                                            <area
-                                                    shape="poly"
-                                                    href="#"
-                                                    title="{{$floor->name}}"
-                                                    alt="floor-{{$floor->id}}"
-                                                    data-item="{{$floor->id}}"
-                                                    data-floornumber="{{$floor->id}}"
-                                                    data-floortype="{{$floor->type}}"
-                                                    coords="{{cords($floor->html)}}">
-                                        @endif
-                                    @endforeach
-                                </map>
-                            @endif
-                       @endif
-                        </div>
-                    @include('front.developro.investment_shared.filtr', ['area_range' => $investment->area_range,  'floors' => $floors, 'floorFiltr' => 1])
-                    @include('front.investment_shared.sort')
+                    @if($investment->type == 2)
+                        <map name="invesmentplan">
+                            @foreach($investment->floors as $floor)
+                                @if($floor->html)
+                                    <area
+                                            shape="poly"
+                                            href="#"
+                                            title="{{$floor->name}}"
+                                            alt="floor-{{$floor->id}}"
+                                            data-item="{{$floor->id}}"
+                                            data-floornumber="{{$floor->id}}"
+                                            data-floortype="{{$floor->type}}"
+                                            coords="{{cords($floor->html)}}">
+                                @endif
+                            @endforeach
+                        </map>
+                    @endif
+                @endif
+                @include('front.developro.investment_shared.filtr', ['area_range' => $investment->area_range,  'floors' => $floors, 'floorFiltr' => 1])
+                @include('front.investment_shared.sort')
 
-                    @include('front.developro.investment_shared.list', ['investment' => $investment])
-                </div>
+                @include('front.developro.investment_shared.list', ['investment' => $investment])
             </div>
         </div>
     </div>
+</div>
 @endsection
 @push('scripts')
     <script src="{{ asset('/js/plan/imagemapster.js') }}" charset="utf-8"></script>
