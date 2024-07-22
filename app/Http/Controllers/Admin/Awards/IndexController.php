@@ -10,6 +10,7 @@ use App\Http\Requests\AwardFormRequest as FormRequest;
 use App\Models\Award as Model;
 use App\Services\AwardService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class IndexController extends Controller
 {
@@ -48,6 +49,10 @@ class IndexController extends Controller
 
     public function edit(Model $award)
     {
+        if(request()->get('lang')) {
+            app()->setLocale(request()->get('lang'));
+        }
+
         return view('admin.awards.form', [
             'entry' => $award,
             'cardTitle' => 'Edytuj wpis',
@@ -57,6 +62,10 @@ class IndexController extends Controller
 
     public function update(FormRequest $request, Model $award)
     {
+        if(request()->get('lang')) {
+            app()->setLocale(request()->get('lang'));
+        }
+
         $this->repository->update($request->validated(), $award);
 
         if ($request->hasFile('file')) {
@@ -75,5 +84,36 @@ class IndexController extends Controller
     public function sort(Request $request)
     {
         $this->repository->updateOrder($request->get('recordsArray'));
+    }
+
+    public function translate(){
+        $defaultLocale = 'pl';
+
+        $news = DB::table('awards')->get();
+
+        foreach ($news as $n) {
+            $existingNews = Model::find($n->id);
+
+            // If the entry exists, update its attributes
+            if ($existingNews) {
+
+                // Existing data
+                $existingNews->fill([
+                    'sort' => $n->sort,
+                    'file' => $n->file,
+                    'created_at' => $n->created_at,
+                    'updated_at' => $n->updated_at
+                ]);
+
+                // Update translations for translatable attributes
+                $existingNews->setTranslation('name', $defaultLocale, $n->name);
+                $existingNews->setTranslation('text', $defaultLocale, $n->text);
+
+                // Save
+                $existingNews->save();
+            }
+        }
+
+        return redirect(route('admin.awards.index'))->with('success', 'Wpisy przetłumaczone');
     }
 }
