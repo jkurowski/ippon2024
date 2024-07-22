@@ -31,7 +31,9 @@
                                 <a href="#" class="bttn bttn-icon mt-5 bttn-synergia">Zobacz mieszkania <i class="ms-3 las la-chevron-circle-right"></i></a>
                             </div>
                         </div>
-                        <div class="col-6"><img src="https://placehold.co/770x578" alt="" /></div>
+                        <div class="col-6">
+                            <img src="{{ asset('uploads/files/synergia/wszedzie-blisko.jpg') }}" alt="" width="930" height="654" />
+                        </div>
                     </div>
                     <div class="row flex-row-reverse mt-5 pt-5">
                         <div class="col-6 d-flex align-items-center">
@@ -40,7 +42,9 @@
                                 <p>Osiedle jest bardzo dobrze skomunikowane z resztą miasta. W 1 minuty pieszo można dojść do <b>przystanku autobusowego</b>, a w 6 minut do przystanku <b>tramwajowego</b>. W kilka minut dojedziesz do <b>obwodnicy Olsztyna</b>, by drogą ekspresową dostać się do Gdańska lub Warszawy.</p>
                             </div>
                         </div>
-                        <div class="col-6"><img src="https://placehold.co/770x578" alt="" /></div>
+                        <div class="col-6">
+                            <img src="{{ asset('uploads/files/synergia/dobra-komunikacja.jpg') }}" alt="" width="930" height="654" />
+                        </div>
                     </div>
                     <div class="row mt-5 pt-5">
                         <div class="col-12 text-center pb-5">

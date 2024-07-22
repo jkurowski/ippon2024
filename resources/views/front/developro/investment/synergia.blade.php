@@ -39,7 +39,7 @@
                         <a href="#" class="bttn bttn-icon mt-5 bttn-synergia">Mieszkania <i class="ms-3 las la-chevron-circle-right"></i></a>
                     </div>
                 </div>
-                <div class="col-7"><img src="https://placehold.co/930x690" alt="" /></div>
+                <div class="col-7"><img src="{{ asset('uploads/files/synergia/mieszkania-dla-calych-rodzin.jpg') }}" alt="" width="930" height="654" /></div>
             </div>
 
             <div class="row mt-5 pt-5">
@@ -50,7 +50,7 @@
                         <a href="#" class="bttn bttn-icon mt-5 bttn-synergia">Zobacz mieszkania <i class="ms-3 las la-chevron-circle-right"></i></a>
                     </div>
                 </div>
-                <div class="col-7"><img src="https://placehold.co/930x690" alt="" /></div>
+                <div class="col-7"><img src="{{ asset('uploads/files/synergia/garaz.jpg') }}" alt="" width="930" height="654" /></div>
             </div>
 
             <div class="row flex-row-reverse mt-5 pt-5">
