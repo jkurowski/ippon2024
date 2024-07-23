@@ -24,7 +24,8 @@ class Investment extends Model
         'content',
         'end_content',
         'meta_title',
-        'meta_description'
+        'meta_description',
+        'address'
     ];
 
     /**
