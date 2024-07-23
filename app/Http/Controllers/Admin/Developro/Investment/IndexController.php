@@ -10,6 +10,7 @@ use App\Models\Investment;
 use App\Repositories\InvestmentRepository;
 use App\Services\InvestmentService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 // CMS
 
@@ -73,6 +74,10 @@ class IndexController extends Controller
 
     public function edit(int $id)
     {
+        if(request()->get('lang')) {
+            app()->setLocale(request()->get('lang'));
+        }
+
         return view('admin.developro.investment.form', [
             'entry' => $this->repository->find($id),
             'citiesMenu' => City::pluck('name', 'id'),
@@ -84,6 +89,10 @@ class IndexController extends Controller
 
     public function update(InvestmentFormRequest $request, int $id)
     {
+        if(request()->get('lang')) {
+            app()->setLocale(request()->get('lang'));
+        }
+
         $investment = $this->repository->find($id);
         $this->repository->update($request->validated(), $investment);
 
@@ -162,5 +171,60 @@ class IndexController extends Controller
         } else {
             echo "File uploads are not allowed on this server.";
         }
+    }
+
+    public function translate(){
+        $defaultLocale = 'pl';
+
+        $news = DB::table('investments')->get();
+
+        foreach ($news as $n) {
+            $existing = Investment::find($n->id);
+
+            // If the entry exists, update its attributes
+            if ($existing) {
+
+                // Existing data
+                $existing->fill([
+                    'type' => $n->type,
+                    'status' => $n->status,
+                    'address' => $n->address,
+                    'marker' => $n->marker,
+                    'city' => $n->city,
+                    'lat' => $n->lat,
+                    'lng' => $n->lng,
+                    'zoom' => $n->zoom,
+                    'date_start' => $n->date_start,
+                    'date_end' => $n->date_end,
+                    'areas_amount' => $n->areas_amount,
+                    'area_range' => $n->area_range,
+                    'office_address' => $n->office_address,
+                    'contact_form' => $n->contact_form,
+                    'contact_form_text' => $n->contact_form_text,
+                    'file_thumb' => $n->file_thumb,
+                    'file_header' => $n->file_header,
+                    'file_logo' => $n->file_logo,
+                    'carousel_id' => $n->carousel_id,
+                    'developro' => $n->developro,
+                    'meta_robots' => $n->meta_robots,
+                    'created_at' => $n->created_at,
+                    'updated_at' => $n->updated_at
+                ]); //23
+
+                // Update translations for translatable attributes
+                $existing->setTranslation('name', $defaultLocale, $n->name);
+                $existing->setTranslation('entry_content', $defaultLocale, $n->entry_content);
+                $existing->setTranslation('content', $defaultLocale, $n->content);
+                $existing->setTranslation('end_content', $defaultLocale, $n->end_content);
+                $existing->setTranslation('meta_title', $defaultLocale, $n->meta_title);
+                $existing->setTranslation('meta_description', $defaultLocale, $n->meta_description);
+                // 6
+
+                // Save
+                $existing->save();
+            }
+        }
+
+        return redirect(route('admin.developro.investment.index'))->with('success', 'Wpisy przetłumaczone');
     }
 }

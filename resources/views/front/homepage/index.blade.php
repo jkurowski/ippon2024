@@ -94,7 +94,11 @@
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
+                @if($current_locale == 'pl')
                 <h2 class="section-title text-uppercase"><span class="text-gold">Poznaj inwestycje</span> <br>w sprzedaży</h2>
+                @else
+                <h2 class="section-title text-uppercase"><span class="text-gold">Discover investments</span> <br>on sale</h2>
+                @endif
             </div>
         </div>
         <div class="row left-right">
@@ -141,6 +145,7 @@
         </div>
         <div class="row left-right flex-row-reverse row-offset-up">
             <div data-aos="fade-left" data-aos-offset="400" data-aos-delay="0" class="order-2 order-xl-1 col-12 col-xl-6 d-flex align-items-center">
+                @if($current_locale == 'pl')
                 <div class="left-right-text current-item">
                     <h2 class="mb-0"><a href="/pl/i/osiedle-slow">OSIEDLE SLOW</a></h2>
                     <div class="invest-item-city">Olsztyn, ul.Kordeckiego</div>
@@ -173,6 +178,40 @@
                     </div>
                     <a href="/pl/i/osiedle-slow" class="bttn bttn-icon mt-3 mt-sm-5">ZOBACZ MIESZKANIA <i class="ms-3 las la-chevron-circle-right"></i></a>
                 </div>
+                @else
+                    <div class="left-right-text current-item">
+                        <h2 class="mb-0"><a href="/en/i/osiedle-slow">SLOW ESTATE</a></h2>
+                        <div class="invest-item-city">Olsztyn, ul.Kordeckiego</div>
+                        <p>Slow Estate is a cozy community located away from the city center, ideal for those who value proximity to recreational areas and seek to live in a safe and modern neighborhood. Special meeting zones will be        created with space for bonfires and barbecue shelters with seating areas.</p>
+                        <div class="row mt-3 mt-sm-5">
+                            <div class="col-3">
+                                <div class="current-stat text-center">
+                                    <span>39</span>
+                                    apartments
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="current-stat text-center">
+                                    <span>2</span>
+                                    floors
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="current-stat text-center">
+                                    <span>35-56 m<sup>2</sup></span>
+                                    square
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="current-stat text-center">
+                                    <span>Q3 2025</span>
+                                    hand and over date
+                                </div>
+                            </div>
+                        </div>
+                        <a href="/pl/i/osiedle-slow" class="bttn bttn-icon mt-3 mt-sm-5">CHECK APARTMENTS <i class="ms-3 las la-chevron-circle-right"></i></a>
+                    </div>
+                @endif
             </div>
             <div data-aos="fade-right" data-aos-offset="400" data-aos-delay="0" class="mb-4 mb-xl-0 order-1 order-xl-2 col-12 col-xl-6">
                 <div class="invest-item-thumb">

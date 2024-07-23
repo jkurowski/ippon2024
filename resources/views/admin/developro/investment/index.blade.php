@@ -96,6 +96,9 @@
                                         data-bs-title="Edytuj">
                                         <i class="fe-edit" aria-hidden="true"></i>
                                     </a>
+
+                                    <a href="{{route('admin.developro.investment.edit', ['investment' => $p, 'lang' => 'en'])}}" class="btn action-button lang-button me-1" data-toggle="tooltip" data-placement="top" title="Edytuj"><img src="{{ asset('/cms/flags/en.png') }}" alt="Tłumaczenie: en"></a>
+
                                     <form method="POST" action="{{route('admin.developro.investment.destroy', $p)}}">
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}

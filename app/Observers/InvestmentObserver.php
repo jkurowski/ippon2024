@@ -17,6 +17,8 @@ class InvestmentObserver
      */
     public function saving(Investment $investment)
     {
-        $investment->slug = Str::slug($investment->name);
+        if(app()->getLocale() == 'pl') {
+            $investment->slug = Str::slug($investment->name);
+        }
     }
 }

@@ -22,7 +22,7 @@
             <div class="card mt-3">
                 @include('form-elements.back-route-button')
                 <div class="card-body control-col12">
-
+                    @if(!Request::get('lang'))
                     <div class="row w-100 mb-4">
                         <div class="col-4">
                             @include('form-elements.html-select', [
@@ -59,13 +59,13 @@
                             ]])
                         </div>
                     </div>
-
+                    @endif
                     <div class="row w-100 mb-4">
                         <div class="col-12">
                             @include('form-elements.html-input-text', ['label' => 'Nazwa inwestycji', 'name' => 'name', 'value' => $entry->name, 'required' => 1])
                         </div>
                     </div>
-
+                    @if(!Request::get('lang'))
                     <div class="row w-100 mb-4">
                         <div class="col-4">
                             @include('form-elements.html-input-text', ['label' => 'Adres inwestycji', 'name' => 'address', 'value' => $entry->address])
@@ -123,7 +123,7 @@
                             @include('form-elements.html-input-text', ['label' => 'Adres biura sprzedaży', 'name' => 'office_address', 'value' => $entry->office_address])
                         </div>
                     </div>
-
+                    @endif
                     <div class="row w-100 mb-5">
                         <div class="col-4">
                             @include('form-elements.html-input-text-count', ['label' => 'Nagłówek strony', 'sublabel'=> 'Meta tag - title', 'name' => 'meta_title', 'value' => $entry->meta_title, 'maxlength' => 60])
@@ -131,11 +131,14 @@
                         <div class="col-4">
                             @include('form-elements.html-input-text-count', ['label' => 'Opis strony', 'sublabel'=> 'Meta tag - description', 'name' => 'meta_description', 'value' => $entry->meta_description, 'maxlength' => 158])
                         </div>
+                        @if(!Request::get('lang'))
                         <div class="col-4">
                             @include('form-elements.html-input-text', ['label' => 'Indeksowanie', 'sublabel'=> 'Meta tag - robots', 'name' => 'meta_robots', 'value' => $entry->meta_robots])
                         </div>
+                        @endif
                     </div>
 
+                    @if(!Request::get('lang'))
                     <div class="row w-100 mb-4">
                         @include('form-elements.html-input-file', [
                             'label' => 'Miniaturka',
@@ -174,6 +177,7 @@
                             'file_preview' => config('images.investment.header_file_path')
                             ])
                     </div>
+                    @endif
 
                     <div class="row w-100 mb-4">
                         @include('form-elements.textarea-fullwidth', ['label' => 'Krótki opis na liście', 'name' => 'entry_content', 'value' => $entry->entry_content, 'rows' => 5, 'class' => 'tinymce', 'required' => 1])
@@ -190,6 +194,7 @@
                 </div>
             </div>
         </div>
+        <input type="hidden" name="lang" value="{{$current_locale}}">
         @include('form-elements.submit', ['name' => 'submit', 'value' => 'Zapisz'])
     </form>
     @include('form-elements.tintmce')

@@ -12,11 +12,20 @@ use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
 use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\Translatable\HasTranslations;
 
 class Investment extends Model
 {
 
-    use LogsActivity, HasSlug;
+    use LogsActivity, HasSlug, HasTranslations;
+    public array $translatable = [
+        'name',
+        'entry_content',
+        'content',
+        'end_content',
+        'meta_title',
+        'meta_description'
+    ];
 
     /**
      * The attributes that are mass assignable.
