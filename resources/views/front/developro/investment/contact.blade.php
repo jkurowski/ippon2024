@@ -44,7 +44,11 @@
             <div class="row mt-3 mt-sm-5">
                 <div class="col-12 col-xxl-4 order-2 order-xxl-1">
                     <div class="contact-box">
+                        @if($current_locale == 'pl')
                         <h2>BIURO SPRZEDAŻY</h2>
+                        @else
+                        <h2>SALES OFFICE</h2>
+                        @endif
                         <p>ul. Żelazna 4,</p>
                         <p>10-419 Olsztyn</p>
                         <p>&nbsp;</p>
@@ -53,7 +57,11 @@
                         <ul class="mb-0 list-unstyled icon-list-contact">
                             <li><img src="{{ asset('images/envelop-icon-svg.svg') }}" alt=""> <a href="mailto:mieszkania@ippon.group">mieszkania@ippon.group</a></li>
                         </ul>
+                        @if($current_locale == 'pl')
                         <a href="https://maps.app.goo.gl/Sv3KkJU2Dpxm9gX87" class="bttn bttn-icon mt-5" target="_blank">JAK DOJECHAĆ <i class="ms-3 las la-chevron-circle-right"></i></a>
+                            @else
+                        <a href="https://maps.app.goo.gl/Sv3KkJU2Dpxm9gX87" class="bttn bttn-icon mt-5" target="_blank">HOW TO GET TO US <i class="ms-3 las la-chevron-circle-right"></i></a>
+                            @endif
                     </div>
                 </div>
                 <div class="col-12 col-xxl-8 order-1 order-xxl-2 mb-4 mb-xxl-0">
@@ -79,7 +87,11 @@
                 <div class="container">
                     <div class="row pt-5 mt-0 mt-sm-5">
                         <div class="col-12 text-center">
-                            <h2 class="slow-header"><span class="abuget brown">Masz pytania?</span> <span class="rostemary">Napisz do nas!</span></h2>
+                            @if($current_locale == 'pl')
+                                <h2 class="slow-header justify-content-center"><span class="rostemary">Masz pytania?</span> <span class="abuget brown">Napisz do nas!</span></h2>
+                            @else
+                                <h2 class="slow-header justify-content-center"><span class="rostemary">Have more questions?</span> <span class="abuget brown">Write to us!</span></h2>
+                            @endif
                         </div>
                     </div>
 
