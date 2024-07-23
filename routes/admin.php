@@ -28,6 +28,7 @@ Route::group([
     //Route::get('article/import', 'Article\IndexController@import')->name('article.import');
     //Route::get('news/import', 'News\IndexController@import')->name('news.import');
     Route::get('news/translate', 'News\IndexController@translate');
+    Route::get('review/translate', 'Review\IndexController@translate');
     Route::get('awards/translate', 'Awards\IndexController@translate');
     Route::get('developro/investment/translate', 'Developro\Investment\IndexController@translate');
     Route::get('developro/investment/page/translate', 'Developro\Page\IndexController@translate');

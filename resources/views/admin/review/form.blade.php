@@ -21,6 +21,7 @@
                         <div class="card mt-3">
                             @include('form-elements.back-route-button')
                             <div class="card-body control-col12">
+                                @if(!Request::get('lang'))
                                 <div class="row w-100 form-group">
                                     @include('form-elements.html-select', ['label' => 'Typ', 'name' => 'type', 'selected' => $entry->type, 'select' => ['1' => 'Facebook', '2' => 'Google']])
                                 </div>
@@ -30,12 +31,14 @@
                                 <div class="row w-100 form-group">
                                     @include('form-elements.html-input-text', ['label' => 'Autor wpisu', 'name' => 'author', 'value' => $entry->author, 'required' => 1])
                                 </div>
+                                @endif
                                 <div class="row w-100 form-group">
                                     @include('form-elements.textarea-fullwidth', ['label' => 'Treść wpisu', 'name' => 'content', 'value' => $entry->content, 'rows' => 21, 'class' => 'tinymce', 'required' => 1])
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <input type="hidden" name="lang" value="{{$current_locale}}">
                     @include('form-elements.submit', ['name' => 'submit', 'value' => 'Zapisz'])
                 </form>
         @include('form-elements.tintmce')

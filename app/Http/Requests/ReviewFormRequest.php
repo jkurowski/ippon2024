@@ -24,7 +24,7 @@ class ReviewFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'author' => 'required|string',
+            'author' => 'string',
             'rating' => 'integer',
             'type' => 'integer',
             'content' => ''

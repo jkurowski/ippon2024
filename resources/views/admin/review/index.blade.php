@@ -40,6 +40,9 @@
                             <td class="option-120">
                                 <div class="btn-group">
                                     <a href="{{route('admin.review.edit', $item->id)}}" class="btn action-button me-1" data-toggle="tooltip" data-placement="top" title="Edytuj wpis"><i class="fe-edit"></i></a>
+
+                                    <a href="{{route('admin.review.edit', ['review' => $item->id, 'lang' => 'en'])}}" class="btn action-button lang-button me-1" data-toggle="tooltip" data-placement="top" title="Edytuj"><img src="{{ asset('/cms/flags/en.png') }}" alt="Tłumaczenie: en"></a>
+
                                     <form method="POST" action="{{route('admin.review.destroy', $item->id)}}">
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}
