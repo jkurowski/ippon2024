@@ -52,7 +52,7 @@
                     @else
                     <div class="left-right-text">
                         <h2 class="slow-header justify-content-start"><span class="abuget brown">Ecological</span> <span class="rostemary">solutions</span></h2>
-                        <p>SLOW estate covers an area of 2.14 hectares of green spaces. It has been designed with the environment, low operating costs, and future residents' savings in mind. Solar collectors will be installed for heating domestic hot water. Their use will significantly reduce the monthly bills and have a positive impact on the environment.</p>
+                        <p>SLOW estate covers an area of 2.14 hectares of green spaces. It has been designed with the environment, low operating costs, and future residents' savings in mind. Solar collectors will be installed for heating domestic hot water. Their use will significantly reduce the monthly bills and have a positive impact on the environment.
                         <p>Depending on the floor, apartments have balconies, loggias, or gardens.</p>
                         <a href="{{ route('developro.investment.page', [$investment->slug, 'mieszkania']) }}" class="bttn bttn-icon mt-4 bttn-slow">CHECK APARTMENTS <i class="ms-3 las la-chevron-circle-right"></i></a>
                     </div>
@@ -238,8 +238,8 @@
                 </div>
             </div>
             <div class="row left-right flex-row-reverse row-offset-up">
-                @if($current_locale == 'pl')
                 <div class="col-12 col-xl-6 d-flex align-items-center">
+                    @if($current_locale == 'pl')
                     <div class="left-right-text" data-aos="fade-up" data-aos-offset="500" data-aos-delay="0">
                         <h2 class="slow-header justify-content-start"><span class="abuget brown">Slow</span> <span class="rostemary">relaks</span></h2>
                         <p>Zanurz się w kojących odgłosach natury. Odnajdź swoją prywatną przestrzeń w specjalnie dla Ciebie przygotowanych <b>Strefach relaksu</b>.
