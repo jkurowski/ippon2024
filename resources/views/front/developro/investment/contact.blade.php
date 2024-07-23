@@ -52,7 +52,13 @@
                         <p>ul. Żelazna 4,</p>
                         <p>10-419 Olsztyn</p>
                         <p>&nbsp;</p>
+
+                            @if($current_locale == 'pl')
                         <p>Godziny otwarcia:</p>
+                            @else
+                        <p>Opening hours:</p>
+                            @endif
+
                         <p>pn.-pt. 9:00 - 17:00</p>
                         <ul class="mb-0 list-unstyled icon-list-contact">
                             <li><img src="{{ asset('images/envelop-icon-svg.svg') }}" alt=""> <a href="mailto:mieszkania@ippon.group">mieszkania@ippon.group</a></li>
