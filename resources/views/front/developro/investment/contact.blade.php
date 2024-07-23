@@ -35,7 +35,9 @@
             @else
             <div class="row">
                 <div class="col-12 text-center">
-                    <h1 class="rostemary brown"><span>Kontakt</span></h1>
+
+                    <h1 class="rostemary brown"><span>{{ $page->title }}</span></h1>
+
                 </div>
             </div>
 

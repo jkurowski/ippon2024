@@ -20,7 +20,13 @@
                     <div class="col-12 invest-header-nav">
                         <nav>
                             <ul class="list-unstyled mb-0">
-                                <li><a href="{{ route('developro.investment.index', $investmentSlug) }}">Opis inwestycji</a></li>
+                                <li>
+                                    @if($current_locale == 'pl')
+                                        <a href="{{ route('developro.investment.index', $investmentSlug) }}">Opis inwestycji</a>
+                                    @else
+                                        <a href="{{ route('developro.investment.index', $investmentSlug) }}">Estate description</a>
+                                    @endif
+                                </li>
                                 @foreach($investmentPages as $ipage)
                                     <li><a href="{{ route('developro.investment.page', [$investmentSlug, $ipage->slug]) }}">{{ $ipage->title }}</a></li>
                                 @endforeach
