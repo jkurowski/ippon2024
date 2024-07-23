@@ -34,6 +34,9 @@
                                     <div class="btn-group">
                                         <span class="btn action-button move-button me-1"><i class="fe-move"></i></span>
                                         <a href="{{route('admin.developro.investment.page.edit', [$investment, $item->id])}}" class="btn action-button me-1" data-bs-toggle="tooltip" data-placement="top" data-bs-title="Edytuj wpis"><i class="fe-edit"></i></a>
+
+                                        <a href="{{route('admin.developro.investment.page.edit', ['investment' => $investment, 'page' => $item->id, 'lang' => 'en'])}}" class="btn action-button lang-button me-1" data-toggle="tooltip" data-placement="top" title="Edytuj"><img src="{{ asset('/cms/flags/en.png') }}" alt="Tłumaczenie: en"></a>
+
                                         <form method="POST" action="{{route('admin.developro.investment.page.destroy', [$investment, $item->id])}}">
                                             {{ csrf_field() }}
                                             {{ method_field('DELETE') }}

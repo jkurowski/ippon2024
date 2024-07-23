@@ -17,6 +17,8 @@ class InvestmentPageObserver
      */
     public function saving(InvestmentPage $page)
     {
-        $page->slug = Str::slug($page->title);
+        if(app()->getLocale() == 'pl') {
+            $page->slug = Str::slug($page->title);
+        }
     }
 }

@@ -29,7 +29,11 @@
             <div class="container mt-0 mt-sm-5 pt-5">
                 <div class="row">
                     <div class="col-12 text-center">
+                        @if($current_locale == 'pl')
                         <h2 class="slow-header justify-content-center"><span class="rostemary">Masz pytania?</span> <span class="abuget brown">Napisz do nas!</span></h2>
+                        @else
+                        <h2 class="slow-header justify-content-center"><span class="rostemary">Do you have any questions?</span> <span class="abuget brown">Write to us!</span></h2>
+                        @endif
                     </div>
                 </div>
             </div>

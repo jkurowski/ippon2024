@@ -30,6 +30,7 @@ Route::group([
     Route::get('news/translate', 'News\IndexController@translate');
     Route::get('awards/translate', 'Awards\IndexController@translate');
     Route::get('developro/investment/translate', 'Developro\Investment\IndexController@translate');
+    Route::get('developro/investment/page/translate', 'Developro\Page\IndexController@translate');
 
     Route::get('user/datatable', 'User\IndexController@datatable')->name('user.datatable');
 

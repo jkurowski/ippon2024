@@ -3,9 +3,19 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
 
 class InvestmentPage extends Model
 {
+    use HasTranslations;
+    public array $translatable = [
+        'title',
+        'content',
+        'meta_title',
+        'meta_description',
+        'cta_text',
+        'cta_button'
+    ];
 
     /**
      * The attributes that are mass assignable.
