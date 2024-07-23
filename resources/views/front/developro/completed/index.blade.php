@@ -21,7 +21,7 @@
                     <div class="col-12 col-lg-6">
                         <div class="invest-item-holder">
                             <div class="invest-item position-relative">
-                                <span class="img-badge">Inwestycja zakończona</span>
+                                <span class="img-badge">{{ investmentStatus(2) }}</span>
                                 <div class="invest-item-thumb">
                                     @if($r->carousel->count() > 0)
                                         <div class="textSlider commercial-slider">

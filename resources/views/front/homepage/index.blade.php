@@ -101,49 +101,7 @@
                 @endif
             </div>
         </div>
-        <div class="row left-right">
-            <div data-aos="fade-right" data-aos-offset="300" data-aos-delay="0" class="order-2 order-xl-1 col-12 col-xl-6 d-flex align-items-center">
-                <div class="left-right-text current-item">
-                    <h2 class="mb-0"><a href="https://www.aurora.olsztyn.pl/" target="_blank">OSIEDLE AURORA ETAP 4</a></h2>
-                    <div class="invest-item-city">Olsztyn, ul. Barcza</div>
-                    <p><b>Mieszkania dostępne od ręki. W sprzedaży pozostały już ostatnie 2 apartamenty</b>. Klienci mogą jeszcze wybierać w mieszkaniach 3 pokojowych. Na 6 piętrze, znajdują się apartamenty o powierzchni 64 m2 oraz 70 m2. Posiadają szerokie, panoramiczne okna  oraz duże tarasy do 31 m2. Mieszkańcy skorzystają z miejsc parkingowych w hali garażowej, naziemnych miejsc postojowych oraz komórek lokatorskich.</p>
-                    <div class="row mt-3 mt-sm-5">
-                        <div class="col-3">
-                            <div class="current-stat text-center">
-                                <span>2</span>
-                                ilość mieszkań
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="current-stat text-center">
-                                <span>6</span>
-                                liczba pięter
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="current-stat text-center">
-                                <span>64-70 m<sup>2</sup></span>
-                                powierzchnia
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="current-stat text-center">
-                                <span>Q4 2023</span>
-                                termin oddania
-                            </div>
-                        </div>
-                    </div>
-                    <a href="https://www.aurora.olsztyn.pl/" target="_blank" class="bttn bttn-icon mt-3 mt-sm-5">ZOBACZ MIESZKANIA <i class="ms-3 las la-chevron-circle-right"></i></a>
-                </div>
-            </div>
-            <div data-aos="fade-left" data-aos-offset="300" data-aos-delay="0" class="mb-4 mb-xl-0 order-1 order-xl-2 col-12 col-xl-6">
-                <div class="invest-item-thumb">
-                    <span class="img-badge">Inwestycja aktualna</span>
-                    <a href="https://www.aurora.olsztyn.pl/" target="_blank"><img src="{{ asset('/uploads/files/aurora-4.jpg') }}" alt="" class="golden-border w-100" width="840" height="760"></a>
-                </div>
-            </div>
-        </div>
-        <div class="row left-right flex-row-reverse row-offset-up">
+        <div class="row left-right flex-row-reverse">
             <div data-aos="fade-left" data-aos-offset="400" data-aos-delay="0" class="order-2 order-xl-1 col-12 col-xl-6 d-flex align-items-center">
                 @if($current_locale == 'pl')
                 <div class="left-right-text current-item">
@@ -215,7 +173,7 @@
             </div>
             <div data-aos="fade-right" data-aos-offset="400" data-aos-delay="0" class="mb-4 mb-xl-0 order-1 order-xl-2 col-12 col-xl-6">
                 <div class="invest-item-thumb">
-                    <span class="img-badge">Inwestycja aktualna</span>
+                    <span class="img-badge">{{ investmentStatus(1) }}</span>
                     <a href="/pl/i/osiedle-slow"><img src="{{ asset('/uploads/files/osiedle-slow/ekologiczne-rozwiazania.jpg') }}" alt="" class="golden-border w-100" width="840" height="760"></a>
                 </div>
             </div>
@@ -240,7 +198,7 @@
                 <div class="col-12 col-lg-6">
                     <div class="invest-item-holder">
                         <div class="invest-item position-relative">
-                            <span class="img-badge">@lang('website.investment-status-4')</span>
+                            <span class="img-badge">{{ investmentStatus(4) }}</span>
                             <div class="invest-item-thumb img-overflow">
                                 @if($r->developro)
                                     <a href="{{ route('developro.investment.index', $r->slug) }}">
