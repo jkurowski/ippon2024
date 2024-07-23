@@ -36,7 +36,7 @@
             <div class="row">
                 <div class="col-12 text-center">
 
-                    <h1 class="rostemary brown"><span>{{ $page->title }}</span></h1>
+                    <h1 class="rostemary brown"><span>{{ $investment_page->title }}</span></h1>
 
                 </div>
             </div>
