@@ -24,17 +24,29 @@
             </div>
             <div class="col-12 col-md-6 col-xl-4">
                 <div class="contact-box">
+                    @if($current_locale == 'pl')
                     <h2>KONTAKT</h2>
+                    @else
+                        <h2>CONTACT</h2>
+                    @endif
                     <p>ul. Żelazna 4,</p>
                     <p>10-419 Olsztyn</p>
                     <p>&nbsp;</p>
+                        @if($current_locale == 'pl')
                     <p>Godziny otwarcia:</p>
+                        @else
+                    <p>Opening hours:</p>
+                        @endif
                     <p>pn.-pt. 8:00 - 16:00</p>
                     <ul class="mb-0 list-unstyled icon-list-contact">
                         <li><img src="{{ asset('images/phone-icon-svg.svg') }}" alt=""> <a href="tel:+48895265558">+48 89 526 55 58</a></li>
                         <li><img src="{{ asset('images/envelop-icon-svg.svg') }}" alt=""> <a href="mailto:sekretariat@ippon.group">sekretariat@ippon.group</a></li>
                     </ul>
+                        @if($current_locale == 'pl')
                     <a href="https://maps.app.goo.gl/Sv3KkJU2Dpxm9gX87" class="bttn bttn-icon mt-5" target="_blank">JAK DOJECHAĆ <i class="ms-3 las la-chevron-circle-right"></i></a>
+                        @else
+                    <a href="https://maps.app.goo.gl/Sv3KkJU2Dpxm9gX87" class="bttn bttn-icon mt-5" target="_blank">HOW TO GET TO US <i class="ms-3 las la-chevron-circle-right"></i></a>
+                        @endif
                 </div>
             </div>
         </div>
@@ -43,16 +55,28 @@
         <div class="row">
             <div class="col-12 col-md-6 col-xl-4 mb-4 mb-md-0">
                 <div class="contact-box">
+                    @if($current_locale == 'pl')
                     <h2>BIURO SPRZEDAŻY</h2>
+                    @else
+                    <h2>SALES OFFICE</h2>
+                    @endif
                     <p>ul. Żelazna 4,</p>
                     <p>10-419 Olsztyn</p>
                     <p>&nbsp;</p>
-                    <p>Godziny otwarcia:</p>
+                        @if($current_locale == 'pl')
+                            <p>Godziny otwarcia:</p>
+                        @else
+                            <p>Opening hours:</p>
+                        @endif
                     <p>pn.-pt. 9:00 - 17:00</p>
                     <ul class="mb-0 list-unstyled icon-list-contact">
                         <li><img src="{{ asset('images/envelop-icon-svg.svg') }}" alt=""> <a href="mailto:mieszkania@ippon.group">mieszkania@ippon.group</a></li>
                     </ul>
-                    <a href="https://maps.app.goo.gl/Sv3KkJU2Dpxm9gX87" class="bttn bttn-icon mt-5" target="_blank">JAK DOJECHAĆ <i class="ms-3 las la-chevron-circle-right"></i></a>
+                        @if($current_locale == 'pl')
+                            <a href="https://maps.app.goo.gl/Sv3KkJU2Dpxm9gX87" class="bttn bttn-icon mt-5" target="_blank">JAK DOJECHAĆ <i class="ms-3 las la-chevron-circle-right"></i></a>
+                        @else
+                            <a href="https://maps.app.goo.gl/Sv3KkJU2Dpxm9gX87" class="bttn bttn-icon mt-5" target="_blank">HOW TO GET TO US <i class="ms-3 las la-chevron-circle-right"></i></a>
+                        @endif
                 </div>
             </div>
             <div class="col-12 col-md-6 col-xl-8 d-flex align-items-center">

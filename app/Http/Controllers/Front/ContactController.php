@@ -100,7 +100,7 @@ class ContactController extends Controller
 
         return redirect()->back()->with(
             'success',
-            'Twoja wiadomość została wysłana. W najbliższym czasie skontaktujemy się z Państwem celem omówienia szczegółów!'
+            __('website.message_sent_long')
         );
     }
 
@@ -158,7 +158,7 @@ class ContactController extends Controller
 
         return redirect()->back()->with(
             'success',
-            'Twoja wiadomość została wysłana.'
+            __('website.message_sent')
         );
     }
 }

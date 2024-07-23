@@ -55,7 +55,7 @@ class LandController extends Controller
 
         return redirect()->back()->with(
             'success',
-            'Twoja wiadomość została wysłana.'
+            __('website.message_sent')
         );
     }
 }

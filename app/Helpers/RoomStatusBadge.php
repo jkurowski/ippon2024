@@ -3,15 +3,20 @@
 if (! function_exists('roomStatusBadge')) {
     function roomStatusBadge(int $number)
     {
-        switch ($number) {
-            case '1':
-                return '<span class="status-badge status-1">Dostępne</span>';
-            case '2':
-                return '<span class="status-badge status-2">Rezerwacja</span>';
-            case '3':
-                return '<span class="status-badge status-3">Sprzedane</span>';
-            case '4':
-                return '<span class="status-badge status-4">Wynajęte</span>';
+        $badges = [
+            '1' => '<span class="status-badge status-1">Available</span>',
+            '2' => '<span class="status-badge status-2">Reservation</span>',
+            '3' => '<span class="status-badge status-3">Sold</span>',
+            '4' => '<span class="status-badge status-4">Rented</span>',
+        ];
+        if (app()->getLocale() == 'pl') {
+            $badges = [
+                '1' => '<span class="status-badge status-1">Dostępne</span>',
+                '2' => '<span class="status-badge status-2">Rezerwacja</span>',
+                '3' => '<span class="status-badge status-3">Sprzedane</span>',
+                '4' => '<span class="status-badge status-4">Wynajęte</span>',
+            ];
         }
+        return $badges[$number] ?? null;
     }
 }
