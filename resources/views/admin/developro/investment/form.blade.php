@@ -65,11 +65,12 @@
                             @include('form-elements.html-input-text', ['label' => 'Nazwa inwestycji', 'name' => 'name', 'value' => $entry->name, 'required' => 1])
                         </div>
                     </div>
-                    @if(!Request::get('lang'))
+
                     <div class="row w-100 mb-4">
                         <div class="col-4">
                             @include('form-elements.html-input-text', ['label' => 'Adres inwestycji', 'name' => 'address', 'value' => $entry->address])
                         </div>
+                        @if(!Request::get('lang'))
                         <div class="col-4">
                             @include('form-elements.html-select', [
                                     'label' => 'Miasto',
@@ -88,8 +89,9 @@
                                     '0' => 'Nie'
                             ]])
                         </div>
+                        @endif
                     </div>
-
+                    @if(!Request::get('lang'))
                     <div class="row w-100 form-group">
                         @include('form-elements.html-input-text', ['label' => 'Szerokość geograficzna', 'name' => 'lat', 'value' => $entry->lat, 'required' => 1])
                     </div>
