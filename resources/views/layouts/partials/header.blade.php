@@ -34,10 +34,20 @@
                                 </div>
                             </div>
 
-                            <div id="lang" class="d-none">
+                            <div id="lang">
                                 <ul class="mb-0 list-unstyled d-flex">
+                                    @php
+                                        $currentLocale = app()->getLocale();
+                                    @endphp
                                     @foreach($available_locales as $available_locale => $locale_name)
-                                    <li><a href="#" @if($available_locale === $current_locale) class="active" @endif><img src="{{ asset('/images/flag-'.$current_locale.'.png') }}" alt=""></a></li>
+                                        @php
+                                            $localeUrl = changeLocaleInUrl($available_locale);
+                                        @endphp
+                                    <li>
+                                        <a href="{{ $localeUrl }}" @if($available_locale === $current_locale) class="active" @endif>
+                                            <img src="{{ asset('/images/flag-'.$available_locale.'.png') }}" alt="">
+                                        </a>
+                                    </li>
                                     @endforeach
                                 </ul>
                             </div>
