@@ -56,7 +56,7 @@
                 </div>
             </div>
 
-            <div class="row left-right row-offset-up">
+            <div class="row left-right mt-5">
                 <div class="col-12 col-xl-6 d-flex align-items-center">
                     <div class="left-right-text" data-aos="fade-up" data-aos-offset="200" data-aos-delay="0">
                         @if($current_locale == 'pl')
