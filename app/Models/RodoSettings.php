@@ -21,6 +21,7 @@ class RodoSettings extends Model
      */
 
     protected $fillable = [
-        'obligation'
+        'obligation',
+        'obligation_en'
     ];
 }

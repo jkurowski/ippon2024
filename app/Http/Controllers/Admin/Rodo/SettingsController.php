@@ -18,7 +18,7 @@ class SettingsController extends Controller
     public function update(Request $request, $id)
     {
         $settings = RodoSettings::find($id);
-        $settings->update($request->only(['obligation']));
+        $settings->update($request->only(['obligation', 'obligation_en']));
         return redirect()->route('admin.rodo.settings.index')->with('success', 'Ustawienia zapisane');
     }
 }

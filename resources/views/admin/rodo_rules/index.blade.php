@@ -19,7 +19,6 @@
                     <a class="nav-link {{ Request::routeIs('admin.crm.inbox.index') ? ' active' : '' }}" href="{{ route('admin.crm.inbox.index') }}"><span class="fe-list"></span> Lista wiadomości</a>
                     <a class="nav-link {{ Request::routeIs('admin.rodo.rules.index') ? ' active' : '' }}" href="{{ route('admin.rodo.rules.index') }}"><span class="fe-check-square"></span> RODO: regułki</a>
                     <a class="nav-link" href="{{ route('admin.rodo.clients.index') }}"><span class="fe-users"></span> RODO: użytkownicy</a>
-                    <a class="nav-link" href="{{ route('admin.rodo.settings.index') }}"><span class="fe-settings"></span> RODO: ustawienia</a>
                 </nav>
             </div>
 
@@ -59,6 +58,9 @@
                                 <td class="option-120">
                                     <div class="btn-group">
                                         <a href="{{route('admin.rodo.rules.edit', $p)}}" class="btn action-button me-1" data-toggle="tooltip" data-placement="top" title="Edytuj"><i class="fe-edit"></i></a>
+
+                                        <a href="{{route('admin.rodo.rules.edit', [$p, 'lang' => 'en'])}}" class="btn action-button lang-button me-1" data-toggle="tooltip" data-placement="top" title="Edytuj"><img src="{{ asset('/cms/flags/en.png') }}" alt="Tłumaczenie: en"></a>
+
                                         <form method="POST" action="{{route('admin.rodo.rules.destroy', $p)}}">
                                             {{ csrf_field() }}
                                             {{ method_field('DELETE') }}

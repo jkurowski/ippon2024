@@ -52,9 +52,14 @@
                             @enderror
                         </div>
                         <div class="col-12 col-xxl-8">
-                            @if($obligation)
+                            @if($obligation && $current_locale == 'pl')
                                 <div class="rodo-obligation mt-3">
                                     {!! $obligation->obligation !!}
+                                </div>
+                            @endif
+                            @if($obligation && $current_locale == 'en')
+                                <div class="rodo-obligation mt-3">
+                                    {!! $obligation->obligation_en !!}
                                 </div>
                             @endif
                             <div class="rodo-rules">

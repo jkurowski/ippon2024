@@ -7,6 +7,7 @@ use App\Http\Requests\RodoRulesFormRequest;
 
 use App\Repositories\RodoRulesRepository;
 use App\Models\RodoRules;
+use Illuminate\Support\Facades\DB;
 
 class RulesController extends Controller
 {
@@ -38,6 +39,10 @@ class RulesController extends Controller
 
     public function edit(int $id)
     {
+        if(request()->get('lang')) {
+            app()->setLocale(request()->get('lang'));
+        }
+
         return view('admin.rodo_rules.form', [
             'entry' => RodoRules::find($id),
             'cardTitle' => 'Edytuj regułkę',
@@ -47,6 +52,10 @@ class RulesController extends Controller
 
     public function update(RodoRulesFormRequest $request, RodoRules $rule)
     {
+        if(request()->get('lang')) {
+            app()->setLocale(request()->get('lang'));
+        }
+
         $this->repository->update($request->validated(), $rule);
         return redirect(route('admin.rodo.rules.index'))->with('success', 'Regułka zaktualizowana');
     }
@@ -55,5 +64,38 @@ class RulesController extends Controller
     {
         $this->repository->delete($id);
         return response()->json('Deleted');
+    }
+
+    public function translate(){
+        $defaultLocale = 'pl';
+
+        $news = DB::table('rodo_rules')->get();
+
+        foreach ($news as $n) {
+            $existingNews = RodoRules::find($n->id);
+
+            // If the entry exists, update its attributes
+            if ($existingNews) {
+
+                // Existing data
+                $existingNews->fill([
+                    'title' => $n->title,
+                    'required' => $n->required,
+                    'time' => $n->time,
+                    'status' => $n->status,
+                    'sort' => $n->sort,
+                    'created_at' => $n->created_at,
+                    'updated_at' => $n->updated_at
+                ]);
+
+                // Update translations for translatable attributes
+                $existingNews->setTranslation('text', $defaultLocale, $n->text);
+
+                // Save
+                $existingNews->save();
+            }
+        }
+
+        return redirect(route('admin.rodo.rules.index'))->with('success', 'Wpisy przetłumaczone');
     }
 }

@@ -39,6 +39,9 @@
                                         <div class="col-12">
                                             @include('form-elements.textarea-fullwidth', ['label' => 'Obowiązek informacyjny', 'name' => 'obligation', 'value' => $entry->obligation, 'rows' => 11])
                                         </div>
+                                        <div class="col-12">
+                                            @include('form-elements.textarea-fullwidth', ['label' => 'Obowiązek informacyjny EN', 'name' => 'obligation_en', 'value' => $entry->obligation_en, 'rows' => 11])
+                                        </div>
                                     </div>
                                 </div>
                             </div>
