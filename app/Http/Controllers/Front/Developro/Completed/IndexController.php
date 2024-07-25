@@ -13,7 +13,14 @@ class IndexController extends Controller
     public function index()
     {
         $page = Page::find(10);
-        $investments = Investment::whereStatus(2)->with('carousel')->get();
+        $customOrder = [1, 2, 3, 11, 4];
+        $customOrderString = implode(',', $customOrder);
+
+        $investments = Investment::where('status', 2)
+            ->with('carousel')
+            ->orderByRaw("FIELD(id, $customOrderString)")
+            ->get();
+
         return view('front.developro.completed.index', compact('page', 'investments'));
     }
 }

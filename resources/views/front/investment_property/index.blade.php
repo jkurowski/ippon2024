@@ -46,7 +46,7 @@
                                 @if($property->price)<li>Cena: <span>{{ $property->price }} zł</span></li>@endif
                             @else
                                 <li>Building: <span>B4.1</span></li>
-                                <li>Floor: <span> @if($floor->number == 0) ground floor @else {{ $floor->number }} @endif</span></li>
+                                <li>Floor: <span> @if($floor->number == 0) Ground floor @else {{ $floor->number }} @endif</span></li>
                                 <li>Rooms: <span>{{ $property->rooms }}</span></li>
                                 <li>Area: <span>{{ $property->area }} m<sup>2</sup></span></li>
                                 <li>Kitchen/Kitchen: <span>{{ kitchenType($property->kitchen_type) }}</span></li>

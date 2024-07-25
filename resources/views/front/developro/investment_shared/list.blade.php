@@ -8,7 +8,7 @@
                             <picture>
                                 <source type="image/webp" srcset="/investment/property/list/webp/{{$room->file_webp}}">
                                 <source type="image/jpeg" srcset="/investment/property/list/{{$room->file}}">
-                                <img src="/investment/property/list/{{$room->file}}" alt="{{$room->name}}">
+                                <img src="/investment/property/list/{{$room->file}}" alt="@if($current_locale == 'pl') Mieszkanie {{$room->number}} @else Apartment {{$room->number}} @endif">
                             </picture>
                         @endif
                     </div>
@@ -16,7 +16,9 @@
                     <div class="col-12 col-lg-8 d-flex align-items-center ps-3 ps-lg-4">
                         <div class="row w-auto w-lg-100">
                             <div class="col-12">
-                                <h2 class="poppins">{{$room->name}}</h2>
+                                <h2 class="poppins">
+                                    @if($current_locale == 'pl') Mieszkanie {{$room->number}} @else Apartment {{$room->number}} @endif
+                                </h2>
                             </div>
                             <div class="col-12">
                                 <div class="row">
