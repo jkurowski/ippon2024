@@ -580,7 +580,7 @@ header #lang a:hover img {
 }
 header #topCta {
   display: flex;
-  padding-right: 40px;
+  padding-right: 10px;
   align-items: center;
 }
 header #topCta p {
@@ -631,7 +631,7 @@ header #topCta span {
 }
 #cities {
   display: flex;
-  padding-right: 80px;
+  padding-right: 20px;
 }
 #cities .city-item {
   height: 100%;
@@ -1962,6 +1962,7 @@ div[class*='col-'].slick-slide {
 ================================================== */
 section {
   padding: 3rem 0 !important;
+  overflow-x: hidden;
 }
 #contactForm {
   padding: 0 0 90px !important;
@@ -4739,7 +4740,7 @@ html.swipebox-html.swipebox-touch {
   }
   #header.fixed #topCta a,
   header #topCta a {
-    font-size: 21px;
+    font-size: 17px;
     line-height: 27px;
   }
   #header.fixed .top,
@@ -4756,6 +4757,15 @@ html.swipebox-html.swipebox-touch {
     font-size: 11px;
     line-height: 14px;
     margin: 5px 0 0;
+  }
+  #header.fixed #lang,
+  header #lang {
+    padding-right: 15px;
+    height: 100%;
+  }
+  #header.fixed #topCta,
+  header #topCta {
+    padding-right: 5px;
   }
   footer {
     padding: 30px 15px;
