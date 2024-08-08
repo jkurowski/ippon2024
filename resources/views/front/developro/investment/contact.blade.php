@@ -74,13 +74,10 @@
                     <div class="d-flex align-items-center justify-content-center justify-content-lg-start">
                         <img src="{{ asset('/images/contact-img.jpg') }}" class="golden-border d-none d-lg-block" alt="">
                         <div class="ps-0 ps-lg-5 sellers text-center text-lg-start">
-                            <h2>Sylwia Sokal</h2>
-                            <a href="mailto:s.sokal@ippon.Group">s.sokal@ippon.group</a>
-                            <a href="tel:+48724222323"><strong>+48 724 222 323</strong></a>
-                            <hr>
                             <h2>Elżbieta Kalinowska</h2>
                             <a href="mailto:e.kalinowska@ippon.group">e.kalinowska@ippon.group</a>
                             <a href="tel:+48609884219"><strong>+48 609 884 219</strong></a>
+                            <a href="tel:+48724222323"><strong>+48 724 222 323</strong></a>
                         </div>
                     </div>
                 </div>
