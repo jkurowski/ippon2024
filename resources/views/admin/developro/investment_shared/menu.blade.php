@@ -34,5 +34,6 @@
         <a class="nav-link {{ Request::routeIs('admin.developro.investment.search.index') ? ' active' : '' }}" href="{{route('admin.developro.investment.search.index', $investment)}}"><span class="fe-search"></span> Wyszukiwarka</a>
 
         <a class="nav-link {{ Request::routeIs('admin.developro.investment.log') ? ' active' : '' }}" href="{{route('admin.developro.investment.log', $investment)}}"><span class="fe-activity"></span> Logi aktywności</a>
+        <a class="nav-link {{ Request::routeIs('admin.developro.investment.section.*') ? ' active' : '' }}" href="{{route('admin.developro.investment.section.index', $investment)}}"><span class="fe-file-text"></span> Sekcje tekstowe</a>
     </nav>
 </div>
