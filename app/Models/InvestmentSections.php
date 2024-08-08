@@ -24,6 +24,7 @@ class InvestmentSections extends Model
      */
     protected $fillable = [
         'investment_id',
+        'category',
         'title',
         'subtitle',
         'text',

@@ -25,6 +25,7 @@ class InvestSectionFormRequest extends FormRequest
     {
         return [
             'investment_id' => 'integer',
+            'category' => 'integer',
             'title' => 'required|string|min:5|max:190',
             'subtitle' => 'nullable|string|min:5|max:190',
             'text' => '',
