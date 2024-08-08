@@ -147,6 +147,7 @@ Route::group([
 
             Route::resources([
                 '{investment}/page' => 'Page\IndexController',
+                '{investment}/section' => 'Section\IndexController',
                 '{investment}/article' => 'Article\IndexController',
                 '{investment}/plan' => 'Plan\IndexController',
                 '{investment}/search' => 'Search\IndexController',
