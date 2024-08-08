@@ -72,6 +72,7 @@ class InvestmentController extends Controller
         {
             return view('front.developro.investment.synergia', [
                 'investment' => $investment,
+                'sections' => $investment->sections(1)->get(),
                 'page' => $page
             ]);
         }

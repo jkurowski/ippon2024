@@ -19,28 +19,28 @@
     <div id="page-content" class="invest-{{ $investment->slug }}">
         <div class="container">
             <div class="row">
-                @foreach($investment->sections as $s)
+                @foreach($sections as $s)
                     @if($s->id == 1)
-                <div class="col-5 d-flex align-items-center">
-                    <div class="pe-5">
-                        <h2>@if($s->title){!! $s->title !!}@endif</h2>
-                        @if($s->text) {!! $s->text !!} @endif
-                        @if($s->link && $s->link_button)
-                        <a href="{{ $s->link }}" class="bttn bttn-icon mt-5 bttn-synergia">{{ $s->link_button }} <i class="ms-3 las la-chevron-circle-right"></i></a>
-                        @endif
-                    </div>
-                </div>
-                <div class="col-7">
-                    @if($s->file_webp)
-                    <img src="{{ asset('investment/sections/webp/'.$s->file_webp) }}" alt="" width="930" height="690" />
-                    @endif
-                </div>
+                        <div class="col-5 d-flex align-items-center">
+                            <div class="pe-5">
+                                <h2>@if($s->title){!! $s->title !!}@endif</h2>
+                                @if($s->text) {!! $s->text !!} @endif
+                                @if($s->link && $s->link_button)
+                                    <a href="{{ $s->link }}" class="bttn bttn-icon mt-5 bttn-synergia">{{ $s->link_button }} <i class="ms-3 las la-chevron-circle-right"></i></a>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="col-7">
+                            @if($s->file_webp)
+                                <img src="{{ asset('investment/sections/webp/'.$s->file_webp) }}" alt="" width="930" height="690" />
+                            @endif
+                        </div>
                     @endif
                 @endforeach
             </div>
 
             <div class="row flex-row-reverse mt-5 pt-5">
-                @foreach($investment->sections as $s)
+                @foreach($sections as $s)
                     @if($s->id == 2)
                         <div class="col-5 d-flex align-items-center">
                             <div class="ps-5">
@@ -61,7 +61,7 @@
             </div>
 
             <div class="row mt-5 pt-5">
-                @foreach($investment->sections as $s)
+                @foreach($sections as $s)
                     @if($s->id == 3)
                         <div class="col-5 d-flex align-items-center">
                             <div class="pe-5">
@@ -82,7 +82,7 @@
             </div>
 
             <div class="row flex-row-reverse mt-5 pt-5">
-                @foreach($investment->sections as $s)
+                @foreach($sections as $s)
                     @if($s->id == 4)
                         <div class="col-5 d-flex align-items-center">
                             <div class="ps-5">
@@ -103,7 +103,7 @@
             </div>
 
             <div class="row mt-5 pt-5">
-                @foreach($investment->sections as $s)
+                @foreach($sections as $s)
                     @if($s->id == 5)
                         <div class="col-4 d-flex align-items-center">
                             <div class="pe-5">
@@ -119,7 +119,7 @@
             </div>
 
             <div class="row flex-row-reverse mt-5 pt-5">
-                @foreach($investment->sections as $s)
+                @foreach($sections as $s)
                     @if($s->id == 6)
                         <div class="col-5 d-flex align-items-center">
                             <div class="ps-5">
@@ -142,7 +142,7 @@
             </div>
 
             <div class="row mt-5 pt-5">
-                @foreach($investment->sections as $s)
+                @foreach($sections as $s)
                     @if($s->id == 7)
                         <div class="col-5 d-flex align-items-center">
                             <div class="pe-5">
@@ -163,7 +163,7 @@
             </div>
 
             <div class="row flex-row-reverse mt-5 pt-5">
-                @foreach($investment->sections as $s)
+                @foreach($sections as $s)
                     @if($s->id == 8)
                         <div class="col-5 d-flex align-items-center">
                             <div class="ps-5">
@@ -186,7 +186,7 @@
             </div>
 
             <div class="row mt-5 pt-5">
-                @foreach($investment->sections as $s)
+                @foreach($sections as $s)
                     @if($s->id == 9)
                         <div class="col-5 d-flex align-items-center">
                             <div class="pe-5">
@@ -207,7 +207,7 @@
             </div>
 
             <div class="row flex-row-reverse mt-5 pt-5 mb-5 pb-5">
-                @foreach($investment->sections as $s)
+                @foreach($sections as $s)
                     @if($s->id == 10)
                         <div class="col-5 d-flex align-items-center">
                             <div class="ps-5">

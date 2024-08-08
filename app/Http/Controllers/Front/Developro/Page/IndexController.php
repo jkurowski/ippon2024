@@ -52,6 +52,7 @@ class IndexController extends Controller
 
         return view('front.developro.page.location-synergia', [
             'investment' => $investment,
+            'sections' => $investment->sections(2)->get(),
             'page' => $menu_page,
             'obligation' => RodoSettings::find(1),
             'rules' => RodoRules::orderBy('sort')->whereStatus(1)->get()

@@ -19,6 +19,7 @@
                             <th>#</th>
                             <th>Tytuł</th>
                             <th>Sub-tytuł</th>
+                            <th>Kategoria</th>
                             <th class="text-center">Status</th>
                             <th class="text-center">Data utworzenia</th>
                             <th class="text-center">Data edycji</th>
@@ -31,6 +32,7 @@
                                 <td>{{ $key + 1 }}</td>
                                 <td>{{ $item->title }}</td>
                                 <td>{{ $item->subtitle }}</td>
+                                <td>{!! investmentSectionCategory($item->category) !!}</td>
                                 <td class="text-center">{!! status($item->active) !!}</td>
                                 <td class="text-center">{{ $item->created_at }}</td>
                                 <td class="text-center">{{ $item->updated_at }}</td>

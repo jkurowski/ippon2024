@@ -186,9 +186,11 @@ class Investment extends Model
      * Get investment text sections
      * @return HasMany
      */
-    public function sections(): HasMany
+    public function sections(int $category): HasMany
     {
-        return $this->hasMany('App\Models\InvestmentSections')->where('active', '=', 1);
+        return $this->hasMany('App\Models\InvestmentSections')
+            ->where('category', '=', $category)
+            ->where('active', '=', 1);
     }
 
     /**

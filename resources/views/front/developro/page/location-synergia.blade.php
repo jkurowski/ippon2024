@@ -22,35 +22,57 @@
             <div class="row">
                 <div class="col-12">
 <!-- copy this to editor -->
-
                     <div class="row">
-                        <div class="col-6 d-flex align-items-center">
-                            <div class="pe-5">
-                                <h2>WSZĘDZIE <span>BLISKO</span></h2>
-                                <p>Osiedle SYNERGIA położone jest w centralnej części, dzielnicy mieszkaniowej - Jaroty, przy ul. Kanta w Olsztynie. Mieszkańcy będą mieli <b>bezpośredni dostęp</b> do wszystkich niezbędnych <b>sklepów</b> oraz <b>placówek edukacyjnych i medycznych</b>. W kilka minut pieszo dojdą do sklepów spożywczych, drogerii, sklepów odzieżowych, apteki, poczty, siłowni, przychodni czy restauracji. <b>Szkoła podstawowa</b> oddalona jest od osiedla zaledwie 5 minut pieszo, a przedszkole 2 minuty.</p>
-                                <a href="#" class="bttn bttn-icon mt-5 bttn-synergia">Zobacz mieszkania <i class="ms-3 las la-chevron-circle-right"></i></a>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <img src="{{ asset('uploads/files/synergia/wszedzie-blisko.jpg') }}" alt="" width="930" height="654" />
-                        </div>
+                        @foreach($sections as $s)
+                            @if($s->id == 11)
+                                <div class="col-6 d-flex align-items-center">
+                                    <div class="pe-5">
+                                        <h2>@if($s->title){!! $s->title !!}@endif</h2>
+                                        @if($s->text) {!! $s->text !!} @endif
+                                        @if($s->link && $s->link_button)
+                                            <a href="{{ $s->link }}" class="bttn bttn-icon mt-5 bttn-synergia">{{ $s->link_button }} <i class="ms-3 las la-chevron-circle-right"></i></a>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    @if($s->file_webp)
+                                        <img src="{{ asset('investment/sections/webp/'.$s->file_webp) }}" alt="" width="930" height="654" />
+                                    @endif
+                                </div>
+                            @endif
+                        @endforeach
                     </div>
                     <div class="row flex-row-reverse mt-5 pt-5">
-                        <div class="col-6 d-flex align-items-center">
-                            <div class="ps-5">
-                                <h2>OSIEDLE DOBRZE <br><span>SKOMUNIKOWANE</span></h2>
-                                <p>Osiedle jest bardzo dobrze skomunikowane z resztą miasta. W 1 minuty pieszo można dojść do <b>przystanku autobusowego</b>, a w 6 minut do przystanku <b>tramwajowego</b>. W kilka minut dojedziesz do <b>obwodnicy Olsztyna</b>, by drogą ekspresową dostać się do Gdańska lub Warszawy.</p>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <img src="{{ asset('uploads/files/synergia/dobra-komunikacja.jpg') }}" alt="" width="930" height="654" />
-                        </div>
+                        @foreach($sections as $s)
+                            @if($s->id == 12)
+                                <div class="col-6 d-flex align-items-center">
+                                    <div class="ps-5">
+                                        <h2>@if($s->title){!! $s->title !!}@endif</h2>
+                                        @if($s->text) {!! $s->text !!} @endif
+                                        @if($s->link && $s->link_button)
+                                            <a href="{{ $s->link }}" class="bttn bttn-icon mt-5 bttn-synergia">{{ $s->link_button }} <i class="ms-3 las la-chevron-circle-right"></i></a>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    @if($s->file_webp)
+                                        <img src="{{ asset('investment/sections/webp/'.$s->file_webp) }}" alt="" width="930" height="654" />
+                                    @endif
+                                </div>
+                            @endif
+                        @endforeach
                     </div>
                     <div class="row mt-5 pt-5">
-                        <div class="col-12 text-center pb-5">
-                            <h2>OBIEKTY <span>W POBLIŻU</span></h2>
-                        </div>
-                        <div class="col-12"><img src="/uploads/files/synergia/mapa-lokalizacji-osiedle-synergia.jpg" alt="" /></div>
+                        @foreach($sections as $s)
+                            @if($s->id == 13)
+                                <div class="col-12 text-center pb-5">
+                                    <h2>@if($s->title){!! $s->title !!}@endif</h2>
+                                </div>
+                                <div class="col-12">
+                                    @if($s->text) {!! $s->text !!} @endif
+                                </div>
+                            @endif
+                        @endforeach
                     </div>
 
                     <div class="row mt-5 pt-5">
@@ -125,10 +147,14 @@
                     <div class="row flex-row-reverse mt-5 pt-5">
                         <div class="col-4 d-flex align-items-center">
                             <div class="ps-5">
+                                @if($current_locale == 'pl')
                                 <h2>W SAMYM <br>SERCU <span>JAROT</span></h2>
+                                @else
+                                <h2>IN THE MIDDLE <br>OF THE <span>JAROT</span></h2>
+                                @endif
                             </div>
                         </div>
-                        <div class="col-8"><iframe title="YouTube video player" src="https://www.youtube.com/embed/5OleowHAz7k?si=r9R-kaftgCff8ZXu" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe></div>
+                        <div class="col-8"><iframe width="560" height="315" src="https://www.youtube.com/embed/LZ1nGGx3ZSY?si=8Lq8xxK0G2oABPDc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
                     </div>
                     <div class="row mt-5 pb-5 mb-5">
                         <div class="col-4"><img src="{{ asset('uploads/files/synergia/location-1.jpg') }}" alt="" /></div>
@@ -143,7 +169,11 @@
         <div class="container mt-0 mt-sm-5 pt-5">
             <div class="row">
                 <div class="col-12 text-center">
-                    <h2 class="justify-content-center"><span>MASZ PYTANIA?</span> NAPISZ DO NAS!</h2>
+                    @if($current_locale == 'pl')
+                        <h2 class="justify-content-center"><span>MASZ PYTANIA?</span> NAPISZ DO NAS!</h2>
+                    @else
+                        <h2 class="justify-content-center"><span>HAVE MORE QUESTIONS?</span> WRITE TO US!</h2>
+                    @endif
                 </div>
             </div>
         </div>
