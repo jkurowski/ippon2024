@@ -82,7 +82,7 @@
                             <div class="form-submit">
                                 <input name="form_page" type="hidden" value="{{ $page_name }}">
                                 <script type="text/javascript">
-                                    document.write("<button type=\"submit\" class=\"g-recaptcha bttn bttn-icon\" data-sitekey=\"{{ config('services.recaptcha_v3.siteKey') }}\" data-callback=\"onRecaptchaSuccess\" data-action=\"submitContact\">@lang('website.button-send-message') <i class=\"ms-5 las la-chevron-circle-right\"></i></button>");
+                                    document.write("<button type=\"submit\" class=\"g-recaptcha bttn bttn-icon {{ $button_class ?? '' }} \" data-sitekey=\"{{ config('services.recaptcha_v3.siteKey') }}\" data-callback=\"onRecaptchaSuccess\" data-action=\"submitContact\">@lang('website.button-send-message') <i class=\"ms-5 las la-chevron-circle-right\"></i></button>");
                                 </script>
                                 <noscript>Do poprawnego działania, Java musi być włączona.</noscript>
                             </div>

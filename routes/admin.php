@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Route;
 Route::group([
     'namespace' => 'Admin', 'prefix' => '/admin', 'as' => 'admin.', 'middleware' => ['auth', 'verified']], function () {
 
-    Route::post('/', 'Slider\IndexController@sort')->name('slider.sort');
+    Route::get('/', 'Dashboard\SeoController@index');
 
     Route::post('slider/set', 'Slider\IndexController@sort')->name('slider.sort');
     Route::post('gallery/set', 'Gallery\IndexController@sort')->name('gallery.sort');

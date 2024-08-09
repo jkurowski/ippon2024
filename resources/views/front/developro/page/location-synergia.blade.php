@@ -77,13 +77,13 @@
 
                     <div class="row mt-5 pt-5">
                         <div class="col-12 text-center pb-5">
-                            <h2>W ZALEDWIE KILKA MINUT DOJDZIESZ PIESZO <br>DO M.IN.: SKLEPU, SZKOŁY, PRZEDSZKOLA <br>ORAZ PRZYSTANKU KOMUNIKACJI MIEJSKIEJ</h2>
+                            <h2 style="color: #222">W ZALEDWIE KILKA MINUT DOJDZIESZ PIESZO <br>DO M.IN.: SKLEPU, SZKOŁY, PRZEDSZKOLA <br>ORAZ PRZYSTANKU KOMUNIKACJI MIEJSKIEJ</h2>
                         </div>
                     </div>
 
                     <div class="row mt-5 pt-5">
                         <div class="col-12 text-center pb-5">
-                            <h2>SPRAWDŹ JAK SZYBKO DOJEDZISZ <br>DO PUNKTÓW HANDLOWYCH, SKLEPÓW <br>ORAZ PUNKTÓW ROZRYWKI</h2>
+                            <h2 style="color: #222">SPRAWDŹ JAK SZYBKO DOJEDZISZ <br>DO PUNKTÓW HANDLOWYCH, SKLEPÓW <br>ORAZ PUNKTÓW ROZRYWKI</h2>
                         </div>
 
                         <div class="col-3">
@@ -178,7 +178,7 @@
             </div>
         </div>
 
-        @include('front.contact.form', [ 'page_name' => $investment->name.' - Kontakt'])
+        @include('front.contact.form', [ 'page_name' => $investment->name.' - Kontakt', 'button_class' => 'bttn-synergia'])
         <style>#contactForm{background:none}</style>
     </div>
 @endsection
