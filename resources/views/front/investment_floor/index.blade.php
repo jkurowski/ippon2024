@@ -61,12 +61,10 @@
             </div>
         </div>
     </div>
-        @if($investment->floor->id <> 8)
         @include('front.investment_shared.filtr', ['area_range' => $investment->floor->area_range])
         @include('front.investment_shared.sort')
 
         @include('front.investment_shared.list', ['investment' => $investment])
-        @endif
 @endsection
 @push('scripts')
     <script src="{{ asset('/js/plan/imagemapster.js') }}" charset="utf-8"></script>
