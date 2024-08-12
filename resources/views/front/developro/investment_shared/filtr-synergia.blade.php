@@ -7,11 +7,11 @@
                         <i class="las la-layer-group"></i>
                         <select name="floor" id="filtr-rooms">
                             <option value="">@lang('website.select-option-floor')</option>
-
-                            <option value="0" @if(request()->input('floor') == '0') selected @endif>@lang('website.select-option-floor-groundfloor')</option>
                             <option value="1" @if(request()->input('floor') == '1') selected @endif>@lang('website.select-option-floor-1')</option>
                             <option value="2" @if(request()->input('floor') == '2') selected @endif>@lang('website.select-option-floor-2')</option>
-
+                            <option value="3" @if(request()->input('floor') == '3') selected @endif>3 pietro</option>
+                            <option value="4" @if(request()->input('floor') == '4') selected @endif>4 pietro</option>
+                            <option value="5" @if(request()->input('floor') == '5') selected @endif>5 pietro</option>
                         </select>
                     </div>
                 </div>

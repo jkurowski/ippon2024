@@ -105,7 +105,7 @@ class InvestmentBuildingFloorController extends Controller
             $investmentPage = $investment->investmentPage()->where('slug', 'mieszkania')->first();
 
             if($floor->properties()->count() > 0){
-                $uniqueRooms = $this->repository->getUniqueRooms($floor->properties());
+                $uniqueRooms = $this->repository->getUniqueRooms($floor->properties);
             } else {
                 $uniqueRooms = '';
             }

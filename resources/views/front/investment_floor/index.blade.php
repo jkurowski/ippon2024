@@ -42,7 +42,7 @@
                                     @if($r->html)
                                         <area
                                                 shape="poly"
-                                                href="{{route('front.investment.property.index', ['slug' => $investment->slug, 'floor' => $r->floor_id, 'property' => $r->id])}}"
+                                                href="{{ route('developro.property', [$investment->slug, $r, Str::slug($r->name), floorLevel($r->floor_number, true), number2RoomsName($r->rooms, true), round(floatval($r->area), 2).'-m2']) }}"
                                                 data-item="{{$r->id}}"
                                                 title="{{$r->name}}<br>Powierzchnia: <b class=fr>{{$r->area}} m<sup>2</sup></b><br />Pokoje: <b class=fr>{{$r->rooms}}</b><br><b>{{ roomStatus($r->status) }}</b>"
                                                 alt="{{$r->slug}}"

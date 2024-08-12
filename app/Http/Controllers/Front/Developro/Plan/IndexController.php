@@ -25,50 +25,51 @@ class IndexController extends Controller
     public function index($language, $slug, Request $request)
     {
         $investment = $this->repository->findBySlug($slug);
-        $building = Building::find(1);
-
-        $investment_room = $investment->load(array(
-            'buildingRooms' => function($query) use ($building, $request)
-            {
-                $query->where('properties.building_id', $building->id);
-                if ($request->input('rooms')) {
-                    $query->where('rooms', $request->input('rooms'));
-                }
-                if ($request->input('status')) {
-                    $query->where('status', $request->input('status'));
-                }
-
-                if ($request->exists('floor')) {
-                    $floorValue = $request->input('floor');
-
-                    // Check if $floorValue is a positive integer
-                    if (ctype_digit($floorValue) || $floorValue === '0') {
-                        $floor = Floor::where('number', '=', $floorValue)->first();
-
-                        // Check if $floor is not null before using its id
-                        if ($floor) {
-                            $query->where('floor_id', $floor->id);
-                        }
-                    }
-                }
-
-                if ($request->input('sort')) {
-                    $order_param = explode(':', $request->input('sort'));
-                    $column = $order_param[0];
-                    $direction = $order_param[1];
-                    $query->orderBy($column, $direction);
-                }
-            },
-            'buildingFloors' => function($query) use ($building)
-            {
-                $query->where('building_id', $building->id);
-            }
-        ));
-
         $menu_page = Page::where('id', $this->pageId)->first();
         $investmentPage = $investment->investmentPage()->where('slug', 'mieszkania')->first();
 
         if($investment->type == 1){
+            $building = Building::find(1);
+
+            $investment_room = $investment->load(array(
+                'buildingRooms' => function($query) use ($investment, $building, $request)
+                {
+                    $query->where('properties.building_id', $building->id);
+                    if ($request->input('rooms')) {
+                        $query->where('rooms', $request->input('rooms'));
+                    }
+                    if ($request->input('status')) {
+                        $query->where('status', $request->input('status'));
+                    }
+
+                    if ($request->exists('floor')) {
+                        $floorValue = $request->input('floor');
+
+                        // Check if $floorValue is a positive integer
+                        if (ctype_digit($floorValue) || $floorValue === '0') {
+                            $floor = Floor::where('number', '=', $floorValue)->where('investment_id', '=', $investment->id)->first();
+
+                            // Check if $floor is not null before using its id
+                            if ($floor) {
+                                $query->where('floor_id', $floor->id);
+                            }
+                        }
+                    }
+
+                    if ($request->input('sort')) {
+                        $order_param = explode(':', $request->input('sort'));
+                        $column = $order_param[0];
+                        $direction = $order_param[1];
+                        $query->orderBy($column, $direction);
+                    }
+                },
+                'buildingFloors' => function($query) use ($building)
+                {
+                    $query->where('building_id', $building->id);
+                }
+            ));
+
+
             return view('front.developro.investment.plan-2', [
                 'investment' => $investment,
                 'building' => $building,
@@ -81,11 +82,53 @@ class IndexController extends Controller
         }
 
         if($investment->type == 2){
+
+            $investment_room = $investment->load(array(
+                'floorRooms' => function ($query) use ($request, $investment) {
+                    $query->orderBy('highlighted', 'DESC');
+                    $query->orderBy('number_order', 'ASC');
+
+                    if ($request->input('rooms')) {
+                        $query->where('rooms', $request->input('rooms'));
+                    }
+                    if ($request->input('status')) {
+                        $query->where('status', $request->input('status'));
+                    }
+//                    if ($request->input('area')) {
+//                        $area_param = explode('-', $request->input('area'));
+//                        $min = $area_param[0];
+//                        $max = $area_param[1];
+//                        $query->whereBetween('area', [$min, $max]);
+//                    }
+
+                    if ($request->exists('floor')) {
+                        $floorValue = $request->input('floor');
+
+                        // Check if $floorValue is a positive integer
+                        if (ctype_digit($floorValue) || $floorValue === '0') {
+                            $floor = Floor::where('number', '=', $floorValue)->where('investment_id', '=', $investment->id)->first();
+
+                            // Check if $floor is not null before using its id
+                            if ($floor) {
+                                $query->where('floor_id', $floor->id);
+                            }
+                        }
+                    }
+
+                    if ($request->input('sort')) {
+                        $order_param = explode(':', $request->input('sort'));
+                        $column = $order_param[0];
+                        $direction = $order_param[1];
+                        $query->orderBy($column, $direction);
+                    }
+                }
+            ));
+
+            $properties = $investment_room->floorRooms;
+
             return view('front.developro.investment.plan', [
                 'investment' => $investment,
-                'building' => $building,
-                'properties' => $investment->buildingRooms,
-                'investment_page' => $investmentPage,
+                'properties' => $properties,
                 'page' => $menu_page,
                 'floors' => $request->input('floor'),
                 'uniqueRooms' => $this->repository->getUniqueRooms($investment_room->properties)
