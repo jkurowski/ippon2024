@@ -61,10 +61,9 @@
             </div>
         </div>
     </div>
-        @include('front.investment_shared.filtr', ['area_range' => $investment->floor->area_range])
-        @include('front.investment_shared.sort')
-
-        @include('front.investment_shared.list', ['investment' => $investment])
+    @include('front.developro.investment_shared.filtr', ['area_range' => $investment->area_range, 'floorFiltr' => '', 'floors' => 1])
+    @include('front.developro.investment_shared.sort')
+    @include('front.developro.investment_shared.list', ['investment' => $investment])
 @endsection
 @push('scripts')
     <script src="{{ asset('/js/plan/imagemapster.js') }}" charset="utf-8"></script>
