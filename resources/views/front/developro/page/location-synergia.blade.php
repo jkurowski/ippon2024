@@ -77,69 +77,117 @@
 
                     <div class="row mt-5 pt-5">
                         <div class="col-12 text-center pb-5">
-                            <h2 style="color: #222">W ZALEDWIE KILKA MINUT DOJDZIESZ PIESZO <br>DO M.IN.: SKLEPU, SZKOŁY, PRZEDSZKOLA <br>ORAZ PRZYSTANKU KOMUNIKACJI MIEJSKIEJ</h2>
+                            @if($current_locale == 'pl')
+                                <h2 style="color: #222">W ZALEDWIE KILKA MINUT DOJDZIESZ PIESZO <br>DO M.IN.: SKLEPU, SZKOŁY, PRZEDSZKOLA <br>ORAZ PRZYSTANKU KOMUNIKACJI MIEJSKIEJ</h2>
+                            @else
+                                <h2 style="color: #222">IN JUST A FEW MINUTES ON FOOT, YOU CAN REACH <br>VARIOUS AMENITIES, INCLUDING A STORE, SCHOOL, <br>KINDERGARTEN, AND PUBLIC TRANSPORTATION STOP</h2>
+                            @endif
                         </div>
                     </div>
 
                     <div class="row mt-5 pt-5">
                         <div class="col-12 text-center pb-5">
+                            @if($current_locale == 'pl')
                             <h2 style="color: #222">SPRAWDŹ JAK SZYBKO DOJEDZISZ <br>DO PUNKTÓW HANDLOWYCH, SKLEPÓW <br>ORAZ PUNKTÓW ROZRYWKI</h2>
+                            @else
+                            <h2 style="color: #222">CHECK HOW QUICKLY YOU CAN GET <br>TO SHOPPING CENTERS, STORES, <br>AND ENTERTAINMENT VENUES.</h2>
+                            @endif
                         </div>
 
                         <div class="col-3">
                             <div class="icon-synergia text-center">
                                 <img src="{{ asset('uploads/files/synergia/icons/galeria_web.jpg') }}" alt="" class="m-auto">
+                                @if($current_locale == 'pl')
                                 <h3>Galeria Warmińska</h3>
                                 <span>5 min autem</span>
+                                @else
+                                    <h3>Galeria Warmińska</h3>
+                                    <span>5 minutes by car</span>
+                                @endif
                             </div>
                         </div>
                         <div class="col-3">
                             <div class="icon-synergia text-center">
                                 <img src="{{ asset('uploads/files/synergia/icons/obwodnica_web.jpg') }}" alt="" class="m-auto">
+                                @if($current_locale == 'pl')
                                 <h3>Dojazd do obwodnicy</h3>
                                 <span>6 min autem</span>
+                                @else
+                                    <h3>City bypass</h3>
+                                    <span>6 minutes by car</span>
+                                @endif
                             </div>
                         </div>
                         <div class="col-3">
                             <div class="icon-synergia text-center">
                                 <img src="{{ asset('uploads/files/synergia/icons/sklep_web.jpg') }}" alt="" class="m-auto">
+                                @if($current_locale == 'pl')
                                 <h3>Decathlon</h3>
                                 <span>5 min autem</span>
+                                @else
+                                    <h3>Decathlon store</h3>
+                                    <span>5 minutes by car</span>
+                                @endif
                             </div>
                         </div>
                         <div class="col-3">
                             <div class="icon-synergia text-center">
                                 <img src="{{ asset('uploads/files/synergia/icons/kino_web.jpg') }}" alt="" class="m-auto">
+                                @if($current_locale == 'pl')
                                 <h3>Kino</h3>
                                 <span>5 min autem</span>
+                                @else
+                                    <h3>Cinema</h3>
+                                    <span>5 minutes by car</span>
+                                @endif
                             </div>
                         </div>
                         <div class="col-3">
                             <div class="icon-synergia text-center">
                                 <img src="{{ asset('uploads/files/synergia/icons/restauracja_web.jpg') }}" alt="" class="m-auto">
+                                @if($current_locale == 'pl')
                                 <h3>McDonald</h3>
                                 <span>4 min autem</span>
+                                @else
+                                    <h3>McDonald’s</h3>
+                                    <span>4 minutes by car</span>
+                                @endif
                             </div>
                         </div>
                         <div class="col-3">
                             <div class="icon-synergia text-center">
                                 <img src="{{ asset('uploads/files/synergia/icons/sklep_web.jpg') }}" alt="" class="m-auto">
+                                @if($current_locale == 'pl')
                                 <h3>OBI</h3>
                                 <span>5 min autem</span>
+                                @else
+                                    <h3>OBI store</h3>
+                                    <span>5 minutes by car</span>
+                                @endif
                             </div>
                         </div>
                         <div class="col-3">
                             <div class="icon-synergia text-center">
                                 <img src="{{ asset('uploads/files/synergia/icons/silownia_web.jpg') }}" alt="" class="m-auto">
+                                @if($current_locale == 'pl')
                                 <h3>Siłownia</h3>
                                 <span>5 min autem</span>
+                                @else
+                                    <h3>Gym</h3>
+                                    <span>5 minutes by car</span>
+                                @endif
                             </div>
                         </div>
                         <div class="col-3">
                             <div class="icon-synergia text-center">
                                 <img src="{{ asset('uploads/files/synergia/icons/sklep_web.jpg') }}" alt="" class="m-auto">
+                                @if($current_locale == 'pl')
                                 <h3>Auchan</h3>
                                 <span>5 min autem</span>
+                                @else
+                                    <h3>Auchan store</h3>
+                                    <span>5 minutes by car</span>
+                                @endif
                             </div>
                         </div>
                     </div>
