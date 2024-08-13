@@ -91,8 +91,8 @@
                                     <h3>Przedszkole</h3>
                                     <span>2 min pieszo</span>
                                 @else
-                                    <h3>sssss</h3>
-                                    <span>ssss</span>
+                                    <h3>Kindergarten</h3>
+                                    <span>2 minutes on foot</span>
                                 @endif
                             </div>
                         </div>
@@ -103,8 +103,8 @@
                                     <h3>Przystanek tramwajowy</h3>
                                     <span>6 min pieszo</span>
                                 @else
-                                    <h3>sssss</h3>
-                                    <span>ssss</span>
+                                    <h3>Tram stop</h3>
+                                    <span>6 minutes on foot</span>
                                 @endif
                             </div>
                         </div>
@@ -115,8 +115,8 @@
                                     <h3>Szkoła</h3>
                                     <span>5 min pieszo</span>
                                 @else
-                                    <h3>sssss</h3>
-                                    <span>ssss</span>
+                                    <h3>Primary school</h3>
+                                    <span>5 minutes on foot</span>
                                 @endif
                             </div>
                         </div>
@@ -127,8 +127,8 @@
                                     <h3>Sklep Biedronka</h3>
                                     <span>2 min autem</span>
                                 @else
-                                    <h3>sssss</h3>
-                                    <span>ssss</span>
+                                    <h3>Biedronka store</h3>
+                                    <span>2 minutes by car</span>
                                 @endif
                             </div>
                         </div>
@@ -139,8 +139,8 @@
                                     <h3>Sklep Rosmann</h3>
                                     <span>2 min pieszo</span>
                                 @else
-                                    <h3>sssss</h3>
-                                    <span>ssss</span>
+                                    <h3>Rossmann store</h3>
+                                    <span>2 minutes on foot</span>
                                 @endif
                             </div>
                         </div>
@@ -151,8 +151,8 @@
                                     <h3>Przystanek autobusowy</h3>
                                     <span>1 min pieszo</span>
                                 @else
-                                    <h3>sssss</h3>
-                                    <span>ssss</span>
+                                    <h3>Bus stop</h3>
+                                    <span>1 minute on foot</span>
                                 @endif
                             </div>
                         </div>
@@ -163,8 +163,8 @@
                                     <h3>Boisko</h3>
                                     <span>5 min pieszo</span>
                                 @else
-                                    <h3>sssss</h3>
-                                    <span>ssss</span>
+                                    <h3>Sports field</h3>
+                                    <span>5 minutes on foot</span>
                                 @endif
                             </div>
                         </div>
@@ -175,8 +175,8 @@
                                     <h3>Apteka</h3>
                                     <span>2 min pieszo</span>
                                 @else
-                                    <h3>sssss</h3>
-                                    <span>ssss</span>
+                                    <h3>Pharmacy</h3>
+                                    <span>2 minutes on foot</span>
                                 @endif
                             </div>
                         </div>
