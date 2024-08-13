@@ -83,6 +83,103 @@
                                 <h2 style="color: #222">IN JUST A FEW MINUTES ON FOOT, YOU CAN REACH <br>VARIOUS AMENITIES, INCLUDING A STORE, SCHOOL, <br>KINDERGARTEN, AND PUBLIC TRANSPORTATION STOP</h2>
                             @endif
                         </div>
+
+                        <div class="col-3">
+                            <div class="icon-synergia text-center">
+                                <img src="{{ asset('uploads/files/synergia/icons/przedszkole_web.jpg') }}" alt="" class="m-auto">
+                                @if($current_locale == 'pl')
+                                    <h3>Przedszkole</h3>
+                                    <span>2 min pieszo</span>
+                                @else
+                                    <h3>sssss</h3>
+                                    <span>ssss</span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="icon-synergia text-center">
+                                <img src="{{ asset('uploads/files/synergia/icons/tramwaj_web.jpg') }}" alt="" class="m-auto">
+                                @if($current_locale == 'pl')
+                                    <h3>Przystanek tramwajowy</h3>
+                                    <span>6 min pieszo</span>
+                                @else
+                                    <h3>sssss</h3>
+                                    <span>ssss</span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="icon-synergia text-center">
+                                <img src="{{ asset('uploads/files/synergia/icons/szkoła_web.jpg') }}" alt="" class="m-auto">
+                                @if($current_locale == 'pl')
+                                    <h3>Szkoła</h3>
+                                    <span>5 min pieszo</span>
+                                @else
+                                    <h3>sssss</h3>
+                                    <span>ssss</span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="icon-synergia text-center">
+                                <img src="{{ asset('uploads/files/synergia/icons/sklep_web.jpg') }}" alt="" class="m-auto">
+                                @if($current_locale == 'pl')
+                                    <h3>Sklep Biedronka</h3>
+                                    <span>2 min autem</span>
+                                @else
+                                    <h3>sssss</h3>
+                                    <span>ssss</span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="icon-synergia text-center">
+                                <img src="{{ asset('uploads/files/synergia/icons/rossman_web.jpg') }}" alt="" class="m-auto">
+                                @if($current_locale == 'pl')
+                                    <h3>Sklep Rosmann</h3>
+                                    <span>2 min pieszo</span>
+                                @else
+                                    <h3>sssss</h3>
+                                    <span>ssss</span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="icon-synergia text-center">
+                                <img src="{{ asset('uploads/files/synergia/icons/przystanek_web.jpg') }}" alt="" class="m-auto">
+                                @if($current_locale == 'pl')
+                                    <h3>Przystanek autobusowy</h3>
+                                    <span>1 min pieszo</span>
+                                @else
+                                    <h3>sssss</h3>
+                                    <span>ssss</span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="icon-synergia text-center">
+                                <img src="{{ asset('uploads/files/synergia/icons/orlik_web.jpg') }}" alt="" class="m-auto">
+                                @if($current_locale == 'pl')
+                                    <h3>Boisko</h3>
+                                    <span>5 min pieszo</span>
+                                @else
+                                    <h3>sssss</h3>
+                                    <span>ssss</span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="icon-synergia text-center">
+                                <img src="{{ asset('uploads/files/synergia/icons/apteka_web.jpg') }}" alt="" class="m-auto">
+                                @if($current_locale == 'pl')
+                                    <h3>Apteka</h3>
+                                    <span>2 min pieszo</span>
+                                @else
+                                    <h3>sssss</h3>
+                                    <span>ssss</span>
+                                @endif
+                            </div>
+                        </div>
                     </div>
 
                     <div class="row mt-5 pt-5">
