@@ -110,7 +110,7 @@
                         </div>
                         <div class="col-3">
                             <div class="icon-synergia text-center">
-                                <img src="{{ asset('uploads/files/synergia/icons/szkoła_web.jpg') }}" alt="" class="m-auto">
+                                <img src="{{ asset('uploads/files/synergia/icons/szkola_web.jpg') }}" alt="" class="m-auto">
                                 @if($current_locale == 'pl')
                                     <h3>Szkoła</h3>
                                     <span>5 min pieszo</span>
