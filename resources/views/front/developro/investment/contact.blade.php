@@ -18,7 +18,7 @@
 @section('content')
     <div id="page-content">
         <div class="container">
-            @if($investment->id <> 5)
+            @if($investment->id <> 5 && $investment->id <> 6)
             <div class="row">
                 <div class="col-12 col-xl-4">
                     <div class="contact-box">
