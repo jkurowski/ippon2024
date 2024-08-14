@@ -85,7 +85,7 @@
             @endif
         </div>
 
-        @if($investment->id == 5)
+        @if($investment->id == 5 || $investment->id == 6)
             <div id="contactForm">
                 <div class="container">
                     <div class="row pt-5 mt-0 mt-sm-5">
