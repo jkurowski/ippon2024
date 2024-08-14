@@ -90,10 +90,19 @@
                 <div class="container">
                     <div class="row pt-5 mt-0 mt-sm-5">
                         <div class="col-12 text-center">
-                            @if($current_locale == 'pl')
-                                <h2 class="slow-header justify-content-center"><span class="rostemary">Masz pytania?</span> <span class="abuget brown">Napisz do nas!</span></h2>
-                            @else
-                                <h2 class="slow-header justify-content-center"><span class="rostemary">Have more questions?</span> <span class="abuget brown">Write to us!</span></h2>
+                            @if($investment->id == 5)
+                                @if($current_locale == 'pl')
+                                    <h2 class="slow-header justify-content-center"><span class="rostemary">Masz pytania?</span> <span class="abuget brown">Napisz do nas!</span></h2>
+                                @else
+                                    <h2 class="slow-header justify-content-center"><span class="rostemary">Have more questions?</span> <span class="abuget brown">Write to us!</span></h2>
+                                @endif
+                            @endif
+                            @if($investment->id == 6)
+                                @if($current_locale == 'pl')
+                                    <h2 class="justify-content-center"><span>Masz pytania?</span> Napisz do nas!</h2>
+                                @else
+                                    <h2 class="justify-content-center"><span>Have more questions?</span> Write to us!</h2>
+                                @endif
                             @endif
                         </div>
                     </div>
