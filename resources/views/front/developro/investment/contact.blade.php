@@ -100,16 +100,16 @@
                             @if($investment->id == 6)
                                 <div class="invest-osiedle-synergia">
                                     @if($current_locale == 'pl')
-                                        <h2 class="justify-content-center"><span>Masz pytania?</span> Napisz do nas!</h2>
+                                        <h2 class="justify-content-center"><span>MASZ PYTANIA?</span> NAPISZ DO NAS!</h2>
                                     @else
-                                        <h2 class="justify-content-center"><span>Have more questions?</span> Write to us!</h2>
+                                        <h2 class="justify-content-center"><span>HAVE MORE QUESTIONS?</span> WRITE TO US!</h2>
                                     @endif
                                 </div>
                             @endif
                         </div>
                     </div>
 
-                    <div class="row">
+                    <div class="row invest-osiedle-{{$investment->slug}}">
                         <div class="col-12">
                             @include('front.contact.form', ['page_name' => $investment->name.' - Kontakt'])
                         </div>
