@@ -98,11 +98,13 @@
                                 @endif
                             @endif
                             @if($investment->id == 6)
-                                @if($current_locale == 'pl')
-                                    <h2 class="justify-content-center"><span>Masz pytania?</span> Napisz do nas!</h2>
-                                @else
-                                    <h2 class="justify-content-center"><span>Have more questions?</span> Write to us!</h2>
-                                @endif
+                                <div class="invest-osiedle-synergia">
+                                    @if($current_locale == 'pl')
+                                        <h2 class="justify-content-center"><span>Masz pytania?</span> Napisz do nas!</h2>
+                                    @else
+                                        <h2 class="justify-content-center"><span>Have more questions?</span> Write to us!</h2>
+                                    @endif
+                                </div>
                             @endif
                         </div>
                     </div>
