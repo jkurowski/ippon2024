@@ -5119,6 +5119,10 @@ html.swipebox-html.swipebox-touch {
     --bs-aspect-ratio: calc(16 / 9 * 100%);
     min-height: 85vh;
   }
+  .invest-osiedle-synergia h2 {
+    font-size: 25px;
+    line-height: 29px;
+  }
 }
 /* end of 575.98 */
 @media (max-width: 480px) {
