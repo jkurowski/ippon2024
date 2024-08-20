@@ -25,47 +25,47 @@
                     <div class="row">
                         @foreach($sections as $s)
                             @if($s->id == 11)
-                                <div class="col-6 d-flex align-items-center">
-                                    <div class="pe-5">
+                                <div class="col-12 col-xxl-6 d-flex align-items-center">
+                                    <div class="pe-0 pe-xxl-5 pb-5 pb-xxl-0">
                                         <h2>@if($s->title){!! $s->title !!}@endif</h2>
                                         @if($s->text) {!! $s->text !!} @endif
                                         @if($s->link && $s->link_button)
-                                            <a href="{{ $s->link }}" class="bttn bttn-icon mt-5 bttn-synergia">{{ $s->link_button }} <i class="ms-3 las la-chevron-circle-right"></i></a>
+                                            <a href="{{ $s->link }}" class="bttn bttn-icon mt-3 mt-sm-5 bttn-synergia">{{ $s->link_button }} <i class="ms-3 las la-chevron-circle-right"></i></a>
                                         @endif
                                     </div>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-12 col-xxl-6">
                                     @if($s->file_webp)
-                                        <img src="{{ asset('investment/sections/webp/'.$s->file_webp) }}" alt="" width="930" height="654" />
+                                        <img src="{{ asset('investment/sections/webp/'.$s->file_webp) }}" alt="" width="930" height="654" class="w-100" />
                                     @endif
                                 </div>
                             @endif
                         @endforeach
                     </div>
-                    <div class="row flex-row-reverse mt-5 pt-5">
+                    <div class="row flex-row-reverse mt-5 pb-0 pt-xxl-5">
                         @foreach($sections as $s)
                             @if($s->id == 12)
-                                <div class="col-6 d-flex align-items-center">
-                                    <div class="ps-5">
+                                <div class="col-12 col-xxl-6 d-flex align-items-center">
+                                    <div class="ps-0 ps-xxl-5 pb-5 pb-xxl-0">
                                         <h2>@if($s->title){!! $s->title !!}@endif</h2>
                                         @if($s->text) {!! $s->text !!} @endif
                                         @if($s->link && $s->link_button)
-                                            <a href="{{ $s->link }}" class="bttn bttn-icon mt-5 bttn-synergia">{{ $s->link_button }} <i class="ms-3 las la-chevron-circle-right"></i></a>
+                                            <a href="{{ $s->link }}" class="bttn bttn-icon mt-3 mt-sm-5 bttn-synergia">{{ $s->link_button }} <i class="ms-3 las la-chevron-circle-right"></i></a>
                                         @endif
                                     </div>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-12 col-xxl-6">
                                     @if($s->file_webp)
-                                        <img src="{{ asset('investment/sections/webp/'.$s->file_webp) }}" alt="" width="930" height="654" />
+                                        <img src="{{ asset('investment/sections/webp/'.$s->file_webp) }}" alt="" width="930" height="654" class="w-100" />
                                     @endif
                                 </div>
                             @endif
                         @endforeach
                     </div>
-                    <div class="row mt-5 pt-5">
+                    <div class="row mt-0 mt-md-5 pt-5">
                         @foreach($sections as $s)
                             @if($s->id == 13)
-                                <div class="col-12 text-center pb-5">
+                                <div class="col-12 text-center pb-0 pb-xxl-5">
                                     <h2>@if($s->title){!! $s->title !!}@endif</h2>
                                 </div>
                                 <div class="col-12">
@@ -75,8 +75,8 @@
                         @endforeach
                     </div>
 
-                    <div class="row mt-5 pt-5">
-                        <div class="col-12 text-center pb-5">
+                    <div class="row mt-0 mt-md-5 pt-5">
+                        <div class="col-12 text-center pb-0 pb-xxl-5">
                             @if($current_locale == 'pl')
                                 <h2 style="color: #222">W ZALEDWIE KILKA MINUT DOJDZIESZ PIESZO <br>DO M.IN.: SKLEPU, SZKOŁY, PRZEDSZKOLA <br>ORAZ PRZYSTANKU KOMUNIKACJI MIEJSKIEJ</h2>
                             @else
@@ -84,7 +84,7 @@
                             @endif
                         </div>
 
-                        <div class="col-3">
+                        <div class="col-6 col-sm-4 col-md-3">
                             <div class="icon-synergia text-center">
                                 <img src="{{ asset('uploads/files/synergia/icons/przedszkole_web.jpg') }}" alt="" class="m-auto">
                                 @if($current_locale == 'pl')
@@ -96,7 +96,7 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="col-3">
+                        <div class="col-6 col-sm-4 col-md-3">
                             <div class="icon-synergia text-center">
                                 <img src="{{ asset('uploads/files/synergia/icons/tramwaj_web.jpg') }}" alt="" class="m-auto">
                                 @if($current_locale == 'pl')
@@ -108,7 +108,7 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="col-3">
+                        <div class="col-6 col-sm-4 col-md-3">
                             <div class="icon-synergia text-center">
                                 <img src="{{ asset('uploads/files/synergia/icons/szkola_web.jpg') }}" alt="" class="m-auto">
                                 @if($current_locale == 'pl')
@@ -120,7 +120,7 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="col-3">
+                        <div class="col-6 col-sm-4 col-md-3">
                             <div class="icon-synergia text-center">
                                 <img src="{{ asset('uploads/files/synergia/icons/sklep_web.jpg') }}" alt="" class="m-auto">
                                 @if($current_locale == 'pl')
@@ -132,7 +132,7 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="col-3">
+                        <div class="col-6 col-sm-4 col-md-3">
                             <div class="icon-synergia text-center">
                                 <img src="{{ asset('uploads/files/synergia/icons/rossman_web.jpg') }}" alt="" class="m-auto">
                                 @if($current_locale == 'pl')
@@ -144,7 +144,7 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="col-3">
+                        <div class="col-6 col-sm-4 col-md-3">
                             <div class="icon-synergia text-center">
                                 <img src="{{ asset('uploads/files/synergia/icons/przystanek_web.jpg') }}" alt="" class="m-auto">
                                 @if($current_locale == 'pl')
@@ -156,7 +156,7 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="col-3">
+                        <div class="col-6 col-sm-4 col-md-3">
                             <div class="icon-synergia text-center">
                                 <img src="{{ asset('uploads/files/synergia/icons/orlik_web.jpg') }}" alt="" class="m-auto">
                                 @if($current_locale == 'pl')
@@ -168,7 +168,7 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="col-3">
+                        <div class="col-6 col-sm-4 col-md-3">
                             <div class="icon-synergia text-center">
                                 <img src="{{ asset('uploads/files/synergia/icons/apteka_web.jpg') }}" alt="" class="m-auto">
                                 @if($current_locale == 'pl')
@@ -182,8 +182,8 @@
                         </div>
                     </div>
 
-                    <div class="row mt-5 pt-5">
-                        <div class="col-12 text-center pb-5">
+                    <div class="row mt-0 mt-md-5 pt-5">
+                        <div class="col-12 text-center pb-0 pb-xxl-5">
                             @if($current_locale == 'pl')
                             <h2 style="color: #222">SPRAWDŹ JAK SZYBKO DOJEDZISZ <br>DO PUNKTÓW HANDLOWYCH, SKLEPÓW <br>ORAZ PUNKTÓW ROZRYWKI</h2>
                             @else
@@ -191,7 +191,7 @@
                             @endif
                         </div>
 
-                        <div class="col-3">
+                        <div class="col-6 col-sm-4 col-md-3">
                             <div class="icon-synergia text-center">
                                 <img src="{{ asset('uploads/files/synergia/icons/galeria_web.jpg') }}" alt="" class="m-auto">
                                 @if($current_locale == 'pl')
@@ -203,7 +203,7 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="col-3">
+                        <div class="col-6 col-sm-4 col-md-3">
                             <div class="icon-synergia text-center">
                                 <img src="{{ asset('uploads/files/synergia/icons/obwodnica_web.jpg') }}" alt="" class="m-auto">
                                 @if($current_locale == 'pl')
@@ -215,7 +215,7 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="col-3">
+                        <div class="col-6 col-sm-4 col-md-3">
                             <div class="icon-synergia text-center">
                                 <img src="{{ asset('uploads/files/synergia/icons/sklep_web.jpg') }}" alt="" class="m-auto">
                                 @if($current_locale == 'pl')
@@ -227,7 +227,7 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="col-3">
+                        <div class="col-6 col-sm-4 col-md-3">
                             <div class="icon-synergia text-center">
                                 <img src="{{ asset('uploads/files/synergia/icons/kino_web.jpg') }}" alt="" class="m-auto">
                                 @if($current_locale == 'pl')
@@ -239,7 +239,7 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="col-3">
+                        <div class="col-6 col-sm-4 col-md-3">
                             <div class="icon-synergia text-center">
                                 <img src="{{ asset('uploads/files/synergia/icons/restauracja_web.jpg') }}" alt="" class="m-auto">
                                 @if($current_locale == 'pl')
@@ -251,7 +251,7 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="col-3">
+                        <div class="col-6 col-sm-4 col-md-3">
                             <div class="icon-synergia text-center">
                                 <img src="{{ asset('uploads/files/synergia/icons/sklep_web.jpg') }}" alt="" class="m-auto">
                                 @if($current_locale == 'pl')
@@ -263,7 +263,7 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="col-3">
+                        <div class="col-6 col-sm-4 col-md-3">
                             <div class="icon-synergia text-center">
                                 <img src="{{ asset('uploads/files/synergia/icons/silownia_web.jpg') }}" alt="" class="m-auto">
                                 @if($current_locale == 'pl')
@@ -275,7 +275,7 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="col-3">
+                        <div class="col-6 col-sm-4 col-md-3">
                             <div class="icon-synergia text-center">
                                 <img src="{{ asset('uploads/files/synergia/icons/sklep_web.jpg') }}" alt="" class="m-auto">
                                 @if($current_locale == 'pl')
@@ -289,9 +289,9 @@
                         </div>
                     </div>
 
-                    <div class="row flex-row-reverse mt-5 pt-5">
-                        <div class="col-4 d-flex align-items-center">
-                            <div class="ps-5">
+                    <div class="row flex-row-reverse mt-0 mt-md-5 pt-5">
+                        <div class="col-12 col-xxl-4 d-flex align-items-center">
+                            <div class="ps-0 ps-xxl-5">
                                 @if($current_locale == 'pl')
                                 <h2>W SAMYM <br>SERCU <span>JAROT</span></h2>
                                 @else
@@ -299,9 +299,9 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="col-8"><iframe width="560" height="315" src="https://www.youtube.com/embed/LZ1nGGx3ZSY?si=8Lq8xxK0G2oABPDc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                        <div class="col-12 col-xxl-8"><iframe width="560" height="315" src="https://www.youtube.com/embed/LZ1nGGx3ZSY?si=8Lq8xxK0G2oABPDc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
                     </div>
-                    <div class="row mt-5 pb-5 mb-5">
+                    <div class="row mt-0 mt-md-5 pb-0 pb-md-5 mb-0 mb-md-5">
                         <div class="col-4"><img src="{{ asset('uploads/files/synergia/location-1.jpg') }}" alt="" /></div>
                         <div class="col-4"><img src="{{ asset('uploads/files/synergia/location-2.jpg') }}" alt="" /></div>
                         <div class="col-4"><img src="{{ asset('uploads/files/synergia/location-3.jpg') }}" alt="" /></div>

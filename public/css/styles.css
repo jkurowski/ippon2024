@@ -4173,6 +4173,9 @@ html.swipebox-html.swipebox-touch {
   .planned-item-gold {
     padding: 30px;
   }
+  .invest-osiedle-synergia h2 br {
+    display: none;
+  }
 }
 @media (max-width: 1199.98px) {
   li,
@@ -4607,6 +4610,10 @@ html.swipebox-html.swipebox-touch {
   .slow-header .abuget {
     font-size: 80px;
   }
+  .icon-synergia h3,
+  .icon-synergia span {
+    font-size: 18px;
+  }
 }
 /* end of 991.98 */
 @media (max-width: 767.98px) {
@@ -4720,6 +4727,13 @@ html.swipebox-html.swipebox-touch {
   .slider-holder #filtr {
     background: #000000;
     position: static;
+  }
+  .invest-osiedle-synergia h2 {
+    margin-bottom: 15px;
+    font-style: normal;
+    font-size: 29px;
+    color: #4a7265;
+    line-height: 29px;
   }
 }
 /* end of 767.98 */
