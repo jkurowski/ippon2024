@@ -24,7 +24,7 @@ class IndexController extends Controller
     {
         $investment = $this->repository->findBySlug($slug);
         $investmentPage = $investment->investmentPage()->where('slug', $slug)->first();
-        $investmentArticles = $this->articleRepository->allSortByWhere('investment_id', $investment->id, 'date', 'ASC');
+        $investmentArticles = $this->articleRepository->allSortByWhere('investment_id', $investment->id, 'date', 'DESC');
         $menu_page = Page::where('id', $this->pageId)->first();
 
         return view('front.developro.investment.news', [
