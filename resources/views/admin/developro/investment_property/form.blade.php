@@ -54,14 +54,14 @@
                                 <div class="row w-100 form-group">
                                     <div class="container">
                                         <div class="row">
-                                            <div class="col-6 mb-4">
+                                            <div class="col-4 mb-4">
                                                 @include('form-elements.html-select', ['label' => 'Widoczne', 'name' => 'active', 'selected' => $entry->active, 'select' => [
                                                        '1' => 'Tak',
                                                        '0' => 'Nie'
                                                        ]
                                                    ])
                                             </div>
-                                            <div class="col-6 mb-4">
+                                            <div class="col-4 mb-4">
                                                 @include('form-elements.html-select', ['label' => 'Typ powierzchni', 'name' => 'type', 'selected' => $entry->type, 'select' => [
                                                     '1' => 'Mieszkanie / Apartament',
                                                     '2' => 'Komórka lokatorska',
@@ -69,7 +69,7 @@
                                                     ]
                                                 ])
                                             </div>
-                                            <div class="col-6 mb-3">
+                                            <div class="col-4 mb-4">
                                                 @include('form-elements.html-select', [
                                                     'label' => 'Status',
                                                     'name' => 'status',
@@ -90,6 +90,20 @@
                                                          '0' => 'Nie',
                                                          '1' => 'Tak'
                                                  ]])
+                                            </div>
+                                            <div class="col-6 mb-3">
+                                                @include('form-elements.html-select-multiple', [
+                                                    'label' => 'Atrybuty',
+                                                    'name' => 'additional',
+                                                    'selected' => json_decode($entry->additional),
+                                                    'select' => [
+                                                        '1' => 'Gotowe do odbioru',
+                                                        '2' => 'Atrakcyjny wygląd',
+                                                        '3' => 'Duży taras / balkon',
+                                                        '4' => 'Ogródek zewnętrzny',
+                                                        '5' => 'Dodatkowe WC',
+                                                        '6' => 'Osobna garderoba'
+                                                ]])
                                             </div>
                                         </div>
                                     </div>

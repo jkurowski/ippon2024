@@ -162,7 +162,7 @@
                         <div class="similar-rooms">
                             {!! roomStatusBadge($room->status) !!}
                             @if($room->file)
-                                <a href="{{ route('developro.property', [$investment->slug, $room, Str::slug($room->name), floorLevel($room->floor_number, true), number2RoomsName($room->rooms, true), round(floatval($room->area), 2).'-m2']) }}">
+                                <a href="{{ route('developro.property', [$room->investment->slug, $room, Str::slug($room->name), floorLevel($room->floor_number, true), number2RoomsName($room->rooms, true), round(floatval($room->area), 2).'-m2']) }}">
                                     <picture>
                                         <source type="image/webp" srcset="/investment/property/thumbs/webp/{{$room->file_webp}}">
                                         <source type="image/jpeg" srcset="/investment/property/thumbs/{{$room->file}}">
@@ -170,7 +170,7 @@
                                     </picture>
                                 </a>
                             @endif
-                            <h2 class="poppins"><a href="{{ route('developro.property', [$investment->slug, $room, Str::slug($room->name), floorLevel($room->floor_number, true), number2RoomsName($room->rooms, true), round(floatval($room->area), 2).'-m2']) }}">{{$room->name}}</a></h2>
+                            <h2 class="poppins"><a href="{{ route('developro.property', [$room->investment->slug, $room, Str::slug($room->name), floorLevel($room->floor_number, true), number2RoomsName($room->rooms, true), round(floatval($room->area), 2).'-m2']) }}">{{$room->name}}</a></h2>
                             <div class="col-12">
                                 <div class="row">
                                     <div class="col-12 col-xl-4 property-list-item-stat d-flex justify-content-center mb-3 mb-xl-0">
@@ -189,7 +189,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="{{ route('developro.property', [$investment->slug, $room, Str::slug($room->name), floorLevel($room->floor_number, true), number2RoomsName($room->rooms, true), round(floatval($room->area), 2).'-m2']) }}" class="bttn bttn-icon mt-4 bttn-slow">@lang('website.show-room') <i class="ms-4 las la-file"></i></a>
+                            <a href="{{ route('developro.property', [$room->investment->slug, $room, Str::slug($room->name), floorLevel($room->floor_number, true), number2RoomsName($room->rooms, true), round(floatval($room->area), 2).'-m2']) }}" class="bttn bttn-icon mt-4 bttn-slow">@lang('website.show-room') <i class="ms-4 las la-file"></i></a>
                         </div>
                     </div>
                 @endforeach

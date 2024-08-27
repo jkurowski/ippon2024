@@ -56,6 +56,13 @@ class IndexController extends Controller
                         }
                     }
 
+                    if ($request->input('area')) {
+                        $area_param = explode('-', $request->input('area'));
+                        $min = $area_param[0];
+                        $max = $area_param[1];
+                        $query->whereBetween('area', [$min, $max]);
+                    }
+
                     if ($request->input('sort')) {
                         $order_param = explode(':', $request->input('sort'));
                         $column = $order_param[0];
@@ -114,7 +121,12 @@ class IndexController extends Controller
                             }
                         }
                     }
-
+                    if ($request->input('area')) {
+                        $area_param = explode('-', $request->input('area'));
+                        $min = $area_param[0];
+                        $max = $area_param[1];
+                        $query->whereBetween('area', [$min, $max]);
+                    }
                     if ($request->input('sort')) {
                         $order_param = explode(':', $request->input('sort'));
                         $column = $order_param[0];
