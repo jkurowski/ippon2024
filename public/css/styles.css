@@ -611,13 +611,13 @@ header #topCta span {
   top: 0;
 }
 #header.fixed .top {
-  height: 100px;
+  height: 77px;
 }
 #header.fixed #logo {
   padding: 10px 0;
 }
 #header.fixed #logo a img {
-  width: 95px;
+  width: 74px;
 }
 #header.fixed #logo p {
   font-size: 20px;
@@ -628,6 +628,29 @@ header #topCta span {
 }
 #header.fixed #nav nav ul li ul li {
   height: auto;
+}
+#header.fixed #cities .city-key {
+  width: 27px;
+  height: 54px;
+  background-size: 54px;
+}
+#header.fixed #cities .city-item {
+  padding: 0 15px;
+}
+#header.fixed #cities .city-item span,
+#header.fixed #cities .city-item p {
+  font-size: 16px;
+}
+#header.fixed #cities .city-item p strong {
+  font-size: 29px;
+  line-height: 20px;
+}
+#header.fixed #cities .city-item p {
+  line-height: 21px;
+}
+#header.fixed #topCta a {
+  font-size: 29px;
+  line-height: 20px;
 }
 #cities {
   display: flex;
