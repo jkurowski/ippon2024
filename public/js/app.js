@@ -80,6 +80,8 @@ https://github.com/imakewebthings/jquery-waypoints/blob/master/licenses.txt
 
 $(document).ready(function () {
 
+    $('#filtr-invest, #filtr-floor, #filtr-rooms, #filtr-status, #filtr-area').val("");
+
     $('.fake-select').each(function() {
         const v = $(this).find('select option:selected').text();
         const fsi = "<div class='fake-select-input'><div class='fake-select-value'>"+v+"</div></div>";
@@ -106,6 +108,7 @@ $(document).ready(function () {
             $(this).parent(".fake-select").addClass("fake-open");
         }
     });
+
     $(".fake-select-option").on("click", function() {
         $(this).closest("option:selected").removeAttr("selected");
         $(this).closest(".fake-select").find("option:selected").removeAttr("selected");
@@ -118,6 +121,7 @@ $(document).ready(function () {
             const b = $(this).attr("title"), a = $(this).data("value");
 
             console.log(a);
+
             $(this).addClass("fake-option-selected");
             $(this).closest(".fake-select").find(".fake-select-input").addClass("fake-selected");
             $(this).closest(".fake-select").find(".fake-select-value").text(b);

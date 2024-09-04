@@ -35,7 +35,7 @@
 
 <!-- Styles -->
 <link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet">
-<link href="{{ asset('/css/styles.min.css?v=0302') }}" rel="stylesheet">
+<link href="{{ asset('/css/styles.min.css?v=0409') }}" rel="stylesheet">
 
 <!-- jQuery -->
 <script src="{{ asset('/js/jquery.min.js') }}" charset="utf-8"></script>
@@ -64,6 +64,52 @@
 @endif
 <script type="text/javascript">
     AOS.init({disable: 'mobile'});
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var selectElement = document.getElementById('filtr-invest');
+        var formElement = document.getElementById('dynamic-form');
+
+        selectElement.addEventListener('change', function() {
+            var selectedValue = this.value;
+            var formAction = '';
+
+            if (selectedValue === 'osiedle-slow') {
+                formAction = '/pl/i/osiedle-slow/mieszkania#filtr';
+            } else if (selectedValue === 'osiedle-synergia') {
+                formAction = '/pl/i/osiedle-synergia/mieszkania#filtr';
+            }
+
+            formElement.setAttribute('action', formAction);
+
+            manageFloorOptions(selectedValue);
+        });
+    });
+
+    function manageFloorOptions(investment) {
+        const floorOptions = $('#filtr-floor option');
+        const roomOptions = $('#filtr-rooms option');
+
+        if (investment === 'osiedle-slow') {
+            // Show only "", "0", "1", "2"
+            floorOptions.hide();
+            roomOptions.hide();
+            floorOptions.filter('[value=""], [value="0"], [value="1"], [value="2"]').show();
+            roomOptions.filter('[value="2"], [value="3"]').show();
+
+
+        } else if (investment === 'osiedle-synergia') {
+            // Show "", "0", "1", "2", "3", "4"
+            floorOptions.hide();
+            roomOptions.hide();
+            floorOptions.filter('[value=""], [value="0"], [value="1"], [value="2"], [value="3"], [value="4"]').show();
+            roomOptions.filter('[value="1"], [value="2"], [value="3"], [value="4"]').show();
+
+        } else {
+            // Default: show all options
+            floorOptions.show();
+            roomOptions.show();
+        }
+    }
 
     $(document).ready(function(){
         $('.number-value span').counterUp({

@@ -26,59 +26,60 @@
         @endforeach
     </ul>
 
-    <div id="filtr">
+    <div id="filtr" class="homepage">
         <div class="container-fluid">
-            <form method="get" class="row" action="/pl/i/osiedle-slow/mieszkania#filtr">
+            <form method="get" class="row" action="/pl/i/osiedle-slow/mieszkania#filtr" id="dynamic-form">
                 <div class="col-12 col-sm-6 col-md">
-                    <div class="fake-select fake-select-icon">
-                        <i class="las la-building"></i>
-                        <select name="invest" id="filtr-rooms">
+                    <div class="select-border">
+                        <select name="invest" id="filtr-invest">
                             <option value="">@lang('website.select-option-investment')</option>
-                            <option value="1" >Osiedle Slow</option>
+                            <option value="osiedle-slow" >Osiedle Slow</option>
+                            <option value="osiedle-synergia" >Osiedle Synergia</option>
                         </select>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-md">
-                    <div class="fake-select fake-select-icon">
-                        <i class="las la-layer-group"></i>
-                        <select name="floor" id="filtr-rooms">
-                            <option value="">@lang('website.select-option-floor')</option>
-                            <option value="0" >@lang('website.select-option-floor-groundfloor')</option>
-                            <option value="1" >@lang('website.select-option-floor-1')</option>
-                            <option value="2" >@lang('website.select-option-floor-2')</option>
-                        </select>
+                    <div class="select-border">
+                    <select name="floor" id="filtr-floor">
+                        <option value="">@lang('website.select-option-floor')</option>
+                        <option value="0" >@lang('website.select-option-floor-groundfloor')</option>
+                        <option value="1" >@lang('website.select-option-floor-1')</option>
+                        <option value="2" >@lang('website.select-option-floor-2')</option>
+                        <option value="3" >@lang('website.select-option-floor-3')</option>
+                        <option value="4" >@lang('website.select-option-floor-4')</option>
+                        <option value="5" >@lang('website.select-option-floor-5')</option>
+                    </select>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-md">
-                    <div class="fake-select fake-select-icon">
-                        <i class="las la-door-open"></i>
-                        <select name="rooms" id="filtr-rooms">
-                            <option value="">@lang('website.select-option-rooms')</option>
-                            <option value="2" >@lang('website.select-option-rooms-2')</option>
-                            <option value="3" >@lang('website.select-option-rooms-3')</option>
-                        </select>
+                    <div class="select-border">
+                    <select name="rooms" id="filtr-rooms">
+                        <option value="">@lang('website.select-option-rooms')</option>
+                        <option value="1" class="osiedle-synergia" style="display: none">@lang('website.select-option-rooms-1')</option>
+                        <option value="2" >@lang('website.select-option-rooms-2')</option>
+                        <option value="3" >@lang('website.select-option-rooms-3')</option>
+                        <option value="4" class="osiedle-synergia" style="display: none">@lang('website.select-option-rooms-4')</option>
+                    </select>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-md">
-                    <div class="fake-select fake-select-icon">
-                        <i class="las la-tags"></i>
-                        <select name="status" id="filtr-status">
-                            <option value="">Status</option>
-                            <option value="1" >@lang('website.property-status-1')</option>
-                            <option value="2" >@lang('website.property-status-2')</option>
-                            <option value="3" >@lang('website.property-status-3')</option>
-                        </select>
+                    <div class="select-border">
+                    <select name="status" id="filtr-status">
+                        <option value="">Status</option>
+                        <option value="1" >@lang('website.property-status-1')</option>
+                        <option value="2" >@lang('website.property-status-2')</option>
+                        <option value="3" >@lang('website.property-status-3')</option>
+                    </select>
                     </div>
                 </div>
 
                 <div class="col-12 col-sm-6 col-md">
-                    <div class="fake-select fake-select-icon">
-                        <i class="las la-expand-arrows-alt"></i>
-                        <select name="area" id="filtr-area">
-                            <option value="">@lang('website.property-area')</option>
-                            <option value="35-36">35-36 m²</option>
-                            <option value=" 49-56"> 49-56 m²</option>
-                        </select>
+                    <div class="select-border">
+                    <select name="area" id="filtr-area">
+                        <option value="">@lang('website.property-area')</option>
+                        <option value="35-36">35-36 m²</option>
+                        <option value="49-56"> 49-56 m²</option>
+                    </select>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-md">
