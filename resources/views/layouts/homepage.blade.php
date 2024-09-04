@@ -83,6 +83,8 @@
 
             manageFloorOptions(selectedValue);
         });
+
+        manageFloorOptions('osiedle-slow');
     });
 
     function manageFloorOptions(investment) {
@@ -106,8 +108,10 @@
 
         } else {
             // Default: show all options
-            floorOptions.show();
-            roomOptions.show();
+            floorOptions.hide();
+            roomOptions.hide();
+            floorOptions.filter('[value=""], [value="0"], [value="1"], [value="2"]').show();
+            roomOptions.filter('[value="2"], [value="3"]').show();
         }
     }
 
