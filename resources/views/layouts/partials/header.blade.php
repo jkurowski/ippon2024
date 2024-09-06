@@ -13,6 +13,7 @@
                         <div class="top d-flex justify-content-end">
                             <div id="cities">
                                 @foreach($cities as $city)
+                                    @if($city->active)
                                     <a href="{{ route('map', $city->slug) }}" class="city-item">
                                         <div class="city-key">
 
@@ -23,6 +24,7 @@
                                             <span>@lang('website.top-properties-view-all')</span>
                                         </div>
                                     </a>
+                                    @endif
                                 @endforeach
                             </div>
 
