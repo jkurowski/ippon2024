@@ -1,20 +1,19 @@
 <div id="roomsList">
     <div class="container">
         @foreach($investments as $investment)
-            <div class="row">
-                <div class="col-12 p-0">
-                    @include('layouts.partials.search-header', [
-                    'investmentName' => $investment->name,
-                    'investmentSlug' => $investment->slug,
-                    'investmentPages' => $investment->pages,
-                    'investmentLogo' => $investment->file_logo,
-                    'investmentHeader' => $investment->file_header,
-                    'header_file' => 'zrealizowane.jpg'
-                    ])
-                </div>
-            </div>
-
             @if($investment->properties->count() > 0)
+                <div class="row">
+                    <div class="col-12 p-0">
+                        @include('layouts.partials.search-header', [
+                        'investmentName' => $investment->name,
+                        'investmentSlug' => $investment->slug,
+                        'investmentPages' => $investment->pages,
+                        'investmentLogo' => $investment->file_logo,
+                        'investmentHeader' => $investment->file_header,
+                        'header_file' => 'zrealizowane.jpg'
+                        ])
+                    </div>
+                </div>
                 @foreach($investment->properties as $room)
                     <div class="row property-list-item">
                         <div class="col-12 col-lg-2">
