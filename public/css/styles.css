@@ -1267,6 +1267,10 @@ div[class*='col-'].slick-slide {
   font-weight: 500;
   font-size: 20px;
 }
+.property .property-desc span i {
+  font-size: 14px;
+  color: #5a5a5a;
+}
 .property .property-desc .bttn {
   border-color: white;
   color: white;

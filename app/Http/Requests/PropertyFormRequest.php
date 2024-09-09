@@ -72,6 +72,7 @@ class PropertyFormRequest extends FormRequest
             'deadline' => '',
             'kitchen_type' => 'integer',
             'price' => '',
+            'price_30' => '',
             'cords' => '',
             'html' => '',
             'meta_title' => '',

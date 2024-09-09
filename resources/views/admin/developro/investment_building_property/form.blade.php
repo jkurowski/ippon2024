@@ -176,6 +176,9 @@
                                     @include('form-elements.input-text', ['label' => 'Cena', 'sublabel'=> 'Tylko liczby', 'name' => 'price', 'value' => $entry->price])
                                 </div>
                                 <div class="row w-100 form-group">
+                                    @include('form-elements.input-text', ['label' => 'Najniższa cena z 30 dni', 'sublabel'=> 'Tylko liczby', 'name' => 'price_30', 'value' => $entry->price_30])
+                                </div>
+                                <div class="row w-100 form-group">
                                     @include('form-elements.input-text', ['label' => 'Ogródek', 'sublabel'=> 'Pow. w m<sup>2</sup>, tylko liczby', 'name' => 'garden_area', 'value' => $entry->garden_area])
                                 </div>
                                 <div class="row w-100 form-group">

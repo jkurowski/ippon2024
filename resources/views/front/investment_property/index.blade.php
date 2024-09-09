@@ -26,6 +26,12 @@
                         {!! roomStatusBadge($property->status) !!}
                         <h1 class="text-uppercase">{{ $property->name }}</h1>
                         <h4>{{ floorLevel($floor->number, false) }}</h4>
+                        @if($property->price)
+                            <h3 class="mt-3 mb-0"><b>{{ $property->price }} PLN</b></h3>
+                            @if($property->price_30)
+                                <span><i>( {{ $property->price_30 }} PLN - najniższa cena z 30 dni )</i></span>
+                            @endif
+                        @endif
                         <ul class="mb-0 list-unstyled mt-4">
                             @if($current_locale == 'pl')
                                 <li>Budynek: <span>B4.1</span></li>
@@ -43,7 +49,6 @@
                                 @if($property->parking_space)<li>Miejsce postojowe:<span>{{$property->parking_space}}</span></li>@endif
                                 @if($property->garage)<li>Garaż:<span>{{$property->garage}}</span></li>@endif
                                 @if($property->deadline)<li>Termin oddania: <span>{{ $property->deadline }}</span></li>@endif
-                                @if($property->price)<li>Cena: <span>{{ $property->price }} zł</span></li>@endif
                             @else
                                 <li>Building: <span>B4.1</span></li>
                                 <li>Floor: <span> @if($floor->number == 0) Ground floor @else {{ $floor->number }} @endif</span></li>
@@ -60,7 +65,6 @@
                                 @if($property->parking_space)<li>Parking space:<span>{{$property->parking_space}}</span></li>@endif
                                 @if($property->garage)<li>Garage:<span>{{$property->garage}}</span></li>@endif
                                 @if($property->deadline)<li>Due date: <span>{{ $property->deadline }}</span></li>@endif
-                                @if($property->price)<li>Price: <span>{{ $property->price }} PLN</span></li>@endif
                             @endif
                         </ul>
                     </div>
