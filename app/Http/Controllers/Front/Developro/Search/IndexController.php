@@ -29,7 +29,8 @@ class IndexController extends Controller
                 }
 
                 if ($request->input('status')) {
-                    $query->where('status', $request->input('status'));
+                    $statusValues = explode(',', $request->input('status'));
+                    $query->whereIn('status', $statusValues);
                 }
 
                 if ($request->exists('floor')) {
