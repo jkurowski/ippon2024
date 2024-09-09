@@ -83,13 +83,6 @@
                         </div>
                     </div>
                 @endforeach
-            @else
-                <div class="row">
-                    <div class="col-12 text-center mt-5">
-                        <b>Brak wyników</b>
-                    </div>
-                </div>
-            @endif
         @endforeach
     </div>
 </div>
