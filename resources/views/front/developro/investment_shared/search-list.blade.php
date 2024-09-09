@@ -1,5 +1,5 @@
 <div id="roomsList">
-    <div class="container">
+    <div class="container mb-4">
         @foreach($investments as $investment)
             @if($investment->properties->count() > 0)
                 <div class="row">
