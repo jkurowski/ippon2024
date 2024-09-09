@@ -382,78 +382,78 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-sm-6 col-xl-3 mb-4 mb-xl-0 d-none d-sm-block">
-                    <div data-aos="fade-up" data-aos-offset="500" data-aos-delay="0" class="main-room main-room-disable">
+                    <div data-aos="fade-up" data-aos-offset="200" data-aos-delay="0" class="main-room">
                         <div class="main-room-header text-center">
                             @if($current_locale == 'pl')
-                                <h2 class="poppins">MIESZKANIA <br><b>1 POKOJOWE</b></h2>
+                                <h2 class="poppins"><a href="{{ route('search') }}/?rooms=1&status=1">MIESZKANIA <br><b>1 POKOJOWE</b></a></h2>
                             @else
-                                <h2 class="poppins">1-room <br><b>APARTMENTS</b></h2>
+                                <h2 class="poppins"><a href="{{ route('search') }}/?rooms=1&status=1">1-room <br><b>APARTMENTS</b></a></h2>
                             @endif
 
                             <p>@lang('website.property-area'): <span>27m<sup>2</sup></span></p>
                             <div class="main-room-img">
-                                <img src="{{ asset('/uploads/files/mieszkania-1-pokoje.jpg') }}" alt="Dostępne mieszkania 1-pokojowe" class="m-auto">
+                                <a href="{{ route('search') }}/?rooms=1&status=1"><img src="{{ asset('/uploads/files/mieszkania-1-pokoje.jpg') }}" alt="Dostępne mieszkania 1-pokojowe" class="m-auto"></a>
                             </div>
                         </div>
                         <div class="main-room-footer">
-                            <span class="bttn bttn-icon">@lang('website.button-show-properties') <i class="ms-3 las la-chevron-circle-right"></i></span>
+                            <a href="{{ route('search') }}/?rooms=1&status=1" class="bttn bttn-icon">@lang('website.button-show-properties') <i class="ms-3 las la-chevron-circle-right"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-xl-3 mb-4 mb-xl-0">
-                    <div data-aos="fade-up" data-aos-offset="500" data-aos-delay="100" class="main-room">
+                    <div data-aos="fade-up" data-aos-offset="200" data-aos-delay="100" class="main-room">
                         <div class="main-room-header text-center">
                             @if($current_locale == 'pl')
-                                <h2 class="poppins"><a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=2#filtr">MIESZKANIA <br><b>2 POKOJOWE</b></a></h2>
+                                <h2 class="poppins"><a href="{{ route('search') }}/?rooms=2&status=1">MIESZKANIA <br><b>2 POKOJOWE</b></a></h2>
                             @else
-                                <h2 class="poppins"><a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=2#filtr">2-room <br><b>APARTMENTS</b></a></h2>
+                                <h2 class="poppins"><a href="{{ route('search') }}/?rooms=2&status=1">2-room <br><b>APARTMENTS</b></a></h2>
                             @endif
 
                             <p>@lang('website.property-area'): <span>35-48m<sup>2</sup></span></p>
                             <div class="main-room-img">
-                                <a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=2#filtr"><img src="{{ asset('/uploads/files/mieszkania-2-pokoje.jpg') }}" alt="Dostępne mieszkania 2-pokojowe" class="m-auto"></a>
+                                <a href="{{ route('search') }}/?rooms=2&status=1"><img src="{{ asset('/uploads/files/mieszkania-2-pokoje.jpg') }}" alt="Dostępne mieszkania 2-pokojowe" class="m-auto"></a>
                             </div>
                         </div>
                         <div class="main-room-footer">
-                            <a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=2#filtr" class="bttn bttn-icon">@lang('website.button-show-properties') <i class="ms-3 las la-chevron-circle-right"></i></a>
+                            <a href="{{ route('search') }}/?rooms=2&status=1" class="bttn bttn-icon">@lang('website.button-show-properties') <i class="ms-3 las la-chevron-circle-right"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-xl-3">
-                    <div data-aos="fade-up" data-aos-offset="500" data-aos-delay="200" class="main-room">
+                    <div data-aos="fade-up" data-aos-offset="200" data-aos-delay="200" class="main-room">
                         <div class="main-room-header text-center">
                             @if($current_locale == 'pl')
-                                <h2 class="poppins"><a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=3#filtr">MIESZKANIA <br><b>3 POKOJOWE</b></a></h2>
+                                <h2 class="poppins"><a href="{{ route('search') }}/?rooms=3&status=1">MIESZKANIA <br><b>3 POKOJOWE</b></a></h2>
                             @else
-                                <h2 class="poppins"><a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=3#filtr">3-room <br><b>APARTMENTS</b></a></h2>
+                                <h2 class="poppins"><a href="{{ route('search') }}/?rooms=3&status=1">3-room <br><b>APARTMENTS</b></a></h2>
                             @endif
 
                             <p>@lang('website.property-area'): <span>50-61m<sup>2</sup></span></p>
                             <div class="main-room-img">
-                                <a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=3#filtr"><img src="{{ asset('/uploads/files/mieszkania-3-pokoje.jpg') }}" alt="Dostępne mieszkania 3-pokojowe" class="m-auto"></a>
+                                <a href="{{ route('search') }}/?rooms=3&status=1"><img src="{{ asset('/uploads/files/mieszkania-3-pokoje.jpg') }}" alt="Dostępne mieszkania 3-pokojowe" class="m-auto"></a>
                             </div>
                         </div>
                         <div class="main-room-footer">
-                            <a href="{{ route('developro.investment.index', 'osiedle-slow') }}/mieszkania?rooms=3#filtr" class="bttn bttn-icon">@lang('website.button-show-properties') <i class="ms-3 las la-chevron-circle-right"></i></a>
+                            <a href="{{ route('search') }}/?rooms=3&status=1" class="bttn bttn-icon">@lang('website.button-show-properties') <i class="ms-3 las la-chevron-circle-right"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-xl-3 d-none d-sm-block">
-                    <div data-aos="fade-up" data-aos-offset="500" data-aos-delay="300" class="main-room main-room-disable">
+                    <div data-aos="fade-up" data-aos-offset="200" data-aos-delay="300" class="main-room">
                         <div class="main-room-header text-center">
                             @if($current_locale == 'pl')
-                                <h2 class="poppins">MIESZKANIA <br><b>4 POKOJOWE</b></h2>
+                                <h2 class="poppins"><a href="{{ route('search') }}/?rooms=4&status=1">MIESZKANIA <br><b>4 POKOJOWE</b></a></h2>
                             @else
-                                <h2 class="poppins">4-room <br><b>APARTMENTS</b></h2>
+                                <h2 class="poppins"><a href="{{ route('search') }}/?rooms=4&status=1">4-room <br><b>APARTMENTS</b></a></h2>
                             @endif
 
                             <p>@lang('website.property-area'): <span>60-80m<sup>2</sup></span></p>
                             <div class="main-room-img">
-                                <img src="{{ asset('/uploads/files/mieszkania-4-pokoje.jpg') }}" alt="Dostępne mieszkania 4-pokojowe" class="m-auto">
+                                <a href="{{ route('search') }}/?rooms=4&status=1"><img src="{{ asset('/uploads/files/mieszkania-4-pokoje.jpg') }}" alt="Dostępne mieszkania 4-pokojowe" class="m-auto"></a>
                             </div>
                         </div>
                         <div class="main-room-footer">
-                            <span class="bttn bttn-icon">@lang('website.button-show-properties') <i class="ms-3 las la-chevron-circle-right"></i></span>
+                            <a href="{{ route('search') }}/?rooms=4&status=1" class="bttn bttn-icon">@lang('website.button-show-properties') <i class="ms-3 las la-chevron-circle-right"></i></a>
                         </div>
                     </div>
                 </div>
