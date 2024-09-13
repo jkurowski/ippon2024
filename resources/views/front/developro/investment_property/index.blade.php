@@ -10,6 +10,9 @@
         <div class="row">
             <div class="col-12 col-xl-5">
                 <div class="property-desc">
+                    @if($property->highlighted)
+                        <div class="ribbon ribbon-top-left"><span>PROMOCJA</span></div>
+                    @endif
                     <div class="room-status room-status-{{$property->status}}">
                         {{ roomStatus($property->status )}}
                     </div>

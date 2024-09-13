@@ -22,6 +22,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-xl-6 order-2 order-xl-1">
+                    @if($property->highlighted)
+                        <div class="pe-0 pe-xl-4">
+                            <div class="property-highlighted"><span>PROMOCJA</span></div>
+                        </div>
+                    @endif
                     <div class="property-desc pe-0 pe-xl-4">
                         {!! roomStatusBadge($property->status) !!}
                         <h1 class="text-uppercase">{{ $property->name }}</h1>

@@ -54,7 +54,8 @@ class Property extends Model
         'meta_title',
         'meta_description',
         'views',
-        'active'
+        'active',
+        'highlighted'
     ];
 
     /**

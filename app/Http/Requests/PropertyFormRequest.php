@@ -54,7 +54,7 @@ class PropertyFormRequest extends FormRequest
             'name_list' => 'string|max:255',
             'number' => 'required|string|max:255',
             'number_order' => 'integer',
-            'highlighted' => '',
+            'highlighted' => 'boolean',
             'homepage' => '',
             'rooms' => 'required|integer',
             'virtual_walk' => '',

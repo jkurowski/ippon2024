@@ -127,11 +127,18 @@
                                 <div class="row w-100 form-group">
                                     <div class="container">
                                         <div class="row">
-                                            <div class="col-6">
+                                            <div class="col-4">
                                                 @include('form-elements.input-text', ['label' => 'Numer', 'sublabel'=> 'Tylko numer, bez nazwy', 'name' => 'number', 'value' => $entry->number, 'required' => 1])
                                             </div>
-                                            <div class="col-6">
+                                            <div class="col-4">
                                                 @include('form-elements.input-text', ['label' => 'Kolejność na liście', 'sublabel'=> 'Tylko liczby', 'name' => 'number_order', 'value' => $entry->number_order, 'required' => 1])
+                                            </div>
+                                            <div class="col-4">
+                                                @include('form-elements.html-select', ['label' => 'Promocja', 'sublabel'=> 'Dodatkowe oznaczenie na liście', 'name' => 'highlighted', 'selected' => $entry->highlighted, 'select' => [
+                                                  '0' => 'Nie',
+                                                  '1' => 'Tak'
+                                                  ]
+                                              ])
                                             </div>
                                         </div>
                                     </div>

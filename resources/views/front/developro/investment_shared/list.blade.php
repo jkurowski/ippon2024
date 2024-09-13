@@ -2,15 +2,17 @@
     <div class="container-fluid">
         @if($properties->count() > 0)
             @foreach($properties as $room)
+                
                 <div class="row property-list-item">
+                    @if($room->highlighted)
+                    <div class="ribbon ribbon-top-left"><span>PROMOCJA</span></div>
+                    @endif
                     <div class="col-12 col-lg-2">
-                        @if($room->file)
                             <picture>
                                 <source type="image/webp" srcset="/investment/property/list/webp/{{$room->file_webp}}">
                                 <source type="image/jpeg" srcset="/investment/property/list/{{$room->file}}">
                                 <img src="/investment/property/list/{{$room->file}}" alt="@if($current_locale == 'pl') Mieszkanie {{$room->number}} @else Apartment {{$room->number}} @endif">
                             </picture>
-                        @endif
                     </div>
 
                     <div class="col-12 col-lg-8 d-flex align-items-center ps-3 ps-lg-4">

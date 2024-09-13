@@ -1,7 +1,11 @@
+@php
+    $subLabel = isset($sublabel) ? '<span>' . $sublabel . '</span>' : '';
+@endphp
+
 @isset($required)
-    {!! Form::label($name, '<div class="text-start">'.$label.' <span class="text-danger d-inline">*</span></div>', ['class' => 'col-12 col-form-label control-label pb-2 required'], false) !!}
+    {!! Form::label($name, '<div class="text-start">'.$label . $subLabel . ' <span class="text-danger d-inline">*</span></div>', ['class' => 'col-12 col-form-label control-label pb-2 required'], false) !!}
 @else
-    {!! Form::label($name, '<div class="text-start">'.$label.'</div>', ['class' => 'col-12 col-form-label control-label pb-2'], false) !!}
+    {!! Form::label($name, '<div class="text-start">'.$label . $subLabel . '</div>', ['class' => 'col-12 col-form-label control-label pb-2'], false) !!}
 @endisset
 <div class="col-12 control-input position-relative d-flex align-items-center">
     @if(isset($selected))
