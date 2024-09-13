@@ -16,6 +16,9 @@
                 </div>
                 @foreach($investment->properties as $room)
                     <div class="row property-list-item">
+                        @if($room->highlighted)
+                            <div class="ribbon ribbon-top-left"><span>PROMOCJA</span></div>
+                        @endif
                         <div class="col-12 col-lg-2">
                             @if($room->file)
                                 <picture>
