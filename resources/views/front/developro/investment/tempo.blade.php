@@ -49,6 +49,18 @@
             </div>
 
             <div class="row flex-row-reverse mt-5 pt-5">
+                <div class="col-5 d-flex align-items-center">
+                    <div class="ps-5">
+                        <h2>#panele<span style="color: #e03e2d;">Fotowoltaiczne</span></h2>
+                        <p>Zastosowane panele fotowoltaiczne, realnie wpłyną na niższe opłaty za energię dla mieszkańców. Instalacja będzie zasilać oświetlenie komunikacji wspólnej, pomieszczeń technicznych, komórek lokatorskich, windy oraz wentylację.</p>
+                    </div>
+                </div>
+                <div class="col-7">
+                    <img src="{{ asset('uploads/files/tempo/panele-fotowoltaiczne.jpg') }}" alt="Panele fotowoltaiczne" />
+                </div>
+            </div>
+
+            <div class="row flex-row-reverse mt-5 pt-5">
                 <div class="col-4 d-flex align-items-center">
                     <div class="ps-5">
                         <h2>#ŻyjwSwoim<span style="color: #e03e2d;">Tempie</span> na nowoczesnym osiedlu.</h2>
@@ -62,6 +74,8 @@
                 <div class="col-12 text-center">
                     <h2 class="mb-3"><span style="color: #e03e2d;">#atuty</span>Osiedla</h2>
                 </div>
+            </div>
+            <div class="row justify-content-center" id="atut-tempo-carousel">
                 <div class="col-3 mt-4">
                     <div class="atut-tempo text-center">
                         <img src="{{ asset('images/icons/tempo/klamki-elektroniczne.jpg') }}" alt="Ikonka klamki elektronicznej" width="180" height="180"/>
@@ -233,18 +247,22 @@
                     <img src="{{ asset('images/tempo/niskie-rachunki-za-prad.jpg') }}" alt="Zarówka, zielona trawa, eko" width="520" height="420"/>
                     <div class="p-4">
                         <h3>#<span style="color: #e03e2d;">niższe</span>Rachunki</h3>
-                        <p class="text-justify">Zastosowanie oświetlenia LED oraz czujników ruchu na klatkach schodowych, pozwala na mniejsze zużycie prądu oraz niższe opłaty za energię.</p>
+                        <p class="text-justify">Zastosowanie paneli fotowoltaicznych oraz oświetlenia LED na klatkach schodowych, pozwala na mniejsze zużycie prądu oraz niższe opłaty za energię.</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 @endsection
-@push('scripts')
-    <script src="{{ asset('js/slick.js') }}" charset="utf-8"></script>
-    <script type="text/javascript">
-        $(document).ready(function(){
 
+@push('scripts')
+    <script src="{{ asset('/js/slick.js') }}" charset="utf-8"></script>
+    <script type="text/javascript">
+        $("#atut-tempo-carousel").slick({
+            slidesToShow: 5,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 2000,
         });
     </script>
 @endpush

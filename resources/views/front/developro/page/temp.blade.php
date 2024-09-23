@@ -36,6 +36,7 @@
                         </div>
                         <div class="col-6"><img src="https://placehold.co/770x578" alt="" /></div>
                     </div>
+
                     <div class="row flex-row-reverse mt-5 pt-5">
                         <div class="col-6 d-flex align-items-center">
                             <div class="ps-5">
@@ -49,6 +50,17 @@
                         </div>
                         <div class="col-6"><img src="https://placehold.co/770x578" alt="" /></div>
                     </div>
+
+                    <div class="row mt-5 pt-5">
+                        <div class="col-6 d-flex align-items-center">
+                            <div class="pe-5">
+                                <h2>#dwa<span style="color: #e03e2d;">Wjazdy</span></h2>
+                                <p>Na osiedle, będzie można dojechać zarówno od ulicy Sikorskiego, jak i od strony Jarot – od ulicy Jarockiej. Takie rozwiązanie ułatwi przejazd mieszkańcom i pozwoli płynniej włączyć się do ruchu samochodowego.</p>
+                            </div>
+                        </div>
+                        <div class="col-6"><img src="https://placehold.co/770x578" alt="" /></div>
+                    </div>
+
                     <div class="row mt-5 pt-5">
                         <div class="col-12 text-center">
                             <h2>#Obiekty<span style="color: #e03e2d;">wPobliżu</span></h2>
