@@ -647,7 +647,7 @@
                         <div class="img-gradient"></div>
                     </div>
                     <div class="article-content">
-                        <h2><a href="">{{ $n->title }}</a></h2>
+                        <h2><a href="{{route('front.articles.show', $n->slug)}}">{{ $n->title }}</a></h2>
                         <p>{{ $n->content_entry }}.</p>
                         <a href="{{route('front.articles.show', $n->slug)}}" class="bttn-link">@lang('website.button-see-more')</a>
                     </div>
