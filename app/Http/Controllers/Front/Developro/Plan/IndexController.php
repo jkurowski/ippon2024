@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Building;
 use App\Models\Floor;
 use App\Models\Page;
+use App\Models\Property;
 use App\Models\RodoRules;
 use App\Models\RodoSettings;
 use App\Repositories\InvestmentRepository;
@@ -146,5 +147,19 @@ class IndexController extends Controller
                 'uniqueRooms' => $this->repository->getUniqueRooms($investment_room->properties)
             ]);
         }
+    }
+
+    public function json($language, $slug)
+    {
+        $investment = $this->repository->findBySlug($slug);
+
+        $properties = Property::with('investment:id,name')
+            ->select('id', 'name', 'investment_id', 'number')
+            ->where('investment_id', $investment->id)
+            ->get()
+            ->makeHidden(['investment_id']);
+
+        // Return filtered properties as JSON
+        return response()->json($properties);
     }
 }

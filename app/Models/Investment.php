@@ -220,6 +220,13 @@ class Investment extends Model
         return $this->hasMany('App\Models\Property')->select(['investment_id', 'id', 'name', 'type']);
     }
 
+    public function getNamePlAttribute()
+    {
+        $name = json_decode($this->attributes['name'], true);
+
+        return $name['pl'] ?? null; // Return 'pl' value or null if it doesn't exist
+    }
+
     /**
      * The "boot" method of the model.
      *
