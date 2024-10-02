@@ -157,7 +157,8 @@ class IndexController extends Controller
             ->select('id', 'name', 'investment_id', 'number')
             ->where('investment_id', $investment->id)
             ->get()
-            ->makeHidden(['investment_id']);
+            ->makeHidden(['investment_id', 'investment.name'])
+            ->makeVisible(['investment.name_pl']);
 
         // Return filtered properties as JSON
         return response()->json($properties);
