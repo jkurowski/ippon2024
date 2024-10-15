@@ -473,16 +473,16 @@
                 @endif
             </div>
             <div class="col-12 col-lg-6" data-aos="fade-right" data-aos-offset="500">
-                <img src="{{ asset('images/deweloper-roku-2023.jpg') }}" alt="" width="840" height="600">
+                <img src="{{ asset('images/deweloper-roku-2024.jpg') }}" alt="Nagroda Deweloper Roku - Ippon Group" width="840" height="600">
             </div>
             <div class="col-12 col-lg-6 d-flex align-items-center" data-aos="fade-left" data-aos-offset="500">
                 <div class="section-text ps-0 ps-lg-5 mt-4 mt-lg-0">
                     @if($current_locale == 'pl')
-                    <p>Jesteśmy wiodącą firmą deweloperską specjalizującą się w realizacji projektów branży mieszkaniowej oraz komercyjnej. Czterokrotnie zostaliśmy nagrodzeni tytułem Deweloper Roku. Budujemy mieszkania, apartamenty oraz domy na terenie całego kraju.</p>
+                    <p>Jesteśmy wiodącą firmą deweloperską specjalizującą się w realizacji projektów branży mieszkaniowej oraz komercyjnej. Pięciokrotnie zostaliśmy nagrodzeni tytułem Deweloper Roku. Budujemy mieszkania, apartamenty oraz domy na terenie całego kraju.</p>
                     <p>&nbsp;</p>
                     <p>W naszych projektach wprowadzamy innowacyjne rozwiązania i kreujemy nowe standardy na rynku. Jako jedyny deweloper zaoferowaliśmy apartamenty z ogrodami zimowymi w Olsztynie. Dbamy o jakość użytych materiałów oraz o komfort i funkcjonalność naszych mieszkań.</p>
                     @else
-                        <p>We are a leading property development company specializing in residential and commercial projects. We have been awarded the Developer of the Year title four times. We build apartments, condominiums, and houses throughout the country.</p>
+                        <p>We are a leading property development company specializing in residential and commercial projects. We have been awarded the Developer of the Year title five times. We build apartments, condominiums, and houses throughout the country.</p>
                         <p>&nbsp;</p>
                         <p>In our projects, we introduce innovative solutions and set new standards in the market. As the only developer, we have offered apartments with winter gardens in Olsztyn. We prioritize the quality of materials used and the comfort and functionality of our residences.</p>
                     @endif
