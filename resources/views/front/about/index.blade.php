@@ -179,7 +179,7 @@
                         <div class="container paralaxa-bottom paralaxa-bottom-more inline pt-4 pt-lg-5">
                             <div class="row">
                                 <div class="col-12 text-center">
-                                    <img src="{{ asset('/images/deweloper-roku-2023.png') }}" alt="Deweloper godny zaufania" class="d-block m-auto">
+                                    <img src="{{ asset('/images/deweloper-roku-2024.png') }}" alt="Deweloper godny zaufania" class="d-block m-auto">
                                     @if($current_locale == 'pl')
                                     <h2 class="section-title text-uppercase mt-5"><span class="text-gold">Deweloper </span> <br>godny zaufania</h2>
                                     @else
