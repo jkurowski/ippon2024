@@ -57,7 +57,7 @@
                                                     </select>
                                                 </div>
                                                 <div class="col-3">
-                                                    <button class="btn btn-primary" id="copyRoomButton">Kopiuj obrys</button>
+                                                    <button class="btn btn-primary w-100" id="copyRoomButton">Kopiuj obrys</button>
                                                 </div>
                                             </div>
                                         @endif
