@@ -89,11 +89,6 @@ Route::group([
     // admin.crm
     Route::group(['namespace' => 'Crm', 'prefix' => '/crm', 'as' => 'crm.'], function () {
 
-        Route::get('contact/datatable', 'Contact\IndexController@datatable')->name('contact.datatable');
-        Route::resources([
-            'contact' => 'Contact\IndexController'
-        ]);
-
         Route::get('inbox', 'Inbox\IndexController@index')->name('inbox.index');
         Route::get('inbox/datatable', 'Inbox\IndexController@datatable')->name('inbox.datatable');
         Route::delete('inbox/{id}', 'Inbox\IndexController@destroy')->name('inbox.destroy');
@@ -157,9 +152,11 @@ Route::group([
                 '{investment}/buildings' => 'Building\BuildingController',
                 '{investment}/building.floors' => 'Building\BuildingFloorController',
                 '{investment}/building.floor.properties' => 'Building\BuildingPropertyController',
-                '{investment}/property/{property}/message' => 'Property\InboxController'
+                '{investment}/property/{property}/message' => 'Property\InboxController',
+                '{investment}/copy-plan' => 'CopyController'
             ]);
 
+            Route::get('{investment}/import', 'Import\IndexController@index')->name('import.index');
             Route::get('{investment}/log', 'Investment\IndexController@log')->name('log');
 
             Route::get('{investment}/datatable', 'Investment\IndexController@datatable')->name('log.datatable');

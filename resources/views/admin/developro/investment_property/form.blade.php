@@ -42,6 +42,28 @@
                                 </div>
                             </div>
                             <div class="card-body control-col12">
+                                <div class="row w-100 form-group">
+                                    <div class="col-12">
+                                        @if($entry->name)
+                                            <div class="form-group row">
+                                                <label for="copyRoom" class="col-3 col-form-label control-label required">
+                                                    <div class="text-end">Wybierz mieszkanie</div>
+                                                </label>
+                                                <div class="col-6">
+                                                    <select class="form-select" id="copyRoom" name="copyRoom">
+                                                        @foreach($investment->properties as $p)
+                                                            <option value="{{ $p->id }}">{{ $p->name }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                                <div class="col-3">
+                                                    <button class="btn btn-primary" id="copyRoomButton">Kopiuj obrys</button>
+                                                </div>
+                                            </div>
+                                        @endif
+                                    </div>
+                                </div>
+
                                 <div class="toggleRow w-100">
                                     <div class="row w-100 form-group">
                                         @include('form-elements.mappa', ['label' => 'Współrzędne punktów', 'name' => 'cords', 'value' => $entry->cords, 'rows' => 10, 'class' => 'mappa-html'])
@@ -235,6 +257,36 @@
         const mapview = new MapView({el: '.mappa'}, map);
         @if($floor->file)
         mapview.loadImage('/investment/floor/{{$floor->file}}');
+        @endif
+
+        @if($entry->name)
+        document.getElementById('copyRoomButton').addEventListener('click', function(event) {
+            event.preventDefault();
+
+            const selectedRoomId = document.getElementById('copyRoom').value;
+
+            fetch('{{ route("admin.developro.investment.copy-plan.index", [$investment]) }}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}' // Include CSRF token
+                },
+                body: JSON.stringify({
+                    room_id: selectedRoomId,
+                    current_id: {{ $entry->id }}
+                })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        window.location.reload();
+
+                    } else {
+                        console.error('Failed to copy room:', data.message);
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        });
         @endif
     });
 </script>
