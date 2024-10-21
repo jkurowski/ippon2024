@@ -50,6 +50,7 @@ class Property extends Model
         'file_3d',
         'file_pdf',
         'file_webp',
+        'view_3d',
         'virtual_walk',
         'meta_title',
         'meta_description',

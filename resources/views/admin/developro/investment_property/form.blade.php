@@ -239,6 +239,12 @@
                                         'file_preview' => config('images.property.preview_pdf_path')
                                     ])
                                 </div>
+                                <div class="row w-100 form-group">
+                                    @include('form-elements.input-text', ['label' => 'Wirtualny spacer', 'sublabel'=> 'Link do wirtualnego spaceru', 'name' => 'virtual_walk', 'value' => $entry->virtual_walk])
+                                </div>
+                                <div class="row w-100 form-group">
+                                    @include('form-elements.input-text', ['label' => 'Widok 3D', 'sublabel'=> 'Link do rzutu 3D', 'name' => 'view_3d', 'value' => $entry->view_3d])
+                                </div>
                             </div>
                         </div>
                         @include('form-elements.submit', ['name' => 'submit', 'value' => 'Zapisz'])
