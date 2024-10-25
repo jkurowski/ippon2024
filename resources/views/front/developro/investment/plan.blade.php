@@ -16,7 +16,6 @@
 @stop
 
 @section('content')
-    {{ $investment->id }}
 <div id="page-content">
     <div class="container">
         <div class="row">
