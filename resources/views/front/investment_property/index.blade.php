@@ -114,15 +114,15 @@
 
                             @if($property->view_3d)
                             <div class="col-12 mt-2">
-                                <button type="button" class="bttn bttn-slow w-100 justify-content-center" data-bs-toggle="modal" data-bs-target="#3dModal">Widok 3D<i class="ms-4 las la-vr-cardboard"></i></button>
+                                <button type="button" class="bttn bttn-slow w-100 justify-content-center" data-bs-toggle="modal" data-bs-target="#exampleModal2">Widok 3D<i class="ms-4 las la-vr-cardboard"></i></button>
                             </div>
 
                             <!-- Modal -->
-                            <div class="modal fade" id="3dModal" tabindex="-1" aria-labelledby="3dModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModal2Label" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered modal-xl">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="3dModalLabel">{{ $property->name }}</h1>
+                                            <h1 class="modal-title fs-5" id="exampleModal2">{{ $property->name }}</h1>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
