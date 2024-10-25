@@ -112,6 +112,30 @@
                             </div>
                             @endif
 
+                            @if($property->view_3d)
+                            <div class="col-12 mt-2">
+                                <button type="button" class="bttn bttn-slow w-100 justify-content-center" data-bs-toggle="modal" data-bs-target="#exampleModal">Widok 3D<i class="ms-4 las la-vr-cardboard"></i></button>
+                            </div>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-xl">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">{{ $property->name }}</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="ratio ratio-16x9">
+                                            <iframe frameborder="0" src="{{ $property->view_3d }}" allow="fullscreen" style="min-width: 100%; height: 100%"
+                                            ></iframe>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @endif
+
                             <div class="col-12 col-sm-6 mt-4">
                                 <a href="#contactForm" data-offset="0" target="_blank" class="bttn bttn-slow w-100 justify-content-center bttn-slow-red scroll-to">@lang('website.property_ask_for')</a>
                             </div>
