@@ -89,7 +89,7 @@
                             @endif
 
                             @if($property->virtual_walk)
-                            <div class="col-12 mt-2">
+                            <div class="col-12 col-md-6 mt-2 mt-md-0">
                                 <button type="button" class="bttn bttn-slow w-100 justify-content-center" data-bs-toggle="modal" data-bs-target="#exampleModal">@lang('website.property_3d_walk')<i class="ms-4 las la-vr-cardboard"></i></button>
                             </div>
 
@@ -113,7 +113,7 @@
                             @endif
 
                             @if($property->view_3d)
-                            <div class="col-12 mt-2">
+                            <div class="col-12 col-md-6 mt-2 mt-md-0">
                                 <button type="button" class="bttn bttn-slow w-100 justify-content-center" data-bs-toggle="modal" data-bs-target="#exampleModal2">Widok 3D<i class="ms-4 las la-cube"></i></button>
                             </div>
 
