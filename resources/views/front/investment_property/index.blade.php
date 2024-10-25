@@ -114,7 +114,7 @@
 
                             @if($property->view_3d)
                             <div class="col-12 mt-2">
-                                <button type="button" class="bttn bttn-slow w-100 justify-content-center" data-bs-toggle="modal" data-bs-target="#exampleModal2">Widok 3D<i class="ms-4 las la-vr-cardboard"></i></button>
+                                <button type="button" class="bttn bttn-slow w-100 justify-content-center" data-bs-toggle="modal" data-bs-target="#exampleModal2">Widok 3D<i class="ms-4 las la-cube"></i></button>
                             </div>
 
                             <!-- Modal -->
