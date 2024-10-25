@@ -20,27 +20,39 @@
     <div class="container">
         <div class="row">
             <div class="col-12 mt-5">
-                @if($investment->plan)
-                    <img src="{{ asset('/investment/plan/'.$investment->plan->file) }}" alt="{{$investment->name}}" id="invesmentplan" usemap="#invesmentplan">
+                @if($investment->id == 6)
+                    <div class="ratio ratio-16x9">
+                        <iframe
+                                frameborder="0" src="https://v4-jeff.prod.resimo.io/ippon/synergia/#/"
+                                allow="fullscreen"
+                                class="jeff-iframe"
+                                style="border:0;margin:0;padding:0"
+                        ></iframe>
+                    </div>
+                @else
+                    @if($investment->plan)
+                        <img src="{{ asset('/investment/plan/'.$investment->plan->file) }}" alt="{{$investment->name}}" id="invesmentplan" usemap="#invesmentplan">
 
-                    @if($investment->type == 2)
-                        <map name="invesmentplan">
-                            @foreach($investment->floors as $floor)
-                                @if($floor->html)
-                                    <area
-                                            shape="poly"
-                                            href="{{route('developro.floor', [$investment->slug, $floor, Str::slug($floor->name)])}}"
-                                            title="{{$floor->name}}"
-                                            alt="floor-{{$floor->id}}"
-                                            data-item="{{$floor->id}}"
-                                            data-floornumber="{{$floor->id}}"
-                                            data-floortype="{{$floor->type}}"
-                                            coords="{{cords($floor->html)}}">
-                                @endif
-                            @endforeach
-                        </map>
+                        @if($investment->type == 2)
+                            <map name="invesmentplan">
+                                @foreach($investment->floors as $floor)
+                                    @if($floor->html)
+                                        <area
+                                                shape="poly"
+                                                href="{{route('developro.floor', [$investment->slug, $floor, Str::slug($floor->name)])}}"
+                                                title="{{$floor->name}}"
+                                                alt="floor-{{$floor->id}}"
+                                                data-item="{{$floor->id}}"
+                                                data-floornumber="{{$floor->id}}"
+                                                data-floortype="{{$floor->type}}"
+                                                coords="{{cords($floor->html)}}">
+                                    @endif
+                                @endforeach
+                            </map>
+                        @endif
                     @endif
                 @endif
+
                 @include('front.developro.investment_shared.filtr-synergia', ['area_range' => $investment->area_range,  'floors' => $floors, 'floorFiltr' => 1])
                 @include('front.investment_shared.sort')
 
