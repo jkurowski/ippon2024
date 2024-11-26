@@ -284,7 +284,11 @@
                                         <img src="{{ asset('investment/thumbs/'.$r->file_thumb) }}" alt="{{ $r->name }}">
                                     </a>
                                 @else
-                                    <img src="{{ asset('investment/thumbs/'.$r->file_thumb) }}" alt="{{ $r->name }}">
+                                    @if($r->id == 13)
+                                        <a href="https://boxolsztyn.pl/" target="_blank"><img src="{{ asset('investment/thumbs/'.$r->file_thumb) }}" alt="{{ $r->name }}"></a>
+                                    @else
+                                        <img src="{{ asset('investment/thumbs/'.$r->file_thumb) }}" alt="{{ $r->name }}">
+                                    @endif
                                 @endif
                             </div>
                             <div class="invest-item-desc">
@@ -294,7 +298,11 @@
                                             <a href="{{ route('developro.investment.index', $r->slug) }}">{{ $r->name }}</a>
                                         </h2>
                                     @else
-                                        <h2 class="mb-0">{{ $r->name }}</h2>
+                                        @if($r->id == 13)
+                                            <h2 class="mb-0"><a href="https://boxolsztyn.pl/" target="_blank">{{ $r->name }}</a></h2>
+                                        @else
+                                            <h2 class="mb-0">{{ $r->name }}</h2>
+                                        @endif
                                     @endif
                                     @if($r->address)
                                         <div class="invest-item-city">{{ $r->address }}</div>
