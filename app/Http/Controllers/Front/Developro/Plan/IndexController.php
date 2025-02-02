@@ -29,13 +29,11 @@ class IndexController extends Controller
         $menu_page = Page::where('id', $this->pageId)->first();
         $investmentPage = $investment->investmentPage()->where('slug', 'mieszkania')->first();
 
-        if($investment->type == 1){
-            $building = Building::find(1);
+        if ($investment->type == 1) {
+            $buildings = $investment->buildings; // Get all buildings related to the investment
 
-            $investment_room = $investment->load(array(
-                'buildingRooms' => function($query) use ($investment, $building, $request)
-                {
-                    $query->where('properties.building_id', $building->id);
+            $investment_room = $investment->load([
+                'buildingRooms' => function ($query) use ($investment, $request) {
                     if ($request->input('rooms')) {
                         $query->where('rooms', $request->input('rooms'));
                     }
@@ -46,11 +44,11 @@ class IndexController extends Controller
                     if ($request->exists('floor')) {
                         $floorValue = $request->input('floor');
 
-                        // Check if $floorValue is a positive integer
                         if (ctype_digit($floorValue) || $floorValue === '0') {
-                            $floor = Floor::where('number', '=', $floorValue)->where('investment_id', '=', $investment->id)->first();
+                            $floor = Floor::where('number', '=', $floorValue)
+                                ->where('investment_id', '=', $investment->id)
+                                ->first();
 
-                            // Check if $floor is not null before using its id
                             if ($floor) {
                                 $query->where('floor_id', $floor->id);
                             }
@@ -71,21 +69,19 @@ class IndexController extends Controller
                         $query->orderBy($column, $direction);
                     }
                 },
-                'buildingFloors' => function($query) use ($building)
-                {
-                    $query->where('building_id', $building->id);
+                'buildingFloors' => function ($query) use ($buildings) {
+                    $query->whereIn('building_id', $buildings->pluck('id')); // Use all building IDs
                 }
-            ));
-
+            ]);
 
             return view('front.developro.investment.plan-2', [
                 'investment' => $investment,
-                'building' => $building,
-                'properties' => $investment->buildingRooms,
+                'buildings' => $buildings, // Pass multiple buildings
+                'properties' => $investment->buildingRooms, // Get properties from all buildings
                 'investment_page' => $investmentPage,
                 'page' => $menu_page,
                 'floors' => $request->input('floor'),
-                'uniqueRooms' => $this->repository->getUniqueRooms($investment_room->properties)
+                'uniqueRooms' => $this->repository->getUniqueRooms($investment_room->properties),
             ]);
         }
 

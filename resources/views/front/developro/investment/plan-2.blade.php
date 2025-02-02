@@ -27,20 +27,20 @@
             @endif
             <div class="row">
                 <div class="col-12 mt-5">
-                    @if($building->file)
-                        <div id="plan" class="d-none">
-                            <div id="plan-holder"><img src="{{ asset('/investment/building/'.$building->file.'') }}" alt="{{$building->name}}" id="invesmentplan" usemap="#invesmentplan"></div>
-                            <map name="invesmentplan">
-                                <map name="invesmentplan">
-                                    @foreach($investment->buildingFloors as $floor)
-                                        @if($floor->html)
-                                            <area shape="poly" href="{{route('developro.floor', [$investment->slug, $floor, Str::slug($floor->name)])}}" data-item="{{$floor->id}}" title="{{$floor->name}}" alt="floor-{{$floor->id}}" data-floornumber="{{$floor->id}}" data-floortype="{{$floor->type}}" coords="{{cords($floor->html)}}">
-                                        @endif
-                                    @endforeach
-                                </map>
-                            </map>
-                        </div>
-                    @endif
+{{--                    @if($building->file)--}}
+{{--                        <div id="plan" class="d-none">--}}
+{{--                            <div id="plan-holder"><img src="{{ asset('/investment/building/'.$building->file.'') }}" alt="{{$building->name}}" id="invesmentplan" usemap="#invesmentplan"></div>--}}
+{{--                            <map name="invesmentplan">--}}
+{{--                                <map name="invesmentplan">--}}
+{{--                                    @foreach($investment->buildingFloors as $floor)--}}
+{{--                                        @if($floor->html)--}}
+{{--                                            <area shape="poly" href="{{route('developro.floor', [$investment->slug, $floor, Str::slug($floor->name)])}}" data-item="{{$floor->id}}" title="{{$floor->name}}" alt="floor-{{$floor->id}}" data-floornumber="{{$floor->id}}" data-floortype="{{$floor->type}}" coords="{{cords($floor->html)}}">--}}
+{{--                                        @endif--}}
+{{--                                    @endforeach--}}
+{{--                                </map>--}}
+{{--                            </map>--}}
+{{--                        </div>--}}
+{{--                    @endif--}}
                     @if($investment->id == 5)
                         <div class="ratio ratio-16x9">
                     <iframe
@@ -53,7 +53,7 @@
                     @endif
                     @include('front.developro.investment_shared.filtr', ['area_range' => $investment->area_range,  'floors' => $floors, 'floorFiltr' => 1])
                     <div class="mt-4"></div>
-                    @include('front.developro.investment_shared.list', ['investment' => $investment])
+                    @include('front.investment_shared.multi', ['investment' => $investment])
                 </div>
             </div>
         </div>
