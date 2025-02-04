@@ -149,13 +149,18 @@ class IndexController extends Controller
     {
         $investment = $this->repository->findBySlug($slug);
 
+        $building = request()->query('building');
+
         $properties = Property::with('investment:id,name')
             ->select('id', 'name', 'investment_id', 'number')
-            ->where('investment_id', $investment->id)
-            ->get()
-            ->makeHidden(['investment_id']);
+            ->where('investment_id', $investment->id);
 
-        // Return filtered properties as JSON
+        if ($building) {
+            $properties->where('building_id', $building);
+        }
+
+        $properties = $properties->get()->makeHidden(['investment_id']);
+
         return response()->json($properties);
     }
 }
