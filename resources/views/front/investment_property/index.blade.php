@@ -39,7 +39,9 @@
                         @endif
                         <ul class="mb-0 list-unstyled mt-4">
                             @if($current_locale == 'pl')
-                                <li>Budynek: <span>{{ $property->building->name }}</span></li>
+                                @if($property->building)
+                                    <li>Budynek: <span>{{ $property->building->name }}</span></li>
+                                @endif
                                 <li>Piętro: <span> @if($floor->number == 0) parter @else {{ $floor->number }} @endif</span></li>
                                 <li>Pokoje: <span>{{ $property->rooms }}</span></li>
                                 <li>Powierzchnia: <span>{{ $property->area }} m<sup>2</sup></span></li>
