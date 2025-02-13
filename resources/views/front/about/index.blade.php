@@ -50,9 +50,7 @@
 
             <div class="row mt-0 mt-xl-5 pt-5">
                 <div class="col-12">
-                    <video muted playsinline loop autoplay id="movie" data-aos="fade-up" data-aos-offset="200" data-aos-delay="0">
-                        <source src="/uploads/files/movie.mp4" type="video/mp4">
-                    </video>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/FIE_1mJakt0?si=yD9AYH2w5EOjMd6a" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
             </div>
 
