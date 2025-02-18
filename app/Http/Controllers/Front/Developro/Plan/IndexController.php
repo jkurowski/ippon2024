@@ -30,7 +30,7 @@ class IndexController extends Controller
         $investmentPage = $investment->investmentPage()->where('slug', 'mieszkania')->first();
 
         if ($investment->type == 1) {
-            $buildings = $investment->buildings; // Get all buildings related to the investment
+            $buildings = $investment->buildings;
 
             $investment_room = $investment->load([
                 'buildingRooms' => function ($query) use ($investment, $request) {
@@ -68,11 +68,20 @@ class IndexController extends Controller
                         $direction = $order_param[1];
                         $query->orderBy($column, $direction);
                     }
+
+                    // Hide properties where status = 3 and their building's display_sold = 0
+                    $query->where(function ($q) {
+                        $q->where('status', '!=', 3)
+                            ->orWhereHas('building', function ($subQuery) {
+                                $subQuery->where('display_sold', 1);
+                            });
+                    });
                 },
                 'buildingFloors' => function ($query) use ($buildings) {
                     $query->whereIn('building_id', $buildings->pluck('id')); // Use all building IDs
                 }
             ]);
+
 
             return view('front.developro.investment.plan-2', [
                 'investment' => $investment,

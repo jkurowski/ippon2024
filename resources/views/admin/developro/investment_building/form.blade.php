@@ -52,6 +52,11 @@
                             '0' => 'Nie'
                             ]
                         ])
+                        @include('form-elements.html-select', ['label' => 'Pokaż sprzedane', 'name' => 'display_sold', 'selected' => $entry->display_sold, 'select' => [
+                            '1' => 'Tak',
+                            '0' => 'Nie'
+                            ]
+                        ])
                         @include('form-elements.html-input-text', ['label' => 'Nazwa budynku', 'name' => 'name', 'value' => $entry->name, 'required' => 1])
                         @include('form-elements.html-input-text-count', ['label' => 'Nagłówek strony', 'sublabel'=> 'Meta tag - title', 'name' => 'meta_title', 'value' => $entry->meta_title, 'maxlength' => 60])
                         @include('form-elements.html-input-text-count', ['label' => 'Opis strony', 'sublabel'=> 'Meta tag - description', 'name' => 'meta_description', 'value' => $entry->meta_description, 'maxlength' => 158])
