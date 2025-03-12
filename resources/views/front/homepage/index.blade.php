@@ -108,7 +108,7 @@
                 <div class="left-right-text current-item">
                     <h2 class="mb-0"><a href="/pl/i/osiedle-slow">OSIEDLE SLOW – I etap</a></h2>
                     <div class="invest-item-city">Olsztyn, ul.Kordeckiego</div>
-                    <p>Ostatnie dostępne mieszkania w sprzedaży. Osiedle Slow to kameralne osiedle, z dala od centrum miasta, dla osób które cenią sobie bliskość terenów rekreacyjnych, ale także chcą mieszkać na bezpiecznym i nowoczesnym osiedlu. W specjalnych strefach spotkań powstaną miejsca na ognisko oraz wiaty grillowe z miejscami do siedzenia.</p>
+                    <p>Ostatnie dostępne mieszkania w sprzedaży. Osiedle Slow to kameralne osiedle, z dala od centrum miasta, dla osób które cenią sobie bliskość terenów rekreacyjnych, ale także chcą mieszkać na bezpiecznym i nowoczesnym osiedlu. W specjalnych strefach spotkań powstaną miejsca odpoczynku oraz wiaty grillowe z miejscami do siedzenia.</p>
                     <div class="row mt-3 mt-sm-5">
                         <div class="col-3">
                             <div class="current-stat text-center">
@@ -141,7 +141,7 @@
                     <div class="left-right-text current-item">
                         <h2 class="mb-0"><a href="/en/i/osiedle-slow">SLOW ESTATE – I stage</a></h2>
                         <div class="invest-item-city">Olsztyn, ul.Kordeckiego</div>
-                        <p>Slow Estate is a cozy community located away from the city center, ideal for those who value proximity to recreational areas and seek to live in a safe and modern neighborhood. Special meeting zones will be created with space for bonfires and barbecue shelters with seating areas.</p>
+                        <p>Last available apartments for sale! The Slow Estate is an intimate residential complex, located away from the city center, designed for those who appreciate the proximity of recreational areas while also wanting to live in a safe and modern neighborhood. Special meeting zones will feature relaxation areas and barbecue shelters with seating spaces.</p>
                         <div class="row mt-3 mt-sm-5">
                             <div class="col-3">
                                 <div class="current-stat text-center">
