@@ -219,7 +219,7 @@
                     </div>
                 @else
                     <div class="left-right-text current-item">
-                        <h2 class="mb-0"><a href="/en/i/osiedle-slow">OSIEDLE SLOW – II stage</a></h2>
+                        <h2 class="mb-0"><a href="/en/i/osiedle-slow">SLOW ESTATE – II stage</a></h2>
                         <div class="invest-item-city">Olsztyn, ul. Kordeckiego</div>
                         <p>Phase II of the Slow housing estate is now on sale. The offer includes apartments with gardens and private attics of up to 27 m². The estate features low-rise, intimate buildings with an elevator. Slow Estate is located in the green and picturesque part of Olsztyn, in the Gutkowo district. Enjoy the proximity of green areas, forests, and lakes.</p>
                         <div class="row mt-3 mt-sm-5">
