@@ -172,6 +172,8 @@
                     </div>
                 @endif
             </div>
+
+
             <div data-aos="fade-right" data-aos-offset="400" data-aos-delay="0" class="mb-4 mb-xl-0 order-1 order-xl-2 col-12 col-xl-6">
                 <div class="invest-item-thumb">
                     <span class="img-badge">{{ investmentStatus(1) }}</span>
@@ -180,11 +182,89 @@
             </div>
         </div>
 
-        <div class="row left-right mt-lg-3 mt-5">
+        <div class="row right-left mt-lg-3 mt-5">
+            <div data-aos="fade-right" data-aos-offset="400" data-aos-delay="0" class="order-2 order-xl-1 col-12 col-xl-6 d-flex align-items-center">
+                @if($current_locale == 'pl')
+                    <div class="left-right-text current-item">
+                        <h2 class="mb-0"><a href="/pl/i/osiedle-slow">OSIEDLE SLOW – II etap</a></h2>
+                        <div class="invest-item-city">Olsztyn, ul. Kordeckiego</div>
+                        <p>W sprzedaży II etap osiedla Slow. W ofercie mieszkania z ogródkiem oraz z prywatnym poddaszem o metrażu, nawet do 27 m2. Niska, kameralna zabudowa z windą. Osiedle Slow położone jest w zielonej i malowniczej części Olsztyna, dzielnicy Gutkowo. Korzystaj z bliskości terenów zielonych, lasów oraz jezior.</p>
+                        <div class="row mt-3 mt-sm-5">
+                            <div class="col-3">
+                                <div class="current-stat text-center">
+                                    <span>39</span>
+                                    ilość mieszkań
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="current-stat text-center">
+                                    <span>2</span>
+                                    liczba pięter
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="current-stat text-center">
+                                    <span>35-56 m<sup>2</sup></span>
+                                    powierzchnia
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="current-stat text-center">
+                                    <span>Q3 2026</span>
+                                    termin oddania
+                                </div>
+                            </div>
+                        </div>
+                        <a href="/pl/i/osiedle-slow" class="bttn bttn-icon mt-3 mt-sm-5">ZOBACZ MIESZKANIA <i class="ms-3 las la-chevron-circle-right"></i></a>
+                    </div>
+                @else
+                    <div class="left-right-text current-item">
+                        <h2 class="mb-0"><a href="/en/i/osiedle-slow">OSIEDLE SLOW – II stage</a></h2>
+                        <div class="invest-item-city">Olsztyn ul.Kanta</div>
+                        <p>Phase II of the Slow housing estate is now on sale. The offer includes apartments with gardens and private attics of up to 27 m². The estate features low-rise, intimate buildings with an elevator. Slow Estate is located in the green and picturesque part of Olsztyn, in the Gutkowo district. Enjoy the proximity of green areas, forests, and lakes.</p>
+                        <div class="row mt-3 mt-sm-5">
+                            <div class="col-3">
+                                <div class="current-stat text-center">
+                                    <span>39</span>
+                                    apartments
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="current-stat text-center">
+                                    <span>2</span>
+                                    floors
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="current-stat text-center">
+                                    <span>35-56 m<sup>2</sup></span>
+                                    square
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="current-stat text-center">
+                                    <span>Q3 2026</span>
+                                    hand and over date
+                                </div>
+                            </div>
+                        </div>
+                        <a href="/en/i/osiedle-slow" class="bttn bttn-icon mt-3 mt-sm-5">CHECK APARTMENTS <i class="ms-3 las la-chevron-circle-right"></i></a>
+                    </div>
+                @endif
+            </div>
+            <div data-aos="fade-left" data-aos-offset="400" data-aos-delay="0" class="mb-4 mb-xl-0 order-1 order-xl-2 col-12 col-xl-6">
+                <div class="invest-item-thumb">
+                    <span class="img-badge">{{ investmentStatus(1) }}</span>
+                    <a href="/en/i/osiedle-slow"><img src="{{ asset('/uploads/files/osiedle-slow/slow-2.jpg') }}" alt="" class="golden-border w-100" width="840" height="760"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row left-right flex-row-reverse">
             <div data-aos="fade-left" data-aos-offset="400" data-aos-delay="0" class="order-2 order-xl-1 col-12 col-xl-6 d-flex align-items-center">
                 @if($current_locale == 'pl')
                     <div class="left-right-text current-item">
-                        <h2 class="mb-0"><a href="/pl/i/osiedle-slow">OSIEDLE SYNERGIA</a></h2>
+                        <h2 class="mb-0"><a href="/pl/i/osiedle-synergia">OSIEDLE SYNERGIA</a></h2>
                         <div class="invest-item-city">Olsztyn ul.Kanta</div>
                         <p>Osiedle SYNERGIA powstanie w samym centrum dzielnicy mieszkaniowej – Jaroty, przy ul. Kanta. W miejscu dawnego sklepu spożywczo-przemysłowego wybudowany zostanie <b>nowoczesny budynek mieszkalny</b> z lokalami handlowo-usługowymi na parterze i <b>garażem podziemnym</b>. W pobliżu osiedla znajduje się <b>wiele punktów handlowo – usługowych</b>, przystanki autobusowe, placówki edukacyjne oraz medyczne. W sprzedaży dostępne są mieszkania -1,-2,-3,-4 pokojowe o metrażu od 27 m<sup>2</sup> do 80 m<sup>2</sup>.</p>
                         <div class="row mt-3 mt-sm-5">
@@ -217,7 +297,7 @@
                     </div>
                 @else
                     <div class="left-right-text current-item">
-                        <h2 class="mb-0"><a href="/pl/i/osiedle-slow">OSIEDLE SYNERGIA</a></h2>
+                        <h2 class="mb-0"><a href="/pl/i/osiedle-synergia">OSIEDLE SYNERGIA</a></h2>
                         <div class="invest-item-city">Olsztyn ul.Kanta</div>
                         <p>Osiedle SYNERGIA powstanie w samym centrum dzielnicy mieszkaniowej – Jaroty, przy ul. Kanta. W miejscu dawnego sklepu spożywczo-przemysłowego wybudowany zostanie <b>nowoczesny budynek mieszkalny</b> z lokalami handlowo-usługowymi na parterze i <b>garażem podziemnym</b>. W pobliżu osiedla znajduje się <b>wiele punktów handlowo – usługowych</b>, przystanki autobusowe, placówki edukacyjne oraz medyczne. W sprzedaży dostępne są mieszkania -1,-2,-3,-4 pokojowe o metrażu od 27 m<sup>2</sup> do 80 m<sup>2</sup>.</p>
                         <div class="row mt-3 mt-sm-5">
