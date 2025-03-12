@@ -255,7 +255,7 @@
             <div data-aos="fade-left" data-aos-offset="400" data-aos-delay="0" class="mb-4 mb-xl-0 order-1 order-xl-2 col-12 col-xl-6">
                 <div class="invest-item-thumb">
                     <span class="img-badge">{{ investmentStatus(1) }}</span>
-                    <a href="/en/i/osiedle-slow"><img src="{{ asset('/uploads/files/osiedle-slow/slow-2.jpg') }}" alt="" class="golden-border w-100" width="840" height="760"></a>
+                    <a href="/pl/i/osiedle-slow"><img src="{{ asset('/uploads/files/osiedle-slow/slow-2.jpg') }}" alt="" class="golden-border w-100" width="840" height="760"></a>
                 </div>
             </div>
         </div>
