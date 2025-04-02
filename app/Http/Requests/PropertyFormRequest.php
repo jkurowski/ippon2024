@@ -77,7 +77,10 @@ class PropertyFormRequest extends FormRequest
             'cords' => '',
             'html' => '',
             'meta_title' => '',
-            'meta_description' => ''
+            'meta_description' => '',
+            'attributes_bg' => '',
+            'attributes_text' => '',
+            'attributes_content' => '',
         ];
     }
 }

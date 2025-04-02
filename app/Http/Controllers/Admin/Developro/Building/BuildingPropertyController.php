@@ -68,7 +68,16 @@ class BuildingPropertyController extends Controller
 
     public function store(PropertyFormRequest $request, Investment $investment, Building $building, Floor $floor)
     {
-        $property = $this->repository->create(array_merge($request->validated(), [
+        $validatedData =$request->validated();
+        $validatedData['attributes'] = implode(',', array_filter([
+            $validatedData['attributes_bg'] ?? '',
+            $validatedData['attributes_text'] ?? '',
+            $validatedData['attributes_content'] ?? ''
+        ]));
+
+        unset($validatedData['attributes_bg'], $validatedData['attributes_text'], $validatedData['attributes_content']);
+
+        $property = $this->repository->create(array_merge($validatedData, [
             'investment_id' => $investment->id,
             'building_id' => $building->id,
             'floor_id' => $floor->id
@@ -91,6 +100,13 @@ class BuildingPropertyController extends Controller
 
     public function edit(Investment $investment, Building $building, Floor $floor, Property $property)
     {
+        // Explode attributes into an array
+        $attributes = explode(',', $property->attributes ?? '');
+
+        // Assign values safely
+        $attributes_bg = $attributes[0] ?? '';
+        $attributes_text = $attributes[1] ?? '';
+        $attributes_content = $attributes[2] ?? '';
 
         return view('admin.developro.investment_building_property.form', [
             'cardTitle' => 'Edytuj mieszkanie',
@@ -99,12 +115,24 @@ class BuildingPropertyController extends Controller
             'building' => $building,
             'investment' => $investment,
             'entry' => $property,
+            'attributes_bg' => $attributes_bg,
+            'attributes_text' => $attributes_text,
+            'attributes_content' => $attributes_content
         ]);
     }
 
     public function update(PropertyFormRequest $request, Investment $investment, Building $building, Floor $floor, Property $property)
     {
-        $this->repository->update($request->validated(), $property);
+        $validatedData =$request->validated();
+        $validatedData['attributes'] = implode(',', array_filter([
+            $validatedData['attributes_bg'] ?? '',
+            $validatedData['attributes_text'] ?? '',
+            $validatedData['attributes_content'] ?? ''
+        ]));
+
+        unset($validatedData['attributes_bg'], $validatedData['attributes_text'], $validatedData['attributes_content']);
+
+        $this->repository->update($validatedData, $property);
 
         if ($request->hasFile('file')) {
             $this->service->upload($request->name, $request->file('file'), $property, true);

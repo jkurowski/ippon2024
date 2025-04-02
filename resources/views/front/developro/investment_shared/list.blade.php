@@ -2,7 +2,7 @@
     <div class="container-fluid">
         @if($properties->count() > 0)
             @foreach($properties as $room)
-                
+
                 <div class="row property-list-item">
                     @if($room->highlighted)
                     <div class="ribbon ribbon-top-left"><span>PROMOCJA</span></div>
@@ -70,6 +70,13 @@
                         <a href="{{ route('developro.property', [$investment->slug, $room, Str::slug($room->name), floorLevel($room->floor_number, true), number2RoomsName($room->rooms, true), round(floatval($room->area), 2).'-m2']) }}" class="bttn bttn-icon">@lang('website.show-room') <i class="ms-4 las la-file"></i></a>
                         @endif
                     </div>
+                    @if($room->attributes_bg && $room->attributes_text && $room->attributes_content)
+                        <div class="attributes mt-4">
+                            <div style="background:{{ $room->attributes_bg }}; color:{{ $room->attributes_text }};">
+                                <span>{{ $room->attributes_content }}</span>
+                            </div>
+                        </div>
+                    @endif
                 </div>
             @endforeach
         @else

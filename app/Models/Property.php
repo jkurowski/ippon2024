@@ -56,7 +56,8 @@ class Property extends Model
         'meta_description',
         'views',
         'active',
-        'highlighted'
+        'highlighted',
+        'attributes'
     ];
 
     /**
@@ -135,5 +136,32 @@ class Property extends Model
     {
         $investmentSlug = $this->investment->slug ?? '';
         return "/inwestycje/i/{$investmentSlug}/pietro/{$this->floor_id}/m/{$this->id}";
+    }
+
+
+    /**
+     * Get attributes as an array (Accessor)
+     */
+    public function getAttributesArrayAttribute()
+    {
+        return explode(',', $this->attributes['attributes'] ?? '');
+    }
+
+    /**
+     * Get individual attribute parts
+     */
+    public function getAttributesBgAttribute()
+    {
+        return $this->attributesArray[0] ?? '';
+    }
+
+    public function getAttributesTextAttribute()
+    {
+        return $this->attributesArray[1] ?? '';
+    }
+
+    public function getAttributesContentAttribute()
+    {
+        return $this->attributesArray[2] ?? '';
     }
 }

@@ -19,3 +19,4 @@
         <div class="invalid-feedback d-block">{{ $errors->first($name) }}</div>
     @endif
 </div>
+<style>input[type="color"]{height:39px}</style>

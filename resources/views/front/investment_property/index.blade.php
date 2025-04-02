@@ -37,6 +37,13 @@
                                 <span><i>( {{ $property->price_30 }} PLN - najniższa cena z 30 dni )</i></span>
                             @endif
                         @endif
+                        @if($property->attributes_bg && $property->attributes_text && $property->attributes_content)
+                            <div class="attributes mt-4">
+                                <div style="background:{{ $property->attributes_bg }}; color:{{ $property->attributes_text }};">
+                                    <span>{{ $property->attributes_content }}</span>
+                                </div>
+                            </div>
+                        @endif
                         <ul class="mb-0 list-unstyled mt-4">
                             @if($current_locale == 'pl')
                                 @if($property->building)

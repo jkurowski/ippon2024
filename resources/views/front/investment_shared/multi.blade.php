@@ -85,6 +85,14 @@
                                     </a>
                                 @endif
                             </div>
+
+                                @if($room->attributes_bg && $room->attributes_text && $room->attributes_content)
+                                    <div class="col-12 attributes mt-4">
+                                        <div style="background:{{ $room->attributes_bg }}; color:{{ $room->attributes_text }};">
+                                            <span>{{ $room->attributes_content }}</span>
+                                        </div>
+                                    </div>
+                                @endif
                         </div>
                     @endforeach
                 @else

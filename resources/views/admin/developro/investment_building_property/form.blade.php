@@ -177,7 +177,15 @@
                                     </div>
                                 </div>
                                 <div class="row w-100 form-group">
-
+                                    <div class="col-2">
+                                        @include('form-elements.html-color', ['label' => 'Kolor tła', 'name' => 'attributes_bg', 'value' => $attributes_bg])
+                                    </div>
+                                    <div class="col-2">
+                                        @include('form-elements.html-color', ['label' => 'Kolor tekstu', 'name' => 'attributes_text', 'value' => $attributes_text])
+                                    </div>
+                                    <div class="col-8">
+                                        @include('form-elements.input-text', ['label' => 'Treść', 'name' => 'attributes_content', 'value' => $attributes_content])
+                                    </div>
                                 </div>
                                 <div class="row w-100 form-group">
                                     @include('form-elements.input-text', ['label' => 'Cena', 'sublabel'=> 'Tylko liczby', 'name' => 'price', 'value' => $entry->price])
