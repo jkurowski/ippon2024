@@ -23,6 +23,7 @@
                     <div class="pe-5">
                         <h2>#w<span style="color: #e03e2d;">Tempie</span>Miasta</h2>
                         <p>TEMPO to nowoczesne osiedle, skierowane do osób aktywnych, które chcą <b>mieć wszędzie blisko</b>. Blisko do komunikacji miejskiej, ścieżek rowerowych i sklepów. Przy osiedlu znajduje się przystanek tramwajowy i autobusowy. W kilka minut dojedziesz do centrum miasta, galerii handlowej czy na Uniwersytet Warmińsko-Mazurski.</p>
+                        <a href="#" class="bttn bttn-icon mt-3 mt-sm-5 bttn-tempo">Zobacz mieszkania <i class="ms-3 las la-chevron-circle-right"></i></a>
                     </div>
                 </div>
                 <div class="col-7"><img src="https://placehold.co/930x690" alt="" /></div>
@@ -32,7 +33,7 @@
                 <div class="col-5 d-flex align-items-center">
                     <div class="ps-5">
                         <h2>#w<span style="color: #e03e2d;">Tempie</span>Życia</h2>
-                        <p>Osiedle będą tworzyć 3 budynki mieszkalne z mieszkaniami od 27 m2 do 68 m2 oraz tarasami aż do 66 m2.  Mieszkańcy skorzystają z <b>dwu-poziomowego garażu podziemnego, komórek lokatorskich oraz rowerowni</b>. W jednym z budynków, na parterze przewidziane są lokale handlowo-usługowe.</p>
+                        <p>Osiedle będą tworzyć trzy budynki mieszkalne z mieszkaniami od 27 m<sup>2</sup> do 85 m<sup>2</sup> oraz tarasami aż do 66 m2. Mieszkańcy skorzystają z <b>dwu-poziomowego garażu podziemnego, komórek lokatorskich oraz rowerowni</b>. W jednym z budynków, na parterze przewidziane są lokale handlowo-usługowe. Wjazd na osiedle będzie możliwy zarówno od ulicy Sikorskiego, jak i ulicy Jarockiej.</p>
                     </div>
                 </div>
                 <div class="col-7"><img src="https://placehold.co/930x690" alt="" /></div>
@@ -43,9 +44,10 @@
                     <div class="pe-5">
                         <h2><span style="color: #e03e2d;">#Nowoczesne</span>Rozwiązania</h2>
                         <p>Osiedle Tempo wyznacza nowe standardy na rynku. Zamiast zwykłej klamki w drzwiach wejściowych do mieszkań, zamontujemy nowoczesne <b>klamki elektroniczne</b> z wejściem na kod. Wszystkie kondygnacje w budynku będą obsługiwać <b>bliźniacze windy</b>, a do dyspozycji mieszkańców będzie <b>paczkomat</b> oraz strefa "<b>zero waste</b>", która umożliwi sąsiedzką wymianę rzeczy.</p>
+                        <a href="#" class="bttn bttn-icon mt-3 mt-sm-5 bttn-tempo">Zobacz mieszkania <i class="ms-3 las la-chevron-circle-right"></i></a>
                     </div>
                 </div>
-                <div class="col-7"><img src="https://placehold.co/930x690" alt="" /></div>
+                <div class="col-7"><img src="{{ asset('uploads/files/tempo/nowoczesne-rozwiazania.jpg') }}" alt="" /></div>
             </div>
 
             <div class="row flex-row-reverse mt-5 pt-5">
@@ -162,6 +164,7 @@
                     <div class="ps-5">
                         <h2>#osiedle<span style="color: #e03e2d;">wTempie</span>Życia</h2>
                         <p>Zamieszkaj w <b>handlowej części miasta</b>. W kilka minut dojedziesz do Galerii Warmińskiej, Auchan, OBI, Jysk, Mc Donald oraz wielu innych punktów znajdujących się wzdłuż ulicy Sikorskiego. <b>Wszystko czego potrzebujesz, nigdy nie było tak blisko</b>.</p>
+                        <a href="#" class="bttn bttn-icon mt-3 mt-sm-5 bttn-tempo">Zobacz mieszkania <i class="ms-3 las la-chevron-circle-right"></i></a>
                     </div>
                 </div>
                 <div class="col-7">
@@ -173,7 +176,7 @@
                 <div class="col-5 d-flex align-items-center">
                     <div class="pe-5">
                         <h2>#mieszkaj<span style="color: #e03e2d;">Wygodnie</span></h2>
-                        <p>Korzystaj z <b>dwu poziomowego</b> parkingu podziemnego. Oryginalne <b>kolory i oznaczenia</b> nawigacyjne, pomogą sprawniej poruszać się na dwóch kondygnacjach parkingu.</p>
+                        <p>Klatki schodowe w naszym budynku zostały zaprojektowane z dbałością o każdy detal. Ich <b>nowoczesna aranżacja</b> wpływa nie tylko na estetykę przestrzeni wspólnych, ale również na codzienny komfort mieszkańców. Użyliśmy trwałych, <b>wysokiej jakości materiałów</b> oraz dopasowanego oświetlenia, które podkreśla elegancki charakter wnętrza. Dla większej wygody i sprawnej komunikacji w budynku dostępne będą aż dwie windy, co pozwoli płynnie obsługiwać wszystkie piętra.</p>
                     </div>
                 </div>
                 <div class="col-7"><img src="https://placehold.co/930x690" alt="" /></div>
@@ -196,6 +199,7 @@
                     <div class="pe-5">
                         <h2>#strefa<span style="color: #e03e2d;">Zero</span>Waste</h2>
                         <p>Każdy posiada w mieszkaniu rzeczy z których nie korzysta, a które szkoda wyrzucić, typu: książki, zabawki, elementy wyposażenia. <b>Daj przedmiotom drugie życie</b>. Zostaw je w specjalnej strefie zero waste, by ktoś inny mógł z nich skorzystać. To co dla ciebie jest bezużyteczne, dla kogoś innego może być bardzo poszukiwanym przedmiotem.</p>
+                        <a href="#" class="bttn bttn-icon mt-3 mt-sm-5 bttn-tempo">Zobacz mieszkania <i class="ms-3 las la-chevron-circle-right"></i></a>
                     </div>
                 </div>
                 <div class="col-7"><img src="https://placehold.co/930x690" alt="" /></div>
@@ -217,7 +221,8 @@
                 <div class="col-5 d-flex align-items-center">
                     <div class="pe-5">
                         <h2>#żyj<span style="color: #e03e2d;">Komfortowo</span></h2>
-                        <p>Wszystkie kondygnacje w budynku obsługują <b>dwie, bliźniacze windy</b>. Szybciej więc dojedziesz na najwyższe piętro w budynku lub zjedziesz do garażu podziemnego.</p>
+                        <p>Wszystkie kondygnacje budynku będą obsługiwane przez dwie, bliźniacze windy, które zostały zaprojektowane z myślą o komforcie i sprawnej komunikacji mieszkańców. Dzięki temu niezależnie od tego, czy mieszkasz na ostatnim piętrze, czy wybierasz się do garażu podziemnego, dotrzesz tam szybko i bez zbędnego oczekiwania. Dwie windy znacząco zwiększą komfort codziennego życia.</p>
+                        <a href="#" class="bttn bttn-icon mt-3 mt-sm-5 bttn-tempo">Zobacz mieszkania <i class="ms-3 las la-chevron-circle-right"></i></a>
                     </div>
                 </div>
                 <div class="col-7">
@@ -230,14 +235,14 @@
                     <h2>#wTrosce<span style="color: #e03e2d;">oŚrodowisko</span></h2>
                 </div>
                 <div class="col-4">
-                    <img src="https://placehold.co/520x420" alt="" />
+                    <img src="{{ asset('images/tempo/nie-marnuj-wody.jpg') }}" alt="Zarówka, zielona trawa, eko" width="520" height="420"/>
                     <div class="p-4">
                         <h3>#nieMarnuj<span style="color: #e03e2d;">Wody</span></h3>
                         <p class="text-justify">Proekologiczne osiedle to nie tylko tereny zielone ale także odpowiednie gospodarowanie wodą opadową. Dwa zbiorniki retencyjne zbiorą nadmiar wody po opadach deszczu, by wykorzystać ją później do podlewania roślinności na osiedlu.</p>
                     </div>
                 </div>
                 <div class="col-4">
-                    <img src="https://placehold.co/520x420" alt="" />
+                    <img src="{{ asset('images/tempo/badz-eko.jpg') }}" alt="Zarówka, zielona trawa, eko" width="520" height="420"/>
                     <div class="p-4">
                         <h3>#bądź<span style="color: #e03e2d;">Eko</span></h3>
                         <p class="text-justify">Z myślą o ekologii i zdrowym trybie życia  zaprojektowaliśmy ogromne rowerownie z bezpośrednim wyjazdem na ścieżkę rowerową, wzdłuż ul. Sikorskiego. Możesz więc w wygodny sposób korzystać z wielokilometrowych ścieżek w mieście i na terenie województwa.</p>

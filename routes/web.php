@@ -118,6 +118,7 @@ Route::group(['namespace' => 'Front', 'prefix' => '{locale?}', 'where' => ['loca
 
         Route::get('/osiedle-tempo/lokalizacja', 'Page\IndexController@temp')->name('investment.temp');
         Route::get('/osiedle-synergia/lokalizacja', 'Page\IndexController@temp2')->name('investment.temp2');
+        Route::get('/osiedle-tempo/lokalizacja', 'Page\IndexController@tempolocation')->name('investment.tempo.location');
 
         Route::get('/{slug}/{page}', 'Page\IndexController@index')->name('investment.page');
 

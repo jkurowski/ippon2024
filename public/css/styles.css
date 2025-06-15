@@ -3877,22 +3877,24 @@ html.swipebox-html.swipebox-touch {
 }
 .atut-tempo img {
   margin: 0 auto;
+  width: 160px;
+  height: auto;
 }
 .atut-tempo-lokalizacja h3 {
-  color: #282828;
+  color: #4f5c60;
   font-weight: normal;
   font-size: 18px;
 }
 .atut-tempo-lokalizacja h3 span {
   font-size: 19px;
-  color: #2858a8;
+  color: #4f5c60;
 }
 .atut-tempo-lokalizacja h3 strong {
   display: block;
   font-size: 32px;
   text-align: center;
   width: 100%;
-  color: #dae120;
+  color: #a8ce0c;
 }
 .atut-tempo-red h3 strong {
   color: #ee1e3c;
@@ -3911,17 +3913,21 @@ html.swipebox-html.swipebox-touch {
   display: block;
 }
 #atut-tempo-carousel button {
-  background: #dae120;
+  background: #ececec;
   position: absolute;
   top: 0;
   bottom: 0;
   margin: auto;
+  transition: all 100ms linear;
 }
 #atut-tempo-carousel button.slick-prev {
   left: 15px;
 }
 #atut-tempo-carousel button.slick-next {
   right: 15px;
+}
+#atut-tempo-carousel button:hover {
+  background: #b7b7b7;
 }
 /* Footer
 ================================================== */

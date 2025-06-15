@@ -45,6 +45,19 @@ class IndexController extends Controller
         ]);
     }
 
+    public function tempolocation()
+    {
+        $investment = $this->repository->findBySlug('osiedle-tempo');
+        $menu_page = Page::where('id', $this->pageId)->first();
+
+        return view('front.developro.page.location-tempo', [
+            'investment' => $investment,
+            'page' => $menu_page,
+            'obligation' => RodoSettings::find(1),
+            'rules' => RodoRules::orderBy('sort')->whereStatus(1)->get()
+        ]);
+    }
+
     public function temp2()
     {
         $investment = $this->repository->findBySlug('osiedle-synergia');
