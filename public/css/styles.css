@@ -3929,6 +3929,20 @@ html.swipebox-html.swipebox-touch {
 #atut-tempo-carousel button:hover {
   background: #b7b7b7;
 }
+.icon-tempo {
+  width: 210px;
+  margin: 20px auto;
+}
+.icon-tempo img {
+  width: 140px;
+  height: 140px;
+}
+.icon-tempo h3 {
+  margin: 0 0 15px;
+  font-size: 25px;
+  text-align: center;
+  color: #424d53;
+}
 /* Footer
 ================================================== */
 /* Responsive

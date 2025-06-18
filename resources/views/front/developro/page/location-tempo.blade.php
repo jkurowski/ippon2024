@@ -64,12 +64,12 @@
                         </div>
                         <div class="col-12"><img src="/uploads/files/tempo/mapa-lokalizacji-osiedle-tempo.jpg" alt="" /></div>
                     </div>
-                    <div class="row mt-0 mt-md-5 pt-5">
+                    <div class="row mt-0 mt-md-4 pt-4 justify-content-center">
                         <div class="col-6 col-sm-4 col-md-3">
-                            <div class="icon-synergia text-center">
-                                <img src="{{ asset('uploads/files/synergia/icons/przedszkole_web.jpg') }}" alt="" class="m-auto">
+                            <div class="icon-tempo text-center">
+                                <img src="{{ asset('images/icons/tempo-lokalizacja/przystanek-autobus.jpg') }}" width="160" height="160" alt="" class="m-auto">
                                 @if($current_locale == 'pl')
-                                    <h3>Przedszkole</h3>
+                                    <h3>Przystanek autobusowy</h3>
                                     <span>2 min pieszo</span>
                                 @else
                                     <h3>Kindergarten</h3>
@@ -78,11 +78,11 @@
                             </div>
                         </div>
                         <div class="col-6 col-sm-4 col-md-3">
-                            <div class="icon-synergia text-center">
-                                <img src="{{ asset('uploads/files/synergia/icons/tramwaj_web.jpg') }}" alt="" class="m-auto">
+                            <div class="icon-tempo text-center">
+                                <img src="{{ asset('images/icons/tempo-lokalizacja/przystanek-tramwajowy.jpg') }}" width="160" height="160" alt="" class="m-auto">
                                 @if($current_locale == 'pl')
                                     <h3>Przystanek tramwajowy</h3>
-                                    <span>6 min pieszo</span>
+                                    <span>2 min pieszo</span>
                                 @else
                                     <h3>Tram stop</h3>
                                     <span>6 minutes on foot</span>
@@ -90,11 +90,11 @@
                             </div>
                         </div>
                         <div class="col-6 col-sm-4 col-md-3">
-                            <div class="icon-synergia text-center">
-                                <img src="{{ asset('uploads/files/synergia/icons/szkola_web.jpg') }}" alt="" class="m-auto">
+                            <div class="icon-tempo text-center">
+                                <img src="{{ asset('images/icons/tempo-lokalizacja/dworzec.jpg') }}" width="160" height="160" alt="" class="m-auto">
                                 @if($current_locale == 'pl')
-                                    <h3>Szkoła</h3>
-                                    <span>5 min pieszo</span>
+                                    <h3>Dworzec Główny</h3>
+                                    <span>10 min samochodem</span>
                                 @else
                                     <h3>Primary school</h3>
                                     <span>5 minutes on foot</span>
@@ -102,11 +102,11 @@
                             </div>
                         </div>
                         <div class="col-6 col-sm-4 col-md-3">
-                            <div class="icon-synergia text-center">
-                                <img src="{{ asset('uploads/files/synergia/icons/sklep_web.jpg') }}" alt="" class="m-auto">
+                            <div class="icon-tempo text-center">
+                                <img src="{{ asset('images/icons/tempo-lokalizacja/galeria.jpg') }}" width="160" height="160" alt="" class="m-auto">
                                 @if($current_locale == 'pl')
-                                    <h3>Sklep Biedronka</h3>
-                                    <span>2 min autem</span>
+                                    <h3>Galeria Warmińska</h3>
+                                    <span>3 min samochodem</span>
                                 @else
                                     <h3>Biedronka store</h3>
                                     <span>2 minutes by car</span>
@@ -114,11 +114,11 @@
                             </div>
                         </div>
                         <div class="col-6 col-sm-4 col-md-3">
-                            <div class="icon-synergia text-center">
-                                <img src="{{ asset('uploads/files/synergia/icons/rossman_web.jpg') }}" alt="" class="m-auto">
+                            <div class="icon-tempo text-center">
+                                <img src="{{ asset('images/icons/tempo-lokalizacja/kino.jpg') }}" width="160" height="160" alt="" class="m-auto">
                                 @if($current_locale == 'pl')
-                                    <h3>Sklep Rosmann</h3>
-                                    <span>2 min pieszo</span>
+                                    <h3>Kino</h3>
+                                    <span>3 min samochodem</span>
                                 @else
                                     <h3>Rossmann store</h3>
                                     <span>2 minutes on foot</span>
@@ -126,11 +126,11 @@
                             </div>
                         </div>
                         <div class="col-6 col-sm-4 col-md-3">
-                            <div class="icon-synergia text-center">
-                                <img src="{{ asset('uploads/files/synergia/icons/przystanek_web.jpg') }}" alt="" class="m-auto">
+                            <div class="icon-tempo text-center">
+                                <img src="{{ asset('images/icons/tempo-lokalizacja/obwodnica.jpg') }}" width="160" height="160" alt="" class="m-auto">
                                 @if($current_locale == 'pl')
-                                    <h3>Przystanek autobusowy</h3>
-                                    <span>1 min pieszo</span>
+                                    <h3>Obwodnica miasta</h3>
+                                    <span>7 min samochodem</span>
                                 @else
                                     <h3>Bus stop</h3>
                                     <span>1 minute on foot</span>
@@ -138,11 +138,11 @@
                             </div>
                         </div>
                         <div class="col-6 col-sm-4 col-md-3">
-                            <div class="icon-synergia text-center">
-                                <img src="{{ asset('uploads/files/synergia/icons/orlik_web.jpg') }}" alt="" class="m-auto">
+                            <div class="icon-tempo text-center">
+                                <img src="{{ asset('images/icons/tempo-lokalizacja/sklep.jpg') }}" width="160" height="160" alt="" class="m-auto">
                                 @if($current_locale == 'pl')
-                                    <h3>Boisko</h3>
-                                    <span>5 min pieszo</span>
+                                    <h3>Biedronka</h3>
+                                    <span>3 min pieszo</span>
                                 @else
                                     <h3>Sports field</h3>
                                     <span>5 minutes on foot</span>
@@ -150,11 +150,35 @@
                             </div>
                         </div>
                         <div class="col-6 col-sm-4 col-md-3">
-                            <div class="icon-synergia text-center">
-                                <img src="{{ asset('uploads/files/synergia/icons/apteka_web.jpg') }}" alt="" class="m-auto">
+                            <div class="icon-tempo text-center">
+                                <img src="{{ asset('images/icons/tempo-lokalizacja/plaza-miejska.jpg') }}" width="160" height="160" alt="" class="m-auto">
                                 @if($current_locale == 'pl')
-                                    <h3>Apteka</h3>
-                                    <span>2 min pieszo</span>
+                                    <h3>Plaża miejska</h3>
+                                    <span>9 min samochodem</span>
+                                @else
+                                    <h3>Pharmacy</h3>
+                                    <span>2 minutes on foot</span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-4 col-md-3">
+                            <div class="icon-tempo text-center">
+                                <img src="{{ asset('images/icons/tempo-lokalizacja/sciezki-rowerowe.jpg') }}" width="160" height="160" alt="" class="m-auto">
+                                @if($current_locale == 'pl')
+                                    <h3>Ścieżka rowerowa</h3>
+                                    <span>1 min pieszo</span>
+                                @else
+                                    <h3>Pharmacy</h3>
+                                    <span>2 minutes on foot</span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-4 col-md-3">
+                            <div class="icon-tempo text-center">
+                                <img src="{{ asset('images/icons/tempo-lokalizacja/szkola.jpg') }}" width="160" height="160" alt="" class="m-auto">
+                                @if($current_locale == 'pl')
+                                    <h3>Uniwersytet</h3>
+                                    <span>7 min samochodem</span>
                                 @else
                                     <h3>Pharmacy</h3>
                                     <span>2 minutes on foot</span>
@@ -162,7 +186,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row flex-row-reverse mt-5">
+
+                    <div class="row flex-row-reverse mt-4">
                         <div class="col-4 d-flex align-items-center">
                             <div class="ps-5">
                                 <h2>#ŻyjwSwoim<span style="color: #e03e2d;">Tempie</span> na nowoczesnym osiedlu.</h2>
