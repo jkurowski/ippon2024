@@ -29,6 +29,7 @@
                                 <p><strong>W parę minut dojedziesz do centrum miasta</strong>, do pracy, czy na Uniwersytet Warmińsko-Mazurki. <strong>Sikorskiego to handlowa ulica miasta</strong>, przy kt&oacute;rej znajduje się m.in.: Galeria Warmińska, Multikino, Mc Donald, Biedronka, OBI, Jysk.</p>
                                 <p>&nbsp;</p>
                                 <p><strong>Czyli wszystko to co potrzebujesz w zasięgu Twojej ręki.</strong></p>
+                                <a href="#" class="bttn bttn-icon mt-3 mt-sm-5 bttn-tempo">Jak dojechać <i class="ms-3 las la-chevron-circle-right"></i></a>
                             </div>
                         </div>
                         <div class="col-6"><img src="https://placehold.co/770x578" alt="" /></div>
@@ -38,31 +39,20 @@
                             <div class="ps-5">
                                 <h2>#wTwoim<span style="color: #e03e2d;">Tempie</span></h2>
                                 <p>Zaledwie minuta spaceru dzieli Cię od przystanków autobusowych i tramwajowych, skąd szybko dotrzesz do najważniejszych punktów Olsztyna – Dworca Głównego PKP, olsztyńskiej starówki czy Uniwersytetu Warmińsko-Mazurskiego. Niezależnie od tego, czy wybierasz komunikację miejską, czy rower, masz pełną swobodę wyboru. Wzdłuż osiedla przebiega wygodna ścieżka rowerowa, która umożliwia sprawne i bezpieczne poruszanie się po mieście.</p>
+                                <a href="#" class="bttn bttn-icon mt-3 mt-sm-5 bttn-tempo">Zobacz mieszkania <i class="ms-3 las la-chevron-circle-right"></i></a>
                             </div>
                         </div>
                         <div class="col-6">
                             <img src="{{ asset('images/tempo/lokalizacja-wtwoimtempie.jpg') }}" alt="Zarówka, zielona trawa, eko" width="770" height="578"/>
                         </div>
                     </div>
-                    <div class="row mt-5 pt-5">
-                        <div class="col-6 d-flex align-items-center">
-                            <div class="pe-5">
-                                <h2>#Żyjw<span style="color: #e03e2d;">Tempie</span>Miasta</h2>
-                                <p><strong>Osiedle TEMPO</strong> położone jest przy skrzyżowaniu <strong>ul. Sikorskiego i ul. Wilczyńskiego w Olsztynie</strong>. Dostęp do linii tramwajowych i przystank&oacute;w autobusowych sprzyja szybkiemu poruszaniu się na terenie całego miasta.</p>
-                                <p>&nbsp;</p>
-                                <p><strong>W parę minut dojedziesz do centrum miasta</strong>, do pracy, czy na Uniwersytet Warmińsko-Mazurki. <strong>Sikorskiego to handlowa ulica miasta</strong>, przy kt&oacute;rej znajduje się m.in.: Galeria Warmińska, Multikino, Mc Donald, Biedronka, OBI, Jysk.</p>
-                                <p>&nbsp;</p>
-                                <p><strong>Czyli wszystko to co potrzebujesz w zasięgu Twojej ręki.</strong></p>
-                            </div>
-                        </div>
-                        <div class="col-6"><img src="https://placehold.co/770x578" alt="" /></div>
-                    </div>
 
-                    <div class="row flex-row-reverse mt-5 pt-5">
+                    <div class="row mt-5 pt-5">
                         <div class="col-6 d-flex align-items-center">
                             <div class="ps-5">
                                 <h2>#dwa<span style="color: #e03e2d;">Wjazdy</span></h2>
                                 <p>Osiedle zostało zaprojektowane z myślą o codziennej wygodzie mieszkańców – także tych poruszających się samochodem. Dojazd na teren inwestycji będzie możliwy zarówno od strony ulicy Sikorskiego, jak i od strony Jarot – przez ulicę Jarocką. Dzięki temu mieszkańcy będą mogli wybrać najdogodniejszą trasę dojazdu, w zależności od kierunku, z którego nadjeżdżają. To rozwiązanie usprawni codzienne podróże, zmniejszy natężenie ruchu w obrębie osiedla i pozwoli szybciej włączyć się do głównych arterii komunikacyjnych Olsztyna.</p>
+                                <a href="#" class="bttn bttn-icon mt-3 mt-sm-5 bttn-tempo">Zobacz mieszkania <i class="ms-3 las la-chevron-circle-right"></i></a>
                             </div>
                         </div>
                         <div class="col-6"><img src="https://placehold.co/770x578" alt="" /></div>
@@ -74,8 +64,103 @@
                         </div>
                         <div class="col-12"><img src="/uploads/files/tempo/mapa-lokalizacji-osiedle-tempo.jpg" alt="" /></div>
                     </div>
-                    <div class="row mt-5">
-                        <div class="col-12">[ LEGENDA TUTAJ ]</div>
+                    <div class="row mt-0 mt-md-5 pt-5">
+                        <div class="col-6 col-sm-4 col-md-3">
+                            <div class="icon-synergia text-center">
+                                <img src="{{ asset('uploads/files/synergia/icons/przedszkole_web.jpg') }}" alt="" class="m-auto">
+                                @if($current_locale == 'pl')
+                                    <h3>Przedszkole</h3>
+                                    <span>2 min pieszo</span>
+                                @else
+                                    <h3>Kindergarten</h3>
+                                    <span>2 minutes on foot</span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-4 col-md-3">
+                            <div class="icon-synergia text-center">
+                                <img src="{{ asset('uploads/files/synergia/icons/tramwaj_web.jpg') }}" alt="" class="m-auto">
+                                @if($current_locale == 'pl')
+                                    <h3>Przystanek tramwajowy</h3>
+                                    <span>6 min pieszo</span>
+                                @else
+                                    <h3>Tram stop</h3>
+                                    <span>6 minutes on foot</span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-4 col-md-3">
+                            <div class="icon-synergia text-center">
+                                <img src="{{ asset('uploads/files/synergia/icons/szkola_web.jpg') }}" alt="" class="m-auto">
+                                @if($current_locale == 'pl')
+                                    <h3>Szkoła</h3>
+                                    <span>5 min pieszo</span>
+                                @else
+                                    <h3>Primary school</h3>
+                                    <span>5 minutes on foot</span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-4 col-md-3">
+                            <div class="icon-synergia text-center">
+                                <img src="{{ asset('uploads/files/synergia/icons/sklep_web.jpg') }}" alt="" class="m-auto">
+                                @if($current_locale == 'pl')
+                                    <h3>Sklep Biedronka</h3>
+                                    <span>2 min autem</span>
+                                @else
+                                    <h3>Biedronka store</h3>
+                                    <span>2 minutes by car</span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-4 col-md-3">
+                            <div class="icon-synergia text-center">
+                                <img src="{{ asset('uploads/files/synergia/icons/rossman_web.jpg') }}" alt="" class="m-auto">
+                                @if($current_locale == 'pl')
+                                    <h3>Sklep Rosmann</h3>
+                                    <span>2 min pieszo</span>
+                                @else
+                                    <h3>Rossmann store</h3>
+                                    <span>2 minutes on foot</span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-4 col-md-3">
+                            <div class="icon-synergia text-center">
+                                <img src="{{ asset('uploads/files/synergia/icons/przystanek_web.jpg') }}" alt="" class="m-auto">
+                                @if($current_locale == 'pl')
+                                    <h3>Przystanek autobusowy</h3>
+                                    <span>1 min pieszo</span>
+                                @else
+                                    <h3>Bus stop</h3>
+                                    <span>1 minute on foot</span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-4 col-md-3">
+                            <div class="icon-synergia text-center">
+                                <img src="{{ asset('uploads/files/synergia/icons/orlik_web.jpg') }}" alt="" class="m-auto">
+                                @if($current_locale == 'pl')
+                                    <h3>Boisko</h3>
+                                    <span>5 min pieszo</span>
+                                @else
+                                    <h3>Sports field</h3>
+                                    <span>5 minutes on foot</span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-4 col-md-3">
+                            <div class="icon-synergia text-center">
+                                <img src="{{ asset('uploads/files/synergia/icons/apteka_web.jpg') }}" alt="" class="m-auto">
+                                @if($current_locale == 'pl')
+                                    <h3>Apteka</h3>
+                                    <span>2 min pieszo</span>
+                                @else
+                                    <h3>Pharmacy</h3>
+                                    <span>2 minutes on foot</span>
+                                @endif
+                            </div>
+                        </div>
                     </div>
                     <div class="row flex-row-reverse mt-5">
                         <div class="col-4 d-flex align-items-center">
