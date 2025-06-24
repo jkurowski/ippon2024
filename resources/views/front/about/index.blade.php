@@ -98,7 +98,7 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-12 col-xl-8 text-center">
-                    <p>Nasza praca i realizowane projekty doceniane są w ogólnopolskich konkursach i zestawieniach. Zdobyliśmy tytuł Lidera Nieruchomości OtoDom 2022 oraz znaleźliśmy się w czołówce Ogólnopolskiego Rankingu Najlepszych Deweloperów Mieszkaniowych, opublikowanym w „Dzienniku Gazecie Prawnej”. Czterokrotnie zostaliśmy nagrodzeni tytułem Deweloper Roku 2023 oraz w latach 2022,2021,2020.</p>
+                    <p>Nasza praca i realizowane projekty doceniane są w ogólnopolskich konkursach i zestawieniach. Zdobyliśmy tytuł Lidera Nieruchomości OtoDom 2022 oraz znaleźliśmy się w czołówce Ogólnopolskiego Rankingu Najlepszych Deweloperów Mieszkaniowych, opublikowanym w „Dzienniku Gazecie Prawnej”. Pięciokrotnie zostaliśmy nagrodzeni tytułem Deweloper Roku 2024 oraz w latach 2023,2022,2021,2020.</p>
                 </div>
             </div>
             @else
@@ -109,7 +109,7 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-12 col-xl-8 text-center">
-                    <p>Our work and executed projects are recognized in nationwide competitions and rankings. We were awarded the title of Real Estate Leader by OtoDom in 2022, and we were featured in the top tier of the Nationwide Ranking of Best Residential Developers, published in "Dziennik Gazeta Prawna". We have been honored four times with the Developer of the Year title for 2023, 2022, 2021, and 2020.</p>
+                    <p>Our work and projects have been recognized in nationwide competitions and rankings. We were awarded the title of Real Estate Leader by OtoDom in 2022 and ranked among the top in the National Ranking of the Best Residential Developers, published by Dziennik Gazeta Prawna. We have been honored with the title of Developer of the Year five times — in 2024, as well as in 2023, 2022, 2021, and 2020.</p>
                 </div>
             </div>
             @endif
