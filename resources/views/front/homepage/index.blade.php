@@ -130,7 +130,7 @@
                         </div>
                         <div class="col-3">
                             <div class="current-stat text-center">
-                                <span>Q3 2025</span>
+                                <span>Q4 2025/1Q 2026</span>
                                 termin oddania
                             </div>
                         </div>
@@ -163,7 +163,7 @@
                             </div>
                             <div class="col-3">
                                 <div class="current-stat text-center">
-                                    <span>Q3 2025</span>
+                                    <span>Q4 2025/1Q 2026</span>
                                     hand and over date
                                 </div>
                             </div>
@@ -210,7 +210,7 @@
                             </div>
                             <div class="col-3">
                                 <div class="current-stat text-center">
-                                    <span>Q3 2026</span>
+                                    <span>Q4 2026</span>
                                     termin oddania
                                 </div>
                             </div>
@@ -243,7 +243,7 @@
                             </div>
                             <div class="col-3">
                                 <div class="current-stat text-center">
-                                    <span>Q3 2026</span>
+                                    <span>Q4 2026</span>
                                     hand and over date
                                 </div>
                             </div>
