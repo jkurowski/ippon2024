@@ -18,7 +18,15 @@
 @section('content')
     <div id="page-content">
         <div class="container">
-            @if($investment_page->content)
+            @if($investment->id == 5)
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <p>Informujemy, że ta inwestycja nie jest jeszcze objęta obowiązkiem publikacji szczegółowych cen ofertowych, zgodnie z przepisami przejściowymi Ustawy o jawności cen ( ustawa z dnia 21 maja 2025 r. o zianie ustawy o ochronie praw nabywcy lokalu mieszkalnego lub domu jednorodzinnego oraz Deweloperskim Funduszu Gwarancyjnym). Wszystkie wymagane informacje zostaną udostępnione na naszej stronie najpóźniej do 11 września 2025 r.</p>
+                    </div>
+                </div>
+            @endif
+
+        @if($investment_page->content)
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-10">
                     {!! $investment_page->content !!}
