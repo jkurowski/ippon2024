@@ -43,7 +43,6 @@ class Property extends Model
         'storeroom',
         'deadline',
         'kitchen_type',
-        'type',
         'html',
         'cords',
         'file',
