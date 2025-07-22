@@ -34,10 +34,10 @@ class IndexController extends Controller
 
             $investment_room = $investment->load([
                 'buildingRooms' => function ($query) use ($investment, $request) {
+                    $query->orderBy('highlighted', 'DESC');
                     if (!$request->input('status')) {
                         $query->orderBy('status', 'ASC');
                     }
-                    $query->orderBy('highlighted', 'DESC');
                     $query->orderBy('number_order', 'ASC');
 
                     if ($request->input('rooms')) {
@@ -106,10 +106,10 @@ class IndexController extends Controller
 
             $investment_room = $investment->load(array(
                 'floorRooms' => function ($query) use ($request, $investment) {
+                    $query->orderBy('highlighted', 'DESC');
                     if (!$request->input('status')) {
                         $query->orderBy('status', 'ASC');
                     }
-                    $query->orderBy('highlighted', 'DESC');
                     $query->orderBy('number_order', 'ASC');
 
                     if ($request->input('rooms')) {
