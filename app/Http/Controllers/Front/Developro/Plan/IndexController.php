@@ -110,6 +110,8 @@ class IndexController extends Controller
                     }
                     if ($request->input('status')) {
                         $query->where('status', $request->input('status'));
+                    } else {
+                        $query->orderBy('status', 'DESC');
                     }
 //                    if ($request->input('area')) {
 //                        $area_param = explode('-', $request->input('area'));
