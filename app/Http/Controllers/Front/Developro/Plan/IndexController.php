@@ -34,13 +34,17 @@ class IndexController extends Controller
 
             $investment_room = $investment->load([
                 'buildingRooms' => function ($query) use ($investment, $request) {
+                    if (!$request->input('status')) {
+                        $query->orderBy('status', 'ASC');
+                    }
+                    $query->orderBy('highlighted', 'DESC');
+                    $query->orderBy('number_order', 'ASC');
+
                     if ($request->input('rooms')) {
                         $query->where('rooms', $request->input('rooms'));
                     }
                     if ($request->input('status')) {
                         $query->where('status', $request->input('status'));
-                    } else {
-                        $query->orderBy('status', 'DESC');
                     }
 
                     if ($request->exists('floor')) {
@@ -102,6 +106,9 @@ class IndexController extends Controller
 
             $investment_room = $investment->load(array(
                 'floorRooms' => function ($query) use ($request, $investment) {
+                    if (!$request->input('status')) {
+                        $query->orderBy('status', 'ASC');
+                    }
                     $query->orderBy('highlighted', 'DESC');
                     $query->orderBy('number_order', 'ASC');
 
@@ -110,8 +117,6 @@ class IndexController extends Controller
                     }
                     if ($request->input('status')) {
                         $query->where('status', $request->input('status'));
-                    } else {
-                        $query->orderBy('status', 'DESC');
                     }
 //                    if ($request->input('area')) {
 //                        $area_param = explode('-', $request->input('area'));
