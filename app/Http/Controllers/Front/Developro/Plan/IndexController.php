@@ -39,6 +39,8 @@ class IndexController extends Controller
                     }
                     if ($request->input('status')) {
                         $query->where('status', $request->input('status'));
+                    } else {
+                        $query->orderBy('status', 'DESC');
                     }
 
                     if ($request->exists('floor')) {
@@ -76,6 +78,8 @@ class IndexController extends Controller
                                 $subQuery->where('display_sold', 1);
                             });
                     });
+
+
                 },
                 'buildingFloors' => function ($query) use ($buildings) {
                     $query->whereIn('building_id', $buildings->pluck('id')); // Use all building IDs
