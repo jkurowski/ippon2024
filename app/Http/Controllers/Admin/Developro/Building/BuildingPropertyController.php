@@ -8,6 +8,7 @@ use App\Models\Building;
 use App\Models\Floor;
 use App\Models\Investment;
 use App\Models\Property;
+use App\Models\PropertyPriceComponent;
 use App\Repositories\PropertyRepository;
 use App\Services\PropertyService;
 use Illuminate\Support\Facades\Session;
@@ -63,6 +64,7 @@ class BuildingPropertyController extends Controller
             'floor' => $floor,
             'building' => $building,
             'investment' => $investment,
+            'priceComponents' => PropertyPriceComponent::all()
         ])->with('entry', Property::make());
     }
 
@@ -82,6 +84,23 @@ class BuildingPropertyController extends Controller
             'building_id' => $building->id,
             'floor_id' => $floor->id
         ]));
+
+        $types = $request->input('price-component-type', []);
+        $categories = $request->input('price-component-category', []);
+        $values = $request->input('price-component-value', []);
+        $values_m2 = $request->input('price-component-m2-value', []);
+
+        $data = [];
+
+        foreach ($types as $index => $componentId) {
+            $data[$componentId] = [
+                'category' => $categories[$index],
+                'value' => $values[$index],
+                'value_m2' => $values_m2[$index],
+            ];
+        }
+
+        $property->priceComponents()->sync($data);
 
         if ($request->hasFile('file')) {
             $this->service->upload($request->name, $request->file('file'), $property);
@@ -117,7 +136,8 @@ class BuildingPropertyController extends Controller
             'entry' => $property,
             'attributes_bg' => $attributes_bg,
             'attributes_text' => $attributes_text,
-            'attributes_content' => $attributes_content
+            'attributes_content' => $attributes_content,
+            'priceComponents' => PropertyPriceComponent::all()
         ]);
     }
 
@@ -133,6 +153,23 @@ class BuildingPropertyController extends Controller
         unset($validatedData['attributes_bg'], $validatedData['attributes_text'], $validatedData['attributes_content']);
 
         $this->repository->update($validatedData, $property);
+
+        $types = $request->input('price-component-type', []);
+        $categories = $request->input('price-component-category', []);
+        $values = $request->input('price-component-value', []);
+        $values_m2 = $request->input('price-component-m2-value', []);
+
+        $data = [];
+
+        foreach ($types as $index => $componentId) {
+            $data[$componentId] = [
+                'category' => $categories[$index],
+                'value' => $values[$index],
+                'value_m2' => $values_m2[$index],
+            ];
+        }
+
+        $property->priceComponents()->sync($data);
 
         if ($request->hasFile('file')) {
             $this->service->upload($request->name, $request->file('file'), $property, true);

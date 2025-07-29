@@ -116,6 +116,18 @@ class PropertyFormRequest extends FormRequest
             ],
             'promotion_end_date' => 'nullable|date|after:now',
             'promotion_price_show' => 'boolean',
+
+            'price-component-type'     => 'array',
+            'price-component-type.*'   => 'required|exists:property_price_components,id',
+
+            'price-component-category'   => 'array',
+            'price-component-category.*' => 'required|in:1,2',
+
+            'price-component-value'     => 'array',
+            'price-component-value.*'   => 'nullable',
+
+            'price-component-m2-value'     => 'array',
+            'price-component-m2-value.*'   => 'nullable'
         ];
     }
 }

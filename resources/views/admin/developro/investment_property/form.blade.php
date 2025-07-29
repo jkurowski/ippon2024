@@ -190,6 +190,54 @@
                                     @include('form-elements.input-text', ['label' => 'Najniższa cena z 30 dni', 'sublabel'=> 'Tylko liczby', 'name' => 'price_30', 'value' => $entry->price_30])
                                 </div>
                                 <div class="row w-100 form-group">
+                                    <button id="add-price-component"
+                                            class="btn btn-primary"
+                                            type="button"
+                                            data-price-components='@json($priceComponents)'>
+                                        Dodaj dodatkowy składnik ceny
+                                    </button>
+                                    <div id="price-components">
+                                        @foreach($entry->priceComponents as $index => $component)
+                                            <div class="row price-component mb-3" data-price-component-id="{{ $component->id }}">
+                                                <div class="col-4">
+                                                    <label class="control-label">Typ składnika ceny mieszkania:</label>
+                                                    <select class="form-select" name="price-component-type[]">
+                                                        @foreach($priceComponents as $pc)
+                                                            <option value="{{ $pc->id }}" {{ $pc->id == $component->id ? 'selected' : '' }}>
+                                                                {{ $pc->name }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                                <div class="col-3">
+                                                    <label class="control-label">Rodzaj składnika ceny:</label>
+                                                    <select class="form-select" name="price-component-category[]">
+                                                        <option value="1" {{ $component->pivot->category == 1 ? 'selected' : '' }}>Obowiązkowy</option>
+                                                        <option value="2" {{ $component->pivot->category == 2 ? 'selected' : '' }}>Opcjonalny</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-2">
+                                                    <label class="control-label">Cena za m2 w PLN:</label>
+                                                    <input class="form-control" name="price-component-m2-value[]" type="text" value="{{ $component->pivot->value_m2 }}">
+                                                </div>
+                                                <div class="col-2">
+                                                    <label class="control-label">Cena całkowita w PLN:</label>
+                                                    <input class="form-control" name="price-component-value[]" type="text" value="{{ $component->pivot->value }}">
+                                                </div>
+                                                <div class="col-1 text-end">
+                                                    <label class="control-label d-block">&nbsp;</label>
+                                                    <button class="btn action-button w-100" type="button"><i class="fe-trash-2"></i></button>
+                                                </div>
+                                                @error('price-component-m2-value.' . $index)
+                                                <div class="col-12">
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                </div>
+                                                @enderror
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                                <div class="row w-100 form-group">
                                     @include('form-elements.input-text', ['label' => 'Ogródek', 'sublabel'=> 'Pow. w m<sup>2</sup>, tylko liczby', 'name' => 'garden_area', 'value' => $entry->garden_area])
                                 </div>
                                 <div class="row w-100 form-group">
@@ -296,4 +344,85 @@
         @endif
     });
 </script>
+                    <script>
+                        const addButton = document.getElementById('add-price-component');
+                        const priceComponents = JSON.parse(addButton.dataset.priceComponents);
+
+                        addButton.addEventListener('click', () => {
+                            const id = Math.floor(Math.random() * 1000);
+                            const optionsHtml = priceComponents.map(pc =>
+                                `<option value="${pc.id}">${pc.name}</option>`
+                            ).join('');
+
+                            const PriceComponent = () => `
+                          <div class="row price-component mb-3" data-price-component-id="${id}">
+                            <div class="col-4">
+                                <label class="control-label">Typ składnika ceny mieszkania:</label>
+                                <select class="form-select" name="price-component-type[]">
+                                    ${optionsHtml}
+                                </select>
+                            </div>
+                            <div class="col-3">
+                                <label class="control-label">Rodzaj składnika ceny:</label>
+                                <select class="form-select" name="price-component-category[]">
+                                    <option value="1">Obowiązkowy</option>
+                                    <option value="2">Opcjonalny</option>
+                                </select>
+                            </div>
+                            <div class="col-2">
+                                <label class="control-label">Cena za m² w PLN:</label>
+                                <input class="form-control" name="price-component-m2-value[]" type="text" autocomplete="off">
+                            </div>
+                            <div class="col-2">
+                                <label class="control-label">Cena całkowita w PLN:</label>
+                                <input class="form-control" name="price-component-value[]" type="text" autocomplete="off">
+                            </div>
+                            <div class="col-1 text-end">
+                                <label class="control-label d-block">&nbsp;</label>
+                                <button class="btn action-button w-100" type="button"><i class="fe-trash-2"></i></button>
+                            </div>
+                          </div>
+                        `;
+                            document.getElementById('price-components').insertAdjacentHTML('beforeend', PriceComponent());
+                        });
+
+                        document.addEventListener('click', function(e) {
+                            if (e.target.closest('.action-button')) {
+                                const component = e.target.closest('.price-component');
+                                if (component) component.remove();
+                            }
+                        });
+                        document.addEventListener('input', function(e) {
+                            const areaInput = document.getElementById('form_area');
+                            const area = parseFloat(areaInput.value.replace(',', '.'));
+
+                            if (isNaN(area) || area <= 0) return; // Nie liczymy jeśli powierzchnia jest nieprawidłowa
+
+                            function parseValue(val) {
+                                return parseFloat(val.replace(',', '.')) || 0;
+                            }
+
+                            if (e.target.matches('input[name="price-component-value[]"]')) {
+                                const value = parseValue(e.target.value);
+                                const row = e.target.closest('.row.price-component');
+                                if (!row) return;
+                                const m2Input = row.querySelector('input[name="price-component-m2-value[]"]');
+                                if (!m2Input) return;
+
+                                const m2Value = value / area;
+                                m2Input.value = m2Value > 0 ? m2Value.toFixed(2) : '';
+                            }
+
+                            if (e.target.matches('input[name="price-component-m2-value[]"]')) {
+                                const m2Value = parseValue(e.target.value);
+                                const row = e.target.closest('.row.price-component');
+                                if (!row) return;
+                                const valueInput = row.querySelector('input[name="price-component-value[]"]');
+                                if (!valueInput) return;
+
+                                const totalValue = m2Value * area;
+                                valueInput.value = totalValue > 0 ? totalValue.toFixed(2) : '';
+                            }
+                        });
+                    </script>
 @endpush

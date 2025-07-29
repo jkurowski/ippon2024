@@ -11,6 +11,7 @@
                 </div>
             </div>
         </div>
+        @include('admin.developro.investment_shared.main_menu')
         <div class="card mt-3">
             <div class="table-overflow">
                 <table class="table mb-0" id="sortable" aria-describedby="Investment list">

@@ -17,7 +17,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/jquery-ui.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('/css/admin.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/admin.min.css') }}?v=29072025">
 
     @stack('style')
 

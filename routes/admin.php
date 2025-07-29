@@ -135,7 +135,10 @@ Route::group([
 
 
         Route::resources([
-            'investment' => 'Investment\IndexController'
+            'investment' => 'Investment\IndexController',
+            'property-price-components' => 'PropertyPrice\IndexController',
+            'investment-company' => 'Company\IndexController',
+            'investment-sale-point' => 'Investment\SalePointController',
         ]);
 
         Route::group(['prefix' => '/investment', 'as' => 'investment.'], function () {
