@@ -85,9 +85,7 @@
                                             </div>
                                             <div class="col-4 mb-4">
                                                 @include('form-elements.html-select', ['label' => 'Typ powierzchni', 'name' => 'type', 'selected' => $entry->type, 'select' => [
-                                                    '1' => 'Mieszkanie / Apartament',
-                                                    '2' => 'Komórka lokatorska',
-                                                    '3' => 'Miejsce parkingowe'
+                                                    '1' => 'Mieszkanie / Apartament'
                                                     ]
                                                 ])
                                             </div>
@@ -156,8 +154,6 @@
                                             </div>
                                         </div>
                                     </div>
-
-
                                 </div>
 
                                 <div class="row w-100 form-group">
@@ -181,10 +177,19 @@
                                     </div>
                                 </div>
                                 <div class="row w-100 form-group">
-
+                                    @include('form-elements.input-text', ['label' => 'Cena brutto', 'sublabel'=> 'Tylko liczby', 'name' => 'price', 'value' => $entry->price])
                                 </div>
                                 <div class="row w-100 form-group">
-                                    @include('form-elements.input-text', ['label' => 'Cena', 'sublabel'=> 'Tylko liczby', 'name' => 'price', 'value' => $entry->price])
+                                    @include('form-elements.html-select', [
+                                        'label' => 'Stawka VAT',
+                                        'sublabel'=> 'Wybierz stawkę VAT',
+                                        'name' => 'vat',
+                                        'selected' => $entry->vat,
+                                        'select' => [
+                                            '8' => '8%',
+                                            '23' => '23%',
+                                            '0' => '0%'
+                                        ]])
                                 </div>
                                 <div class="row w-100 form-group">
                                     @include('form-elements.input-text', ['label' => 'Najniższa cena z 30 dni', 'sublabel'=> 'Tylko liczby', 'name' => 'price_30', 'value' => $entry->price_30])
