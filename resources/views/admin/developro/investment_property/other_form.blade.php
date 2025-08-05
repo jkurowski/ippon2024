@@ -144,8 +144,8 @@
                                         <div class="row">
                                             <div class="col-3">
                                                 @include('form-elements.html-select', ['label' => 'Promocja', 'name' => 'highlighted', 'selected' => $entry->highlighted, 'select' => [
-                                                  '1' => 'Tak',
-                                                  '0' => 'Nie'
+                                                  '0' => 'Nie',
+                                                  '1' => 'Tak'
                                                   ]
                                                 ])
                                             </div>

@@ -173,7 +173,7 @@
                                     </div>
                                 </div>
                                 <div class="row w-100 form-group">
-                                    @include('form-elements.input-text', ['label' => 'Cena', 'sublabel'=> 'Tylko liczby', 'name' => 'price', 'value' => $entry->price])
+                                    @include('form-elements.input-text', ['label' => 'Cena brutto', 'sublabel'=> 'Tylko liczby', 'name' => 'price', 'value' => $entry->price])
                                 </div>
                                 <div class="row w-100 form-group">
                                     @include('form-elements.html-select', [
