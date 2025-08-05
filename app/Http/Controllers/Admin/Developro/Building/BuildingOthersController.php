@@ -109,7 +109,7 @@ class BuildingOthersController extends Controller
             EndPropertyPromotion::dispatch($property->id)->delay($delay);
         }
 
-        $this->investmentRepository->sendMessageToInvestmentSupervisors($investment, 'Zmiana parametrów: '.$other->name);
+        //$this->investmentRepository->sendMessageToInvestmentSupervisors($investment, 'Zmiana parametrów: '.$other->name);
 
         return redirect()->route('admin.developro.investment.building.floor.properties.index', [$investment, $building, $floor])->with('success', 'Powierzchnia zaktualizowana');
     }
