@@ -83,7 +83,7 @@ class IndexController extends Controller
                             });
                     });
 
-                    $query->where('active', '=', 1);
+                    //$query->where('active', '=', 1);
                 },
                 'buildingFloors' => function ($query) use ($buildings) {
                     $query->whereIn('building_id', $buildings->pluck('id')); // Use all building IDs
@@ -151,7 +151,7 @@ class IndexController extends Controller
                         $query->orderBy($column, $direction);
                     }
 
-                    $query->where('active', '=', 1);
+                    //$query->where('active', '=', 1);
                 }
             ));
 
