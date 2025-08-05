@@ -174,7 +174,7 @@
 
                                 <div class="row w-100 form-group">
                                     <div class="col-5">
-                                        @include('form-elements.input-text', ['label' => 'Cena brutto', 'sublabel'=> 'Tylko liczby', 'name' => 'price_brutto', 'value' => $entry->price_brutto])
+                                        @include('form-elements.input-text', ['label' => 'Cena brutto', 'sublabel'=> 'Tylko liczby', 'name' => 'price', 'value' => $entry->price])
                                     </div>
 
                                     <div class="col-2">
@@ -188,9 +188,6 @@
                                             '23' => '23%',
                                             '0' => '0%'
                                     ]])
-                                    </div>
-                                    <div class="col-5">
-                                        @include('form-elements.input-text', ['label' => 'Cena netto', 'sublabel'=> 'Tylko liczby', 'name' => 'price', 'value' => $entry->price])
                                     </div>
                                 </div>
                                 <div class="row w-100 form-group">
