@@ -39,7 +39,7 @@ class IndexController extends Controller
                     }
                     $query->orderBy('highlighted', 'DESC');
                     $query->orderBy('number_order', 'ASC');
-                    $query->where('properties.active', '=', 1);
+                    $query->where('properties.type', '=', 1);
 
                     if ($request->input('rooms')) {
                         $query->where('rooms', $request->input('rooms'));
@@ -110,7 +110,7 @@ class IndexController extends Controller
                     }
                     $query->orderBy('highlighted', 'DESC');
                     $query->orderBy('number_order', 'ASC');
-                    $query->where('properties.active', '=', 1);
+                    $query->where('properties.type', '=', 1);
 
                     if ($request->input('rooms')) {
                         $query->where('rooms', $request->input('rooms'));
