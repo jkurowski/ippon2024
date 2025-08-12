@@ -121,7 +121,7 @@ class PropertyFormRequest extends FormRequest
             'price-component-type.*'   => 'required|exists:property_price_components,id',
 
             'price-component-category'   => 'array',
-            'price-component-category.*' => 'required|in:1,2',
+            'price-component-category.*' => 'required|in:1,2,3',
 
             'price-component-value'     => 'array',
             'price-component-value.*'   => 'nullable',
