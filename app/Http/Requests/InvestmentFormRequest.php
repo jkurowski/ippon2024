@@ -50,10 +50,10 @@ class InvestmentFormRequest extends FormRequest
             'lng' => '',
             'zoom' => 'integer',
 
-            'inv_province' => ['required', 'string', 'max:100'],
+            'inv_province' => ['nullable', 'string', 'max:100'],
             'inv_county' => ['nullable', 'string', 'max:100'],
             'inv_municipality' => ['nullable', 'string', 'max:100'],
-            'inv_city' => ['required', 'string', 'max:100'],
+            'inv_city' => ['nullable', 'string', 'max:100'],
             'inv_street' => ['nullable', 'string', 'max:150'],
             'inv_property_number' => ['nullable', 'string', 'max:50'],
             'inv_postal_code' => ['nullable', 'string', 'max:20', 'regex:/^\d{2}-\d{3}$/'], // matches 00-000 format
