@@ -102,6 +102,78 @@
                         @include('form-elements.html-input-text', ['label' => 'Zoom', 'name' => 'zoom', 'value' => $entry->zoom, 'required' => 1])
                     </div>
 
+                    <div class="row w-100 mb-4 form-group">
+                        <div class="col-12">
+                            <h2>Szczegółowe informacje o inwestycji</h2>
+                        </div>
+                        <div class="col-4">
+                            @include('form-elements.html-select', [
+                                'label' => 'Województwo lokalizacji',
+                                'name' => 'inv_province',
+                                'selected' => $entry->inv_province,
+                                'select' => $provinces,
+                            ])
+                        </div>
+                        <div class="col-4">
+                            @include('form-elements.html-input-text', [
+                                'label' => 'Powiat lokalizacji',
+                                'name' => 'inv_county',
+                                'value' => $entry->inv_county,
+                            ])
+                        </div>
+                        <div class="col-4">
+                            @include('form-elements.html-input-text', [
+                                'label' => 'Gmina lokalizacji',
+                                'name' => 'inv_municipality',
+                                'value' => $entry->inv_municipality,
+                            ])
+                        </div>
+                        <div class="col-4 mt-4">
+                            @include('form-elements.html-input-text', [
+                                'label' => 'Miejscowość lokalizacji',
+                                'name' => 'inv_city',
+                                'value' => $entry->inv_city,
+                            ])
+                        </div>
+                        <div class="col-4 mt-4">
+                            @include('form-elements.html-input-text', [
+                                'label' => 'Ulica lokalizacji',
+                                'name' => 'inv_street',
+                                'value' => $entry->inv_street,
+                            ])
+                        </div>
+                        <div class="col-4 mt-4">
+                            @include('form-elements.html-input-text', [
+                                'label' => 'Nr nieruchomości lokalizacji',
+                                'name' => 'inv_property_number',
+                                'value' => $entry->inv_property_number,
+                            ])
+                        </div>
+                        <div class="col-4 mt-4">
+                            @include('form-elements.html-input-text', [
+                                'label' => 'Kod pocztowy lokalizacji',
+                                'name' => 'inv_postal_code',
+                                'value' => $entry->inv_postal_code,
+                            ])
+                        </div>
+                        <div class="col-4 mt-4">
+                            @include('form-elements.html-select', [
+                                'label' => 'Spółka celowa',
+                                'name' => 'company_id',
+                                'selected' => $entry->company_id,
+                                'select' => $companies,
+                            ])
+                        </div>
+                        <div class="col-4 mt-4">
+                            @include('form-elements.html-select', [
+                                'label' => 'Punkt sprzedaży',
+                                'name' => 'sale_point_id',
+                                'selected' => $entry->sale_point_id,
+                                'select' => $salePoints,
+                            ])
+                        </div>
+                    </div>
+
                     <div class="row w-100 mb-4">
                         <div class="col-6">
                             @include('form-elements.html-input-text', ['label' => 'Termin rozpoczęcia inwestycji', 'name' => 'date_start', 'value' => $entry->date_start])

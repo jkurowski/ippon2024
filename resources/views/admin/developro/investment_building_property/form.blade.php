@@ -215,6 +215,7 @@
                                                     <select class="form-select" name="price-component-category[]">
                                                         <option value="1" {{ $component->pivot->category == 1 ? 'selected' : '' }}>Obowiązkowy</option>
                                                         <option value="2" {{ $component->pivot->category == 2 ? 'selected' : '' }}>Opcjonalny</option>
+                                                        <option value="3" {{ $component->pivot->category == 3 ? 'selected' : '' }}>Zmienny</option>
                                                     </select>
                                                 </div>
                                                 <div class="col-2">
@@ -344,6 +345,7 @@
                                 <select class="form-select" name="price-component-category[]">
                                     <option value="1">Obowiązkowy</option>
                                     <option value="2">Opcjonalny</option>
+                                    <option value="3">Zmienny</option>
                                 </select>
                             </div>
                             <div class="col-2">
