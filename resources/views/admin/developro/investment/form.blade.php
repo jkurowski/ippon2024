@@ -251,6 +251,16 @@
                             'file_preview' => config('images.investment.header_file_path')
                             ])
                     </div>
+
+                    <div class="row w-100 mb-4">
+                        @include('form-elements.html-input-file-pdf', [
+                            'label' => 'Prospekt informacyjny',
+                            'name' => 'file_brochure',
+                            'file' => $entry->file_brochure,
+                            'file_preview' => config('images.investment.brochure_file_path')
+                        ])
+                    </div>
+
                     @endif
 
                     <div class="row w-100 mb-4">

@@ -26,6 +26,7 @@ return [
         'article_thumb_file_path' => 'investment/articles/thumbs/',
         'article_preview_file_path' => 'investment/articles/thumbs/',
         'section_preview_file_path' => 'investment/sections/',
+        'brochure_file_path' => 'investment/brochure/',
     ],
 
     /*
