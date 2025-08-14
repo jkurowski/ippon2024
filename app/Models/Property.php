@@ -57,7 +57,8 @@ class Property extends Model
         'views',
         'active',
         'highlighted',
-        'attributes'
+        'attributes',
+        'visitor_related_type'
     ];
 
     /**
@@ -170,5 +171,31 @@ class Property extends Model
         return $this->belongsToMany(PropertyPriceComponent::class, 'property_price_component_property')
             ->withPivot('value', 'value_m2', 'category')
             ->withTimestamps();
+    }
+
+    // Historia cen
+
+    public function visitorRelatedProperties()
+    {
+        return $this->belongsToMany(Property::class, 'property_visitor_related', 'property_id', 'related_property_id');
+    }
+
+    public function relatedProperties()
+    {
+        return $this->belongsToMany(Property::class, 'property_property', 'property_id', 'related_property_id');
+    }
+
+    public function getLocation(): string
+    {
+        $buildingName = $this->building ? $this->building->name : null;
+        $floorName = $this->floor ? $this->floor->name : null;
+
+        if ($buildingName && $floorName) {
+            return "{$buildingName} - {$floorName}";
+        } elseif ($floorName) {
+            return "{$floorName}";
+        }
+
+        return 'Brak lokalizacji'; // Fallback if no building or floor is set
     }
 }

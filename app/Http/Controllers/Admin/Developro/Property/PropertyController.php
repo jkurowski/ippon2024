@@ -7,12 +7,15 @@ use App\Http\Controllers\Controller;
 //CMS
 use App\Http\Requests\PropertyFormRequest;
 use App\Models\PropertyPriceComponent;
+use App\Models\PropertyProperty;
 use App\Repositories\PropertyRepository;
 use App\Services\PropertyService;
 
 use App\Models\Floor;
 use App\Models\Investment;
 use App\Models\Property;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PropertyController extends Controller
 {
@@ -108,12 +111,54 @@ class PropertyController extends Controller
 
     public function edit(Investment $investment, Floor $floor, Property $property)
     {
+        $allOthers = Property::with('building', 'floor')
+            ->where('investment_id', $investment->id)
+            ->where('id', '<>', $property->id)
+            ->where('status', 1)
+            //->whereNull('client_id')
+            ->get();
+
+        $relatedIds = DB::table('property_property')->pluck('related_property_id')->toArray();
+
+        $visitor_others = $allOthers
+            ->where('type', '!=', 1)
+            ->whereNotIn('id', $relatedIds)
+            ->mapWithKeys(function ($item) {
+                return [
+                    $item->id => $item->name . ' (' . $item->floor->name . ')'
+                ];
+            });
+
+        $all = Property::with(['floor', 'building'])
+            ->where('investment_id', $investment->id)
+            ->where('id', '<>', $property->id)
+            ->get()
+            ->mapWithKeys(function ($prop) {
+                $name = $prop->name . ' (' . $prop->floor->name . ')';
+
+                if ($prop->building && $prop->building->name) {
+                    $name .= ' - ' . $prop->building->name;
+                }
+
+                return [$prop->id => $name];
+            });
+
+        $related = $property->relatedProperties;
+        $isRelated = PropertyProperty::where('related_property_id', $property->id)->exists();
+
         return view('admin.developro.investment_property.form', [
             'cardTitle' => 'Edytuj powierzchnię',
             'backButton' => route('admin.developro.investment.properties.index', [$investment, $floor]),
             'floor' => $floor,
             'investment' => $investment,
             'entry' => $property,
+
+            'others' => $allOthers->pluck('name', 'id'),
+            'visitor_others' => $visitor_others,
+            'all' => $all,
+            'related' => $related,
+            'isRelated' => $isRelated,
+
             'priceComponents' => PropertyPriceComponent::all()
         ]);
     }
@@ -122,6 +167,7 @@ class PropertyController extends Controller
     {
 
         $this->repository->update($request->validated(), $property);
+        $property->visitorRelatedProperties()->sync($request->validated()['visitor_related_ids'] ?? []);
 
         $types = $request->input('price-component-type', []);
         $categories = $request->input('price-component-category', []);
@@ -171,4 +217,48 @@ class PropertyController extends Controller
         }
         return response()->json($result);
     }
+
+    public function storerelated(Request $request, $investmentId, $floorId, $propertyId)
+    {
+        $request->validate([
+            'related_property_id' => 'required|exists:properties,id',
+        ]);
+
+        $related_id = $request->input('related_property_id');
+
+        $isRelated = PropertyProperty::where('related_property_id', $related_id)->exists();
+        $related_property = Property::findOrFail($related_id);
+
+        if ($isRelated) {
+            return getRelatedType($related_property->type);
+        }
+
+        $property = Property::findOrFail($propertyId);
+        $property->relatedProperties()->attach($related_id);
+
+        // Return a response
+        return view('admin.developro.investment_shared.related', ['property' => $related_property]);
+    }
+
+    public function removerelated(Request $request, $investmentId, $floorId, $propertyId)
+    {
+        // Validate the input
+        $request->validate([
+            'related_id' => 'required|exists:properties,id',
+        ]);
+
+        $relatedId = $request->input('related_id');
+
+        $property = Property::findOrFail($propertyId);
+        $isRelated = $property->relatedProperties()->where('related_property_id', $relatedId)->exists();
+
+        if ($isRelated) {
+            $property->relatedProperties()->detach($relatedId, ['client_id' => null]);
+
+            return response()->json([
+                'status' => 'removed'
+            ]);
+        }
+    }
+
 }

@@ -133,7 +133,6 @@ Route::group([
 
         Route::get('investment/test', 'Investment\IndexController@test')->name('test');
 
-
         Route::resources([
             'investment' => 'Investment\IndexController',
             'property-price-components' => 'PropertyPrice\IndexController',
@@ -176,6 +175,10 @@ Route::group([
 
             Route::get('{investment}/floors/{floor}/copy', 'Floor\FloorController@copy')->name('floors.copy');
             Route::get('{investment}/building/{building}/floors/{floor}/copy', 'Building\BuildingFloorController@copy')->name('building.floors.copy');
+
+            // Przynalezne
+            Route::post('{investment}/{floor}/{property}/related', 'Property\PropertyController@storerelated')->name('related.store');
+            Route::post('{investment}/{floor}/{property}/remove-related', 'Property\PropertyController@removerelated')->name('related.remove');
         });
     });
 });

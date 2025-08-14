@@ -129,6 +129,89 @@
                                     </div>
                                 </div>
 
+                                @if(Route::is('admin.developro.investment.properties.edit'))
+                                    <!-- Przynalezne -->
+                                    <div class="row w-100 form-group">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-12" id="statusAlertPlaceholder"></div>
+                                                <div class="col-12">
+                                                    <h2>Przynależne powierzchnie</h2>
+                                                    @if($isRelated)
+                                                        <div class="alert alert-danger">Ta powierzchnia jest powiązana z inną.</div>
+                                                    @endif
+                                                    <table class="table">
+                                                        <tbody id="added">
+                                                        @foreach($related as $r)
+                                                            <tr>
+                                                                <td class="pe-0 text-center">
+                                                                    <input type="checkbox" class="checkbox" name="property[]" id="{{ $r->id }}" value="{{ $r->id }}" style="display: none;">
+                                                                    <span data-property="{{ $r->id }}" class="remove-related"><i class="las la-trash-alt"></i></span>
+                                                                </td>
+                                                                <td><b>{{ $r->name }}</b></td>
+                                                                <td class="text-center"><b>{{ $r->getLocation() }}</b></td>
+                                                                <td class="text-center">Pow.: <b>{{ $r->area }}</b></td>
+                                                                <td class="text-center">
+                                                                    @if($r->price_brutto)
+                                                                        Cena: <b>@money($r->price_brutto)</b>
+                                                                    @endif
+                                                                </td>
+                                                                <td>
+                                                                    <span class="badge room-list-status-{{ $r->status }}">{{ roomStatus($r->status) }}</span>
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
+                                                        </tbody>
+                                                    </table>
+                                                    <form id="related">
+                                                        <div class="input-group mb-3">
+                                                            <select class="form-select select-related selecpicker-noborder p-0" name="" id="related_property_id" aria-describedby="button-addon" data-live-search="true" data-size="5">
+                                                                <option value="">Wybierz</option>
+                                                                @foreach($others as $id => $name)
+                                                                    <option value="{{ $id }}">{{ $name }}</option>
+                                                                @endforeach
+                                                            </select>
+                                                            <button class="btn btn-outline-secondary" type="button" id="button-addon">Dodaj</button>
+                                                        </div>
+                                                    </form>
+                                                    <div id="liveAlertPlaceholder"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row w-100 form-group">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <h2>Przynależne powierzchnie do wyboru przez klienta</h2>
+                                                </div>
+                                            </div>
+                                            <div class="row input-radio-group">
+                                                <div class="col-12">
+                                                    @include('form-elements.html-input-radio', [
+                                                    'name' => 'visitor_related_type',
+                                                    'label' => '',
+                                                    'value' => $entry->visitor_related_type,
+                                                    'options' => [
+                                                        '1' => 'Brak wyboru',
+                                                        '2' => 'Wszystkie',
+                                                        '3' => 'Tylko wybrane'
+                                                    ],
+                                                    'required' => true,
+                                                ])
+                                                </div>
+                                                <div class="col-12 d-none" id="visitorRelated">
+                                                    @include('form-elements.html-select-multiple', ['label' => 'Wybierz powierzchnie dodatkowe', 'name' => 'visitor_related_ids', 'selected' => $entry->visitorRelatedProperties->pluck('id')->toArray(), 'select' => $visitor_others,
+                                                        'liveSearch' => true
+                                                    ])
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End-Przynalezne -->
+                                @endif
+
                                 <div class="row w-100 form-group">
                                     <div class="container">
                                         <div class="row">
@@ -307,6 +390,13 @@
 @push('scripts')
 <script src="{{ asset('/js/plan/underscore.js') }}" charset="utf-8"></script>
 <script src="{{ asset('/js/plan/mappa-backbone.js') }}" charset="utf-8"></script>
+
+<link href="{{ asset('/js/bootstrap-select/bootstrap-select.min.css') }}" rel="stylesheet">
+<script src="{{ asset('/js/bootstrap-select/bootstrap-select.min.js') }}" charset="utf-8"></script>
+
+<link href="{{ asset('/js/bootstrap-select/bootstrap-select.min.css') }}" rel="stylesheet">
+<script src="{{ asset('/js/bootstrap-select/bootstrap-select.min.js') }}" charset="utf-8"></script>
+
 <script type="text/javascript">
     const map = {
         "name":"imagemap",
@@ -349,85 +439,235 @@
         @endif
     });
 </script>
-                    <script>
-                        const addButton = document.getElementById('add-price-component');
-                        const priceComponents = JSON.parse(addButton.dataset.priceComponents);
+<script>
+                        const added = document.getElementById('added');
+                        const visitorRelated = document.getElementById('visitorRelated');
+                        const visitorRelatedChoose = document.getElementById('visitor_related_type_3');
+                        const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+                        const appendAlert = (message, type, duration = 7000) => {
+                            const wrapper = document.createElement('div')
+                            wrapper.innerHTML = [
+                                `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+                                `   <div>${message}</div>`,
+                                '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+                                '</div>'
+                            ].join('')
 
-                        addButton.addEventListener('click', () => {
-                            const id = Math.floor(Math.random() * 1000);
-                            const optionsHtml = priceComponents.map(pc =>
-                                `<option value="${pc.id}">${pc.name}</option>`
-                            ).join('');
+                            alertPlaceholder.append(wrapper);
 
-                            const PriceComponent = () => `
-                          <div class="row price-component mb-3" data-price-component-id="${id}">
-                            <div class="col-4">
-                                <label class="control-label">Typ składnika ceny mieszkania:</label>
-                                <select class="form-select" name="price-component-type[]">
-                                    ${optionsHtml}
-                                </select>
-                            </div>
-                            <div class="col-3">
-                                <label class="control-label">Rodzaj składnika ceny:</label>
-                                <select class="form-select" name="price-component-category[]">
-                                    <option value="1">Obowiązkowy</option>
-                                    <option value="2">Opcjonalny</option>
-                                </select>
-                            </div>
-                            <div class="col-2">
-                                <label class="control-label">Cena za m² w PLN:</label>
-                                <input class="form-control" name="price-component-m2-value[]" type="text" autocomplete="off">
-                            </div>
-                            <div class="col-2">
-                                <label class="control-label">Cena całkowita w PLN:</label>
-                                <input class="form-control" name="price-component-value[]" type="text" autocomplete="off">
-                            </div>
-                            <div class="col-1 text-end">
-                                <label class="control-label d-block">&nbsp;</label>
-                                <button class="btn action-button w-100" type="button"><i class="fe-trash-2"></i></button>
-                            </div>
-                          </div>
-                        `;
-                            document.getElementById('price-components').insertAdjacentHTML('beforeend', PriceComponent());
+                            setTimeout(() => {
+                                wrapper.remove();
+                            }, duration);
+                        }
+                        const appendStatusAlert = (message, type, duration = 4000) => {
+                            const wrapper = document.createElement('div')
+                            wrapper.innerHTML = [
+                                `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+                                `   <div>${message}</div>`,
+                                '</div>'
+                            ].join('')
+
+                            statusAlertPlaceholder.append(wrapper);
+
+                            if(duration > 0){
+                                setTimeout(() => {
+                                    wrapper.remove();
+                                }, duration);
+                            }
+                        }
+
+                        function toggleVisitorRelated() {
+                            if (visitorRelatedChoose.checked) {
+                                visitorRelated.classList.remove('d-none');
+                                visitorRelated.classList.add('d-block');
+                            } else {
+                                visitorRelated.classList.remove('d-block');
+                                visitorRelated.classList.add('d-none');
+
+                                $('#visitorRelated .selectpicker').selectpicker('deselectAll');
+                            }
+                        }
+
+                        toggleVisitorRelated();
+
+                        document.querySelectorAll('input[name="visitor_related_type"]').forEach((input) => {
+                            input.addEventListener('change', toggleVisitorRelated);
                         });
 
-                        document.addEventListener('click', function(e) {
-                            if (e.target.closest('.action-button')) {
-                                const component = e.target.closest('.price-component');
-                                if (component) component.remove();
+                        function clearTextInputs(divElementId) {
+                            const textInputs = divElementId.getElementsByTagName('input');
+                            for (let i = 0; i < textInputs.length; i++) {
+                                if (textInputs[i].type === 'text') {
+                                    textInputs[i].value = '';
+                                }
                             }
-                        });
-                        document.addEventListener('input', function(e) {
-                            const areaInput = document.getElementById('form_area');
-                            const area = parseFloat(areaInput.value.replace(',', '.'));
+                        }
+                        $(document).ready(function() {
+                            $('.select-related').selectpicker();
 
-                            if (isNaN(area) || area <= 0) return; // Nie liczymy jeśli powierzchnia jest nieprawidłowa
+                            {{-- @if(Route::is('admin.developro.investment.building.floor.properties.edit')) --}}
+                            @if(Route::is('admin.developro.investment.properties.edit'))
+                            attachSpanFunctionality();
 
-                            function parseValue(val) {
-                                return parseFloat(val.replace(',', '.')) || 0;
+                            $('#button-addon').click(function(e) {
+                                e.preventDefault();
+
+                                const relatedPropertyId = $('#related_property_id').val();
+
+                                if (!relatedPropertyId) {
+                                    alert('Please select a property to add.');
+                                    return;
+                                }
+
+                                const data = {
+                                    property: {{ $entry->id  }},
+                                    related_property_id: relatedPropertyId,
+                                    _token: '{{ csrf_token() }}'  // Include CSRF token if needed
+                                };
+
+                                $.ajax({
+                                    url: '{{ route('admin.developro.investment.related.store', ['investment' => $investment, 'floor' => $floor, 'property' => $entry->id]) }}',
+                                    method: 'POST',
+                                    data: data,
+                                    success: function(response) {
+                                        $('#added').append(response);
+                                        attachSpanFunctionality();
+
+                                        const lastTypeInputValue = $('#added input[name="related_type"]:last').val();
+
+                                        if (lastTypeInputValue === '1') {
+                                            appendAlert('Mieszkanie zostało przypisane poprawnie', 'success');
+                                        } else if (lastTypeInputValue === '2') {
+                                            appendAlert('Komórka lokatorska została przypisana poprawnie', 'success');
+                                        } else if (lastTypeInputValue === '3') {
+                                            appendAlert('Miejsce parkingowe zostało przypisane poprawnie', 'success');
+                                        } else {
+                                            appendAlert('Wybrana powierzchnia została przypisana poprawnie', 'success');
+                                        }
+                                    },
+                                    error: function(xhr) {
+                                        const errorMessage = xhr.responseJSON.error;
+
+                                        appendAlert(errorMessage, 'danger');
+                                    }
+                                });
+                            });
+                            function attachSpanFunctionality() {
+                                const spans = added.querySelectorAll(".remove-related");
+                                spans.forEach(function(span) {
+                                    span.addEventListener("click", function(d) {
+                                        const closestTr = this.closest("tr");
+                                        var related = this.getAttribute('data-property');
+
+                                        const button = $(d.currentTarget);
+                                        button.css('pointer-events', 'none');
+
+                                        $.ajax({
+                                            url: '{{ route('admin.developro.investment.related.remove', ['investment' => $investment, 'floor' => $floor, 'property' => $entry->id]) }}', // Replace with the appropriate endpoint
+                                            type: 'POST',
+                                            data: {
+                                                _token: '{{ csrf_token() }}',
+                                                related_id: related
+                                            },
+                                            success: function() {
+                                                appendAlert('Lokal został poprawnie usunięty', 'success');
+                                                if (closestTr) {
+                                                    closestTr.remove(); // Remove the row after successful deletion
+                                                }
+                                            },
+                                            error: function(xhr, status, error) {
+                                                console.error(error);
+                                                alert('Wystąpił błąd podczas usuwania.');
+                                            },
+                                            complete(){
+                                                button.css('pointer-events', 'auto');
+                                            }
+                                        });
+                                    });
+                                });
                             }
-
-                            if (e.target.matches('input[name="price-component-value[]"]')) {
-                                const value = parseValue(e.target.value);
-                                const row = e.target.closest('.row.price-component');
-                                if (!row) return;
-                                const m2Input = row.querySelector('input[name="price-component-m2-value[]"]');
-                                if (!m2Input) return;
-
-                                const m2Value = value / area;
-                                m2Input.value = m2Value > 0 ? m2Value.toFixed(2) : '';
-                            }
-
-                            if (e.target.matches('input[name="price-component-m2-value[]"]')) {
-                                const m2Value = parseValue(e.target.value);
-                                const row = e.target.closest('.row.price-component');
-                                if (!row) return;
-                                const valueInput = row.querySelector('input[name="price-component-value[]"]');
-                                if (!valueInput) return;
-
-                                const totalValue = m2Value * area;
-                                valueInput.value = totalValue > 0 ? totalValue.toFixed(2) : '';
-                            }
+                            @endif
                         });
                     </script>
+<script>
+    const addButton = document.getElementById('add-price-component');
+    const priceComponents = JSON.parse(addButton.dataset.priceComponents);
+
+    addButton.addEventListener('click', () => {
+        const id = Math.floor(Math.random() * 1000);
+        const optionsHtml = priceComponents.map(pc =>
+            `<option value="${pc.id}">${pc.name}</option>`
+        ).join('');
+
+        const PriceComponent = () => `
+      <div class="row price-component mb-3" data-price-component-id="${id}">
+        <div class="col-4">
+            <label class="control-label">Typ składnika ceny mieszkania:</label>
+            <select class="form-select" name="price-component-type[]">
+                ${optionsHtml}
+            </select>
+        </div>
+        <div class="col-3">
+            <label class="control-label">Rodzaj składnika ceny:</label>
+            <select class="form-select" name="price-component-category[]">
+                <option value="1">Obowiązkowy</option>
+                <option value="2">Opcjonalny</option>
+            </select>
+        </div>
+        <div class="col-2">
+            <label class="control-label">Cena za m² w PLN:</label>
+            <input class="form-control" name="price-component-m2-value[]" type="text" autocomplete="off">
+        </div>
+        <div class="col-2">
+            <label class="control-label">Cena całkowita w PLN:</label>
+            <input class="form-control" name="price-component-value[]" type="text" autocomplete="off">
+        </div>
+        <div class="col-1 text-end">
+            <label class="control-label d-block">&nbsp;</label>
+            <button class="btn action-button w-100" type="button"><i class="fe-trash-2"></i></button>
+        </div>
+      </div>
+    `;
+        document.getElementById('price-components').insertAdjacentHTML('beforeend', PriceComponent());
+    });
+
+    document.addEventListener('click', function(e) {
+        if (e.target.closest('.action-button')) {
+            const component = e.target.closest('.price-component');
+            if (component) component.remove();
+        }
+    });
+    document.addEventListener('input', function(e) {
+        const areaInput = document.getElementById('form_area');
+        const area = parseFloat(areaInput.value.replace(',', '.'));
+
+        if (isNaN(area) || area <= 0) return; // Nie liczymy jeśli powierzchnia jest nieprawidłowa
+
+        function parseValue(val) {
+            return parseFloat(val.replace(',', '.')) || 0;
+        }
+
+        if (e.target.matches('input[name="price-component-value[]"]')) {
+            const value = parseValue(e.target.value);
+            const row = e.target.closest('.row.price-component');
+            if (!row) return;
+            const m2Input = row.querySelector('input[name="price-component-m2-value[]"]');
+            if (!m2Input) return;
+
+            const m2Value = value / area;
+            m2Input.value = m2Value > 0 ? m2Value.toFixed(2) : '';
+        }
+
+        if (e.target.matches('input[name="price-component-m2-value[]"]')) {
+            const m2Value = parseValue(e.target.value);
+            const row = e.target.closest('.row.price-component');
+            if (!row) return;
+            const valueInput = row.querySelector('input[name="price-component-value[]"]');
+            if (!valueInput) return;
+
+            const totalValue = m2Value * area;
+            valueInput.value = totalValue > 0 ? totalValue.toFixed(2) : '';
+        }
+    });
+</script>
 @endpush

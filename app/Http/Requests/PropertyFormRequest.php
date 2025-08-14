@@ -130,4 +130,27 @@ class PropertyFormRequest extends FormRequest
             'price-component-m2-value.*'   => 'nullable'
         ];
     }
+
+    /**
+     * Get custom error messages for validation rules.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'client_id.exists' => 'The selected client does not exist.',
+            'saled_at.date' => 'The saled at must be a valid date.',
+            'reservation_until.date' => 'The reservation until must be a valid date.',
+            'reservation_until.after_or_equal' => 'The reservation until must be a date after or equal to the saled at date.',
+            'price_brutto.numeric' => 'Pole "Cena brutto" musi być liczbą.',
+            'price_brutto.regex' => 'Pole "Cena brutto" musi zawierać maksymalnie dwie cyfry po przecinku.',
+
+            // Add these for your visitor_related_ids validation:
+            'visitor_related_ids.required' => 'Musisz wybrać dodatkowe powierzchnie.',
+            'visitor_related_ids.min' => 'Musisz wybrać przynajmniej jedną dodatkową powierzchnię.',
+            'visitor_related_ids.array' => 'Nieprawidłowy format powierzchni dodatkowych.',
+            'visitor_related_ids.required_if' => 'Pole "Powierzchnie dodatkowe" jest wymagane, gdy wybrano opcję "Tylko wybrane".',
+        ];
+    }
 }

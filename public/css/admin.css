@@ -126,6 +126,60 @@ p {
   display: block;
   margin-bottom: 4px;
 }
+#selectedOffer,
+#added {
+  border-bottom: 2px solid #b6dfb9;
+}
+#selectedOffer tr,
+#added tr {
+  background: #f8fff9;
+}
+#selectedOffer .pe-0 span,
+#added .pe-0 span {
+  background: #00acc1;
+  width: 30px;
+  display: flex;
+  height: 30px;
+  border-radius: 3px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+#selectedOffer .pe-0 span i,
+#added .pe-0 span i {
+  font-size: 20px;
+  color: white;
+}
+#added {
+  border-bottom: 1px solid #dee2e6;
+}
+.input-radio-group .form-check-label {
+  padding: 5px;
+  margin: 0;
+}
+.input-radio-group .form-check-label input {
+  display: none;
+}
+.input-radio-group .form-check-label label {
+  border-radius: 3px;
+  background: #e9ecef;
+  padding: 10px;
+  width: 100%;
+  text-align: center;
+  color: black;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.input-radio-group .form-check-label label:hover {
+  background: #00acc1;
+  color: white;
+}
+.input-radio-group .form-check-input:checked + .form-check-label {
+  background-color: #008595;
+  color: white;
+}
+/* End-Price components form
+================================================== */
 /* Regex list
 ================================================== */
 .regex-list {

@@ -9,8 +9,10 @@ use App\Models\Floor;
 use App\Models\Investment;
 use App\Models\Property;
 use App\Models\PropertyPriceComponent;
+use App\Models\PropertyProperty;
 use App\Repositories\PropertyRepository;
 use App\Services\PropertyService;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class BuildingPropertyController extends Controller
@@ -119,6 +121,42 @@ class BuildingPropertyController extends Controller
 
     public function edit(Investment $investment, Building $building, Floor $floor, Property $property)
     {
+        $allOthers = Property::with('building', 'floor')
+            ->where('investment_id', $investment->id)
+            ->where('id', '<>', $property->id)
+            ->where('status', 1)
+            //->whereNull('client_id')
+            ->get();
+
+        $relatedIds = DB::table('property_property')->pluck('related_property_id')->toArray();
+
+        $visitor_others = $allOthers
+            ->where('type', '!=', 1)
+            ->whereNotIn('id', $relatedIds)
+            ->mapWithKeys(function ($item) {
+                return [
+                    $item->id => $item->name . ' (' . $item->building->name . ' - ' . $item->floor->name . ')'
+                ];
+            });
+
+        $all = Property::with(['floor', 'building'])
+            ->where('investment_id', $investment->id)
+            ->where('id', '<>', $property->id)
+            ->get()
+            ->mapWithKeys(function ($prop) {
+                $name = $prop->name . ' (' . $prop->floor->name . ')';
+
+                if ($prop->building && $prop->building->name) {
+                    $name .= ' - ' . $prop->building->name;
+                }
+
+                return [$prop->id => $name];
+            });
+
+        $related = $property->relatedProperties;
+        $isRelated = PropertyProperty::where('related_property_id', $property->id)->exists();
+
+
         // Explode attributes into an array
         $attributes = explode(',', $property->attributes ?? '');
 
@@ -137,6 +175,13 @@ class BuildingPropertyController extends Controller
             'attributes_bg' => $attributes_bg,
             'attributes_text' => $attributes_text,
             'attributes_content' => $attributes_content,
+
+            'others' => $allOthers->pluck('name', 'id'),
+            'visitor_others' => $visitor_others,
+            'all' => $all,
+            'related' => $related,
+            'isRelated' => $isRelated,
+
             'priceComponents' => PropertyPriceComponent::all()
         ]);
     }
@@ -153,6 +198,7 @@ class BuildingPropertyController extends Controller
         unset($validatedData['attributes_bg'], $validatedData['attributes_text'], $validatedData['attributes_content']);
 
         $this->repository->update($validatedData, $property);
+        $property->visitorRelatedProperties()->sync($request->validated()['visitor_related_ids'] ?? []);
 
         $types = $request->input('price-component-type', []);
         $categories = $request->input('price-component-category', []);
