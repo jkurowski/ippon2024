@@ -31,6 +31,7 @@ class Property extends Model
         'rooms',
         'area',
         'price',
+        'price_brutto',
         'vat',
         'price_30',
         'additional',
@@ -57,6 +58,7 @@ class Property extends Model
         'views',
         'active',
         'highlighted',
+        'promotion_price',
         'attributes',
         'visitor_related_type'
     ];
