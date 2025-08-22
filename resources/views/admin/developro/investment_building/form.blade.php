@@ -73,6 +73,16 @@
                             'file' => $entry->file,
                             'file_preview' => config('images.building_plan.preview_file_path')
                             ])
+
+                        <div class="row w-100 mb-4">
+                            @include('form-elements.html-input-file-pdf', [
+                                'label' => 'Prospekt informacyjny',
+                                'name' => 'file_brochure',
+                                'file' => $entry->file_brochure,
+                                'file_preview' => config('images.investment.brochure_file_path')
+                            ])
+                        </div>
+
                         @include('form-elements.textarea-fullwidth', ['label' => 'Opis', 'name' => 'content', 'value' => $entry->content, 'rows' => 11, 'class' => 'tinymce', 'required' => 1])
                     </div>
                 </div>

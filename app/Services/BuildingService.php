@@ -45,4 +45,25 @@ class BuildingService
             'file_webp' => $name_webp
         ]);
     }
+
+    //$this->service->uploadBrochure($request->name, $request->file('file_brochure'), $building, $investment->id);
+
+    public function uploadBrochure(string $title, UploadedFile $file, object $model, int $investment_id, bool $delete = false)
+    {
+        if ($delete && !empty($model->file_brochure)) {
+            $brochurePath = public_path('investment/brochure/' . $model->file_brochure);
+
+            if (File::exists($brochurePath) && File::isFile($brochurePath)) {
+                File::delete($brochurePath);
+            }
+        }
+
+        $name = date('His') . '_' . Str::slug($title) . '.' . $file->getClientOriginalExtension();
+
+        // Save file to public/investment/brochure
+        $file->move(public_path('investment/brochure'), $name);
+
+        // Update model
+        $model->update(['file_brochure' => $name]);
+    }
 }

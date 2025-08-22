@@ -58,6 +58,10 @@ class BuildingController extends Controller
             $this->service->uploadPlan($request->name, $request->file('file'), $building, $investment->id);
         }
 
+        if ($request->hasFile('file_brochure')) {
+            $this->service->uploadBrochure($request->name, $request->file('file_brochure'), $building, $investment->id);
+        }
+
         return redirect()->route('admin.developro.investment.buildings.index', $investment)->with('success', 'Budynek zapisany');
     }
 
@@ -79,6 +83,10 @@ class BuildingController extends Controller
 
         if ($request->hasFile('file')) {
             $this->service->uploadPlan($request->name, $request->file('file'), $building, $investment->id, true);
+        }
+
+        if ($request->hasFile('file_brochure')) {
+            $this->service->uploadBrochure($request->name, $request->file('file_brochure'), $building, $investment->id, true);
         }
 
         return redirect()->route('admin.developro.investment.buildings.index', $investment)->with('success', 'Budynek zaktualizowany');

@@ -20,6 +20,7 @@ class Building extends Model
         'html',
         'cords',
         'file',
+        'file_brochure',
         'file_webp',
         'meta_title',
         'meta_description',
