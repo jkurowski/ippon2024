@@ -178,20 +178,21 @@ button {
   opacity: 0.5;
 }
 .property .property-desc ul.price-component {
-  margin-top: 20px;
   background: #f7f5f1;
 }
 .property .property-desc ul.price-component li {
-  font-size: 14px;
-  padding: 7px 10px;
+  font-size: 12px;
+  padding: 5px 10px;
   display: flex;
   align-items: center;
   line-height: normal;
+  border-bottom: 1px solid #d7d2d0;
 }
 .property .property-desc ul.price-component li span {
   float: none;
   display: block;
   line-height: 1.1;
+  font-size: 16px;
 }
 .property .property-desc ul.price-component li .small {
   font-size: 11px;
@@ -203,12 +204,15 @@ button {
   padding: 0;
 }
 .property-related h5 {
-  font-size: 14px;
-  padding: 7px 10px;
+  font-size: 18px;
+  color: #000;
+  border-bottom: 1px solid #a9542b;
+  padding: 12px 0;
   display: flex;
   align-items: center;
   line-height: normal;
-  background: #f7f5f1;
+  font-weight: normal;
+  background: white;
   border-bottom: 0;
   margin-bottom: 0;
 }
