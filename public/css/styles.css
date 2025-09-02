@@ -172,10 +172,17 @@ button {
 }
 /* Historia cen
 ================================================== */
-.promotion-price h3,
-.promotion-price span {
+.property .property-desc ul li.promotion-price h3,
+.property .property-desc ul li.promotion-price span {
   text-decoration: line-through;
   opacity: 0.5;
+}
+.property .property-desc ul li.promotion-price span {
+  font-size: 14px;
+}
+.property .property-desc ul li.promotion-price b {
+  float: right;
+  margin-right: 10px;
 }
 .property .property-desc ul.price-component {
   background: #f7f5f1;

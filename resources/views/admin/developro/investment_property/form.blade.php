@@ -262,10 +262,10 @@
                                 <div class="row w-100 form-group">
                                     <div class="container">
                                         <div class="row">
-                                            <div class="col-4">
-                                                @include('form-elements.input-text', ['label' => 'Cena brutto', 'sublabel'=> 'Tylko liczby', 'name' => 'price', 'value' => $entry->price])
+                                            <div class="col-3">
+                                                @include('form-elements.input-text', ['label' => 'Cena brutto', 'sublabel'=> 'Tylko liczby', 'name' => 'price_brutto', 'value' => $entry->price_brutto])
                                             </div>
-                                            <div class="col-4">
+                                            <div class="col-3">
                                                 @include('form-elements.html-select', [
                                                     'label' => 'Stawka VAT',
                                                     'sublabel'=> 'Wybierz stawkę VAT',
@@ -277,7 +277,14 @@
                                                         '0' => '0%'
                                                     ]])
                                             </div>
-                                            <div class="col-4">
+                                            <div class="col-3">
+                                                @include('form-elements.html-select', ['label' => 'Promocja', 'sublabel'=> 'Dodatkowe oznaczenie na liście', 'name' => 'highlighted', 'selected' => $entry->highlighted, 'select' => [
+                                                  '0' => 'Nie',
+                                                  '1' => 'Tak'
+                                                  ]
+                                              ])
+                                            </div>
+                                            <div class="col-3">
                                                 @include('form-elements.input-text', ['label' => 'Cena promocyjna', 'sublabel'=> 'Tylko liczby', 'name' => 'promotion_price', 'value' => $entry->promotion_price])
                                             </div>
                                         </div>

@@ -261,7 +261,7 @@
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-4">
-                                                @include('form-elements.input-text', ['label' => 'Cena brutto', 'sublabel'=> 'Tylko liczby', 'name' => 'price', 'value' => $entry->price])
+                                                @include('form-elements.input-text', ['label' => 'Cena brutto', 'sublabel'=> 'Tylko liczby', 'name' => 'price_brutto', 'value' => $entry->price_brutto])
                                             </div>
                                             <div class="col-4">
                                                 @include('form-elements.html-select', [

@@ -31,20 +31,6 @@
                         <h4>{{ floorLevel($floor->number, false) }}</h4>
                         @auth
                             <div class="row">
-                                @if($property->price_brutto && $property->status == 1)
-                                    <div class="col-12 col-sm-6 @if($property->highlighted) promotion-price order-2 text-center text-sm-end @endif">
-                                        <h3 class="mt-3 mb-0"><b>@money($property->price_brutto) PLN</b></h3>
-                                        <span><i>@money(($property->price_brutto / $property->area)) / m<sup>2</sup></i></span>
-                                    </div>
-                                @endif
-                                @if($property->promotion_price && $property->price_brutto && $property->highlighted)
-                                    <div class="col-12 col-sm-6 @if($property->highlighted) order-1 text-center text-sm-start @endif">
-                                        <h3 class="mt-3 mb-0"><b>@money($property->promotion_price) PLN</b></h3>
-                                        <span><i>@money(($property->promotion_price / $property->area)) / m<sup>2</sup></i></span>
-                                    </div>
-                                @endif
-                            </div>
-                            <div class="row">
                                 <div class="col-12">
                                     @auth
                                         {{--                            @if($property->has_price_history)--}}
@@ -64,6 +50,20 @@
                         @endauth
                         <ul class="mb-0 list-unstyled mt-4">
                             @if($current_locale == 'pl')
+                                @if($property->price_brutto && $property->status == 1)
+                                    <li @if($property->highlighted) class="promotion-price" @endif>Cena:
+                                        <span>@money($property->price_brutto) PLN</span>
+                                        @if($property->promotion_price && $property->price_brutto && $property->highlighted)
+                                            <b>@money($property->promotion_price) PLN</b>
+                                        @endif
+                                    </li>
+                                    <li @if($property->highlighted) class="promotion-price" @endif>Cena za m<sup>2</sup>:
+                                        <span>@money(($property->price_brutto / $property->area)) PLN</span>
+                                        @if($property->promotion_price && $property->price_brutto && $property->highlighted)
+                                            <b>@money(($property->promotion_price / $property->area)) PLN</b>
+                                        @endif
+                                    </li>
+                                @endif
                                 @if($property->building)
                                     <li>Budynek: <span>{{ $property->building->name }}</span></li>
                                 @endif
