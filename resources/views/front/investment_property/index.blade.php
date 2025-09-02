@@ -50,20 +50,23 @@
                         @endauth
                         <ul class="mb-0 list-unstyled mt-4">
                             @if($current_locale == 'pl')
-                                @if($property->price_brutto && $property->status == 1)
-                                    <li @if($property->highlighted) class="promotion-price" @endif>Cena:
-                                        <span>@money($property->price_brutto) PLN</span>
-                                        @if($property->promotion_price && $property->price_brutto && $property->highlighted)
-                                            <b>@money($property->promotion_price) PLN</b>
-                                        @endif
-                                    </li>
-                                    <li @if($property->highlighted) class="promotion-price" @endif>Cena za m<sup>2</sup>:
-                                        <span>@money(($property->price_brutto / $property->area)) PLN</span>
-                                        @if($property->promotion_price && $property->price_brutto && $property->highlighted)
-                                            <b>@money(($property->promotion_price / $property->area)) PLN</b>
-                                        @endif
-                                    </li>
-                                @endif
+                                @auth
+                                    @if($property->price_brutto && $property->status == 1)
+                                        <li @if($property->highlighted) class="promotion-price" @endif>Cena:
+                                            <span>@money($property->price_brutto) PLN</span>
+                                            @if($property->promotion_price && $property->price_brutto && $property->highlighted)
+                                                <b>@money($property->promotion_price) PLN</b>
+                                            @endif
+                                        </li>
+                                        <li @if($property->highlighted) class="promotion-price" @endif>Cena za m<sup>2</sup>:
+                                            <span>@money(($property->price_brutto / $property->area)) PLN</span>
+                                            @if($property->promotion_price && $property->price_brutto && $property->highlighted)
+                                                <b>@money(($property->promotion_price / $property->area)) PLN</b>
+                                            @endif
+                                        </li>
+                                    @endif
+                                @endauth
+
                                 @if($property->building)
                                     <li>Budynek: <span>{{ $property->building->name }}</span></li>
                                 @endif
@@ -82,6 +85,23 @@
                                 @if($property->garage)<li>Garaż:<span>{{$property->garage}}</span></li>@endif
                                 @if($property->deadline)<li>Termin oddania: <span>{{ $property->deadline }}</span></li>@endif
                             @else
+                                @auth
+                                    @if($property->price_brutto && $property->status == 1)
+                                        <li @if($property->highlighted) class="promotion-price" @endif>Price:
+                                            <span>@money($property->price_brutto) PLN</span>
+                                            @if($property->promotion_price && $property->price_brutto && $property->highlighted)
+                                                <b>@money($property->promotion_price) PLN</b>
+                                            @endif
+                                        </li>
+                                        <li @if($property->highlighted) class="promotion-price" @endif>Price per sqm:
+                                            <span>@money(($property->price_brutto / $property->area)) PLN</span>
+                                            @if($property->promotion_price && $property->price_brutto && $property->highlighted)
+                                                <b>@money(($property->promotion_price / $property->area)) PLN</b>
+                                            @endif
+                                        </li>
+                                    @endif
+                                @endauth
+
                                 <li>Building: <span>B4.1</span></li>
                                 <li>Floor: <span> @if($floor->number == 0) Ground floor @else {{ $floor->number }} @endif</span></li>
                                 <li>Rooms: <span>{{ $property->rooms }}</span></li>
