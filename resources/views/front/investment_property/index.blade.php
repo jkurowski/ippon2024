@@ -254,8 +254,12 @@
                                 </div>
                             </div>
                         @endif
+                        @if($investment->file_brochure)
+                            <div class="mt-2 text-end prospekt">
+                                <a href="{{ asset('/investment/brochure/'.$investment->file_brochure) }}" target="_blank" class="link-body-primary small">Prospekt informacyjny</a>
+                            </div>
+                        @endif
                     </div>
-
                     <div class="pe-0 pe-xl-4">
                         <div class="row mt-5">
                             @if($property->file_pdf && $property->status <> 3)
