@@ -121,10 +121,13 @@ Route::group(['namespace' => 'Front', 'prefix' => '{locale?}', 'where' => ['loca
         Route::get('/osiedle-tempo/lokalizacja', 'Page\IndexController@tempolocation')->name('investment.tempo.location');
 
         Route::get('/{slug}/{page}', 'Page\IndexController@index')->name('investment.page');
-
-
-
     });
+
+    //Historia cen
+    Route::get('/historia/{property}', 'Developro\History\IndexController@show')->name('history');
+    Route::get('/przynalezne/{property}', 'Developro\History\IndexController@others')->name('others');
+    Route::get('/przynalezne/{property}/show', 'Developro\History\IndexController@other')->name('others.show');
+    Route::get('/przynalezne/{property}/table', 'Developro\History\IndexController@otherTable')->name('others.table');
 
     Route::get('{uri}', 'MenuController@index')->where('uri', '([A-Za-z0-9\-\/]+)');
 });

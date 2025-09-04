@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
@@ -133,6 +134,22 @@ class Property extends Model
     {
         return $this->belongsTo(Investment::class);
     }
+
+    public function priceHistory(): HasMany
+    {
+        return $this->hasMany(PropertyPrice::class)->orderBy('changed_at', 'desc');
+    }
+
+    public function lowestPriceLast30Days()
+    {
+        $dateFrom = Carbon::now()->subDays(30);
+
+        return $this->priceHistory()
+            ->where('changed_at', '>=', $dateFrom)
+            ->orderBy('price_brutto', 'asc')
+            ->first()?->price_brutto;  // zwr�ci lowest price albo null, je�li brak
+    }
+
 
     // Define an accessor for the URL
     public function getUrlAttribute()

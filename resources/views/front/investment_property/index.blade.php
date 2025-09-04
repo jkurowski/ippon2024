@@ -84,6 +84,76 @@
                                 @if($property->parking_space)<li>Miejsce postojowe:<span>{{$property->parking_space}}</span></li>@endif
                                 @if($property->garage)<li>Garaż:<span>{{$property->garage}}</span></li>@endif
                                 @if($property->deadline)<li>Termin oddania: <span>{{ $property->deadline }}</span></li>@endif
+                                @auth
+                                <li>
+                                    <div>
+                                        Komórki lokatorskie:<br><small>Już od 345 000 zł</small>
+                                    </div>
+                                    <span><button class="btn bttn bttn-sm mt-0">zobacz listę</button></span>
+                                    <div class="table-wrapper d-none w-100 mt-3">
+                                        <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>Nazwa</th>
+                                            <th class="text-center">Powierzchnia</th>
+                                            <th class="text-center">Cena</th>
+                                            <th></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($investment->propertiesByType(2) as $kl)
+                                            <tr>
+                                                <td valign="middle">{{ $kl->name }}</td>
+                                                <td class="text-center" valign="middle">{{ $kl->area }} m<sup>2</sup></td>
+                                                <td class="text-center" valign="middle">
+                                                    @money($kl->price_brutto)
+                                                </td>
+                                                <td valign="middle" align="right">
+{{--                                                    @if($kl->has_price_history)--}}
+                                                        <a href="#" class="btn-history" data-id="{{ $kl->id }}"><svg class="d-block" width="16px" height="16px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path fill="#000000" d="M10.6972,0.468433 C12.354,1.06178 13.7689,2.18485 14.7228,3.66372 C15.6766,5.14258 16.1163,6.89471 15.9736,8.64872 C15.8309,10.4027 15.1138,12.0607 13.9334,13.366 C12.753,14.6712 11.1752,15.5508 9.4443,15.8685 C7.71342,16.1863 5.92606,15.9244 4.35906,15.1235 C2.79206,14.3226 1.53287,13.0274 0.776508,11.4384 C0.539137,10.9397 0.750962,10.343 1.24963,10.1057 C1.74831,9.86829 2.34499,10.0801 2.58236,10.5788 C3.14963,11.7705 4.09402,12.742 5.26927,13.3426 C6.44452,13.9433 7.78504,14.1397 9.08321,13.9014 C10.3814,13.6631 11.5647,13.0034 12.45,12.0245 C13.3353,11.0456 13.8731,9.80205 13.9801,8.48654 C14.0872,7.17103 13.7574,5.85694 13.042,4.74779 C12.3266,3.63864 11.2655,2.79633 10.0229,2.35133 C8.78032,1.90632 7.42568,1.88344 6.1688,2.28624 C5.34644,2.54978 4.59596,2.98593 3.96459,3.5597 L4.69779,4.29291 C5.32776,4.92287 4.88159,6.00002 3.99069,6.00002 L1.77635684e-15,6.00002 L1.77635684e-15,2.00933 C1.77635684e-15,1.11842 1.07714,0.672258 1.70711,1.30222 L2.54916,2.14428 C3.40537,1.3473 4.43126,0.742882 5.55842,0.381656 C7.23428,-0.155411 9.04046,-0.124911 10.6972,0.468433 Z M8,4 C8.55229,4 9,4.44772 9,5 L9,7.58579 L10.7071,9.29289 C11.0976,9.68342 11.0976,10.3166 10.7071,10.7071 C10.3166,11.0976 9.68342,11.0976 9.29289,10.7071 L7,8.41421 L7,5 C7,4.44772 7.44772,4 8,4 Z"/></svg></a>
+{{--                                                    @endif--}}
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        Miejsca parkingowe:<br><small>Już od 345 000 zł</small>
+                                    </div>
+                                    <span><button class="btn bttn bttn-sm mt-0" href="">zobacz listę</button></span>
+                                    <div class="table-wrapper d-none w-100 mt-3">
+                                        <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>Nazwa</th>
+                                            <th class="text-center">Powierzchnia</th>
+                                            <th class="text-center">Cena</th>
+                                            <th></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($investment->propertiesByType(3) as $kl)
+                                            <tr>
+                                                <td valign="middle">{{ $kl->name }}</td>
+                                                <td class="text-center" valign="middle">{{ $kl->area }} m<sup>2</sup></td>
+                                                <td class="text-center" valign="middle">
+                                                    @money($kl->price_brutto)
+                                                </td>
+                                                <td valign="middle" align="right">
+                                                    {{--                                                    @if($kl->has_price_history)--}}
+                                                    <a href="#" class="btn-history" data-id="{{ $kl->id }}"><svg class="d-block" width="16px" height="16px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path fill="#000000" d="M10.6972,0.468433 C12.354,1.06178 13.7689,2.18485 14.7228,3.66372 C15.6766,5.14258 16.1163,6.89471 15.9736,8.64872 C15.8309,10.4027 15.1138,12.0607 13.9334,13.366 C12.753,14.6712 11.1752,15.5508 9.4443,15.8685 C7.71342,16.1863 5.92606,15.9244 4.35906,15.1235 C2.79206,14.3226 1.53287,13.0274 0.776508,11.4384 C0.539137,10.9397 0.750962,10.343 1.24963,10.1057 C1.74831,9.86829 2.34499,10.0801 2.58236,10.5788 C3.14963,11.7705 4.09402,12.742 5.26927,13.3426 C6.44452,13.9433 7.78504,14.1397 9.08321,13.9014 C10.3814,13.6631 11.5647,13.0034 12.45,12.0245 C13.3353,11.0456 13.8731,9.80205 13.9801,8.48654 C14.0872,7.17103 13.7574,5.85694 13.042,4.74779 C12.3266,3.63864 11.2655,2.79633 10.0229,2.35133 C8.78032,1.90632 7.42568,1.88344 6.1688,2.28624 C5.34644,2.54978 4.59596,2.98593 3.96459,3.5597 L4.69779,4.29291 C5.32776,4.92287 4.88159,6.00002 3.99069,6.00002 L1.77635684e-15,6.00002 L1.77635684e-15,2.00933 C1.77635684e-15,1.11842 1.07714,0.672258 1.70711,1.30222 L2.54916,2.14428 C3.40537,1.3473 4.43126,0.742882 5.55842,0.381656 C7.23428,-0.155411 9.04046,-0.124911 10.6972,0.468433 Z M8,4 C8.55229,4 9,4.44772 9,5 L9,7.58579 L10.7071,9.29289 C11.0976,9.68342 11.0976,10.3166 10.7071,10.7071 C10.3166,11.0976 9.68342,11.0976 9.29289,10.7071 L7,8.41421 L7,5 C7,4.44772 7.44772,4 8,4 Z"/></svg></a>
+                                                    {{--                                                    @endif--}}
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
+                                    </div>
+                                </li>
+                                @endauth
                             @else
                                 @auth
                                     @if($property->price_brutto && $property->status == 1)
@@ -122,101 +192,86 @@
                         @auth
                             <div class="row">
                                 <div class="col-12">
-                                    {{--                                    @auth--}}
-                                    {{--                                        @if ($property->status == 1 && $property->type == 1)--}}
-                                    <div class="property-related">
-                                        {{--                                                @if($property->relatedProperties->isNotEmpty())--}}
-                                        <h5>Przynależne powierzchnie:</h5>
-                                        <table class="table">
-                                            <thead>
-                                            <tr>
-                                                <th>Nazwa</th>
-                                                <th class="text-center">Powierzchnia</th>
-                                                <th class="text-center">Cena</th>
-                                                <th></th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            @forelse ($property->relatedProperties as $related)
-                                                <tr>
-                                                    <td valign="middle">{{ $related->name }}</td>
-                                                    <td class="text-center" valign="middle">{{ $related->area }} m<sup>2</sup></td>
-                                                    <td class="text-center" valign="middle">
-                                                        @money($related->price_brutto)
-                                                    </td>
-                                                    <td valign="middle" align="right">
-                                                        @if($related->has_price_history)
-                                                            <a href="#" class="btn-history" data-id="{{ $related->id }}"><svg class="d-block" width="16px" height="16px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path fill="#000000" d="M10.6972,0.468433 C12.354,1.06178 13.7689,2.18485 14.7228,3.66372 C15.6766,5.14258 16.1163,6.89471 15.9736,8.64872 C15.8309,10.4027 15.1138,12.0607 13.9334,13.366 C12.753,14.6712 11.1752,15.5508 9.4443,15.8685 C7.71342,16.1863 5.92606,15.9244 4.35906,15.1235 C2.79206,14.3226 1.53287,13.0274 0.776508,11.4384 C0.539137,10.9397 0.750962,10.343 1.24963,10.1057 C1.74831,9.86829 2.34499,10.0801 2.58236,10.5788 C3.14963,11.7705 4.09402,12.742 5.26927,13.3426 C6.44452,13.9433 7.78504,14.1397 9.08321,13.9014 C10.3814,13.6631 11.5647,13.0034 12.45,12.0245 C13.3353,11.0456 13.8731,9.80205 13.9801,8.48654 C14.0872,7.17103 13.7574,5.85694 13.042,4.74779 C12.3266,3.63864 11.2655,2.79633 10.0229,2.35133 C8.78032,1.90632 7.42568,1.88344 6.1688,2.28624 C5.34644,2.54978 4.59596,2.98593 3.96459,3.5597 L4.69779,4.29291 C5.32776,4.92287 4.88159,6.00002 3.99069,6.00002 L1.77635684e-15,6.00002 L1.77635684e-15,2.00933 C1.77635684e-15,1.11842 1.07714,0.672258 1.70711,1.30222 L2.54916,2.14428 C3.40537,1.3473 4.43126,0.742882 5.55842,0.381656 C7.23428,-0.155411 9.04046,-0.124911 10.6972,0.468433 Z M8,4 C8.55229,4 9,4.44772 9,5 L9,7.58579 L10.7071,9.29289 C11.0976,9.68342 11.0976,10.3166 10.7071,10.7071 C10.3166,11.0976 9.68342,11.0976 9.29289,10.7071 L7,8.41421 L7,5 C7,4.44772 7.44772,4 8,4 Z"/>
-                                                                </svg></a>
-                                                        @endif
-                                                    </td>
-                                                </tr>
-                                            @empty
-                                                {{-- Fake data example --}}
-                                                @foreach ([
-                                                    ['name' => 'Komórka lokatorska A1', 'area' => 45, 'price' => 250000, 'history' => true],
-                                                    ['name' => 'Miejsce postojowe', 'area' => 60, 'price' => 320000, 'history' => false],
-                                                    ['name' => 'Miejsce parkingowe', 'area' => 75, 'price' => 410000, 'history' => true],
-                                                ] as $fake)
+                                    @if ($property->status == 1 && $property->type == 1)
+                                        <div class="property-related">
+                                            @if($property->relatedProperties->isNotEmpty())
+                                                <h5>Przynależne powierzchnie:</h5>
+                                                <table class="table">
+                                                    <thead>
                                                     <tr>
-                                                        <td valign="middle">{{ $fake['name'] }}</td>
-                                                        <td class="text-center" valign="middle">{{ $fake['area'] }} m<sup>2</sup></td>
-                                                        <td class="text-center" valign="middle">
-                                                            @money($fake['price'])
-                                                        </td>
-                                                        <td valign="middle" align="right">
-                                                            <a href="#" class="btn-history" data-id=""><svg class="d-block" width="16px" height="16px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path fill="#000000" d="M10.6972,0.468433 C12.354,1.06178 13.7689,2.18485 14.7228,3.66372 C15.6766,5.14258 16.1163,6.89471 15.9736,8.64872 C15.8309,10.4027 15.1138,12.0607 13.9334,13.366 C12.753,14.6712 11.1752,15.5508 9.4443,15.8685 C7.71342,16.1863 5.92606,15.9244 4.35906,15.1235 C2.79206,14.3226 1.53287,13.0274 0.776508,11.4384 C0.539137,10.9397 0.750962,10.343 1.24963,10.1057 C1.74831,9.86829 2.34499,10.0801 2.58236,10.5788 C3.14963,11.7705 4.09402,12.742 5.26927,13.3426 C6.44452,13.9433 7.78504,14.1397 9.08321,13.9014 C10.3814,13.6631 11.5647,13.0034 12.45,12.0245 C13.3353,11.0456 13.8731,9.80205 13.9801,8.48654 C14.0872,7.17103 13.7574,5.85694 13.042,4.74779 C12.3266,3.63864 11.2655,2.79633 10.0229,2.35133 C8.78032,1.90632 7.42568,1.88344 6.1688,2.28624 C5.34644,2.54978 4.59596,2.98593 3.96459,3.5597 L4.69779,4.29291 C5.32776,4.92287 4.88159,6.00002 3.99069,6.00002 L1.77635684e-15,6.00002 L1.77635684e-15,2.00933 C1.77635684e-15,1.11842 1.07714,0.672258 1.70711,1.30222 L2.54916,2.14428 C3.40537,1.3473 4.43126,0.742882 5.55842,0.381656 C7.23428,-0.155411 9.04046,-0.124911 10.6972,0.468433 Z M8,4 C8.55229,4 9,4.44772 9,5 L9,7.58579 L10.7071,9.29289 C11.0976,9.68342 11.0976,10.3166 10.7071,10.7071 C10.3166,11.0976 9.68342,11.0976 9.29289,10.7071 L7,8.41421 L7,5 C7,4.44772 7.44772,4 8,4 Z"/>
-                                                                </svg></a>
-                                                        </td>
+                                                        <th>Nazwa</th>
+                                                        <th class="text-center">Powierzchnia</th>
+                                                        <th class="text-center">Cena</th>
+                                                        <th></th>
                                                     </tr>
-                                                @endforeach
-                                            @endforelse
-                                            </tbody>
-                                        </table>
-                                        {{--                                                @endif--}}
+                                                    </thead>
+                                                    <tbody>
+                                                    @foreach($property->relatedProperties as $related)
+                                                        <tr>
+                                                            <td valign="middle">{{ $related->name }}</td>
+                                                            <td class="text-center" valign="middle">{{ $related->area }} m<sup>2</sup></td>
+                                                            <td class="text-center" valign="middle">
+                                                                @money($related->price_brutto)
+                                                            </td>
+                                                            <td valign="middle" align="right">
+                                                                @if($related->has_price_history)
+                                                                    <a href="#" class="btn-history" data-id="{{ $related->id }}"><svg class="d-block" width="16px" height="16px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path fill="#000000" d="M10.6972,0.468433 C12.354,1.06178 13.7689,2.18485 14.7228,3.66372 C15.6766,5.14258 16.1163,6.89471 15.9736,8.64872 C15.8309,10.4027 15.1138,12.0607 13.9334,13.366 C12.753,14.6712 11.1752,15.5508 9.4443,15.8685 C7.71342,16.1863 5.92606,15.9244 4.35906,15.1235 C2.79206,14.3226 1.53287,13.0274 0.776508,11.4384 C0.539137,10.9397 0.750962,10.343 1.24963,10.1057 C1.74831,9.86829 2.34499,10.0801 2.58236,10.5788 C3.14963,11.7705 4.09402,12.742 5.26927,13.3426 C6.44452,13.9433 7.78504,14.1397 9.08321,13.9014 C10.3814,13.6631 11.5647,13.0034 12.45,12.0245 C13.3353,11.0456 13.8731,9.80205 13.9801,8.48654 C14.0872,7.17103 13.7574,5.85694 13.042,4.74779 C12.3266,3.63864 11.2655,2.79633 10.0229,2.35133 C8.78032,1.90632 7.42568,1.88344 6.1688,2.28624 C5.34644,2.54978 4.59596,2.98593 3.96459,3.5597 L4.69779,4.29291 C5.32776,4.92287 4.88159,6.00002 3.99069,6.00002 L1.77635684e-15,6.00002 L1.77635684e-15,2.00933 C1.77635684e-15,1.11842 1.07714,0.672258 1.70711,1.30222 L2.54916,2.14428 C3.40537,1.3473 4.43126,0.742882 5.55842,0.381656 C7.23428,-0.155411 9.04046,-0.124911 10.6972,0.468433 Z M8,4 C8.55229,4 9,4.44772 9,5 L9,7.58579 L10.7071,9.29289 C11.0976,9.68342 11.0976,10.3166 10.7071,10.7071 C10.3166,11.0976 9.68342,11.0976 9.29289,10.7071 L7,8.41421 L7,5 C7,4.44772 7.44772,4 8,4 Z"/>
+                                                                        </svg></a>
+                                                                @endif
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
+                                                    </tbody>
+                                                </table>
+                                            @endif
 
-                                        {{--                                                @if($property->visitor_related_type != 1)--}}
-                                        <div class="property-offer-check">
-                                            <p>Dodanie powierzchni dodatkowych służy jedynie orientacyjnej wycenie. Ostateczna oferta oraz warunki zakupu zostaną przedstawione przez przedstawiciela sprzedaży.</p>
-                                            <a href="#" class="btn bttn bttn-sm btn-offer mt-3" data-id="{{ $property->id }}">Dodaj do oferty</a>
-                                            <div id="offerModal"></div>
-                                            <table class="table d-none mt-3">
-                                                <thead>
-                                                <tr>
-                                                    <th>Nazwa</th>
-                                                    <th class="text-center">Powierzchnia</th>
-                                                    <th class="text-center">Cena</th>
-                                                    <th></th>
-                                                </tr>
-                                                </thead>
-                                                <tbody id="offerList"></tbody>
-                                            </table>
+                                            @auth
+                                                {{-- @if($property->visitor_related_type != 1) --}}
+                                                <div class="property-offer-check d-none">
+                                                    <p>Dodanie powierzchni dodatkowych służy jedynie orientacyjnej wycenie. Ostateczna oferta oraz warunki zakupu zostaną przedstawione przez przedstawiciela sprzedaży.</p>
+                                                    <a href="#" class="btn bttn bttn-sm btn-offer mt-3" data-id="{{ $property->id }}">Dodaj do oferty</a>
+                                                    <div id="offerModal"></div>
+                                                    <table class="table d-none mt-3">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>Nazwa</th>
+                                                            <th class="text-center">Powierzchnia</th>
+                                                            <th class="text-center">Cena</th>
+                                                            <th></th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody id="offerList"></tbody>
+                                                    </table>
+                                                </div>
+                                                {{-- @endif--}}
+                                            @endauth
                                         </div>
-                                        {{--                                                @endif--}}
-                                    </div>
-                                    @if($property->highlighted && $property->promotion_price_show)
-                                        <div class="property-summary fs-5 d-flex" data-totalprice="{{ ($property->promotion_price + $property->relatedProperties->sum('price_brutto')) }}">
-                                            Cena za całość: <span class="ms-auto"><b class="fw-bold" id="totalDisplay">@money(($property->promotion_price + $property->relatedProperties->sum('price_brutto')))</b></span>
-                                        </div>
-                                    @else
-                                        @if($property->price_brutto)
-                                            <div class="property-summary fs-5 d-flex" data-totalprice="{{ ($property->price_brutto + $property->relatedProperties->sum('price_brutto')) }}">
-                                                Cena za całość:
-                                                <span class="ms-auto">
-                                                        <b class="fw-bold" id="totalDisplay">
-                                                            @if($property->promotion_price && $property->price_brutto && $property->highlighted)
-                                                                @money(($property->promotion_price + $property->relatedProperties->sum('price_brutto')))
-                                                            @else
-                                                                @money(($property->price_brutto + $property->relatedProperties->sum('price_brutto')))
-                                                            @endif
-                                                        </b>
-                                                    </span>
+
+                                        @auth
+                                            <div class="d-none">
+                                                @if($property->highlighted && $property->promotion_price_show)
+                                                    <div class="property-summary fs-5 d-flex" data-totalprice="{{ ($property->promotion_price + $property->relatedProperties->sum('price_brutto')) }}">
+                                                        Cena za całość: <span class="ms-auto"><b class="fw-bold" id="totalDisplay">@money(($property->promotion_price + $property->relatedProperties->sum('price_brutto')))</b></span>
+                                                    </div>
+                                                @else
+                                                    @if($property->price_brutto)
+                                                        <div class="property-summary fs-5 d-flex" data-totalprice="{{ ($property->price_brutto + $property->relatedProperties->sum('price_brutto')) }}">
+                                                            Cena za całość:
+                                                            <span class="ms-auto">
+                                                            <b class="fw-bold" id="totalDisplay">
+                                                                @if($property->promotion_price && $property->price_brutto && $property->highlighted)
+                                                                    @money(($property->promotion_price + $property->relatedProperties->sum('price_brutto')))
+                                                                @else
+                                                                    @money(($property->price_brutto + $property->relatedProperties->sum('price_brutto')))
+                                                                @endif
+                                                            </b>
+                                                        </span>
+                                                        </div>
+                                                    @endif
+                                                @endif
                                             </div>
-                                        @endif
+                                        @endauth
                                     @endif
-                                    {{--                                        @endif--}}
-                                    {{--                                        <div class="mb-3"></div>--}}
-                                    {{--                                        @endauth--}}
                                 </div>
                             </div>
                             @if($property->priceComponents)
@@ -228,9 +283,9 @@
                                                     {{ $priceComponent->name }}
                                                     <span class="ms-auto text-end">
                                                     @if($priceComponent->pivot->value)
-                                                        <span><b>@money($priceComponent->pivot->value)</b></span>
-                                                    @endif
-                                                    <?php if ($priceComponent->pivot->category == 1) : ?>
+                                                            <span><b>@money($priceComponent->pivot->value)</b></span>
+                                                        @endif
+                                                            <?php if ($priceComponent->pivot->category == 1) : ?>
                                                         <span class="small">Obowiązkowy</span>
                                                     <?php elseif ($priceComponent->pivot->category == 2) : ?>
                                                         <span class="small">Opcjonalny</span>
@@ -242,7 +297,6 @@
                                             @endforeach
                                         </ul>
                                     </div>
-
                                 </div>
                             @endif
                         @endauth
@@ -272,57 +326,57 @@
                             @endif
 
                             @if($property->file_3d)
-                            <div class="col-12 col-md-6 mt-2 mt-md-0">
-                                <a href="{{ asset('/investment/property/pdf/'.$property->file_3d) }}" target="_blank" class="bttn bttn-slow w-100 justify-content-center ">@lang('website.property_3d')<i class="ms-4 las la-download"></i></a>
-                            </div>
+                                <div class="col-12 col-md-6 mt-2 mt-md-0">
+                                    <a href="{{ asset('/investment/property/pdf/'.$property->file_3d) }}" target="_blank" class="bttn bttn-slow w-100 justify-content-center ">@lang('website.property_3d')<i class="ms-4 las la-download"></i></a>
+                                </div>
                             @endif
 
                             @if($property->virtual_walk)
-                            <div class="col-12 col-md-6 mt-2">
-                                <button type="button" class="bttn bttn-slow w-100 justify-content-center" data-bs-toggle="modal" data-bs-target="#exampleModal">@lang('website.property_3d_walk')<i class="ms-4 las la-vr-cardboard"></i></button>
-                            </div>
+                                <div class="col-12 col-md-6 mt-2">
+                                    <button type="button" class="bttn bttn-slow w-100 justify-content-center" data-bs-toggle="modal" data-bs-target="#exampleModal">@lang('website.property_3d_walk')<i class="ms-4 las la-vr-cardboard"></i></button>
+                                </div>
 
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered modal-xl">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="exampleModalLabel">{{ $property->name }}</h1>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="ratio ratio-16x9">
-                                            <iframe frameborder="0" src="{{ $property->virtual_walk }}" allow="fullscreen" style="min-width: 100%; height: 100%"
-                                            ></iframe>
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered modal-xl">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">{{ $property->name }}</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="ratio ratio-16x9">
+                                                    <iframe frameborder="0" src="{{ $property->virtual_walk }}" allow="fullscreen" style="min-width: 100%; height: 100%"
+                                                    ></iframe>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                             @endif
 
                             @if($property->view_3d)
-                            <div class="col-12 col-md-6 mt-2">
-                                <button type="button" class="bttn bttn-slow w-100 justify-content-center" data-bs-toggle="modal" data-bs-target="#exampleModal2">Widok 3D<i class="ms-4 las la-cube"></i></button>
-                            </div>
+                                <div class="col-12 col-md-6 mt-2">
+                                    <button type="button" class="bttn bttn-slow w-100 justify-content-center" data-bs-toggle="modal" data-bs-target="#exampleModal2">Widok 3D<i class="ms-4 las la-cube"></i></button>
+                                </div>
 
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModal2Label" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered modal-xl">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="exampleModal2">{{ $property->name }}</h1>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="ratio ratio-16x9">
-                                            <iframe frameborder="0" src="{{ $property->view_3d }}" allow="fullscreen" style="min-width: 100%; height: 100%"
-                                            ></iframe>
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModal2Label" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered modal-xl">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModal2">{{ $property->name }}</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="ratio ratio-16x9">
+                                                    <iframe frameborder="0" src="{{ $property->view_3d }}" allow="fullscreen" style="min-width: 100%; height: 100%"
+                                                    ></iframe>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                             @endif
 
                             <div class="col-12 col-sm-6 mt-4">
@@ -343,9 +397,9 @@
                         </div>
                         <div class="col-12 col-sm-4">
                             @if($current_locale == 'pl')
-                            <a href="{{route('developro.floor', [$investment->slug, $floor, Str::slug($floor->name)])}}" class="bttn justify-content-center bttn-slow">Wróć do planu</a>
+                                <a href="{{route('developro.floor', [$investment->slug, $floor, Str::slug($floor->name)])}}" class="bttn justify-content-center bttn-slow">Wróć do planu</a>
                             @else
-                            <a href="{{route('developro.floor', [$investment->slug, $floor, Str::slug($floor->name)])}}" class="bttn justify-content-center bttn-slow">Return to the plan</a>
+                                <a href="{{route('developro.floor', [$investment->slug, $floor, Str::slug($floor->name)])}}" class="bttn justify-content-center bttn-slow">Return to the plan</a>
                             @endif
                         </div>
                         <div class="col-12 col-sm-4">
@@ -371,9 +425,9 @@
             <div class="row">
                 <div class="col-12 mt-0 mt-sm-5 pt-5">
                     @if($current_locale == 'pl')
-                    <h2 class="slow-header justify-content-center"><span class="rostemary">Mieszkania</span> <span class="abuget brown">Podobne</span></h2>
+                        <h2 class="slow-header justify-content-center"><span class="rostemary">Mieszkania</span> <span class="abuget brown">Podobne</span></h2>
                     @else
-                    <h2 class="slow-header justify-content-center"><span class="rostemary">Similar</span> <span class="abuget brown">Apartments</span></h2>
+                        <h2 class="slow-header justify-content-center"><span class="rostemary">Similar</span> <span class="abuget brown">Apartments</span></h2>
                     @endif
                 </div>
             </div>
@@ -422,8 +476,8 @@
             <div class="row">
                 <div class="col-12 text-center">
                     @if($current_locale == 'pl')
-                    <h2 class="slow-header justify-content-center"><span class="rostemary">Jesteś zainteresowany?</span> <span class="abuget brown">Masz pytania?</span></h2>
-                    <h2 class="slow-header justify-content-center"><span class="rostemary">Skontaktuj się z nami!</span></h2>
+                        <h2 class="slow-header justify-content-center"><span class="rostemary">Jesteś zainteresowany?</span> <span class="abuget brown">Masz pytania?</span></h2>
+                        <h2 class="slow-header justify-content-center"><span class="rostemary">Skontaktuj się z nami!</span></h2>
                     @else
                         <h2 class="slow-header justify-content-center"><span class="rostemary">Are you interested?</span> <span class="abuget brown">Have any questions?</span></h2>
                         <h2 class="slow-header justify-content-center"><span class="rostemary">Contact us!</span></h2>
@@ -444,20 +498,20 @@
                         <p>ul. Żelazna 4,</p>
                         <p>10-419 Olsztyn</p>
                         <p>&nbsp;</p>
-                            @if($current_locale == 'pl')
-                                <p>Godziny otwarcia:</p>
-                            @else
-                                <p>Opening hours:</p>
-                            @endif
+                        @if($current_locale == 'pl')
+                            <p>Godziny otwarcia:</p>
+                        @else
+                            <p>Opening hours:</p>
+                        @endif
                         <p>pn.-pt. 9:00 - 17:00</p>
                         <ul class="mb-0 list-unstyled icon-list-contact">
                             <li><img src="{{ asset('images/envelop-icon-svg.svg') }}" alt=""> <a href="mailto:mieszkania@ippon.group">mieszkania@ippon.group</a></li>
                         </ul>
-                            @if($current_locale == 'pl')
-                        <a href="https://maps.app.goo.gl/Sv3KkJU2Dpxm9gX87" class="bttn bttn-icon mt-5 bttn-slow" target="_blank">JAK DOJECHAĆ <i class="ms-3 las la-chevron-circle-right"></i></a>
-                            @else
-                        <a href="https://maps.app.goo.gl/Sv3KkJU2Dpxm9gX87" class="bttn bttn-icon mt-5 bttn-slow" target="_blank">HOW TO GET TO US <i class="ms-3 las la-chevron-circle-right"></i></a>
-                            @endif
+                        @if($current_locale == 'pl')
+                            <a href="https://maps.app.goo.gl/Sv3KkJU2Dpxm9gX87" class="bttn bttn-icon mt-5 bttn-slow" target="_blank">JAK DOJECHAĆ <i class="ms-3 las la-chevron-circle-right"></i></a>
+                        @else
+                            <a href="https://maps.app.goo.gl/Sv3KkJU2Dpxm9gX87" class="bttn bttn-icon mt-5 bttn-slow" target="_blank">HOW TO GET TO US <i class="ms-3 las la-chevron-circle-right"></i></a>
+                        @endif
                     </div>
                 </div>
                 <div class="col-12 col-xxl-8 order-1 order-xxl-2 mb-4 mb-xxl-0">
@@ -478,9 +532,9 @@
             <div class="row">
                 <div class="col-12 text-center m-4">
                     @if($current_locale == 'pl')
-                    <h2 class="slow-header justify-content-center"><span class="abuget brown">Masz pytania?</span><span class="rostemary">Napisz do nas</span></h2>
+                        <h2 class="slow-header justify-content-center"><span class="abuget brown">Masz pytania?</span><span class="rostemary">Napisz do nas</span></h2>
                     @else
-                    <h2 class="slow-header justify-content-center"><span class="abuget brown">Have more questions?</span><span class="rostemary">Write to us!</span></h2>
+                        <h2 class="slow-header justify-content-center"><span class="abuget brown">Have more questions?</span><span class="rostemary">Write to us!</span></h2>
                     @endif
                 </div>
             </div>
@@ -511,6 +565,77 @@
                     const count = response.count;
                     document.querySelector('#clipboardmessage').innerHTML = message;
                     document.querySelector('#clipboardcount').innerHTML = count;
+                }
+            });
+        });
+        document.addEventListener('click', async function (e) {
+            // History Button
+            const btnHistory = e.target.closest('.btn-history');
+            if (btnHistory) {
+                e.preventDefault();
+
+                // Disable button to prevent double click
+                btnHistory.disabled = true;
+
+                const modalHolder = document.getElementById('modalHistory');
+                const dataId = btnHistory.dataset.id;
+                modalHolder.innerHTML = '';
+
+                try {
+                    const url = `/pl/historia/${dataId}/`;
+
+                    const response = await fetch(url, {
+                        headers: {
+                            'X-Requested-With': 'XMLHttpRequest',
+                        }
+                    });
+
+                    if (!response.ok) {
+                        const errorText = await response.text();
+                        console.error('Błąd z backendu:', response.status, errorText);
+                        throw new Error(`Błąd sieci: ${response.status}`);
+                    }
+
+                    const html = await response.text();
+                    modalHolder.innerHTML = html;
+
+                    const modalElement = document.getElementById('portletModal');
+                    const bootstrapModal = new bootstrap.Modal(modalElement);
+                    bootstrapModal.show();
+
+                    modalElement.addEventListener('hidden.bs.modal', () => {
+                        modalHolder.innerHTML = '';
+                    }, { once: true });
+
+                } catch (error) {
+                    alert('Wystąpił błąd podczas ładowania historii.');
+                    console.error(error);
+                } finally {
+                    // Re-enable the button after request completes
+                    btnHistory.disabled = false;
+                }
+            }
+        });
+        document.querySelectorAll('.property-desc li button').forEach(button => {
+            button.addEventListener('click', function () {
+                const wrapper = this.closest('li').querySelector('.table-wrapper');
+
+                if (!wrapper) return;
+
+                if (wrapper.classList.contains('d-block')) {
+                    // already visible → hide it
+                    wrapper.classList.remove('d-block');
+                    wrapper.classList.add('d-none');
+                } else {
+                    // hide all other wrappers
+                    document.querySelectorAll('.property-desc li .table-wrapper').forEach(w => {
+                        w.classList.remove('d-block');
+                        w.classList.add('d-none');
+                    });
+
+                    // show only this one
+                    wrapper.classList.remove('d-none');
+                    wrapper.classList.add('d-block');
                 }
             });
         });

@@ -213,6 +213,11 @@ class Investment extends Model
         return $this->hasMany('App\Models\Property');
     }
 
+    public function propertiesByType(int $type)
+    {
+        return $this->properties()->where('type', $type)->where('status', 1)->get();
+    }
+
     /**
      * Get investment properties
      * @return HasMany
