@@ -92,7 +92,7 @@
                                     @if($kl_list->count() > 0)
                                     <li>
                                 <div>
-                                    Dostępne komórki lokatorskie:<br><small>Już od @money($minPrice)</small>
+                                    Dostępne komórki lokatorskie:<br><small>Już od <b>@money($minPrice)</b></small>
                                 </div>
                                 <span><button class="btn bttn bttn-sm mt-0">zobacz listę</button></span>
                                 <div class="table-wrapper d-none w-100 mt-3">
@@ -132,7 +132,7 @@
                                     @if($mp_list->count() > 0)
                                 <li>
                                     <div>
-                                        Dostępne miejsca parkingowe:<br><small>Już od @money($minMPPrice)</small>
+                                        Dostępne miejsca parkingowe:<br><small><b>Już od @money($minMPPrice)</b></small>
                                     </div>
                                     <span><button class="btn bttn bttn-sm mt-0" href="">zobacz listę</button></span>
                                     <div class="table-wrapper d-none w-100 mt-3">
