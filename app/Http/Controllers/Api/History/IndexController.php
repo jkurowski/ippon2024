@@ -100,7 +100,10 @@ class IndexController extends Controller
         }
 
         $today = now()->format('Y-m-d');
-        $investments = Investment::where('status', 1)->with(['company', 'salePoint'])->get();
+        $investments = Investment::where('status', 1)
+            ->where('id', '!=', 13) // wyklucza id 13
+            ->with(['company', 'salePoint'])
+            ->get();
         foreach ($investments as $investment) {
 
             $filename = "ceny-ofertowe-" . $investment->slug . "-" . $today . ".csv";
