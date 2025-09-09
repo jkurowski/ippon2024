@@ -322,7 +322,7 @@
                         @endif
 
                         @auth
-                            @if($property->building->file_brochure)
+                            @if($property->building && $property->building->file_brochure)
                                 <div class="mt-2 text-end prospekt">
                                     <a href="{{ asset('/investment/brochure/'.$property->building->file_brochure) }}" target="_blank" class="btn bttn bttn-sm mt-2">Prospekt informacyjny</a>
                                 </div>
