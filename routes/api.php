@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\History\IndexController as DatasetController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,4 +17,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::group(['prefix' => '/api'], function () {
+    Route::get('/xml/create', [DatasetController::class, 'createXml']);
+    Route::get('/xml/update', [DatasetController::class, 'updateXml']);
+    Route::get('/xml/showAsTable/{investment}', [DatasetController::class, 'showAsTable']);
+    Route::get('/xml/generate-md5', [DatasetController::class, 'generateMD5']);
 });
