@@ -192,6 +192,12 @@ class Property extends Model
             ->withPivot('value', 'value_m2', 'category')
             ->withTimestamps();
     }
+    public function priceComponentsForXML()
+    {
+        return $this->belongsToMany(PropertyPriceComponent::class, 'property_price_component_property')
+            ->withPivot('value', 'value_m2', 'category')
+            ->withTimestamps();
+    }
 
     // Historia cen
 

@@ -543,8 +543,10 @@ class IndexController extends Controller
                 'X',
 
                 //Wyszczególnienie rodzajów innych świadczeń pieniężnych, które nabywca zobowiązany jest spełnić na rzecz dewelopera w wykonaniu umowy przenoszącej własność
-                $property->priceComponents->isNotEmpty()
-                    ? $property->priceComponents->pluck('pivot.category')->map(fn($c) => $c ?? 'X')->implode(', ')
+                $property->priceComponentsForXML->isNotEmpty()
+                    ? $property->priceComponentsForXML
+                    ->map(fn($comp) => $comp->name ?? 'X')
+                    ->implode(', ')
                     : 'X',
 
                 //Wartość innych świadczeń pieniężnych, które nabywca zobowiązany jest spełnić na rzecz dewelopera w wykonaniu umowy przenoszącej własność [zł]
