@@ -303,19 +303,22 @@ class IndexController extends Controller
                     'X',
 
                     //Wyszczególnienie rodzajów innych świadczeń pieniężnych, które nabywca zobowiązany jest spełnić na rzecz dewelopera w wykonaniu umowy przenoszącej własność
-                    $property->priceComponents->isNotEmpty()
-                        ? $property->priceComponents->pluck('pivot.category')->map(fn($c) => $c ?? 'X')->implode(', ')
+                    $property->priceComponentsForXML->isNotEmpty()
+                        ? $property->priceComponentsForXML
+                        ->map(fn($comp) => $comp->name ?? 'X')
+                        ->implode(', ')
                         : 'X',
 
                     //Wartość innych świadczeń pieniężnych, które nabywca zobowiązany jest spełnić na rzecz dewelopera w wykonaniu umowy przenoszącej własność [zł]
-                    $property->priceComponents->isNotEmpty()
-                        ? $property->priceComponents->pluck('pivot.value')->map(fn($v) => $v ?? 'X')->implode(', ')
-                        : 'X',
-
+//                    $property->priceComponents->isNotEmpty()
+//                        ? $property->priceComponents->pluck('pivot.value')->map(fn($v) => $v ?? 'X')->implode(', ')
+//                        : 'X',
+                    'X',
                     //Data od której obowiązuje cena wartości innych świadczeń pieniężnych, które nabywca zobowiązany jest spełnić na rzecz dewelopera w wykonaniu umowy przenoszącej własność
-                    ($property->priceComponents->isNotEmpty())
-                        ? '09.09.2025'
-                        : 'X',
+//                    ($property->priceComponents->isNotEmpty())
+//                        ? '09.09.2025'
+//                        : 'X',
+                    'X',
 
                     //Adres strony internetowej, pod którym dostępny jest prospekt informacyjny
                     isset($investment->file_brochure)
