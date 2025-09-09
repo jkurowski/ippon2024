@@ -550,9 +550,10 @@ class IndexController extends Controller
                     : 'X',
 
                 //Wartość innych świadczeń pieniężnych, które nabywca zobowiązany jest spełnić na rzecz dewelopera w wykonaniu umowy przenoszącej własność [zł]
-                $property->priceComponents->isNotEmpty()
-                    ? $property->priceComponents->pluck('pivot.value')->map(fn($v) => $v ?? 'X')->implode(', ')
-                    : 'X',
+//                $property->priceComponents->isNotEmpty()
+//                    ? $property->priceComponents->pluck('pivot.value')->map(fn($v) => $v ?? 'X')->implode(', ')
+//                    : 'X',
+                'X',
 
                 //Data od której obowiązuje cena wartości innych świadczeń pieniężnych, które nabywca zobowiązany jest spełnić na rzecz dewelopera w wykonaniu umowy przenoszącej własność
                 'X',
