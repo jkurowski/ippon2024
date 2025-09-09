@@ -2,7 +2,7 @@
     <div class="container-fluid">
         @if($properties->count() > 0)
             @foreach($properties as $room)
-                @if($room->active <> 3)
+                @if($room->status <> 3)
                 <div class="row property-list-item">
                     @if($room->highlighted)
                     <div class="ribbon ribbon-top-left"><span>PROMOCJA</span></div>
