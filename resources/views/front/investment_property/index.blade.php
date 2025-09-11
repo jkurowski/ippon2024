@@ -84,7 +84,7 @@
                                 @if($property->parking_space)<li>Miejsce postojowe:<span>{{$property->parking_space}}</span></li>@endif
                                 @if($property->garage)<li>Garaż:<span>{{$property->garage}}</span></li>@endif
                                 @if($property->deadline)<li>Termin oddania: <span>{{ $property->deadline }}</span></li>@endif
-                                @auth
+
                                 @php
                                     $kl_list = $investment->propertiesByType(2);
                                     $minPrice = $kl_list->isNotEmpty() ? $kl_list->min('price_brutto') : null;
@@ -165,7 +165,6 @@
                                     </div>
                                 </li>
                                     @endif
-                                @endauth
                             @else
                                 @auth
                                     @if($property->price_brutto && $property->status == 1)
