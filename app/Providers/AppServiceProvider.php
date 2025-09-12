@@ -6,11 +6,13 @@ use App\Models\City;
 use App\Models\InvestmentArticles;
 use App\Models\InvestmentPage;
 use App\Models\News;
+use App\Models\Property;
 use App\Models\Rent;
 use App\Observers\CityObserver;
 use App\Observers\InvestmentArticleObserver;
 use App\Observers\InvestmentPageObserver;
 use App\Observers\NewsObserver;
+use App\Observers\PropertyObserver;
 use App\Observers\RentObserver;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
@@ -137,5 +139,7 @@ class AppServiceProvider extends ServiceProvider
         InvestmentArticles::observe(InvestmentArticleObserver::class);
         City::observe(CityObserver::class);
         Rent::observe(RentObserver::class);
+
+        Property::observe(PropertyObserver::class);
     }
 }

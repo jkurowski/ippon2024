@@ -59,11 +59,40 @@ class Property extends Model
         'meta_description',
         'views',
         'active',
+        'attributes',
+        'visitor_related_type',
+
+        // Historia ceny
         'highlighted',
         'promotion_price',
-        'attributes',
-        'visitor_related_type'
     ];
+
+    // Historia ceny
+    public function priceHistory(): HasMany
+    {
+        return $this->hasMany(PropertyPrice::class)->orderBy('changed_at', 'desc');
+    }
+    public function getHasPriceHistoryAttribute(): bool
+    {
+        return $this->priceHistory()->exists();
+    }
+
+    public function getCurrentPriceDateAttribute()
+    {
+        // Jeśli typ nieruchomości nie jest 1 → X
+        if ($this->type != 1) {
+            return 'X';
+        }
+
+        // Pobranie najnowszej ceny (bez wywoływania relacji jako metody)
+        $latestPrice = $this->priceHistory()->first();
+
+        if (!$latestPrice || !$latestPrice->changed_at) {
+            return 'X';
+        }
+
+        return $latestPrice->changed_at->toDateString();
+    }
 
     /**
      * Get next property
@@ -134,11 +163,6 @@ class Property extends Model
     public function investment()
     {
         return $this->belongsTo(Investment::class);
-    }
-
-    public function priceHistory(): HasMany
-    {
-        return $this->hasMany(PropertyPrice::class)->orderBy('changed_at', 'desc');
     }
 
     public function lowestPriceLast30Days()

@@ -67,14 +67,6 @@ class PropertyFormRequest extends FormRequest
             'number_order' => 'integer',
             'visitor_related_type' => 'integer',
             'visitor_related_ids' => 'required_if:visitor_related_type,3|array|min:1',
-            'highlighted' => [
-                'boolean',
-                function ($attribute, $value, $fail) {
-                    if ($this->boolean($attribute) && empty($this->input('promotion_price'))) {
-                        $fail('Pole "Cena promocyjna" jest wymagane, jeśli nieruchomość ma być promowana.');
-                    }
-                },
-            ],
             'homepage' => '',
             'type' => 'required|integer',
             'rooms' => 'required|integer',
@@ -105,6 +97,14 @@ class PropertyFormRequest extends FormRequest
             'attributes_text' => '',
             'attributes_content' => '',
             'active' => 'boolean',
+            'highlighted' => [
+                'boolean',
+                function ($attribute, $value, $fail) {
+                    if ($this->boolean($attribute) && empty($this->input('promotion_price'))) {
+                        $fail('Pole "Cena promocyjna" jest wymagane, jeśli nieruchomość ma być promowana.');
+                    }
+                },
+            ],
             'promotion_price' => [
                 'nullable',
                 'numeric',
