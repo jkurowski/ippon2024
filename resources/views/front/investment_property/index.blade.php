@@ -32,12 +32,8 @@
                         @auth
                             <div class="row">
                                 <div class="col-12">
-                                    @auth
-                                        {{--                            @if($property->has_price_history)--}}
-                                        <a href="#" class="btn bttn bttn-sm btn-history mt-3" data-id="{{ $property->id }}">Pokaż historię ceny</a>
-                                        <div id="modalHistory"></div>
-                                        {{--                            @endif--}}
-                                    @endauth
+                                    <a href="#" class="btn bttn bttn-sm btn-history mt-3" data-id="{{ $property->id }}">Pokaż historię ceny</a>
+                                    <div id="modalHistory"></div>
                                 </div>
                             </div>
 {{--                            @if($property->price)--}}
