@@ -29,28 +29,32 @@
                         {!! roomStatusBadge($property->status) !!}
                         <h1 class="text-uppercase">{{ $property->name }}</h1>
                         <h4>{{ floorLevel($floor->number, false) }}</h4>
-                        @auth
-                            <div class="row">
-                                <div class="col-12">
-                                    <a href="#" class="btn bttn bttn-sm btn-history mt-3" data-id="{{ $property->id }}">Pokaż historię ceny</a>
-                                    <div id="modalHistory"></div>
-                                </div>
+                        <div class="row">
+                            <div class="col-12">
+                                @if($property->has_price_history)
+                                <a href="#" class="btn bttn bttn-sm btn-history mt-3" data-id="{{ $property->id }}">Pokaż historię ceny</a>
+                                <div id="modalHistory"></div>
+                                @endif
                             </div>
+                        </div>
 {{--                            @if($property->price)--}}
 {{--                                <h3 class="mt-3 mb-0"><b>{{ $property->price }} PLN</b></h3>--}}
 {{--                                @if($property->price_30)--}}
 {{--                                    <span><i>( {{ $property->price_30 }} PLN - najniższa cena z 30 dni )</i></span>--}}
 {{--                                @endif--}}
 {{--                            @endif--}}
-                        @endauth
                         <ul class="mb-0 list-unstyled mt-4">
                             @if($current_locale == 'pl')
                                 @if($property->price_brutto && $property->status == 1)
                                     <li @if($property->highlighted) class="promotion-price" @endif>Cena:
+                                        @if(!$property->has_price_history)
+                                            <br><i style="display: contents;font-size:12px;">Cena nie zmieniła się od 11.09.2025 r.</i>
+                                        @endif
                                         <span>@money($property->price_brutto) PLN</span>
                                         @if($property->promotion_price && $property->price_brutto && $property->highlighted)
                                             <b>@money($property->promotion_price) PLN</b>
                                         @endif
+
                                     </li>
                                     <li @if($property->highlighted) class="promotion-price" @endif>Cena za m<sup>2</sup>:
                                         <span>@money(($property->price_brutto / $property->area)) PLN</span>
