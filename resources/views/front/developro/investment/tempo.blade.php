@@ -69,7 +69,7 @@
                         <p><strong>Nie trać czasu. Korzystaj z urok&oacute;w mieszkania blisko komunikacji miejskiej, punkt&oacute;w handlowych, restauracji i miejsc rozrywki.</strong></p>
                     </div>
                 </div>
-                <div class="col-8"><iframe title="YouTube video player" src="https://www.youtube.com/embed/5OleowHAz7k?si=r9R-kaftgCff8ZXu" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe></div>
+                <div class="col-8"><iframe title="YouTube video player" src="https://www.youtube.com/embed/186E3NV8Q6k" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe></div>
             </div>
 
             <div class="row mt-5 pt-5 justify-content-center">
