@@ -37,6 +37,15 @@
                                 style="border:0;margin:0;padding:0"
                         ></iframe>
                     </div>
+                @elseif($investment->id == 7)
+                    <div class="ratio ratio-16x9">
+                        <iframe
+                            frameborder="0" src="https://allinone.prod.resimo.io/ippon/tempo/#/?app=0&b=A&a=A66&lang=pl"
+                            allow="fullscreen"
+                            class="jeff-iframe"
+                            style="border:0;margin:0;padding:0"
+                        ></iframe>
+                    </div>
                 @else
                     @if($investment->plan)
                         <img src="{{ asset('/investment/plan/'.$investment->plan->file) }}" alt="{{$investment->name}}" id="invesmentplan" usemap="#invesmentplan">
