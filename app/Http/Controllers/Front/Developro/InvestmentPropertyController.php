@@ -32,7 +32,7 @@ class InvestmentPropertyController extends Controller
             ->where('properties.id', '!=', $property->id)
             ->where('properties.typ', 1)
             ->where('properties.status', 1)
-            ->where('properties.investment_id', '=?', $property->investment_id)
+            ->where('properties.investment_id', $property->investment_id)
             ->join('floors', 'properties.floor_id', '=', 'floors.id')
             ->inRandomOrder()
             ->limit(3)
