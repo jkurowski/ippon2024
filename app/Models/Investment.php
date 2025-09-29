@@ -158,6 +158,11 @@ class Investment extends Model
         return $this->hasMany('App\Models\Building');
     }
 
+    public function activeBuildings()
+    {
+        return $this->hasMany(Building::class)->where('active', 1);
+    }
+
     /**
      * Get investment floors
      * @return HasMany

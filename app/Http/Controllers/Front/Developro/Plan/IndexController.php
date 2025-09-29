@@ -30,7 +30,7 @@ class IndexController extends Controller
         $investmentPage = $investment->investmentPage()->where('slug', 'mieszkania')->first();
 
         if ($investment->type == 1) {
-            $buildings = $investment->buildings;
+            $buildings = $investment->activeBuildings;
 
             $investment_room = $investment->load([
                 'buildingRooms' => function ($query) use ($investment, $request) {
