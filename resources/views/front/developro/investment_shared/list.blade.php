@@ -16,17 +16,30 @@
                     </div>
 
                     <div class="col-12 col-lg-8 d-flex align-items-center ps-3 ps-lg-4">
-                        <div class="row w-auto w-lg-100">
-                            <div class="col-12">
-                                <h2 class="poppins">
+                        <div class="row w-100 m-0 h-100">
+                            <div class="col-6">
+                                <h2 class="poppins mb-0">
                                     @if($current_locale == 'pl') Mieszkanie {{$room->number}} @else Apartment {{$room->number}} @endif
                                 </h2>
+                                <div>
+                                    @if($room->price_brutto && $room->status == 1 && !$room->highlighted)
+                                        <span class="fs-4 normal-price"><b>@money($room->price_brutto)</b></span>
+                                        <span class="small ms-2 normal-price">(@money(($room->price_brutto / $room->area)) / m<sup>2</sup>)</span>
+                                    @endif
+                                    @if($room->highlighted && $room->promotion_price && $room->price_brutto && $room->status == 1)
+                                        <span class="fs-4 promotion-price"><b>@money($room->promotion_price)</b></span>
+                                        <span class="small ms-2 promotion-price">(@money(($room->promotion_price / $room->area)) / m<sup>2</sup>)</span>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="col-6 d-flex align-items-center justify-content-end col-list-price">
+
                             </div>
                             <div class="col-12">
-                                <div class="row">
-                                    <div class="col-12 @if($room->additional) col-lg-6 @endif">
+                                <div class="row m-0 h-100 align-items-end pb-3">
+                                    <div class="col-12 col-lg-6">
                                         <div class="row">
-                                            <div class="col-12 col-sm-4 property-list-item-stat mb-3 mb-lg-0">
+                                            <div class="col-12 col-sm-4 property-list-item-stat mb-3 mb-lg-0 ps-0">
                                                 <img src="{{ asset('/images/floor-icon.svg') }}" alt="Ikonka piętra" class="me-3"> @lang('website.select-option-floor') {{ isset($room->floor_number) ? $room->floor_number : $room->floor->number }}
                                             </div>
                                             <div class="col-12 col-sm-4 property-list-item-stat mb-3 mb-lg-0">
@@ -42,19 +55,19 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-12 col-lg-6">
+                                    <div class="col-12 col-lg-6 pe-0">
                                         @if($room->additional)
-                                        @php
-                                            $atutyArray = json_decode($room->additional);
-                                        @endphp
+                                            @php
+                                                $atutyArray = json_decode($room->additional);
+                                            @endphp
 
-                                        <div class="property-list-item-option">
-                                            @for($i = 1; $i <= 6; $i++)
-                                                @if(in_array($i, $atutyArray))
-                                                    <span class="option-{{ $i }}" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{{ toolTip($i) }}"></span>
-                                                @endif
-                                            @endfor
-                                        </div>
+                                            <div class="property-list-item-option">
+                                                @for($i = 1; $i <= 6; $i++)
+                                                    @if(in_array($i, $atutyArray))
+                                                        <span class="option-{{ $i }}" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{{ toolTip($i) }}"></span>
+                                                    @endif
+                                                @endfor
+                                            </div>
                                         @endif
                                     </div>
                                 </div>
@@ -62,7 +75,7 @@
                         </div>
                     </div>
 
-                    <div class="col-12 col-lg-2 d-flex align-items-center">
+                    <div class="col-12 col-lg-2 d-flex align-items-end pb-3">
                         {!! roomStatusBadge($room->status) !!}
                         @if(Route::currentRouteName() === 'clipboard.index')
                             <button id="addToFav" class="bttn mt-3" data-id="{{$room->id}}"><i class="lar la-trash-alt me-3"></i> USUŃ ZE SCHOWKA</button>

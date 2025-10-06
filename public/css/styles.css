@@ -172,6 +172,12 @@ button {
 }
 /* Historia cen
 ================================================== */
+span.promotion-price {
+  color: #e80909;
+}
+span.normal-price {
+  color: var(--main-color-gold);
+}
 .property .property-desc ul li.promotion-price h3,
 .property .property-desc ul li.promotion-price span {
   text-decoration: line-through;
@@ -1290,7 +1296,7 @@ div[class*='col-'].slick-slide {
   color: #433F20 !important;
 }
 #roomsList h2 {
-  font-size: 23px;
+  font-size: 28px;
   margin: 0 0 20px 0;
   line-height: normal;
   font-weight: 600;
@@ -1343,6 +1349,9 @@ div[class*='col-'].slick-slide {
 #roomsList .badge.room-list-status-4 {
   color: #e17f00;
 }
+.col-list-price {
+  padding-bottom: 18px;
+}
 .property-list-item-option {
   display: flex;
   justify-content: end;
@@ -1352,7 +1361,8 @@ div[class*='col-'].slick-slide {
   height: 36px;
   background-image: url("../images/slow-stats.png");
   background-repeat: no-repeat;
-  margin-left: 30px;
+  margin-left: 5px;
+  scale: 0.6;
 }
 .property-list-item-option .option-1 {
   width: 36px;
@@ -1363,7 +1373,7 @@ div[class*='col-'].slick-slide {
   background-position: -36px 0;
 }
 .property-list-item-option .option-3 {
-  width: 37px;
+  width: 36px;
   background-position: -83px 0;
 }
 .property-list-item-option .option-4 {
