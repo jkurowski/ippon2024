@@ -99,7 +99,7 @@
                             <button id="addToFav" class="bttn mt-3" data-id="{{$room->id}}"><i class="lar la-trash-alt me-3"></i> USUŃ ZE SCHOWKA</button>
                         @else
                         <a href="{{ route('developro.property', [$investment->slug, $room, Str::slug($room->name), floorLevel($room->floor_number, true), number2RoomsName($room->rooms, true), round(floatval($room->area), 2).'-m2']) }}" class="bttn bttn-icon">
-                            @if($current_locale == 'pl') Zobacz więcej {{$room->number}} @else See more details {{$room->number}} @endif
+                            @if($current_locale == 'pl') Zobacz więcej @else See more details @endif
                             <i class="ms-4 las la-file"></i></a>
                         @endif
                     </div>
