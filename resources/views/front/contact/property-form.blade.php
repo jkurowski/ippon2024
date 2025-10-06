@@ -12,7 +12,7 @@
                         {{ session('error') }}
                     </div>
                 @endif
-                <form method="post" id="contact-form" action="{{ route('contact.property', ['slug' => $investment->slug, 'property' => $room]) }}" class="validateForm">
+                <form method="post" id="contact-form" action="{{ route('contact.property', ['slug' => $investment->slug, 'property' => $property]) }}" class="validateForm">
                     {{ csrf_field() }}
                     <div class="row">
                         <div class="col-12 mb-4 mb-md-0 col-md-4 form-input">

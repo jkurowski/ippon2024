@@ -551,7 +551,7 @@
             </div>
         </div>
 
-        @include('front.contact.property-form', [ 'page_name' => $investment->name .' - '. $property->name, 'investment' => $investment, 'property' => $room ])
+        @include('front.contact.property-form', [ 'page_name' => $investment->name .' - '. $property->name, 'investment' => $investment, 'property' => $property ])
     </div>
 @endsection
 @push('scripts')
