@@ -27,7 +27,7 @@
 
                     <div class="col-12 col-lg-8 d-flex align-items-center ps-3 ps-lg-4">
                         <div class="row w-100 m-0 h-100">
-                            <div class="col-6">
+                            <div class="col-12">
                                 <h2 class="poppins mb-0">
                                     @if($room->type == 1)
                                         @if($current_locale == 'pl') Mieszkanie {{$room->number}} @else Apartment {{$room->number}} @endif
@@ -50,12 +50,9 @@
                                     @endif
                                 </div>
                             </div>
-                            <div class="col-6 d-flex align-items-center justify-content-end col-list-price">
-
-                            </div>
                             <div class="col-12">
                                 <div class="row m-0 h-100 align-items-end pb-3">
-                                    <div class="col-12 col-lg-6">
+                                    <div class="col-12 col-lg-7">
                                         <div class="row">
                                             <div class="col-12 col-sm-4 property-list-item-stat mb-3 mb-lg-0 ps-0">
                                                 <img src="{{ asset('/images/floor-icon.svg') }}" alt="Ikonka piętra" class="me-3"> @lang('website.select-option-floor') {{ isset($room->floor_number) ? $room->floor_number : $room->floor->number }}
@@ -73,7 +70,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-12 col-lg-6 pe-0">
+                                    <div class="col-12 col-lg-5 pe-0">
                                         @if($room->additional)
                                             @php
                                                 $atutyArray = json_decode($room->additional);
