@@ -26,7 +26,7 @@
                         <a href="#" class="bttn bttn-icon mt-3 mt-sm-5 bttn-tempo">Zobacz mieszkania <i class="ms-3 las la-chevron-circle-right"></i></a>
                     </div>
                 </div>
-                <div class="col-7"><img src="https://placehold.co/930x690" alt="" /></div>
+                <div class="col-7"><img src="{{ asset('uploads/files/tempo/wizualizacja-budynku-osiedle-tempo.jpg') }}" width="930" height="581" alt="" /></div>
             </div>
 
             <div class="row flex-row-reverse mt-5 pt-5">
@@ -179,7 +179,7 @@
                         <p>Klatki schodowe w naszym budynku zostały zaprojektowane z dbałością o każdy detal. Ich <b>nowoczesna aranżacja</b> wpływa nie tylko na estetykę przestrzeni wspólnych, ale również na codzienny komfort mieszkańców. Użyliśmy trwałych, <b>wysokiej jakości materiałów</b> oraz dopasowanego oświetlenia, które podkreśla elegancki charakter wnętrza. Dla większej wygody i sprawnej komunikacji w budynku dostępne będą aż dwie windy, co pozwoli płynnie obsługiwać wszystkie piętra.</p>
                     </div>
                 </div>
-                <div class="col-7"><img src="https://placehold.co/930x690" alt="" /></div>
+                <div class="col-7"><img src="{{ asset('uploads/files/tempo/wizualizacja-klatka-schodowa-2-osiedle-tempo.jpg') }}" width="930" height="651" alt="" /></div>
             </div>
 
             <div class="row flex-row-reverse mt-5 pt-5">
@@ -202,7 +202,7 @@
                         <a href="#" class="bttn bttn-icon mt-3 mt-sm-5 bttn-tempo">Zobacz mieszkania <i class="ms-3 las la-chevron-circle-right"></i></a>
                     </div>
                 </div>
-                <div class="col-7"><img src="https://placehold.co/930x690" alt="" /></div>
+                <div class="col-7"><img src="{{ asset('uploads/files/tempo/wizualizacja-klatka-schodowa-osiedle-tempo.jpg') }}" width="930" height="651" alt="" /></div>
             </div>
 
             <div class="row flex-row-reverse mt-5 pt-5">

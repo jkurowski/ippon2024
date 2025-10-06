@@ -194,15 +194,15 @@
                                 <p><strong>Nie trać czasu. Korzystaj z urok&oacute;w mieszkania blisko komunikacji miejskiej, punkt&oacute;w handlowych, restauracji i miejsc rozrywki.</strong></p>
                             </div>
                         </div>
-                        <div class="col-8"><iframe title="YouTube video player" src="https://www.youtube.com/embed/5OleowHAz7k?si=r9R-kaftgCff8ZXu" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe></div>
+                        <div class="col-8"><iframe title="YouTube video player" src="https://www.youtube.com/embed/186E3NV8Q6k" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe></div>
                     </div>
                     <div class="row mt-5">
                         <div class="col-12 text-center">
                             <h2>#w<span style="color: #e03e2d;">Tempie</span>Miasta</h2>
                         </div>
-                        <div class="col-4"><img src="https://placehold.co/520x720" alt="" /></div>
-                        <div class="col-4"><img src="https://placehold.co/520x720" alt="" /></div>
-                        <div class="col-4"><img src="https://placehold.co/520x720" alt="" /></div>
+                        <div class="col-4"><img src="{{ asset('uploads/files/tempo/osiedle-tempo-lokalizacja-1.jpg') }}" alt="Wizualizacja osiedle Tempo" width="516" height="810" /></div>
+                        <div class="col-4"><img src="{{ asset('uploads/files/tempo/osiedle-tempo-lokalizacja-2.jpg') }}" alt="Wizualizacja osiedle Tempo" width="516" height="810" /></div>
+                        <div class="col-4"><img src="{{ asset('uploads/files/tempo/osiedle-tempo-lokalizacja-3.jpg') }}" alt="Wizualizacja osiedle Tempo" width="516" height="810" /></div>
                     </div>
                 </div>
             </div>
