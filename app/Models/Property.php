@@ -177,11 +177,11 @@ class Property extends Model
 
 
     // Define an accessor for the URL
-    public function getUrlAttribute()
-    {
-        $investmentSlug = $this->investment->slug ?? '';
-        return "/inwestycje/i/{$investmentSlug}/pietro/{$this->floor_id}/m/{$this->id}";
-    }
+//    public function getUrlAttribute()
+//    {
+//        $investmentSlug = $this->investment->slug ?? '';
+//        return "/inwestycje/i/{$investmentSlug}/pietro/{$this->floor_id}/m/{$this->id}";
+//    }
 
 
     /**

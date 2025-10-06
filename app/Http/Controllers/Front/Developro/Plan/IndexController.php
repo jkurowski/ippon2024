@@ -11,6 +11,7 @@ use App\Models\RodoRules;
 use App\Models\RodoSettings;
 use App\Repositories\InvestmentRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class IndexController extends Controller
 {
@@ -169,11 +170,10 @@ class IndexController extends Controller
     public function json($language, $slug)
     {
         $investment = $this->repository->findBySlug($slug);
-
         $building = request()->query('building');
 
-        $properties = Property::with('investment:id,name')
-            ->select('id', 'name', 'investment_id', 'number')
+        $properties = Property::with('investment:id,name,slug', 'floor:id,number')
+            ->select('id', 'name', 'investment_id', 'number', 'rooms', 'area', 'floor_id')
             ->where('investment_id', $investment->id);
 
         if ($building) {
@@ -181,6 +181,26 @@ class IndexController extends Controller
         }
 
         $properties = $properties->get()->makeHidden(['investment_id']);
+
+        $properties->transform(function ($property) use ($investment) {
+            $slug = $investment->slug ?? 'brak-slugu';
+            $propertyId = $property->id ?? 0;
+            $propertySlug = Str::slug($property->name ?? 'mieszkanie');
+            $floor = floorLevel($property->floor->number ?? $property->floor_number ?? 0, true) ?: 'parter';
+            $rooms = number2RoomsName($property->rooms ?? 1, true) ?: '1-pokoj';
+            $area = $property->area ? round(floatval($property->area), 2) . '-m2' : '0-m2';
+
+            $property->url = route('developro.property', [
+                $slug,
+                $propertyId,
+                $propertySlug,
+                $floor,
+                $rooms,
+                $area,
+            ]);
+
+            return $property->makeHidden(['investment_id']);
+        });
 
         return response()->json($properties);
     }

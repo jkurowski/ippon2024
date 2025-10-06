@@ -79,7 +79,6 @@ Route::group([
     Route::group(['namespace' => 'Rodo', 'prefix' => '/rodo', 'as' => 'rodo.'], function () {
 
         Route::resources([
-            'clients' => 'ClientController',
             'rules' => 'RulesController',
             'settings' => 'SettingsController',
         ]);
@@ -107,14 +106,6 @@ Route::group([
 
         // admin.crm.clients.create
         Route::group(['namespace' => 'Client','prefix'=>'/clients', 'as' => 'clients.'], function () {
-
-            Route::get('/', 'IndexController@index')->name('index');
-            Route::get('/datatable', 'IndexController@datatable')->name('datatable');
-            Route::get('/create', 'IndexController@create')->name('create');
-            Route::get('/{client}', 'IndexController@show')->name('show');
-            Route::put('/{client}', 'IndexController@update')->name('update');
-
-            Route::get('{client}/calendar', 'CalendarController@index')->name('calendar');
             Route::get('{client}/rodo', 'RodoController@show')->name('rodo');
 
             // Client chat
