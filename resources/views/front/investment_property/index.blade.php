@@ -285,7 +285,7 @@
                         @if($property->priceComponents)
                             <div class="row">
                                 <div class="col-12">
-                                    <ul class="price-component mb-0 list-unstyled">
+                                    <ul class="price-component mb-0 list-unstyled d-none">
                                         @foreach($property->priceComponents as $priceComponent)
                                             <li>
                                                 {{ $priceComponent->name }}
@@ -304,6 +304,7 @@
                                             </li>
                                         @endforeach
                                     </ul>
+                                    <span><button class="btn bttn bttn-xs mt-2 toggle-list" href="">Lista składników ceny</button></span>
                                 </div>
                             </div>
                         @endif
@@ -626,6 +627,24 @@
                 }
             }
         });
+
+        document.addEventListener('click', function(e) {
+            const toggleBtn = e.target.closest('.toggle-list');
+            if (toggleBtn) {
+                const priceList = toggleBtn.closest('.col-12').querySelector('.price-component');
+                if (priceList) {
+                    // toggle klasy Bootstrap
+                    if (priceList.classList.contains('d-none')) {
+                        priceList.classList.remove('d-none');
+                        priceList.classList.add('d-block');
+                    } else {
+                        priceList.classList.remove('d-block');
+                        priceList.classList.add('d-none');
+                    }
+                }
+            }
+        });
+
         document.querySelectorAll('.property-desc li button').forEach(button => {
             button.addEventListener('click', function () {
                 const wrapper = this.closest('li').querySelector('.table-wrapper');
