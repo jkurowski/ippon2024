@@ -18,6 +18,9 @@
                                     @if($room->type == 2)
                                         @if($current_locale == 'pl') Komórka lokatorska {{$room->number}} @else Storage room {{$room->number}} @endif
                                     @endif
+                                    @if($room->type == 3)
+                                        @if($current_locale == 'pl') Miejsce parkingowe {{$room->number}} @else Parking {{$room->number}} @endif
+                                    @endif
                                 ">
                             </picture>
                     </div>
@@ -31,6 +34,9 @@
                                     @endif
                                     @if($room->type == 2)
                                         @if($current_locale == 'pl') Komórka lokatorska {{$room->number}} @else Storage room {{$room->number}} @endif
+                                    @endif
+                                    @if($room->type == 3)
+                                        @if($current_locale == 'pl') Miejsce parkingowe {{$room->number}} @else Parking space {{$room->number}} @endif
                                     @endif
                                 </h2>
                                 <div>
