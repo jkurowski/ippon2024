@@ -11,7 +11,14 @@
                             <picture>
                                 <source type="image/webp" srcset="/investment/property/list/webp/{{$room->file_webp}}">
                                 <source type="image/jpeg" srcset="/investment/property/list/{{$room->file}}">
-                                <img src="/investment/property/list/{{$room->file}}" alt="@if($current_locale == 'pl') Mieszkanie {{$room->number}} @else Apartment {{$room->number}} @endif">
+                                <img src="/investment/property/list/{{$room->file}}" alt="
+                                    @if($room->type == 1)
+                                        @if($current_locale == 'pl') Mieszkanie {{$room->number}} @else Apartment {{$room->number}} @endif
+                                    @endif
+                                    @if($room->type == 2)
+                                        @if($current_locale == 'pl') Komórka lokatorska {{$room->number}} @else Storage room {{$room->number}} @endif
+                                    @endif
+                                ">
                             </picture>
                     </div>
 
