@@ -19,7 +19,12 @@
                         <div class="row w-100 m-0 h-100">
                             <div class="col-6">
                                 <h2 class="poppins mb-0">
-                                    @if($current_locale == 'pl') Mieszkanie {{$room->number}} @else Apartment {{$room->number}} @endif
+                                    @if($room->type == 1)
+                                        @if($current_locale == 'pl') Mieszkanie {{$room->number}} @else Apartment {{$room->number}} @endif
+                                    @endif
+                                    @if($room->type == 2)
+                                        @if($current_locale == 'pl') Komórka lokatorska {{$room->number}} @else Storage room {{$room->number}} @endif
+                                    @endif
                                 </h2>
                                 <div>
                                     @if($room->price_brutto && $room->status == 1 && !$room->highlighted)
