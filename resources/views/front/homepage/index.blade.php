@@ -102,6 +102,7 @@
                 @endif
             </div>
         </div>
+
         <div class="row left-right flex-row-reverse">
             <div data-aos="fade-left" data-aos-offset="400" data-aos-delay="0" class="order-2 order-xl-1 col-12 col-xl-6 d-flex align-items-center">
                 @if($current_locale == 'pl')
@@ -172,8 +173,6 @@
                     </div>
                 @endif
             </div>
-
-
             <div data-aos="fade-right" data-aos-offset="400" data-aos-delay="0" class="mb-4 mb-xl-0 order-1 order-xl-2 col-12 col-xl-6">
                 <div class="invest-item-thumb">
                     <span class="img-badge">{{ investmentStatus(1) }}</span>
@@ -261,6 +260,84 @@
         </div>
 
         <div class="row left-right flex-row-reverse">
+            <div data-aos="fade-right" data-aos-offset="400" data-aos-delay="0" class="order-2 order-xl-1 col-12 col-xl-6 d-flex align-items-center">
+                @if($current_locale == 'pl')
+                    <div class="left-right-text current-item">
+                        <h2 class="mb-0"><a href="/pl/i/osiedle-slow">OSIEDLE SLOW – III etap</a></h2>
+                        <div class="invest-item-city">Olsztyn, ul. Kordeckiego</div>
+                        <p>W sprzedaży III etap osiedla w dzielnicy Gutkowo w Olsztynie. Kameralny budynek będzie liczył 39 komfortowych mieszkań z windą, zaprojektowanych z myślą o wygodzie i harmonii życia. Dla mieszkańców powstaną wyjątkowe strefy relaksu – przestrzeń do jogi oraz boisko wielofunkcyjne, sprzyjające aktywności i odpoczynkowi.</p>
+                        <div class="row mt-3 mt-sm-5">
+                            <div class="col-3">
+                                <div class="current-stat text-center">
+                                    <span>39</span>
+                                    ilość mieszkań
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="current-stat text-center">
+                                    <span>2</span>
+                                    liczba pięter
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="current-stat text-center">
+                                    <span>35-56 m<sup>2</sup></span>
+                                    powierzchnia
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="current-stat text-center">
+                                    <span>Q3 2027</span>
+                                    termin oddania
+                                </div>
+                            </div>
+                        </div>
+                        <a href="/pl/i/osiedle-slow" class="bttn bttn-icon mt-3 mt-sm-5">ZOBACZ MIESZKANIA <i class="ms-3 las la-chevron-circle-right"></i></a>
+                    </div>
+                @else
+                    <div class="left-right-text current-item">
+                        <h2 class="mb-0"><a href="/en/i/osiedle-slow">OSIEDLE SLOW – III etap</a></h2>
+                        <div class="invest-item-city">Olsztyn, ul. Kordeckiego</div>
+                        <p>W sprzedaży III etap osiedla w dzielnicy Gutkowo w Olsztynie. Kameralny budynek będzie liczył 39 komfortowych mieszkań z windą, zaprojektowanych z myślą o wygodzie i harmonii życia. Dla mieszkańców powstaną wyjątkowe strefy relaksu – przestrzeń do jogi oraz boisko wielofunkcyjne, sprzyjające aktywności i odpoczynkowi.</p>
+                        <div class="row mt-3 mt-sm-5">
+                            <div class="col-3">
+                                <div class="current-stat text-center">
+                                    <span>39</span>
+                                    apartments
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="current-stat text-center">
+                                    <span>2</span>
+                                    floors
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="current-stat text-center">
+                                    <span>35-56 m<sup>2</sup></span>
+                                    square
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="current-stat text-center">
+                                    <span>Q3 2027</span>
+                                    hand and over date
+                                </div>
+                            </div>
+                        </div>
+                        <a href="/en/i/osiedle-slow" class="bttn bttn-icon mt-3 mt-sm-5">CHECK APARTMENTS <i class="ms-3 las la-chevron-circle-right"></i></a>
+                    </div>
+                @endif
+            </div>
+            <div data-aos="fade-left" data-aos-offset="400" data-aos-delay="0" class="mb-4 mb-xl-0 order-1 order-xl-2 col-12 col-xl-6">
+                <div class="invest-item-thumb">
+                    <span class="img-badge">{{ investmentStatus(1) }}</span>
+                    <a href="/pl/i/osiedle-slow"><img src="{{ asset('/uploads/files/osiedle-slow/slow-3.jpg') }}" alt="" class="golden-border w-100" width="840" height="760"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row right-left mt-lg-3 mt-5">
             <div data-aos="fade-left" data-aos-offset="400" data-aos-delay="0" class="order-2 order-xl-1 col-12 col-xl-6 d-flex align-items-center">
                 @if($current_locale == 'pl')
                     <div class="left-right-text current-item">
