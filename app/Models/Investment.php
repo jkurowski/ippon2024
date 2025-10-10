@@ -218,9 +218,17 @@ class Investment extends Model
         return $this->hasMany('App\Models\Property');
     }
 
-    public function propertiesByType(int $type)
+    public function propertiesByType(int $type, ?int $building_id = null)
     {
-        return $this->properties()->where('type', $type)->where('status', 1)->get();
+        $query = $this->properties()
+            ->where('type', $type)
+            ->where('status', 1);
+
+        if (!is_null($building_id)) {
+            $query->where('building_id', $building_id);
+        }
+
+        return $query->get();
     }
 
     /**

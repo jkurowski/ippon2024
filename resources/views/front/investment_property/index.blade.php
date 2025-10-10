@@ -83,7 +83,7 @@
                                 @if($property->deadline)<li>Termin oddania: <span>{{ $property->deadline }}</span></li>@endif
 
                                 @php
-                                    $kl_list = $investment->propertiesByType(2);
+                                    $kl_list = $investment->propertiesByType(2, $property->building_id);
                                     $minPrice = $kl_list->isNotEmpty() ? $kl_list->min('price_brutto') : null;
                                 @endphp
                                     @if($kl_list->count() > 0)
@@ -123,7 +123,7 @@
                             </li>
                                     @endif
                                 @php
-                                    $mp_list = $investment->propertiesByType(3);
+                                    $mp_list = $investment->propertiesByType(3, $property->building_id);
                                     $minMPPrice = $mp_list->isNotEmpty() ? $mp_list->min('price_brutto') : null;
                                 @endphp
                                     @if($mp_list->count() > 0)
