@@ -2,7 +2,12 @@
     <div class="container-fluid">
         @if($buildings->count() > 0)
             @foreach($buildings as $building)
-                <h3 class="building-title mt-5 mb-4">{{ $building->name }}</h3>
+                <h3 class="building-title mt-5 mb-4">
+                    {{ $building->name }}
+                    @if($building->id == 1) (termin oddania Q4 2025/1Q 2026) @endif
+                    @if($building->id == 2) (termin oddania Q3 2026) @endif
+                    @if($building->id == 3) (termin oddania Q3 2027) @endif
+                </h3>
                 @php
                     $buildingRooms = $properties->where('building_id', $building->id);
                 @endphp
