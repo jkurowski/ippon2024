@@ -90,7 +90,7 @@
                         {{ session('warning') }}
                     </div>
                 @endif
-                <form method="post" id="contact-form" action="" class="validateForm">
+                <form method="post" id="land-form" action="" class="validateForm">
                     {{ csrf_field() }}
                     <div class="row">
                         <div class="col-12 col-sm-4 col-lg-3 form-input">
@@ -248,7 +248,7 @@
 
             if (isValid) {
                 console.log("Form is valid");
-                $("#contact-form").submit();
+                $("#land-form").submit();
             } else {
                 console.log("Form is not valid, reset reCaptcha");
                 grecaptcha.reset();
