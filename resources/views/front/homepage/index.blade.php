@@ -177,19 +177,19 @@
                         <div class="invest-item-city">Olsztyn ul.Kanta</div>
                         <p>Osiedle SYNERGIA powstanie w samym centrum dzielnicy mieszkaniowej – Jaroty, przy ul. Kanta. W miejscu dawnego sklepu spożywczo-przemysłowego wybudowany zostanie <b>nowoczesny budynek mieszkalny</b> z lokalami handlowo-usługowymi na parterze i <b>garażem podziemnym</b>. W pobliżu osiedla znajduje się <b>wiele punktów handlowo – usługowych</b>, przystanki autobusowe, placówki edukacyjne oraz medyczne. W sprzedaży dostępne są mieszkania -1,-2,-3,-4 pokojowe o metrażu od 27 m<sup>2</sup> do 80 m<sup>2</sup>.</p>
                         <div class="row mt-3 mt-sm-5">
-                            <div class="col-3">
+                            <div class="col-4">
                                 <div class="current-stat text-center">
                                     <span>95</span>
                                     ilość mieszkań
                                 </div>
                             </div>
-                            <div class="col-3">
+                            <div class="col-4">
                                 <div class="current-stat text-center">
                                     <span>5</span>
                                     liczba pięter
                                 </div>
                             </div>
-                            <div class="col-3">
+                            <div class="col-4">
                                 <div class="current-stat text-center">
                                     <span>27-80 m<sup>2</sup></span>
                                     powierzchnia
@@ -210,19 +210,19 @@
                         <div class="invest-item-city">Olsztyn, Kanta Street</div>
                         <p>The SYNERGIA Estate will be built in the heart of the Jaroty residential district, on Kanta Street. A modern residential building with commercial and service premises on the ground floor and an underground garage will replace the former grocery and industrial store. The estate is conveniently located near numerous shops, service points, bus stops, educational institutions, and medical facilities. Available for sale are 1-, 2-, 3-, and 4-room apartments, ranging in size from 27 m<sup>2</sup> to 80 m<sup>2</sup>.</p>
                         <div class="row mt-3 mt-sm-5">
-                            <div class="col-3">
+                            <div class="col-4">
                                 <div class="current-stat text-center">
                                     <span>95</span>
                                     apartments
                                 </div>
                             </div>
-                            <div class="col-3">
+                            <div class="col-4">
                                 <div class="current-stat text-center">
                                     <span>5</span>
                                     floors
                                 </div>
                             </div>
-                            <div class="col-3">
+                            <div class="col-4">
                                 <div class="current-stat text-center">
                                     <span>27-80 m<sup>2</sup></span>
                                     square
