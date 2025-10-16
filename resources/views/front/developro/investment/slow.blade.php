@@ -37,7 +37,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-xl-6">
-                    <img src="{{ asset('/uploads/files/osiedle-slow/zyj-w-rytmie-slow.jpg') }}" alt="" class="golden-border w-100" width="840" height="760">
+                    <img src="{{ asset('/uploads/files/osiedle-slow/zyj-w-rytmie-slow-2.jpg') }}" alt="" class="golden-border w-100" width="840" height="760">
                 </div>
             </div>
             <div class="row left-right flex-row-reverse row-offset-up">
