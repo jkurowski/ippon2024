@@ -107,13 +107,13 @@
             <div data-aos="fade-left" data-aos-offset="400" data-aos-delay="0" class="order-2 order-xl-1 col-12 col-xl-6 d-flex align-items-center">
                 @if($current_locale == 'pl')
                 <div class="left-right-text current-item">
-                    <h2 class="mb-0"><a href="/pl/i/osiedle-slow">OSIEDLE SLOW</a></h2>
+                    <h2 class="mb-0"><a href="/pl/i/osiedle-slow/mieszkania">OSIEDLE SLOW - nowy etap już w sprzedaży</a></h2>
                     <div class="invest-item-city">Olsztyn, ul.Kordeckiego</div>
                     <p>Osiedle SLOW położone jest w zielonej i malowniczej części Olsztyna, dzielnicy Gutkowo. W ofercie mieszkania z ogródkiem oraz z prywatnym poddaszem o metrażu, nawet do 27 m2. Niska, kameralna zabudowa z windą. Dla mieszkańców powstaną wyjątkowe strefy relaksu – przestrzeń do jogi, boisko wielofunkcyjne oraz wiaty grillowe z miejscami do siedzenia. W sprzedaży mieszkania z różnych etapów inwestycji. Sprawdź szczegóły w biurze sprzedaży.</p>
                     <div class="row mt-3 mt-sm-5">
                         <div class="col-4">
                             <div class="current-stat text-center">
-                                <span>39</span>
+                                <span>117</span>
                                 ilość mieszkań
                             </div>
                         </div>
@@ -130,17 +130,17 @@
                             </div>
                         </div>
                     </div>
-                    <a href="/pl/i/osiedle-slow" class="bttn bttn-icon mt-3 mt-sm-5">ZOBACZ MIESZKANIA <i class="ms-3 las la-chevron-circle-right"></i></a>
+                    <a href="/pl/i/osiedle-slow/mieszkania" class="bttn bttn-icon mt-3 mt-sm-5">ZOBACZ MIESZKANIA <i class="ms-3 las la-chevron-circle-right"></i></a>
                 </div>
                 @else
                     <div class="left-right-text current-item">
-                        <h2 class="mb-0"><a href="/en/i/osiedle-slow">SLOW ESTATE – I stage</a></h2>
+                        <h2 class="mb-0"><a href="/en/i/osiedle-slow/mieszkania">SLOW ESTATE</a></h2>
                         <div class="invest-item-city">Olsztyn, ul.Kordeckiego</div>
                         <p>The SLOW housing estate is located in the green and picturesque part of Olsztyn, in the Gutkowo district. The offer includes apartments with gardens as well as private attics with an area of up to 27 m². The development features low-rise, intimate buildings with elevators. Residents will enjoy unique relaxation zones – a yoga area, a multifunctional sports field, and barbecue shelters with seating areas. Apartments from various stages of the development are available for sale. Check the details at the sales office.</p>
                         <div class="row mt-3 mt-sm-5">
                             <div class="col-4">
                                 <div class="current-stat text-center">
-                                    <span>39</span>
+                                    <span>117</span>
                                     apartments
                                 </div>
                             </div>
@@ -157,14 +157,14 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="/pl/i/osiedle-slow" class="bttn bttn-icon mt-3 mt-sm-5">CHECK APARTMENTS <i class="ms-3 las la-chevron-circle-right"></i></a>
+                        <a href="/pl/i/osiedle-slow/mieszkania" class="bttn bttn-icon mt-3 mt-sm-5">CHECK APARTMENTS <i class="ms-3 las la-chevron-circle-right"></i></a>
                     </div>
                 @endif
             </div>
             <div data-aos="fade-right" data-aos-offset="400" data-aos-delay="0" class="mb-4 mb-xl-0 order-1 order-xl-2 col-12 col-xl-6">
                 <div class="invest-item-thumb">
                     <span class="img-badge">{{ investmentStatus(1) }}</span>
-                    <a href="/pl/i/osiedle-slow"><img src="{{ asset('/uploads/files/osiedle-slow/osiedle-slow.jpg') }}" alt="" class="golden-border w-100" width="840" height="760"></a>
+                    <a href="/pl/i/osiedle-slow/mieszkania"><img src="{{ asset('/uploads/files/osiedle-slow/osiedle-slow.jpg') }}" alt="" class="golden-border w-100" width="840" height="760"></a>
                 </div>
             </div>
         </div>
