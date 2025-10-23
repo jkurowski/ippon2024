@@ -246,6 +246,39 @@
                 </div>
             </div>
         </div>
+
+        <div class="row left-right flex-row-reverse">
+            <div data-aos="fade-left" data-aos-offset="400" data-aos-delay="0" class="order-2 order-xl-1 col-12 col-xl-6 d-flex align-items-center">
+                @if($current_locale == 'pl')
+                    <div class="left-right-text current-item pb-0">
+                        <h2 class="mb-3"><a href="http://www.boxolsztyn.pl/" target="_blank">BOX Self Storage</a></h2>
+                        <p>BOX self storage to pierwszy w Olsztynie obiekt oferujący nowoczesne, samoobsługowe boksy magazynowe. To idealne rozwiązanie dla osób prywatnych i firm, które potrzebują dodatkowej przestrzeni na przechowanie swoich rzeczy.</p>
+                        <p>&nbsp;</p>
+                        <p>W ofercie znajdują się boksy o powierzchni od 1 do 20 m², dostępne w elastycznym systemie wynajmu już od 30 dni. Każdy wynajmujący otrzymuje indywidualny kod PIN, który umożliwia dostęp do boksa 24/7 przez cały rok.</p>
+                        <p>&nbsp;</p>
+                        <p>Obiekt jest bezpieczny i monitorowany, wyposażony w całodobowy system monitoringu oraz zaawansowane zabezpieczenia. Wynajem boksu odbywa się w pełni online – wystarczy wejść na stronę www.boxolsztyn.pl, wybrać odpowiedni boks i rozpocząć przechowywanie.</p>
+                        <a href="http://www.boxolsztyn.pl/" target="_blank" class="bttn bttn-icon mt-3 mt-sm-5">ZOBACZ WIĘCEJ <i class="ms-3 las la-chevron-circle-right"></i></a>
+                    </div>
+                @else
+                    <div class="left-right-text current-item pb-0">
+                        <h2 class="mb-3"><a href="http://www.boxolsztyn.pl/" target="_blank">BOX Self Storage</a></h2>
+                        <p>BOX Self Storage is the first facility in Olsztyn offering modern, self-service storage units. It’s an ideal solution for individuals and businesses who need extra space to store their belongings.</p>
+                        <p>&nbsp;</p>
+                        <p>We offer storage units ranging from 1 to 20 m², available with flexible rental terms starting from just 30 days. Each renter receives a unique PIN code, providing 24/7 access all year round.</p>
+                        <p>&nbsp;</p>
+                        <p>The facility is safe and fully monitored, equipped with round-the-clock video surveillance and advanced security systems. You can rent your storage unit entirely online – simply visit www.boxolsztyn.pl, choose the right unit, and start storing your items today.</p>
+                        <a href="http://www.boxolsztyn.pl/" target="_blank" class="bttn bttn-icon mt-3 mt-sm-5">SEE MORE <i class="ms-3 las la-chevron-circle-right"></i></a>
+                    </div>
+                @endif
+            </div>
+            <div data-aos="fade-right" data-aos-offset="400" data-aos-delay="0" class="mb-4 mb-xl-0 order-1 order-xl-2 col-12 col-xl-6">
+                <div class="invest-item-thumb">
+                    <span class="img-badge">{{ investmentStatus(1) }}</span>
+                    <a href="http://www.boxolsztyn.pl/" target="_blank"><img src="{{ asset('/uploads/files/box-olsztyn.jpg') }}" alt="" class="golden-border w-100" width="840" height="630"></a>
+                </div>
+            </div>
+        </div>
+
     </div>
 </section>
 
