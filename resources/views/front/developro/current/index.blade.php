@@ -16,6 +16,8 @@
                     <div class="col-12 col-lg-6">
                         @if($r->id == 4)
                             <a href="https://www.aurora.olsztyn.pl/" target="_blank">
+                        @elseif($r->id == 13)
+                            <a href="https://boxolsztyn.pl/" target="_blank">
                         @else
                             <a href="{{ route('developro.investment.index', $r->slug) }}">
                         @endif
