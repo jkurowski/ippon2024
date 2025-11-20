@@ -32,7 +32,9 @@
                                 <a href="#" class="bttn bttn-icon mt-3 mt-sm-5 bttn-tempo">Jak dojechać <i class="ms-3 las la-chevron-circle-right"></i></a>
                             </div>
                         </div>
-                        <div class="col-6"><img src="https://placehold.co/770x578" alt="" /></div>
+                        <div class="col-6">
+                            <img src="{{ asset('uploads/files/tempo/osiedle-tempo-wizualizacja-budynku.jpg') }}" alt="" width="770" height="578" />
+                        </div>
                     </div>
                     <div class="row flex-row-reverse mt-5 pt-5">
                         <div class="col-6 d-flex align-items-center">
@@ -55,7 +57,9 @@
                                 <a href="#" class="bttn bttn-icon mt-3 mt-sm-5 bttn-tempo">Zobacz mieszkania <i class="ms-3 las la-chevron-circle-right"></i></a>
                             </div>
                         </div>
-                        <div class="col-6"><img src="https://placehold.co/770x578" alt="" /></div>
+                        <div class="col-6">
+                            <img src="{{ asset('uploads/files/tempo/osiedle-tempo-wizualizacja-budynku-2.jpg') }}" alt="" width="770" height="578" />
+                        </div>
                     </div>
 
                     <div class="row mt-5 pt-5">

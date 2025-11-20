@@ -36,7 +36,7 @@
                         <p>Osiedle będą tworzyć trzy budynki mieszkalne z mieszkaniami od 27 m<sup>2</sup> do 85 m<sup>2</sup> oraz tarasami aż do 66 m2. Mieszkańcy skorzystają z <b>dwu-poziomowego garażu podziemnego, komórek lokatorskich oraz rowerowni</b>. W jednym z budynków, na parterze przewidziane są lokale handlowo-usługowe. Wjazd na osiedle będzie możliwy zarówno od ulicy Sikorskiego, jak i ulicy Jarockiej.</p>
                     </div>
                 </div>
-                <div class="col-7"><img src="https://placehold.co/930x690" alt="" /></div>
+                <div class="col-7"><img src="{{ asset('uploads/files/tempo/w-tempie-zycia.jpg') }}" width="930" height="690" alt="" /></div>
             </div>
 
             <div class="row mt-5 pt-5">
@@ -226,7 +226,7 @@
                     </div>
                 </div>
                 <div class="col-7">
-                    <img src="{{ asset('images/tempo/windy.jpg') }}" alt="Nowoczesne, bliźniacze windy" width="930" height="690"/>
+                    <img src="{{ asset('uploads/files/tempo/osiedle-tempo-korytarz-windy.jpg') }}" alt="Nowoczesne, bliźniacze windy" width="930" height="690"/>
                 </div>
             </div>
 
