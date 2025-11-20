@@ -27,7 +27,7 @@ class InvestmentBuildingFloorController extends Controller
         $investment = Investment::where('slug', '=', $slug)->firstOrFail();
 
         if($investment->type == 1){
-            $building = Building::find(1);
+            $building = Building::find($floor->building_id);
 
             $investment_room = $investment->load(array(
                 'buildingRooms' => function($query) use ($building, $floor, $request)
