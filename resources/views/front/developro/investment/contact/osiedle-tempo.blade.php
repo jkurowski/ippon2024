@@ -30,9 +30,9 @@
                 <div class="col-12 col-xxl-4 order-2 order-xxl-1">
                     <div class="contact-box">
                         @if($current_locale == 'pl')
-                            <h2>BIURO SPRZEDAŻY</h2>
+                            <h4>BIURO SPRZEDAŻY</h4>
                         @else
-                            <h2>SALES OFFICE</h2>
+                            <h4>SALES OFFICE</h4>
                         @endif
                         <p>ul. Żelazna 4,</p>
                         <p>10-419 Olsztyn</p>
