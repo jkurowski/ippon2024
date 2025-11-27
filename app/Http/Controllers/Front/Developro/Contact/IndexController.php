@@ -26,9 +26,9 @@ class IndexController extends Controller
         $investmentPage = $investment->investmentPage()->where('slug', 'kontakt')->first();
         $menu_page = Page::where('id', $this->pageId)->first();
 
-        $layout = view()->exists("front.developro.contact.$slug")
-            ? "front.developro.contact.$slug"
-            : "front.developro.contact.index";
+        $layout = view()->exists("front.developro.investment.$slug")
+            ? "front.developro.investment.contact.$slug"
+            : "front.developro.investment.contact";
 
         return view($layout, [
             'investment' => $investment,
