@@ -224,7 +224,7 @@ class Investment extends Model
             ->where('type', $type)
             ->where('status', 1);
 
-        if (!is_null($building_id)) {
+        if (!is_null($building_id) && $building_id > 0) {
             $query->where('building_id', $building_id);
         }
 

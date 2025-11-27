@@ -26,7 +26,11 @@ class IndexController extends Controller
         $investmentPage = $investment->investmentPage()->where('slug', 'kontakt')->first();
         $menu_page = Page::where('id', $this->pageId)->first();
 
-        return view('front.developro.investment.contact', [
+        $layout = view()->exists("front.developro.contact.$slug")
+            ? "front.developro.contact.$slug"
+            : "front.developro.contact.index";
+
+        return view($layout, [
             'investment' => $investment,
             'page' => $menu_page,
             'investment_page' => $investmentPage,
