@@ -16,12 +16,12 @@
 @stop
 
 @section('content')
-    <div id="page-content">
+    <div id="page-content" class="invest-osiedle-tempo">
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
 
-                    <h1 class="rostemary brown"><span>{{ $investment_page->title }}</span></h1>
+                    <h2>#kontakt<span style="color: #e03e2d;">Z</span>Nami</h2>
 
                 </div>
             </div>
