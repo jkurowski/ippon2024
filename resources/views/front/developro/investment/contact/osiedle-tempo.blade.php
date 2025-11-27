@@ -30,9 +30,9 @@
                 <div class="col-12 col-xxl-4 order-2 order-xxl-1">
                     <div class="contact-box">
                         @if($current_locale == 'pl')
-                            <h4>BIURO SPRZEDAŻY</h4>
+                            <h3 class="text-start">BIURO SPRZEDAŻY</h3>
                         @else
-                            <h4>SALES OFFICE</h4>
+                            <h3 class="text-start">SALES OFFICE</h3>
                         @endif
                         <p>ul. Żelazna 4,</p>
                         <p>10-419 Olsztyn</p>
@@ -59,10 +59,12 @@
                     <div class="d-flex align-items-center justify-content-center justify-content-lg-start">
                         <img src="{{ asset('/images/contact-img.jpg') }}" class="golden-border d-none d-lg-block" alt="">
                         <div class="ps-0 ps-lg-5 sellers text-center text-lg-start">
-                            <h2>Elżbieta Kalinowska</h2>
+                            <h2 class="mb-0">Elżbieta Kalinowska</h2>
                             <a href="mailto:e.kalinowska@ippon.group">e.kalinowska@ippon.group</a>
-                            <a href="tel:+48609884219"><strong>+48 609 884 219</strong></a>
                             <a href="tel:+48724222323"><strong>+48 724 222 323</strong></a>
+                            <h2 class="mb-0 mt-3">Iwona Schubert</h2>
+                            <a href="mailto:i.schubert@ippon.group">i.schubert@ippon.group</a>
+                            <a href="tel:+48609884219"><strong>+48 609 884 219</strong></a>
                         </div>
                     </div>
                 </div>
