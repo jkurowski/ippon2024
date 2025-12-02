@@ -358,6 +358,7 @@
         </div>
     </div>
 
+    @if($investments_planned->count() > 0)
     <div class="container-fluid">
         <div class="row mt-3" id="plannedCarousel">
             @foreach($investments_planned as $ip)
@@ -394,6 +395,7 @@
             @endforeach
         </div>
     </div>
+    @endif
 </section>
 
 <section>
