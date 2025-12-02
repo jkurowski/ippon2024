@@ -2203,6 +2203,11 @@ div[class*='col-'].slick-slide {
     justify-content: center;
     width: 100%;
   }
+  .property .property-desc ul li span {
+    margin-left: 0;
+    width: 100%;
+    margin-top: 10px;
+  }
 }
 /* Fonty
 ================================================== */
