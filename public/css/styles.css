@@ -2161,7 +2161,9 @@ div[class*='col-'].slick-slide {
   }
   .property .property-desc .bttn {
     width: 100%;
-    padding: 13px 0;
+    padding: 10px 0;
+    font-size: 13px;
+    justify-content: center;
   }
   .property #contact .form-container {
     padding: 25px;
