@@ -283,6 +283,7 @@
 </section>
 
 <section class="pe-3 pe-sm-0 ps-3 ps-sm-0">
+    @if($investments_soon->count() > 0)
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
@@ -343,6 +344,7 @@
             @endforeach
         </div>
     </div>
+    @endif
 </section>
 
 <section>
