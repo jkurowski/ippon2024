@@ -370,7 +370,7 @@
                                     <img src="{{ asset('investment/thumbs/'.$ip->file_thumb) }}" alt="{{ $ip->name }}" class="w-100">
                                 </a>
                             @else
-                                <img src="{{ asset('investment/thumbs/'.$ip->file_thumb) }}" alt="{{ $r->name }}" class="w-100">
+                                <img src="{{ asset('investment/thumbs/'.$ip->file_thumb) }}" alt="{{ $ip->name }}" class="w-100">
                             @endif
                         </div>
                     </div>
