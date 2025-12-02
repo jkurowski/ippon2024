@@ -2208,6 +2208,10 @@ div[class*='col-'].slick-slide {
     width: 100%;
     margin-top: 10px;
   }
+  .property .property-desc ul li span .bttn {
+    padding: 8px 0;
+    font-size: 11px;
+  }
 }
 /* Fonty
 ================================================== */
