@@ -4434,6 +4434,10 @@ html.swipebox-html.swipebox-touch {
     margin: 0;
     height: 75px;
   }
+  .invest-osiedle-tempo h2 {
+    margin-bottom: 35px;
+    font-size: 42px;
+  }
 }
 @media (max-width: 1399.98px) {
   #page {
@@ -4613,6 +4617,10 @@ html.swipebox-html.swipebox-touch {
   }
   .invest-osiedle-synergia h2 br {
     display: none;
+  }
+  .invest-osiedle-tempo h2 {
+    margin-bottom: 35px;
+    font-size: 37px;
   }
 }
 @media (max-width: 1199.98px) {
@@ -5173,6 +5181,14 @@ html.swipebox-html.swipebox-touch {
     color: #4a7265;
     line-height: 29px;
   }
+  .invest-osiedle-tempo h2 {
+    margin-bottom: 30px;
+    font-size: 43px;
+  }
+  .invest-osiedle-tempo .bttn {
+    font-size: 15px;
+    padding: 9px 15px;
+  }
 }
 /* end of 767.98 */
 @media (max-width: 575.98px) {
@@ -5560,6 +5576,13 @@ html.swipebox-html.swipebox-touch {
   .invest-osiedle-synergia h2 {
     font-size: 25px;
     line-height: 29px;
+  }
+  .invest-osiedle-tempo h2 {
+    margin-bottom: 20px;
+    font-size: 28px;
+  }
+  .invest-osiedle-tempo h3 {
+    font-size: 28px;
   }
 }
 /* end of 575.98 */

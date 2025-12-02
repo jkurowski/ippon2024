@@ -21,48 +21,49 @@
             <div class="row">
                 <div class="col-12">
                     <div class="row">
-                        <div class="col-6 d-flex align-items-center">
-                            <div class="pe-5">
+                        <div class="col-12 col-xl-6 d-flex align-items-center">
+                            <div class="pe-0 pe-xl-5">
                                 <h2>#Żyjw<span style="color: #e03e2d;">Tempie</span>Miasta</h2>
                                 <p><strong>Osiedle TEMPO</strong> położone jest przy skrzyżowaniu <strong>ul. Sikorskiego i ul. Wilczyńskiego w Olsztynie</strong>. Dostęp do linii tramwajowych i przystank&oacute;w autobusowych sprzyja szybkiemu poruszaniu się na terenie całego miasta.</p>
                                 <p>&nbsp;</p>
                                 <p><strong>W parę minut dojedziesz do centrum miasta</strong>, do pracy, czy na Uniwersytet Warmińsko-Mazurki. <strong>Sikorskiego to handlowa ulica miasta</strong>, przy kt&oacute;rej znajduje się m.in.: Galeria Warmińska, Multikino, Mc Donald, Biedronka, OBI, Jysk.</p>
                                 <p>&nbsp;</p>
                                 <p><strong>Czyli wszystko to co potrzebujesz w zasięgu Twojej ręki.</strong></p>
-                                <a href="#" class="bttn bttn-icon mt-3 mt-sm-5 bttn-tempo">Jak dojechać <i class="ms-3 las la-chevron-circle-right"></i></a>
+                                <a href="#" class="bttn bttn-icon mt-3 mt-xl-5 bttn-tempo">Jak dojechać <i class="ms-3 las la-chevron-circle-right"></i></a>
                             </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-12 col-xl-6 mt-4 mt-lx-0">
                             <img src="{{ asset('uploads/files/tempo/osiedle-tempo-wizualizacja-budynku.jpg') }}" alt="" width="770" height="578" />
                         </div>
                     </div>
-                    <div class="row flex-row-reverse mt-5 pt-5">
-                        <div class="col-6 d-flex align-items-center">
-                            <div class="ps-5">
+
+                    <div class="row flex-row-reverse mt-0 mt-xl-5 pt-5">
+                        <div class="col-12 col-xl-6 d-flex align-items-center">
+                            <div class="ps-0 ps-xl-5">
                                 <h2>#wTwoim<span style="color: #e03e2d;">Tempie</span></h2>
                                 <p>Zaledwie minuta spaceru dzieli Cię od przystanków autobusowych i tramwajowych, skąd szybko dotrzesz do najważniejszych punktów Olsztyna – Dworca Głównego PKP, olsztyńskiej starówki czy Uniwersytetu Warmińsko-Mazurskiego. Niezależnie od tego, czy wybierasz komunikację miejską, czy rower, masz pełną swobodę wyboru. Wzdłuż osiedla przebiega wygodna ścieżka rowerowa, która umożliwia sprawne i bezpieczne poruszanie się po mieście.</p>
-                                <a href="#" class="bttn bttn-icon mt-3 mt-sm-5 bttn-tempo">Zobacz mieszkania <i class="ms-3 las la-chevron-circle-right"></i></a>
+                                <a href="#" class="bttn bttn-icon mt-3 mt-xl-5 bttn-tempo">Zobacz mieszkania <i class="ms-3 las la-chevron-circle-right"></i></a>
                             </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-12 col-xl-6 mt-4 mt-lx-0">
                             <img src="{{ asset('images/tempo/lokalizacja-wtwoimtempie.jpg') }}" alt="Zarówka, zielona trawa, eko" width="770" height="578"/>
                         </div>
                     </div>
 
-                    <div class="row mt-5 pt-5">
-                        <div class="col-6 d-flex align-items-center">
-                            <div class="ps-5">
+                    <div class="row mt-0 mt-xl-5 pt-5">
+                        <div class="col-12 col-xl-6 d-flex align-items-center">
+                            <div class="pe-0 pe-xl-5">
                                 <h2>#dwa<span style="color: #e03e2d;">Wjazdy</span></h2>
                                 <p>Osiedle zostało zaprojektowane z myślą o codziennej wygodzie mieszkańców – także tych poruszających się samochodem. Dojazd na teren inwestycji będzie możliwy zarówno od strony ulicy Sikorskiego, jak i od strony Jarot – przez ulicę Jarocką. Dzięki temu mieszkańcy będą mogli wybrać najdogodniejszą trasę dojazdu, w zależności od kierunku, z którego nadjeżdżają. To rozwiązanie usprawni codzienne podróże, zmniejszy natężenie ruchu w obrębie osiedla i pozwoli szybciej włączyć się do głównych arterii komunikacyjnych Olsztyna.</p>
-                                <a href="#" class="bttn bttn-icon mt-3 mt-sm-5 bttn-tempo">Zobacz mieszkania <i class="ms-3 las la-chevron-circle-right"></i></a>
+                                <a href="#" class="bttn bttn-icon mt-3 mt-xl-5 bttn-tempo">Zobacz mieszkania <i class="ms-3 las la-chevron-circle-right"></i></a>
                             </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-12 col-xl-6 mt-4 mt-lx-0">
                             <img src="{{ asset('uploads/files/tempo/osiedle-tempo-wizualizacja-budynku-2.jpg') }}" alt="" width="770" height="578" />
                         </div>
                     </div>
 
-                    <div class="row mt-5 pt-5">
+                    <div class="row mt-0 mt-xl-5 pt-5">
                         <div class="col-12 text-center">
                             <h2>#Obiekty<span style="color: #e03e2d;">wPobliżu</span></h2>
                         </div>
@@ -192,15 +193,15 @@
                     </div>
 
                     <div class="row flex-row-reverse mt-4">
-                        <div class="col-4 d-flex align-items-center">
-                            <div class="ps-5">
+                        <div class="col-12 col-xl-4 d-flex align-items-center">
+                            <div class="ps-0 ps-xl-5">
                                 <h2>#ŻyjwSwoim<span style="color: #e03e2d;">Tempie</span> na nowoczesnym osiedlu.</h2>
                                 <p><strong>Nie trać czasu. Korzystaj z urok&oacute;w mieszkania blisko komunikacji miejskiej, punkt&oacute;w handlowych, restauracji i miejsc rozrywki.</strong></p>
                             </div>
                         </div>
-                        <div class="col-8"><iframe title="YouTube video player" src="https://www.youtube.com/embed/186E3NV8Q6k" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe></div>
+                        <div class="col-12 col-xl-8"><iframe title="YouTube video player" src="https://www.youtube.com/embed/186E3NV8Q6k" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe></div>
                     </div>
-                    <div class="row mt-5">
+                    <div class="row mt-0 mt-xl-5">
                         <div class="col-12 text-center">
                             <h2>#w<span style="color: #e03e2d;">Tempie</span>Miasta</h2>
                         </div>
