@@ -61,7 +61,7 @@ class InvestmentController extends Controller
                 'page' => $page
             ]);
         }
-        else if($investment->id == 7 && auth()->check())
+        else if($investment->id == 7)
         {
             return view('front.developro.investment.tempo', [
                 'investment' => $investment,
