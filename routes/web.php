@@ -15,6 +15,13 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(['restrictIp'])->group(function () {
     Auth::routes();
 
+    Route::get('/register', function () {
+        abort(404);
+    });
+    Route::post('/register', function () {
+        abort(404);
+    });
+
     Route::get('routes', function() {
         \Artisan::call('route:list');
         return '<pre>' . \Artisan::output() . '</pre>';
