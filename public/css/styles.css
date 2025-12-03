@@ -4449,6 +4449,15 @@ html.swipebox-html.swipebox-touch {
     margin-bottom: 35px;
     font-size: 42px;
   }
+  .atut-tempo h3 {
+    font-size: 19px;
+  }
+  .atut-tempo img {
+    width: 110px;
+  }
+  #atut-tempo-carousel {
+    min-height: 230px;
+  }
 }
 @media (max-width: 1399.98px) {
   #page {
@@ -5594,6 +5603,15 @@ html.swipebox-html.swipebox-touch {
   }
   .invest-osiedle-tempo h3 {
     font-size: 28px;
+  }
+  .atut-tempo h3 {
+    font-size: 19px;
+  }
+  .atut-tempo img {
+    width: 110px;
+  }
+  #atut-tempo-carousel {
+    min-height: 230px;
   }
 }
 /* end of 575.98 */
