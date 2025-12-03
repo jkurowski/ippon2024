@@ -23,7 +23,7 @@
                     <div class="pe-0 pe-xl-5">
                         <h2>#w<span style="color: #e03e2d;">Tempie</span>Miasta</h2>
                         <p>TEMPO to nowoczesne osiedle, skierowane do osób aktywnych, które chcą <b>mieć wszędzie blisko</b>. Blisko do komunikacji miejskiej, ścieżek rowerowych i sklepów. Przy osiedlu znajduje się przystanek tramwajowy i autobusowy. W kilka minut dojedziesz do centrum miasta, galerii handlowej czy na Uniwersytet Warmińsko-Mazurski.</p>
-                        <a href="#" class="bttn bttn-icon mt-3 mt-xl-5 bttn-tempo">Zobacz mieszkania <i class="ms-3 las la-chevron-circle-right"></i></a>
+                        <a href="{{ route('developro.investment.page', [$investment->slug, 'mieszkania']) }}" class="bttn bttn-icon mt-3 mt-xl-5 bttn-tempo">Zobacz mieszkania <i class="ms-3 las la-chevron-circle-right"></i></a>
                     </div>
                 </div>
                 <div class="col-12 col-xl-7 mt-4 mt-lx-0"><img src="{{ asset('uploads/files/tempo/wizualizacja-budynku-osiedle-tempo.jpg') }}" width="930" height="581" alt="" /></div>
@@ -71,7 +71,7 @@
                     <div class="pe-0 pe-xl-5">
                         <h2><span style="color: #e03e2d;">#Nowoczesne</span>Rozwiązania</h2>
                         <p>Osiedle Tempo wyznacza nowe standardy na rynku. Zamiast zwykłej klamki w drzwiach wejściowych do mieszkań, zamontujemy nowoczesne <b>klamki elektroniczne</b> z wejściem na kod. Wszystkie kondygnacje w budynku będą obsługiwać <b>bliźniacze windy</b>, a do dyspozycji mieszkańców będzie <b>paczkomat</b> oraz strefa "<b>zero waste</b>", która umożliwi sąsiedzką wymianę rzeczy.</p>
-                        <a href="#" class="bttn bttn-icon mt-3 mt-xl-5 bttn-tempo">Zobacz mieszkania <i class="ms-3 las la-chevron-circle-right"></i></a>
+                        <a href="{{ route('developro.investment.page', [$investment->slug, 'mieszkania']) }}" class="bttn bttn-icon mt-3 mt-xl-5 bttn-tempo">Zobacz mieszkania <i class="ms-3 las la-chevron-circle-right"></i></a>
                     </div>
                 </div>
                 <div class="col-12 col-xl-7 mt-4 mt-lx-0"><img src="{{ asset('uploads/files/tempo/nowoczesne-rozwiazania.jpg') }}" alt="" /></div>
@@ -192,7 +192,7 @@
                     <div class="ps-0 ps-xl-5">
                         <h2>#osiedle<span style="color: #e03e2d;">wTempie</span>Życia</h2>
                         <p>Zamieszkaj w <b>handlowej części miasta</b>. W kilka minut dojedziesz do Galerii Warmińskiej, Auchan, OBI, Jysk, Mc Donald oraz wielu innych punktów znajdujących się wzdłuż ulicy Sikorskiego. <b>Wszystko czego potrzebujesz, nigdy nie było tak blisko</b>.</p>
-                        <a href="#" class="bttn bttn-icon mt-3 mt-xl-5 bttn-tempo">Zobacz mieszkania <i class="ms-3 las la-chevron-circle-right"></i></a>
+                        <a href="{{ route('developro.investment.page', [$investment->slug, 'mieszkania']) }}" class="bttn bttn-icon mt-3 mt-xl-5 bttn-tempo">Zobacz mieszkania <i class="ms-3 las la-chevron-circle-right"></i></a>
                     </div>
                 </div>
                 <div class="col-12 col-xl-7 mt-4 mt-lx-0">
@@ -227,7 +227,7 @@
                     <div class="pe-0 pe-xl-5">
                         <h2>#strefa<span style="color: #e03e2d;">Zero</span>Waste</h2>
                         <p>Każdy posiada w mieszkaniu rzeczy z których nie korzysta, a które szkoda wyrzucić, typu: książki, zabawki, elementy wyposażenia. <b>Daj przedmiotom drugie życie</b>. Zostaw je w specjalnej strefie zero waste, by ktoś inny mógł z nich skorzystać. To co dla ciebie jest bezużyteczne, dla kogoś innego może być bardzo poszukiwanym przedmiotem.</p>
-                        <a href="#" class="bttn bttn-icon mt-3 mt-xl-5 bttn-tempo">Zobacz mieszkania <i class="ms-3 las la-chevron-circle-right"></i></a>
+                        <a href="{{ route('developro.investment.page', [$investment->slug, 'mieszkania']) }}" class="bttn bttn-icon mt-3 mt-xl-5 bttn-tempo">Zobacz mieszkania <i class="ms-3 las la-chevron-circle-right"></i></a>
                     </div>
                 </div>
                 <div class="col-12 col-xl-7 mt-4 mt-lx-0"><img src="{{ asset('uploads/files/tempo/wizualizacja-klatka-schodowa-osiedle-tempo.jpg') }}" width="930" height="651" alt="" /></div>
@@ -250,7 +250,7 @@
                     <div class="pe-0 pe-xl-5">
                         <h2>#żyj<span style="color: #e03e2d;">Komfortowo</span></h2>
                         <p>Wszystkie kondygnacje budynku będą obsługiwane przez dwie, bliźniacze windy, które zostały zaprojektowane z myślą o komforcie i sprawnej komunikacji mieszkańców. Dzięki temu niezależnie od tego, czy mieszkasz na ostatnim piętrze, czy wybierasz się do garażu podziemnego, dotrzesz tam szybko i bez zbędnego oczekiwania. Dwie windy znacząco zwiększą komfort codziennego życia.</p>
-                        <a href="#" class="bttn bttn-icon mt-3 mt-xl-5 bttn-tempo">Zobacz mieszkania <i class="ms-3 las la-chevron-circle-right"></i></a>
+                        <a href="{{ route('developro.investment.page', [$investment->slug, 'mieszkania']) }}" class="bttn bttn-icon mt-3 mt-xl-5 bttn-tempo">Zobacz mieszkania <i class="ms-3 las la-chevron-circle-right"></i></a>
                     </div>
                 </div>
                 <div class="col-12 col-xl-7 mt-4 mt-lx-0">
