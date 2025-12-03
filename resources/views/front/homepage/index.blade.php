@@ -250,6 +250,72 @@
         <div class="row left-right flex-row-reverse">
             <div data-aos="fade-left" data-aos-offset="400" data-aos-delay="0" class="order-2 order-xl-1 col-12 col-xl-6 d-flex align-items-center">
                 @if($current_locale == 'pl')
+                    <div class="left-right-text current-item">
+                        <h2 class="mb-0"><a href="/pl/i/osiedle-tempo/mieszkania">OSIEDLE TEMPO</a></h2>
+                        <div class="invest-item-city">Olsztyn ul. Sikorskiego / ul. Wilczyńskiego</div>
+                        <p>TEMPO to nowoczesne osiedle, skierowane dla osób aktywnych, które chcą mieć wszędzie blisko. Blisko do komunikacji miejskiej, ścieżek rowerowych i sklepów. Jedyne osiedle w Olsztynie z pakietem Smart Home w standardzie do każdego mieszkania. Metraże mieszkań od 28 – 86 m2, klamki elektroniczne oraz panele fotowoltaiczne do zasilania części wspólnych osiedla. Do dyspozycji mieszkańców dwu poziomowa hala garażowa, obszerna rowerownia oraz komórki lokatorskie. </p>
+                        <div class="row mt-3 mt-sm-5">
+                            <div class="col-4">
+                                <div class="current-stat text-center">
+                                    <span>264</span>
+                                    ilość mieszkań
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="current-stat text-center">
+                                    <span>5</span>
+                                    liczba pięter
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="current-stat text-center">
+                                    <span>28-86 m<sup>2</sup></span>
+                                    powierzchnia
+                                </div>
+                            </div>
+                        </div>
+                        <a href="/pl/i/osiedle-tempo/mieszkania" class="bttn bttn-icon mt-3 mt-sm-5">ZOBACZ MIESZKANIA <i class="ms-3 las la-chevron-circle-right"></i></a>
+                    </div>
+                @else
+                    <div class="left-right-text current-item">
+                        <h2 class="mb-0"><a href="/en/i/osiedle-tempo/mieszkania">TEMPO ESTATE</a></h2>
+                        <div class="invest-item-city">Olsztyn ul. Sikorskiego / ul. Wilczyńskiego</div>
+                        <p>TEMPO is a modern residential development designed for active people who want to have everything within easy reach—close to public transport, cycling paths, and shops. It is the only estate in Olsztyn that offers a Smart Home package as a standard feature in every apartment. The apartments range from 28 to 86 m², and the estate includes electronic door handles as well as photovoltaic panels that power the common areas. Residents have access to a two-level underground garage, a spacious bicycle room, and individual storage units.</p>
+                        <div class="row mt-3 mt-sm-5">
+                            <div class="col-4">
+                                <div class="current-stat text-center">
+                                    <span>264</span>
+                                    apartments
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="current-stat text-center">
+                                    <span>5</span>
+                                    floors
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="current-stat text-center">
+                                    <span>28-86 m<sup>2</sup></span>
+                                    square
+                                </div>
+                            </div>
+                        </div>
+                        <a href="/pl/i/osiedle-tempo/mieszkania" class="bttn bttn-icon mt-3 mt-sm-5">CHECK APARTMENTS <i class="ms-3 las la-chevron-circle-right"></i></a>
+                    </div>
+                @endif
+            </div>
+            <div data-aos="fade-right" data-aos-offset="400" data-aos-delay="0" class="mb-4 mb-xl-0 order-1 order-xl-2 col-12 col-xl-6">
+                <div class="invest-item-thumb">
+                    <span class="img-badge">{{ investmentStatus(1) }}</span>
+                    <a href="/pl/i/osiedle-tempo/mieszkania"><img src="{{ asset('/uploads/files/tempo/osiedle-tempo.jpg') }}" alt="" class="golden-border w-100" width="840" height="760"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row left-right">
+            <div data-aos="fade-left" data-aos-offset="400" data-aos-delay="0" class="order-2 order-xl-1 col-12 col-xl-6 d-flex align-items-center">
+                @if($current_locale == 'pl')
                     <div class="left-right-text current-item pb-0">
                         <h2 class="mb-3"><a href="http://www.boxolsztyn.pl/" target="_blank">BOX Self Storage</a></h2>
                         <p>BOX self storage to pierwszy w Olsztynie obiekt oferujący nowoczesne, samoobsługowe boksy magazynowe. To idealne rozwiązanie dla osób prywatnych i firm, które potrzebują dodatkowej przestrzeni na przechowanie swoich rzeczy.</p>
