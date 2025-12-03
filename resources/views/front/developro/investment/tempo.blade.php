@@ -18,7 +18,7 @@
 @section('content')
     <div id="page-content" class="invest-{{ $investment->slug }}">
         <div class="container">
-            <div class="row">
+            <div class="row flex-row-reverse">
                 <div class="col-12 col-xl-5 d-flex align-items-center">
                     <div class="pe-0 pe-xl-5">
                         <h2>#w<span style="color: #e03e2d;">Tempie</span>Miasta</h2>
@@ -27,6 +27,33 @@
                     </div>
                 </div>
                 <div class="col-12 col-xl-7 mt-4 mt-lx-0"><img src="{{ asset('uploads/files/tempo/wizualizacja-budynku-osiedle-tempo.jpg') }}" width="930" height="581" alt="" /></div>
+            </div>
+
+            <div class="row mt-0 mt-xl-5 pt-5">
+                <div class="col-12 col-xl-5 d-flex align-items-center">
+                    <div class="pe-0 pe-xl-5">
+                        @if($current_locale == 'pl')
+                        <h2>#pakiet<span style="color: #e03e2d;">SmartHome</span></h2>
+                        <p>Osiedle TEMPO to pierwsze i jedyne osiedle w Olsztynie, gdzie mieszkania już w standardzie wyposażone są w inteligentny pakiet Smart Home. W ramach wyposażenia podstawowego każdy klient otrzymuje:</p>
+                        <ul>
+                            <li>Matrycę sterującą zintegrowaną z instalacją mieszkania</li>
+                            <li>Zdalne sterowanie ogrzewaniem dzięki inteligentnym głowicom termostatycznym</li>
+                            <li>Możliwość zdalnego odcięcia wody poprzez elektrozawory bezpieczeństwa</li>
+                        </ul>
+                        <p>Dodatkowo system można w pełni rozbudować – np. o moduły sterowania oświetleniem, czujniki zalania czy inne rozwiązania dopasowane do stylu życia mieszkańców.</p>
+                        @else
+                            <h2>#<span style="color: #e03e2d;">SmartHome</span>Package</h2>
+                            <p>TEMPO Estate is the first and only residential development in Olsztyn where apartments come equipped with an intelligent Smart Home package as a standard feature. As part of the basic equipment, every client receives:</p>
+                            <ul>
+                                <li>A control matrix integrated with the apartment’s installation</li>
+                                <li>Remote heating control via smart thermostatic heads</li>
+                                <li>The ability to remotely shut off water through safety electrovalves</li>
+                            </ul>
+                            <p>Additionally, the system can be fully expanded—for example, with lighting control modules, leak sensors, or other solutions tailored to the residents’ lifestyles.</p>
+                        @endif
+                    </div>
+                </div>
+                <div class="col-12 col-xl-7 mt-4 mt-lx-0"><img src="{{ asset('uploads/files/tempo/smart-home.jpg') }}" alt="" /></div>
             </div>
 
             <div class="row flex-row-reverse mt-0 mt-xl-5 pt-5">
