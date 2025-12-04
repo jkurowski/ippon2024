@@ -74,7 +74,7 @@
                         <a href="{{ route('developro.investment.page', [$investment->slug, 'mieszkania']) }}" class="bttn bttn-icon mt-3 mt-xl-5 bttn-tempo">Zobacz mieszkania <i class="ms-3 las la-chevron-circle-right"></i></a>
                     </div>
                 </div>
-                <div class="col-12 col-xl-7 mt-4 mt-lx-0"><img src="{{ asset('uploads/files/tempo/nowoczesne-rozwiazania.jpg') }}" alt="" /></div>
+                <div class="col-12 col-xl-7 mt-4 mt-lx-0"><img src="{{ asset('uploads/files/tempo/nowoczesne-rozwiazania.jpg?v=04122025') }}" alt="" /></div>
             </div>
 
             <div class="row flex-row-reverse mt-0 mt-xl-5 pt-5">
