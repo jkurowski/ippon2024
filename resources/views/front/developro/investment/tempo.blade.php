@@ -270,7 +270,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-xl-4">
-                    <img src="{{ asset('images/tempo/badz-eko.jpg') }}" alt="Zarówka, zielona trawa, eko" width="520" height="420" class="m-auto"/>
+                    <img src="{{ asset('images/tempo/badz-eko.jpg?v=04122025') }}" alt="Zarówka, zielona trawa, eko" width="520" height="420" class="m-auto"/>
                     <div class="p-0 p-sm-4">
                         <h3>#bądź<span style="color: #e03e2d;">Eko</span></h3>
                         <p class="text-justify">Z myślą o ekologii i zdrowym trybie życia  zaprojektowaliśmy ogromne rowerownie z bezpośrednim wyjazdem na ścieżkę rowerową, wzdłuż ul. Sikorskiego. Możesz więc w wygodny sposób korzystać z wielokilometrowych ścieżek w mieście i na terenie województwa.</p>
