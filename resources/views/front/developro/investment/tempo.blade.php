@@ -277,7 +277,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-xl-4">
-                    <img src="{{ asset('images/tempo/niskie-rachunki-za-prad.jpg') }}" alt="Zarówka, zielona trawa, eko" width="520" height="420" class="m-auto"/>
+                    <img src="{{ asset('images/tempo/niskie-rachunki-za-prad.jpg?v=04122025') }}" alt="Zarówka, zielona trawa, eko" width="520" height="420" class="m-auto"/>
                     <div class="p-0 p-sm-4">
                         <h3>#<span style="color: #e03e2d;">niższe</span>Rachunki</h3>
                         <p class="text-justify">Zastosowanie paneli fotowoltaicznych oraz oświetlenia LED na klatkach schodowych, pozwala na mniejsze zużycie prądu oraz niższe opłaty za energię.</p>
