@@ -241,7 +241,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-xl-7 mt-4 mt-lx-0">
-                    <img src="{{ asset('images/tempo/kurier-z-paczka.jpg') }}" alt="Kurier odbierający paczkę" width="930" height="690"/>
+                    <img src="{{ asset('images/tempo/kurier-z-paczka.jpg?v=04122025') }}" alt="Kurier odbierający paczkę" width="930" height="690"/>
                 </div>
             </div>
 
