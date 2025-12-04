@@ -218,7 +218,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-xl-7 mt-4 mt-lx-0">
-                    <img src="{{ asset('images/tempo/zamki-elektroniczne.jpg') }}" alt="Zamki elektroniczne" width="930" height="690"/>
+                    <img src="{{ asset('images/tempo/zamki-elektroniczne.jpg?v=04122025') }}" alt="Zamki elektroniczne" width="930" height="690"/>
                 </div>
             </div>
 
@@ -263,7 +263,7 @@
                     <h2>#wTrosce<span style="color: #e03e2d;">oŚrodowisko</span></h2>
                 </div>
                 <div class="col-12 col-xl-4">
-                    <img src="{{ asset('images/tempo/nie-marnuj-wody.jpg') }}" alt="Zarówka, zielona trawa, eko" width="520" height="420" class="m-auto"/>
+                    <img src="{{ asset('images/tempo/nie-marnuj-wody.jpg?v=04122025') }}" alt="Zarówka, zielona trawa, eko" width="520" height="420" class="m-auto"/>
                     <div class="p-0 p-sm-4">
                         <h3>#nieMarnuj<span style="color: #e03e2d;">Wody</span></h3>
                         <p class="text-justify">Proekologiczne osiedle to nie tylko tereny zielone ale także odpowiednie gospodarowanie wodą opadową. Dwa zbiorniki retencyjne zbiorą nadmiar wody po opadach deszczu, by wykorzystać ją później do podlewania roślinności na osiedlu.</p>
