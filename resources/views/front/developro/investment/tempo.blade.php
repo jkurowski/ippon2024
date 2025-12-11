@@ -184,7 +184,12 @@
                         <h3><span>monitoring</span> <br>na całym osiedlu</h3>
                     </div>
                 </div>
-
+                <div class="col-3 mt-4">
+                    <div class="atut-tempo text-center">
+                        <img src="{{ asset('images/icons/tempo/smart-home.jpg') }}" alt="Ikonka smart-home" width="180" height="180"/>
+                        <h3><span>Smart Home</span> <br>w standardzie</h3>
+                    </div>
+                </div>
             </div>
 
             <div class="row flex-row-reverse mt-0 mt-xl-5 pt-5">
