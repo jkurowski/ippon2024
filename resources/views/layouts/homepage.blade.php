@@ -109,6 +109,13 @@
             floorOptions.filter('[value=""], [value="0"], [value="1"], [value="2"], [value="3"], [value="4"]').show();
             roomOptions.filter('[value="1"], [value="2"], [value="3"], [value="4"]').show();
 
+        } else if (investment === 'osiedle-tempo') {
+            // Show "", "0", "1", "2", "3", "4"
+            floorOptions.hide();
+            roomOptions.hide();
+            floorOptions.filter('[value=""], [value="1"], [value="2"], [value="3"], [value="4"], [value="5"]').show();
+            roomOptions.filter('[value="1"], [value="2"], [value="3"], [value="4"]').show();
+
         } else {
             // Default: show all options
             floorOptions.hide();
