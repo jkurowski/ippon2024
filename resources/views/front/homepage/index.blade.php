@@ -35,6 +35,7 @@
                             <option value="">@lang('website.select-option-investment')</option>
                             <option value="osiedle-slow" >Osiedle Slow</option>
                             <option value="osiedle-synergia" >Osiedle Synergia</option>
+                            <option value="osiedle-tempo" >Osiedle Tempo</option>
                         </select>
                     </div>
                 </div>
