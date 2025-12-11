@@ -78,6 +78,8 @@
                 formAction = '/pl/i/osiedle-slow/mieszkania#filtr';
             } else if (selectedValue === 'osiedle-synergia') {
                 formAction = '/pl/i/osiedle-synergia/mieszkania#filtr';
+            } else if (selectedValue === 'osiedle-tempo') {
+                formAction = '/pl/i/osiedle-tempo/mieszkania#filtr';
             }
 
             formElement.setAttribute('action', formAction);
