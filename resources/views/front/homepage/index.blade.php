@@ -104,6 +104,7 @@
             </div>
         </div>
 
+        <!-- OSIEDLE SLOW -->
         <div class="row left-right flex-row-reverse">
             <div data-aos="fade-left" data-aos-offset="400" data-aos-delay="0" class="order-2 order-xl-1 col-12 col-xl-6 d-flex align-items-center">
                 @if($current_locale == 'pl')
@@ -170,85 +171,8 @@
             </div>
         </div>
 
-        <div class="row right-left mt-lg-3 mt-5">
-            <div data-aos="fade-left" data-aos-offset="400" data-aos-delay="0" class="order-2 order-xl-1 col-12 col-xl-6 d-flex align-items-center">
-                @if($current_locale == 'pl')
-                    <div class="left-right-text current-item">
-                        <h2 class="mb-0"><a href="/pl/i/osiedle-synergia">OSIEDLE SYNERGIA</a></h2>
-                        <div class="invest-item-city">Olsztyn ul.Kanta</div>
-                        <p>Osiedle SYNERGIA powstanie w samym centrum dzielnicy mieszkaniowej – Jaroty, przy ul. Kanta. W miejscu dawnego sklepu spożywczo-przemysłowego wybudowany zostanie <b>nowoczesny budynek mieszkalny</b> z lokalami handlowo-usługowymi na parterze i <b>garażem podziemnym</b>. W pobliżu osiedla znajduje się <b>wiele punktów handlowo – usługowych</b>, przystanki autobusowe, placówki edukacyjne oraz medyczne. W sprzedaży dostępne są mieszkania -1,-2,-3,-4 pokojowe o metrażu od 27 m<sup>2</sup> do 80 m<sup>2</sup>.</p>
-                        <div class="row mt-3 mt-sm-5">
-                            <div class="col-4">
-                                <div class="current-stat text-center">
-                                    <span>95</span>
-                                    ilość mieszkań
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="current-stat text-center">
-                                    <span>5</span>
-                                    liczba pięter
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="current-stat text-center">
-                                    <span>27-80 m<sup>2</sup></span>
-                                    powierzchnia
-                                </div>
-                            </div>
-                            <div class="col-3 d-none">
-                                <div class="current-stat text-center">
-                                    <span>Q3 2025</span>
-                                    termin oddania
-                                </div>
-                            </div>
-                        </div>
-                        <a href="/pl/i/osiedle-synergia" class="bttn bttn-icon mt-3 mt-sm-5">ZOBACZ MIESZKANIA <i class="ms-3 las la-chevron-circle-right"></i></a>
-                    </div>
-                @else
-                    <div class="left-right-text current-item">
-                        <h2 class="mb-0"><a href="/en/i/osiedle-synergia">SYNERGIA ESTATE</a></h2>
-                        <div class="invest-item-city">Olsztyn, Kanta Street</div>
-                        <p>The SYNERGIA Estate will be built in the heart of the Jaroty residential district, on Kanta Street. A modern residential building with commercial and service premises on the ground floor and an underground garage will replace the former grocery and industrial store. The estate is conveniently located near numerous shops, service points, bus stops, educational institutions, and medical facilities. Available for sale are 1-, 2-, 3-, and 4-room apartments, ranging in size from 27 m<sup>2</sup> to 80 m<sup>2</sup>.</p>
-                        <div class="row mt-3 mt-sm-5">
-                            <div class="col-4">
-                                <div class="current-stat text-center">
-                                    <span>95</span>
-                                    apartments
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="current-stat text-center">
-                                    <span>5</span>
-                                    floors
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="current-stat text-center">
-                                    <span>27-80 m<sup>2</sup></span>
-                                    square
-                                </div>
-                            </div>
-                            <div class="col-3 d-none">
-                                <div class="current-stat text-center">
-                                    <span>Q3 2025</span>
-                                    hand and over date
-                                </div>
-                            </div>
-                        </div>
-                        <a href="/en/i/osiedle-synergia" class="bttn bttn-icon mt-3 mt-sm-5">ZOBACZ MIESZKANIA <i class="ms-3 las la-chevron-circle-right"></i></a>
-                    </div>
-                @endif
-            </div>
-            <div data-aos="fade-right" data-aos-offset="400" data-aos-delay="0" class="mb-4 mb-xl-0 order-1 order-xl-2 col-12 col-xl-6">
-                <div class="invest-item-thumb">
-                    <span class="img-badge">{{ investmentStatus(1) }}</span>
-                    <a href="/pl/i/osiedle-synergia"><img src="{{ asset('/uploads/files/synergia/osiedle-synergia-homepage.jpg') }}" alt="" class="golden-border w-100" width="840" height="760"></a>
-                </div>
-            </div>
-        </div>
-
-        <div class="row left-right flex-row-reverse">
+        <!-- OSIEDLE TEMPO -->
+        <div class="row left-right mt-lg-3 mt-5">
             <div data-aos="fade-left" data-aos-offset="400" data-aos-delay="0" class="order-2 order-xl-1 col-12 col-xl-6 d-flex align-items-center">
                 @if($current_locale == 'pl')
                     <div class="left-right-text current-item">
@@ -314,7 +238,8 @@
             </div>
         </div>
 
-        <div class="row left-right">
+        <!-- BOX Self Storage -->
+        <div class="row left-right flex-row-reverse mt-lg-3 mt-5">
             <div data-aos="fade-left" data-aos-offset="400" data-aos-delay="0" class="order-2 order-xl-1 col-12 col-xl-6 d-flex align-items-center">
                 @if($current_locale == 'pl')
                     <div class="left-right-text current-item pb-0">
