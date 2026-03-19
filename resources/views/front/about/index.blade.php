@@ -164,7 +164,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-xl-6" data-aos="fade-up" data-aos-offset="500" data-aos-delay="0">
-                    <img src="{{ asset('/uploads/files/o-nas/projekty-komercyjne.jpg') }}" alt="Wizualizacja osiedla Aurora" class="golden-border w-100" width="840" height="650">
+                    <img src="{{ asset('/uploads/files/o-nas/projekty-komercyjne-2.jpg') }}" alt="Wizualizacja osiedla Aurora" class="golden-border w-100" width="840" height="650">
                 </div>
             </div>
         </div>
