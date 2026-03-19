@@ -243,7 +243,7 @@
             <div data-aos="fade-right" data-aos-offset="400" data-aos-delay="0" class="mb-4 mb-xl-0 order-1 order-xl-2 col-12 col-xl-6">
                 <div class="invest-item-thumb">
                     <span class="img-badge">{{ investmentStatus(1) }}</span>
-                    <a href="/pl/i/osiedle-synergia"><img src="{{ asset('/uploads/files/synergia/osiedle-synergia-homepage.jpg') }}" alt="" class="golden-border w-100" width="840" height="760"></a>
+                    <a href="/pl/i/osiedle-synergia"><img src="{{ asset('/uploads/files/synergia/osiedle-synergia-homepage-2.jpg') }}" alt="" class="golden-border w-100" width="840" height="760"></a>
                 </div>
             </div>
         </div>
