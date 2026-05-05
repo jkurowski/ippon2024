@@ -591,6 +591,32 @@
                 </div>
             </div>
         </div>
+
+        <div class="row flex-row-reverse mt-5 pt-5">
+            <div class="col-12 text-center">
+                @if($current_locale == 'pl')
+                    <h2 class="section-title text-uppercase">Wspieramy Polskich Sportowców</h2>
+                @else
+                    <h2 class="section-title text-uppercase">We Support Polish Athletes</h2>
+                @endif
+            </div>
+            <div class="col-12 col-xl-6" data-aos="fade-left" data-aos-offset="500">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/22CMOCi1Qdc?si=OhKYxwQQQjwwbOal" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="col-12 col-xl-6 d-flex align-items-center" data-aos="fade-right" data-aos-offset="500">
+                <div class="section-text pe-0 pe-xl-5 mt-1 mt-xl-0">
+                    @if($current_locale == 'pl')
+                        <p>W Ippon Group wierzymy w ludzi, którzy dzięki swojej ambicji, zaangażowaniu i wytrwałości sięgają po wyjątkowe osiągnięcia. Dlatego z dumą wspieramy zarówno osoby pełne pasji, jak i polskich sportowców, którzy każdego dnia udowadniają, że ciężka praca prowadzi do sukcesu.</p>
+                        <p>&nbsp;</p>
+                        <p>Jednym z nich jest Marcin Tausiewicz – utytułowany zawodnik, wielokrotny Mistrz Polski oraz medalista Mistrzostw Europy i Świata. Współpraca z takimi osobami to dla nas nie tylko wyróżnienie, ale także potwierdzenie, że warto inwestować w ludzi ambitnych i konsekwentnie dążących do celu.</p>
+                    @else
+                        <p>At Ippon Group, we believe in people who, through their ambition, commitment, and perseverance, achieve exceptional results. That’s why we are proud to support both passionate individuals and Polish athletes who prove every day that hard work leads to success.</p>
+                        <p>&nbsp;</p>
+                        <p>One of them is Marcin Tausiewicz – an accomplished competitor, multiple-time Polish Champion, and a medalist at the European and World Championships. Working with such individuals is not only an honor for us, but also a confirmation that it is worth investing in ambitious people who consistently strive toward their goals.</p>
+                    @endif
+                </div>
+            </div>
+        </div>
     </div>
 
     <div id="numbers">
