@@ -601,7 +601,7 @@
                 @endif
             </div>
             <div class="col-12 col-xl-6" data-aos="fade-left" data-aos-offset="500">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/22CMOCi1Qdc?si=OhKYxwQQQjwwbOal" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/Oxn9APVs3v0?si=4Q9fGFtFOjEs3ifT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
             <div class="col-12 col-xl-6 d-flex align-items-center" data-aos="fade-right" data-aos-offset="500">
                 <div class="section-text pe-0 pe-xl-5 mt-1 mt-xl-0">
