@@ -17,6 +17,45 @@
                 </div>
             </div>
             <div class="row justify-content-center">
+
+                <div class="col-12 col-lg-6">
+                    <div class="invest-item-holder">
+                        <div class="invest-item position-relative">
+                            <span class="img-badge">{{ investmentStatus(2) }}</span>
+                            <div class="invest-item-thumb">
+                                <div class="textSlider commercial-slider">
+                                    <ul class="list-unstyled mb-0">
+                                        <li><img src="{{asset('uploads/slow/b4_1_1.jpg') }}" alt="Osiedle SLOW - Budynek B4.1"></li>
+                                        <li><img src="{{asset('uploads/slow/b4_1_2.jpg') }}" alt="Osiedle SLOW - Budynek B4.1"></li>
+                                        <li><img src="{{asset('uploads/slow/b4_1_3.jpg') }}" alt="Osiedle SLOW - Budynek B4.1"></li>
+                                        <li><img src="{{asset('uploads/slow/b4_1_4.jpg') }}" alt="Osiedle SLOW - Budynek B4.1"></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            @if($current_locale == 'pl')
+                                <div class="invest-item-desc">
+                                    <div class="invest-item-header">
+                                        <h2 class="mb-0">Osiedle SLOW</h2>
+                                        <div class="invest-item-city">Budynek B4.1</div>
+                                    </div>
+                                    <img src="{{ asset('investment/logo/171245_logo-osiedle-slow.png') }}" alt="Logo Osiedle SLOW">
+                                    <p>Oddany do użytkowania dla przyszłych mieszkańców został budynek B4.1 na osiedlu Slow. Budynek to tylko 39 mieszkań, co zapewnia kameralny charakter zabudowy. Do dyspozycji mieszkańców oddano windę, a szerokie klatki schodowe i korytarze podnoszą komfort codziennego użytkowania. Każde mieszkanie posiada balkon, natomiast lokale na parterze wyposażone są w prywatne ogródki.</p>
+                                </div>
+                            @else
+                                <div class="invest-item-desc">
+                                    <div class="invest-item-header">
+                                        <h2 class="mb-0">Slow Estate</h2>
+                                        <div class="invest-item-city">Building B4.1</div>
+                                    </div>
+                                    <img src="{{ asset('investment/logo/171245_logo-osiedle-slow.png') }}" alt="Logo Osiedle SLOW">
+                                    <p>Building B4.1 at the Slow residential development has been completed and handed over for use to future residents. The building consists of only 39 apartments, ensuring an intimate and low-density character. Residents have access to an elevator, and the wide staircases and corridors enhance everyday comfort. Each apartment features a balcony, while ground-floor units come with private gardens.</p>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+
+
                 @foreach($investments as $r)
                     <div class="col-12 col-lg-6">
                         <div class="invest-item-holder">
