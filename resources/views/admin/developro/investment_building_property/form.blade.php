@@ -94,7 +94,7 @@
                                                 @include('form-elements.html-select-multiple', [
                                                     'label' => 'Atrybuty',
                                                     'name' => 'additional',
-                                                    'selected' => json_decode($entry->additional),
+                                                    'selected' => $entry->additional,
                                                     'select' => [
                                                         '1' => 'Gotowe do odbioru',
                                                         '2' => 'Atrakcyjny wygląd',

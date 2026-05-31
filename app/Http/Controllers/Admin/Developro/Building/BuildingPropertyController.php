@@ -87,6 +87,9 @@ class BuildingPropertyController extends Controller
             'floor_id' => $floor->id
         ]));
 
+
+
+
         $types = $request->input('price-component-type', []);
         $categories = $request->input('price-component-category', []);
         $values = $request->input('price-component-value', []);

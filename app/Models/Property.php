@@ -15,6 +15,10 @@ class Property extends Model
 {
     use LogsActivity, Notifiable;
 
+    protected $casts = [
+        'additional' => 'array'
+    ];
+
     /**
      * The attributes that are mass assignable.
      *
