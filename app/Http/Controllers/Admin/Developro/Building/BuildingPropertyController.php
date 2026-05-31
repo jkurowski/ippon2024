@@ -134,8 +134,21 @@ class BuildingPropertyController extends Controller
             ->where('type', '!=', 1)
             ->whereNotIn('id', $relatedIds)
             ->mapWithKeys(function ($item) {
+                $name = $item->name;
+                $details = [];
+                if ($item->building) {
+                    $details[] = $item->building->name;
+                }
+                if ($item->floor) {
+                    $details[] = $item->floor->name;
+                }
+
+                if (!empty($details)) {
+                    $name .= ' (' . implode(' - ', $details) . ')';
+                }
+
                 return [
-                    $item->id => $item->name . ' (' . $item->building->name . ' - ' . $item->floor->name . ')'
+                    $item->id => $name
                 ];
             });
 
@@ -144,7 +157,10 @@ class BuildingPropertyController extends Controller
             ->where('id', '<>', $property->id)
             ->get()
             ->mapWithKeys(function ($prop) {
-                $name = $prop->name . ' (' . $prop->floor->name . ')';
+                $name = $prop->name;
+                if ($prop->floor) {
+                    $name .= ' (' . $prop->floor->name . ')';
+                }
 
                 if ($prop->building && $prop->building->name) {
                     $name .= ' - ' . $prop->building->name;
