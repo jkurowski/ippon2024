@@ -57,9 +57,9 @@
                                             </div>
                                         </div>
                                         <div class="col-12 col-lg-6">
-                                            @if($room->additional)
+                                            @if(!empty($room->additional))
                                                 @php
-                                                    $atutyArray = json_decode($room->additional);
+                                                    $atutyArray = $room->additional;
                                                 @endphp
 
                                                 <div class="property-list-item-option">
