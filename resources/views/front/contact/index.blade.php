@@ -85,8 +85,11 @@
                     <div class="ps-4 ps-xxl-5 sellers">
                         <h2>Elżbieta Kalinowska</h2>
                         <a href="mailto:e.kalinowska@ippon.group">e.kalinowska@ippon.group</a>
-                        <a href="tel:+48609884219"><strong>+48 609 884 219</strong></a>
                         <a href="tel:+48724222323"><strong>+48 724 222 323</strong></a>
+                        <br>
+                        <h2>Iwona Schubert</h2>
+                        <a href="mailto:i.schubert@ippon.group">i.schubert@ippon.group</a>
+                        <a href="tel:+48609884219"><strong>+48 609 884 219</strong></a>
                     </div>
                 </div>
             </div>
