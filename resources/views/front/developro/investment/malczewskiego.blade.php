@@ -33,12 +33,12 @@
             <div class="container">
                 <div class="row">
                     <div class="col-6">
-                        <img src="https://placehold.co/774x820" alt="" class="w-100">
+                        <img src="https://placehold.co/774x640" alt="" class="w-100">
                     </div>
                     <div class="col-6 d-flex align-items-center justify-content-center">
                         <div class="section-text ps-5">
                             <h3>O inwestycji</h3>
-                            <h2>Nowoczesna interpretacja klasyki</h2>
+                            <h2>Nowoczesna <br>interpretacja klasyki</h2>
                             <p>Architektura naszego osiedla w subtelny sposób nawiązuje do historycznej tkanki Gdańska. Wyważone proporcje, przemyślany rytm elewacji oraz starannie dobrane, szlachetne materiały tworzą nowoczesną interpretację tradycyjnych miejskich kamienic.</p>
                             <p>&nbsp;</p>
                             <p>To unikalny projekt, w dzielnicy Siedlce, składający się z zaledwie 3 kameralnych budynków, w których łącznie zaplanowano 118 apartamentów.</p>
@@ -53,7 +53,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <img src="https://placehold.co/1600x920" alt="" class="w-100">
+                        <img src="https://placehold.co/1600x720" alt="" class="w-100">
                     </div>
                 </div>
             </div>
@@ -104,7 +104,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-6">
-                        <img src="https://placehold.co/774x774" alt="" class="w-100">
+                        <img src="https://placehold.co/774x500" alt="" class="w-100">
                     </div>
                     <div class="col-6 d-flex align-items-center justify-content-center">
                         <div class="section-text ps-5">
@@ -121,7 +121,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <img src="https://placehold.co/1600x920" alt="" class="w-100">
+                        <img src="https://placehold.co/1600x720" alt="" class="w-100">
                     </div>
                 </div>
             </div>
@@ -131,7 +131,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-6">
-                        <img src="https://placehold.co/774x774" alt="" class="w-100">
+                        <img src="https://placehold.co/774x500" alt="" class="w-100">
                     </div>
                     <div class="col-6 d-flex align-items-center justify-content-center">
                         <div class="section-text ps-5">
@@ -148,7 +148,7 @@
             <div class="container">
                 <div class="row flex-row-reverse">
                     <div class="col-6">
-                        <img src="https://placehold.co/774x774" alt="" class="w-100">
+                        <img src="https://placehold.co/774x500" alt="" class="w-100">
                     </div>
                     <div class="col-6 d-flex align-items-center justify-content-center">
                         <div class="section-text pe-5">
@@ -166,7 +166,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-6">
-                        <img src="https://placehold.co/774x774" alt="" class="w-100">
+                        <img src="https://placehold.co/774x500" alt="" class="w-100">
                     </div>
                     <div class="col-6 d-flex align-items-center justify-content-center">
                         <div class="section-text ps-5">
@@ -184,7 +184,7 @@
             <div class="container">
                 <div class="row flex-row-reverse">
                     <div class="col-6">
-                        <img src="https://placehold.co/774x774" alt="" class="w-100">
+                        <img src="https://placehold.co/774x500" alt="" class="w-100">
                     </div>
                     <div class="col-6 d-flex align-items-center justify-content-center">
                         <div class="section-text pe-5">
@@ -267,7 +267,7 @@
             font-size: 110px;
             line-height: 110px;
             color: #ba8b41;
-            font-family: 'Maharlika';
+            font-family: 'Maharlika', sans-serif;
             font-style: normal;
         }
         #hero h5 {
@@ -301,21 +301,21 @@
             font-style: normal;
         }
         .section-text h2 {
-            font-size: 64px;
-            line-height: 72px;
-            margin-bottom: 40px;
+            font-size: 57px;
+            line-height: 64px;
+            margin-bottom: 30px;
         }
         .section-text h3 {
             font-size: 24px;
             line-height: 40px;
             text-transform: uppercase;
             color: #ba8b41;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             letter-spacing: 2px;
         }
         .section-text p {
-            font-size: 20px;
-            line-height: 36px;
+            font-size: 18px;
+            line-height: 34px;
         }
         #page-content nav {
             background: black;
