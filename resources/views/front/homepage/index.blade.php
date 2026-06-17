@@ -97,19 +97,176 @@
         <div class="row">
             <div class="col-12 text-center">
                 @if($current_locale == 'pl')
-                <h2 class="section-title text-uppercase"><span class="text-gold">Poznaj inwestycje</span> <br>w sprzedaży</h2>
+                <h2 class="section-title text-uppercase"><span class="text-gold">Poznaj inwestycje</span> w sprzedaży</h2>
                 @else
                 <h2 class="section-title text-uppercase"><span class="text-gold">Discover investments</span> <br>on sale</h2>
                 @endif
             </div>
         </div>
 
+        <div class="row">
+            <div class="col-4 p-4">
+                <div class="main-investbox" style="border:2px solid #ba8b41;border-radius: 10px;">
+                    <div class="main-investbox-header">
+                        <h2 class="mb-0">OSIEDLE SLOW</h2>
+                        <div class="invest-item-city">Olsztyn, ul.Kordeckiego</div>
+                    </div>
+                    <div class="main-investbox-thumb">
+                        <img src="{{ asset('/uploads/files/osiedle-slow/osiedle-slow.jpg') }}" alt="" class="golden-border w-100" width="840" height="760">
+                    </div>
+                    <div class="main-investbox-state">
+                        OSTATNIE MIESZKANIA
+                    </div>
+                    <div class="main-investbox-features">
+                        <div class="row">
+                            <div class="col-4">
+                                <div style="width:40px;height:40px;background:black;margin:0 auto;border-radius:4px"></div>
+                                <p>35 - 56 m<sup>2</sup></p>
+                            </div>
+                            <div class="col-4">
+                                <div style="width:40px;height:40px;background:black;margin:0 auto;border-radius:4px"></div>
+                                <p>2 piętra<br>winda</p>
+                            </div>
+                            <div class="col-4">
+                                <div style="width:40px;height:40px;background:black;margin:0 auto;border-radius:4px"></div>
+                                <p>Odbiór Q4 2026</p>
+                            </div>
+                        </div>
+                        <p class="mt-3">Zielone i ekologiczne osiedle na Gutowie</p>
+                    </div>
+                    <div class="main-investbox-footer">
+                        <a href="/pl/i/osiedle-slow/mieszkania" class="bttn bttn-icon">ZOBACZ MIESZKANIA <i class="ms-3 las la-chevron-circle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 p-4">
+                <div class="main-investbox" style="border:2px solid #ba8b41;border-radius: 10px;">
+                    <div class="main-investbox-header">
+                        <h2 class="mb-0">OSIEDLE SLOW</h2>
+                        <div class="invest-item-city">Olsztyn, ul.Kordeckiego</div>
+                    </div>
+                    <div class="main-investbox-thumb">
+                        <img src="{{ asset('/uploads/files/osiedle-slow/osiedle-slow.jpg') }}" alt="" class="golden-border w-100" width="840" height="760">
+                    </div>
+                    <div class="main-investbox-state">
+                        OSTATNIE MIESZKANIA
+                    </div>
+                    <div class="main-investbox-features">
+                        <div class="row">
+                            <div class="col-4">
+                                <div style="width:40px;height:40px;background:black;margin:0 auto;border-radius:4px"></div>
+                                <p>35 - 56 m<sup>2</sup></p>
+                            </div>
+                            <div class="col-4">
+                                <div style="width:40px;height:40px;background:black;margin:0 auto;border-radius:4px"></div>
+                                <p>2 piętra<br>winda</p>
+                            </div>
+                            <div class="col-4">
+                                <div style="width:40px;height:40px;background:black;margin:0 auto;border-radius:4px"></div>
+                                <p>Odbiór Q4 2026</p>
+                            </div>
+                        </div>
+                        <p class="mt-3">Zielone i ekologiczne osiedle na Gutowie</p>
+                    </div>
+                    <div class="main-investbox-footer">
+                        <a href="/pl/i/osiedle-slow/mieszkania" class="bttn bttn-icon">ZOBACZ MIESZKANIA <i class="ms-3 las la-chevron-circle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 p-4">
+                <div class="main-investbox" style="border:2px solid #ba8b41;border-radius: 10px;">
+                    <div class="main-investbox-header">
+                        <h2 class="mb-0">OSIEDLE SLOW</h2>
+                        <div class="invest-item-city">Olsztyn, ul.Kordeckiego</div>
+                    </div>
+                    <div class="main-investbox-thumb">
+                        <img src="{{ asset('/uploads/files/osiedle-slow/osiedle-slow.jpg') }}" alt="" class="golden-border w-100" width="840" height="760">
+                    </div>
+                    <div class="main-investbox-state">
+                        OSTATNIE MIESZKANIA
+                    </div>
+                    <div class="main-investbox-features">
+                        <div class="row">
+                            <div class="col-4">
+                                <div style="width:40px;height:40px;background:black;margin:0 auto;border-radius:4px"></div>
+                                <p>35 - 56 m<sup>2</sup></p>
+                            </div>
+                            <div class="col-4">
+                                <div style="width:40px;height:40px;background:black;margin:0 auto;border-radius:4px"></div>
+                                <p>2 piętra<br>winda</p>
+                            </div>
+                            <div class="col-4">
+                                <div style="width:40px;height:40px;background:black;margin:0 auto;border-radius:4px"></div>
+                                <p>Odbiór Q4 2026</p>
+                            </div>
+                        </div>
+                        <p class="mt-3">Zielone i ekologiczne osiedle na Gutowie</p>
+                    </div>
+                    <div class="main-investbox-footer">
+                        <a href="/pl/i/osiedle-slow/mieszkania" class="bttn bttn-icon">ZOBACZ MIESZKANIA <i class="ms-3 las la-chevron-circle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            .main-investbox {
+                text-align: center;
+            }
+            .main-investbox h2 {
+                font-size: 36px;
+                line-height: 1;
+            }
+            .main-investbox-header {
+                padding: 20px;
+            }
+            .main-investbox-features {
+                padding: 30px 0;
+            }
+            .main-investbox-features p {
+                padding: 0 20px;
+                line-height: 1.2;
+                margin-top: 10px;
+                font-size: 19px;
+            }
+            .main-investbox-thumb img {
+                height: 300px;
+            }
+            .main-investbox .invest-item-city {
+                font-size: 18px;
+                font-family: "Georgia",serif;
+                font-style: oblique;
+                margin-bottom: 0;
+            }
+            .main-investbox-state {
+                margin: -31px auto 0;
+                width: 300px;
+                background: #b88940;
+                color: white;
+                font-size: 20px;
+                font-weight: 500;
+                padding: 11px 0;
+                border-radius: 3px;
+                z-index: 99;
+                position: relative;
+            }
+            .main-investbox-footer {
+                padding: 0 20px 20px;
+            }
+            .main-investbox-footer .bttn {
+                border-radius: 5px;
+                width: 100%;
+                text-align: center;
+                justify-content: center;
+            }
+        </style>
+
         <div class="row left-right flex-row-reverse">
             <div data-aos="fade-left" data-aos-offset="400" data-aos-delay="0" class="order-2 order-xl-1 col-12 col-xl-6 d-flex align-items-center">
                 @if($current_locale == 'pl')
                 <div class="left-right-text current-item">
-                    <h2 class="mb-0"><a href="/pl/i/osiedle-slow/mieszkania">OSIEDLE SLOW - nowy etap już w sprzedaży</a></h2>
-                    <div class="invest-item-city">Olsztyn, ul.Kordeckiego</div>
+
+
                     <p>Osiedle SLOW położone jest w zielonej i malowniczej części Olsztyna, dzielnicy Gutkowo. W ofercie mieszkania z ogródkiem oraz z prywatnym poddaszem o metrażu, nawet do 27 m2. Niska, kameralna zabudowa z windą. Dla mieszkańców powstaną wyjątkowe strefy relaksu – przestrzeń do jogi, boisko wielofunkcyjne oraz wiaty grillowe z miejscami do siedzenia. W sprzedaży mieszkania z różnych etapów inwestycji. Sprawdź szczegóły w biurze sprzedaży.</p>
                     <div class="row mt-3 mt-sm-5">
                         <div class="col-4">
@@ -165,7 +322,7 @@
             <div data-aos="fade-right" data-aos-offset="400" data-aos-delay="0" class="mb-4 mb-xl-0 order-1 order-xl-2 col-12 col-xl-6">
                 <div class="invest-item-thumb">
                     <span class="img-badge">{{ investmentStatus(1) }}</span>
-                    <a href="/pl/i/osiedle-slow/mieszkania"><img src="{{ asset('/uploads/files/osiedle-slow/osiedle-slow.jpg') }}" alt="" class="golden-border w-100" width="840" height="760"></a>
+
                 </div>
             </div>
         </div>

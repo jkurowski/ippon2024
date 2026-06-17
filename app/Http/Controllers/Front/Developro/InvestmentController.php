@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Front\Developro;
 
 use App\Http\Controllers\Controller;
 use App\Models\Investment;
+use App\Models\RodoRules;
+use App\Models\RodoSettings;
 use Illuminate\Http\Request;
 
 // CMS
@@ -73,6 +75,16 @@ class InvestmentController extends Controller
             return view('front.developro.investment.synergia', [
                 'investment' => $investment,
                 'sections' => $investment->sections(1)->get(),
+                'page' => $page
+            ]);
+        }
+        else if($investment->id == 12)
+        {
+            return view('front.developro.investment.malczewskiego', [
+                'investment' => $investment,
+                'sections' => $investment->sections(1)->get(),
+                'obligation' => RodoSettings::find(1),
+                'rules' => RodoRules::orderBy('sort')->whereStatus(1)->get(),
                 'page' => $page
             ]);
         }
