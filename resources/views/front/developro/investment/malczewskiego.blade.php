@@ -235,6 +235,17 @@
             position: relative;
             min-height: calc(100vh - 238px);
         }
+        @media (max-width: 1399.98px) {
+            #hero {
+                min-height: calc(100vh - 170px);
+            }
+        }
+        @media (max-width: 1199.98px) {
+            #hero {
+                position: relative;
+                min-height: calc(100vh - 100px);
+            }
+        }
         #hero img {
             position: absolute;
             top: 0;
