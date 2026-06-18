@@ -267,7 +267,7 @@
             <div data-aos="fade-left" data-aos-offset="400" data-aos-delay="0" class="order-2 order-xl-1 col-12 col-xl-6 d-flex align-items-center">
                 @if($current_locale == 'pl')
                 <div class="left-right-text current-item">
-                    <h2 class="mb-0"><a href="/en/i/osiedle-slow/mieszkania">Osiedle SLOW</a></h2>
+                    <h2 class="mb-0"><a href="/en/i/osiedle-slow/mieszkania">OSIEDLE SLOW</a></h2>
                     <div class="invest-item-city">Olsztyn, ul.Kordeckiego</div>
                     <p>Osiedle SLOW położone jest w zielonej i malowniczej części Olsztyna, dzielnicy Gutkowo. W ofercie mieszkania z ogródkiem oraz z prywatnym poddaszem o metrażu, nawet do 27 m2. Niska, kameralna zabudowa z windą. Dla mieszkańców powstaną wyjątkowe strefy relaksu – przestrzeń do jogi, boisko wielofunkcyjne oraz wiaty grillowe z miejscami do siedzenia. W sprzedaży mieszkania z różnych etapów inwestycji. Sprawdź szczegóły w biurze sprzedaży.</p>
                     <div class="row mt-3 mt-sm-5">
