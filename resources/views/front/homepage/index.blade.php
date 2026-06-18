@@ -104,6 +104,7 @@
             </div>
         </div>
 
+        @auth()
         <div class="row">
             <div class="col-4 p-4">
                 <div class="main-investbox" style="border:2px solid #ba8b41;border-radius: 10px;">
@@ -260,6 +261,7 @@
                 justify-content: center;
             }
         </style>
+        @endauth
 
         <div class="row left-right flex-row-reverse">
             <div data-aos="fade-left" data-aos-offset="400" data-aos-delay="0" class="order-2 order-xl-1 col-12 col-xl-6 d-flex align-items-center">
