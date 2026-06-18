@@ -33,7 +33,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-6">
-                        <img src="https://placehold.co/774x640" alt="" class="w-100">
+                        <img src="{{ asset('gdansk/wizualizacja-inwestycji-1.jpg') }}" alt="Wizualizacja inwestycji" class="w-100" width="790" height="650">
                     </div>
                     <div class="col-6 d-flex align-items-center justify-content-center">
                         <div class="section-text ps-5">
@@ -53,7 +53,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <img src="https://placehold.co/1600x720" alt="" class="w-100">
+                        <img src="{{ asset('gdansk/wizualizacja-inwestycji-2.jpg') }}" class="w-100" width="1600" height="720" alt="Wizualizacja inwestycji">
                     </div>
                 </div>
             </div>
@@ -69,29 +69,33 @@
                 </div>
                 <div class="row row-premium">
                     <div class="col-6">
-                        <img src="https://placehold.co/774x520" alt="" class="w-100">
+                        <img src="{{ asset('gdansk/wizualizacja-inwestycji-3.jpg') }}" class="w-100" width="775" height="520" alt="Wizualizacja inwestycji">
                     </div>
                     <div class="col-6">
                         <div class="ps-5 d-flex justify-content-center gap-5 align-items-center h-100">
                             <div class="premium-icon">
+                                <img src="{{ asset('gdansk/strefa-fitness.png') }}" class="w-100" width="244" height="200" alt="Ikonka strefy fitness">
                                 <p>PRYWATNA<br>STREFA FITNESS</p>
                             </div>
                             <div class="premium-icon">
-                                <p>W PEŁNI<br>WYPOSAZONA<br>SIŁOWNIA</p>
+                                <img src="{{ asset('gdansk/silownia.png') }}" class="w-100" width="244" height="200" alt="Ikonka strefy fitness">
+                                <p>W PEŁNI WYPOSAŻONA<br>SIŁOWNIA</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row flex-row-reverse">
                     <div class="col-6">
-                        <img src="https://placehold.co/774x520" alt="" class="w-100">
+                        <img src="{{ asset('gdansk/wizualizacja-inwestycji-4.jpg') }}" class="w-100" width="775" height="520" alt="Wizualizacja inwestycji">
                     </div>
                     <div class="col-6">
                         <div class="pe-5 d-flex justify-content-center gap-5 align-items-center h-100">
                             <div class="premium-icon">
+                                <img src="{{ asset('gdansk/strefa-relaksu.png') }}" class="w-100" width="244" height="200" alt="Ikonka strefy fitness">
                                 <p>ZEWNĘTRZNA<br>STREFA RELAKSU</p>
                             </div>
                             <div class="premium-icon">
+                                <img src="{{ asset('gdansk/ochrona.png') }}" class="w-100" width="244" height="200" alt="Ikonka strefy fitness">
                                 <p>REPREZENTACYJNE<br>LOBBY Z OCHRONĄ</p>
                             </div>
                         </div>
@@ -104,7 +108,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-6">
-                        <img src="https://placehold.co/774x500" alt="" class="w-100">
+                        <img src="{{ asset('gdansk/mapa-lokalizacji-malczewskiego.jpg') }}" class="w-100" width="790" height="600" alt="Wizualizacja inwestycji">
                     </div>
                     <div class="col-6 d-flex align-items-center justify-content-center">
                         <div class="section-text ps-5">
@@ -121,7 +125,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <img src="https://placehold.co/1600x720" alt="" class="w-100">
+                        <img src="{{ asset('gdansk/wizualizacja-silowni-malczewskiego.jpg') }}" class="w-100" width="1600" height="720" alt="Wizualizacja inwestycji">
                     </div>
                 </div>
             </div>
@@ -131,7 +135,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-6">
-                        <img src="https://placehold.co/774x500" alt="" class="w-100">
+                        <img src="{{ asset('gdansk/wizualizacja-inwestycji-5.jpg') }}" class="w-100" width="790" height="520" alt="Wizualizacja inwestycji">
                     </div>
                     <div class="col-6 d-flex align-items-center justify-content-center">
                         <div class="section-text ps-5">
@@ -148,7 +152,7 @@
             <div class="container">
                 <div class="row flex-row-reverse">
                     <div class="col-6">
-                        <img src="https://placehold.co/774x500" alt="" class="w-100">
+                        <img src="{{ asset('gdansk/wygoda-codziennego-zycia.jpg') }}" class="w-100" width="790" height="520" alt="Wizualizacja inwestycji">
                     </div>
                     <div class="col-6 d-flex align-items-center justify-content-center">
                         <div class="section-text pe-5">
@@ -166,7 +170,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-6">
-                        <img src="https://placehold.co/774x500" alt="" class="w-100">
+                        <img src="{{ asset('gdansk/kolory-inwestycji.jpg') }}" class="w-100" width="790" height="498" alt="Wizualizacja inwestycji">
                     </div>
                     <div class="col-6 d-flex align-items-center justify-content-center">
                         <div class="section-text ps-5">
@@ -184,7 +188,7 @@
             <div class="container">
                 <div class="row flex-row-reverse">
                     <div class="col-6">
-                        <img src="https://placehold.co/774x500" alt="" class="w-100">
+                        <img src="{{ asset('gdansk/standard-inwestycji-malczewskiego.jpg') }}" class="w-100" width="790" height="520" alt="Wizualizacja inwestycji">
                     </div>
                     <div class="col-6 d-flex align-items-center justify-content-center">
                         <div class="section-text pe-5">
@@ -347,7 +351,7 @@
         .premium-icon p {
             font-family: 'Maharlika', sans-serif;
             font-style: normal;
-            font-size: 24px;
+            font-size: 22px;
             line-height: 36px;
             color: white;
             text-align: center;
