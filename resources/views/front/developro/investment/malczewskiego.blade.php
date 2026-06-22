@@ -32,17 +32,17 @@
         <section id="about">
             <div class="container">
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-12 col-lg-6">
                         <img src="{{ asset('gdansk/wizualizacja-inwestycji-1.jpg') }}" alt="Wizualizacja inwestycji" class="w-100" width="790" height="650">
                     </div>
-                    <div class="col-6 d-flex align-items-center justify-content-center">
-                        <div class="section-text ps-5">
+                    <div class="col-12 col-lg-6 d-flex align-items-center justify-content-center">
+                        <div class="section-text ps-0 ps-lg-5 mt-4 mt-lg-0">
                             <h3>O inwestycji</h3>
                             <h2>Nowoczesna <br>interpretacja klasyki</h2>
                             <p>Architektura naszego osiedla w subtelny sposób nawiązuje do historycznej tkanki Gdańska. Wyważone proporcje, przemyślany rytm elewacji oraz starannie dobrane, szlachetne materiały tworzą nowoczesną interpretację tradycyjnych miejskich kamienic.</p>
                             <p>&nbsp;</p>
                             <p>To unikalny projekt, w dzielnicy Siedlce, składający się z zaledwie 3 kameralnych budynków, w których łącznie zaplanowano 118 apartamentów.</p>
-                            <a href="#contact" class="bttn bttn-icon mt-5">FORMULARZ KONTAKTOWY <i class="ms-3 las la-chevron-circle-right"></i></a>
+                            <a href="#contact" class="bttn bttn-icon mt-4">FORMULARZ KONTAKTOWY <i class="ms-3 las la-chevron-circle-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -68,11 +68,11 @@
                     </div>
                 </div>
                 <div class="row row-premium">
-                    <div class="col-6">
+                    <div class="col-12 col-lg-6">
                         <img src="{{ asset('gdansk/wizualizacja-inwestycji-3.jpg') }}" class="w-100" width="775" height="520" alt="Wizualizacja inwestycji">
                     </div>
-                    <div class="col-6">
-                        <div class="ps-5 d-flex justify-content-center gap-5 align-items-center h-100">
+                    <div class="col-12 col-lg-6 mt-4 mt-lg-0">
+                        <div class="ps-0 ps-lg- 5 d-flex justify-content-center gap-5 align-items-center h-100">
                             <div class="premium-icon">
                                 <img src="{{ asset('gdansk/strefa-fitness.png') }}" class="w-100" width="244" height="200" alt="Ikonka strefy fitness">
                                 <p>PRYWATNA<br>STREFA FITNESS</p>
@@ -85,11 +85,11 @@
                     </div>
                 </div>
                 <div class="row flex-row-reverse">
-                    <div class="col-6">
+                    <div class="col-12 col-lg-6">
                         <img src="{{ asset('gdansk/wizualizacja-inwestycji-4.jpg') }}" class="w-100" width="775" height="520" alt="Wizualizacja inwestycji">
                     </div>
-                    <div class="col-6">
-                        <div class="pe-5 d-flex justify-content-center gap-5 align-items-center h-100">
+                    <div class="col-12 col-lg-6 mt-4 mt-lg-0">
+                        <div class="pe-0 pe-lg-5 d-flex justify-content-center gap-5 align-items-center h-100">
                             <div class="premium-icon">
                                 <img src="{{ asset('gdansk/strefa-relaksu.png') }}" class="w-100" width="244" height="200" alt="Ikonka strefy fitness">
                                 <p>ZEWNĘTRZNA<br>STREFA RELAKSU</p>
@@ -107,11 +107,11 @@
         <section id="location">
             <div class="container">
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-12 col-lg-6">
                         <img src="{{ asset('gdansk/mapa-lokalizacji-malczewskiego.jpg') }}" class="w-100" width="790" height="600" alt="Wizualizacja inwestycji">
                     </div>
-                    <div class="col-6 d-flex align-items-center justify-content-center">
-                        <div class="section-text ps-5">
+                    <div class="col-12 col-lg-6 d-flex align-items-center justify-content-center">
+                        <div class="section-text ps-0 ps-lg-5 mt-4 mt-lg-0">
                             <h3>Lokalizacja</h3>
                             <h2>Wszystko, czego potrzebujesz. Dokładnie tam, gdzie chcesz.</h2>
                             <p>Lokalizacja przy ul. Malczewskiego to idealny kompromis między dynamicznym rytmem miasta a kojącym spokojem. Gdańskie Siedlce to rejon, który w przeciwieństwie do przesyconego turystami Śródmieścia, zachował znacznie więcej przestrzeni, naturalnej zieleni i kameralnego charakteru.</p>
@@ -134,11 +134,11 @@
         <section id="standard">
             <div class="container">
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-12 col-lg-6">
                         <img src="{{ asset('gdansk/wizualizacja-inwestycji-5.jpg') }}" class="w-100" width="790" height="520" alt="Wizualizacja inwestycji">
                     </div>
-                    <div class="col-6 d-flex align-items-center justify-content-center">
-                        <div class="section-text ps-5">
+                    <div class="col-12 col-lg-6 d-flex align-items-center justify-content-center">
+                        <div class="section-text ps-0 ps-lg-5 mt-4 mt-lg-0">
                             <h3>Standard</h3>
                             <h2>Zadbaj o zdrowie i relaks bez wychodzenia z domu</h2>
                             <p>Prywatna strefa fitness z saunami pozwala zadbać o zdrowie i regenerację bez wychodzenia z domu, a w pełni wyposażona siłownia spełni oczekiwania nawet najbardziej wymagających.</p>
@@ -151,15 +151,15 @@
         <section>
             <div class="container">
                 <div class="row flex-row-reverse">
-                    <div class="col-6">
+                    <div class="col-12 col-lg-6">
                         <img src="{{ asset('gdansk/wygoda-codziennego-zycia.jpg') }}" class="w-100" width="790" height="520" alt="Wizualizacja inwestycji">
                     </div>
-                    <div class="col-6 d-flex align-items-center justify-content-center">
-                        <div class="section-text pe-5">
+                    <div class="col-12 col-lg-6 d-flex align-items-center justify-content-center">
+                        <div class="section-text pe-0 pe-lg-5 mt-4 mt-lg-0">
                             <h3>Standard</h3>
                             <h2>Wygoda codziennego życia.</h2>
                             <p>W zaledwie 5 minut spacerem dotrzesz do kluczowych punktów usługowych, sklepów, a także renomowanych szkół i przedszkoli. Mieszkasz w cichej enklawie, zachowując pełną kontrolę nad swoim czasem i logistyką dnia.</p>
-                            <a href="#contact" class="bttn bttn-icon mt-5">FORMULARZ KONTAKTOWY <i class="ms-3 las la-chevron-circle-right"></i></a>
+                            <a href="#contact" class="bttn bttn-icon mt-4">FORMULARZ KONTAKTOWY <i class="ms-3 las la-chevron-circle-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -169,15 +169,15 @@
         <section id="nature">
             <div class="container">
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-12 col-lg-6">
                         <img src="{{ asset('gdansk/kolory-inwestycji.jpg') }}" class="w-100" width="790" height="498" alt="Wizualizacja inwestycji">
                     </div>
-                    <div class="col-6 d-flex align-items-center justify-content-center">
-                        <div class="section-text ps-5">
+                    <div class="col-12 col-lg-6 d-flex align-items-center justify-content-center">
+                        <div class="section-text ps-0 ps-lg-5 mt-4 mt-lg-0">
                             <h3>O inwestycji</h3>
                             <h2>Spójnie z naturą.</h2>
                             <p>Kolorystyka osiedla została starannie dobrana, aby harmonijnie wpisywać się w otaczającą naturę. Barwy użyte w materiałach elewacyjnych, detalach architektonicznych i elementach małej architektury nawiązują do tonów ziemi, piasku i zieleni, tworząc spójną i relaksującą wizję całego osiedla.</p>
-                            <a href="#contact" class="bttn bttn-icon mt-5">FORMULARZ KONTAKTOWY <i class="ms-3 las la-chevron-circle-right"></i></a>
+                            <a href="#contact" class="bttn bttn-icon mt-4">FORMULARZ KONTAKTOWY <i class="ms-3 las la-chevron-circle-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -187,11 +187,11 @@
         <section>
             <div class="container">
                 <div class="row flex-row-reverse">
-                    <div class="col-6">
+                    <div class="col-12 col-lg-6">
                         <img src="{{ asset('gdansk/standard-inwestycji-malczewskiego.jpg') }}" class="w-100" width="790" height="520" alt="Wizualizacja inwestycji">
                     </div>
-                    <div class="col-6 d-flex align-items-center justify-content-center">
-                        <div class="section-text pe-5">
+                    <div class="col-12 col-lg-6 d-flex align-items-center justify-content-center">
+                        <div class="section-text pe-0 pe-lg-5 mt-4 mt-lg-0">
                             <h3>Inwestycja w przygotowaniu</h3>
                             <h2>Tworzymy standard bez kompromisów</h2>
                             <p>Obecnie doopracowujemy detale architektury oraz standard wykończenia, tak aby bezwzględnie sprostać wysokim wymaganiaom przyszłych mieszkańców.</p>
@@ -333,6 +333,7 @@
             justify-content: center;
             margin: 0;
             padding: 0;
+            list-style: none;
         }
         #page-content nav ul a {
             color: white;
@@ -355,6 +356,192 @@
             line-height: 36px;
             color: white;
             text-align: center;
+        }
+        @media (max-width: 1639.98px) {
+            .section-text p {
+                font-size: 17px;
+                line-height: 29px;
+            }
+            .section-text h2 {
+                font-size: 49px;
+                line-height: 49px;
+                margin-bottom: 20px;
+            }
+            .section-text h3 {
+                font-size: 18px;
+                line-height: 24px;
+                text-transform: uppercase;
+                color: #ba8b41;
+                margin-bottom: 10px;
+                letter-spacing: 2px;
+            }
+            section#premium h2 {
+                font-size: 35px
+            }
+            section#premium h3 {
+                font-size: 47px;
+                color: white;
+            }
+            .row-premium {
+                margin: 45px 0;
+            }
+            .premium-icon img {
+                width: 140px !important;
+                height: auto !important;
+                margin: 0 auto;
+            }
+            .premium-icon {
+                height: 240px;
+            }
+            .premium-icon p {
+                font-size: 16px;
+                line-height: 26px;
+            }
+            #hero h1 {
+                font-size: 90px;
+                line-height: 90px;
+            }
+            #hero h5 {
+                font-size: 26px;
+                line-height: 42px;
+            }
+        }
+        @media (max-width: 1399.98px) {
+            .section-text p {
+                font-size: 16px;
+                line-height: 26px;
+            }
+            .section-text h2 {
+                font-size: 40px;
+                line-height: 40px;
+                margin-bottom: 15px;
+            }
+            .section-text h3 {
+                font-size: 16px;
+                line-height: 18px;
+                letter-spacing: 1px;
+            }
+        }
+        @media (max-width: 1199.98px) {
+            .bttn {
+                font-size: 15px;
+                padding: 11px;
+            }
+            .section-text h2 {
+                font-size: 34px;
+                line-height: 37px;
+                margin-bottom: 15px;
+            }
+            .premium-icon {
+                padding: 10px;
+                height: 360px;
+            }
+            .premium-icon img {
+                width: 120px !important;
+            }
+            .premium-icon p {
+                font-size: 13px;
+                line-height: 19px;
+                font-family: "Poppins",sans-serif;
+            }
+            .premium-icon {
+                height: 170px;
+            }
+            section {
+                padding: 55px 0 0 !important;
+            }
+            section#premium {
+                padding: 55px 0 !important;
+                margin-top: 55px;
+            }
+            #page-content nav ul a {
+                font-size: 16px;
+                margin: 0 15px;
+            }
+            #hero {
+                min-height: calc(100vh - 180px);
+            }
+            #hero h1 {
+                font-size: 60px;
+                line-height: 60px;
+            }
+            #hero h5 {
+                font-size: 21px;
+                line-height: 30px;
+            }
+            #hero .bttn {
+                margin-top: 20px !important;
+            }
+            #page-content nav {
+                padding: 13px 0;
+                top: 100px;
+            }
+        }
+        @media (max-width: 767px) {
+            #hero .hero-apla {
+                left: 30px;
+                bottom: 30px;
+                width: calc(100% - 120px);
+            }
+            #hero h1 {
+                font-size: 40px;
+                line-height: 40px;
+            }
+            #hero h5 {
+                font-size: 18px;
+                line-height: 27px;
+            }
+            .section-text h2 {
+                font-size: 24px;
+                line-height: 30px;
+            }
+            .section-text p {
+                font-size: 16px;
+                line-height: 23px;
+            }
+            section#premium h2 {
+                font-size: 26px;
+            }
+            section#premium h3 {
+                font-size: 40px;
+                color: white;
+            }
+        }
+        @media (max-width: 575.98px) {
+            #hero h1 {
+                font-size: 35px;
+                line-height: 36px;
+            }
+            #hero h5 {
+                font-size: 15px;
+                line-height: 21px;
+            }
+            .bttn {
+                font-size: 11px;
+                padding: 8px;
+            }
+            #page-content nav {
+                padding: 10px 0;
+                top: 85px;
+            }
+            #page-content nav ul {
+                display: flex;
+                flex-wrap: wrap;
+            }
+            #page-content nav li {
+                line-height: 1;
+                margin: 5px 0;
+                padding: 0 10px;
+            }
+            #page-content nav li a {
+                font-size: 12px;
+                margin: 0;
+            }
+            #hero .hero-apla {
+                left: 15px;
+                bottom: 15px;
+                width: calc(100% - 70px);
+            }
         }
     </style>
 
