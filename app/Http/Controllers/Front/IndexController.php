@@ -26,7 +26,7 @@ class IndexController extends Controller
         $popup = 0;
 
         $investments_soon = Investment::whereStatus(4)->get();
-        $investments_planned = Investment::whereStatus(3)->get();
+        $investments_planned = Investment::whereStatus(3)->orderBy('id', 'DESC')->get();
         $awards = Award::orderBy('sort')->get();
         $reviews = Review::all();
 
