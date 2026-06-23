@@ -11,7 +11,7 @@ class IndexController extends Controller
     public function index()
     {
         $page = Page::find(12);
-        $investments = Investment::whereStatus(3)->get();
+        $investments = Investment::whereStatus(3)->orderBy('id', 'DESC')->get();
         return view('front.developro.planned.index', compact('page', 'investments'));
     }
 
