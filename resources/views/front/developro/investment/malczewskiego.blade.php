@@ -403,8 +403,6 @@
         #page-content nav {
             background: black;
             padding: 25px 0;
-            position: sticky;
-            top: 136px;
             z-index: 99;
         }
         #page-content nav ul {
