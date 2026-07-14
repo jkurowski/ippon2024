@@ -499,6 +499,7 @@
                 letter-spacing: 1px;
             }
         }
+
         @media (max-width: 1199.98px) {
             .bttn {
                 font-size: 15px;
@@ -618,6 +619,40 @@
                 left: 15px;
                 bottom: 15px;
                 width: calc(100% - 70px);
+            }
+        }
+        @media (max-height: 800px) {
+            #hero h1 {
+                font-size: 70px;
+                line-height: 70px;
+            }
+        }
+        @media (max-height: 420px) {
+            #hero {
+                min-height: calc(100vh - 141px);
+            }
+            #hero .hero-apla {
+                left: 10px;
+                bottom: 10px;
+            }
+            .bttn {
+                font-size: 11px;
+                padding: 11px;
+            }
+            #hero h5 {
+                font-size: 15px;
+                line-height: 18px;
+            }
+            #hero h1 {
+                font-size: 40px;
+                line-height: 40px;
+            }
+            #page-content nav {
+                padding: 5px 0;
+            }
+            #page-content nav ul a {
+                font-size: 13px;
+                margin: 0 15px;
             }
         }
     </style>
