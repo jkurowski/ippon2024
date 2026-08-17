@@ -117,7 +117,7 @@
             <a rel="nofollow" target="_blank" class="Instagram" href="https://www.instagram.com/deweloper_ippon.group/"><span>Instagram</span></a>
         </li>
         <li>
-            <a rel="nofollow" target="_blank" class="Youtube" href="https://www.youtube.com/channel/UCMq2YxcdW0AH5rZBq_KqI6w"><span>Youtube</span></a>
+            <a rel="nofollow" target="_blank" class="Youtube" href="https://www.youtube.com/@ippongroupsp.zo.o.3650"><span>Youtube</span></a>
         </li>
     </ul>
 </div>
