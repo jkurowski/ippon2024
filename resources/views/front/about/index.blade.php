@@ -1,9 +1,11 @@
-@extends('layouts.page', ['body_class' => 'about-page'])
+@extends('layouts.page', ['body_class' => 'ip-page'])
 
 @section('meta_title', $page->title)
 @section('seo_title', $page->meta_title)
 @section('seo_description', $page->meta_description)
 
+{{-- ==== STARY KOD — wylaczony, do usuniecia po odbiorze ==== --}}
+@if(1 == 2)
 @section('pageheader')
     @include('layouts.partials.page-header', ['page_title' => '', 'page' => $page, 'header_file' => $page->file_header])
 @stop
@@ -240,6 +242,355 @@
         </div>
     </section>
 @endsection
+@endif
+
+{{-- ==========================================================================
+     NOWY WIDOK — makieta Figma "O NAS"
+     Ustalenia z Jackiem/klientem:
+       - "Stabilnosc i doswiadczenie" oraz wiersze z "Architektura, Natura,
+         Czlowiek" ida na pelna szerokosc ekranu (zdjecie dochodzi do krawedzi,
+         bez bialego pasa z boku) — czyli komponent .ip-invrow z podstron
+         mieszkaniowych,
+       - karuzela nagrod zostaje na danych z CMS-u (model Award) i na slicku,
+         tak jak dotad — zmienia sie tylko oprawa.
+     Teksty siedza w tablicy ponizej: ta podstrona nie ma ich w CMS-ie.
+     ========================================================================== --}}
+@php
+    $L = in_array($current_locale, ['pl', 'en']) ? $current_locale : 'pl';
+
+    /* Film z YouTube — ten sam, ktory byl na starej wersji podstrony. */
+    $ipVideoId = 'HQe0jLv8t8s';
+
+    $T = [
+        'lead' => [
+            'pl' => 'Projektujemy i realizujemy bezpieczne, funkcjonalne inwestycje w standardzie premium, które redefiniują pojęcie komfortu. Poznaj naszą filozofię.',
+            'en' => 'We design and deliver safe, functional premium developments that redefine the notion of comfort. Get to know our philosophy.',
+        ],
+        'stab_title' => ['pl' => 'Stabilność i doświadczenie', 'en' => 'Stability and experience'],
+        'stab_p1' => [
+            'pl' => 'Budujemy zaufanie na rynku nieruchomości od 2013 roku. Zaczynaliśmy od wymagających obiektów komercyjnych, by inżynieryjny rygor i najwyższe standardy przenieść na rynek <strong>nowoczesnego budownictwa mieszkaniowego</strong>.',
+            'en' => 'We have been building trust on the property market since 2013. We started with demanding commercial buildings in order to bring engineering rigour and the highest standards to <strong>modern residential construction</strong>.',
+        ],
+        'stab_p2' => [
+            'pl' => 'Dziś działamy w oparciu o model zintegrowanego biznesu. Samodzielnie i restrykcyjnie kontrolujemy każdy etap inwestycji:',
+            'en' => 'Today we work within an integrated business model. We control every stage of a development ourselves, and strictly:',
+        ],
+        'stab_list' => [
+            'pl' => [
+                'Precyzyjny <strong>dobór i zakup gruntów</strong> w strategicznych lokalizacjach.',
+                'Współpracę z topowymi <strong>pracowniami architektonicznymi</strong>.',
+                '<strong>Generalne wykonawstwo</strong> i rzetelne przekazanie kluczy w terminie.',
+            ],
+            'en' => [
+                'Precise <strong>selection and purchase of land</strong> in strategic locations.',
+                'Cooperation with top <strong>architectural studios</strong>.',
+                '<strong>General contracting</strong> and handing over the keys on time.',
+            ],
+        ],
+        'stab_p3' => [
+            'pl' => 'Większościowym i dominującym udziałowcem IPPON GROUP jest luksemburski fundusz inwestycyjny ALFA 1 CEE INVESTMENTS S.A., SICAV-SIF. Pozostała część udziałów należy do członków Zarządu Spółki Ippon Group.',
+            'en' => 'The majority and controlling shareholder of IPPON GROUP is the Luxembourg investment fund ALFA 1 CEE INVESTMENTS S.A., SICAV-SIF. The remaining shares are held by members of the Management Board of Ippon Group.',
+        ],
+        'cert_title_1' => ['pl' => 'Certyfikat Jakości Ippon:', 'en' => 'The Ippon Quality Certificate:'],
+        'cert_title_2' => ['pl' => 'Bezkompromisowy standard premium', 'en' => 'An uncompromising premium standard'],
+        'cert_p1' => [
+            'pl' => 'Każdy nasz projekt sygnujemy <strong>autorskim Certyfikatem Jakości Ippon</strong>, który stanowi oficjalną gwarancję dbałości o każdy, nawet najmniejszy detal. Wybieramy wyłącznie <strong>certyfikowane materiały najwyższej klasy</strong>, co zapewnia ponadstandardową izolację akustyczną oraz maksymalną trwałość budynków na lata.',
+            'en' => 'Every project we deliver carries <strong>our own Ippon Quality Certificate</strong> — an official guarantee that every detail, even the smallest one, has been taken care of. We use only <strong>certified, top-class materials</strong>, which provides above-standard acoustic insulation and maximum durability of the buildings for years.',
+        ],
+        'cert_p2' => [
+            'pl' => 'Łączymy codzienną ergonomię i architekturę bez barier z głębokim szacunkiem dla środowiska, wdrażając <strong>energooszczędne technologie i rozwiązania proekologiczne</strong>, które realnie obniżają koszty eksploatacji mieszkań.',
+            'en' => 'We combine everyday ergonomics and barrier-free architecture with deep respect for the environment, implementing <strong>energy-efficient technologies and eco-friendly solutions</strong> that genuinely reduce the running costs of the apartments.',
+        ],
+        'cert_p3' => [
+            'pl' => 'Certyfikat Jakości Ippon to nasz dowód na to, że tworzymy bezpieczną, cichą i zrównoważoną przestrzeń, w której zyskujesz upragniony <strong>komfort, spokój i bezpieczeństwo</strong>.',
+            'en' => 'The Ippon Quality Certificate is our proof that we create a safe, quiet and sustainable space in which you gain the <strong>comfort, peace and security</strong> you are looking for.',
+        ],
+        'cert_f1' => ['pl' => 'Certyfikowane materiały najwyższej klasy', 'en' => 'Certified top-class materials'],
+        'cert_f2' => ['pl' => 'Energooszczędne technologie', 'en' => 'Energy-efficient technologies'],
+        'val_title_1' => ['pl' => 'Architektura, Natura, Człowiek.', 'en' => 'Architecture, Nature, People.'],
+        'val_title_2' => ['pl' => 'Poznaj nasze wartości', 'en' => 'Get to know our values'],
+        'awards_title' => ['pl' => 'Wiarygodność i sukces', 'en' => 'Credibility and success'],
+        'awards_lead' => [
+            'pl' => 'Przynależność Ippon Group do Polskiego Związku Firm Deweloperskich (PZFD) to dla naszych klientów gwarancja najwyższej kultury organizacyjnej, przejrzystości prawnej oraz etyki biznesowej. Nasza stabilna pozycja na rynku oraz bezkompromisowe podejście do jakości znajdują odzwierciedlenie w kluczowych nagrodach branżowych:',
+            'en' => 'Ippon Group’s membership in the Polish Association of Developers (PZFD) guarantees our clients the highest organisational culture, legal transparency and business ethics. Our stable market position and uncompromising approach to quality are reflected in key industry awards:',
+        ],
+        'sport_title' => ['pl' => 'Wspieramy najlepszych', 'en' => 'We support the best'],
+        'contact_title' => ['pl' => 'Porozmawiajmy o Twoim nowym mieszkaniu', 'en' => 'Let’s talk about your new apartment'],
+        'contact_lead' => [
+            'pl' => 'Wyjątkowe inwestycje wymagają dedykowanej opieki. Jeśli chcesz poznać szczegóły naszych projektów, umówić się na prezentację apartamentu lub zapytać o niestandardowe rozwiązania – <strong>jesteśmy do Twojej dyspozycji.</strong>',
+            'en' => 'Exceptional developments call for dedicated care. If you would like to learn the details of our projects, arrange a viewing or ask about bespoke solutions – <strong>we are at your disposal.</strong>',
+        ],
+    ];
+
+    /* Wiersze sekcji "Architektura, Natura, Czlowiek" — pelna szerokosc,
+       zdjecie na przemian po prawej i po lewej stronie ekranu. */
+    $wartosci = [
+        [
+            'img'     => 'images/about/architektura.jpg',
+            'reverse' => true,
+            'title'   => ['pl' => 'Architektura i materiały najwyższej jakości', 'en' => 'Architecture and top-quality materials'],
+            'desc'    => [
+                'pl' => '<p>Dla nas <strong>standard premium</strong> to codzienna praktyka wykonawcza. Współpracujemy wyłącznie z wybitnymi architektami oraz dekoratorami wnętrz.</p>
+                         <p>Wybieramy <strong>szlachetne, certyfikowane materiały</strong> budowlane i wykończeniowe, które gwarantują trwałość na pokolenia.</p>
+                         <p>Każdy projekt optymalizujemy pod kątem maksymalnego wykorzystania <strong>naturalnego światła</strong> oraz ergonomii przestrzeni, zapewniając mieszkańcom bezkompromisową wygodę.</p>',
+                'en' => '<p>For us the <strong>premium standard</strong> is everyday building practice. We work only with outstanding architects and interior designers.</p>
+                         <p>We choose <strong>fine, certified</strong> construction and finishing materials that guarantee durability for generations.</p>
+                         <p>Every project is optimised for the maximum use of <strong>natural light</strong> and for ergonomic space, giving residents uncompromising convenience.</p>',
+            ],
+        ],
+        [
+            'img'     => 'images/about/ekologia-las.jpg',
+            'reverse' => false,
+            'title'   => ['pl' => 'Ekologia i zaawansowane rozwiązania technologiczne', 'en' => 'Ecology and advanced technology'],
+            'desc'    => [
+                'pl' => '<p>Nie traktujemy ekologii jako dodatku, lecz jako fundament projektu. Na naszych osiedlach standardem stają się zaawansowane systemy technologiczne:</p>',
+                'en' => '<p>We do not treat ecology as an add-on, but as the foundation of a project. Advanced technical systems are becoming standard on our estates:</p>',
+            ],
+            'list'    => [
+                'pl' => [
+                    '<strong>Kolektory słoneczne</strong> wspierające zasilanie energetyczne części wspólnych.',
+                    '<strong>Systemy retencji wód opadowych</strong>, które gromadzą deszczówkę do automatycznego podlewania bogatej zieleni osiedlowej.',
+                    'Energooszczędne <strong>oświetlenie LED</strong> redukujące ślad węglowy i koszty eksploatacji.',
+                ],
+                'en' => [
+                    '<strong>Solar collectors</strong> supporting the power supply of common areas.',
+                    '<strong>Rainwater retention systems</strong> that collect rainwater for automatic watering of the estate greenery.',
+                    'Energy-efficient <strong>LED lighting</strong> reducing the carbon footprint and running costs.',
+                ],
+            ],
+        ],
+        [
+            'img'     => 'images/about/csr-dziecko.jpg',
+            'reverse' => true,
+            'title'   => ['pl' => 'Odpowiedzialność społeczna (CSR)', 'en' => 'Corporate social responsibility (CSR)'],
+            'desc'    => [
+                'pl' => '<p>Wierzymy, że miarą sukcesu silnej marki jest dobro, jakim dzieli się ze swoim otoczeniem. Jako deweloper odpowiedzialny społecznie, od lat systemowo wspieramy lokalne społeczności. Jesteśmy dumnym <strong>Ambasadorem Fundacji „Przyszłość dla Dzieci”</strong>, niosąc pomoc ponad 400 podopiecznym wymagającym leczenia.</p>
+                         <p>Należymy do grona <strong>Najbardziej Hojnych Darczyńców WOŚP</strong> (w naszej kolekcji znajduje się już 8 Złotych Serduszek). Ponadto regularnie <strong>doposażamy szpitale i Domy Pomocy Społecznej</strong> oraz wspieramy polskich sportowców w ich drodze po mistrzowskie tytuły.</p>',
+                'en' => '<p>We believe that the measure of a strong brand is the good it shares with its surroundings. As a socially responsible developer we have been supporting local communities systematically for years. We are a proud <strong>Ambassador of the “Future for Children” Foundation</strong>, helping over 400 children in need of treatment.</p>
+                         <p>We are among the <strong>Most Generous Donors of the Great Orchestra of Christmas Charity</strong> (our collection already holds 8 Golden Hearts). We also regularly <strong>equip hospitals and care homes</strong> and support Polish athletes on their way to championship titles.</p>',
+            ],
+        ],
+    ];
+@endphp
+
+@section('pageheader')
+    @include('layouts.partials.ip-pagehead', [
+        'title'  => $L == 'pl' ? 'Czas buduje wartość' : 'Time builds value',
+        'crumbs' => [
+            ['label' => $L == 'pl' ? 'O nas' : 'About us', 'url' => null],
+        ],
+        'lead'   => $T['lead'][$L],
+        'image'  => ($page->file_header && is_file(public_path('uploads/header/'.$page->file_header)))
+                        ? asset('uploads/header/'.$page->file_header) : null,
+    ])
+@stop
+
+@section('content')
+
+    {{-- Stabilnosc i doswiadczenie — pelna szerokosc, zdjecie do krawedzi --}}
+    <section class="ip-section ip-about-section pb-0">
+        <div class="container">
+            <x-section-head>{{ $T['stab_title'][$L] }}</x-section-head>
+        </div>
+    </section>
+
+    <section class="ip-invrows ip-about-rows">
+        <article class="ip-invrow is-reverse">
+            <div class="row g-0 align-items-center">
+                <div class="col-12 col-lg-7 ip-invrow-media">
+                    <img src="{{ asset('images/about/stabilnosc.jpg') }}" alt="{{ $T['stab_title'][$L] }}">
+                </div>
+                <div class="col-12 col-lg-5 ip-invrow-body">
+                    <div class="ip-invrow-inner">
+                        <div class="ip-invrow-desc">
+                            <p>{!! $T['stab_p1'][$L] !!}</p>
+                            <p>{!! $T['stab_p2'][$L] !!}</p>
+                        </div>
+
+                        <ul class="ip-check-list list-unstyled">
+                            @foreach($T['stab_list'][$L] as $item)
+                                <li>
+                                    <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m3.5 10.5 4 4 9-9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                    <span>{!! $item !!}</span>
+                                </li>
+                            @endforeach
+                        </ul>
+
+                        <div class="ip-invrow-desc">
+                            <p>{!! $T['stab_p3'][$L] !!}</p>
+                        </div>
+
+                        <a href="{{ route('developro.completed', ['locale' => $L]) }}" class="ip-btn-gold-lg">
+                            {{ $L == 'pl' ? 'Zobacz więcej' : 'See more' }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </section>
+
+    {{-- Film — pelna szerokosc. Klikniecie podmienia plakat na odtwarzacz,
+         zeby YouTube nie ladowal sie przy wejsciu na strone. --}}
+    <div class="ip-video" data-video="{{ $ipVideoId }}" role="button" tabindex="0"
+         aria-label="{{ $L == 'pl' ? 'Odtwórz film o Ippon Group' : 'Play the Ippon Group film' }}">
+        <img src="{{ asset('images/about/video-ippon.jpg') }}" alt="Ippon Group">
+    </div>
+
+    {{-- Certyfikat Jakosci — zdjecie w kontenerze, tak jak w makiecie --}}
+    <section class="ip-section ip-about-section">
+        <div class="container">
+
+            <x-section-head>
+                {{ $T['cert_title_1'][$L] }}
+                    <span>{{ $T['cert_title_2'][$L] }}</span>
+            </x-section-head>
+
+            <div class="row align-items-center ip-about-cert-row">
+                <div class="col-12 col-xl-6">
+                    <div class="ip-about-photo">
+                        <img src="{{ asset('images/about/certyfikat.jpg') }}"
+                             alt="{{ $T['cert_title_1'][$L] }}" width="704" height="586">
+                    </div>
+                </div>
+
+                <div class="col-12 col-xl-6 mt-4 mt-xl-0">
+                    <div class="ip-about-text">
+                        <p>{!! $T['cert_p1'][$L] !!}</p>
+                        <p>{!! $T['cert_p2'][$L] !!}</p>
+                        <p>{!! $T['cert_p3'][$L] !!}</p>
+                    </div>
+
+                    <ul class="ip-feature-list list-unstyled mb-0">
+                        <li>
+                            <span class="ip-crit-icon">
+                                <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                                    <path d="M9 4.5h11L25 9.5V27H9V4.5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+                                    <path d="M19.5 4.5V10H25M12.5 14h9M12.5 18h9M12.5 22h5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                                </svg>
+                            </span>
+                            {{ $T['cert_f1'][$L] }}
+                        </li>
+                        <li>
+                            <span class="ip-crit-icon">
+                                <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                                    <path d="M16 5a7 7 0 0 0-4 12.75V21h8v-3.25A7 7 0 0 0 16 5ZM13 24.5h6M14 27h4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                            {{ $T['cert_f2'][$L] }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    {{-- Architektura, Natura, Czlowiek — wiersze na pelna szerokosc --}}
+    <section class="ip-section ip-about-section pb-0 pt-0">
+        <div class="container">
+            <x-section-head>
+                {{ $T['val_title_1'][$L] }}
+                    <span>{{ $T['val_title_2'][$L] }}</span>
+            </x-section-head>
+        </div>
+    </section>
+
+    <section class="ip-invrows ip-about-rows ip-about-values">
+        @foreach($wartosci as $row)
+            <article class="ip-invrow is-half @if($row['reverse']) is-reverse @endif">
+                <div class="row g-0 align-items-center">
+                    <div class="col-12 col-lg-6 ip-invrow-media">
+                        <img src="{{ asset($row['img']) }}" alt="{{ $row['title'][$L] }}">
+                    </div>
+                    <div class="col-12 col-lg-6 ip-invrow-body">
+                        <div class="ip-invrow-inner">
+                            <h2>{{ $row['title'][$L] }}</h2>
+                            <div class="ip-rule"></div>
+
+                            <div class="ip-invrow-desc">{!! $row['desc'][$L] !!}</div>
+
+                            @if(!empty($row['list']))
+                                <ul class="ip-check-list list-unstyled mb-0">
+                                    @foreach($row['list'][$L] as $item)
+                                        <li>
+                                            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m3.5 10.5 4 4 9-9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                            <span>{!! $item !!}</span>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            </article>
+        @endforeach
+    </section>
+
+    {{-- Wiarygodnosc i sukces — karuzela nagrod z CMS-u (model Award) --}}
+    <section class="ip-section ip-about-section ip-awards-section">
+        <div class="container">
+            <x-section-head>{{ $T['awards_title'][$L] }}</x-section-head>
+
+            <p class="ip-about-lead">{{ $T['awards_lead'][$L] }}</p>
+        </div>
+
+        <div id="awardsCarousel" class="container-fluid">
+            <div class="row">
+                @foreach($awards as $award)
+                    <div class="col-4">
+                        <div class="award">
+                            <img src="{{ asset('/uploads/awards/'.$award->file) }}" alt="{{ $award->name }}">
+                            <h3>{{ $award->name }}</h3>
+                            {!! $award->text !!}
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+    {{-- Wspieramy najlepszych --}}
+    <section class="ip-section ip-about-section pb-0 pt-0">
+        <div class="container">
+            <x-section-head>{{ $T['sport_title'][$L] }}</x-section-head>
+
+            <div class="row align-items-center">
+                <div class="col-12 col-xl-6">
+                    <div class="ip-about-text">
+                        <h3 class="ip-about-subtitle">{{ $L == 'pl' ? 'Ippon Group w sporcie' : 'Ippon Group in sport' }}</h3>
+                        <div class="ip-rule"></div>
+
+                        @if($L == 'pl')
+                            <p>W budownictwie, tak jak w sporcie, o sukcesie decydują milimetry, sekundy i bezkompromisowa precyzja. Dumą napawa nas fakt, że jako sponsor <strong>wspieramy sportowca Marcina Tausiewicza</strong>. Wspólnie udowadniamy, że pasja połączona z determinacją pozwala sięgać po najwyższe trofea.</p>
+                            <p>Marcin Tausiewicz to jeden z najbardziej utytułowanych polskich zawodników strzelectwa dynamicznego IPSC, reprezentujący Legię Warszawa. Jest <strong>wielokrotnym mistrzem Polski</strong> oraz zwycięzcą prestiżowych zawodów międzynarodowych. Do jego największych sukcesów należą <strong>wicemistrzostwo Europy</strong> w pistolecie IPSC oraz <strong>indywidualne wicemistrzostwo świata</strong> i <strong>drużynowe mistrzostwo świata</strong> w strzelbie IPSC, zdobyte w 2023 roku.</p>
+                        @else
+                            <p>In construction, just like in sport, success is decided by millimetres, seconds and uncompromising precision. We are proud to be a sponsor of <strong>the athlete Marcin Tausiewicz</strong>. Together we prove that passion combined with determination makes it possible to reach for the highest trophies.</p>
+                            <p>Marcin Tausiewicz is one of the most decorated Polish IPSC dynamic shooting competitors, representing Legia Warszawa. He is a <strong>multiple Polish champion</strong> and a winner of prestigious international competitions. His greatest achievements include the <strong>European vice-championship</strong> in IPSC handgun and the <strong>individual world vice-championship</strong> and <strong>team world championship</strong> in IPSC shotgun, won in 2023.</p>
+                        @endif
+                    </div>
+                </div>
+
+                <div class="col-12 col-xl-6 mt-4 mt-xl-0">
+                    {{-- UWAGA: to kadr z makiety z wpalonym przyciskiem play.
+                         Gdy klient poda film, wystarczy dodac data-video="ID". --}}
+                    <div class="ip-about-photo">
+                        <img src="{{ asset('images/about/sport.jpg') }}"
+                             alt="{{ $L == 'pl' ? 'Marcin Tausiewicz' : 'Marcin Tausiewicz' }}" width="851" height="527">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- Porozmawiajmy o Twoim nowym mieszkaniu — wspolny komponent --}}
+    @include('layouts.partials.ip-contact-section', [
+        'title'     => $T['contact_title'][$L],
+        'lead'      => $T['contact_lead'][$L],
+        'form'      => 'front.contact.ip-form',
+        'page_name' => 'O nas',
+    ])
+
+@endsection
 @push('scripts')
     <script src="{{ asset('js/slick.js') }}" charset="utf-8"></script>
     <script type="text/javascript">
@@ -275,6 +626,21 @@
                         }
                     }
                 ]
+            });
+
+            // Plakat filmu: YouTube laduje sie dopiero po klliknieciu.
+            $('.ip-video[data-video]').on('click keydown', function (e) {
+                if (e.type === 'keydown' && e.key !== 'Enter' && e.key !== ' ') return;
+                e.preventDefault();
+
+                const id = $(this).data('video');
+                if (!id || $(this).find('iframe').length) return;
+
+                $(this).html(
+                    '<iframe src="https://www.youtube.com/embed/' + id + '?autoplay=1" ' +
+                    'title="Ippon Group" frameborder="0" allow="accelerometer; autoplay; clipboard-write; ' +
+                    'encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>'
+                );
             });
         });
     </script>

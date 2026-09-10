@@ -7,44 +7,45 @@ use App\Http\Controllers\Controller;
 use App\Mail\ClipboardSend;
 use App\Models\RodoSettings;
 use App\Notifications\ContactNotification;
+use App\Services\Front\ClipboardService;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
-
-use Cookie;
 
 // CMS
 use App\Repositories\Client\ClientRepository;
 use App\Http\Requests\ClipboardFormRequest;
 use App\Models\Page;
-use App\Models\Property;
 use App\Models\Recipient;
 use App\Models\RodoRules;
 
+/**
+ * Schowek — porownywarka lokali odlozonych przez odwiedzajacego.
+ *
+ * Zawartosc trzyma ClipboardService (sesja, nic w bazie). Kontroler nie
+ * dotyka juz sesji recznie: wczesniej ta sama logika ("wez id, zamien na
+ * int, pociagnij Property") stala w trzech metodach, za kazdym razem bez
+ * eager loadingu.
+ *
+ * Kontrakt AJAX-a zostaje bez zmian — przycisk "dodaj do schowka" na karcie
+ * lokalu czyta z odpowiedzi `message` (gotowy HTML) i `count`, i reaguje
+ * tylko na status 200. Dlatego komunikat o pelnym schowku tez idzie z 200.
+ */
 class IndexController extends Controller
 {
-    private ClientRepository $repository;
-
-    public function __construct(ClientRepository $repository)
-    {
-        $this->repository = $repository;
+    public function __construct(
+        private ClientRepository $repository,
+        private ClipboardService $clipboard,
+    ) {
     }
 
     public function index()
     {
-        $page = Page::find(19);
-        $items = session('clipboard.items');
-        $properties = collect();
-
-        if (!empty($items)) {
-            $ids = array_map('intval', $items);
-            $properties = Property::whereIn('id', $ids)->get();
-        }
-
         return view('front.clipboard.index', [
-            'page' => $page,
-            'properties' => $properties,
+            'page' => Page::find(19),
+            'properties' => $this->clipboard->properties(),
+            'clipboard' => $this->clipboard,
             'obligation' => RodoSettings::find(1),
-            'rules' => RodoRules::orderBy('sort')->whereStatus(1)->get()
+            'rules' => RodoRules::orderBy('sort')->whereStatus(1)->get(),
         ]);
     }
 
@@ -52,26 +53,8 @@ class IndexController extends Controller
     {
         $recipient->notify(new ContactNotification($request));
 
-        $items = session('clipboard.items');
-        $properties = collect();
-
-        if (!empty($items)) {
-            $ids = array_map('intval', $items);
-            $properties = Property::whereIn('id', $ids)->get();
-        }
-
-        Mail::to(settings()->get("page_email"))->send(new ClipboardSend($request, $properties));
-
-//        if( count(Mail::failures()) == 0 ) {
-//            $cookie_name = 'dp_';
-//            foreach ($_COOKIE as $name => $value) {
-//                if (stripos($name, $cookie_name) === 0) {
-//                    Cookie::queue(
-//                        Cookie::forget($name)
-//                    );
-//                }
-//            }
-//        }
+        Mail::to(settings()->get("page_email"))
+            ->send(new ClipboardSend($request, $this->clipboard->properties()));
 
         return redirect()->back()->with(
             'success',
@@ -81,41 +64,35 @@ class IndexController extends Controller
 
     public function store(Request $request)
     {
-        $id = $request->get('id');
-        $items = $request->session()->get('clipboard.items', []);
+        $id = (int) $request->get('id');
+        $added = $this->clipboard->add($id);
 
-        if (!in_array($id, $items)) {
-            $items[] = $id;
-            $request->session()->put('clipboard.items', array_unique($items));
-        }
-
-        return response()->json(['message' => '<div class="alert alert-success border-0 mt-3">Mieszkanie dodane do ulubionych</div>', 'count' => count($items)]);
+        return response()->json([
+            'message' => $added
+                ? '<div class="alert alert-success border-0 mt-3">Mieszkanie dodane do schowka</div>'
+                : '<div class="alert alert-warning border-0 mt-3">W schowku mieści się najwyżej '
+                    . ClipboardService::LIMIT . ' mieszkań — usuń jedno, żeby dodać kolejne</div>',
+            'count' => $this->clipboard->count(),
+            'added' => $added,
+        ]);
     }
 
     public function destroy(Request $request)
     {
-        $id = $request->input('id');
-        $items = $request->session()->get('clipboard.items', []);
+        $id = (int) $request->input('id');
 
-        // Find the index of the item in the clipboard
-        $index = array_search($id, $items);
-
-        if ($index !== false) {
-            // Remove the item from the clipboard
-            $removed = $request->session()->pull("clipboard.items.$index");
-
-            // Check if the item was actually removed
-            if ($removed !== null) {
-                return response()->json([
-                    'message' => '<div class="alert alert-success border-0 mt-3">Mieszkanie usunięte z ulubionych</div>',
-                    'count' => count($items) - 1
-                ]);
-            }
+        if (!$this->clipboard->has($id)) {
+            return response()->json([
+                'message' => '<div class="alert alert-danger border-0 mt-3">Wybrane mieszkanie nie istnieje w schowku</div>',
+                'count' => $this->clipboard->count(),
+            ]);
         }
 
+        $this->clipboard->remove($id);
+
         return response()->json([
-            'message' => '<div class="danger alert-danger border-0 mt-3">Wybrane mieszkanie nie istnieje w ulubionych</div>',
-            'count' => count($items)
+            'message' => '<div class="alert alert-success border-0 mt-3">Mieszkanie usunięte ze schowka</div>',
+            'count' => $this->clipboard->count(),
         ]);
     }
 }

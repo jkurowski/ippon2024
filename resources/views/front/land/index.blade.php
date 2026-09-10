@@ -1,9 +1,11 @@
-@extends('layouts.page', ['body_class' => 'land-page no-bottom'])
+@extends('layouts.page', ['body_class' => 'ip-page'])
 
 @section('meta_title', $page->title)
 @section('seo_title', $page->meta_title)
 @section('seo_description', $page->meta_description)
 
+{{-- ==== STARY KOD — wylaczony, do usuniecia po odbiorze ==== --}}
+@if(1 == 2)
 @section('pageheader')
     @include('layouts.partials.page-header', ['page_title' => '', 'page' => $page, 'header_file' => $page->file_header])
 @stop
@@ -222,46 +224,267 @@
     </div>
 </section>
 @endsection
-@push('scripts')
-    <script src="{{ asset('js/validation.js') }}" charset="utf-8"></script>
-    <script src="{{ asset('js/pl.js') }}" charset="utf-8"></script>
-    <script src="https://www.google.com/recaptcha/api.js"></script>
+@endif
 
-    <script type="text/javascript">
-        AOS.init({disable: 'mobile'});
+{{-- ==========================================================================
+     NOWY WIDOK — makieta Figma "ZAKUP GRUNTÓW"
+     Rozne wzgledem makiety, ustalone z Jackiem:
+       - w sekcjach "Zyskaj pewnosc..." i "Prosta i bezpieczna sciezka..."
+         zamiast ikonek leci rozwiazanie ze strony glownej: zdjecie + tytul,
+         a opis wysuwa sie po najechaniu (.ip-trust-card),
+       - reszta sekcji jak w makiecie; formularz zostaje z pelnym kompletem
+         pol, bo pod te nazwy podpieta jest walidacja, RODO i wysylka maila.
+     Teksty siedza w tablicach ponizej — ta podstrona nie ma ich w CMS-ie,
+     tak samo jak stary widok mial je wpisane na sztywno.
+     ========================================================================== --}}
+@php
+    $L = in_array($current_locale, ['pl', 'en']) ? $current_locale : 'pl';
 
-        $(document).ready(function(){
-            $(".validateForm").validationEngine({
-                validateNonVisibleFields: true,
-                updatePromptsPosition:true,
-                promptPosition : "topRight:-137px",
-                autoPositionUpdate: false
-            });
-        });
+    /* UWAGA: zdjecia to placeholdery — makieta ma w tych miejscach ikonki,
+       wiec zdjec do kart jeszcze nie ma. Do podmiany na fotografie gruntow. */
+    $korzysci = [
+        [
+            'img'   => 'images/grunty-1.jpg',
+            'title' => ['pl' => 'Bezpłatna wycena i audyt prawny', 'en' => 'Free valuation and legal audit'],
+            'desc'  => [
+                'pl' => 'Nasi analitycy bezpłatnie ocenią potencjał inwestycyjny Twojej działki i pomogą ustalić jej dokładny status formalno-prawny',
+                'en' => 'Our analysts will assess the investment potential of your plot free of charge and help establish its exact legal status',
+            ],
+        ],
+        [
+            'img'   => 'images/grunty-2.jpg',
+            'title' => ['pl' => 'Wsparcie w formalnościach', 'en' => 'Support with formalities'],
+            'desc'  => [
+                'pl' => 'Interesują nas również grunty o nieunormowanej sytuacji. Przeprowadzimy Cię przez skomplikowane procedury urzędowe',
+                'en' => 'We are also interested in land with an unregulated status. We will guide you through complex administrative procedures',
+            ],
+        ],
+        [
+            'img'   => 'images/homepage/trust-card-3.jpg',
+            'title' => ['pl' => 'Współpraca na równych warunkach', 'en' => 'Cooperation on equal terms'],
+            'desc'  => [
+                'pl' => 'Każda nieruchomość jest inna. Dostosowujemy strukturę transakcji i terminy do indywidualnych potrzeb właściciela',
+                'en' => 'Every property is different. We adjust the structure and schedule of the transaction to the individual needs of the owner',
+            ],
+        ],
+    ];
 
-        function onRecaptchaSuccess() {
+    $sciezka = [
+        [
+            'num'   => '01.',
+            'img'   => 'images/homepage/trust-card-1.jpg',
+            'title' => ['pl' => 'Zgłoszenie gruntu', 'en' => 'Submitting the land'],
+            'desc'  => [
+                'pl' => 'Wypełnij krótki formularz na dole strony, podając podstawowe parametry działki',
+                'en' => 'Fill in the short form at the bottom of the page with the basic parameters of the plot',
+            ],
+        ],
+        [
+            'num'   => '02.',
+            'img'   => 'images/homepage/trust-card-2.jpg',
+            'title' => ['pl' => 'Bezpłatna analiza', 'en' => 'Free analysis'],
+            'desc'  => [
+                'pl' => 'Nasz zespół ekspertów przeanalizuje potencjał terenu, dokumentację i przygotuje rynkową ofertę cenową',
+                'en' => 'Our team of experts will analyse the potential of the site and its documentation, and prepare a market price offer',
+            ],
+        ],
+        [
+            'num'   => '03.',
+            'img'   => 'images/homepage/inw-synergia.jpg',
+            'title' => ['pl' => 'Decyzja i umowa', 'en' => 'Decision and contract'],
+            'desc'  => [
+                'pl' => 'Po akceptacji warunków przystępujemy do przygotowania transparentnej umowy notarialnej. Ty zyskujesz gwarancję szybkiej i bezpiecznej zapłaty',
+                'en' => 'Once the terms are accepted, we prepare a transparent notarial deed. You get a guarantee of fast and secure payment',
+            ],
+        ],
+        [
+            'num'   => '04.',
+            'img'   => 'images/homepage/inw-slow.jpg',
+            'title' => ['pl' => 'Finalizacja', 'en' => 'Finalisation'],
+            'desc'  => [
+                'pl' => 'Nie musisz się martwić skomplikowanymi procedurami ani brakiem kompletnej dokumentacji',
+                'en' => 'You do not need to worry about complicated procedures or incomplete documentation',
+            ],
+        ],
+    ];
+@endphp
 
-            console.log("onRecaptchaSuccess");
+@section('pageheader')
+    @include('layouts.partials.ip-pagehead', [
+        'title'  => $L == 'pl'
+                        ? 'Rozwiń potencjał swojej ziemi. Bezpieczna sprzedaż gruntów z Ippon Group'
+                        : 'Unlock the potential of your land. A safe land sale with Ippon Group',
+        'crumbs' => [
+            ['label' => $L == 'pl' ? 'Zakup gruntu' : 'Land purchase', 'url' => null],
+        ],
+        'class'  => 'is-tall',
+        'image'  => ($page->file_header && is_file(public_path('uploads/header/'.$page->file_header)))
+                        ? asset('uploads/header/'.$page->file_header) : null,
+    ])
+@stop
 
-            $(".validateForm").validationEngine('updatePromptsPosition');
-            const isValid = $(".validateForm").validationEngine('validate');
+@section('content')
 
-            if (isValid) {
-                console.log("Form is valid");
-                $("#land-form").submit();
-            } else {
-                console.log("Form is not valid, reset reCaptcha");
-                grecaptcha.reset();
-            }
-        }
+    {{-- Korzysci — karty ze zdjeciem, opis wysuwa sie po najechaniu --}}
+    <section class="ip-section ip-land-section">
+        <div class="container">
 
-        @if (session('success') || session('warning') || $errors->any())
-        $(window).load(function() {
-            const aboveHeight = $('header').outerHeight();
-            $('html, body').stop().animate({
-                scrollTop: $('.validateForm').offset().top-aboveHeight
-            }, 1500, 'easeInOutExpo');
-        });
-        @endif
-    </script>
-@endpush
+            <x-section-head>
+                {{ $L == 'pl' ? 'Zyskaj pewność, profesjonalizm i uczciwą wycenę' : 'Gain certainty, professionalism and a fair valuation' }}
+            </x-section-head>
+
+            <p class="ip-land-lead">
+                @if($L == 'pl')
+                    Sprzedaż działki deweloperowi to proces, który wymaga specjalistycznej wiedzy.<br>
+                    Decydując się na współpracę z Ippon Group, zyskujesz pełne wsparcie ekspertów i unikalne korzyści:
+                @else
+                    Selling a plot to a developer is a process that calls for specialist knowledge.<br>
+                    By working with Ippon Group you gain full expert support and unique benefits:
+                @endif
+            </p>
+
+            <div class="row ip-cards-row">
+                @foreach($korzysci as $item)
+                    <div class="col-12 col-md-6 col-xl-4">
+                        <article class="ip-trust-card" tabindex="0">
+                            <img src="{{ asset($item['img']) }}" alt="{{ $item['title'][$L] }}">
+                            <div class="ip-trust-card-body">
+                                <h3>{{ $item['title'][$L] }}</h3>
+                                <div class="ip-trust-card-desc">
+                                    <p>{{ $item['desc'][$L] }}</p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                @endforeach
+            </div>
+
+        </div>
+    </section>
+
+    {{-- Obszar naszego zainteresowania — tu ikonki zostaja, tak jak w makiecie --}}
+    <section class="ip-section ip-land-section ip-land-area">
+        <div class="container">
+
+            <x-section-head>{{ $L == 'pl' ? 'Obszar naszego zainteresowania' : 'What we are looking for' }}</x-section-head>
+
+            <div class="row align-items-center">
+                <div class="col-12 col-xl-6">
+                    <p class="ip-land-intro">
+                        @if($L == 'pl')
+                            W ramach dynamicznej ekspansji na rynku nieruchomości poszukujemy gruntów spełniających poniższe kryteria:
+                        @else
+                            As part of our dynamic expansion on the property market we are looking for land that meets the criteria below:
+                        @endif
+                    </p>
+
+                    <ul class="ip-crit-list list-unstyled mb-0">
+                        <li class="ip-crit-item">
+                            <span class="ip-crit-icon">
+                                <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                                    <path d="M16 4.5c-4.2 0-7.6 3.35-7.6 7.5 0 5.65 6.8 13.8 7.1 14.15a.65.65 0 0 0 1 0c.3-.35 7.1-8.5 7.1-14.15 0-4.15-3.4-7.5-7.6-7.5Z" stroke="currentColor" stroke-width="1.4"/>
+                                    <circle cx="16" cy="12" r="2.9" stroke="currentColor" stroke-width="1.4"/>
+                                </svg>
+                            </span>
+                            <div class="ip-crit-text">
+                                <h3>{{ $L == 'pl' ? 'Lokalizacja' : 'Location' }}</h3>
+                                <p>
+                                    @if($L == 'pl')
+                                        Interesują nas atrakcyjne działki w miastach takich jak Olsztyn, Warszawa, Trójmiasto oraz w ich bezpośrednich okolicach
+                                    @else
+                                        We are interested in attractive plots in cities such as Olsztyn, Warsaw and the Tri-City, as well as in their immediate surroundings
+                                    @endif
+                                </p>
+                            </div>
+                        </li>
+
+                        <li class="ip-crit-item">
+                            <span class="ip-crit-icon">
+                                <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                                    <path d="M6 27V9.5l8-4.5 8 4.5V27M22 27V14h4v13M6 27h20M10.5 13h3M10.5 18h3M17 18h1.5M10.5 23h3M17 23h1.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                            <div class="ip-crit-text">
+                                <h3>{{ $L == 'pl' ? 'Przeznaczenie' : 'Intended use' }}</h3>
+                                <p>
+                                    @if($L == 'pl')
+                                        Grunty pod wielorodzinne budownictwo mieszkaniowe (osiedla bloków, apartamentowce) oraz nieruchomości o potencjale komercyjnym (pod parki handlowe i obiekty street mall)
+                                    @else
+                                        Land for multi-family housing (housing estates, apartment buildings) and properties with commercial potential (retail parks and street mall schemes)
+                                    @endif
+                                </p>
+                            </div>
+                        </li>
+
+                        <li class="ip-crit-item">
+                            <span class="ip-crit-icon">
+                                <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                                    <path d="M5 27h13M8.5 9.5l6-6 4.5 4.5-6 6-4.5-4.5ZM17 12l7.5 7.5M21.5 7.5 27 13M12.5 5.5 15 3M23 21.5 20.5 24" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                            <div class="ip-crit-text">
+                                <h3>{{ $L == 'pl' ? 'Status' : 'Status' }}</h3>
+                                <p>
+                                    @if($L == 'pl')
+                                        Działki objęte Miejscowym Planem Zagospodarowania Przestrzennego (MPZP), z wydanymi Warunkami Zabudowy (WZ), jak również tereny o statusie rolnym, leśnym lub poprzemysłowym wymagające transformacji
+                                    @else
+                                        Plots covered by a local zoning plan (MPZP) or with planning permission (WZ) issued, as well as agricultural, forest or post-industrial sites requiring transformation
+                                    @endif
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-12 col-xl-6">
+                    <div class="ip-land-photo">
+                        <img src="{{ asset('images/land/obszar-zainteresowania.jpg') }}"
+                             alt="{{ $L == 'pl' ? 'Działka z zaznaczonymi granicami' : 'Plot with marked boundaries' }}"
+                             width="851" height="700">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    {{-- Sciezka do finalizacji — karty ze zdjeciem, opis po najechaniu --}}
+    <section class="ip-section ip-land-section">
+        <div class="container">
+
+            <x-section-head>
+                {{ $L == 'pl' ? 'Prosta i bezpieczna ścieżka do finalizacji' : 'A simple and safe path to finalisation' }}
+            </x-section-head>
+
+            <div class="row ip-cards-row">
+                @foreach($sciezka as $step)
+                    <div class="col-12 col-md-6 col-xl-3">
+                        <article class="ip-trust-card ip-step-card" tabindex="0">
+                            <img src="{{ asset($step['img']) }}" alt="{{ $step['title'][$L] }}">
+                            <div class="ip-trust-card-body">
+                                <span class="ip-step-num">{{ $step['num'] }}</span>
+                                <h3>{{ $step['title'][$L] }}</h3>
+                                <div class="ip-trust-card-desc">
+                                    <p>{{ $step['desc'][$L] }}</p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                @endforeach
+            </div>
+
+        </div>
+    </section>
+
+    {{-- Zglos swoja nieruchomosc — wspolny komponent sekcji kontaktowej --}}
+    @include('layouts.partials.ip-contact-section', [
+        'title'     => $L == 'pl' ? 'Zgłoś swoją nieruchomość' : 'Submit your property',
+        'lead'      => $L == 'pl'
+                        ? 'Nie musisz martwić się skomplikowanymi procedurami ani brakiem kompletnej dokumentacji. Zostaw nam podstawowe informacje – nasz ekspert skontaktuje się z Tobą, aby omówić szczegóły i zaproponować wstępną, <strong>bezpłatną wycenę</strong>.'
+                        : 'You do not need to worry about complicated procedures or incomplete documentation. Leave us the basic information – our expert will contact you to discuss the details and propose an initial, <strong>free valuation</strong>.',
+        'form'      => 'front.land.ip-form',
+        'page_name' => 'land-form',
+        'class'     => 'pt-0',
+    ])
+
+@endsection

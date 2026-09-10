@@ -394,9 +394,25 @@
                                 <a href="#contactForm" data-offset="0" target="_blank" class="bttn bttn-slow w-100 justify-content-center bttn-slow-red scroll-to">@lang('website.property_ask_for')</a>
                             </div>
 
+                            {{-- Przycisk pamieta, ze lokal juz lezy w schowku: stan
+                                 przychodzi z kontrolera, a klikniecie przelacza go
+                                 w obie strony (dodaj / usun). --}}
                             <div class="col-12 col-sm-6 mt-2 mt-sm-4">
-                                <button id="addToFav" class="bttn bttn-slow w-100 justify-content-center bttn-slow-red" data-id="{{$property->id}}">@lang('website.property_clipboard')<i class="ms-4 las la-heart"></i></button>
+                                <button id="addToFav"
+                                        class="bttn bttn-slow w-100 justify-content-center bttn-slow-red @if($inClipboard) is-saved @endif"
+                                        data-id="{{ $property->id }}"
+                                        data-in="{{ $inClipboard ? '1' : '0' }}"
+                                        data-label-add="@lang('website.property_clipboard')"
+                                        data-label-saved="@lang('website.property_clipboard_saved')">
+                                    <span class="bttn-label">{{ $inClipboard ? __('website.property_clipboard_saved') : __('website.property_clipboard') }}</span>
+                                    <i class="ms-4 las @if($inClipboard) la-check-circle @else la-heart @endif"></i>
+                                </button>
+
                                 <div id="clipboardmessage"></div>
+
+                                <a href="{{ route('clipboard.index', ['locale' => $current_locale]) }}"
+                                   id="clipboardLink"
+                                   class="clipboard-link @if(!$inClipboard) d-none @endif">@lang('website.property_clipboard_go')</a>
                             </div>
                         </div>
                     </div>
@@ -556,27 +572,57 @@
 @endsection
 @push('scripts')
     <script type="text/javascript">
+        /* Przycisk schowka przelacza sie w obie strony. Stan startowy daje
+           serwer (data-in), zeby po powrocie na karte lokal nie wygladal na
+           nieodlozony. Gdy schowek jest pelny, serwer odsyla added=false —
+           wtedy zostaje sam komunikat. */
         const button = document.querySelector('#addToFav');
+        const clipboardLink = document.querySelector('#clipboardLink');
+
+        function paintClipboardButton(saved) {
+            button.dataset.in = saved ? '1' : '0';
+            button.classList.toggle('is-saved', saved);
+            button.querySelector('.bttn-label').textContent =
+                saved ? button.dataset.labelSaved : button.dataset.labelAdd;
+
+            const icon = button.querySelector('i');
+            icon.classList.toggle('la-check-circle', saved);
+            icon.classList.toggle('la-heart', !saved);
+
+            if (clipboardLink) {
+                clipboardLink.classList.toggle('d-none', !saved);
+            }
+        }
+
         button.addEventListener('click', function() {
+            const saved = button.dataset.in === '1';
             const xhr = new XMLHttpRequest();
             const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-            const property_id = button.getAttribute('data-id');
 
-            xhr.open('POST', '/pl/clipboard');
+            xhr.open(saved ? 'DELETE' : 'POST', '{{ route('clipboard.index', ['locale' => $current_locale]) }}');
             xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
             xhr.setRequestHeader('X-CSRF-TOKEN', csrfToken);
-            const data = { id: property_id };
-            const jsonData = JSON.stringify(data);
-            xhr.send(jsonData);
+            xhr.send(JSON.stringify({ id: button.getAttribute('data-id') }));
 
             xhr.addEventListener('load', function() {
-                if (xhr.status === 200) {
-                    const response = JSON.parse(xhr.responseText);
-                    const message = response.message;
-                    const count = response.count;
-                    document.querySelector('#clipboardmessage').innerHTML = message;
-                    document.querySelector('#clipboardcount').innerHTML = count;
+                if (xhr.status !== 200) {
+                    return;
                 }
+
+                const response = JSON.parse(xhr.responseText);
+                document.querySelector('#clipboardmessage').innerHTML = response.message;
+
+                const counter = document.querySelector('#clipboardcount');
+                if (counter) {
+                    counter.innerHTML = response.count;
+                }
+
+                /* przy pelnym schowku serwer nie dodal lokalu — przycisk zostaje */
+                if (!saved && response.added === false) {
+                    return;
+                }
+
+                paintClipboardButton(!saved);
             });
         });
         document.addEventListener('click', async function (e) {

@@ -1,3 +1,4 @@
+@if(1 == 2)
 <footer>
     <div class="container">
         <div class="row">
@@ -55,4 +56,125 @@
     </div>
 </footer>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+@endif
 
+
+{{-- ==========================================================================
+     NOWA STOPKA — makieta Figma 2026
+     ========================================================================== --}}
+<footer class="ip-footer">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-12 col-lg-3">
+                <a href="{{ url('/') }}">
+                    <img class="ip-footer-logo" src="{{ asset('images/homepage/logo-footer.png') }}" width="268" height="97" alt="IPPON GROUP">
+                </a>
+                <p class="ip-footer-claim">Czas buduje wartość</p>
+
+                <div class="ip-footer-social">
+                    <span>Social media:</span>
+                    {{-- ikonki z fontu (Line Awesome Brands) — @font-face siedzi w ippon.less --}}
+                    <a href="https://www.instagram.com/deweloper_ippon.group/" target="_blank" rel="nofollow noopener" aria-label="Instagram">
+                        <i class="ip-ico ip-ico-ig" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://www.facebook.com/ippongroup" target="_blank" rel="nofollow noopener" aria-label="Facebook">
+                        <i class="ip-ico ip-ico-fb" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@ippongroupsp.zo.o.3650" target="_blank" rel="nofollow noopener" aria-label="YouTube">
+                        <i class="ip-ico ip-ico-yt" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-3">
+                <h4>Ippon Group</h4>
+                <div class="ip-footer-line"></div>
+                <p>
+                    Ippon Group Sp. z o.o.<br>
+                    ul. Aleja Armii Ludowej 26, 8 piętro<br>
+                    00-609 Warszawa
+                </p>
+
+                <div class="ip-footer-member">
+                    <span>Jesteśmy członkiem</span>
+                    <img src="{{ asset('images/homepage/pzfd.png') }}" width="175" height="62" alt="Polski Związek Firm Deweloperskich">
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-3">
+                <h4>Kontakt</h4>
+                <div class="ip-footer-line"></div>
+                <p>
+                    ul. Żelazna 4<br>
+                    10-419 Olsztyn<br>
+                    Godziny otwarcia: pn.-pt. 08:00-16:00
+                </p>
+
+                <div class="ip-footer-rule"></div>
+
+                <ul class="ip-footer-contact list-unstyled mb-0">
+                    <li>
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+                        <a href="tel:+48895265558">+48 89 526 55 58</a>
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16"/><polyline points="2,6 12,13 22,6"/></svg>
+                        <a href="mailto:sekretariat@ippon.group">sekretariat@ippon.group</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-12 col-lg-3">
+                <h4>Biuro sprzedaży</h4>
+                <div class="ip-footer-line"></div>
+                <p>
+                    ul. Żelazna 4<br>
+                    10-419 Olsztyn<br>
+                    Godziny otwarcia: pn.-pt. 09:00-17:00
+                </p>
+
+                <div class="ip-footer-rule"></div>
+
+                <ul class="ip-footer-contact list-unstyled mb-0">
+                    <li>
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+                        <a href="tel:+48724222323">+48 724 222 323</a>
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+                        <a href="tel:+48609884219">+48 609 884 219</a>
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16"/><polyline points="2,6 12,13 22,6"/></svg>
+                        <a href="mailto:mieszkania@ippon.group">mieszkania@ippon.group</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <p class="ip-footer-disclaimer">
+            Wizualizacje i wszelkie prezentacje graficzne zamieszczone na stronie mają charakter wyłącznie poglądowy
+            i nie stanowią zapewnień o właściwościach przedmiotów wizualizacji i/lub prezentacji.
+            Wygląd wewnętrzny i zewnętrzny budynku, zagospodarowania terenu oraz poszczególnych lokali
+            mogą ulec zmianie w toku procesu inwestycyjnego i po jego zakończeniu.
+        </p>
+    </div>
+
+    <div class="ip-footer-bottom">
+        <div class="container">
+            <p>
+                Copyright &copy; {{ date('Y') }} IPPON GROUP All Rights Reserved &nbsp;|&nbsp;
+                Projekt i wykonanie: <a class="ip-devlink" href="https://developro.pl" target="_blank" rel="noopener">DeveloPro.pl</a>
+            </p>
+            <nav>
+                <a href="#">Polityka prywatności</a>
+                <i>|</i>
+                <a href="#">Aktualności</a>
+                <i>|</i>
+                <a href="#">Kontakt</a>
+            </nav>
+        </div>
+    </div>
+</footer>

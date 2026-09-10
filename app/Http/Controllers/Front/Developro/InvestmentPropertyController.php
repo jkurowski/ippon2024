@@ -9,12 +9,13 @@ use App\Models\Page;
 use App\Models\Property;
 use App\Models\RodoRules;
 use App\Models\RodoSettings;
+use App\Services\Front\ClipboardService;
 
 class InvestmentPropertyController extends Controller
 {
     private $pageId;
 
-    public function __construct()
+    public function __construct(private ClipboardService $clipboard)
     {
         $this->pageId = 11;
     }
@@ -47,7 +48,11 @@ class InvestmentPropertyController extends Controller
             'prev' => $property->findPrev($investment->id, $property->id, $property->floor_id),
             'page' => $page,
             'similar' => $similar,
-            'obligation' => RodoSettings::find(1)
+            'obligation' => RodoSettings::find(1),
+            /* stan przycisku "do schowka" musi byc znany juz przy renderowaniu —
+               inaczej po powrocie na karte lokal wygladalby na nieodlozony */
+            'inClipboard' => $this->clipboard->has($property->id),
+            'clipboardFull' => $this->clipboard->isFull(),
         ]);
     }
 }

@@ -109,6 +109,26 @@ $(document).ready(function () {
         }
     });
 
+    /* Klikniecie poza rozwinieta lista zamyka ja — wczesniej otwarty select
+       zostawal otwarty az do ponownego klikniecia w jego naglowek, wiec przy
+       kilku polach obok siebie potrafily wisiec dwie listy naraz. */
+    $(document).on("click", function (e) {
+        if ($(e.target).closest(".fake-select").length) {
+            return;
+        }
+
+        $(".fake-select-input").removeClass("fake-select-open");
+        $(".fake-select").removeClass("fake-open");
+    });
+
+    /* Escape zamyka to samo */
+    $(document).on("keydown", function (e) {
+        if (e.key === "Escape") {
+            $(".fake-select-input").removeClass("fake-select-open");
+            $(".fake-select").removeClass("fake-open");
+        }
+    });
+
     $(".fake-select-option").on("click", function() {
         $(this).closest("option:selected").removeAttr("selected");
         $(this).closest(".fake-select").find("option:selected").removeAttr("selected");

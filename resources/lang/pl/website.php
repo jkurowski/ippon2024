@@ -91,6 +91,8 @@
      'property_3d_walk' => 'SPACER 3D',
      'property_ask_for' => 'ZAPYTAJ O MIESZKANIE',
      'property_clipboard' => 'DO SCHOWKA',
+     'property_clipboard_saved' => 'W SCHOWKU',
+     'property_clipboard_go' => 'Zobacz schowek',
      '___________' => '----------',
      '___________' => '----------',
      '___________' => '----------',

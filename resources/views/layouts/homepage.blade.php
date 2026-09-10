@@ -20,6 +20,7 @@
     <link rel="DNS-prefetch" href="//fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
     @stack('style')
 </head>
@@ -35,13 +36,14 @@
 @include('layouts.partials.cookies')
 
 <!-- Styles -->
-<link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet">
-<link href="{{ asset('/css/styles.min.css') }}?v=14072026" rel="stylesheet">
+<link href="{{ asset('/css/bootstrap.min.css') }}?v=5.3.8" rel="stylesheet">
+{{--<link href="{{ asset('/css/styles.min.css') }}?v=14072026" rel="stylesheet">--}}
+<link href="{{ asset('/css/ippon.min.css') }}?v={{ filemtime(public_path('css/ippon.min.css')) }}" rel="stylesheet">
 
 <!-- jQuery -->
 <script src="{{ asset('/js/jquery.min.js') }}" charset="utf-8"></script>
-<script src="{{ asset('/js/bootstrap.bundle.min.js') }}" charset="utf-8"></script>
-<script src="{{ asset('/js/app.js') }}" charset="utf-8"></script>
+<script src="{{ asset('/js/bootstrap.bundle.min.js') }}?v=5.3.8" charset="utf-8"></script>
+<script src="{{ asset('/js/app.js') }}?v={{ filemtime(public_path('js/app.js')) }}" charset="utf-8"></script>
 
 <script src="{{ asset('js/slick.js') }}" charset="utf-8"></script>
 
@@ -66,64 +68,11 @@
 <script type="text/javascript">
     AOS.init({disable: 'mobile'});
 
-    document.addEventListener('DOMContentLoaded', function() {
-        var selectElement = document.getElementById('filtr-invest');
-        var formElement = document.getElementById('dynamic-form');
-
-        selectElement.addEventListener('change', function() {
-            var selectedValue = this.value;
-            var formAction = '';
-
-            if (selectedValue === 'osiedle-slow') {
-                formAction = '/pl/i/osiedle-slow/mieszkania#filtr';
-            } else if (selectedValue === 'osiedle-synergia') {
-                formAction = '/pl/i/osiedle-synergia/mieszkania#filtr';
-            } else if (selectedValue === 'osiedle-tempo') {
-                formAction = '/pl/i/osiedle-tempo/mieszkania#filtr';
-            }
-
-            formElement.setAttribute('action', formAction);
-
-            manageFloorOptions(selectedValue);
-        });
-
-        manageFloorOptions('osiedle-slow');
-    });
-
-    function manageFloorOptions(investment) {
-        const floorOptions = $('#filtr-floor option');
-        const roomOptions = $('#filtr-rooms option');
-
-        if (investment === 'osiedle-slow') {
-            // Show only "", "0", "1", "2"
-            floorOptions.hide();
-            roomOptions.hide();
-            floorOptions.filter('[value=""], [value="0"], [value="1"], [value="2"]').show();
-            roomOptions.filter('[value="2"], [value="3"]').show();
-
-
-        } else if (investment === 'osiedle-synergia') {
-            // Show "", "0", "1", "2", "3", "4"
-            floorOptions.hide();
-            roomOptions.hide();
-            floorOptions.filter('[value=""], [value="0"], [value="1"], [value="2"], [value="3"], [value="4"]').show();
-            roomOptions.filter('[value="1"], [value="2"], [value="3"], [value="4"]').show();
-
-        } else if (investment === 'osiedle-tempo') {
-            // Show "", "0", "1", "2", "3", "4"
-            floorOptions.hide();
-            roomOptions.hide();
-            floorOptions.filter('[value=""], [value="1"], [value="2"], [value="3"], [value="4"], [value="5"]').show();
-            roomOptions.filter('[value="1"], [value="2"], [value="3"], [value="4"]').show();
-
-        } else {
-            // Default: show all options
-            floorOptions.hide();
-            roomOptions.hide();
-            floorOptions.filter('[value=""], [value="0"], [value="1"], [value="2"]').show();
-            roomOptions.filter('[value="2"], [value="3"]').show();
-        }
-    }
+    /* Byl tu handler starego paska filtrow (#filtr-invest / #dynamic-form).
+       Nowa strona glowna uzywa komponentu property-filter, ktory strzela GET-em na
+       /wyszukiwarka i sam liczy opcje — a getElementById zwracal juz null,
+       wiec addEventListener rzucal TypeError i ubijal reszte tego bloku
+       (m.in. AOS.init i inicjalizacje karuzel ponizej). */
 
     $(document).ready(function(){
         $('.number-value span').counterUp({

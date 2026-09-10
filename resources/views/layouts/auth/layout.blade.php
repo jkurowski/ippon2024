@@ -26,7 +26,7 @@
 </div>
 
 <!-- Styles -->
-<link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}">
+<link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}?v=5.3.8">
 <link rel="stylesheet" href="{{ asset('/css/auth.css') }}">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </body>

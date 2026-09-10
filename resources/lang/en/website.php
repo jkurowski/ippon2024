@@ -91,4 +91,6 @@ return [
     'property_3d_walk' => '3D WALK',
     'property_ask_for' => 'ASK ABOUT APARTMENT',
     'property_clipboard' => 'ADD TO CLIPBOARD',
+    'property_clipboard_saved' => 'IN CLIPBOARD',
+    'property_clipboard_go' => 'Open clipboard',
 ];

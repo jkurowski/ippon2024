@@ -21,10 +21,15 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/bootstrap.min.css') }}?v=5.3.8" rel="stylesheet">
     <link href="{{ asset('/css/styles.min.css') }}?v=14072026" rel="stylesheet">
+    {{-- nowy arkusz laduje sie po starym, wiec wygrywa przy rownej specyficznosci --}}
+    <link href="{{ asset('/css/ippon.min.css') }}?v={{ filemtime(public_path('css/ippon.min.css')) }}" rel="stylesheet">
 
     @stack('style')
 
@@ -57,8 +62,8 @@
 
 <!-- jQuery -->
 <script src="{{ asset('/js/jquery.min.js') }}" charset="utf-8"></script>
-<script src="{{ asset('/js/bootstrap.bundle.min.js') }}" charset="utf-8"></script>
-<script src="{{ asset('/js/app.min.js') }}" charset="utf-8"></script>
+<script src="{{ asset('/js/bootstrap.bundle.min.js') }}?v=5.3.8" charset="utf-8"></script>
+<script src="{{ asset('/js/app.min.js') }}?v={{ filemtime(public_path('js/app.min.js')) }}" charset="utf-8"></script>
 
 @stack('scripts')
 

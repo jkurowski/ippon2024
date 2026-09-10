@@ -95,10 +95,18 @@ class AppServiceProvider extends ServiceProvider
             ]);
         });
 
+        /* Kompozytor chodzi dla KAZDEGO widoku, wiec takze dla kazdego
+           @include. Miasta szly wczesniej z bazy przy kazdym wywolaniu — na
+           /aktualnosci dawalo to 19 identycznych zapytan na jedno zadanie.
+           Teraz lista jest rozwiazywana raz i trzymana w kontenerze. */
+        $this->app->singleton('front.cities', function () {
+            return City::orderBy('sort', 'ASC')->get();
+        });
+
         view()->composer('*', function ($view) {
             $view->with('current_locale', app()->getLocale());
             $view->with('available_locales', config('app.available_locales'));
-            $view->with('cities', City::orderBy('sort', 'ASC')->get());
+            $view->with('cities', app('front.cities'));
 
             $currentRoute = Route::current();
             $view->with('currentRoute', $currentRoute);

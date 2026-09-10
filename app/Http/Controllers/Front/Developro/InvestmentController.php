@@ -78,7 +78,7 @@ class InvestmentController extends Controller
                 'page' => $page
             ]);
         }
-        else if($investment->id == 12)
+        else if($investment->id == 14)
         {
             return view('front.developro.investment.malczewskiego', [
                 'investment' => $investment,

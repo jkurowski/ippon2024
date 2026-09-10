@@ -297,7 +297,14 @@
                 </div>
             </div>
 
-            @include('front.contact.form', [ 'page_name' => 'Malczewskiego'])
+            {{-- formularz w oprawie nowego frontu; pola, endpoint i RODO bez zmian --}}
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-xl-8">
+                        @include('front.contact.ip-form', ['page_name' => 'Malczewskiego'])
+                    </div>
+                </div>
+            </div>
         </section>
     </div>
 
@@ -655,30 +662,186 @@
                 margin: 0 15px;
             }
         }
+
+        /* =====================================================================
+           ODSWIEZENIE POD NOWY FRONT (ustalenie z Jackiem: tylko tresc, linie,
+           cienie i przyciski). Naglowki zostaja na swoim foncie i w swoich
+           rozmiarach — Maharlika jest dobrana pod ta inwestycje.
+           ===================================================================== */
+        .invest-malczewskiego .section-text p,
+        .invest-malczewskiego .section-text li {
+            font-weight: 300;
+            color: #1f1f1f;
+        }
+
+        .invest-malczewskiego #premium .section-text p {
+            color: rgba(255, 255, 255, .82);
+        }
+
+        /* cienka zlota kreska pod naglowkiem sekcji — znak rozpoznawczy
+           nowego frontu, bez ruszania samego naglowka */
+        .invest-malczewskiego .section-text h2:after {
+            content: '';
+            display: block;
+            width: 62px;
+            height: 2px;
+            margin-top: 26px;
+            background: #ba8b41;
+        }
+
+        .invest-malczewskiego #contact .section-text h2:after,
+        .invest-malczewskiego #premium h3:after {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .invest-malczewskiego #premium h3:after {
+            content: '';
+            display: block;
+            width: 62px;
+            height: 2px;
+            margin-top: 26px;
+            background: #ba8b41;
+        }
+
+        /* przyciski jak na reszcie serwisu: pelny prostokat, bez ikonki */
+        .invest-malczewskiego .bttn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 60px;
+            padding: 0 36px;
+            border: 0;
+            border-radius: 0;
+            background: #ba8b41;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            font-size: 17px;
+            font-weight: 500;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: background .25s ease;
+        }
+
+        .invest-malczewskiego .bttn:hover {
+            background: #ca9b56;
+            color: #fff;
+        }
+
+        .invest-malczewskiego .bttn i {
+            display: none;
+        }
+
+        /* delikatny cien pod wizualizacjami w kolumnach (pasy pelnej
+           szerokosci zostaja bez cienia) */
+        .invest-malczewskiego section .container img {
+            box-shadow: 0 18px 44px rgba(0, 0, 0, .10);
+        }
+
+        /* nawigacja sekcji */
+        .invest-malczewskiego #invest-nav ul a {
+            letter-spacing: .02em;
+            transition: color .25s ease;
+        }
+
+        .invest-malczewskiego #invest-nav ul a:hover {
+            color: #ba8b41;
+        }
+
+        /* ramki kafli premium — cienciej i mniej kontrastowo */
+        .invest-malczewskiego .premium-icon {
+            border-color: rgba(186, 139, 65, .55);
+        }
+
+        /* Kafle mialy sztywna wysokosc i przy 1920 px podpisy wychodzily poza
+           ramke (do 18 px). Teraz wysokosc jest minimalna, a tresc wysrodkowana. */
+        .invest-malczewskiego .premium-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            height: auto !important;
+            min-height: 360px;
+            padding: 34px 24px;
+        }
+
+        .invest-malczewskiego .premium-icon p {
+            margin: 0;
+        }
+
+        /* Kafle rownej wysokosci: ikonki maja rozne proporcje, wiec dostaja
+           staly kadr (contain). Bez rozciagania na cala kolumne — stretch
+           robil z nich pasy po 565 px. */
+        .invest-malczewskiego .premium-icon img {
+            width: 100%;
+            max-width: 170px;
+            height: 150px !important;
+            object-fit: contain;
+        }
+
+        @media (max-width: 1639.98px) {
+            .invest-malczewskiego .premium-icon img {
+                max-width: 130px;
+                height: 110px !important;
+            }
+        }
+
+        @media (max-width: 1199.98px) {
+            .invest-malczewskiego .premium-icon img {
+                max-width: 110px;
+                height: 92px !important;
+            }
+        }
+
+        @media (max-width: 1639.98px) {
+            .invest-malczewskiego .premium-icon {
+                min-height: 260px;
+                padding: 26px 18px;
+                gap: 14px;
+            }
+        }
+
+        /* Formularz konczyl sie tuz nad stopka — sekcja dostaje dolny odstep
+           w rytmie pozostalych sekcji tej karty. */
+        .invest-malczewskiego #contact {
+            padding-bottom: 95px !important;
+        }
+
+        @media (max-width: 1199.98px) {
+            .invest-malczewskiego #contact {
+                padding-bottom: 64px !important;
+            }
+        }
     </style>
 
 @endsection
 
 @push('scripts')
     <script>
+        /* Sekcja ma stanac dokladnie na gorze okna. Stara wersja odejmowala
+           wysokosc paska nawigacji (a ten nie jest sticky — zjezdza razem ze
+           strona) plus sztywne 136 px po poprzednim naglowku.
+           Naglowek chowa sie przy scrollu w dol, wiec przy jezdzie w dol nie
+           ma czego odliczac. W gore wraca i zaslonilby gore sekcji — tylko
+           wtedy odejmujemy jego wysokosc. */
         document.querySelectorAll('#invest-nav a[href^="#"], a[href="#contact"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
+                const targetElement = document.querySelector(this.getAttribute('href'));
+                if (!targetElement) return;
+
                 e.preventDefault();
 
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
+                const header = document.querySelector('.ip-header');
+                const targetTop = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                const goingUp = targetTop < window.pageYOffset;
+                const offset = (goingUp && header) ? header.offsetHeight : 0;
 
-                if (targetElement) {
-                    const nav = document.querySelector('#page-content nav');
-                    const navHeight = nav ? nav.offsetHeight : 0;
-                    const headerHeight = 136; // Odstęp od góry (top: 136px w CSS)
-                    const offsetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight - headerHeight;
-
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
-                }
+                window.scrollTo({
+                    top: Math.max(targetTop - offset, 0),
+                    behavior: 'smooth'
+                });
             });
         });
     </script>

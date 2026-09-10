@@ -45,6 +45,8 @@ class Investment extends Model
         'date_end',
         'areas_amount',
         'area_range',
+        'card_param',
+        'card_badge',
         'office_address',
         'meta_title',
         'meta_description',

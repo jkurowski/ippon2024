@@ -39,6 +39,8 @@ class InvestmentFormRequest extends FormRequest
             'date_end' => '',
             'areas_amount' => '',
             'area_range' => '',
+            'card_param' => ['nullable', 'string', 'max:60'],
+            'card_badge' => ['nullable', 'string', 'max:40'],
             'office_address' => '',
             'meta_title' => '',
             'meta_description' => '',

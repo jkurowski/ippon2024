@@ -15,7 +15,7 @@
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}?v=5.3.8">
     <link rel="stylesheet" href="{{ asset('/css/jquery-ui.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/admin.css') }}">
 </head>
@@ -129,7 +129,7 @@
 
 <!-- jQuery -->
 <script src="{{ asset('/js/jquery.min.js') }}" charset="utf-8"></script>
-<script src="{{ asset('/js/bootstrap.bundle.min.js') }}" charset="utf-8"></script>
+<script src="{{ asset('/js/bootstrap.bundle.min.js') }}?v=5.3.8" charset="utf-8"></script>
 <script src="{{ asset('/js/jquery-ui.min.js') }}" charset="utf-8"></script>
 <script src="{{ asset('/js/cms.js') }}" charset="utf-8"></script>
 

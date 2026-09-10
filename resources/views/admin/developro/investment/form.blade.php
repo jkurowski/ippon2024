@@ -197,6 +197,17 @@
                             @include('form-elements.html-input-text', ['label' => 'Adres biura sprzedaży', 'name' => 'office_address', 'value' => $entry->office_address])
                         </div>
                     </div>
+
+                    {{-- Kafel inwestycji na stronie glownej: dwa pola, ktorych nie
+                         da sie zlozyc z danych technicznych inwestycji. --}}
+                    <div class="row w-100 mb-4">
+                        <div class="col-6">
+                            @include('form-elements.html-input-text', ['label' => 'Kafel na stronie głównej: trzeci parametr', 'sublabel' => '(np. "2 piętra, winda")', 'name' => 'card_param', 'value' => $entry->card_param])
+                        </div>
+                        <div class="col-6">
+                            @include('form-elements.html-input-text', ['label' => 'Kafel na stronie głównej: plakietka', 'sublabel' => '(np. "Ostatnie mieszkania"; puste = bez plakietki)', 'name' => 'card_badge', 'value' => $entry->card_badge])
+                        </div>
+                    </div>
                     @endif
                     <div class="row w-100 mb-5">
                         <div class="col-4">

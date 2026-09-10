@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Slider;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 
 // CMS
 use App\Models\Slider;
@@ -50,7 +51,7 @@ class IndexController extends Controller
 
     public function store(SliderFormRequest $request)
     {
-        $slider = $this->repository->create($request->validated());
+        $slider = $this->repository->create($this->attributes($request));
 
         if ($request->hasFile('file')) {
             $this->service->upload($request->title, $request->file('file'), $slider);
@@ -74,7 +75,7 @@ class IndexController extends Controller
 
     public function update(SliderFormRequest $request, Slider $slider)
     {
-        $this->repository->update($request->validated(), $slider);
+        $this->repository->update($this->attributes($request), $slider);
 
         if ($request->hasFile('file')) {
             $this->service->upload($request->title, $request->file('file'), $slider, true);
@@ -89,12 +90,23 @@ class IndexController extends Controller
 
     public function destroy(int $id)
     {
+        /* Najpierw pliki, potem rekord — po delete() nie ma juz z czego odczytac
+           nazw, a bez tego cala seria rozmiarow zostawala na dysku. */
+        $this->service->deleteFiles($this->repository->find($id));
         $this->repository->delete($id);
+
         return response()->json('Deleted');
     }
 
     public function sort(Request $request)
     {
         $this->repository->updateOrder($request->get('recordsArray'));
+    }
+
+    /** Pliki maja wlasne reguly walidacji, ale do mass-assignmentu isc nie moga —
+     *  w kolumnach `file`/`file_mobile` ladowalby obiekt UploadedFile zamiast nazwy. */
+    private function attributes(SliderFormRequest $request): array
+    {
+        return Arr::except($request->validated(), ['file', 'file_mobile']);
     }
 }

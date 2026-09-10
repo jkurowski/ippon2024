@@ -1,9 +1,11 @@
-@extends('layouts.page', ['body_class' => ''])
+@extends('layouts.page', ['body_class' => 'ip-page'])
 
 @section('meta_title', $page->title)
 @section('seo_title', $page->meta_title)
 @section('seo_description', $page->meta_description)
 
+{{-- ==== STARY KOD — wylaczony, do usuniecia po odbiorze ==== --}}
+@if(1 == 2)
 @section('pageheader')
     @include('layouts.partials.page-header', ['page_title' => '', 'page' => $page, 'header_file' => $page->file_header])
 @stop
@@ -53,4 +55,24 @@
             </div>
         </div>
     </div>
+@endsection
+@endif
+
+{{-- ==========================================================================
+     NOWY WIDOK — makieta Figma "MIESZKANIA JUŻ WKRÓTCE"
+     ========================================================================== --}}
+@section('pageheader')
+    @include('layouts.partials.ip-pagehead', [
+        'title'  => 'Mieszkania już wkrótce',
+        'crumbs' => [
+            ['label' => 'Mieszkania', 'url' => null],
+            ['label' => 'Już wkrótce',  'url' => null],
+        ],
+        'image'  => ($page->file_header && is_file(public_path('uploads/header/'.$page->file_header)))
+                        ? asset('uploads/header/'.$page->file_header) : null,
+    ])
+@stop
+
+@section('content')
+    @include('front.developro.partials.investment-rows', ['investments' => $investments])
 @endsection

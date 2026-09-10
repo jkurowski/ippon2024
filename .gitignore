@@ -22,3 +22,7 @@ config/tracker.php
 /public/js/editor_old/
 /stubs/
 /app/Console/Commands/
+/public/materialy_klienta/
+
+# zrzuty bazy — kopie robocze, nie ida do repo
+/storage/backups/

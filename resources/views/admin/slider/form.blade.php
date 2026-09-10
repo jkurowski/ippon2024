@@ -53,10 +53,10 @@
                                     ]])
                                 </div>
                                 <div class="row w-100 form-group">
-                                    @include('form-elements.html-input-file', ['label' => 'Zdjęcie', 'sublabel' => '(wymiary: '.config('images.slider.big_width').'px / '.config('images.slider.big_height').'px)', 'name' => 'file'])
+                                    @include('form-elements.html-input-file', ['label' => 'Zdjęcie', 'sublabel' => '(zalecane min. '.config('images.slider.big_width').'px szerokości; system sam przygotuje wersje '.implode(' / ', array_keys(config('images.slider.sizes'))).'px, WEBP oraz miniaturkę do nawigacji)', 'name' => 'file'])
                                 </div>
                                 <div class="row w-100 form-group">
-                                    @include('form-elements.html-input-file', ['label' => 'Zdjęcie mobile', 'sublabel' => '(wymiary: 800px / 800px)', 'name' => 'file_mobile'])
+                                    @include('form-elements.html-input-file', ['label' => 'Zdjęcie mobile', 'sublabel' => '(kadr pionowy pod telefony, proporcja 4:5 — zalecane '.config('images.slider.mobile_width').'px / '.config('images.slider.mobile_height').'px)', 'name' => 'file_mobile'])
                                 </div>
                                 <div class="row w-100 form-group">
                                     @include('form-elements.html-input-text', ['label' => 'Atrybut ALT zdjęcia', 'name' => 'file_alt', 'value' => $entry->file_alt])

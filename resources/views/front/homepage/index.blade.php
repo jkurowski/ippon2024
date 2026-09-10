@@ -1,7 +1,8 @@
-@extends('layouts.homepage', ['body_class' => 'homepage'])
+@extends('layouts.homepage', ['body_class' => 'homepage ip-page'])
 
 @section('content')
 
+    @if(1 == 2)
 <div class="slider-holder position-relative">
     <ul id="slider" class="mb-0 list-unstyled">
         @foreach($sliders as $panel)
@@ -90,7 +91,6 @@
         </div>
     </div>
 </div>
-
 
 <section class="pe-3 pe-sm-0 ps-3 ps-sm-0">
     <div class="container">
@@ -963,4 +963,555 @@
         </div>
     </div>
 </div>
+@endif
+
+{{-- ==========================================================================
+     NOWA STRONA GLOWNA — makieta Figma 2026
+     Etap 1: hero + wyszukiwarka (statyczny szablon, bez podpiecia danych)
+     ========================================================================== --}}
+
+{{-- Hero leci z CMS-u (Admin > Slider). Kazdy slajd ma seria kadrow z
+     SliderService, komponent <x-slider-picture> sklada z nich <picture>. --}}
+@php
+    /* Slajd bez pliku na dysku pomijamy — inaczej karuzela dostaje pusty kadr
+       i "przewija" w nicosc. Gdy nie zostanie zaden (pusty slider albo lokalna
+       kopia bazy bez zdjec), wchodzi zestaw z makiety. */
+    $heroSlides = $sliders
+        ->filter(fn ($s) => $s->file && is_file(public_path('uploads/slider/'.$s->file)))
+        ->map(function ($s) {
+            $thumb = 'uploads/slider/thumbs/'.$s->file;
+
+            return [
+                'slider' => $s,
+                'thumb'  => asset(is_file(public_path($thumb)) ? $thumb : 'uploads/slider/'.$s->file),
+                'link'   => $s->link,
+                'target' => $s->link_target ?: '_self',
+            ];
+        })
+        ->values()
+        ->all();
+
+    if (!$heroSlides) {
+        /* UWAGA: placeholder — zdjecia z makiety, widoczne tylko gdy slider w CMS
+           jest pusty. Na produkcji powinien go przykryc material klienta. */
+        $heroSlides = array_map(fn ($n) => [
+            'slider' => null,
+            'img'    => asset('images/homepage/hero-'.$n.'.jpg'),
+            'thumb'  => asset('images/homepage/hero-thumb-'.$n.'.jpg'),
+            'link'   => null,
+            'target' => '_self',
+        ], [1, 2, 3]);
+    }
+@endphp
+
+<section class="ip-hero">
+    <div id="ipHero" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6000">
+        <div class="carousel-inner">
+            @foreach ($heroSlides as $i => $slide)
+                <div class="carousel-item @if($i === 0) active @endif" data-thumb="{{ $slide['thumb'] }}">
+                    @if($slide['link'])
+                        <a href="{{ $slide['link'] }}" target="{{ $slide['target'] }}">
+                    @endif
+
+                    @if($slide['slider'])
+                        <x-slider-picture :slider="$slide['slider']" :eager="$i === 0" />
+                    @else
+                        <img src="{{ $slide['img'] }}" alt="Inwestycja IPPON Group"
+                             fetchpriority="{{ $i === 0 ? 'high' : 'low' }}" decoding="async">
+                    @endif
+
+                    @if($slide['link'])
+                        </a>
+                    @endif
+                </div>
+            @endforeach
+        </div>
+
+        {{-- miniatura zapowiada NASTEPNY slajd, wiec startuje od drugiego.
+             Przy jednym slajdzie nie ma czego zapowiadac. --}}
+        @if(count($heroSlides) > 1)
+            <button type="button" class="ip-hero-next" data-bs-target="#ipHero" data-bs-slide="next" aria-label="Następna inwestycja">
+                <img data-ip-thumb src="{{ $heroSlides[1]['thumb'] }}" alt="">
+                <svg class="ip-hero-next-arrow" viewBox="0 0 56 82" aria-hidden="true">
+                    <polyline points="8,6 48,41 8,76"/>
+                </svg>
+            </button>
+        @endif
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var carousel = document.getElementById('ipHero');
+        if (!carousel) return;
+
+        var items = carousel.querySelectorAll('.carousel-item');
+        var thumb = carousel.querySelector('[data-ip-thumb]');
+        if (!thumb || items.length < 2) return;
+
+        // podgrzewamy cache, zeby podmiana byla natychmiastowa
+        Array.prototype.forEach.call(items, function (item) {
+            if (item.dataset.thumb) new Image().src = item.dataset.thumb;
+        });
+
+        carousel.addEventListener('slide.bs.carousel', function (event) {
+            var next = items[(event.to + 1) % items.length];
+            if (!next || !next.dataset.thumb) return;
+
+            thumb.classList.add('is-changing');
+            window.setTimeout(function () {
+                thumb.src = next.dataset.thumb;
+                thumb.classList.remove('is-changing');
+            }, 220);
+        });
+    });
+</script>
+
+{{-- Pasek filtrow: byla tu atrapa (bootstrapowy dropdown i action="#").
+     Teraz ten sam komponent co w wyszukiwarce — wybor leci GET-em na
+     /wyszukiwarka, a opcje pochodza z realnej oferty. --}}
+    <x-property-filter
+        :investments="$filterInvestments"
+        :rooms="$filterRooms"
+        :floors="$filterFloors"
+        :areas="$filterAreas"
+    />
+
+{{-- Inwestycje w sprzedazy --}}
+@php
+    /* Zdjecie kafla: naglowek inwestycji, potem miniatura. Sprawdzamy plik na
+       dysku, bo czesc rekordow z CMS-u nie ma odpowiednikow w lokalnej kopii. */
+    $ipCardPhoto = function ($inv) {
+        foreach ([['investment/thumbs', $inv->file_thumb], ['investment/header', $inv->file_header]] as [$dir, $file]) {
+            if ($file && is_file(public_path($dir.'/'.$file))) {
+                return asset($dir.'/'.$file);
+            }
+        }
+        return null;
+    };
+
+    /* "35-36, 49-56" (zakresy dla wyszukiwarki) -> "35-56 m2" na kaflu. */
+    $ipAreaRange = function ($range) {
+        preg_match_all('/\d+(?:[.,]\d+)?/', (string) $range, $m);
+
+        if (empty($m[0])) {
+            return null;
+        }
+
+        $values = array_map(fn ($v) => (float) str_replace(',', '.', $v), $m[0]);
+        $min = (int) floor(min($values));
+        $max = (int) ceil(max($values));
+
+        return ($min === $max ? $min : $min.'-'.$max).' m&sup2;';
+    };
+@endphp
+
+<section class="ip-section">
+    <div class="container">
+
+        <x-section-head>{{ $current_locale == 'pl' ? 'Inwestycje w sprzedaży' : 'Investments on sale' }}</x-section-head>
+
+        <div class="row ip-cards-row">
+
+            @foreach ($investments_current as $inw)
+                @php
+                    $photo = $ipCardPhoto($inw);
+                    $area  = $ipAreaRange($inw->area_range);
+                    $city  = $cities->firstWhere('id', $inw->city);
+                @endphp
+
+                <div class="col-12 col-md-6 col-xl-4">
+                    <article class="ip-card">
+
+                        <div class="ip-card-media">
+                            @if($photo)
+                                <img src="{{ $photo }}" alt="{{ $inw->name }}" loading="lazy" decoding="async">
+                            @endif
+
+                            {{-- plakietka z CMS-u (pole "Kafel: plakietka"); puste = bez plakietki --}}
+                            @if($inw->card_badge)
+                                <span class="ip-card-badge">{{ $inw->card_badge }}</span>
+                            @endif
+                        </div>
+
+                        <div class="ip-card-body">
+                            @if($inw->address || $city)
+                                <span class="ip-card-address">{{ $inw->address ?: $city->name }}</span>
+                            @endif
+
+                            <h3 class="ip-card-title">{{ $inw->name }}</h3>
+
+                            @if($inw->entry_content)
+                                <p class="ip-card-desc">{{ excerpt($inw->entry_content, 120) }}</p>
+                            @endif
+
+                            {{-- Parametry pokazujemy tylko te, ktore klient wypelnil w CMS-ie —
+                                 kafel z pustym wierszem wyglada gorzej niz kafel krotszy. --}}
+                            @if($area || $inw->date_end || $inw->card_param)
+                                <ul class="ip-card-params list-unstyled mb-0">
+                                    @if($area)
+                                        <li>
+                                            <svg viewBox="0 0 29 29" fill="none" aria-hidden="true"><path d="M25.375 1.8125H3.625C2.62812 1.8125 1.8125 2.62812 1.8125 3.625V25.375C1.8125 26.3719 2.62812 27.1875 3.625 27.1875H17.2188V25.375C17.2188 22.8375 19.2125 20.8438 21.75 20.8438V19.0312C18.2156 19.0312 15.4062 21.8406 15.4062 25.375H12.6875V21.75H10.875V25.375H3.625V3.625H10.875V16.3125H12.6875V11.7812H16.3125V9.96875H12.6875V3.625H25.375V9.96875H21.75V11.7812H25.375V25.375H21.75V27.1875H25.375C26.3719 27.1875 27.1875 26.3719 27.1875 25.375V3.625C27.1875 2.62812 26.3719 1.8125 25.375 1.8125Z" fill="currentColor"/></svg>
+                                            {!! $area !!}
+                                        </li>
+                                    @endif
+
+                                    @if($inw->date_end)
+                                        <li>
+                                            <svg viewBox="0 0 29 29" fill="none" aria-hidden="true"><path d="M23.5625 3.625H19.9375V1.8125H18.125V3.625H10.875V1.8125H9.0625V3.625H5.4375C4.44062 3.625 3.625 4.44062 3.625 5.4375V23.5625C3.625 24.5594 4.44062 25.375 5.4375 25.375H23.5625C24.5594 25.375 25.375 24.5594 25.375 23.5625V5.4375C25.375 4.44062 24.5594 3.625 23.5625 3.625ZM23.5625 23.5625H5.4375V10.875H23.5625V23.5625ZM23.5625 9.0625H5.4375V5.4375H9.0625V7.25H10.875V5.4375H18.125V7.25H19.9375V5.4375H23.5625V9.0625Z" fill="currentColor"/></svg>
+                                            {{ $current_locale == 'pl' ? 'Odbiór: ' : 'Handover: ' }}{{ $inw->date_end }}
+                                        </li>
+                                    @endif
+
+                                    @if($inw->card_param)
+                                        <li>
+                                            <svg viewBox="0 0 29 29" fill="none" aria-hidden="true"><path d="M3.625 25.375H25.375M6.04167 25.375V8.45833L15.7083 3.625V25.375M22.9583 25.375V13.2917L15.7083 8.45833M10.875 10.875V10.8871M10.875 14.5V14.5121M10.875 18.125V18.1371M10.875 21.75V21.7621" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                            {{ $inw->card_param }}
+                                        </li>
+                                    @endif
+                                </ul>
+                            @endif
+
+                            <div class="ip-card-actions">
+                                <a href="{{ route('developro.investment.plan', $inw->slug) }}" class="ip-btn-outline">
+                                    {{ $current_locale == 'pl' ? 'Zobacz mieszkania' : 'See apartments' }}
+                                </a>
+                                <a href="{{ route('developro.investment.index', $inw->slug) }}" class="ip-btn-outline">
+                                    {{ $current_locale == 'pl' ? 'Opis inwestycji' : 'About the project' }}
+                                </a>
+                            </div>
+                        </div>
+
+                    </article>
+                </div>
+            @endforeach
+
+        </div>
+    </div>
+</section>
+
+
+{{-- Nadchodzace projekty: inwestycje ze statusem "Juz wkrotce" (status 4).
+     W makiecie jest jeden blok — przy kilku rekordach ukladaja sie w pionie. --}}
+@if($investments_soon->count() > 0)
+<section class="ip-section pb-0 pt-0">
+    <div class="container">
+        <x-section-head>
+            {{ $current_locale == 'pl' ? 'Przyszłość pisana komfortem.' : 'A future written in comfort.' }}
+                <span>{{ $current_locale == 'pl' ? 'Nadchodzące projekty' : 'Upcoming projects' }}</span>
+        </x-section-head>
+    </div>
+
+    @foreach($investments_soon as $inv)
+        @php
+            $photo = $ipCardPhoto($inv);
+            $city  = $cities->firstWhere('id', $inv->city);
+        @endphp
+
+        <div class="ip-split">
+            <div class="row g-0">
+                <div class="col-12 col-lg-8">
+                    <div class="ip-split-media">
+                        @if($photo)
+                            <img src="{{ $photo }}" alt="{{ $inv->name }}" loading="lazy" decoding="async">
+                        @endif
+                        @if($city)
+                            <span class="ip-city-badge">{{ $city->name }}</span>
+                        @endif
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <div class="ip-split-panel">
+                        <span class="ip-split-badge">{{ $current_locale == 'pl' ? 'Już wkrótce' : 'Coming soon' }}</span>
+                        <h3 class="ip-split-title">{{ $inv->name }}</h3>
+                        <hr class="ip-rule">
+
+                        @if($inv->entry_content)
+                            <p class="ip-split-desc">{{ excerpt($inv->entry_content, 140) }}</p>
+                        @endif
+
+                        @if($inv->developro)
+                            <a href="{{ route('developro.investment.index', $inv->slug) }}" class="ip-btn-ghost">
+                                {{ $current_locale == 'pl' ? 'Zobacz więcej' : 'See more' }}
+                            </a>
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endforeach
+</section>
+@endif
+
+{{-- Dlaczego warto nam zaufac --}}
+<section class="ip-section ip-trust-section">
+    <div class="container">
+        <x-section-head>
+            Bezpieczeństwo transakcji, bezkompromisowa jakość.
+                <span>Dlaczego warto nam zaufać?</span>
+        </x-section-head>
+
+        {{-- UWAGA: zdjecia to placeholdery (kadry z wizualizacji inwestycji).
+             Do podmiany na zdjecia stockowe pasujace do opisow. --}}
+        @php
+            $zaufanie = [
+                [
+                    'img'   => 'trust-card-1.jpg',
+                    'title' => 'Certyfikat jakości IPPON',
+                    'desc'  => 'Autorski standard oparty na bezkompromisowym wyborze materiałów najwyższej jakości',
+                ],
+                [
+                    'img'   => 'trust-card-2.jpg',
+                    'title' => 'Technologia w służbie komfortu',
+                    'desc'  => 'Wprowadzamy standardy jutra: zaawansowane systemy automatyki domowej, ekologiczne panele fotowoltaiczne redukujące koszty eksploatacji oraz architekturę dbającą o naturalne doświetlenie',
+                ],
+                [
+                    'img'   => 'trust-card-3.jpg',
+                    'title' => 'Pewność, której możesz zaufać',
+                    'desc'  => 'Wszystkie inwestycje realizujemy terminowo, opierając się na silnym zapleczu kapitałowym. Kupując mieszkanie od Ippon Group, zyskujesz pełne bezpieczeństwo transakcji',
+                ],
+            ];
+        @endphp
+
+        <div class="row ip-cards-row">
+            @foreach ($zaufanie as $item)
+                <div class="col-12 col-md-6 col-xl-4">
+                    <article class="ip-trust-card" tabindex="0">
+                        <img src="{{ asset('images/homepage/'.$item['img']) }}" alt="{{ $item['title'] }}">
+                        <div class="ip-trust-card-body">
+                            <h3>{{ $item['title'] }}</h3>
+                            <div class="ip-trust-card-desc">
+                                <p>{{ $item['desc'] }}</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</section>
+
+{{-- Inwestycje planowane: status "Planowana" (status 3) z CMS-u.
+     Apla stoi nieruchomo — przesuwaja sie tylko zdjecia, a tresc apli
+     podmienia sie z data-* aktywnego slajdu. --}}
+@php
+    /* Slajd bez zdjecia wypadlby jako czarna dziura w karuzeli. */
+    $ipPlannedSlides = $investments_planned->filter(fn ($inv) => $ipCardPhoto($inv) !== null)->values();
+@endphp
+
+@if($ipPlannedSlides->count() > 0)
+<section class="ip-section pt-0">
+    <div class="container">
+        <x-section-head>{{ $current_locale == 'pl' ? 'Sprawdź inwestycje planowane' : 'Explore planned investments' }}</x-section-head>
+    </div>
+
+    <div id="ipPlanned" class="carousel slide ip-banner" data-bs-ride="carousel" data-bs-interval="7000">
+
+        <div class="carousel-inner">
+            @foreach ($ipPlannedSlides as $i => $inv)
+                @php
+                    $city = $cities->firstWhere('id', $inv->city);
+                    $desc = $inv->entry_content ? excerpt($inv->entry_content, 140) : '';
+                    $sub  = $current_locale == 'pl' ? 'Inwestycja w przygotowaniu' : 'Investment in preparation';
+                @endphp
+
+                <div class="carousel-item @if($i === 0) active @endif"
+                     data-city="{{ $city->name ?? '' }}"
+                     data-title="{{ $inv->name }}"
+                     data-sub="{{ $sub }}"
+                     data-desc="{{ $desc }}"
+                     data-url="{{ $inv->developro ? route('developro.investment.index', $inv->slug) : '' }}">
+                    <img src="{{ $ipCardPhoto($inv) }}" alt="{{ $inv->name }}" loading="lazy" decoding="async">
+                    {{-- badge miasta jedzie razem ze zdjeciem --}}
+                    @if($city)
+                        <span class="ip-city-badge">{{ $city->name }}</span>
+                    @endif
+                </div>
+            @endforeach
+        </div>
+
+        @php
+            $ipFirst = $ipPlannedSlides->first();
+            $ipFirstCity = $cities->firstWhere('id', $ipFirst->city);
+            $ipFirstUrl = $ipFirst->developro ? route('developro.investment.index', $ipFirst->slug) : '';
+        @endphp
+
+        <div class="ip-banner-bar">
+            <button type="button" class="ip-banner-nav" data-bs-target="#ipPlanned" data-bs-slide="prev" aria-label="Poprzednia inwestycja">
+                <svg viewBox="0 0 18 15" aria-hidden="true"><polyline points="7,1 1,7.5 7,14"/><line x1="1" y1="7.5" x2="17" y2="7.5"/></svg>
+            </button>
+
+            <div class="ip-banner-swap">
+                <div class="ip-banner-title">
+                    <h3>
+                        <span data-ip-title>{{ $ipFirst->name }}</span>
+                        <span class="ip-banner-sub" data-ip-sub>{{ $current_locale == 'pl' ? 'Inwestycja w przygotowaniu' : 'Investment in preparation' }}</span>
+                    </h3>
+                </div>
+
+                <div class="ip-banner-text">
+                    <p data-ip-desc>{{ $ipFirst->entry_content ? excerpt($ipFirst->entry_content, 140) : '' }}</p>
+                </div>
+            </div>
+
+            <a href="{{ $ipFirstUrl ?: '#' }}" class="ip-banner-btn" data-ip-url @if(!$ipFirstUrl) hidden @endif>
+                {{ $current_locale == 'pl' ? 'Zobacz więcej' : 'See more' }}
+            </a>
+
+            <button type="button" class="ip-banner-nav" data-bs-target="#ipPlanned" data-bs-slide="next" aria-label="Następna inwestycja">
+                <svg viewBox="0 0 18 15" aria-hidden="true"><polyline points="11,1 17,7.5 11,14"/><line x1="1" y1="7.5" x2="17" y2="7.5"/></svg>
+            </button>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var carousel = document.getElementById('ipPlanned');
+        if (!carousel) return;
+
+        var swap  = carousel.querySelector('.ip-banner-swap');
+        var link  = carousel.querySelector('[data-ip-url]');
+        var slots = {
+            title: carousel.querySelector('[data-ip-title]'),
+            sub:   carousel.querySelector('[data-ip-sub]'),
+            desc:  carousel.querySelector('[data-ip-desc]')
+        };
+
+        carousel.addEventListener('slide.bs.carousel', function (event) {
+            var data = event.relatedTarget.dataset;
+
+            if (swap) swap.classList.add('is-changing');
+
+            window.setTimeout(function () {
+                Object.keys(slots).forEach(function (key) {
+                    if (slots[key] && typeof data[key] !== 'undefined') {
+                        slots[key].textContent = data[key];
+                    }
+                });
+
+                /* Inwestycja bez wlasnej podstrony (developro = 0) nie ma dokad
+                   linkowac — wtedy chowamy przycisk zamiast dawac martwy '#'. */
+                if (link) {
+                    link.href = data.url || '#';
+                    link.hidden = !data.url;
+                }
+
+                if (swap) swap.classList.remove('is-changing');
+            }, 250);
+        });
+    });
+</script>
+
+@endif
+
+{{-- Boksy samoobslugowe --}}
+<section class="ip-section pt-0">
+    <div class="ip-full">
+        <div class="row g-0">
+            <div class="col-12 col-lg-7 col-xl-8">
+                <div class="ip-split-media h-100">
+                    <img src="{{ asset('images/homepage/boksy.jpg') }}" alt="Boksy samoobsługowe 24/7">
+                </div>
+            </div>
+            <div class="col-12 col-lg-5 col-xl-4">
+                <div class="ip-boxes-panel">
+                    <h2>
+                        Jedyne w Olsztynie
+                        <span class="text-gold">boksy samoobsługowe</span>
+                        czynne 24/7
+                    </h2>
+                    <hr class="ip-rule">
+                    <p>Bezpiecznie przechowuj swoje rzeczy dokładnie wtedy, kiedy tego potrzebujesz. Dostęp do boksów masz o każdej porze – szybko, wygodnie i bez zbędnych formalności</p>
+                    {{-- Boksy maja wlasny serwis, nie karte inwestycji w CMS-ie --}}
+                    <a href="https://boxolsztyn.pl/" target="_blank" rel="noopener" class="ip-btn-gold-lg">Sprawdź box</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{-- Aktualnosci: te same kafle co na /aktualnosci (front.news.ip-card),
+     zeby zajawka i data mialy jedno miejsce do poprawiania. --}}
+@if($news->count() > 0)
+<section class="ip-section pt-0">
+    <div class="container">
+        <x-section-head>{{ $current_locale == 'pl' ? 'Aktualności z życia IPPON GROUP' : 'News from IPPON GROUP' }}</x-section-head>
+
+        <div class="row ip-cards-row">
+            @foreach ($news as $post)
+                <div class="col-12 col-md-6 col-xl-4">
+                    @include('front.news.ip-card', ['news' => $post])
+                </div>
+            @endforeach
+        </div>
+    </div>
+</section>
+@endif
+
+{{-- Kontakt --}}
+<section class="ip-section pt-0">
+    <div class="container">
+        <x-section-head>Porozmawiajmy o Twoim nowym mieszkaniu</x-section-head>
+
+        <div class="row ip-cards-row align-items-start">
+
+            <div class="col-12 col-lg-6">
+                <p class="ip-contact-lead">
+                    Wyjątkowe inwestycje wymagają dedykowanej opieki. Jeśli chcesz poznać szczegóły naszych projektów,
+                    umówić się na prezentację apartamentu lub zapytać o niestandardowe rozwiązania –
+                    <strong>jesteśmy do Twojej dyspozycji.</strong>
+                </p>
+
+                <div class="ip-contact-sep"></div>
+
+                <div class="ip-contact-cols">
+                    <ul class="ip-contact-list list-unstyled mb-0">
+                        <li>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            ul. Żelazna 4
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13" r="8"/><polyline points="12,9 12,13 15,15"/><line x1="5" y1="3" x2="2" y2="6"/><line x1="19" y1="3" x2="22" y2="6"/></svg>
+                            pn.–pt. 9:00–17:00
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+                            <a href="tel:+48724222323">+48 724 222 323</a>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+                            <a href="tel:+48609084219">+48 609 084 219</a>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16"/><polyline points="2,6 12,13 22,6"/></svg>
+                            <a href="mailto:mieszkania@ippon.group">mieszkania@ippon.group</a>
+                        </li>
+                    </ul>
+
+                    <div class="ip-contact-people">
+                        <div class="ip-person">
+                            <strong>Elżbieta Kalinowska</strong>
+                            <a href="mailto:e.kalinowska@ippon.group">e.kalinowska@ippon.group</a>
+                            <a href="tel:+48724222323">+48 724 222 323</a>
+                        </div>
+                        <div class="ip-person">
+                            <strong>Iwona Schubert</strong>
+                            <a href="mailto:i.schubert@ippon.group">i.schubert@ippon.group</a>
+                            <a href="tel:+48609884219">+48 609 884 219</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-6">
+                {{-- Formularz byl makieta (action="#"), teraz idzie ten sam komponent
+                     co na podstronach: te same pola, RODO i recaptcha. --}}
+                @include('front.contact.ip-form', ['page_name' => 'Strona główna'])
+            </div>
+
+        </div>
+    </div>
+</section>
+
 @endsection

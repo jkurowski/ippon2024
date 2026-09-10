@@ -24,6 +24,36 @@ class IndexController extends Controller
         $this->pageId = 11;
     }
 
+    /**
+     * Sortowanie wybrane na liscie. Kolumna i kierunek z biale listy —
+     * wartosc leci prosto z adresu, a orderBy nie binduje nazwy kolumny.
+     */
+    private function applySort($query, Request $request): void
+    {
+        if (!$request->input('sort')) {
+            return;
+        }
+
+        [$column, $direction] = array_pad(explode(':', $request->input('sort')), 2, 'asc');
+
+        if (!in_array($column, ['rooms', 'area'], true)) {
+            return;
+        }
+
+        $direction = strtolower($direction) === 'desc' ? 'desc' : 'asc';
+
+        /* area to varchar(191) — bez rzutowania MySQL sortuje tekstem
+           i "34564356" ladowalo przed "48.13". Przecinek zamieniamy na
+           kropke, bo w panelu zdarza sie metraz wpisany po polsku. */
+        if ($column === 'area') {
+            $query->orderByRaw('CAST(REPLACE(area, ",", ".") AS DECIMAL(12,2)) ' . $direction);
+
+            return;
+        }
+
+        $query->orderBy($column, $direction);
+    }
+
     public function index($language, $slug, Request $request)
     {
         $investment = $this->repository->findBySlug($slug);
@@ -39,6 +69,10 @@ class IndexController extends Controller
                         $query->orderBy('status', 'ASC');
                     }
                     $query->orderBy('highlighted', 'DESC');
+                    /* wybor uzytkownika musi isc PRZED number_order — wczesniej
+                       dokladany byl na koncu ORDER BY, a number_order jest
+                       unikalny, wiec sortowanie z listy nic nie zmienialo */
+                    $this->applySort($query, $request);
                     $query->orderBy('number_order', 'ASC');
                     $query->where('properties.type', '=', 1);
                     $query->where('properties.active', '=', 1);
@@ -71,12 +105,6 @@ class IndexController extends Controller
                         $query->whereBetween('area', [$min, $max]);
                     }
 
-                    if ($request->input('sort')) {
-                        $order_param = explode(':', $request->input('sort'));
-                        $column = $order_param[0];
-                        $direction = $order_param[1];
-                        $query->orderBy($column, $direction);
-                    }
 
                     // Hide properties where status = 3 and their building's display_sold = 0
                     $query->where(function ($q) {
@@ -111,6 +139,10 @@ class IndexController extends Controller
                         $query->orderBy('status', 'ASC');
                     }
                     $query->orderBy('highlighted', 'DESC');
+                    /* wybor uzytkownika musi isc PRZED number_order — wczesniej
+                       dokladany byl na koncu ORDER BY, a number_order jest
+                       unikalny, wiec sortowanie z listy nic nie zmienialo */
+                    $this->applySort($query, $request);
                     $query->orderBy('number_order', 'ASC');
                     $query->where('properties.type', '=', 1);
 
@@ -145,12 +177,6 @@ class IndexController extends Controller
                         $min = $area_param[0];
                         $max = $area_param[1];
                         $query->whereBetween('area', [$min, $max]);
-                    }
-                    if ($request->input('sort')) {
-                        $order_param = explode(':', $request->input('sort'));
-                        $column = $order_param[0];
-                        $direction = $order_param[1];
-                        $query->orderBy($column, $direction);
                     }
                 }
             ));

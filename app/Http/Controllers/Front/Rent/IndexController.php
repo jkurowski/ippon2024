@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 
 //CMS
 use App\Models\Page;
+use App\Models\RodoRules;
+use App\Models\RodoSettings;
 use App\Repositories\RentRepository;
 
 class IndexController extends Controller
@@ -28,6 +30,11 @@ class IndexController extends Controller
     public function show($lang, $slug, $id){
         $page = Page::find(8);
         $rent = $this->repository->find($id);
-        return view('front.rent.show', compact('page', 'rent'));
+
+        /* formularz "zapytaj o lokal" na dole strony */
+        $obligation = RodoSettings::find(1);
+        $rules = RodoRules::orderBy('sort')->whereStatus(1)->get();
+
+        return view('front.rent.show', compact('page', 'rent', 'obligation', 'rules'));
     }
 }

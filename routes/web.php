@@ -104,6 +104,13 @@ Route::group(['namespace' => 'Front', 'prefix' => '{locale?}', 'where' => ['loca
     });
 
     // Lokalizacja
+    Route::get('/lokalizacja', function () {
+        return redirect()->route('map', [
+            'locale' => app()->getLocale(),
+            'slug'   => \App\Http\Controllers\Front\Map\IndexController::ALL_SLUG,
+        ]);
+    })->name('map.index');
+
     Route::get('/lokalizacja/{slug}', 'Map\IndexController@index')->name('map');
 
     Route::get('/wyszukiwarka', 'Developro\Search\IndexController@index')->name('search');

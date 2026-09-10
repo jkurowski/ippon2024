@@ -142,11 +142,38 @@ return [
     */
 
     'slider' => [
+        /*
+        | Hero na stronie glownej ma inna proporcje na kazdym progu (patrz
+        | ippon.less: 1920/781 na desktopie, 16/9 ponizej 1200px, 4/5 ponizej
+        | 768px). Dlatego seria nie jest samym przeskalowaniem jednego kadru:
+        | 'desktop' trzyma proporcje hero, 'tablet' juz 16/9, a kadr pionowy
+        | wgrywa sie osobno (pole "Zdjecie mobile") — inaczej na telefonie
+        | object-fit wycialby zdjeciu srodek.
+        |
+        | Klucz tablicy = nazwa podkatalogu w uploads/slider/.
+        */
+        'sizes' => [
+            '1920' => ['width' => 1920, 'height' => 781],
+            '1440' => ['width' => 1440, 'height' => 586],
+            '1024' => ['width' => 1024, 'height' => 576],
+        ],
+
+        /* Kadr pionowy pod telefony — z osobnego uploadu. */
+        'mobile_width' => 900,
+        'mobile_height' => 1125,
+
+        /* Miniaturka "nastepny slajd" w nawigacji hero: kafel 245x218 w LESS,
+           plik w 2x zeby nie mydlil na ekranach retina. Sluzy tez za podglad
+           na liscie w adminie. */
+        'thumb_width' => 490,
+        'thumb_height' => 436,
+
+        /* Zgodnosc wstecz: 'big_*' czyta stary formularz i stare szablony. */
         'big_width' => 1920,
-        'big_height' => 770,
-        'thumb_width' => 248,
-        'thumb_height' => 140,
+        'big_height' => 781,
+
         'file_path' => 'uploads/slider/',
+        'source_file_path' => 'uploads/slider/source/',
         'thumb_file_path' => 'uploads/slider/thumbs/',
         'mobile_file_path' => 'uploads/slider/mobile/',
         'preview_file_path' => 'uploads/slider/thumbs/',

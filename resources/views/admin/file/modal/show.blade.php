@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}">
+<link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}?v=5.3.8">
 <link rel="stylesheet" href="{{ asset('/css/less-partials/modal-table.min.css') }}">
 <div class="card">
     <table id="sortable" class="table mb-0">

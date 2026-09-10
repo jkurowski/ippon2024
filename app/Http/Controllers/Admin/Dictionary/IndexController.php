@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Admin\Dictionary;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\DictionaryFormRequest;
+use App\Services\DictionaryService;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Lang;
 
 // CMS
-use App\Http\Requests\DictionaryFormRequest;
-use App\Services\DictionaryService;
 
 class IndexController extends Controller
 {

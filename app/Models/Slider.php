@@ -22,6 +22,7 @@ class Slider extends Model
         'link_button',
         'link_target',
         'opacity',
+        'color',
         'active',
         'sort'
     ];
