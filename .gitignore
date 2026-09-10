@@ -26,3 +26,6 @@ config/tracker.php
 
 # zrzuty bazy — kopie robocze, nie ida do repo
 /storage/backups/
+
+# podwojnie zminifikowane wypluwy watcherow (plik.min.css -> plik.min.min.css)
+*.min.min.*
