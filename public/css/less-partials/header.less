@@ -1,0 +1,236 @@
+header {
+  #logo {
+    padding: 32px 0;
+    text-align: center;
+    width: 270px;
+    a {
+      display: flex;
+      justify-content: center;
+      img {
+        width: 125px;
+      }
+    }
+    p {
+      font-family: "Georgia",serif;
+      color: #BA8B41;
+      font-size: 23px;
+      margin: 15px 0 0;
+    }
+  }
+
+  #nav {
+    width: calc(100% - 270px);
+    padding-left: 150px;
+    nav {
+      ul {
+        li {
+          margin-right: 40px;
+          display: inline-flex;
+          height: 80px;
+          align-items: center;
+          position: relative;
+          a {
+            font-size: 18px;
+            color: black;
+            &:hover {
+              color: #ba8b41;
+            }
+          }
+
+          ul {
+            position: absolute;
+            background: #f4f4f4;
+            top: 100%;
+            left: 0;
+            width: 215px;
+            z-index: 90;
+            display: none;
+            li {
+              margin: 0;
+              height: auto;
+              display: flex;
+              a {
+                display: block;
+                padding: 4px 10px;
+                transition: all 200ms linear;
+                width: 100%;
+                font-size: 16px;
+                &:hover {
+                  background: #a17939;
+                  color: white;
+                }
+              }
+            }
+          }
+
+          &:hover {
+            ul {
+              display: block;
+            }
+
+            & > a {
+              color: #ba8b41;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .top {
+    border-bottom: 2px solid #BA8B41;
+    height: 159px;
+  }
+
+  #lang {
+    padding-right: 40px;
+    height: 100%;
+    ul, li {
+        height: 100%;
+    }
+    li {
+      display: inline-flex;
+      align-items: center;
+      margin-left: 15px;
+    }
+    img {
+      width: 30px;
+      opacity: 0.5;
+    }
+    .active, a:hover {
+      img {
+        transition: all 200ms linear;
+        opacity: 1;
+      }
+    }
+  }
+
+  #topCta {
+    display: flex;
+    padding-right: 10px;
+    align-items: center;
+    p {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: normal;
+    }
+    a {
+      display: block;
+      font-size: 29px;
+      color: #BA8B41;
+      line-height: 35px;
+    }
+    span {
+      font-size: 12px;
+    }
+  }
+}
+.header-holder {
+  height: 239px;
+}
+#header {
+  &.fixed {
+    background: white;
+    position: fixed;
+    -webkit-box-shadow: 0 2px 2px 0 rgba(50, 50, 50, 0.14);
+    -moz-box-shadow: 0 2px 2px 0 rgba(50, 50, 50, 0.14);
+    box-shadow: 0 2px 2px 0 rgba(50, 50, 50, 0.14);
+    width: 100%;
+    z-index: 9900;
+    top: 0;
+
+    .top {
+      height: 77px;
+    }
+
+    #logo {
+      padding: 10px 0;
+
+      a img {
+        width: 74px;
+      }
+
+      p {
+        font-size: 20px;
+        margin: 10px 0 0;
+      }
+    }
+
+    #nav nav ul li {
+      height: 60px
+    }
+
+    #nav nav ul li ul li {
+      height: auto
+    }
+
+    #cities {
+      .city-key {
+        width: 27px;
+        height: 54px;
+        background-size: 54px;
+      }
+
+      .city-item {
+        padding: 0 15px;
+        span, p {
+          font-size: 16px;
+        }
+        p strong {
+          font-size: 29px;
+          line-height: 20px;
+        }
+        p {
+          line-height: 21px;
+        }
+      }
+    }
+    #topCta a {
+      font-size: 29px;
+      line-height: 20px;
+    }
+  }
+}
+
+#cities {
+  display: flex;
+  padding-right: 20px;
+  .city-item  {
+    height: 100%;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    p {
+      font-size: 18px;
+      color: #BA8B41;
+      strong {
+        font-size: 32px;
+        color: black;
+        text-transform: uppercase;
+      }
+    }
+    span {
+      color: white;
+      font-size: 22px;
+    }
+    &:hover {
+      background: linear-gradient(rgba(186, 139, 65, 0) 0%, #916b30 100%);
+      strong {
+        color:white;
+        text-shadow: 0 0 6px rgba(66, 68, 90, 1);
+      }
+      span {
+        text-shadow: 0 0 6px rgba(66, 68, 90, 1);
+      }
+      .city-key {
+        background-position: right center;
+      }
+    }
+  }
+  .city-key {
+    width: 47px;
+    height: 94px;
+    background: url("../images/key-icon.png") no-repeat left center;
+    margin-right: 18px;
+  }
+}

@@ -18,7 +18,6 @@ yarn-error.log
 .htaccess
 config/tracker.php
 /resources/views/form-elements/tintmce.blade.php
-*.less
 /public/js/editor_old/
 /stubs/
 /public/materialy_klienta/

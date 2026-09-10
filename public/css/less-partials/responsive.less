@@ -1,0 +1,1588 @@
+/* Responsive
+================================================== */
+.closemenu {
+    width: 40px;
+    height: 40px;
+    background: var(--main-color-blue);
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    border-radius: 50%;
+    display: none;
+    z-index: 999;
+    color: var(--main-color-orange);
+}
+
+
+#triggermenu {
+    align-items: center;
+    font-size:16px;
+    color:white;
+    font-weight:600;
+    text-transform:uppercase;
+    margin:5px 20px 0;
+    padding:5px 12px;
+    transition:all 200ms linear;
+    background:#ba8b41;
+    cursor: pointer;
+    i {
+        color: white;
+        font-size: 20px;
+    }
+}
+#triggermenu:hover {
+    background:#222;
+    color: white
+}
+.openmenu #triggermenu {color: #fff}
+.openmenu #triggermenu:hover {color:white}
+
+@media (max-width: 1939.98px) {
+    header .top {
+        height: 130px;
+    }
+    .header-holder {
+        height: 210px;
+    }
+    header #logo {
+        padding: 18px 0;
+    }
+
+    .planned-item-desc {
+        p {
+            font-size: 16px;
+            line-height: 23px;
+        }
+        h2 {
+            font-size: 30px;
+            line-height: 30px;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+    }
+}
+
+@media (max-width: 1669.98px) {
+    .header-holder {
+        height: 205px;
+    }
+    header {
+        .top
+        {
+            height: 125px;
+        }
+        #logo {
+            padding: 15px 0;
+            width: 270px;
+        }
+        #nav
+        {
+            width: calc(100% - 270px);
+            padding-left: 70px;
+        }
+    }
+    #cities {
+        padding-right: 25px;
+        .city-item {
+            padding: 0 30px;
+            p {
+                font-size: 15px;
+                strong
+                {
+                    font-size: 28px;
+                }
+            }
+            span
+            {
+                font-size: 17px;
+            }
+        }
+    }
+
+    .contact-page {
+        .golden-border {
+            width: 465px;
+        }
+
+        .contact-box {
+            h2 {
+                font-size: 23px;
+                padding-bottom: 15px;
+                margin: 0 0 15px;
+            }
+            .bttn {
+                margin-top: 20px !important;
+            }
+        }
+    }
+
+    #page-header h1 {
+        font-size: 45px;
+        &:after,
+        &:before {
+            width: 200px
+        }
+        &:after {
+            right: -220px;
+        }
+        &:before {
+            left: -220px;
+        }
+    }
+
+    .invest-item-desc img {
+        top: -50px;
+        width: 100px;
+        border: 10px solid white;
+    }
+
+    .row-offset-up {
+        margin-top: -40px;
+    }
+
+    .section-title:before {
+        width: 100%;
+    }
+
+    .investment-contact, .property-contact {
+        .d-flex {
+            img.golden-border {
+                width: 560px;
+            }
+        }
+    }
+
+    .sellers h2 {
+        font-size: 26px;
+    }
+    .sellers a {
+        font-size: 18px
+    }
+    .sellers a strong {
+        font-size: 30px;
+    }
+
+    .similar-rooms .property-list-item-stat {
+        font-size: 12px
+    }
+
+    .main-room-header h2 {
+        font-size: 28px;
+        line-height: 29px;
+        margin-bottom: 15px;
+    }
+    .main-room-header {
+        padding: 30px 30px 20px;
+    }
+    .main-room-footer {
+        padding: 15px 15px;
+        .bttn {
+            padding: 9px;
+            justify-content: center;
+        }
+    }
+
+    .planned-item-desc p {
+        font-size: 13px;
+        line-height: 17px;
+    }
+    .planned-item-desc h2 {
+        font-size: 25px;
+        line-height: 25px;
+    }
+
+    #numbers .number {
+        padding: 60px 20px 30px;
+    }
+    #numbers .number-icon {
+        width: 140px;
+        height: 140px;
+        top: -70px
+    }
+    #numbers .number-value {
+        font-size: 90px;
+        margin-bottom: 10px;
+    }
+    #numbers .number-text p {
+        font-size: 15px;
+        line-height: 25px;
+        margin: 0;
+        height: 75px;
+    }
+    .invest-osiedle-tempo h2 {
+        margin-bottom: 35px;
+        font-size: 42px;
+    }
+
+    .atut-tempo h3 {
+        font-size: 19px;
+    }
+    .atut-tempo img {
+        width: 110px;
+    }
+    #atut-tempo-carousel {
+        min-height: 230px;
+    }
+}
+
+@media (max-width: 1399.98px) {
+    #page {
+        padding: 60px 0;
+    }
+    #contactForm {
+        padding: 0 0 60px !important;
+    }
+    .header-holder {
+        height: 170px;
+    }
+    header {
+        #logo {
+            width: 210px;
+            p
+            {
+                font-size: 18px;
+                margin: 10px 0 0;
+            }
+        }
+        #nav
+        {
+            width: calc(100% - 210px);
+        }
+
+        #logo a img
+        {
+            width: 90px;
+        }
+        .top
+        {
+            height: 90px;
+        }
+
+        #topCta {
+            padding-right: 20px;
+            a
+            {
+                line-height: 27px;
+            }
+        }
+        #nav {
+            padding-left: 10px;
+        }
+    }
+
+    #header.fixed {
+        .top {
+            height: 80px;
+        }
+        #topCta {
+            p
+            {
+                font-size: 12px;
+            }
+            a
+            {
+                font-size: 24px;
+                line-height: 18px;
+            }
+            span
+            {
+                font-size: 10px;
+                line-height: normal;
+            }
+        }
+        #logo a img
+        {
+            width: 75px;
+        }
+        #logo
+        {
+            width: 210px;
+            p
+            {
+                font-size: 18px;
+                margin: 10px 0 0;
+            }
+        }
+        #nav
+        {
+            width: calc(100% - 210px);
+        }
+    }
+
+    #cities {
+        padding-right: 25px;
+        .city-key
+        {
+            width: 30px;
+            height: 60px;
+            background-size: 60px;
+            margin-right: 10px;
+        }
+        .city-item {
+            padding: 0 30px;
+            p {
+                font-size: 13px;
+                line-height: normal;
+                strong
+                {
+                    font-size: 24px;
+                    line-height: 22px;
+                }
+            }
+            span
+            {
+                font-size: 14px;
+            }
+        }
+    }
+
+    .sellers {
+        h2 {
+            font-size: 26px;
+            line-height: 40px;
+        }
+        a
+        {
+            font-size: 18px;
+            strong
+            {
+                font-size: 30px;
+            }
+        }
+    }
+
+    .blog-list article {
+        margin-bottom: 40px;
+        padding-bottom: 40px;
+        border-bottom: 1px solid #dfdfdf;
+    }
+
+    .blog-list article .news-text {
+        padding-left: 20px;
+        h2 {
+            font-size: 36px;
+            line-height: 39px;
+        }
+        p
+        {
+            margin: 0;
+            font-size: 16px;
+            line-height: 27px;
+        }
+    }
+    .blog-list article.flex-row-reverse .news-text {
+        padding-left: 0;
+        padding-right: 20px;
+    }
+
+    .rent-item h2 {
+        font-size: 28px;
+        line-height: 30px;
+    }
+
+    .osoba {
+        .osoba-img {
+            -ms-flex: 0 0 240px;
+            flex: 0 0 240px;
+            max-width: 240px;
+            padding-right: 30px;
+        }
+    }
+    .row-offset-up {
+        margin-top: 0;
+    }
+    .left-right-text {
+        padding: 30px;
+        h2 {
+            margin-bottom: 10px;
+            font-size: 37px;
+        }
+    }
+
+    .career-iconbox-img {
+        width: 165px;
+        height: 165px;
+        margin: 0 auto 15px;
+    }
+    .career-iconbox img {
+        width: 70px;
+    }
+    .career-iconbox p {
+        font-size: 18px;
+        line-height: 25px;
+    }
+    .row-offset-up-50 {
+        margin-top: 0;
+        padding: 15px 0;
+    }
+
+    .inwestycja-atut {
+        margin-bottom: 40px;
+        h4 {
+            font-size: 20px;
+            line-height: 24px;
+            padding: 0;
+        }
+    }
+
+    #page-header.investment-header nav ul li {
+        margin-left: 36px;
+        a {
+            font-size: 21px;
+        }
+    }
+
+    .section-half-text {
+        padding: 0;
+    }
+
+    .slowLast-desc h3 {
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+    .planned-item-gold {
+        padding: 30px
+    }
+
+    .invest-osiedle-synergia h2 br {
+        display: none;
+    }
+    .invest-osiedle-tempo h2 {
+        margin-bottom: 35px;
+        font-size: 37px;
+    }
+}
+
+@media (max-width: 1199.98px) {
+    li, p {
+        margin: 0;
+        font-size: 16px;
+        line-height: 30px;
+    }
+
+    .header-holder {
+        height: 100px;
+    }
+
+    #cities {
+        padding-right: 20px;
+        .city-key {
+            display: none;
+        }
+        .city-item {
+            p
+            {
+                font-size: 12px;
+                line-height: normal;
+                strong
+                {
+                    font-size: 24px;
+                    line-height: 26px;
+                }
+            }
+        }
+    }
+
+    .city-item span,
+    header #topCta span,
+    header nav
+    {
+        display: none;
+    }
+
+    header {
+        #logo {
+            p {
+                font-size: 16px;
+                margin: 5px 0 0;
+            }
+            a img
+            {
+                width: 80px;
+            }
+        }
+        #nav {
+            nav ul li {
+                margin-right: 20px;
+            }
+        }
+    }
+
+    header,
+    #header.fixed {
+        #topCta {
+            a {
+                font-size: 24px;
+                line-height: 26px;
+            }
+            p {
+                font-size: 12px;
+                font-weight: 500;
+                line-height: normal;
+            }
+        }
+        .top {
+            height: 56px;
+            border-bottom: 1px solid #ba8b41;
+        }
+        #cities {
+            .city-item {
+                padding: 0 20px;
+            }
+        }
+        #logo {
+            width: 140px;
+            padding: 10px 0;
+            p
+            {
+                font-size: 12px;
+                line-height: 14px;
+                margin: 9px 0 0;
+            }
+            a img
+            {
+                width: 55px;
+            }
+        }
+        #nav {
+            width: calc(100% - 140px);
+            padding-left: 30px;
+        }
+    }
+
+    footer {
+        padding: 40px 0;
+        h4
+        {
+            font-size: 20px;
+        }
+        li, p {
+            font-size: 14px;
+            line-height: 22px;
+        }
+        .icon-list-contact li img {
+            margin-right: 10px;
+            width: 22px;
+        }
+        .footer-box
+        {
+            padding: 0 5px;
+        }
+        img.pzfd-logo
+        {
+            margin-top: 20px;
+            width: 150px;
+        }
+    }
+
+    .contact-logo {
+        width: 150px;
+        margin-bottom: 40px;
+    }
+    .contact-page {
+        .golden-border {
+            display: none;
+        }
+    }
+    .sellers h2 {
+        font-size: 34px;
+        line-height: 50px;
+    }
+    .sellers a {
+        font-size: 21px;
+    }
+    .sellers a strong {
+        font-size: 32px;
+    }
+
+    #page-header {
+        height: 185px;
+
+        nav {
+            top: -50px;
+        }
+        h1 {
+            font-size: 35px;
+            &:after,
+            &:before {
+                width: 110px
+            }
+            &:after {
+                right: -130px;
+            }
+            &:before {
+                left: -130px;
+            }
+        }
+    }
+
+    .blog-list article .news-text {
+        padding-left: 0;
+    }
+    .blog-list article.flex-row-reverse .news-text {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .invest-item-desc {
+        padding: 20px;
+    }
+    .invest-item {
+        h2
+        {
+            font-size: 27px;
+        }
+        p
+        {
+            font-size: 16px;
+            line-height: 24px;
+        }
+    }
+    .invest-item-city {
+        font-size: 21px;
+        margin-bottom: 10px;
+    }
+
+    .osoba {
+        .osoba-img {
+            -ms-flex: 0 0 160px;
+            flex: 0 0 160px;
+            max-width: 160px;
+            padding-right: 30px;
+        }
+    }
+
+    .left-right-text {
+        padding: 0 0 40px;
+        h2 {
+            margin-bottom: 12px;
+            font-size: 35px;
+            text-align: center;
+        }
+    }
+    .left-right.row-offset-up .left-right-text {
+        padding: 40px 0;
+    }
+
+    .left-right.row-offset-up .order-2 .left-right-text {
+        padding: 0;
+    }
+
+    .left-right-smalltext div {
+        padding: 0;
+    }
+    .left-right-smalltext.text-end div {
+        padding: 0;
+    }
+
+    #contact-form label {
+        font-size: 15px;
+    }
+
+    #commercials .row {
+        margin-top: 30px;
+        padding: 30px 15px;
+    }
+    #commercials .row .commercials-text {
+        padding-left: 0;
+    }
+    #commercials .row.flex-row-reverse .commercials-text {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .empty-ippon {
+        padding: 90px
+    }
+    #cta {
+        padding: 80px 0 40px;
+        margin-top: 40px;
+    }
+
+    .investment-header {
+        position: relative;
+        margin-bottom: 60px;
+    }
+    #page-header.investment-header h1 {
+        text-align: right;
+        margin-bottom: 0;
+    }
+    #page-header .investment-header-logo {
+        height: 120px;
+    }
+    #page-header.investment-header .col-12.invest-header-nav {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -60px;
+        background: #ba8b41;
+        padding: 14px 0;
+        ul {
+            justify-content: center;
+        }
+    }
+
+    .openmenu {
+        overflow: hidden;
+        header {
+            nav {
+                position: fixed;
+                display: block;
+                left: 0;
+                right: 0;
+                top: 100px;
+                bottom: 0;
+                background: #ba8b41;
+                z-index: 9999;
+                padding-top: 20px;
+                overflow: scroll;
+            }
+        }
+
+        #header.fixed #nav nav ul li,
+        header #nav nav ul li
+        {
+            height: auto;
+            display: block;
+            width: 300px;
+            text-align: center;
+            margin:0 auto;
+            a {
+                color: white;
+            }
+            ul {
+                position: static;
+                display: block;
+                width: 100%;
+                background: none;
+            }
+            &.nav-main {
+                border: 1px dashed white;
+                margin: 20px auto;
+                width: 300px;
+                padding: 15px 0;
+            }
+        }
+    }
+
+    .invest-osiedle-slow .slow-icon h4 {
+        font-size: 18px
+    }
+    .invest-osiedle-slow .slow-icon img {
+        margin: 40px auto 20px;
+        width: 131px;
+    }
+
+    #numbers {
+        padding: 110px 0 40px;
+        margin-top: 50px;
+    }
+    #numbers .number-icon {
+        width: 110px;
+        height: 110px;
+        top: -55px;
+    }
+    #numbers .number-value {
+        font-size: 70px;
+    }
+    #numbers .number-text p {
+        font-size: 13px;
+        line-height: 19px;
+    }
+
+}
+/* end of 1199.98 */
+
+@media (max-width: 991.98px) {
+    #header.fixed, header {
+        #nav {
+            width: calc(100% - 140px);
+            padding-left: 10px;
+        }
+        #cities .city-item
+        {
+            padding: 0 13px;
+        }
+        #cities .city-item p strong {
+            font-size: 23px;
+            line-height: 18px;
+        }
+        #topCta a
+        {
+            font-size: 23px;
+            line-height: 18px;
+        }
+    }
+    footer {
+        .f-logo {
+            margin-bottom: 30px;
+        }
+        .f-logo img {
+            margin: 0 auto 10px;
+            width: 80px;
+        }
+        .f-logo h5 {
+            font-size: 17px;
+        }
+    }
+
+    #page-header h1:after,
+    #page-header h1:before {
+        width: 170px
+    }
+    #page-header h1:before {
+        left: -190px;
+    }
+    #page-header h1:after
+    {
+        right: -190px;
+    }
+
+    .sellers h2 {
+        font-size: 33px;
+        line-height: 50px;
+    }
+
+    #page-header {
+        height: 135px;
+        nav {
+            display: none;
+        }
+        h1 {
+            font-size: 29px;
+            text-align: center;
+            &:after,
+            &:before {
+                display: none;
+            }
+        }
+    }
+
+    .rent-item {
+        margin-bottom: 40px;
+    }
+    .rent-item h2 {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .invest-item-holder {
+        padding: 30px 15px 0;
+    }
+
+    .paralaxa-bottom {
+        margin-top: -20px;
+        padding: 22px 20px 0;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    h2 {
+        font-size: 36px;
+        line-height: 42px;
+    }
+
+    .timeline-wrapper .day:nth-child(2n+1) {
+        float: none;
+        clear: none;
+        width: 100%;
+    }
+    .timeline-wrapper .day:nth-child(even) {
+        float: none;
+        clear: none;
+        width: 100%;
+
+    }
+    .timeline-wrapper .day-head:after, .timeline-wrapper .day-head:before {display:none}
+    #timeline {padding:0}
+    .timeline-wrapper .day, .timeline-wrapper .day:nth-child(2) {
+        margin-top: 30px;
+    }
+    .timeline-wrapper .day {
+        position: relative;
+        z-index: 20;
+        background: white;
+    }
+    section {
+        padding: 2rem 0 !important;
+    }
+
+    .inwestycja-atut .icon {
+        padding: 8px;
+        width: 113px;
+        margin: 0 auto 15px;
+        img
+        {
+            padding: 13px;
+        }
+    }
+
+    #page-header.investment-header nav ul li {
+        margin: 0 15px;
+        a {
+            font-size: 18px;
+        }
+    }
+    #page-header.investment-header .col-12.invest-header-nav {
+        bottom: -59px;
+        nav {
+            display: block;
+        }
+    }
+
+    #page-header .investment-header-logo {
+        height: 90px;
+        img {
+            width: 80%;
+        }
+    }
+
+    .rostemary {
+        font-size: 40px;
+        line-height: 40px
+    }
+    .slow-header .abuget {
+        font-size: 80px;
+    }
+
+    .icon-synergia h3,
+    .icon-synergia span {
+        font-size: 18px;
+    }
+}
+/* end of 991.98 */
+
+@media (max-width: 767.98px) {
+    #header.fixed #cities .city-item p strong,
+    #header.fixed #topCta a,
+    header #cities .city-item p strong,
+    header #topCta a {
+        font-size: 14px;
+        line-height: 14px;
+    }
+    #header.fixed #topCta p,
+    header #topCta p {
+        font-size: 10px;
+    }
+    #cities .city-item p {
+        font-size: 10px
+    }
+    #header.fixed #cities .city-item,
+    header #cities .city-item {
+        padding: 0 15px;
+    }
+    footer {
+        padding: 30px 0;
+    }
+    #page {
+        padding: 30px 0;
+    }
+    #contactForm {
+        padding: 0 0 30px !important;
+    }
+    .contact-logo {
+        width: 100px;
+        margin-bottom: 40px;
+    }
+    .sellers {
+        padding: 0 !important;
+        width: 100%;
+        text-align: center;
+    }
+
+    .blog-list article .news-text {
+        h2 {
+            font-size: 27px;
+            line-height: 29px;
+        }
+        p
+        {
+            font-size: 16px;
+            line-height: 25px;
+        }
+    }
+    .invest-item-holder {
+        padding: 30px 0 0;
+    }
+    .paralaxa {
+        height: 200px;
+    }
+    .paralaxa-bottom {
+        margin-top: -10px;
+        padding: 22px 0 0;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .paralaxa-bottom.paralaxa-bottom {
+        margin-top: -50px;
+    }
+
+    .career-iconbox-img {
+        width: 115px;
+        height: 115px;
+    }
+    .career-iconbox img {
+        width: 50px;
+    }
+    .career-iconbox p {
+        font-size: 16px;
+        line-height: 22px;
+    }
+    .section-title:before {
+        width: 450px
+    }
+    #page-header.investment-header .col-12.invest-header-nav {
+        bottom: -58px;
+    }
+    #page-header .investment-header-logo {
+        height: 80px;
+    }
+    #page-header.investment-header nav ul li {
+        margin: 0 7px;
+        a {
+            font-size: 16px;
+        }
+    }
+
+    .invest-osiedle-slow .slow-icon {
+        width: 25%;
+    }
+    .invest-osiedle-slow .slow-icon img {
+        margin: 10px auto;
+        width: 65px;
+    }
+    .invest-osiedle-slow .slow-icon h4 {
+        font-size: 12px;
+    }
+
+    .rostemary span:before,
+    .rostemary span::after
+    {
+        width: 60px
+    }
+    .rostemary span::before {
+        left: -70px;
+        right: auto;
+    }
+    .rostemary span::after {
+        right: -70px;
+        left: auto;
+    }
+    .slider-holder #filtr {
+        background: rgba(0,0,0,1);
+        position: static;
+    }
+    .invest-osiedle-synergia h2 {
+        margin-bottom: 15px;
+        font-style: normal;
+        font-size: 29px;
+        color: #4a7265;
+        line-height: 29px;
+    }
+    .invest-osiedle-tempo {
+        h2 {
+            margin-bottom: 30px;
+            font-size: 43px;
+        }
+        .bttn {
+            font-size: 15px;
+            padding: 9px 15px;
+        }
+    }
+}
+/* end of 767.98 */
+
+@media (max-width: 575.98px) {
+    h2 {
+        font-size: 31px;
+        line-height: 40px;
+    }
+    .section-title:before {
+        width: 300px
+    }
+    .header-holder {
+        height: 85px;
+    }
+    #cities,
+    #topCta p
+    {
+        display: none;
+    }
+    #header.fixed,
+    header {
+        #topCta a {
+            font-size: 17px;
+            line-height: 27px;
+        }
+        .top
+        {
+            height: 40px;
+            border-bottom: 1px solid #ba8b41;
+        }
+        #logo a img {
+            width: 45px;
+        }
+        #logo p
+        {
+            font-size: 11px;
+            line-height: 14px;
+            margin: 5px 0 0;
+        }
+        #lang {
+            padding-right: 15px;
+            height: 100%;
+        }
+        #topCta {
+            padding-right: 5px;
+        }
+    }
+
+    footer {
+        padding: 30px 15px;
+    }
+
+    #page {
+        padding: 30px 15px;
+    }
+    li, p {
+        font-size: 16px;
+        line-height: 28px;
+    }
+    .contact-box {
+        padding: 15px;
+        h2:after
+        {
+            width: 225px
+        }
+    }
+
+    #page-header {
+        height: 95px;
+        h1 {
+            font-size: 23px;
+            text-align: center;
+        }
+    }
+
+    #discounts .accordion-desc,
+    #discounts .accordion-text {
+        padding: 30px 0;
+    }
+    #discounts li,
+    #discounts p
+    {
+        font-size: 14px;
+        line-height: 22px;
+    }
+    #discounts p.bttn {
+        width: 100%;
+        padding: 10px 15px;
+        text-align: center;
+        justify-content: center;
+    }
+    #discounts h2 {
+        margin-bottom: 10px;
+        font-size: 25px;
+        line-height: 29px;
+    }
+    #discounts img {
+        width: 110px;
+        margin-top: 30px;
+    }
+
+    .blog-list article .news-text p {
+        font-size: 14px;
+        line-height: 21px;
+    }
+    .blog-list article {
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #dfdfdf;
+    }
+
+    .post-details,
+    .blog-list article,
+    .rent-item-detail,
+    .accordion .accordion-body,
+    .left-right-text
+    {
+        .bttn {
+            padding: 10px 15px;
+            justify-content: center;
+            width: 100%;
+            font-size: 16px;
+        }
+    }
+
+    .rent-item h2 {
+        font-size: 23px;
+        line-height: 28px;
+        margin: -15px 15px 0;
+        padding-top: 15px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .img-badge
+    {
+        font-size: 11px;
+    }
+
+    .invest-item {
+        h2 {
+            font-size: 21px;
+        }
+        &-city
+        {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        p
+        {
+            font-size: 14px;
+            line-height: 21px;
+        }
+    }
+    .invest-item-desc img {
+        top: -47px;
+        width: 80px;
+        border: 10px solid #fff;
+        right: 10px;
+    }
+    .osoba .osoba-img
+    {
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding: 30px;
+        img {
+            margin: 0 auto;
+            width: 170px;
+        }
+    }
+    .osoba.d-flex
+    {
+        display: block !important;
+    }
+    .award {
+        padding: 20px;
+    }
+    .award h3 {
+        font-size: 16px;
+        margin-bottom: 0;
+    }
+    .award img {
+        margin: 0 auto 15px;
+        width: 210px;
+    }
+    .section-title {
+        margin-bottom: 1rem !important;
+    }
+    #awardsCarousel .slick-slide p {
+        display: none;
+    }
+    #awardsCarousel .slick-arrow {
+        left: 0;
+        top: 60px;
+        bottom: auto;
+    }
+    #awardsCarousel .slick-arrow.slick-next {
+        right: 0;
+    }
+    .paralaxa-bottom {
+        img {
+            width: 260px;
+        }
+    }
+    .rwd-fullwidth {
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+    .left-right-text h2 {
+        margin-bottom: 20px;
+        font-size: 27px;
+        line-height: 29px;
+    }
+
+    .day-body {
+        padding: 17px;
+        p
+        {
+            font-size: 16px;
+            line-height: 26px;
+        }
+    }
+    .timeline-wrapper .day-head h2 {
+        font-size: 22px;
+        line-height: 26px;
+        width: calc(100% - 57px);
+        padding-left: 15px;
+    }
+    .timeline-wrapper .day-date span {
+        font-size: 9px
+    }
+    .timeline-wrapper .day-date i {
+        font-size: 18px
+    }
+    .timeline-wrapper .day-date {
+        margin: 0;
+        padding: 14px 0;
+        height: 55px;
+        width: 55px
+    }
+    section {
+        padding: 1rem 0 !important;
+    }
+    .accordion .accordion-header button {
+        font-size: 23px;
+        padding: 15px;
+    }
+    .accordion .accordion-body {
+        padding: 0 15px 15px;
+    }
+    h3 {
+        font-size: 24px;
+    }
+    #commercials .row {
+        margin: 30px 0 0;
+        padding: 20px 5px;
+    }
+    .commercials-text {
+        h2 {
+            margin-bottom: 10px;
+            font-size: 25px;
+            line-height: 29px;
+        }
+    }
+    .inwestycja-atut {
+        margin-bottom: 25px;
+        h4 {
+            font-size: 14px;
+            line-height: 17px;
+        }
+    }
+    .investment-header {
+        margin-bottom: 75px;
+    }
+
+    #page-header.investment-header nav ul li {
+        margin: 7px 14px;
+        line-height: normal;
+    }
+    #page-header.investment-header .col-12.invest-header-nav {
+        bottom: auto;
+        top: 95px;
+        padding: 0;
+        ul {
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+    }
+    #page-header .investment-header-logo {
+        height: 60px;
+        img {
+            width: 60%;
+        }
+    }
+
+    .openmenu header nav {
+        top: 85px
+    }
+
+    .section-half {
+        .container-fluid {
+            padding: 0;
+        }
+    }
+
+    .col-mobile {
+        padding: 0;
+        p {
+            padding-left: 0;
+            padding-right: 0;
+        }
+        .row, * {
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+
+    .no-cta {
+        margin-top: 30px;
+    }
+
+    #cta, #slowLastCarousel {
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+
+    #contactForm {
+        .container {
+            padding: 20px 0 0;
+        }
+    }
+
+    .slow-header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .rostemary {
+        font-size: 30px;
+        line-height: 30px;
+    }
+    .slow-header .abuget {
+        font-size: 60px;
+    }
+
+    .rostemary, .slow-header .abuget {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    .slow-ecocarousel-item {
+        margin: 0 5px
+    }
+    .slowLast-desc {
+        height: 260px;
+    }
+    #slowLastCarousel .slick-arrow {
+        left: 10px
+    }
+    #slowLastCarousel .slick-arrow.slick-next {
+        right: 10px
+    }
+    .invest-osiedle-slow .slow-icon {
+        width: 33.33333%;
+    }
+
+    #numbers .number-value {
+        font-size: 46px;
+    }
+    #numbers .number-icon {
+        width: 80px;
+        height: 80px;
+        top: -21px;
+    }
+    #numbers .number-text p {
+        height: 125px;
+    }
+    #numbers {
+        padding: 60px 0 40px;
+        margin-top: 30px;
+    }
+    #mainNews {
+        padding-left:30px;
+        padding-right:30px;
+    }
+    .current-stat span {
+        font-size: 14px
+    }
+    .current-stat {
+        font-size: 8px;
+    }
+    #plannedCarousel .slick-arrow {
+        top: -130px;
+        bottom: auto;
+        left: 10px;
+    }
+    #plannedCarousel .slick-arrow.slick-next {
+        right: 10px;
+        left: auto;
+    }
+
+    .fake-select{
+        &.fake-select-icon {
+            .fake-select-input {
+                padding-left: 42px;
+            }
+        }
+    }
+    .fake-select-input {
+        height: 42px;
+        padding: 0 15px;
+        line-height: 42px;
+        &:after {
+            top: 10px
+        }
+    }
+    .fake-select i {
+        left: 5px;
+        font-size: 32px;
+        top: 5px;
+    }
+
+    .ratio-16x9 {
+        --bs-aspect-ratio: calc(16 / 9 * 100%);
+        min-height: 85vh;
+    }
+
+    .invest-osiedle-synergia h2 {
+        font-size: 25px;
+        line-height: 29px;
+    }
+
+    .invest-osiedle-tempo {
+        h2 {
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        h3 {
+            font-size: 28px;
+        }
+    }
+    .atut-tempo h3 {
+        font-size: 19px;
+    }
+    .atut-tempo img {
+        width: 110px;
+    }
+    #atut-tempo-carousel {
+        min-height: 230px;
+    }
+}
+/* end of 575.98 */
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 28px;
+        line-height: 35px;
+    }
+    .section-title:before {
+        width: 300px
+    }
+    li, p {
+        font-size: 14px;
+        line-height: 23px;
+    }
+
+    .invest-osiedle-slow .slow-icon {
+        width: 50%;
+    }
+
+    div[class*="col-"].slick-slide {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .slick-dots {
+        padding: 0
+    }
+    .slick-dots li button {
+        width: 15px;
+        height: 15px
+    }
+    .slick-dots li button::after {
+        width: 7px;
+        height: 7px
+    }
+    #photos-list {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+/* end of 359.98 */
+@media (max-width: 359.98px) {
+
+}
+/* end of 359.98 */
