@@ -27,3 +27,4 @@ config/tracker.php
 
 # podwojnie zminifikowane wypluwy watcherow (plik.min.css -> plik.min.min.css)
 *.min.min.*
+/.claude/
