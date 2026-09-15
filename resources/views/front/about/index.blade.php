@@ -266,14 +266,14 @@
             'pl' => 'Projektujemy i realizujemy bezpieczne, funkcjonalne inwestycje w standardzie premium, które redefiniują pojęcie komfortu. Poznaj naszą filozofię.',
             'en' => 'We design and deliver safe, functional premium developments that redefine the notion of comfort. Get to know our philosophy.',
         ],
-        'stab_title' => ['pl' => 'Stabilność i doświadczenie', 'en' => 'Stability and experience'],
+        'stab_title' => ['pl' => 'Stabilność i doświadczenie', 'en' => 'Stability and Experience'],
         'stab_p1' => [
             'pl' => 'Budujemy zaufanie na rynku nieruchomości od 2013 roku. Zaczynaliśmy od wymagających obiektów komercyjnych, by inżynieryjny rygor i najwyższe standardy przenieść na rynek <strong>nowoczesnego budownictwa mieszkaniowego</strong>.',
-            'en' => 'We have been building trust on the property market since 2013. We started with demanding commercial buildings in order to bring engineering rigour and the highest standards to <strong>modern residential construction</strong>.',
+            'en' => 'We have been building trust in the real estate market since 2013. We started with demanding commercial developments, bringing the same engineering discipline and highest standards to <strong>modern residential development</strong>.',
         ],
         'stab_p2' => [
             'pl' => 'Dziś działamy w oparciu o model zintegrowanego biznesu. Samodzielnie i restrykcyjnie kontrolujemy każdy etap inwestycji:',
-            'en' => 'Today we work within an integrated business model. We control every stage of a development ourselves, and strictly:',
+            'en' => 'Today, we operate through a fully integrated business model, independently maintaining rigorous control over every stage of the development process:',
         ],
         'stab_list' => [
             'pl' => [
@@ -282,39 +282,39 @@
                 '<strong>Generalne wykonawstwo</strong> i rzetelne przekazanie kluczy w terminie.',
             ],
             'en' => [
-                'Precise <strong>selection and purchase of land</strong> in strategic locations.',
-                'Cooperation with top <strong>architectural studios</strong>.',
-                '<strong>General contracting</strong> and handing over the keys on time.',
+                'Precise <strong>selection and acquisition of land</strong> in strategic locations.',
+                'Collaboration with leading <strong>architectural practices</strong>.',
+                '<strong>General contracting</strong> and reliable, on-time handover of completed properties.',
             ],
         ],
         'stab_p3' => [
-            'pl' => 'Większościowym i dominującym udziałowcem IPPON GROUP jest luksemburski fundusz inwestycyjny ALFA 1 CEE INVESTMENTS S.A., SICAV-SIF. Pozostała część udziałów należy do członków Zarządu Spółki Ippon Group.',
-            'en' => 'The majority and controlling shareholder of IPPON GROUP is the Luxembourg investment fund ALFA 1 CEE INVESTMENTS S.A., SICAV-SIF. The remaining shares are held by members of the Management Board of Ippon Group.',
+            'pl' => 'Większościowym i dominującym udziałowcem IPPON GROUP jest luksemburski fundusz inwestycyjny <strong>ALFA 1 CEE INVESTMENTS S.A., SICAV-SIF</strong>. Pozostała część udziałów należy do członków Zarządu Spółki Ippon Group.',
+            'en' => 'The majority and controlling shareholder of IPPON GROUP is the Luxembourg investment fund <strong>ALFA 1 CEE INVESTMENTS S.A., SICAV-SIF</strong>. The remaining shares are held by members of the Management Board of Ippon Group.',
         ],
-        'cert_title_1' => ['pl' => 'Certyfikat Jakości Ippon:', 'en' => 'The Ippon Quality Certificate:'],
-        'cert_title_2' => ['pl' => 'Bezkompromisowy standard premium', 'en' => 'An uncompromising premium standard'],
+        'cert_title_1' => ['pl' => 'Certyfikat Jakości Ippon:', 'en' => 'Ippon Quality Certificate:'],
+        'cert_title_2' => ['pl' => 'Bezkompromisowy Standard Premium', 'en' => 'An Uncompromising Premium Standard'],
         'cert_p1' => [
             'pl' => 'Każdy nasz projekt sygnujemy <strong>autorskim Certyfikatem Jakości Ippon</strong>, który stanowi oficjalną gwarancję dbałości o każdy, nawet najmniejszy detal. Wybieramy wyłącznie <strong>certyfikowane materiały najwyższej klasy</strong>, co zapewnia ponadstandardową izolację akustyczną oraz maksymalną trwałość budynków na lata.',
-            'en' => 'Every project we deliver carries <strong>our own Ippon Quality Certificate</strong> — an official guarantee that every detail, even the smallest one, has been taken care of. We use only <strong>certified, top-class materials</strong>, which provides above-standard acoustic insulation and maximum durability of the buildings for years.',
+            'en' => 'Every development we create bears our proprietary <strong>Ippon Quality Certificate</strong>, providing a formal guarantee of our meticulous attention to every detail, no matter how small. We use only <strong>certified, top-quality materials</strong>, ensuring superior acoustic insulation and exceptional long-term durability.',
         ],
         'cert_p2' => [
             'pl' => 'Łączymy codzienną ergonomię i architekturę bez barier z głębokim szacunkiem dla środowiska, wdrażając <strong>energooszczędne technologie i rozwiązania proekologiczne</strong>, które realnie obniżają koszty eksploatacji mieszkań.',
-            'en' => 'We combine everyday ergonomics and barrier-free architecture with deep respect for the environment, implementing <strong>energy-efficient technologies and eco-friendly solutions</strong> that genuinely reduce the running costs of the apartments.',
+            'en' => 'We combine everyday functionality and barrier-free architecture with a deep respect for the environment, implementing <strong>energy-efficient technologies and sustainable solutions</strong> that deliver tangible reductions in the running costs of your home.',
         ],
         'cert_p3' => [
             'pl' => 'Certyfikat Jakości Ippon to nasz dowód na to, że tworzymy bezpieczną, cichą i zrównoważoną przestrzeń, w której zyskujesz upragniony <strong>komfort, spokój i bezpieczeństwo</strong>.',
-            'en' => 'The Ippon Quality Certificate is our proof that we create a safe, quiet and sustainable space in which you gain the <strong>comfort, peace and security</strong> you are looking for.',
+            'en' => 'The Ippon Quality Certificate is our commitment to creating safe, quiet and sustainable living spaces where you can enjoy the <strong>comfort, peace of mind and security</strong> you deserve.',
         ],
-        'cert_f1' => ['pl' => 'Certyfikowane materiały najwyższej klasy', 'en' => 'Certified top-class materials'],
+        'cert_f1' => ['pl' => 'Certyfikowane materiały najwyższej klasy', 'en' => 'Certified, top-quality materials'],
         'cert_f2' => ['pl' => 'Energooszczędne technologie', 'en' => 'Energy-efficient technologies'],
-        'val_title_1' => ['pl' => 'Architektura, Natura, Człowiek.', 'en' => 'Architecture, Nature, People.'],
-        'val_title_2' => ['pl' => 'Poznaj nasze wartości', 'en' => 'Get to know our values'],
-        'awards_title' => ['pl' => 'Wiarygodność i sukces', 'en' => 'Credibility and success'],
+        'val_title_1' => ['pl' => 'Architektura, Natura, Człowiek.', 'en' => 'Architecture. Nature. People.'],
+        'val_title_2' => ['pl' => 'Poznaj nasze wartości', 'en' => 'Discover Our Values.'],
+        'awards_title' => ['pl' => 'Wiarygodność i sukces', 'en' => 'Credibility and Success'],
         'awards_lead' => [
             'pl' => 'Przynależność Ippon Group do Polskiego Związku Firm Deweloperskich (PZFD) to dla naszych klientów gwarancja najwyższej kultury organizacyjnej, przejrzystości prawnej oraz etyki biznesowej. Nasza stabilna pozycja na rynku oraz bezkompromisowe podejście do jakości znajdują odzwierciedlenie w kluczowych nagrodach branżowych:',
-            'en' => 'Ippon Group’s membership in the Polish Association of Developers (PZFD) guarantees our clients the highest organisational culture, legal transparency and business ethics. Our stable market position and uncompromising approach to quality are reflected in key industry awards:',
+            'en' => 'Ippon Group’s membership in the Polish Association of Developers (PZFD) provides our clients with the assurance of the highest standards of corporate governance, legal transparency and business ethics. Our strong market position and uncompromising commitment to quality are reflected in prestigious industry awards and distinctions:',
         ],
-        'sport_title' => ['pl' => 'Wspieramy najlepszych', 'en' => 'We support the best'],
+        'sport_title' => ['pl' => 'Wspieramy najlepszych', 'en' => 'Supporting the Best'],
         'contact_title' => ['pl' => 'Porozmawiajmy o Twoim nowym mieszkaniu', 'en' => 'Let’s talk about your new apartment'],
         'contact_lead' => [
             'pl' => 'Wyjątkowe inwestycje wymagają dedykowanej opieki. Jeśli chcesz poznać szczegóły naszych projektów, umówić się na prezentację apartamentu lub zapytać o niestandardowe rozwiązania – <strong>jesteśmy do Twojej dyspozycji.</strong>',
@@ -328,23 +328,23 @@
         [
             'img'     => 'images/about/architektura.jpg',
             'reverse' => true,
-            'title'   => ['pl' => 'Architektura i materiały najwyższej jakości', 'en' => 'Architecture and top-quality materials'],
+            'title'   => ['pl' => 'Architektura i materiały najwyższej jakości', 'en' => 'Architecture and the Highest-Quality Materials'],
             'desc'    => [
                 'pl' => '<p>Dla nas <strong>standard premium</strong> to codzienna praktyka wykonawcza. Współpracujemy wyłącznie z wybitnymi architektami oraz dekoratorami wnętrz.</p>
                          <p>Wybieramy <strong>szlachetne, certyfikowane materiały</strong> budowlane i wykończeniowe, które gwarantują trwałość na pokolenia.</p>
                          <p>Każdy projekt optymalizujemy pod kątem maksymalnego wykorzystania <strong>naturalnego światła</strong> oraz ergonomii przestrzeni, zapewniając mieszkańcom bezkompromisową wygodę.</p>',
-                'en' => '<p>For us the <strong>premium standard</strong> is everyday building practice. We work only with outstanding architects and interior designers.</p>
-                         <p>We choose <strong>fine, certified</strong> construction and finishing materials that guarantee durability for generations.</p>
-                         <p>Every project is optimised for the maximum use of <strong>natural light</strong> and for ergonomic space, giving residents uncompromising convenience.</p>',
+                'en' => '<p>For us, <strong>premium standards</strong> are an integral part of our everyday approach to construction. We work exclusively with outstanding architects and interior designers.</p>
+                         <p>We select <strong>premium, certified construction and finishing materials</strong> that ensure lasting quality for generations.</p>
+                         <p>Every project is optimised to maximise <strong>natural light</strong> and spatial ergonomics, providing residents with uncompromising comfort.</p>',
             ],
         ],
         [
             'img'     => 'images/about/ekologia-las.jpg',
             'reverse' => false,
-            'title'   => ['pl' => 'Ekologia i zaawansowane rozwiązania technologiczne', 'en' => 'Ecology and advanced technology'],
+            'title'   => ['pl' => 'Ekologia i zaawansowane rozwiązania technologiczne', 'en' => 'Sustainability and Advanced Technology'],
             'desc'    => [
                 'pl' => '<p>Nie traktujemy ekologii jako dodatku, lecz jako fundament projektu. Na naszych osiedlach standardem stają się zaawansowane systemy technologiczne:</p>',
-                'en' => '<p>We do not treat ecology as an add-on, but as the foundation of a project. Advanced technical systems are becoming standard on our estates:</p>',
+                'en' => '<p>We do not treat sustainability as an optional feature, but as a fundamental part of every project. Advanced technological solutions are becoming standard across our residential developments:</p>',
             ],
             'list'    => [
                 'pl' => [
@@ -353,21 +353,21 @@
                     'Energooszczędne <strong>oświetlenie LED</strong> redukujące ślad węglowy i koszty eksploatacji.',
                 ],
                 'en' => [
-                    '<strong>Solar collectors</strong> supporting the power supply of common areas.',
-                    '<strong>Rainwater retention systems</strong> that collect rainwater for automatic watering of the estate greenery.',
-                    'Energy-efficient <strong>LED lighting</strong> reducing the carbon footprint and running costs.',
+                    '<strong>Solar collectors</strong> supporting the energy needs of common areas.',
+                    '<strong>Rainwater retention systems</strong> that collect rainwater for the automatic irrigation of extensive landscaped green areas.',
+                    'Energy-efficient <strong>LED lighting</strong> that reduces both the carbon footprint and operating costs.',
                 ],
             ],
         ],
         [
             'img'     => 'images/about/csr-dziecko.jpg',
             'reverse' => true,
-            'title'   => ['pl' => 'Odpowiedzialność społeczna (CSR)', 'en' => 'Corporate social responsibility (CSR)'],
+            'title'   => ['pl' => 'Odpowiedzialność społeczna (CSR)', 'en' => 'Corporate Social Responsibility (CSR)'],
             'desc'    => [
                 'pl' => '<p>Wierzymy, że miarą sukcesu silnej marki jest dobro, jakim dzieli się ze swoim otoczeniem. Jako deweloper odpowiedzialny społecznie, od lat systemowo wspieramy lokalne społeczności. Jesteśmy dumnym <strong>Ambasadorem Fundacji „Przyszłość dla Dzieci”</strong>, niosąc pomoc ponad 400 podopiecznym wymagającym leczenia.</p>
                          <p>Należymy do grona <strong>Najbardziej Hojnych Darczyńców WOŚP</strong> (w naszej kolekcji znajduje się już 8 Złotych Serduszek). Ponadto regularnie <strong>doposażamy szpitale i Domy Pomocy Społecznej</strong> oraz wspieramy polskich sportowców w ich drodze po mistrzowskie tytuły.</p>',
-                'en' => '<p>We believe that the measure of a strong brand is the good it shares with its surroundings. As a socially responsible developer we have been supporting local communities systematically for years. We are a proud <strong>Ambassador of the “Future for Children” Foundation</strong>, helping over 400 children in need of treatment.</p>
-                         <p>We are among the <strong>Most Generous Donors of the Great Orchestra of Christmas Charity</strong> (our collection already holds 8 Golden Hearts). We also regularly <strong>equip hospitals and care homes</strong> and support Polish athletes on their way to championship titles.</p>',
+                'en' => '<p>We believe that the true measure of a strong brand’s success is the positive impact it makes on the community around it. As a socially responsible developer, we have been consistently supporting local communities for many years. We are proud to be an <strong>Ambassador of the “Przyszłość dla Dzieci” Foundation</strong>, helping more than 400 children who require medical treatment.</p>
+                         <p>We are also among the <strong>most generous donors to the Great Orchestra of Christmas Charity (WOŚP)</strong>, with eight Golden Hearts already in our collection. In addition, we regularly <strong>provide equipment to hospitals and social care homes</strong> and support Polish athletes on their journey towards championship titles.</p>',
             ],
         ],
     ];
@@ -375,7 +375,7 @@
 
 @section('pageheader')
     @include('layouts.partials.ip-pagehead', [
-        'title'  => $L == 'pl' ? 'Czas buduje wartość' : 'Time builds value',
+        'title'  => $L == 'pl' ? 'Czas buduje wartość' : 'Time Builds Value',
         'crumbs' => [
             ['label' => $L == 'pl' ? 'O nas' : 'About us', 'url' => null],
         ],
@@ -564,8 +564,8 @@
                             <p>W budownictwie, tak jak w sporcie, o sukcesie decydują milimetry, sekundy i bezkompromisowa precyzja. Dumą napawa nas fakt, że jako sponsor <strong>wspieramy sportowca Marcina Tausiewicza</strong>. Wspólnie udowadniamy, że pasja połączona z determinacją pozwala sięgać po najwyższe trofea.</p>
                             <p>Marcin Tausiewicz to jeden z najbardziej utytułowanych polskich zawodników strzelectwa dynamicznego IPSC, reprezentujący Legię Warszawa. Jest <strong>wielokrotnym mistrzem Polski</strong> oraz zwycięzcą prestiżowych zawodów międzynarodowych. Do jego największych sukcesów należą <strong>wicemistrzostwo Europy</strong> w pistolecie IPSC oraz <strong>indywidualne wicemistrzostwo świata</strong> i <strong>drużynowe mistrzostwo świata</strong> w strzelbie IPSC, zdobyte w 2023 roku.</p>
                         @else
-                            <p>In construction, just like in sport, success is decided by millimetres, seconds and uncompromising precision. We are proud to be a sponsor of <strong>the athlete Marcin Tausiewicz</strong>. Together we prove that passion combined with determination makes it possible to reach for the highest trophies.</p>
-                            <p>Marcin Tausiewicz is one of the most decorated Polish IPSC dynamic shooting competitors, representing Legia Warszawa. He is a <strong>multiple Polish champion</strong> and a winner of prestigious international competitions. His greatest achievements include the <strong>European vice-championship</strong> in IPSC handgun and the <strong>individual world vice-championship</strong> and <strong>team world championship</strong> in IPSC shotgun, won in 2023.</p>
+                            <p>In construction, just as in sport, success is determined by millimetres, seconds and uncompromising precision. We are proud to sponsor athlete <strong>Marcin Tausiewicz</strong>. Together, we demonstrate that passion combined with determination makes it possible to reach the highest levels of achievement.</p>
+                            <p>Marcin Tausiewicz is one of Poland’s most accomplished <strong>IPSC practical shooting competitors</strong>, representing Legia Warsaw. He is a multiple Polish Champion and a winner of prestigious international competitions. His greatest achievements include becoming <strong>European Vice-Champion in IPSC Handgun</strong>, as well as winning an <strong>individual World Vice-Championship title and a team World Championship title in IPSC Shotgun in 2023</strong>.</p>
                         @endif
                     </div>
                 </div>

@@ -51,12 +51,25 @@
      jednego zdjecia leci galeria z CMS-u — ta sama karuzela (responsiveSlides
      ze starego app.js) co na obecnej stronie, ze strzalkami.
      Miasta nie oznaczamy zlotym badge'em: jest w nazwie obiektu.
+     W tablicy ponizej tylko napisy z szablonu — lead, nazwy i opisy obiektow
+     tlumaczy sie w CMS-ie.
      ========================================================================== --}}
+@php
+    $L = in_array($current_locale, ['pl', 'en']) ? $current_locale : 'pl';
+
+    $T = [
+        /* EN jak w menu (resources/lang/en/website.php: menu-commercial-buildings) */
+        'title'     => ['pl' => 'Obiekty komercyjne', 'en' => 'Commercial buildings'],
+        'section_1' => ['pl' => 'Przestrzenie komercyjne i parki', 'en' => 'Commercial Spaces and'],
+        'section_2' => ['pl' => 'handlowe typu street mall', 'en' => 'Street Mall Retail Parks'],
+    ];
+@endphp
+
 @section('pageheader')
     @include('layouts.partials.ip-pagehead', [
-        'title'  => 'Obiekty komercyjne',
+        'title'  => $T['title'][$L],
         'crumbs' => [
-            ['label' => 'Obiekty komercyjne', 'url' => null],
+            ['label' => $T['title'][$L], 'url' => null],
         ],
         'image'  => ($page->file_header && is_file(public_path('uploads/header/'.$page->file_header)))
                         ? asset('uploads/header/'.$page->file_header) : null,
@@ -67,8 +80,8 @@
     <section class="ip-com-intro">
         <div class="container">
             <x-section-head>
-                Przestrzenie komercyjne i parki
-                    <span>handlowe typu street mall</span>
+                {{ $T['section_1'][$L] }}
+                    <span>{{ $T['section_2'][$L] }}</span>
             </x-section-head>
 
             {{-- lead z CMS-u (Strony → Obiekty komercyjne → tresc) --}}
