@@ -184,80 +184,89 @@
      odtworzony ze zrzutu. Rozne wzgledem obrazka, swiadomie:
        - tytuly krokow i pytania FAQ w Playfair, jak reszta serwisu (makieta
          miala grotesk — typografia calego frontu jest wazniejsza),
-       - zdjecia z makiety maja podbite nasycenie (uwaga klienta: "zdjecia
-         powinny byc w zywszych kolorach") — patrz public/images/howbuy/.
-     Tresc krokow spisana z makiety; odpowiedzi FAQ poza pierwsza sa nasze,
-     na bazie starej wersji podstrony — DO POTWIERDZENIA PRZEZ KLIENTA.
+       - zdjecia krokow NIE sa z makiety (ta byla tylko podgladem, a wycinki
+         mialy 785 px i pikselowaly sie po dosunieciu do krawedzi karty).
+         09.2026 wygenerowane pod tresc krokow (Higgsfield, GPT Image 2.5,
+         21:9, 2k) w zywych kolorach — uwaga klientki; w public/images/howbuy/
+         przeskalowane do 1650 px (2x szerokosci wyswietlania). Klucz 'pos'
+         przesuwa kadr tam, gdzie waski pas 4:1 na tablecie ucinal glowy.
+     Tresc krokow spisana z makiety, EN od klienta ("Jak kupic mieszkanie
+     09.2026.docx"). FAQ: EN to 14 pytan klienta z tego pliku; PL to nadal
+     nasze 7 pytan na bazie starej podstrony — DO POTWIERDZENIA PRZEZ KLIENTA
+     (brak polskiej wersji tych 14 pytan).
      ========================================================================== --}}
 @php
     $L = in_array($current_locale, ['pl', 'en']) ? $current_locale : 'pl';
 
     $kroki = [
         [
-            'num' => '01', 'icon' => 'budynek', 'media' => 'foto', 'img' => 'images/howbuy/krok-1.jpg',
+            'num' => '01', 'icon' => 'budynek', 'media' => 'foto', 'img' => 'images/howbuy/krok-1.jpg', 'pos' => 'center 30%', 'ai' => true,
             'title' => ['pl' => 'Wybór mieszkania', 'en' => 'Choosing an apartment'],
-            'sub'   => ['pl' => 'dopasowanego do Twoich potrzeb', 'en' => 'matched to your needs'],
+            'sub'   => ['pl' => 'dopasowanego do Twoich potrzeb', 'en' => 'that fits your needs'],
             'desc'  => [
                 'pl' => 'Rozmawiamy o Twoich potrzebach i oczekiwaniach. Prezentujemy plany, układy pomieszczeń i standardy wykończenia. Dzięki makiecie 3D zobaczysz całe osiedle, swoje mieszkanie i widok z balkonu.',
-                'en' => 'We talk about your needs and expectations. We present the plans, room layouts and finishing standards. Thanks to the 3D model you will see the whole estate, your apartment and the view from the balcony.',
+                'en' => 'We talk about your needs and expectations. We show you the plans, apartment layouts and finishing standards. With our 3D model, you can see the whole development, your apartment and the view from your balcony.',
             ],
         ],
         [
             'num' => '02', 'icon' => 'umowa', 'media' => 'panel',
             'title' => ['pl' => 'Umowa rezerwacyjna', 'en' => 'Reservation agreement'],
-            'sub'   => ['pl' => 'oraz opłata', 'en' => 'and the fee'],
+            'sub'   => ['pl' => 'oraz opłata', 'en' => 'and fee'],
             'desc'  => [
-                'pl' => 'Podpisujemy umowę rezerwacyjną i wpłacasz opłatę rezerwacyjną w wysokości 1% ceny brutto mieszkania. Środki są w pełni bezpieczne – jeśli nie dojdzie do zakupu, otrzymasz zwrot.',
-                'en' => 'We sign the reservation agreement and you pay a reservation fee of 1% of the gross price of the apartment. The money is fully safe – if the purchase does not go ahead, you get it back.',
+                /* PL zmieniony przez klienta 09.2026 (zwrot przy negatywnej decyzji
+                   kredytowej). W docx EN zostalo jeszcze "if the purchase does not go
+                   ahead" — koncowka EN dopasowana do nowego PL, DO POTWIERDZENIA. */
+                'pl' => 'Podpisujemy umowę rezerwacyjną i wpłacasz opłatę rezerwacyjną w wysokości 1% ceny brutto mieszkania. Środki są w pełni bezpieczne – jeśli otrzymasz negatywną decyzję kredytową, otrzymasz zwrot.',
+                'en' => 'We sign a reservation agreement and you pay a reservation fee equal to 1% of the gross price of the apartment. Your money is fully protected – if your mortgage application is declined, the fee will be refunded.',
             ],
             'panel' => [
                 'pl' => 'Otrzymasz od nas Prospekt Informacyjny – jednolity dokument prawny, który opisuje status działki, parametry techniczne budynku oraz planowane inwestycje w okolicy.',
-                'en' => 'You will receive an Information Prospectus – a single legal document describing the status of the plot, the technical parameters of the building and planned developments in the neighbourhood.',
+                'en' => 'You will receive an Information Prospectus from us – an official document that provides information about the legal status of the land, the technical details of the building and planned developments in the area.',
             ],
         ],
         [
-            'num' => '03', 'icon' => 'dokument', 'media' => 'foto', 'img' => 'images/howbuy/krok-3.jpg',
-            'title' => ['pl' => 'Czas na finansowanie –', 'en' => 'Time for financing –'],
+            'num' => '03', 'icon' => 'dokument', 'media' => 'foto', 'img' => 'images/howbuy/krok-3.jpg', 'ai' => true,
+            'title' => ['pl' => 'Czas na finansowanie –', 'en' => 'Time to arrange financing –'],
             'sub'   => ['pl' => 'formalności kredytowe', 'en' => 'mortgage formalities'],
             'desc'  => [
                 'pl' => 'Masz czas na dopełnienie formalności kredytowych. Przygotowujemy komplet dokumentów prawnych i technicznych potrzebnych do złożenia wniosku kredytowego w wybranym banku.',
-                'en' => 'You have time to complete the mortgage formalities. We prepare the full set of legal and technical documents needed to file a loan application with the bank of your choice.',
+                'en' => 'You have time to complete the mortgage formalities. We prepare all the legal and technical documents you need to apply for a mortgage at the bank of your choice.',
             ],
         ],
         [
-            'num' => '04', 'icon' => 'pioro', 'media' => 'foto', 'img' => 'images/howbuy/krok-4.jpg',
-            'title' => ['pl' => 'Umowa deweloperska', 'en' => 'Developer agreement'],
-            'sub'   => ['pl' => 'w formie aktu notarialnego', 'en' => 'as a notarial deed'],
+            'num' => '04', 'icon' => 'pioro', 'media' => 'foto', 'img' => 'images/howbuy/krok-4.jpg', 'ai' => true,
+            'title' => ['pl' => 'Umowa deweloperska', 'en' => 'Development agreement'],
+            'sub'   => ['pl' => 'w formie aktu notarialnego', 'en' => 'signed before a notary'],
             'desc'  => [
                 'pl' => 'Po potwierdzeniu finansowania podpisujemy umowę deweloperską u notariusza. Koszty taksy i wpisów dzielone są po połowie.',
-                'en' => 'Once the financing is confirmed we sign the developer agreement before a notary. The notarial fee and entry costs are split in half.',
+                'en' => 'Once your financing is confirmed, we sign the development agreement before a notary. The notary fees and registration costs are shared equally between you and the developer.',
             ],
         ],
         [
             'num' => '05', 'icon' => 'klodka', 'media' => 'schemat',
             'title' => ['pl' => 'Bezpieczne wpłaty', 'en' => 'Secure payments'],
-            'sub'   => ['pl' => 'na Mieszkaniowy Rachunek Powierniczy', 'en' => 'to the escrow account'],
+            'sub'   => ['pl' => 'na Mieszkaniowy Rachunek Powierniczy', 'en' => 'to a Housing Escrow Account'],
             'desc'  => [
                 'pl' => 'Twoje pieniądze są maksymalnie chronione zgodnie z nową ustawą deweloperską.',
-                'en' => 'Your money is protected to the maximum under the new developer act.',
+                'en' => 'Your money is fully protected in line with the new Developer Act.',
             ],
         ],
         [
-            'num' => '06', 'icon' => 'klucz', 'media' => 'foto', 'img' => 'images/howbuy/krok-6.jpg',
+            'num' => '06', 'icon' => 'klucz', 'media' => 'foto', 'img' => 'images/howbuy/krok-6.jpg', 'pos' => 'center 25%', 'ai' => true,
             'title' => ['pl' => 'Pozwolenie na użytkowanie', 'en' => 'Occupancy permit'],
-            'sub'   => ['pl' => 'i Odbiór Techniczny', 'en' => 'and technical handover'],
+            'sub'   => ['pl' => 'i Odbiór Techniczny', 'en' => 'and technical inspection'],
             'desc'  => [
                 'pl' => 'Po zakończeniu budowy i uzyskaniu pozwolenia na użytkowanie zapraszamy na odbiór techniczny mieszkania. Usterki wpisujemy do protokołu – mamy 14 dni na ustosunkowanie się do nich i 30 dni na ich usunięcie. Po podpisaniu protokołu otrzymujesz klucze do mieszkania.',
-                'en' => 'After construction is finished and the occupancy permit obtained, we invite you to the technical handover. Any defects go into the report – we have 14 days to respond to them and 30 days to remove them. Once the report is signed, you receive the keys.',
+                'en' => 'Once construction is complete and the occupancy permit has been issued, we invite you to inspect your apartment. Any defects are recorded in the inspection report. We have 14 days to respond and 30 days to fix them. After you sign the report, you receive the keys to your apartment.',
             ],
         ],
         [
-            'num' => '07', 'icon' => 'dom', 'media' => 'foto', 'img' => 'images/howbuy/krok-7.jpg',
-            'title' => ['pl' => 'Przeniesienie własności', 'en' => 'Transfer of ownership'],
-            'sub'   => ['pl' => '(Umowa przyrzeczona)', 'en' => '(final agreement)'],
+            'num' => '07', 'icon' => 'dom', 'media' => 'foto', 'img' => 'images/howbuy/krok-7.jpg', 'ai' => true,
+            'title' => ['pl' => 'Przeniesienie własności', 'en' => 'Transfer of ownership –'],
+            'sub'   => ['pl' => '(Umowa przyrzeczona)', 'en' => 'final agreement'],
             'desc'  => [
                 'pl' => 'Ostatnim krokiem jest podpisanie u notariusza umowy przeniesienia własności. Koszty podpisania aktu pokrywa nowy właściciel. Od tej chwili stajesz się pełnoprawnym właścicielem nieruchomości.',
-                'en' => 'The last step is signing the transfer of ownership before a notary. The cost of the deed is covered by the new owner. From that moment you become the full owner of the property.',
+                'en' => 'The final step is signing the ownership transfer agreement before a notary. The new owner covers the costs of the notarial deed. From that moment, you become the legal owner of the property.',
             ],
         ],
     ];
@@ -266,65 +275,142 @@
     $schemat = [
         ['icon' => 'bank', 'title' => ['pl' => 'Wpłata', 'en' => 'Payment'],
          'desc' => ['pl' => 'Środki trafiają na Mieszkaniowy Rachunek Powierniczy prowadzony przez niezależny bank.',
-                    'en' => 'The money goes to an escrow account run by an independent bank.']],
+                    'en' => 'Your money is paid into a Housing Escrow Account managed by an independent bank.']],
         ['icon' => 'dzwig', 'title' => ['pl' => 'Kontrola', 'en' => 'Control'],
          'desc' => ['pl' => 'Bank wypłaca środki deweloperowi dopiero po zakończeniu etapu budowy, co potwierdza niezależny inspektor budowlany.',
-                    'en' => 'The bank releases the money to the developer only after a construction stage is completed and confirmed by an independent inspector.']],
-        ['icon' => 'tarcza', 'title' => ['pl' => 'Dodatkowe zabezpieczenie', 'en' => 'Extra protection'],
+                    'en' => 'The bank transfers the money to the developer only after a stage of construction has been completed and confirmed by an independent building inspector.']],
+        ['icon' => 'tarcza', 'title' => ['pl' => 'Dodatkowe zabezpieczenie', 'en' => 'Additional protection'],
          'desc' => ['pl' => 'Wszystkie wpłaty są dodatkowo zabezpieczone przez Deweloperski Fundusz Gwarancyjny (DFG).',
-                    'en' => 'All payments are additionally covered by the Developer Guarantee Fund (DFG).']],
+                    'en' => 'All payments are also protected by the Developer Guarantee Fund (DFG).']],
     ];
 
-    /* FAQ — pierwsza odpowiedz z makiety, pozostale napisane na bazie starej
-       wersji podstrony. DO POTWIERDZENIA PRZEZ KLIENTA. */
+    /* FAQ osobno dla jezykow — pytania PL i EN to rozne zestawy:
+       PL: pierwsza odpowiedz z makiety, pozostale napisane na bazie starej wersji
+           podstrony — DO POTWIERDZENIA PRZEZ KLIENTA,
+       EN: 14 pytan od klienta ("Jak kupic mieszkanie 09.2026.docx").
+       Odpowiedzi to HTML (akapity, listy) — tresc nasza, nie od uzytkownika. */
     $faq = [
-        [
-            'q' => ['pl' => 'Jak wybrać nowe mieszkanie? Od czego zacząć?', 'en' => 'How to choose a new apartment? Where to start?'],
-            'a' => [
-                'pl' => 'Wybór nowego mieszkania to decyzja, której nie należy podejmować pochopnie – liczy się nie tylko cena, ale dziesiątki czynników wpływających na komfort życia przez kolejne lata. Zanim zaczniesz przeglądać oferty, warto określić swoje priorytety: co jest dla Ciebie absolutnie najważniejsze, a z czego jesteś w stanie zrezygnować. Dobrym punktem startowym jest odpowiedź na trzy fundamentalne pytania dotyczące lokalizacji, metrażu i budżetu.',
-                'en' => 'Choosing a new apartment is not a decision to rush – it is not only about price, but about dozens of factors that shape your comfort for years. Before you start browsing offers, set your priorities: what is absolutely essential for you and what you can give up. A good starting point is answering three fundamental questions about location, size and budget.',
+        'pl' => [
+            [
+                'q' => 'Jak wybrać nowe mieszkanie? Od czego zacząć?',
+                'a' => 'Wybór nowego mieszkania to decyzja, której nie należy podejmować pochopnie – liczy się nie tylko cena, ale dziesiątki czynników wpływających na komfort życia przez kolejne lata. Zanim zaczniesz przeglądać oferty, warto określić swoje priorytety: co jest dla Ciebie absolutnie najważniejsze, a z czego jesteś w stanie zrezygnować. Dobrym punktem startowym jest odpowiedź na trzy fundamentalne pytania dotyczące lokalizacji, metrażu i budżetu.',
+            ],
+            [
+                'q' => 'Rynek pierwotny czy wtórny? Krótkie porównanie',
+                'a' => 'Mieszkanie z rynku pierwotnego kupujesz bez pośrednika i bez podatku od czynności cywilnoprawnych, w standardzie deweloperskim, który wykańczasz po swojemu. Budynek jest nowy, energooszczędny i objęty gwarancją oraz pięcioletnią rękojmią. Rynek wtórny daje szybsze wprowadzenie i znaną okolicę, ale zwykle wyższe koszty eksploatacji i konieczność remontu.',
+            ],
+            [
+                'q' => 'Zakup pierwszego mieszkania. Jak do tego podejść?',
+                'a' => 'Zacznij od budżetu: sprawdź zdolność kredytową i policz wkład własny razem z kosztami okołozakupowymi (notariusz, wpisy, wykończenie). Dopiero potem szukaj mieszkania – będziesz oglądać oferty, na które realnie Cię stać. Na każdym etapie możesz liczyć na naszego doradcę, który wytłumaczy zapisy umowy i przeprowadzi przez formalności.',
+            ],
+            [
+                'q' => 'Jak oglądać nowe mieszkanie? Praktyczny przewodnik',
+                'a' => 'Sprawdź układ pomieszczeń i to, czy meble, których używasz, zmieszczą się bez kompromisów. Zwróć uwagę na strony świata i doświetlenie, wysokość pomieszczeń, miejsce na pralkę i szafy oraz na to, co widać z okien. Obejrzyj też części wspólne i otoczenie osiedla o różnych porach dnia – to one decydują o codziennym komforcie.',
+            ],
+            [
+                'q' => 'Ile wkładu własnego potrzebuję, żeby kupić mieszkanie?',
+                'a' => 'Banki zwykle wymagają od 10 do 20% wartości nieruchomości. Do tego warto doliczyć koszty okołozakupowe: taksę notarialną, wpisy sądowe, prowizję banku i wykończenie mieszkania. Wysokość wkładu i dostępne programy najlepiej potwierdzić u doradcy kredytowego – chętnie polecimy sprawdzonego.',
+            ],
+            [
+                'q' => 'Czy mogę negocjować cenę mieszkania z deweloperem?',
+                'a' => 'Ceny mieszkań wynikają z aktualnego cennika inwestycji, ale zawsze warto porozmawiać z biurem sprzedaży. Pole do rozmowy bywa przy konkretnych lokalach, formie płatności czy pakiecie wykończeniowym. Nasi doradcy przedstawią wszystkie dostępne warunki wprost, bez ukrytych kosztów.',
+            ],
+            [
+                'q' => 'Jakie miesięczne koszty ponoszę po zakupie mieszkania?',
+                'a' => 'Na miesięczne koszty składają się czynsz administracyjny (utrzymanie części wspólnych, fundusz remontowy), media rozliczane według liczników oraz rata kredytu, jeśli korzystasz z finansowania. Do tego dochodzi roczny podatek od nieruchomości. Wysokość czynszu dla konkretnej inwestycji poda Ci biuro sprzedaży.',
             ],
         ],
-        [
-            'q' => ['pl' => 'Rynek pierwotny czy wtórny? Krótkie porównanie', 'en' => 'New-build or resale? A short comparison'],
-            'a' => [
-                'pl' => 'Mieszkanie z rynku pierwotnego kupujesz bez pośrednika i bez podatku od czynności cywilnoprawnych, w standardzie deweloperskim, który wykańczasz po swojemu. Budynek jest nowy, energooszczędny i objęty gwarancją oraz pięcioletnią rękojmią. Rynek wtórny daje szybsze wprowadzenie i znaną okolicę, ale zwykle wyższe koszty eksploatacji i konieczność remontu.',
-                'en' => 'A new-build apartment is bought without an agent and without transfer tax, in developer standard that you finish your own way. The building is new, energy-efficient and covered by a warranty and a five-year statutory guarantee. The resale market means moving in faster and a known neighbourhood, but usually higher running costs and renovation work.',
+        'en' => [
+            [
+                'q' => '1. What does the developer standard include?',
+                'a' => '<p>There is no single legal definition of the developer standard, so its exact scope is always described in the developer specification and the development agreement. In general, an apartment delivered to the developer standard is ready for finishing work. The exact scope may vary depending on the standard of the residential development.</p>
+                        <p>Our standard includes, among other things, machine-applied gypsum-lime plaster on the walls, floor screeds, complete electrical, water, sewage and heating systems with radiators, as well as kitchen sockets, an RTV + LAN socket and Smart Home installations.</p>',
             ],
-        ],
-        [
-            'q' => ['pl' => 'Zakup pierwszego mieszkania. Jak do tego podejść?', 'en' => 'Buying your first apartment. How to approach it?'],
-            'a' => [
-                'pl' => 'Zacznij od budżetu: sprawdź zdolność kredytową i policz wkład własny razem z kosztami okołozakupowymi (notariusz, wpisy, wykończenie). Dopiero potem szukaj mieszkania – będziesz oglądać oferty, na które realnie Cię stać. Na każdym etapie możesz liczyć na naszego doradcę, który wytłumaczy zapisy umowy i przeprowadzi przez formalności.',
-                'en' => 'Start with the budget: check your creditworthiness and count the down payment together with the additional costs (notary, entries, finishing). Only then look for an apartment – you will be viewing offers you can actually afford. At every stage our advisor will explain the contract and guide you through the formalities.',
+            [
+                'q' => '2. What should you check before signing a development agreement?',
+                'a' => '<p>Before signing a development agreement, you should carefully check the Information Prospectus, payment schedule and the final date for the transfer of ownership.</p>
+                        <p>It is also important to check the exact size of the apartment, any additional areas or facilities included with it, such as a balcony, storage unit or parking space in the underground garage, as well as the finishing standard.</p>
+                        <p>For a safe purchase of a new apartment from a developer, the development agreement must be signed in the form of a notarial deed.</p>',
             ],
-        ],
-        [
-            'q' => ['pl' => 'Jak oglądać nowe mieszkanie? Praktyczny przewodnik', 'en' => 'How to view a new apartment? A practical guide'],
-            'a' => [
-                'pl' => 'Sprawdź układ pomieszczeń i to, czy meble, których używasz, zmieszczą się bez kompromisów. Zwróć uwagę na strony świata i doświetlenie, wysokość pomieszczeń, miejsce na pralkę i szafy oraz na to, co widać z okien. Obejrzyj też części wspólne i otoczenie osiedla o różnych porach dnia – to one decydują o codziennym komforcie.',
-                'en' => 'Check the layout and whether the furniture you use will fit without compromises. Look at the orientation and daylight, ceiling height, space for a washing machine and wardrobes, and at the view from the windows. Also see the common areas and the surroundings at different times of day – they decide your everyday comfort.',
+            [
+                'q' => '3. What additional costs are involved when buying an apartment from a developer?',
+                'a' => '<p>When buying a new apartment on the primary market, you do not pay the 2% tax on civil law transactions (PCC), which generally applies to purchases on the secondary market.</p>
+                        <p>However, there are some additional costs to consider:</p>
+                        <ul>
+                            <li><strong>Notary fees</strong> – the notary fee is shared equally between the developer and the buyer. There are also costs for copies of the notarial deed and entries in the Land and Mortgage Register.</li>
+                            <li><strong>Finishing costs</strong> – you should also plan a budget for finishing the apartment and making it ready to move into.</li>
+                        </ul>',
             ],
-        ],
-        [
-            'q' => ['pl' => 'Ile wkładu własnego potrzebuję, żeby kupić mieszkanie?', 'en' => 'How much down payment do I need?'],
-            'a' => [
-                'pl' => 'Banki zwykle wymagają od 10 do 20% wartości nieruchomości. Do tego warto doliczyć koszty okołozakupowe: taksę notarialną, wpisy sądowe, prowizję banku i wykończenie mieszkania. Wysokość wkładu i dostępne programy najlepiej potwierdzić u doradcy kredytowego – chętnie polecimy sprawdzonego.',
-                'en' => 'Banks usually require between 10 and 20% of the property value. Add the additional costs: notarial fee, court entries, bank commission and finishing the apartment. The exact amount and available programmes are best confirmed with a mortgage advisor – we are happy to recommend one.',
+            [
+                'q' => '4. What happens during the technical inspection of an apartment and what should you check?',
+                'a' => '<p>The technical inspection is the moment when you check whether the apartment meets the conditions set out in the development agreement and complies with building standards.</p>
+                        <p>It is a good idea to bring a spirit level and a laser distance meter or ask a professional engineer to assist you.</p>
+                        <p>During the inspection, you should check the walls and angles, any scratches on the windows, ventilation, the location of electrical points and the quality of the floor screeds.</p>
+                        <p>All defects should be recorded in the inspection report. The developer then has a statutory period to respond to the reported defects.</p>',
             ],
-        ],
-        [
-            'q' => ['pl' => 'Czy mogę negocjować cenę mieszkania z deweloperem?', 'en' => 'Can I negotiate the price with the developer?'],
-            'a' => [
-                'pl' => 'Ceny mieszkań wynikają z aktualnego cennika inwestycji, ale zawsze warto porozmawiać z biurem sprzedaży. Pole do rozmowy bywa przy konkretnych lokalach, formie płatności czy pakiecie wykończeniowym. Nasi doradcy przedstawią wszystkie dostępne warunki wprost, bez ukrytych kosztów.',
-                'en' => 'Prices follow the current price list of the development, but it is always worth talking to the sales office. There may be room for discussion on particular units, the payment schedule or a finishing package. Our advisors present all available terms openly, with no hidden costs.',
+            [
+                'q' => '5. Why choose a new apartment instead of one from the secondary market?',
+                'a' => '<p>Buying a new apartment from a developer can save you time and money at the start and gives you the benefits of modern construction.</p>
+                        <p>New apartments are built according to current building regulations and strict quality standards. When you buy on the primary market, you benefit from a 5-year statutory warranty for defects, modern architecture, underground garages, quiet lifts and energy-saving technologies such as photovoltaic panels and Smart Home systems.</p>
+                        <p>You also do not pay the 2% PCC tax and have complete freedom to design and finish your new interior from scratch.</p>',
             ],
-        ],
-        [
-            'q' => ['pl' => 'Jakie miesięczne koszty ponoszę po zakupie mieszkania?', 'en' => 'What are the monthly costs after the purchase?'],
-            'a' => [
-                'pl' => 'Na miesięczne koszty składają się czynsz administracyjny (utrzymanie części wspólnych, fundusz remontowy), media rozliczane według liczników oraz rata kredytu, jeśli korzystasz z finansowania. Do tego dochodzi roczny podatek od nieruchomości. Wysokość czynszu dla konkretnej inwestycji poda Ci biuro sprzedaży.',
-                'en' => 'Monthly costs consist of the administrative charge (common area upkeep, repair fund), utilities billed by meter and the loan instalment if you use financing. On top of that there is the annual property tax. The sales office will give you the exact charge for a given development.',
+            [
+                'q' => '6. How can you safely buy a new apartment? What is a Housing Escrow Account?',
+                'a' => '<p>The money paid by customers buying new apartments is protected under the Developer Act.</p>
+                        <p>Your payments do not go directly to the developer’s bank account. Instead, they are paid into a Housing Escrow Account managed by a bank.</p>
+                        <p>In the case of an open escrow account, the bank releases the money to the developer in stages. Funds are released only after an independent inspector confirms that a specific stage of construction has been completed. This provides a high level of protection for the buyer’s money.</p>',
+            ],
+            [
+                'q' => '7. Can I make changes to the layout of my new apartment?',
+                'a' => '<p>Yes. Most developers allow buyers to make changes at an early stage of construction.</p>
+                        <p>These changes allow you to adapt the apartment to your individual needs. The most common changes include moving partition walls, changing the location of electrical points such as lights and sockets, and modifying water and sewage connections, for example replacing a bathtub with a shower.</p>
+                        <p>Making these changes early can help you avoid expensive modifications when finishing the apartment later.</p>',
+            ],
+            [
+                'q' => '8. How much does it cost to finish an apartment per square metre?',
+                'a' => '<p>The cost of finishing an apartment depends on the materials you choose and the rates charged by the finishing company.</p>
+                        <p>As a general estimate, basic finishing costs start at around <strong>PLN 2,000 per square metre</strong>, including labour and materials.</p>
+                        <p>For premium interiors with high-quality materials and custom-made furniture, the total cost can be much higher.</p>',
+            ],
+            [
+                'q' => '9. How does buying a new apartment with a mortgage work?',
+                'a' => '<p>Buying an apartment with mortgage financing can be divided into a few simple steps:</p>
+                        <ol>
+                            <li>Check your mortgage eligibility with a financial advisor and choose your apartment.</li>
+                            <li>Sign a reservation agreement with the developer.</li>
+                            <li>Apply for a mortgage and submit the required technical documents provided by the developer.</li>
+                            <li>Sign the development agreement and the mortgage agreement with the bank.</li>
+                            <li>The bank releases the mortgage funds in stages according to the progress of construction.</li>
+                        </ol>',
+            ],
+            [
+                'q' => '10. How long is the statutory warranty for a new apartment and what does it cover?',
+                'a' => '<p>Under the Polish Civil Code, the statutory warranty for a new apartment is <strong>5 years from the date the apartment is handed over to the buyer</strong>.</p>
+                        <p>The developer is responsible for physical defects in the property. If a defect is discovered during this period, the owner has the right to ask the developer to repair it.</p>',
+            ],
+            [
+                'q' => '11. How to choose an apartment for a single person?',
+                'a' => '<p>When choosing an apartment for one person, it is worth considering a compact and functional studio or a small one-bedroom apartment.</p>
+                        <p>Location is very important. Good access to the city centre, public transport, shops and services makes everyday life easier.</p>
+                        <p>Smart Home systems are also a great advantage, improving both comfort and security. If you are looking for an apartment for one person in Olsztyn, <strong>TEMPO at Sikorskiego Street</strong> is a good option for people with an active lifestyle.</p>',
+            ],
+            [
+                'q' => '12. What should an apartment for a senior offer?',
+                'a' => '<p>An apartment for a senior should be safe, functional and free from architectural barriers.</p>
+                        <p>An important feature is a modern lift with direct access to the underground garage and storage units, as well as step-free access to the building.</p>
+                        <p>Easy access to medical centres, pharmacies, shops and public transport is also important. A senior-friendly development should also offer quiet green areas with benches and monitoring for greater safety.</p>',
+            ],
+            [
+                'q' => '13. What do families with children look for when choosing an apartment?',
+                'a' => '<p>For families with children, the main priorities are safety, space and easy access to schools, kindergartens, medical centres and shops.</p>
+                        <p>Safe and monitored green areas with walking paths, playgrounds and sports areas are also very important, as they provide space for families to spend time outdoors.</p>
+                        <p>Families also value environmentally friendly solutions that can help reduce everyday running costs. A good example in Olsztyn is the <strong>SLOW development</strong>, designed with family comfort in mind.</p>',
+            ],
+            [
+                'q' => '14. What green areas and shared facilities do modern residential developments offer?',
+                'a' => '<p>Modern residential developments provide shared spaces designed for relaxation, recreation and spending time together.</p>
+                        <p>For example, the <strong>SLOW development in Olsztyn</strong> offers an outdoor yoga area, a barbecue shelter with tables and a professional agility area for dogs.</p>
+                        <p>Residents can also use safe playgrounds, rain gardens, electric vehicle charging stations and bicycle shelters.</p>',
             ],
         ],
     ];
@@ -334,7 +420,7 @@
     @include('layouts.partials.ip-pagehead', [
         'title'  => $L == 'pl' ? 'Jak wygląda proces zakupu mieszkania?' : 'What does buying an apartment look like?',
         'crumbs' => [
-            ['label' => $L == 'pl' ? 'Strefa Klienta' : 'Client zone', 'url' => null],
+            ['label' => $L == 'pl' ? 'Strefa Klienta' : 'Customer Zone', 'url' => null],
             ['label' => $L == 'pl' ? 'Jak kupić mieszkanie?' : 'How to buy an apartment?', 'url' => null],
         ],
         'image'  => ($page->file_header && is_file(public_path('uploads/header/'.$page->file_header)))
@@ -366,10 +452,17 @@
                         <p class="ip-step-desc">{{ $krok['desc'][$L] }}</p>
                     </div>
 
-                    <div class="ip-step-media">
+                    <div class="ip-step-media @if($krok['media'] == 'foto') is-photo @endif">
                         @switch($krok['media'])
                             @case('foto')
-                                <img src="{{ asset($krok['img']) }}" alt="{{ $krok['title'][$L] }}" width="785" height="270">
+                                {{-- ?v=filemtime: plik podmieniany pod ta sama nazwa, bez tego przegladarki trzymaja stare zdjecie z cache --}}
+                                <img src="{{ asset($krok['img']) }}?v={{ @filemtime(public_path($krok['img'])) }}" alt="{{ $krok['title'][$L] }}" width="1650" height="707"
+                                     @if(!empty($krok['pos'])) style="object-position: {{ $krok['pos'] }}" @endif>
+                                {{-- Oznaczenie zdjec wygenerowanych przez AI (przejrzystosc wobec
+                                     odwiedzajacych). Przy prawdziwym zdjeciu usun 'ai' z tablicy. --}}
+                                @if(!empty($krok['ai']))
+                                    <x-ai-badge />
+                                @endif
                                 @break
 
                             @case('panel')
@@ -413,14 +506,14 @@
                     </span>
 
                     <div class="ip-guard-text">
-                        <h2>{{ $L == 'pl' ? 'Pełna ochrona także po zakupie' : 'Full protection also after the purchase' }}</h2>
+                        <h2>{{ $L == 'pl' ? 'Pełna ochrona także po zakupie' : 'Full protection after your purchase' }}</h2>
                         <p>
                             @if($L == 'pl')
                                 Na zakupione mieszkanie przysługuje Ci 5 lat rękojmi, która obejmuje odpowiedzialność
                                 dewelopera za wszelkie wady fizyczne i konstrukcyjne lokalu oraz budynku.
                             @else
-                                Your apartment comes with a 5-year statutory guarantee covering the developer's liability
-                                for any physical and structural defects of the unit and the building.
+                                Your apartment comes with a <strong>5-year statutory warranty</strong>. During this period,
+                                the developer is responsible for physical and structural defects in both the apartment and the building.
                             @endif
                         </p>
                     </div>
@@ -429,7 +522,7 @@
                 <ul class="ip-guard-list list-unstyled mb-0">
                     <li>
                         @include('front.static.howbuy-icon', ['name' => 'tarcza'])
-                        {{ $L == 'pl' ? 'Odpowiedzialność dewelopera' : 'Developer liability' }}
+                        {{ $L == 'pl' ? 'Odpowiedzialność dewelopera' : 'Developer’s responsibility' }}
                     </li>
                     <li>
                         @include('front.static.howbuy-icon', ['name' => 'kalendarz'])
@@ -437,7 +530,7 @@
                     </li>
                     <li>
                         @include('front.static.howbuy-icon', ['name' => 'dom'])
-                        {{ $L == 'pl' ? 'Spokój na długie lata' : 'Peace of mind for years' }}
+                        {{ $L == 'pl' ? 'Spokój na długie lata' : 'Peace of mind for years to come' }}
                     </li>
                 </ul>
 
@@ -467,21 +560,21 @@
     <section class="ip-section ip-faq-section">
         <div class="container">
 
-            <x-section-head>{{ $L == 'pl' ? 'FAQ – Pytania i odpowiedzi' : 'FAQ – Questions and answers' }}</x-section-head>
+            <x-section-head>{{ $L == 'pl' ? 'FAQ – Pytania i odpowiedzi' : 'Frequently Asked Questions' }}</x-section-head>
 
             <div class="accordion ip-faq" id="faqAccordion">
-                @foreach($faq as $i => $item)
+                @foreach($faq[$L] as $i => $item)
                     <div class="accordion-item ip-faq-item">
                         <h3 class="accordion-header" id="faqHead{{ $i }}">
                             <button class="accordion-button @if($i > 0) collapsed @endif" type="button"
                                     data-bs-toggle="collapse" data-bs-target="#faqBody{{ $i }}"
                                     aria-expanded="{{ $i === 0 ? 'true' : 'false' }}" aria-controls="faqBody{{ $i }}">
-                                {{ $item['q'][$L] }}
+                                {{ $item['q'] }}
                             </button>
                         </h3>
                         <div id="faqBody{{ $i }}" class="accordion-collapse collapse @if($i === 0) show @endif"
                              aria-labelledby="faqHead{{ $i }}" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">{{ $item['a'][$L] }}</div>
+                            <div class="accordion-body">{!! $item['a'] !!}</div>
                         </div>
                     </div>
                 @endforeach

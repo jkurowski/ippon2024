@@ -104,9 +104,11 @@ return [
     |--------------------------------------------------------------------------
     */
 
+    /* Boksy = kafle "Inwestycje w sprzedazy" na SG. Obrazek tylko zmniejszany
+       do tej szerokosci (bez przycinania) - kadr robi CSS. */
     'box' => [
-        'width' => 120,
-        'height' => 120,
+        'width' => 1800,
+        'height' => null,
         'file_path' => 'uploads/boxes/',
         'preview_file_path' => 'uploads/boxes/'
     ],

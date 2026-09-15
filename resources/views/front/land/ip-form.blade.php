@@ -101,7 +101,7 @@
     </div>
 
     @if($obligation)
-        <div class="ip-form-note">{!! $obligation->obligation !!}</div>
+        <div class="ip-form-note">{!! $current_locale == 'en' ? $obligation->obligation_en : $obligation->obligation !!}</div>
     @endif
 
     @foreach ($rules as $r)

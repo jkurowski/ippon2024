@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Box;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 
 // CMS
 use App\Models\Boxes;
@@ -11,6 +12,10 @@ use App\Http\Requests\BoxFormRequest;
 use App\Repositories\BoxRepository;
 use App\Services\BoxService;
 
+/**
+ * Boksy = kafle "Inwestycje w sprzedazy" na stronie glownej.
+ * Tlumaczenie EN jak w obiektach komercyjnych: edycja z ?lang=en.
+ */
 class IndexController extends Controller
 {
     private $repository;
@@ -50,10 +55,10 @@ class IndexController extends Controller
 
     public function store(BoxFormRequest $request)
     {
-        $entry = $this->repository->create($request->validated());
+        $entry = $this->repository->create($this->attributes($request));
 
         if ($request->hasFile('file')) {
-            $this->service->upload($request->title, $request->file('file'), $entry);
+            $this->service->upload($request->get('name', ''), $request->file('file'), $entry);
         }
 
         return redirect(route('admin.box.index'))->with('success', 'Nowy boks dodany');
@@ -61,6 +66,10 @@ class IndexController extends Controller
 
     public function edit(int $id)
     {
+        if (request()->get('lang')) {
+            app()->setLocale(request()->get('lang'));
+        }
+
         return view('admin.box.form', [
             'entry' => $this->repository->find($id),
             'cardTitle' => 'Edytuj boks',
@@ -70,11 +79,15 @@ class IndexController extends Controller
 
     public function update(BoxFormRequest $request, int $id)
     {
+        if ($request->get('lang')) {
+            app()->setLocale($request->get('lang'));
+        }
+
         $box = $this->repository->find($id);
-        $this->repository->update($request->validated(), $box);
+        $this->repository->update($this->attributes($request), $box);
 
         if ($request->hasFile('file')) {
-            $this->service->upload($request->title, $request->file('file'), $box, 1);
+            $this->service->upload($box->getTranslation('name', 'pl', false), $request->file('file'), $box, true);
         }
 
         return redirect(route('admin.box.index'))->with('success', 'Boks zaktualizowany');
@@ -89,5 +102,12 @@ class IndexController extends Controller
     public function sort(Request $request)
     {
         $this->repository->updateOrder($request->get('recordsArray'));
+    }
+
+    /** Plik idzie osobno przez BoxService — w kolumnie `file` ma wyladowac nazwa,
+     *  nie obiekt UploadedFile. */
+    private function attributes(BoxFormRequest $request): array
+    {
+        return Arr::except($request->validated(), ['file']);
     }
 }

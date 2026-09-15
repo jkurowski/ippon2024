@@ -50,8 +50,14 @@ Uwagi z praktyki:
 - Makiety generowane przez AI (np. „JAK KUPIĆ MIESZKANIE V1") nie mają
   odpowiednika w Figmie — odtwarzasz je ze zrzutu i pytasz o treści, których
   na obrazku nie widać (np. zwinięte odpowiedzi FAQ).
-- `vivid` podbija nasycenie zdjęć wyciętych z makiety — klient prosił o „żywsze
-  kolory" na tej podstronie; sprawdzona wartość to `1.4` przy jasności `+4`.
+- `vivid` podbija nasycenie zdjęć wyciętych z makiety. Podbijaj zawsze wycinek
+  z bezstratnego PNG makiety, nie gotowy JPG — drugie przejście po JPG-u
+  wzmacnia artefakty.
+- **Zdjęcia z makiety to tylko podgląd** (ustalone 09.2026). Wycinki mają
+  rozmiar z makiety (np. 785 px) i pikselują się na ekranach ze skalowaniem.
+  Na „Jak kupić mieszkanie" zdjęcia kroków są wygenerowane pod treść
+  (Higgsfield, GPT Image 2.5, 21:9, 2k) i przeskalowane do 2x szerokości
+  wyświetlania — tak rób, gdy klient nie dał własnych zdjęć, a wycinek jest za mały.
 
 ## 3. Konwencje (ustalone z Jackiem, nie zmieniaj bez pytania)
 
@@ -94,6 +100,7 @@ Przyciski: `.ip-btn-gold-lg`, `.ip-btn-outline`, `.ip-btn-ghost`, `.ip-btn-submi
 | `<x-property-row>` | wiersz lokalu (wyszukiwarka, schowek). Parametry: `room`, `investment`, `action` = `show`/`remove` |
 | `<x-property-filter>` | pasek filtrow lokali (strona glowna + wyszukiwarka), GET na `/wyszukiwarka` |
 | `<x-sort-select>` | sortowanie listy lokali jako `.fake-select` |
+| `<x-ai-badge />` | plakietka „AI” w prawym dolnym rogu zdjęcia wygenerowanego przez AI (PL/EN, opis dla czytników). Rodzic z `position: relative` — zwykłe zdjęcie owiń w `.ip-ai-wrap` (`.is-block` na całą szerokość) |
 
 Opcje filtrow (inwestycje, pokoje, pietra, progi metrazu) liczy `App\Services\PropertyFilterOptions`
 — jedno zrodlo dla strony glownej i wyszukiwarki, wyniki zapamietane na czas zadania.

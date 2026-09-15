@@ -25,7 +25,7 @@
     <div class="row">
         <div class="col-12 col-sm-6">
             <div class="ip-field">
-                <label for="form_name">{{ $current_locale == 'pl' ? 'Imię i nazwisko' : 'Full name' }} <span class="text-danger">*</span></label>
+                <label for="form_name">{{ $current_locale == 'pl' ? 'Imię i nazwisko' : 'Full Name' }} <span class="text-danger">*</span></label>
                 <input type="text" name="form_name" id="form_name" value="{{ old('form_name') }}"
                        class="validate[required] @error('form_name') is-invalid @enderror">
                 @error('form_name')<span class="invalid-feedback d-block" role="alert">{{ $message }}</span>@enderror

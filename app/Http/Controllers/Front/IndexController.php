@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Models\Boxes;
 use App\Models\City;
 use App\Models\Investment;
 use App\Models\News;
@@ -34,6 +35,10 @@ class IndexController extends Controller
             ->where('developro', 1)
             ->orderBy('id')
             ->get();
+
+        /* Kafle "Inwestycje w sprzedazy" ida z modulu Boksy (admin). Dopoki tabela
+           jest pusta (np. kod wdrozony przed SQL-em), widok wraca do inwestycji wyzej. */
+        $boxes = Boxes::orderBy('sort')->get();
 
         $investments_soon = Investment::whereStatus(4)->get();
         $investments_planned = Investment::whereStatus(3)->orderBy('id', 'DESC')->get();
@@ -77,6 +82,7 @@ class IndexController extends Controller
             'popup',
             'news',
             'cities',
+            'boxes',
             'investments_current',
             'investments_soon',
             'investments_planned',

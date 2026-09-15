@@ -651,6 +651,8 @@ body.ip-page {
     position: relative;
     aspect-ratio: 557 / 370;
     overflow: hidden;
+    /* boks bez wgranego zdjecia nie zostawia bialej dziury */
+    background: @line;
 
     img {
         width: 100%;
@@ -660,6 +662,23 @@ body.ip-page {
     }
 }
 
+/* Kafle "Inwestycje w sprzedazy" z modulu Boksy: obrazek i nazwa sa linkami
+   do opisu, gdy link jest w adminie. */
+.ip-card-media-link {
+    display: block;
+    height: 100%;
+}
+
+.ip-card-title a {
+    color: inherit;
+    text-decoration: none;
+    transition: color .25s ease;
+
+    &:hover,
+    &:focus {
+        color: @gold;
+    }
+}
 .ip-card:hover .ip-card-media img {
     transform: scale(1.05);
 }
@@ -752,6 +771,27 @@ body.ip-page {
         flex: 0 0 24px;
         color: @gold;
     }
+}
+
+/* Uklad 2/1 (ustalenie z klientem): metraz i odbior w pierwszej linii, atut
+   ("2 pietra, winda") zawsze w drugiej. Trzeci parametr bierze caly wiersz,
+   wiec drugi nie potrzebuje kreski, a trzeci wciecia z `li + li` — takze
+   w breakpointach nizej (stad selektor mocniejszy od `.ip-card-params li + li`). */
+.ip-card-params li:nth-child(2):after {
+    display: none;
+}
+
+.ip-card-params li + li:nth-child(3) {
+    flex: 0 0 100%;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+/* Parametry wysrodkowane w kaflu. Trzeci parametr zajmuje caly wiersz, wiec
+   srodkujemy tez jego wlasna tresc (ikona + tekst), nie tylko liste. */
+.ip-card-params,
+.ip-card-params li {
+    justify-content: center;
 }
 
 .ip-card-actions {
@@ -4645,6 +4685,98 @@ a.ip-btn-submit {
     }
 }
 
+/* Jak kupic mieszkanie: zdjecie rowno z gora, dolem i prawym bokiem karty,
+   bez bialego oddechu — jak w krokach Kariery, ale do krawedzi karty, nie
+   ekranu. Klasa is-photo tylko przy krokach ze zdjeciem (panel i schemat
+   zostaja z odstepem). Ujemny prawy margines oddaje padding karty, wiec
+   kolumna zajmuje tyle miejsca co wczesniej; min-height pilnuje, zeby przy
+   krotkim opisie kadr nie robil sie paskiem. */
+.ip-step-media.is-photo {
+    position: relative;
+    flex: 0 0 825px;
+    max-width: none;
+    align-self: stretch;
+    min-height: 300px;
+    margin: -34px -40px -34px 0;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 0 14px 14px 0;
+    }
+}
+
+/* Plakietka "AI" na zdjeciach wygenerowanych — maly, spokojny znacznik
+   w prawym dolnym rogu. 12 px od brzegu, zeby nie wchodzila w zaokruglenie
+   rogu zdjecia (14 px). Kontener musi miec position: relative. */
+.ip-ai-badge {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    z-index: 1;
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, .55);
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: .06em;
+    color: @white;
+    pointer-events: none;
+}
+
+/* Uniwersalna otoczka dla zdjecia AI poza krokami "Jak kupic" — daje punkt
+   odniesienia plakietce. inline-block + vertical-align, zeby otoczka miala
+   rozmiar zdjecia, a pod obrazkiem nie zostawal pasek z linii tekstu. */
+.ip-ai-wrap {
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
+    vertical-align: top;
+
+    > img {
+        display: block;
+        max-width: 100%;
+    }
+
+    &.is-block {
+        display: block;
+    }
+}
+
+@media (max-width: 1599.98px) {
+    .ip-step-media.is-photo {
+        flex-basis: 660px;
+        min-height: 260px;
+    }
+}
+
+/* ponizej 1200 zdjecie idzie pod tresc — do lewego, prawego i dolnego brzegu */
+@media (max-width: 1199.98px) {
+    .ip-step-media.is-photo {
+        flex: 1 1 100%;
+        align-self: auto;
+        min-height: 0;
+        margin: 0 -24px -28px;
+
+        img {
+            height: 280px;
+            border-radius: 0 0 14px 14px;
+        }
+    }
+}
+
+@media (max-width: 767.98px) {
+    .ip-step-media.is-photo {
+        margin: 0 -18px -22px;
+
+        img {
+            height: 200px;
+        }
+    }
+}
+
 .ip-step-note {
     display: flex;
     align-items: center;
@@ -4953,6 +5085,30 @@ a.ip-btn-submit {
         font-weight: 300;
         line-height: 27px;
         color: @ink;
+
+        /* odpowiedzi EN od klienta maja akapity i listy */
+        p,
+        ul,
+        ol {
+            margin: 0 0 14px;
+        }
+
+        ul,
+        ol {
+            padding-left: 22px;
+        }
+
+        li + li {
+            margin-top: 6px;
+        }
+
+        > :last-child {
+            margin-bottom: 0;
+        }
+
+        strong {
+            font-weight: 500;
+        }
     }
 }
 

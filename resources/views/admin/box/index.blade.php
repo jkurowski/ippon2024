@@ -5,7 +5,7 @@
         <div class="card-head container-fluid">
             <div class="row">
                 <div class="col-6 pl-0">
-                    <h4 class="page-title"><i class="fe-grid"></i>Boksy z obrazkami</h4>
+                    <h4 class="page-title"><i class="fe-grid"></i>Boksy <small class="text-muted ms-2">Inwestycje w sprzedaży na stronie głównej</small></h4>
                 </div>
                 <div class="col-6 d-flex justify-content-end align-items-center form-group-submit">
                     <a href="{{route('admin.box.create')}}" class="btn btn-primary">Dodaj boks</a>
@@ -24,7 +24,8 @@
                     <thead class="thead-default">
                     <tr>
                         <th>Nazwa</th>
-                        <th>Tekst</th>
+                        <th>Lokalizacja</th>
+                        <th>Napis na obrazku</th>
                         <th>Obrazek</th>
                         <th>Data modyfikacji</th>
                         <th></th>
@@ -33,17 +34,23 @@
                     <tbody class="content">
                     @foreach ($list as $item)
                         <tr id="recordsArray_{{ $item->id }}">
-                            <td>{{ $item->title }}</td>
-                            <td>{{ $item->text }}</td>
-                            <td @if($item->file) class="d-flex align-items-center justify-content-center"@endif>
+                            <td>{{ $item->name }}</td>
+                            <td>{{ $item->location }}</td>
+                            <td>{{ $item->badge }}</td>
+                            <td>
                                 @if($item->file)
-                                    <img src="/uploads/boxes/{{$item->file}}" alt="{{ $item->name }}" style="width:120px">
+                                    <img src="/uploads/boxes/{{ $item->file }}" alt="{{ $item->name }}" style="width:120px">
+                                @else
+                                    <span class="text-danger">brak</span>
                                 @endif
                             </td>
                             <td>{{ $item->updated_at }}</td>
                             <td class="option-120">
                                 <div class="btn-group">
-                                    <span class="btn action-button move-button me-1"><i class="fe-move"></i></span>
+                                    <span class="btn action-button move-button me-3"><i class="fe-move"></i></span>
+
+                                    <a href="{{route('admin.box.edit', ['box' => $item->id, 'lang' => 'en'])}}" class="btn action-button lang-button me-1" data-toggle="tooltip" data-placement="top" title="Edytuj"><img src="{{ asset('/cms/flags/en.png') }}" alt="Tłumaczenie: en"></a>
+
                                     <a href="{{route('admin.box.edit', $item->id)}}" class="btn action-button me-1" data-toggle="tooltip" data-placement="top" title="Edytuj wpis"><i class="fe-edit"></i></a>
                                     <form method="POST" action="{{route('admin.box.destroy', $item->id)}}">
                                         {{ csrf_field() }}

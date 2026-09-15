@@ -1104,50 +1104,98 @@
 
         return ($min === $max ? $min : $min.'-'.$max).' m&sup2;';
     };
+
+    /* Kafle z modulu Boksy (admin). Gdy tabela jest jeszcze pusta, te same kafle
+       buduje ze starych inwestycji — sekcja nie znika przed wgraniem danych.
+       Pole bez tlumaczenia EN spada do PL. `area` to HTML (&sup2; ze starych
+       inwestycji), wiec metraz z boksu jest escapowany juz tutaj. */
+    $ipSaleLang = $current_locale == 'en' ? 'en' : 'pl';
+    $ipSaleT = fn ($m, $f) => $m->getTranslation($f, $ipSaleLang, false) ?: $m->getTranslation($f, 'pl', false);
+
+    $ipSaleCards = $boxes->isNotEmpty()
+        ? $boxes->map(fn ($b) => [
+            'photo'            => ($b->file && is_file(public_path('uploads/boxes/'.$b->file))) ? asset('uploads/boxes/'.$b->file) : null,
+            'badge'            => $ipSaleT($b, 'badge'),
+            'location'         => $ipSaleT($b, 'location'),
+            'name'             => $ipSaleT($b, 'name'),
+            'desc'             => $ipSaleT($b, 'description'),
+            'area'             => $b->area ? e($b->area) : null,
+            'handover'         => $ipSaleT($b, 'handover'),
+            'advantage'        => $ipSaleT($b, 'advantage'),
+            'link_apartments'  => $ipSaleT($b, 'link_apartments'),
+            'link_description' => $ipSaleT($b, 'link_description'),
+        ])
+        : $investments_current->map(function ($inw) use ($ipCardPhoto, $ipAreaRange, $cities) {
+            $city = $cities->firstWhere('id', $inw->city);
+
+            return [
+                'photo'            => $ipCardPhoto($inw),
+                'badge'            => $inw->card_badge,
+                'location'         => $inw->address ?: optional($city)->name,
+                'name'             => $inw->name,
+                'desc'             => $inw->entry_content ? excerpt($inw->entry_content, 120) : null,
+                'area'             => $ipAreaRange($inw->area_range),
+                'handover'         => $inw->date_end,
+                'advantage'        => $inw->card_param,
+                'link_apartments'  => route('developro.investment.plan', $inw->slug),
+                'link_description' => route('developro.investment.index', $inw->slug),
+            ];
+        });
 @endphp
 
 <section class="ip-section">
     <div class="container">
 
-        <x-section-head>{{ $current_locale == 'pl' ? 'Inwestycje w sprzedaży' : 'Investments on sale' }}</x-section-head>
+        <x-section-head>{{ $current_locale == 'pl' ? 'Inwestycje w sprzedaży' : 'Developments for Sale' }}</x-section-head>
 
-        <div class="row ip-cards-row">
+        {{-- Wszystkie kafle tej samej wielkosci (wiekszy wygladalby na promowany),
+             niepelny ostatni rzad wysrodkowany pod pelnymi — 5 inwestycji = 3 + 2. --}}
+        <div class="row ip-cards-row justify-content-center">
 
-            @foreach ($investments_current as $inw)
-                @php
-                    $photo = $ipCardPhoto($inw);
-                    $area  = $ipAreaRange($inw->area_range);
-                    $city  = $cities->firstWhere('id', $inw->city);
-                @endphp
-
+            @foreach ($ipSaleCards as $card)
                 <div class="col-12 col-md-6 col-xl-4">
                     <article class="ip-card">
 
                         <div class="ip-card-media">
-                            @if($photo)
-                                <img src="{{ $photo }}" alt="{{ $inw->name }}" loading="lazy" decoding="async">
+                            {{-- obrazek prowadzi do opisu, gdy link jest; dla czytnikow ekranu
+                                 wystarczy link w nazwie, stad tabindex/aria-hidden --}}
+                            @if($card['link_description'])
+                                <a href="{{ $card['link_description'] }}" class="ip-card-media-link" tabindex="-1" aria-hidden="true">
+                            @endif
+                            @if($card['photo'])
+                                <img src="{{ $card['photo'] }}" alt="{{ $card['name'] }}" loading="lazy" decoding="async">
+                            @endif
+                            @if($card['link_description'])
+                                </a>
                             @endif
 
-                            {{-- plakietka z CMS-u (pole "Kafel: plakietka"); puste = bez plakietki --}}
-                            @if($inw->card_badge)
-                                <span class="ip-card-badge">{{ $inw->card_badge }}</span>
+                            {{-- napis na obrazku (Boksy: "Napis na obrazku"); puste = bez plakietki --}}
+                            @if($card['badge'])
+                                <span class="ip-card-badge">{{ $card['badge'] }}</span>
                             @endif
                         </div>
 
                         <div class="ip-card-body">
-                            @if($inw->address || $city)
-                                <span class="ip-card-address">{{ $inw->address ?: $city->name }}</span>
+                            @if($card['location'])
+                                <span class="ip-card-address">{{ $card['location'] }}</span>
                             @endif
 
-                            <h3 class="ip-card-title">{{ $inw->name }}</h3>
+                            <h3 class="ip-card-title">
+                                @if($card['link_description'])
+                                    <a href="{{ $card['link_description'] }}">{{ $card['name'] }}</a>
+                                @else
+                                    {{ $card['name'] }}
+                                @endif
+                            </h3>
 
-                            @if($inw->entry_content)
-                                <p class="ip-card-desc">{{ excerpt($inw->entry_content, 120) }}</p>
+                            @if($card['desc'])
+                                <p class="ip-card-desc">{{ $card['desc'] }}</p>
                             @endif
 
                             {{-- Parametry pokazujemy tylko te, ktore klient wypelnil w CMS-ie —
                                  kafel z pustym wierszem wyglada gorzej niz kafel krotszy. --}}
-                            @if($area || $inw->date_end || $inw->card_param)
+                            @php $area = $card['area']; @endphp
+                            @if($area || $card['handover'] || $card['advantage'])
                                 <ul class="ip-card-params list-unstyled mb-0">
                                     @if($area)
                                         <li>
@@ -1156,30 +1204,36 @@
                                         </li>
                                     @endif
 
-                                    @if($inw->date_end)
+                                    @if($card['handover'])
                                         <li>
                                             <svg viewBox="0 0 29 29" fill="none" aria-hidden="true"><path d="M23.5625 3.625H19.9375V1.8125H18.125V3.625H10.875V1.8125H9.0625V3.625H5.4375C4.44062 3.625 3.625 4.44062 3.625 5.4375V23.5625C3.625 24.5594 4.44062 25.375 5.4375 25.375H23.5625C24.5594 25.375 25.375 24.5594 25.375 23.5625V5.4375C25.375 4.44062 24.5594 3.625 23.5625 3.625ZM23.5625 23.5625H5.4375V10.875H23.5625V23.5625ZM23.5625 9.0625H5.4375V5.4375H9.0625V7.25H10.875V5.4375H18.125V7.25H19.9375V5.4375H23.5625V9.0625Z" fill="currentColor"/></svg>
-                                            {{ $current_locale == 'pl' ? 'Odbiór: ' : 'Handover: ' }}{{ $inw->date_end }}
+                                            {{ $current_locale == 'pl' ? 'Odbiór: ' : 'Handover: ' }}{{ $card['handover'] }}
                                         </li>
                                     @endif
 
-                                    @if($inw->card_param)
+                                    @if($card['advantage'])
                                         <li>
                                             <svg viewBox="0 0 29 29" fill="none" aria-hidden="true"><path d="M3.625 25.375H25.375M6.04167 25.375V8.45833L15.7083 3.625V25.375M22.9583 25.375V13.2917L15.7083 8.45833M10.875 10.875V10.8871M10.875 14.5V14.5121M10.875 18.125V18.1371M10.875 21.75V21.7621" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                            {{ $inw->card_param }}
+                                            {{ $card['advantage'] }}
                                         </li>
                                     @endif
                                 </ul>
                             @endif
 
-                            <div class="ip-card-actions">
-                                <a href="{{ route('developro.investment.plan', $inw->slug) }}" class="ip-btn-outline">
-                                    {{ $current_locale == 'pl' ? 'Zobacz mieszkania' : 'See apartments' }}
-                                </a>
-                                <a href="{{ route('developro.investment.index', $inw->slug) }}" class="ip-btn-outline">
-                                    {{ $current_locale == 'pl' ? 'Opis inwestycji' : 'About the project' }}
-                                </a>
-                            </div>
+                            @if($card['link_apartments'] || $card['link_description'])
+                                <div class="ip-card-actions">
+                                    @if($card['link_apartments'])
+                                        <a href="{{ $card['link_apartments'] }}" class="ip-btn-outline">
+                                            {{ $current_locale == 'pl' ? 'Zobacz mieszkania' : 'See apartments' }}
+                                        </a>
+                                    @endif
+                                    @if($card['link_description'])
+                                        <a href="{{ $card['link_description'] }}" class="ip-btn-outline">
+                                            {{ $current_locale == 'pl' ? 'Opis inwestycji' : 'About the project' }}
+                                        </a>
+                                    @endif
+                                </div>
+                            @endif
                         </div>
 
                     </article>

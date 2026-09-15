@@ -95,6 +95,12 @@
                                     <span class="bullet bullet-dot"></span>
                                 </span> Slider</a>
                         </li>
+                        <li {{ Request::routeIs('admin.box.*') ? 'class=active' : '' }}>
+                            <a href="{{ route('admin.box.index') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span> Boksy</a>
+                        </li>
                         <li {{ Request::routeIs('admin.promotion.*') ? 'class=active' : '' }}>
                             <a href="{{ route('admin.promotion.index') }}">
                                 <span class="menu-bullet">

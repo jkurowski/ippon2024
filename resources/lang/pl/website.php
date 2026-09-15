@@ -37,7 +37,7 @@
   'numbers-text-4' => 'oddanych mieszkań w terminie',
   'form-label-name' => 'Imię',
   'form-label-lastname' => 'Nazwisko',
-  'form-label-email' => 'E-mail',
+  'form-label-email' => 'Adres e-mail',
   'form-label-phone' => 'Telefon',
   'form-label-message' => 'Treść wiadomości',
   'form-label-city' => 'Miasto',
