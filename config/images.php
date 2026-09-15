@@ -104,10 +104,10 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    /* Boksy = kafle "Inwestycje w sprzedazy" na SG. Obrazek tylko zmniejszany
-       do tej szerokosci (bez przycinania) - kadr robi CSS. */
+    /* Boksy = kafle "Inwestycje w sprzedazy" na SG. Obrazek zmniejszany do tej
+       szerokosci (bez przycinania, kadr robi CSS) + kopia WebP w uploads/boxes/webp/. */
     'box' => [
-        'width' => 1800,
+        'width' => 960,
         'height' => null,
         'file_path' => 'uploads/boxes/',
         'preview_file_path' => 'uploads/boxes/'

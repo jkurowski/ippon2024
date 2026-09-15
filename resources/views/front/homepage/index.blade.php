@@ -1115,6 +1115,7 @@
     $ipSaleCards = $boxes->isNotEmpty()
         ? $boxes->map(fn ($b) => [
             'photo'            => ($b->file && is_file(public_path('uploads/boxes/'.$b->file))) ? asset('uploads/boxes/'.$b->file) : null,
+            'photo_webp'       => ($b->file_webp && is_file(public_path('uploads/boxes/webp/'.$b->file_webp))) ? asset('uploads/boxes/webp/'.$b->file_webp) : null,
             'badge'            => $ipSaleT($b, 'badge'),
             'location'         => $ipSaleT($b, 'location'),
             'name'             => $ipSaleT($b, 'name'),
@@ -1130,6 +1131,7 @@
 
             return [
                 'photo'            => $ipCardPhoto($inw),
+                'photo_webp'       => null,
                 'badge'            => $inw->card_badge,
                 'location'         => $inw->address ?: optional($city)->name,
                 'name'             => $inw->name,
@@ -1162,7 +1164,13 @@
                             @if($card['link_description'])
                                 <a href="{{ $card['link_description'] }}" class="ip-card-media-link" tabindex="-1" aria-hidden="true">
                             @endif
-                            @if($card['photo'])
+                            @if($card['photo'] && $card['photo_webp'])
+                                {{-- WebP z uploadu boksu, oryginalny plik jako fallback --}}
+                                <picture>
+                                    <source srcset="{{ $card['photo_webp'] }}" type="image/webp">
+                                    <img src="{{ $card['photo'] }}" alt="{{ $card['name'] }}" loading="lazy" decoding="async">
+                                </picture>
+                            @elseif($card['photo'])
                                 <img src="{{ $card['photo'] }}" alt="{{ $card['name'] }}" loading="lazy" decoding="async">
                             @endif
                             @if($card['link_description'])

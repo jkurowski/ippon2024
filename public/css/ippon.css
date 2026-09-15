@@ -570,7 +570,8 @@ body.ip-page {
 }
 /* Kafle "Inwestycje w sprzedazy" z modulu Boksy: obrazek i nazwa sa linkami
    do opisu, gdy link jest w adminie. */
-.ip-card-media-link {
+.ip-card-media-link,
+.ip-card-media picture {
   display: block;
   height: 100%;
 }

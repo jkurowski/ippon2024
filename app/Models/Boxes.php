@@ -40,6 +40,7 @@ class Boxes extends Model
         'link_apartments',
         'link_description',
         'file',
+        'file_webp',
         'sort'
     ];
 }

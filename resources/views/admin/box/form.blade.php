@@ -62,9 +62,9 @@
                                 @unless($isTranslation)
                                     <div class="row w-100 form-group">
                                         @if(Route::is('admin.box.create'))
-                                            @include('form-elements.html-input-file', ['label' => 'Obrazek', 'sublabel' => ' (min. 1700 px szerokości; kadr przycina się do boksu)', 'name' => 'file', 'required' => 1])
+                                            @include('form-elements.html-input-file', ['label' => 'Obrazek', 'sublabel' => ' (min. 960 px szerokości; kadr przycina się do boksu, wersja WebP tworzy się sama)', 'name' => 'file', 'required' => 1])
                                         @else
-                                            @include('form-elements.html-input-file', ['label' => 'Obrazek', 'sublabel' => ' (min. 1700 px szerokości; kadr przycina się do boksu)', 'name' => 'file', 'file' => $entry->file, 'file_preview' => 'uploads/boxes/', 'file_preview_style' => 'max-width:100%'])
+                                            @include('form-elements.html-input-file', ['label' => 'Obrazek', 'sublabel' => ' (min. 960 px szerokości; kadr przycina się do boksu, wersja WebP tworzy się sama)', 'name' => 'file', 'file' => $entry->file, 'file_preview' => 'uploads/boxes/', 'file_preview_style' => 'max-width:100%'])
                                         @endif
                                     </div>
                                 @endunless

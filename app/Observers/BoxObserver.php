@@ -2,19 +2,16 @@
 
 namespace App\Observers;
 
-use Illuminate\Support\Facades\File;
-
 // CMS
 use App\Models\Boxes;
+use App\Services\BoxService;
 
 class BoxObserver
 {
+    /* Po usunieciu boksu kasujemy obrazek razem z kopia WebP — jedno miejsce
+       z lista plikow (BoxService), zeby przy kolejnym formacie nie zostawaly sieroty. */
     public function deleted(Boxes $boxes)
     {
-        $file = public_path('uploads/boxes/' . $boxes->file);
-
-        if (File::isFile($file)) {
-            File::delete($file);
-        }
+        app(BoxService::class)->deleteFiles($boxes);
     }
 }
