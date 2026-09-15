@@ -3981,6 +3981,62 @@ a.ip-btn-submit {
     }
 }
 
+/* Karty na zakupie gruntow maja dluzsze opisy niz na stronie glownej (EN nawet
+   o polowe dluzsze od PL) i przy waskich kartach opis wypychal tytul poza
+   gore karty. Selektory przez .ip-land-section, zeby nie ruszac strony glownej. */
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+    /* 4 karty w rzedzie maja tu ~265-300 px. Wysokosc karty zostaje stala —
+       rosnaca karta przy hoverze szarpalaby calym rzedem — wiec zmniejszamy tresc. */
+    .ip-land-section .ip-step-card {
+        .ip-trust-card-body {
+            padding: 24px 20px;
+
+            h3 {
+                font-size: 21px;
+                line-height: 27px;
+            }
+        }
+
+        .ip-step-num {
+            margin-bottom: 2px;
+            font-size: 26px;
+            line-height: 30px;
+        }
+
+        .ip-trust-card-desc p {
+            font-size: 15px;
+            line-height: 24px;
+        }
+    }
+
+    .ip-land-section .ip-step-card:hover .ip-trust-card-desc,
+    .ip-land-section .ip-step-card:focus .ip-trust-card-desc {
+        margin-top: 12px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    /* Na telefonie opis jest widoczny od razu (hover:none), wiec karta moze
+       rosnac z trescia. aspect-ratio tego nie da przy overflow:hidden — minimum
+       4:3 trzyma pseudo-element w tej samej komorce siatki co tresc. */
+    .ip-land-section .ip-trust-card {
+        display: grid;
+        aspect-ratio: auto;
+
+        &:before {
+            content: '';
+            grid-area: 1 / 1;
+            padding-top: 75%;
+        }
+    }
+
+    .ip-land-section .ip-trust-card-body {
+        position: relative;
+        grid-area: 1 / 1;
+        align-self: end;
+    }
+}
+
 
 /* RWD
 ================================================== */

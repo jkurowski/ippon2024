@@ -248,7 +248,7 @@
             'title' => ['pl' => 'Bezpłatna wycena i audyt prawny', 'en' => 'Free valuation and legal audit'],
             'desc'  => [
                 'pl' => 'Nasi analitycy bezpłatnie ocenią potencjał inwestycyjny Twojej działki i pomogą ustalić jej dokładny status formalno-prawny',
-                'en' => 'Our analysts will assess the investment potential of your plot free of charge and help establish its exact legal status',
+                'en' => 'Our analysts will assess the investment potential of your land free of charge and help determine its exact legal and administrative status',
             ],
         ],
         [
@@ -256,15 +256,15 @@
             'title' => ['pl' => 'Wsparcie w formalnościach', 'en' => 'Support with formalities'],
             'desc'  => [
                 'pl' => 'Interesują nas również grunty o nieunormowanej sytuacji. Przeprowadzimy Cię przez skomplikowane procedury urzędowe',
-                'en' => 'We are also interested in land with an unregulated status. We will guide you through complex administrative procedures',
+                'en' => 'We are also interested in land with unresolved legal or administrative issues. We will guide you through even the most complex official procedures',
             ],
         ],
         [
             'img'   => 'images/homepage/trust-card-3.jpg',
-            'title' => ['pl' => 'Współpraca na równych warunkach', 'en' => 'Cooperation on equal terms'],
+            'title' => ['pl' => 'Współpraca na równych warunkach', 'en' => 'Partnership on equal terms'],
             'desc'  => [
                 'pl' => 'Każda nieruchomość jest inna. Dostosowujemy strukturę transakcji i terminy do indywidualnych potrzeb właściciela',
-                'en' => 'Every property is different. We adjust the structure and schedule of the transaction to the individual needs of the owner',
+                'en' => 'Every property is unique. We tailor the transaction structure and timeline to the individual needs of each landowner',
             ],
         ],
     ];
@@ -273,37 +273,37 @@
         [
             'num'   => '01.',
             'img'   => 'images/homepage/trust-card-1.jpg',
-            'title' => ['pl' => 'Zgłoszenie gruntu', 'en' => 'Submitting the land'],
+            'title' => ['pl' => 'Zgłoszenie gruntu', 'en' => 'Submit Your Land'],
             'desc'  => [
                 'pl' => 'Wypełnij krótki formularz na dole strony, podając podstawowe parametry działki',
-                'en' => 'Fill in the short form at the bottom of the page with the basic parameters of the plot',
+                'en' => 'Complete the short form at the bottom of the page and provide the basic details of your property',
             ],
         ],
         [
             'num'   => '02.',
             'img'   => 'images/homepage/trust-card-2.jpg',
-            'title' => ['pl' => 'Bezpłatna analiza', 'en' => 'Free analysis'],
+            'title' => ['pl' => 'Bezpłatna analiza', 'en' => 'Free Analysis'],
             'desc'  => [
                 'pl' => 'Nasz zespół ekspertów przeanalizuje potencjał terenu, dokumentację i przygotuje rynkową ofertę cenową',
-                'en' => 'Our team of experts will analyse the potential of the site and its documentation, and prepare a market price offer',
+                'en' => 'Our team of experts will assess the development potential of your land, review the relevant documentation, and prepare a competitive market-based offer',
             ],
         ],
         [
             'num'   => '03.',
             'img'   => 'images/homepage/inw-synergia.jpg',
-            'title' => ['pl' => 'Decyzja i umowa', 'en' => 'Decision and contract'],
+            'title' => ['pl' => 'Decyzja i umowa', 'en' => 'Decision and Agreement'],
             'desc'  => [
                 'pl' => 'Po akceptacji warunków przystępujemy do przygotowania transparentnej umowy notarialnej. Ty zyskujesz gwarancję szybkiej i bezpiecznej zapłaty',
-                'en' => 'Once the terms are accepted, we prepare a transparent notarial deed. You get a guarantee of fast and secure payment',
+                'en' => 'Once the terms have been accepted, we proceed with preparing a clear and transparent notarial agreement. You benefit from the assurance of fast and secure payment',
             ],
         ],
         [
             'num'   => '04.',
             'img'   => 'images/homepage/inw-slow.jpg',
-            'title' => ['pl' => 'Finalizacja', 'en' => 'Finalisation'],
+            'title' => ['pl' => 'Finalizacja', 'en' => 'Completion'],
             'desc'  => [
                 'pl' => 'Nie musisz się martwić skomplikowanymi procedurami ani brakiem kompletnej dokumentacji',
-                'en' => 'You do not need to worry about complicated procedures or incomplete documentation',
+                'en' => 'You do not need to worry about complex procedures or incomplete documentation',
             ],
         ],
     ];
@@ -313,7 +313,7 @@
     @include('layouts.partials.ip-pagehead', [
         'title'  => $L == 'pl'
                         ? 'Rozwiń potencjał swojej ziemi. Bezpieczna sprzedaż gruntów z Ippon Group'
-                        : 'Unlock the potential of your land. A safe land sale with Ippon Group',
+                        : 'Unlock the potential of your land. A secure land sale with Ippon Group',
         'crumbs' => [
             ['label' => $L == 'pl' ? 'Zakup gruntu' : 'Land purchase', 'url' => null],
         ],
@@ -330,7 +330,7 @@
         <div class="container">
 
             <x-section-head>
-                {{ $L == 'pl' ? 'Zyskaj pewność, profesjonalizm i uczciwą wycenę' : 'Gain certainty, professionalism and a fair valuation' }}
+                {{ $L == 'pl' ? 'Zyskaj pewność, profesjonalizm i uczciwą wycenę' : 'Gain confidence, professional service, and a fair valuation' }}
             </x-section-head>
 
             <p class="ip-land-lead">
@@ -338,8 +338,8 @@
                     Sprzedaż działki deweloperowi to proces, który wymaga specjalistycznej wiedzy.<br>
                     Decydując się na współpracę z Ippon Group, zyskujesz pełne wsparcie ekspertów i unikalne korzyści:
                 @else
-                    Selling a plot to a developer is a process that calls for specialist knowledge.<br>
-                    By working with Ippon Group you gain full expert support and unique benefits:
+                    Selling land to a property developer is a process that requires specialist expertise.<br>
+                    By choosing to work with Ippon Group, you benefit from comprehensive expert support and a range of unique advantages:
                 @endif
             </p>
 
@@ -366,7 +366,7 @@
     <section class="ip-section ip-land-section ip-land-area">
         <div class="container">
 
-            <x-section-head>{{ $L == 'pl' ? 'Obszar naszego zainteresowania' : 'What we are looking for' }}</x-section-head>
+            <x-section-head>{{ $L == 'pl' ? 'Obszar naszego zainteresowania' : 'Areas of Interest' }}</x-section-head>
 
             <div class="row align-items-center">
                 <div class="col-12 col-xl-6">
@@ -374,7 +374,7 @@
                         @if($L == 'pl')
                             W ramach dynamicznej ekspansji na rynku nieruchomości poszukujemy gruntów spełniających poniższe kryteria:
                         @else
-                            As part of our dynamic expansion on the property market we are looking for land that meets the criteria below:
+                            As part of our dynamic expansion in the real estate market, we are looking for land that meets the following criteria:
                         @endif
                     </p>
 
@@ -392,7 +392,7 @@
                                     @if($L == 'pl')
                                         Interesują nas atrakcyjne działki w miastach takich jak Olsztyn, Warszawa, Trójmiasto oraz w ich bezpośrednich okolicach
                                     @else
-                                        We are interested in attractive plots in cities such as Olsztyn, Warsaw and the Tri-City, as well as in their immediate surroundings
+                                        We are interested in attractive development sites in cities such as Olsztyn, Warsaw and the Tri-City area, as well as in their immediate surroundings
                                     @endif
                                 </p>
                             </div>
@@ -405,12 +405,12 @@
                                 </svg>
                             </span>
                             <div class="ip-crit-text">
-                                <h3>{{ $L == 'pl' ? 'Przeznaczenie' : 'Intended use' }}</h3>
+                                <h3>{{ $L == 'pl' ? 'Przeznaczenie' : 'Intended Use' }}</h3>
                                 <p>
                                     @if($L == 'pl')
                                         Grunty pod wielorodzinne budownictwo mieszkaniowe (osiedla bloków, apartamentowce) oraz nieruchomości o potencjale komercyjnym (pod parki handlowe i obiekty street mall)
                                     @else
-                                        Land for multi-family housing (housing estates, apartment buildings) and properties with commercial potential (retail parks and street mall schemes)
+                                        Land designated for multi-family residential development (housing estates and apartment buildings), as well as properties with commercial potential for retail parks and street mall developments
                                     @endif
                                 </p>
                             </div>
@@ -428,7 +428,7 @@
                                     @if($L == 'pl')
                                         Działki objęte Miejscowym Planem Zagospodarowania Przestrzennego (MPZP), z wydanymi Warunkami Zabudowy (WZ), jak również tereny o statusie rolnym, leśnym lub poprzemysłowym wymagające transformacji
                                     @else
-                                        Plots covered by a local zoning plan (MPZP) or with planning permission (WZ) issued, as well as agricultural, forest or post-industrial sites requiring transformation
+                                        Land covered by a Local Spatial Development Plan (MPZP), with valid Development Conditions (WZ), as well as agricultural, forest, or post-industrial land requiring redevelopment or a change of designated use
                                     @endif
                                 </p>
                             </div>
@@ -453,7 +453,7 @@
         <div class="container">
 
             <x-section-head>
-                {{ $L == 'pl' ? 'Prosta i bezpieczna ścieżka do finalizacji' : 'A simple and safe path to finalisation' }}
+                {{ $L == 'pl' ? 'Prosta i bezpieczna ścieżka do finalizacji' : 'A Simple and Secure Path to Completion' }}
             </x-section-head>
 
             <div class="row ip-cards-row">
@@ -478,10 +478,10 @@
 
     {{-- Zglos swoja nieruchomosc — wspolny komponent sekcji kontaktowej --}}
     @include('layouts.partials.ip-contact-section', [
-        'title'     => $L == 'pl' ? 'Zgłoś swoją nieruchomość' : 'Submit your property',
+        'title'     => $L == 'pl' ? 'Zgłoś swoją nieruchomość' : 'Submit Your Property',
         'lead'      => $L == 'pl'
                         ? 'Nie musisz martwić się skomplikowanymi procedurami ani brakiem kompletnej dokumentacji. Zostaw nam podstawowe informacje – nasz ekspert skontaktuje się z Tobą, aby omówić szczegóły i zaproponować wstępną, <strong>bezpłatną wycenę</strong>.'
-                        : 'You do not need to worry about complicated procedures or incomplete documentation. Leave us the basic information – our expert will contact you to discuss the details and propose an initial, <strong>free valuation</strong>.',
+                        : 'You do not need to worry about complex procedures or incomplete documentation. Simply provide us with some basic information, and one of our experts will contact you to discuss the details and provide a <strong>preliminary valuation free of charge</strong>.',
         'form'      => 'front.land.ip-form',
         'page_name' => 'land-form',
         'class'     => 'pt-0',
