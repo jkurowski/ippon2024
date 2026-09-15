@@ -152,58 +152,62 @@
 
     {{-- Menu — wg ramki "STRONA GLOWNA - WIDOK MENU".
          Dziala na kazdej szerokosci, takze na desktopie.
-         Struktura odwzorowana z produkcji (ippon.group), linki przez route(). --}}
+         Struktura odwzorowana z produkcji (ippon.group), linki przez route().
+         Etykiety PL/EN w tablicy, jak w szablonach podstron. EN wziete ze starego
+         menu (resources/lang/en/website.php, menu-*), z poprawionymi bledami
+         ("Comming soon", "In sales"). --}}
     @php
-        $ipL = ['locale' => app()->getLocale()];
+        $ipL    = ['locale' => app()->getLocale()];
+        $ipLang = in_array(app()->getLocale(), ['pl', 'en']) ? app()->getLocale() : 'pl';
 
         $ipMenu = [
             [
                 'key'   => 'o-grupie',
-                'label' => 'O grupie',
+                'label' => ['pl' => 'O grupie', 'en' => 'Company'],
                 'sub'   => [
-                    ['label' => 'O nas',        'url' => route('about', $ipL)],
-                    ['label' => 'Zarząd',       'url' => route('zarzad', $ipL)],
-                    ['label' => 'Aktualności',  'url' => route('front.articles.index', $ipL)],
-                    ['label' => 'Kariera',      'url' => route('career', $ipL)],
+                    ['label' => ['pl' => 'O nas',       'en' => 'About Us'],   'url' => route('about', $ipL)],
+                    ['label' => ['pl' => 'Zarząd',      'en' => 'Management'], 'url' => route('zarzad', $ipL)],
+                    ['label' => ['pl' => 'Aktualności', 'en' => 'News'],       'url' => route('front.articles.index', $ipL)],
+                    ['label' => ['pl' => 'Kariera',     'en' => 'Career'],     'url' => route('career', $ipL)],
                 ],
             ],
             [
                 'key'   => 'zakup-gruntu',
-                'label' => 'Zakup gruntu',
+                'label' => ['pl' => 'Zakup gruntu', 'en' => 'Land purchase'],
                 'url'   => route('land', $ipL),
             ],
             [
                 'key'   => 'mieszkania',
-                'label' => 'Mieszkania',
+                'label' => ['pl' => 'Mieszkania', 'en' => 'Apartments'],
                 'sub'   => [
-                    ['label' => 'W sprzedaży',  'url' => route('developro.current', $ipL)],
-                    ['label' => 'Już wkrótce',  'url' => route('developro.soon', $ipL)],
-                    ['label' => 'Planowane',    'url' => route('developro.planned', $ipL)],
+                    ['label' => ['pl' => 'W sprzedaży', 'en' => 'For sale'],    'url' => route('developro.current', $ipL)],
+                    ['label' => ['pl' => 'Już wkrótce', 'en' => 'Coming soon'], 'url' => route('developro.soon', $ipL)],
+                    ['label' => ['pl' => 'Planowane',   'en' => 'Planned'],     'url' => route('developro.planned', $ipL)],
                 ],
             ],
             [
                 'key'   => 'doswiadczenie',
-                'label' => 'Doświadczenie',
+                'label' => ['pl' => 'Doświadczenie', 'en' => 'Experience'],
                 'sub'   => [
-                    ['label' => 'Obiekty komercyjne',      'url' => route('commercial', $ipL)],
-                    ['label' => 'Wynajem',                 'url' => route('rent', $ipL)],
-                    ['label' => 'Zrealizowane inwestycje', 'url' => route('developro.completed', $ipL)],
+                    ['label' => ['pl' => 'Obiekty komercyjne',      'en' => 'Commercial buildings'],  'url' => route('commercial', $ipL)],
+                    ['label' => ['pl' => 'Wynajem',                 'en' => 'Rent'],                  'url' => route('rent', $ipL)],
+                    ['label' => ['pl' => 'Zrealizowane inwestycje', 'en' => 'Completed investments'], 'url' => route('developro.completed', $ipL)],
                 ],
             ],
             [
                 'key'   => 'strefa-klienta',
-                'label' => 'Strefa Klienta',
+                'label' => ['pl' => 'Strefa Klienta', 'en' => 'Customer Zone'],
                 'sub'   => [
-                    ['label' => 'Panel klienta',        'url' => '#'],
-                    ['label' => 'Jak kupić mieszkanie?','url' => route('static.howbuy', $ipL)],
-                    ['label' => 'Rabaty',               'url' => route('promotion', $ipL)],
-                    ['label' => 'Mieszkanie pod klucz', 'url' => route('pod-klucz', $ipL)],
-                    ['label' => 'Blog',                 'url' => route('front.news.index', $ipL)],
+                    ['label' => ['pl' => 'Panel klienta',         'en' => 'Customer panel'],           'url' => '#'],
+                    ['label' => ['pl' => 'Jak kupić mieszkanie?', 'en' => 'How to buy an apartment?'], 'url' => route('static.howbuy', $ipL)],
+                    ['label' => ['pl' => 'Rabaty',                'en' => 'Discounts'],                'url' => route('promotion', $ipL)],
+                    ['label' => ['pl' => 'Mieszkanie pod klucz',  'en' => 'Turnkey apartment'],        'url' => route('pod-klucz', $ipL)],
+                    ['label' => ['pl' => 'Blog',                  'en' => 'Blog'],                     'url' => route('front.news.index', $ipL)],
                 ],
             ],
             [
                 'key'   => 'kontakt',
-                'label' => 'Kontakt',
+                'label' => ['pl' => 'Kontakt', 'en' => 'Contact'],
                 'url'   => route('contact.index', $ipL),
             ],
         ];
@@ -221,14 +225,14 @@
                             <li>
                                 @if(!empty($item['sub']))
                                     <button type="button" class="ip-menu-item" data-sub="{{ $item['key'] }}" aria-expanded="false">
-                                        <span>{{ $item['label'] }}</span>
+                                        <span>{{ $item['label'][$ipLang] }}</span>
                                         <svg class="ip-menu-arrow" viewBox="0 0 5 10" aria-hidden="true">
                                             <polyline points="0.5,0.5 4.5,5 0.5,9.5"/>
                                         </svg>
                                     </button>
                                 @else
                                     <a class="ip-menu-item" href="{{ $item['url'] }}">
-                                        <span>{{ $item['label'] }}</span>
+                                        <span>{{ $item['label'][$ipLang] }}</span>
                                     </a>
                                 @endif
                             </li>
@@ -245,14 +249,14 @@
                                     <svg viewBox="0 0 5 10" aria-hidden="true">
                                         <polyline points="4.5,0.5 0.5,5 4.5,9.5"/>
                                     </svg>
-                                    <span>Wróć</span>
+                                    <span>{{ $ipLang == 'pl' ? 'Wróć' : 'Back' }}</span>
                                 </button>
 
                                 <ul>
                                     @foreach($item['sub'] as $s)
                                         <li>
                                             <a class="ip-menu-item" href="{{ $s['url'] }}">
-                                                <span>{{ $s['label'] }}</span>
+                                                <span>{{ $s['label'][$ipLang] }}</span>
                                             </a>
                                         </li>
                                     @endforeach
@@ -443,7 +447,7 @@
 <div id="widget">
     <ul>
         <li>
-            <a rel="nofollow" class="Shield" href="{{ route('clipboard.index') }}"><i id="clipboardcount">{{ $itemCount }}</i><span>Schowek</span></a>
+            <a rel="nofollow" class="Shield" href="{{ route('clipboard.index') }}"><i id="clipboardcount">{{ $itemCount }}</i><span>{{ $ipLang == 'pl' ? 'Schowek' : 'Clipboard' }}</span></a>
         </li>
         <li>
             <a rel="nofollow" target="_blank" class="Facebook" href="https://www.facebook.com/ippongroup"><span>Facebook</span></a>

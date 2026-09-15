@@ -61,7 +61,36 @@
 
 {{-- ==========================================================================
      NOWA STOPKA — makieta Figma 2026
+     Napisy PL/EN w tablicy, jak w menu naglowka. Adresy zostaja w polskiej
+     formie — to adresy pocztowe. EN godzin/etykiet jak w starej stopce
+     (resources/lang/en/website.php, footer-*).
      ========================================================================== --}}
+@php
+    $ipLang = in_array(app()->getLocale(), ['pl', 'en']) ? app()->getLocale() : 'pl';
+
+    $ipF = [
+        'claim'    => ['pl' => 'Czas buduje wartość', 'en' => 'Time Builds Value'],
+        'member'   => ['pl' => 'Jesteśmy członkiem', 'en' => 'We are a member of'],
+        'pzfd'     => ['pl' => 'Polski Związek Firm Deweloperskich', 'en' => 'Polish Association of Developers'],
+        'contact'  => ['pl' => 'Kontakt', 'en' => 'Contact'],
+        'sales'    => ['pl' => 'Biuro sprzedaży', 'en' => 'Sales office'],
+        'hours_1'  => ['pl' => 'Godziny otwarcia: pn.-pt. 08:00-16:00', 'en' => 'Opening hours: Mon-Fri 08:00-16:00'],
+        'hours_2'  => ['pl' => 'Godziny otwarcia: pn.-pt. 09:00-17:00', 'en' => 'Opening hours: Mon-Fri 09:00-17:00'],
+        'disclaimer' => [
+            'pl' => 'Wizualizacje i wszelkie prezentacje graficzne zamieszczone na stronie mają charakter wyłącznie poglądowy
+                     i nie stanowią zapewnień o właściwościach przedmiotów wizualizacji i/lub prezentacji.
+                     Wygląd wewnętrzny i zewnętrzny budynku, zagospodarowania terenu oraz poszczególnych lokali
+                     mogą ulec zmianie w toku procesu inwestycyjnego i po jego zakończeniu.',
+            'en' => 'All visualisations and graphic presentations on this website are for illustrative purposes only
+                     and do not constitute a representation of the properties of the items shown.
+                     The interior and exterior appearance of the buildings, the landscaping and individual units
+                     may change during the course of the development process and after its completion.',
+        ],
+        'credits'  => ['pl' => 'Projekt i wykonanie:', 'en' => 'Design and development:'],
+        'privacy'  => ['pl' => 'Polityka prywatności', 'en' => 'Privacy policy'],
+        'news'     => ['pl' => 'Aktualności', 'en' => 'News'],
+    ];
+@endphp
 <footer class="ip-footer">
     <div class="container">
         <div class="row">
@@ -70,7 +99,7 @@
                 <a href="{{ url('/') }}">
                     <img class="ip-footer-logo" src="{{ asset('images/homepage/logo-footer.png') }}" width="268" height="97" alt="IPPON GROUP">
                 </a>
-                <p class="ip-footer-claim">Czas buduje wartość</p>
+                <p class="ip-footer-claim">{{ $ipF['claim'][$ipLang] }}</p>
 
                 <div class="ip-footer-social">
                     <span>Social media:</span>
@@ -97,18 +126,18 @@
                 </p>
 
                 <div class="ip-footer-member">
-                    <span>Jesteśmy członkiem</span>
-                    <img src="{{ asset('images/homepage/pzfd.png') }}" width="175" height="62" alt="Polski Związek Firm Deweloperskich">
+                    <span>{{ $ipF['member'][$ipLang] }}</span>
+                    <img src="{{ asset('images/homepage/pzfd.png') }}" width="175" height="62" alt="{{ $ipF['pzfd'][$ipLang] }}">
                 </div>
             </div>
 
             <div class="col-12 col-lg-3">
-                <h4>Kontakt</h4>
+                <h4>{{ $ipF['contact'][$ipLang] }}</h4>
                 <div class="ip-footer-line"></div>
                 <p>
                     ul. Żelazna 4<br>
                     10-419 Olsztyn<br>
-                    Godziny otwarcia: pn.-pt. 08:00-16:00
+                    {{ $ipF['hours_1'][$ipLang] }}
                 </p>
 
                 <div class="ip-footer-rule"></div>
@@ -126,12 +155,12 @@
             </div>
 
             <div class="col-12 col-lg-3">
-                <h4>Biuro sprzedaży</h4>
+                <h4>{{ $ipF['sales'][$ipLang] }}</h4>
                 <div class="ip-footer-line"></div>
                 <p>
                     ul. Żelazna 4<br>
                     10-419 Olsztyn<br>
-                    Godziny otwarcia: pn.-pt. 09:00-17:00
+                    {{ $ipF['hours_2'][$ipLang] }}
                 </p>
 
                 <div class="ip-footer-rule"></div>
@@ -155,10 +184,7 @@
         </div>
 
         <p class="ip-footer-disclaimer">
-            Wizualizacje i wszelkie prezentacje graficzne zamieszczone na stronie mają charakter wyłącznie poglądowy
-            i nie stanowią zapewnień o właściwościach przedmiotów wizualizacji i/lub prezentacji.
-            Wygląd wewnętrzny i zewnętrzny budynku, zagospodarowania terenu oraz poszczególnych lokali
-            mogą ulec zmianie w toku procesu inwestycyjnego i po jego zakończeniu.
+            {{ $ipF['disclaimer'][$ipLang] }}
         </p>
     </div>
 
@@ -166,14 +192,14 @@
         <div class="container">
             <p>
                 Copyright &copy; {{ date('Y') }} IPPON GROUP All Rights Reserved &nbsp;|&nbsp;
-                Projekt i wykonanie: <a class="ip-devlink" href="https://developro.pl" target="_blank" rel="noopener">DeveloPro.pl</a>
+                {{ $ipF['credits'][$ipLang] }} <a class="ip-devlink" href="https://developro.pl" target="_blank" rel="noopener">DeveloPro.pl</a>
             </p>
             <nav>
-                <a href="#">Polityka prywatności</a>
+                <a href="#">{{ $ipF['privacy'][$ipLang] }}</a>
                 <i>|</i>
-                <a href="#">Aktualności</a>
+                <a href="#">{{ $ipF['news'][$ipLang] }}</a>
                 <i>|</i>
-                <a href="#">Kontakt</a>
+                <a href="#">{{ $ipF['contact'][$ipLang] }}</a>
             </nav>
         </div>
     </div>

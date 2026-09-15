@@ -19,7 +19,7 @@
 
     <div class="container">
         <nav class="ip-breadcrumbs">
-            <a href="{{ url('/'.app()->getLocale()) }}">Strona główna</a>
+            <a href="{{ url('/'.app()->getLocale()) }}">{{ app()->getLocale() == 'en' ? 'Homepage' : 'Strona główna' }}</a>
             @foreach($crumbs as $crumb)
                 <i>|</i>
                 @if(!empty($crumb['url']))
