@@ -51,7 +51,7 @@
                     ></iframe>
                         </div>
                     @endif
-                    @include('front.developro.investment_shared.filtr', ['area_range' => $investment->area_range,  'floors' => $floors, 'floorFiltr' => 1])
+                    @include('front.developro.investment_shared.filtr', ['area_range' => $investment->area_range,  'floors' => $floors, 'floorFiltr' => 1, 'filterBuildings' => $allBuildings])
                     <div class="mt-4"></div>
                     @include('front.investment_shared.multi', ['investment' => $investment])
                 </div>

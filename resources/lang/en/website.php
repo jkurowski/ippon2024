@@ -2,6 +2,7 @@
 
 return [
     'select-option-investment' => 'Investment',
+    'select-option-building' => 'Building',
     'select-option-floor' => 'Floor',
     'select-option-floor-groundfloor' => 'ground floor',
     'select-option-floor-1' => '1st floor',

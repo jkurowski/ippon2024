@@ -2,6 +2,7 @@
 
  return array (
   'select-option-investment' => 'Inwestycja',
+  'select-option-building' => 'Budynek',
   'select-option-floor' => 'Piętro',
   'select-option-floor-groundfloor' => 'parter',
   'select-option-floor-1' => '1 piętro',

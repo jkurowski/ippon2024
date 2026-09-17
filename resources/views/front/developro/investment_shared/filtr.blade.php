@@ -1,6 +1,27 @@
 <div id="filtr">
     <div class="container-fluid">
         <form method="get" class="row" action="#filtr">
+            {{-- Wybor budynku. Leci tylko w inwestycjach budynkowych (type 1),
+                 ktore podaja $filterBuildings — na inwestycjach pietrowych ten
+                 sam partial dziala jak dotad. Przy jednym budynku select nie ma
+                 sensu, ale parametr z adresu trzeba przeniesc przez formularz,
+                 bo to GET i inaczej "Szukaj" by go zgubilo. --}}
+            @if(!empty($filterBuildings) && count($filterBuildings) > 1)
+                <div class="col-12 col-lg">
+                    <div class="fake-select fake-select-icon">
+                        <i class="las la-building"></i>
+                        <select name="building" id="filtr-building">
+                            <option value="">@lang('website.select-option-building')</option>
+                            @foreach($filterBuildings as $filterBuilding)
+                                <option value="{{ $filterBuilding->id }}"
+                                    @if((string) request()->input('building') === (string) $filterBuilding->id) selected @endif>{{ $filterBuilding->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+            @elseif(request()->filled('building'))
+                <input type="hidden" name="building" value="{{ request()->input('building') }}">
+            @endif
             @if($floorFiltr || $floors == '0' )
                 <div class="col-12 col-lg">
                     <div class="fake-select fake-select-icon">

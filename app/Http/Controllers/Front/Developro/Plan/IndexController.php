@@ -63,8 +63,31 @@ class IndexController extends Controller
         if ($investment->type == 1) {
             $buildings = $investment->activeBuildings;
 
+            /* Filtr budynku dziala z adresu (?building=ID) — bez selecta w
+               formularzu. ID musi nalezec do tej inwestycji, inaczej parametr
+               jest ignorowany i lista wraca do pelnego zestawu budynkow.
+               Zawezamy $buildings PRZED domknieciami ponizej, bo `use` lapie
+               kolekcje przez wartosc — dzieki temu i lista mieszkan, i sekcje
+               budynkow, i pietra schodza do wybranego budynku. */
+            $allBuildings = $buildings;
+
+            $buildingFilter = $request->filled('building')
+                ? $allBuildings->firstWhere('id', (int) $request->input('building'))
+                : null;
+
+            if ($buildingFilter) {
+                $buildings = $allBuildings->where('id', $buildingFilter->id)->values();
+            }
+
             $investment_room = $investment->load([
-                'buildingRooms' => function ($query) use ($investment, $request) {
+                'buildingRooms' => function ($query) use ($investment, $request, $buildingFilter) {
+                    /* Prefiks `properties.` jest konieczny: relacja buildingRooms
+                       dolacza `floors`, a ta tabela tez ma kolumne building_id —
+                       bez tego MySQL rzuca "Column 'building_id' is ambiguous". */
+                    if ($buildingFilter) {
+                        $query->where('properties.building_id', $buildingFilter->id);
+                    }
+
                     if (!$request->input('status')) {
                         $query->orderBy('status', 'ASC');
                     }
@@ -123,6 +146,10 @@ class IndexController extends Controller
             return view('front.developro.investment.plan-2', [
                 'investment' => $investment,
                 'buildings' => $buildings, // Pass multiple buildings
+                /* Pelna lista do selecta w filtrze — $buildings jest zawezone
+                   do wybranego budynku, wiec nie da sie z niego wrocic. */
+                'allBuildings' => $allBuildings,
+                'buildingFilter' => $buildingFilter,
                 'properties' => $investment->buildingRooms, // Get properties from all buildings
                 'investment_page' => $investmentPage,
                 'page' => $menu_page,
