@@ -211,10 +211,10 @@ body.ip-page {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 62px;
-  height: 62px;
+  width: 40px;
+  height: 40px;
   color: #ffffff;
-  font-size: 26px;
+  font-size: 18px;
   transition: filter 0.25s ease;
   /* etykieta wysuwana w lewo */
 }
@@ -255,8 +255,8 @@ body.ip-page {
 }
 #widget i {
   position: absolute;
-  top: 12px;
-  right: 14px;
+  top: -9px;
+  right: 29px;
   display: flex;
   align-items: center;
   justify-content: center;
