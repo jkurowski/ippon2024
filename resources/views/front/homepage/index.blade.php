@@ -1305,7 +1305,7 @@
 @endif
 
 {{-- Dlaczego warto nam zaufac --}}
-<section class="ip-section ip-trust-section pt-0">
+<section class="ip-section ip-trust-section @if($investments_soon->count() == 0) pt-0 @endif">
     <div class="container">
         <x-section-head>
             Bezpieczeństwo transakcji, bezkompromisowa jakość.
