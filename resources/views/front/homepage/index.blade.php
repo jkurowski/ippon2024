@@ -1305,7 +1305,7 @@
 @endif
 
 {{-- Dlaczego warto nam zaufac --}}
-<section class="ip-section ip-trust-section">
+<section class="ip-section ip-trust-section pt-0">
     <div class="container">
         <x-section-head>
             Bezpieczeństwo transakcji, bezkompromisowa jakość.
