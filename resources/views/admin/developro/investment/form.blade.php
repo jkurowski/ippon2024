@@ -82,7 +82,6 @@
                         <div class="col-4">
                             @include('form-elements.html-input-text', [
                                 'label' => 'Etap',
-                                'sublabel' => ' (budynki oddane w tym etapie, np. „Budynek Junona i Jowisz")',
                                 'name' => 'stage',
                                 'value' => $entry->stage,
                             ])
