@@ -22,6 +22,13 @@
             <div class="card mt-3">
                 @include('form-elements.back-route-button')
                 <div class="card-body control-col12">
+
+                    {{-- Lista bledow walidacji. Bez niej odrzucony zapis wygladal
+                         jak "formularz sie nie zapisuje" — zwlaszcza w trybie
+                         tlumaczenia, gdzie pole, na ktorym leciala walidacja,
+                         w ogole sie nie renderuje. --}}
+                    @include('form-elements.errors')
+
                     @if(!Request::get('lang'))
                     <div class="row w-100 mb-4">
                         <div class="col-4">
@@ -69,6 +76,16 @@
                     <div class="row w-100 mb-4">
                         <div class="col-4">
                             @include('form-elements.html-input-text', ['label' => 'Adres inwestycji', 'name' => 'address', 'value' => $entry->address])
+                        </div>
+                        {{-- Poza blokiem @if(!Request::get('lang')), bo "Etap" jest
+                             tlumaczalny — musi byc widoczny takze przy edycji EN. --}}
+                        <div class="col-4">
+                            @include('form-elements.html-input-text', [
+                                'label' => 'Etap',
+                                'sublabel' => ' (budynki oddane w tym etapie, np. „Budynek Junona i Jowisz")',
+                                'name' => 'stage',
+                                'value' => $entry->stage,
+                            ])
                         </div>
                         @if(!Request::get('lang'))
                         <div class="col-4">

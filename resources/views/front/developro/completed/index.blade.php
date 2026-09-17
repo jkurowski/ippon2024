@@ -156,6 +156,15 @@
                                                 {{ $r->address }}
                                             </span>
                                         @endif
+
+                                        {{-- Etap: budynki oddane w tym etapie. Osobne pole w CMS-ie,
+                                             bo wczesniej klient wpisywal je w adres. --}}
+                                        @if($r->stage)
+                                            <span class="ip-done-stage">
+                                                @include('layouts.partials.ip-building')
+                                                {{ $r->stage }}
+                                            </span>
+                                        @endif
                                     </div>
 
                                     {{-- rok z pola "Termin zakonczenia inwestycji" (CMS) --}}

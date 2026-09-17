@@ -34,6 +34,7 @@ class InvestmentFormRequest extends FormRequest
             'marker' => 'boolean',
             'contact_form_text' => '',
             'address' => '',
+            'stage' => ['nullable', 'string', 'max:120'],
             'city' => '',
             'date_start' => '',
             'date_end' => '',
@@ -60,7 +61,13 @@ class InvestmentFormRequest extends FormRequest
             'inv_property_number' => ['nullable', 'string', 'max:50'],
             'inv_postal_code' => ['nullable', 'string', 'max:20', 'regex:/^\d{2}-\d{3}$/'], // matches 00-000 format
 
-            'company_id' => ['required', 'integer', 'exists:investment_companies,id'],
+            /* 'sometimes', bo w trybie tlumaczenia (?lang=en) formularz renderuje
+               same pola tekstowe — select "Spolka celowa" siedzi w bloku
+               @if(!Request::get('lang')) i nie leci w POST. Przy zwyklym
+               'required' zapis tlumaczenia przepadal za kazdym razem, w dodatku
+               bez zadnego komunikatu. Gdy pole jest w formularzu, wymog dziala
+               jak dotad. */
+            'company_id' => ['sometimes', 'required', 'integer', 'exists:investment_companies,id'],
             'sale_point_id' => ['nullable', 'integer', 'exists:investment_sale_points,id'],
         ];
     }

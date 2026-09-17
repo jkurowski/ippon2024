@@ -3357,6 +3357,24 @@ a.ip-btn-submit {
   flex: 0 0 20px;
   color: #b1834e;
 }
+/* Etap (budynki oddane w danym etapie) — ta sama linia co adres, tylko
+   z ikona budynku. Pokazuje sie tylko, gdy pole w CMS-ie jest wypelnione. */
+.ip-done-stage {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 24px;
+  color: #6b6b6b;
+}
+.ip-done-stage .ip-building {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  color: #b1834e;
+}
 /* Rok zakonczenia — trzyma sie prawej krawedzi karty i nie lamie sie
    razem z tytulem. Pokazuje sie tylko, gdy w CMS-ie jest wypelniony. */
 .ip-done-end {

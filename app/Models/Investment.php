@@ -25,7 +25,8 @@ class Investment extends Model
         'end_content',
         'meta_title',
         'meta_description',
-        'address'
+        'address',
+        'stage'
     ];
 
     /**
@@ -40,6 +41,7 @@ class Investment extends Model
         'name',
         'slug',
         'address',
+        'stage',
         'city',
         'date_start',
         'date_end',
