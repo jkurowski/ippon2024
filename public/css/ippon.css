@@ -651,7 +651,7 @@ body.ip-page {
   line-height: 19px;
   white-space: nowrap;
 }
-.ip-card-params li:not(:last-child):after {
+.ip-card-params li:after {
   content: '';
   width: 1px;
   height: 19px;
@@ -671,13 +671,8 @@ body.ip-page {
    ("2 pietra, winda") zawsze w drugiej. Trzeci parametr bierze caly wiersz,
    wiec drugi nie potrzebuje kreski, a trzeci wciecia z `li + li` — takze
    w breakpointach nizej (stad selektor mocniejszy od `.ip-card-params li + li`). */
-.ip-card-params li:nth-child(2):after {
+.ip-card-params li:nth-child(3):after {
   display: none;
-}
-.ip-card-params li + li:nth-child(3) {
-  flex: 0 0 100%;
-  margin-left: 0;
-  padding-left: 0;
 }
 /* Parametry wysrodkowane w kaflu. Trzeci parametr zajmuje caly wiersz, wiec
    srodkujemy tez jego wlasna tresc (ikona + tekst), nie tylko liste. */

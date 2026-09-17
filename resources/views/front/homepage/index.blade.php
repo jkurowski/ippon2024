@@ -1184,10 +1184,6 @@
                         </div>
 
                         <div class="ip-card-body">
-                            @if($card['location'])
-                                <span class="ip-card-address">{{ $card['location'] }}</span>
-                            @endif
-
                             <h3 class="ip-card-title">
                                 @if($card['link_description'])
                                     <a href="{{ $card['link_description'] }}">{{ $card['name'] }}</a>
@@ -1195,6 +1191,9 @@
                                     {{ $card['name'] }}
                                 @endif
                             </h3>
+                            @if($card['location'])
+                                <span class="ip-card-address mt-2">{{ $card['location'] }}</span>
+                            @endif
 
                             @if($card['desc'])
                                 <p class="ip-card-desc">{{ $card['desc'] }}</p>
