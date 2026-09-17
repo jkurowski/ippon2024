@@ -14,6 +14,8 @@
         @include('admin.developro.investment_shared.main_menu')
         <div class="card mt-3">
             <div class="table-overflow">
+                {{-- kontener na komunikat "Zmiana zapisana" z sortuj() w cms.js --}}
+                <div id="jqalert"></div>
                 <table class="table mb-0" id="sortable" aria-describedby="Investment list">
                     <thead class="thead-default">
                         <tr>
@@ -47,6 +49,8 @@
                             <td>{{ $p->updated_at }}</td>
                             <td class="option-120">
                                 <div class="btn-group">
+                                    <span class="btn action-button move-button me-1" data-bs-toggle="tooltip" data-placement="top" data-bs-title="Przeciągnij, aby zmienić kolejność"><i class="fe-move"></i></span>
+
                                     <a href="{{route('admin.developro.investment.events', $p)}}" class="btn action-button me-1" data-bs-toggle="tooltip" data-placement="top" data-bs-title="Pokaż kalendarz"><i class="fe-calendar"></i></a>
 
                                     <a href="{{route('admin.developro.investment.log', $p)}}" class="btn action-button me-1" data-bs-toggle="tooltip" data-placement="top" data-bs-title="Pokaż aktywność"><i class="fe-activity"></i></a>
@@ -124,6 +128,7 @@
         </div>
     </div>
     @push('scripts')
+        <script type="text/javascript">$(document).ready(function(){$("#sortable tbody.content").sortuj('{{route('admin.developro.investment.sort')}}');});</script>
         <script>
             const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
             const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {

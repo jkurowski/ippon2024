@@ -42,7 +42,16 @@ class IndexController extends Controller
 
     public function index()
     {
-        return view('admin.developro.investment.index', ['list' => $this->repository->all()]);
+        return view('admin.developro.investment.index', ['list' => $this->repository->allSort('ASC')]);
+    }
+
+    /**
+     * Zapis kolejnosci po przeciagnieciu wiersza na liscie inwestycji.
+     * Ta kolejnosc steruje podstrona "Inwestycje zrealizowane".
+     */
+    public function sort(Request $request)
+    {
+        $this->repository->updateOrder($request->get('recordsArray'));
     }
 
     public function create()

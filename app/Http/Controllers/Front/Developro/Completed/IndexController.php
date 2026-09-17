@@ -14,12 +14,13 @@ class IndexController extends Controller
     public function index(Request $request)
     {
         $page = Page::find(10);
-        $customOrder = [1, 2, 3, 11, 4];
-        $customOrderString = implode(',', $customOrder);
 
+        /* Kolejnosc ustawia klient w CMS-ie (przeciaganie wierszy na liscie
+           inwestycji). Wczesniej byla zaszyta tablica FIELD(id, 1,2,3,11,4) —
+           po przeniesieniu bazy ID sie przenumerowaly i przestala pasowac. */
         $investments = Investment::where('status', 2)
             ->with('carousel')
-            ->orderByRaw("FIELD(id, $customOrderString)")
+            ->orderBy('sort', 'ASC')
             ->get();
 
         /* Filtr miast budujemy z danych, a nie ze slownika miast: przyciski
