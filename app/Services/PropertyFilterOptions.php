@@ -24,6 +24,9 @@ class PropertyFilterOptions
     /** krok progow metrazu w metrach */
     private const AREA_STEP = 20;
 
+    /** properties.type = 1 to mieszkanie (2 — komorka, 3 — miejsce postojowe) */
+    private const TYPE_FLAT = 1;
+
     /** inwestycje w sprzedazy, ktore maja jakiekolwiek lokale */
     public function investments(): Collection
     {
@@ -49,11 +52,21 @@ class PropertyFilterOptions
             ->all();
     }
 
-    /** numery pieter wystepujace w ofercie */
+    /**
+     * Numery pieter, na ktorych sa mieszkania.
+     *
+     * Warunek na `properties.type` jest tu istotny: bez niego do listy
+     * wchodzily poziomy -1 i -2, czyli garaze podziemne. Nie ma tam ani
+     * jednego mieszkania — same komorki lokatorskie i miejsca postojowe —
+     * wiec w wyszukiwarce byly to pozycje, ktore dla klienta nic nie znacza
+     * (uwaga klienta, wrzesien 2026). Analogicznie rooms() liczy tylko lokale
+     * z pokojami.
+     */
     public function floors(): array
     {
         return $this->floors ??= Property::whereIn('properties.investment_id', $this->investmentIds())
             ->join('floors', 'floors.id', '=', 'properties.floor_id')
+            ->where('properties.type', self::TYPE_FLAT)
             ->distinct()
             ->orderBy('floors.number')
             ->pluck('floors.number')

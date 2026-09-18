@@ -376,12 +376,17 @@ body.ip-page {
   padding-top: 12px;
   padding-bottom: 12px;
   padding-right: 32px;
-  /* zloty separator na koncu tresci kolumny, 32px przed nastepna */
+  /* Zloty separator posrodku przerwy miedzy kolumnami. Wczesniej stal na
+       `right: 32px`, czyli dokladnie na krawedzi selecta: strzalka niemal go
+       dotykala (7px), a tekst nastepnej kolumny zaczynal sie dopiero 33px
+       dalej — wygladalo to na zepchniete w prawo.
+       Przy padding-right: 32px odstep z lewej to (32 + 8 - right), z prawej
+       `right`; rownosc wychodzi dla 20px i daje po 20px z obu stron. */
 }
 .ip-filter-col:after {
   content: '';
   position: absolute;
-  right: 32px;
+  right: 20px;
   top: 50%;
   transform: translateY(-50%);
   width: 1px;
@@ -6135,7 +6140,6 @@ a.ip-btn-submit {
   height: 34px;
   padding: 0 26px 0 0;
   border: 0;
-  border-bottom: 1px solid #d9d9d9;
   border-radius: 0;
   background: transparent;
   font-family: 'Poppins', -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
@@ -6149,10 +6153,17 @@ a.ip-btn-submit {
   background-repeat: no-repeat;
   background-position: right 8px center;
   background-size: 10px 6px;
+  /* Bez podkreslenia — w makiecie kolumny rozdziela zloty separator
+       (.ip-filter-col:after), a nie szara linia pod selectem.
+       Fokus musi jednak zostac widoczny dla klawiatury; :focus-visible
+       sprawia, ze klikniecie mysza nie zapala ramki. */
 }
 .ip-filter-select:focus {
   outline: 0;
-  border-bottom-color: #b1834e;
+}
+.ip-filter-select:focus-visible {
+  outline: 2px solid #b1834e;
+  outline-offset: 2px;
 }
 /* filtr nad wynikami stoi na kremowym tle jak na stronie glownej, ale bez
    sztywnej wysokosci — na waskich ekranach kolumny sie zawijaja */

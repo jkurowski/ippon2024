@@ -444,11 +444,16 @@ body.ip-page {
     padding-bottom: 12px;
     padding-right: 32px;
 
-    /* zloty separator na koncu tresci kolumny, 32px przed nastepna */
+    /* Zloty separator posrodku przerwy miedzy kolumnami. Wczesniej stal na
+       `right: 32px`, czyli dokladnie na krawedzi selecta: strzalka niemal go
+       dotykala (7px), a tekst nastepnej kolumny zaczynal sie dopiero 33px
+       dalej — wygladalo to na zepchniete w prawo.
+       Przy padding-right: 32px odstep z lewej to (32 + 8 - right), z prawej
+       `right`; rownosc wychodzi dla 20px i daje po 20px z obu stron. */
     &:after {
         content: '';
         position: absolute;
-        right: 32px;
+        right: 20px;
         top: 50%;
         transform: translateY(-50%);
         width: 1px;
@@ -6747,7 +6752,6 @@ a.ip-btn-submit {
     height: 34px;
     padding: 0 26px 0 0;
     border: 0;
-    border-bottom: 1px solid @line;
     border-radius: 0;
     background: transparent;
     font-family: @font-body;
@@ -6762,9 +6766,17 @@ a.ip-btn-submit {
     background-position: right 8px center;
     background-size: 10px 6px;
 
+    /* Bez podkreslenia — w makiecie kolumny rozdziela zloty separator
+       (.ip-filter-col:after), a nie szara linia pod selectem.
+       Fokus musi jednak zostac widoczny dla klawiatury; :focus-visible
+       sprawia, ze klikniecie mysza nie zapala ramki. */
     &:focus {
         outline: 0;
-        border-bottom-color: @gold;
+    }
+
+    &:focus-visible {
+        outline: 2px solid @gold;
+        outline-offset: 2px;
     }
 }
 

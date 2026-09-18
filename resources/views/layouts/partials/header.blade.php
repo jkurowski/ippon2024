@@ -282,7 +282,7 @@
                 <a href="https://www.youtube.com/@ippongroupsp.zo.o.3650" target="_blank" rel="nofollow noopener" aria-label="YouTube">
                     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 7.2s-.19-1.36-.78-1.96c-.75-.78-1.58-.79-1.97-.83C16.1 4.2 12 4.2 12 4.2h-.01s-4.09 0-6.84.21c-.39.05-1.22.05-1.97.83-.59.6-.78 1.96-.78 1.96S2.2 8.79 2.2 10.4v1.49c0 1.59.2 3.19.2 3.19s.19 1.36.78 1.96c.75.78 1.73.75 2.17.84 1.57.15 6.65.2 6.65.2s4.1-.01 6.85-.21c.39-.05 1.22-.06 1.97-.83.59-.6.78-1.96.78-1.96s.2-1.6.2-3.19V10.4c0-1.6-.2-3.2-.2-3.2zM9.94 14.02V8.51l5.27 2.77-5.27 2.74z"/></svg>
                 </a>
-                <a href="#" target="_blank" rel="nofollow noopener" aria-label="LinkedIn">
+                <a href="https://pl.linkedin.com/company/ippon-group" target="_blank" rel="nofollow noopener" aria-label="LinkedIn">
                     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.94 5.5a1.94 1.94 0 1 1-3.88 0 1.94 1.94 0 0 1 3.88 0zM3.2 8.9h3.5V21H3.2V8.9zm5.7 0h3.35v1.65h.05c.47-.85 1.6-1.75 3.3-1.75 3.53 0 4.18 2.2 4.18 5.05V21h-3.5v-5.45c0-1.3-.02-2.97-1.86-2.97-1.86 0-2.15 1.4-2.15 2.87V21H8.9V8.9z"/></svg>
                 </a>
             </div>
