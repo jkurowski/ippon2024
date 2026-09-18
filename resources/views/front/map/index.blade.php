@@ -274,10 +274,6 @@
                                     </div>
                                 @endif
 
-                                @if($inv->entry_content)
-                                    <p class="ip-inv-desc">{{ Str::limit(trim(html_entity_decode(strip_tags($inv->entry_content))), 110) }}</p>
-                                @endif
-
                                 <div class="ip-inv-foot">
                                     <ul class="ip-inv-params list-unstyled">
                                         @if($inv->areas_amount)

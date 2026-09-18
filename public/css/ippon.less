@@ -2642,27 +2642,26 @@ a.ip-btn-submit {
     position: relative;
     flex: 0 0 34%;
     max-width: 34%;
-    min-height: 190px;
-    overflow: hidden;
-    background: @line;
+    display: flex;
+    align-items: center;
+    background: @white;
 
+    /* zdjecie w calosci, w proporcjach z uploadu — bez przycinania */
     img {
-        position: absolute;
-        inset: 0;
+        display: block;
         width: 100%;
-        height: 100%;
-        object-fit: cover;
+        height: auto;
     }
 }
 
 .ip-inv-badge {
     position: absolute;
-    top: 14px;
-    left: 14px;
+    top: 5px;
+    right: 5px;
     z-index: 2;
-    padding: 7px 14px;
-    border-radius: 8px;
-    font-size: 13px;
+    padding: 5px 8px;
+    border-radius: 3px;
+    font-size: 12px;
     font-weight: 500;
     line-height: 15px;
     letter-spacing: .04em;
@@ -2689,9 +2688,10 @@ a.ip-btn-submit {
 .ip-inv-body {
     flex: 1 1 auto;
     min-width: 0;
-    padding: 20px 22px;
+    padding: 12px 22px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 .ip-inv-brand {
@@ -2926,8 +2926,21 @@ a.ip-btn-submit {
     }
 
     .ip-inv-media {
-        flex-basis: 38%;
-        max-width: 38%;
+        flex-basis: 42%;
+        max-width: 42%;
+    }
+
+    /* parametry i tak lamia sie tu w kolumne — ciasniej, zeby karta nie byla wyzsza od zdjecia */
+    .ip-inv-foot {
+        padding-top: 10px;
+    }
+
+    .ip-inv-params {
+        gap: 4px 14px;
+
+        li {
+            font-size: 14px;
+        }
     }
 }
 
@@ -2992,8 +3005,6 @@ a.ip-btn-submit {
         flex: 0 0 auto;
         max-width: none;
         width: 100%;
-        height: 180px;
-        min-height: 0;
     }
 
     .ip-inv-foot {
