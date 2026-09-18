@@ -1959,13 +1959,20 @@ body.ip-page {
         position: relative;
     }
 
-    .carousel-item > img {
+    .carousel-item > img,
+    .carousel-item > .ip-picture > img {
         position: absolute;
         inset: 0;
         width: 100%;
         height: 100%;
         object-fit: cover;
     }
+}
+
+/* <picture> ze zdjeciami z pol "Duza miniatura" / "Karuzela" (WebP + telefon) —
+   nie tworzy wlasnego pudelka, <img> uklada sie tak, jakby stal bez niego */
+.ip-picture {
+    display: contents;
 }
 
 /* pasek trzyma sie krawedzi tresci kontenera, nie krawedzi ekranu */
@@ -1994,7 +2001,8 @@ body.ip-page {
         aspect-ratio: auto;
     }
 
-    .ip-banner .carousel-item > img {
+    .ip-banner .carousel-item > img,
+    .ip-banner .carousel-item > .ip-picture > img {
         position: static;
         height: 320px;
     }
@@ -2002,6 +2010,15 @@ body.ip-page {
     .ip-banner-bar {
         left: auto;
         right: auto;
+    }
+}
+
+/* telefon: kadr 4:3, zeby zdjecie z pola "Karuzela – telefon" (800x600) bylo widac w calosci */
+@media (max-width: 767.98px) {
+    .ip-banner .carousel-item > img,
+    .ip-banner .carousel-item > .ip-picture > img {
+        height: auto;
+        aspect-ratio: 4 / 3;
     }
 }
 

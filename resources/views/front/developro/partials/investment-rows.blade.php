@@ -8,8 +8,9 @@
     $showLogo = $showLogo ?? false;
 @endphp
 @php
-    /* Zdjecie: najpierw naglowek inwestycji, potem miniatura. Sprawdzamy istnienie
-       pliku, bo czesc rekordow z CMS-u nie ma odpowiednikow w lokalnej kopii. */
+    /* Zdjecie: "Duza miniatura na listach" z CMS-u (investmentLargeImage, z WebP
+       i wersja na telefon), a bez niej naglowek, potem miniatura. Sprawdzamy
+       istnienie pliku, bo czesc rekordow z CMS-u nie ma odpowiednikow w lokalnej kopii. */
     $ipPhoto = function ($inv) {
         foreach ([['investment/header', $inv->file_header], ['investment/thumbs', $inv->file_thumb]] as [$dir, $file]) {
             if ($file && is_file(public_path($dir.'/'.$file))) {
@@ -23,7 +24,8 @@
 <section class="ip-invrows">
     @foreach($investments as $inv)
         @php
-            $photo = $ipPhoto($inv);
+            $large = investmentLargeImage($inv, 'list');
+            $photo = $large ? null : $ipPhoto($inv);
             $city  = $cities->firstWhere('id', $inv->city);
             $url   = $inv->developro ? route('developro.investment.index', $inv->slug) : null;
         @endphp
@@ -32,7 +34,9 @@
             <div class="row g-0 align-items-center">
 
                 <div class="col-12 col-lg-7 ip-invrow-media">
-                    @if($photo)
+                    @if($large)
+                        @include('front.developro.partials.large-picture', ['img' => $large, 'alt' => $inv->name, 'lazy' => !$loop->first])
+                    @elseif($photo)
                         <img src="{{ $photo }}" alt="{{ $inv->name }}">
                     @endif
                     @if($city)

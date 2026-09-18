@@ -1266,6 +1266,7 @@
     @foreach($investments_soon as $inv)
         @php
             $photo = $ipCardPhoto($inv);
+            $large = investmentLargeImage($inv, 'list');
             $city  = $cities->firstWhere('id', $inv->city);
         @endphp
 
@@ -1273,7 +1274,9 @@
             <div class="row g-0">
                 <div class="col-12 col-lg-8">
                     <div class="ip-split-media">
-                        @if($photo)
+                        @if($large)
+                            @include('front.developro.partials.large-picture', ['img' => $large, 'alt' => $inv->name])
+                        @elseif($photo)
                             <img src="{{ $photo }}" alt="{{ $inv->name }}" loading="lazy" decoding="async">
                         @endif
                         @if($city)
@@ -1357,7 +1360,7 @@
      podmienia sie z data-* aktywnego slajdu. --}}
 @php
     /* Slajd bez zdjecia wypadlby jako czarna dziura w karuzeli. */
-    $ipPlannedSlides = $investments_planned->filter(fn ($inv) => $ipCardPhoto($inv) !== null)->values();
+    $ipPlannedSlides = $investments_planned->filter(fn ($inv) => investmentLargeImage($inv, 'slide') || $ipCardPhoto($inv) !== null)->values();
 @endphp
 
 @if($ipPlannedSlides->count() > 0)
@@ -1382,7 +1385,12 @@
                      data-sub="{{ $sub }}"
                      data-desc="{{ $desc }}"
                      data-url="{{ $inv->developro ? route('developro.investment.index', $inv->slug) : '' }}">
-                    <img src="{{ $ipCardPhoto($inv) }}" alt="{{ $inv->name }}" loading="lazy" decoding="async">
+                    @php $large = investmentLargeImage($inv, 'slide'); @endphp
+                    @if($large)
+                        @include('front.developro.partials.large-picture', ['img' => $large, 'alt' => $inv->name])
+                    @else
+                        <img src="{{ $ipCardPhoto($inv) }}" alt="{{ $inv->name }}" loading="lazy" decoding="async">
+                    @endif
                     {{-- badge miasta jedzie razem ze zdjeciem --}}
                     @if($city)
                         <span class="ip-city-badge">{{ $city->name }}</span>

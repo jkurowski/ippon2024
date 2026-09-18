@@ -13,6 +13,20 @@ return [
         'logo_height' => 80,
         'header_width' => 1920,
         'header_height' => 300,
+        // Duza miniatura na listach i karuzela na SG — bez przycinania, tylko
+        // zmniejszane do tej szerokosci. Wysokosc to zalecany kadr dla klienta.
+        // Do kazdego pliku powstaje tez WebP (podkatalog webp/), a do duzej
+        // miniatury dodatkowo zmniejszona wersja na telefon (mobile/).
+        'list_thumb_width' => 1600,
+        'list_thumb_mobile_width' => 900,
+        'list_thumb_frame' => [1122, 650],
+        'slide_width' => 1920,
+        'slide_frame' => [1920, 620],
+        'slide_mobile_width' => 1200,
+        'slide_mobile_frame' => [800, 600],
+        'list_thumb_file_path' => 'investment/list/',
+        'slide_file_path' => 'investment/slide/',
+        'slide_mobile_file_path' => 'investment/slide/mobile/',
         'carousel_width' => 386,
         'carousel_height' => 450,
         'file_path' => 'investment/',

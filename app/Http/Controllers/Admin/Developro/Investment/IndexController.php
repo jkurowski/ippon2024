@@ -83,6 +83,12 @@ class IndexController extends Controller
             $this->service->uploadHeader($request->name, $request->file('header'), $investment);
         }
 
+        foreach (['file_list_thumb', 'file_slide', 'file_slide_mobile'] as $field) {
+            if ($request->hasFile($field)) {
+                $this->service->uploadLarge($request->name, $request->file($field), $investment, $field);
+            }
+        }
+
         if ($request->hasFile('file_brochure')) {
             $this->service->uploadBrochure($request->name, $request->file('file_brochure'), $investment);
         }
@@ -127,6 +133,12 @@ class IndexController extends Controller
 
         if ($request->hasFile('header')) {
             $this->service->uploadHeader($request->name, $request->file('header'), $investment, true);
+        }
+
+        foreach (['file_list_thumb', 'file_slide', 'file_slide_mobile'] as $field) {
+            if ($request->hasFile($field)) {
+                $this->service->uploadLarge($request->name, $request->file($field), $investment, $field, true);
+            }
         }
 
         if ($request->hasFile('file_brochure')) {

@@ -92,6 +92,63 @@ class InvestmentService
         $model->update(['file_header' => $name]);
     }
 
+    /**
+     * Zdjecia wgrywane BEZ przycinania — klient przygotowuje kadr sam, tu tylko
+     * zmniejszamy do szerokosci z configu. Obok kazdego pliku powstaje WebP
+     * (webp/<nazwa>.webp), a duza miniatura dostaje tez wersje na telefon
+     * (mobile/<nazwa> + mobile/webp/). Nazwy wersji wynikaja z nazwy pliku —
+     * odczytuje je helper investmentLargeImage().
+     */
+    private const LARGE_IMAGES = [
+        'file_list_thumb'   => ['dir' => 'list',         'width' => 'list_thumb_width',   'mobile' => 'list_thumb_mobile_width'],
+        'file_slide'        => ['dir' => 'slide',        'width' => 'slide_width',        'mobile' => null],
+        'file_slide_mobile' => ['dir' => 'slide/mobile', 'width' => 'slide_mobile_width', 'mobile' => null],
+    ];
+
+    public function uploadLarge(string $title, UploadedFile $file, object $model, string $field, bool $delete = false)
+    {
+        $cfg  = self::LARGE_IMAGES[$field];
+        $dirs = $cfg['mobile'] ? [$cfg['dir'], $cfg['dir'].'/mobile'] : [$cfg['dir']];
+
+        if ($delete && $model->$field) {
+            $old = pathinfo($model->$field, PATHINFO_FILENAME);
+            foreach ($dirs as $dir) {
+                File::delete([
+                    public_path('investment/'.$dir.'/'.$model->$field),
+                    public_path('investment/'.$dir.'/webp/'.$old.'.webp'),
+                ]);
+            }
+        }
+
+        $base = date('His').'_'.basename($cfg['dir']).'-'.Str::slug($title);
+        $name = $base.'.'.strtolower($file->getClientOriginalExtension());
+        $file->storeAs($cfg['dir'], $name, 'investment_uploads');
+
+        $source = public_path('investment/'.$cfg['dir'].'/'.$name);
+
+        // najpierw mobile — liczone z oryginalu, zanim glowny plik zostanie zmniejszony
+        if ($cfg['mobile']) {
+            $this->saveLargeVersion($source, $cfg['dir'].'/mobile', $name, $base, config('images.investment.'.$cfg['mobile']));
+        }
+        $this->saveLargeVersion($source, $cfg['dir'], $name, $base, config('images.investment.'.$cfg['width']));
+
+        $model->update([$field => $name]);
+    }
+
+    /** Zmniejsza (bez przycinania) do $width i zapisuje obok wersje WebP. */
+    private function saveLargeVersion(string $source, string $dir, string $name, string $base, int $width): void
+    {
+        File::ensureDirectoryExists(public_path('investment/'.$dir.'/webp'));
+
+        $image = Image::make($source)->resize($width, null, function ($constraint) {
+            $constraint->aspectRatio();
+            $constraint->upsize();
+        });
+
+        $image->save(public_path('investment/'.$dir.'/'.$name), 85);
+        $image->encode('webp', 82)->save(public_path('investment/'.$dir.'/webp/'.$base.'.webp'));
+    }
+
     public function uploadPlan(object $model, UploadedFile $file)
     {
 

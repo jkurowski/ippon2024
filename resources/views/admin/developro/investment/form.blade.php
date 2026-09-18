@@ -280,6 +280,36 @@
                     </div>
 
                     <div class="row w-100 mb-4">
+                        @include('form-elements.html-input-file', [
+                            'label' => 'Duża miniatura na listach',
+                            'sublabel' => '(kadr: '.implode('px / ', config('images.investment.list_thumb_frame')).'px — wgrywane bez przycinania; podstrony W sprzedaży, Wkrótce, Planowane i „Nadchodzące projekty" na stronie głównej)',
+                            'name' => 'file_list_thumb',
+                            'file' => $entry->file_list_thumb,
+                            'file_preview' => config('images.investment.list_thumb_file_path')
+                            ])
+                    </div>
+
+                    <div class="row w-100 mb-4">
+                        @include('form-elements.html-input-file', [
+                            'label' => 'Karuzela',
+                            'sublabel' => '(kadr: '.implode('px / ', config('images.investment.slide_frame')).'px — wgrywane bez przycinania; karuzela „Sprawdź inwestycje planowane" na stronie głównej)',
+                            'name' => 'file_slide',
+                            'file' => $entry->file_slide,
+                            'file_preview' => config('images.investment.slide_file_path')
+                            ])
+                    </div>
+
+                    <div class="row w-100 mb-4">
+                        @include('form-elements.html-input-file', [
+                            'label' => 'Karuzela – telefon',
+                            'sublabel' => '(kadr: '.implode('px / ', config('images.investment.slide_mobile_frame')).'px — ta sama karuzela na telefonie; puste = zdjęcie z pola „Karuzela”)',
+                            'name' => 'file_slide_mobile',
+                            'file' => $entry->file_slide_mobile,
+                            'file_preview' => config('images.investment.slide_mobile_file_path')
+                            ])
+                    </div>
+
+                    <div class="row w-100 mb-4">
                         @include('form-elements.html-input-file-pdf', [
                             'label' => 'Prospekt informacyjny',
                             'name' => 'file_brochure',
