@@ -26,7 +26,8 @@ class Investment extends Model
         'meta_title',
         'meta_description',
         'address',
-        'stage'
+        'stage',
+        'url'
     ];
 
     /**
@@ -40,6 +41,7 @@ class Investment extends Model
         'developro',
         'name',
         'slug',
+        'url',
         'address',
         'stage',
         'city',
@@ -87,11 +89,19 @@ class Investment extends Model
 
     /**
      * Get the options for generating the slug.
+     *
+     * Slug leci z polskiej nazwy, nigdy z aktywnego jezyka. Kontroler CMS-u
+     * przy `?lang=en` ustawia locale na en, wiec zwykle `generateSlugsFrom('name')`
+     * przepisywalo slug z angielskiej nazwy przy kazdym zapisie tlumaczenia
+     * ("boxy-samoobslugowe" robilo sie "box-self-storage") i adres podstrony
+     * zmienial sie w locie. InvestmentObserver pilnuje tego samego warunkiem
+     * na locale, ale trait spatie ustawia slug pozniej (na `updating`)
+     * i wygrywal z obserwatorem.
      */
     public function getSlugOptions() : SlugOptions
     {
         return SlugOptions::create()
-            ->generateSlugsFrom('name')
+            ->generateSlugsFrom(fn (Investment $investment) => $investment->getTranslation('name', 'pl', false) ?: $investment->name)
             ->saveSlugsTo('slug');
     }
 

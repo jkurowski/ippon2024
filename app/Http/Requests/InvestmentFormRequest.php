@@ -33,6 +33,15 @@ class InvestmentFormRequest extends FormRequest
             'developro' => 'boolean',
             'marker' => 'boolean',
             'contact_form_text' => '',
+            /* Adres URL wymuszany na listach inwestycji — oba jezyki leca
+               jednym polem tablicowym (url[pl], url[en]), wiec jeden zapis
+               formularza ustawia i kasuje obie wersje. Dopuszczamy tylko pelny
+               adres (https://...) albo sciezke wewnetrzna od "/" — wpisane
+               z palca "boxolsztyn.pl" przegladarka potraktowalaby jako
+               podstrone serwisu. */
+            'url' => ['nullable', 'array'],
+            'url.pl' => ['nullable', 'string', 'max:230', 'regex:#^(https?://|/)#i'],
+            'url.en' => ['nullable', 'string', 'max:230', 'regex:#^(https?://|/)#i'],
             'address' => '',
             'stage' => ['nullable', 'string', 'max:120'],
             'city' => '',
@@ -77,7 +86,9 @@ class InvestmentFormRequest extends FormRequest
         return [
             'name.required' => 'To pole jest wymagane',
             'name.max.string' => 'Maksymalna ilość znaków: 100',
-            'name.min.string' => 'Minimalna ilość znaków: 5'
+            'name.min.string' => 'Minimalna ilość znaków: 5',
+            'url.*.regex' => 'Adres musi zaczynać się od https:// (adres zewnętrzny) lub od / (podstrona serwisu)',
+            'url.*.max' => 'Maksymalna ilość znaków: 230'
         ];
     }
 }

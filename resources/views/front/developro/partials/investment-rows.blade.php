@@ -27,7 +27,7 @@
             $large = investmentLargeImage($inv, 'list');
             $photo = $large ? null : $ipPhoto($inv);
             $city  = $cities->firstWhere('id', $inv->city);
-            $url   = $inv->developro ? route('developro.investment.index', $inv->slug) : null;
+            $url   = investmentUrl($inv);
         @endphp
 
         <article class="ip-invrow @if($loop->even) is-reverse @endif">
@@ -66,7 +66,7 @@
                         @endif
 
                         @if($url)
-                            <a href="{{ $url }}" class="ip-btn-gold-lg">Zobacz więcej</a>
+                            <a {!! investmentLinkAttrs($url) !!} class="ip-btn-gold-lg">Zobacz więcej</a>
                         @endif
                     </div>
                 </div>

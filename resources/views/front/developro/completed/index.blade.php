@@ -122,6 +122,7 @@
             <div class="row ip-done-row">
 
                 @foreach($investments as $r)
+                    @php $url = investmentUrl($r); @endphp
                     <div class="col-12 col-md-6 col-xl-4">
                         <article class="ip-card ip-done-card">
 
@@ -149,7 +150,12 @@
                             <div class="ip-card-body ip-done-body">
                                 <div class="ip-done-head">
                                     <div class="ip-done-head-main">
-                                        <h2 class="ip-done-title">{{ $r->name }}</h2>
+                                        {{-- Zrealizowane maja wlasna podstrone tylko wtedy,
+                                             gdy klient wpisze ja w polu "Adres URL" (np. Aurora
+                                             ma osobny serwis) — inaczej sam tytul, bez linku. --}}
+                                        <h2 class="ip-done-title">
+                                            @if($url)<a {!! investmentLinkAttrs($url) !!}>{{ $r->name }}</a>@else{{ $r->name }}@endif
+                                        </h2>
                                         @if($r->address)
                                             <span class="ip-done-address">
                                                 @include('layouts.partials.ip-pin')

@@ -1100,7 +1100,7 @@ body.ip-page {
   display: flex;
   align-items: center;
   gap: 15px;
-  min-height: 47px;
+  min-height: 60px;
   font-size: 22px;
   font-weight: 500;
   line-height: 30px;
@@ -1126,14 +1126,14 @@ body.ip-page {
   display: block;
   font-size: 22px;
   font-weight: 600;
-  line-height: 32px;
+  line-height: 44px;
   color: #2c2c2c;
 }
 .ip-contact-people a {
   display: block;
   font-size: 22px;
   font-weight: 400;
-  line-height: 32px;
+  line-height: 44px;
   color: #2c2c2c;
 }
 .ip-contact-people a:hover {
@@ -1141,7 +1141,7 @@ body.ip-page {
 }
 /* formularz */
 .ip-form {
-  padding: 45px;
+  padding: 35px;
   background: #f9f8f5;
   border: 1px solid #ddd7cd;
 }
@@ -1151,16 +1151,16 @@ body.ip-page {
 }
 .ip-field label {
   display: block;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
-  line-height: 16px;
-  color: #000000;
-  margin-bottom: 12px;
+  line-height: 12px;
+  color: #6e6e6e;
+  margin-bottom: 8px;
 }
 .ip-field input,
 .ip-field textarea {
   width: 100%;
-  padding: 0 0 12px;
+  padding: 0 0 8px;
   border: 0;
   border-bottom: 1px solid rgba(125, 125, 125, 0.24);
   background: none;
@@ -1182,15 +1182,15 @@ body.ip-page {
 /* Tresc obowiazku informacyjnego i zgod idzie z CMS-u — potrafi przyjsc
    w akapitach, wiec <p> musi trzymac ten sam rozmiar co reszta regulki. */
 .ip-form-note {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 400;
-  line-height: 20px;
+  line-height: 17px;
   color: #666666;
 }
 .ip-form-note p {
   margin: 0 0 8px;
-  font-size: 13px;
-  line-height: 20px;
+  font-size: 12px;
+  line-height: 17px;
 }
 .ip-form-note p:last-child {
   margin-bottom: 0;
@@ -1198,7 +1198,7 @@ body.ip-page {
 .ip-form-check {
   display: flex;
   gap: 12px;
-  margin-top: 24px;
+  margin-top: 15px;
 }
 .ip-form-check input {
   flex: 0 0 16px;
@@ -1236,8 +1236,8 @@ body.ip-page {
   justify-content: center;
   width: 266px;
   max-width: 100%;
-  height: 65px;
-  margin-top: 10px;
+  height: 50px;
+  margin-top: 20px;
   border: 0;
   background: #b1834e;
   font-family: 'Poppins', -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
@@ -2138,12 +2138,19 @@ a.ip-btn-submit {
   visibility: hidden;
   transform: translateY(-8px);
   transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+  /* stary styles.min.css (ladowany na podstronach) chowa "header nav" ponizej 1200 px */
   /* pierwsza pozycja ma wiekszy odstep od gory, jak w makiecie */
 }
 .ip-menu.is-open {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
+}
+.ip-header .ip-menu {
+  display: block;
+}
+.ip-header .ip-menu[hidden] {
+  display: none;
 }
 .ip-menu ul {
   list-style: none;
@@ -2563,6 +2570,8 @@ a.ip-btn-submit {
 .ip-map-wrap {
   position: relative;
   height: 100%;
+  /* Leaflet daje warstwom z-index 400–1000 — bez tego wychodza ponad menu mobilne */
+  isolation: isolate;
 }
 .ip-map-wrap #map {
   width: 100%;

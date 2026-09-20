@@ -73,6 +73,34 @@
                         </div>
                     </div>
 
+                    {{-- Oba jezyki w jednym miejscu, a nie po jednym polu na
+                         zakladke tlumaczenia: adres jest zwykle ten sam dla PL i EN,
+                         a przy polu na zakladke wyczyszczenie go w PL zostawialo
+                         niewidoczna wartosc w EN i link dalej wisial na froncie. --}}
+                    <div class="row w-100 mb-4">
+                        <div class="col-12">
+                            <h2>Adres URL</h2>
+                            <p class="text-muted mb-2">Opcjonalnie. Wymusza adres na wszystkich listach inwestycji: strona główna, w sprzedaży, planowane, wkrótce, mapa, zrealizowane.
+                                Pełny adres zewnętrzny (<code>https://boxolsztyn.pl/</code>) otwiera się w nowej karcie, adres wewnętrzny zaczyna się od <code>/</code> (<code>/pl/lokalizacja/olsztyn</code>).
+                                Puste pola = karta inwestycji z modułu DeveloPro. Wersja angielska pusta = używany jest adres polski.</p>
+                        </div>
+                        <div class="col-6">
+                            @include('form-elements.html-input-text', [
+                                'label' => 'Adres URL — wersja polska',
+                                'name' => 'url[pl]',
+                                'value' => old('url.pl', $entry->getTranslation('url', 'pl', false)),
+                            ])
+                        </div>
+                        <div class="col-6">
+                            @include('form-elements.html-input-text', [
+                                'label' => 'Adres URL — wersja angielska',
+                                'sublabel' => '(tylko gdy inny niz polski)',
+                                'name' => 'url[en]',
+                                'value' => old('url.en', $entry->getTranslation('url', 'en', false)),
+                            ])
+                        </div>
+                    </div>
+
                     <div class="row w-100 mb-4">
                         <div class="col-4">
                             @include('form-elements.html-input-text', ['label' => 'Adres inwestycji', 'name' => 'address', 'value' => $entry->address])

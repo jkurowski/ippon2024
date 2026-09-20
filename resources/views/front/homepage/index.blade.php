@@ -1139,8 +1139,10 @@
                 'area'             => $ipAreaRange($inw->area_range),
                 'handover'         => $inw->date_end,
                 'advantage'        => $inw->card_param,
-                'link_apartments'  => route('developro.investment.plan', $inw->slug),
-                'link_description' => route('developro.investment.index', $inw->slug),
+                /* Lista mieszkan istnieje tylko w module DeveloPro; opis
+                   idzie tam, gdzie wskazuje pole "Adres URL" z CMS-u. */
+                'link_apartments'  => $inw->developro ? route('developro.investment.plan', $inw->slug) : null,
+                'link_description' => investmentUrl($inw),
             ];
         });
 @endphp
@@ -1230,12 +1232,12 @@
                             @if($card['link_apartments'] || $card['link_description'])
                                 <div class="ip-card-actions">
                                     @if($card['link_apartments'])
-                                        <a href="{{ $card['link_apartments'] }}" class="ip-btn-outline">
+                                        <a {!! investmentLinkAttrs($card['link_apartments']) !!} class="ip-btn-outline">
                                             {{ $current_locale == 'pl' ? 'Zobacz mieszkania' : 'See apartments' }}
                                         </a>
                                     @endif
                                     @if($card['link_description'])
-                                        <a href="{{ $card['link_description'] }}" class="ip-btn-outline">
+                                        <a {!! investmentLinkAttrs($card['link_description']) !!} class="ip-btn-outline">
                                             {{ $current_locale == 'pl' ? 'Opis inwestycji' : 'About the project' }}
                                         </a>
                                     @endif
@@ -1294,8 +1296,9 @@
                             <p class="ip-split-desc">{{ excerpt($inv->entry_content, 140) }}</p>
                         @endif
 
-                        @if($inv->developro)
-                            <a href="{{ route('developro.investment.index', $inv->slug) }}" class="ip-btn-ghost">
+                        @php $ipSoonUrl = investmentUrl($inv); @endphp
+                        @if($ipSoonUrl)
+                            <a {!! investmentLinkAttrs($ipSoonUrl) !!} class="ip-btn-ghost">
                                 {{ $current_locale == 'pl' ? 'Zobacz więcej' : 'See more' }}
                             </a>
                         @endif
@@ -1384,7 +1387,8 @@
                      data-title="{{ $inv->name }}"
                      data-sub="{{ $sub }}"
                      data-desc="{{ $desc }}"
-                     data-url="{{ $inv->developro ? route('developro.investment.index', $inv->slug) : '' }}">
+                     data-url="{{ investmentUrl($inv) ?: '' }}"
+                     data-ext="{{ investmentUrlExternal(investmentUrl($inv)) ? 1 : '' }}">
                     @php $large = investmentLargeImage($inv, 'slide'); @endphp
                     @if($large)
                         @include('front.developro.partials.large-picture', ['img' => $large, 'alt' => $inv->name])
@@ -1402,7 +1406,7 @@
         @php
             $ipFirst = $ipPlannedSlides->first();
             $ipFirstCity = $cities->firstWhere('id', $ipFirst->city);
-            $ipFirstUrl = $ipFirst->developro ? route('developro.investment.index', $ipFirst->slug) : '';
+            $ipFirstUrl = investmentUrl($ipFirst) ?: '';
         @endphp
 
         <div class="ip-banner-bar">
@@ -1423,7 +1427,9 @@
                 </div>
             </div>
 
-            <a href="{{ $ipFirstUrl ?: '#' }}" class="ip-banner-btn" data-ip-url @if(!$ipFirstUrl) hidden @endif>
+            <a href="{{ $ipFirstUrl ?: '#' }}" class="ip-banner-btn" data-ip-url
+               @if(investmentUrlExternal($ipFirstUrl)) target="_blank" rel="noopener" @endif
+               @if(!$ipFirstUrl) hidden @endif>
                 {{ $current_locale == 'pl' ? 'Zobacz więcej' : 'See more' }}
             </a>
 
@@ -1464,6 +1470,16 @@
                 if (link) {
                     link.href = data.url || '#';
                     link.hidden = !data.url;
+
+                    /* Adres spoza serwisu (pole "Adres URL" w CMS-ie) otwieramy
+                       w nowej karcie — tak samo jak przy pierwszym slajdzie. */
+                    if (data.ext) {
+                        link.target = '_blank';
+                        link.rel = 'noopener';
+                    } else {
+                        link.removeAttribute('target');
+                        link.removeAttribute('rel');
+                    }
                 }
 
                 if (swap) swap.classList.remove('is-changing');

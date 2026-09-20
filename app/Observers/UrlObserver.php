@@ -9,7 +9,6 @@ use App\Models\Url;
 
 class UrlObserver
 {
-
     /**
      * Handle the article "saving" event.
      *
@@ -18,8 +17,17 @@ class UrlObserver
      */
     public function saving(Url $url)
     {
-        $url->slug = Str::slug($url->title);
         $url->type = 2;
+
+        /* Slug i uri wylacznie z polskiego tytulu — jak w pozostalych
+           obserwatorach. Bez tego zapis pozycji menu przy `?lang=en`
+           (kontroler ustawia wtedy locale) przepisywal adres z angielskiego
+           tytulu: "kontakt" robilo sie "contact". */
+        if (app()->getLocale() != 'pl') {
+            return;
+        }
+
+        $url->slug = Str::slug($url->title);
 
         if ($url->parent_id) {
             $array = Url::ancestorsOf($url->id)->pluck('slug')->toArray();

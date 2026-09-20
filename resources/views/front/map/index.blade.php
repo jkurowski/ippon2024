@@ -191,15 +191,20 @@
        kwadratowymi rozjezdza parser dyrektyw Blade'a. */
     $ipPoints = $investments
         ->filter(fn($i) => $i->marker && $i->lat && $i->lng)
-        ->map(fn($i) => [
-            'id'      => $i->id,
-            'lat'     => (float) $i->lat,
-            'lng'     => (float) $i->lng,
-            'name'    => $i->name,
-            'address' => $i->address,
-            'variant' => $ipStatus($i->status)['variant'],
-            'url'     => $i->developro ? route('developro.investment.index', $i->slug) : null,
-        ])
+        ->map(function ($i) use ($ipStatus) {
+            $url = investmentUrl($i);
+
+            return [
+                'id'       => $i->id,
+                'lat'      => (float) $i->lat,
+                'lng'      => (float) $i->lng,
+                'name'     => $i->name,
+                'address'  => $i->address,
+                'variant'  => $ipStatus($i->status)['variant'],
+                'url'      => $url,
+                'external' => investmentUrlExternal($url),
+            ];
+        })
         ->values();
 @endphp
 
@@ -246,7 +251,7 @@
                         @php
                             $st    = $ipStatus($inv->status);
                             $area  = $ipAreaRange($inv->area_range);
-                            $url   = $inv->developro ? route('developro.investment.index', $inv->slug) : null;
+                            $url   = investmentUrl($inv);
                         @endphp
 
                         <article class="ip-inv-card" data-inv="{{ $inv->id }}">
@@ -264,7 +269,7 @@
                                 <span class="ip-inv-brand">Ippon</span>
 
                                 <h2 class="ip-inv-name">
-                                    @if($url)<a href="{{ $url }}">{{ $inv->name }}</a>@else{{ $inv->name }}@endif
+                                    @if($url)<a {!! investmentLinkAttrs($url) !!}>{{ $inv->name }}</a>@else{{ $inv->name }}@endif
                                 </h2>
 
                                 @if($inv->address)
@@ -297,7 +302,7 @@
                                     </ul>
 
                                     @if($url)
-                                        <a href="{{ $url }}" class="ip-inv-go" aria-label="Zobacz inwestycję {{ $inv->name }}">
+                                        <a {!! investmentLinkAttrs($url) !!} class="ip-inv-go" aria-label="Zobacz inwestycję {{ $inv->name }}">
                                             <svg viewBox="0 0 18 16" aria-hidden="true"><polyline points="10,1 17,8 10,15"/><line x1="1" y1="8" x2="17" y2="8"/></svg>
                                         </a>
                                     @endif
@@ -367,7 +372,7 @@
             points.forEach(function (p) {
                 var html = '<strong>' + p.name + '</strong>' +
                            (p.address ? '<br>' + p.address : '') +
-                           (p.url ? '<br><a href="' + p.url + '">Zobacz inwestycję</a>' : '');
+                           (p.url ? '<br><a href="' + p.url + '"' + (p.external ? ' target="_blank" rel="noopener"' : '') + '>Zobacz inwestycję</a>' : '');
 
                 var marker = L.marker([p.lat, p.lng], { icon: pin(p.variant) })
                     .bindPopup(html);
