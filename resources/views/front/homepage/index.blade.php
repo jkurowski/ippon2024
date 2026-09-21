@@ -1335,8 +1335,10 @@
                 <span>Dlaczego warto nam zaufać?</span>
         </x-section-head>
 
-        {{-- UWAGA: zdjecia to placeholdery (kadry z wizualizacji inwestycji).
-             Do podmiany na zdjecia stockowe pasujace do opisow. --}}
+        {{-- Zdjecia od klienta (09.2026), oryginaly w public/materialy_klienta
+             pod nazwami rownymi tytulom kafli. Dwa z nich przyszly poziome
+             1536x1024, wiec po kadrze do 3:4 zostalo 768 px szerokosci —
+             stad pliki 840x1120, a nie 2x szerokosci wyswietlania. --}}
         @php
             $zaufanie = [
                 [
