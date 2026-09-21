@@ -307,6 +307,16 @@
         ],
         'cert_f1' => ['pl' => 'Certyfikowane materiały najwyższej klasy', 'en' => 'Certified, top-quality materials'],
         'cert_f2' => ['pl' => 'Energooszczędne technologie', 'en' => 'Energy-efficient technologies'],
+        /* Opisy pod piktogramami — z propozycji klienta (propozycja-piktogramy.png).
+           Makieta ma tylko wersje polska; angielska nasza, do potwierdzenia. */
+        'cert_d1' => [
+            'pl' => 'Starannie wyselekcjonowane materiały od renomowanych dostawców, które zapewniają trwałość, bezpieczeństwo i komfort na lata.',
+            'en' => 'Carefully selected materials from established suppliers, delivering durability, safety and comfort for years to come.',
+        ],
+        'cert_d2' => [
+            'pl' => 'Nowoczesne rozwiązania ograniczające zużycie energii, obniżające koszty eksploatacji i wspierające ochronę środowiska.',
+            'en' => 'Modern solutions that reduce energy consumption, lower running costs and support environmental protection.',
+        ],
         'val_title_1' => ['pl' => 'Architektura, Natura, Człowiek.', 'en' => 'Architecture. Nature. People.'],
         'val_title_2' => ['pl' => 'Poznaj nasze wartości', 'en' => 'Discover Our Values.'],
         'awards_title' => ['pl' => 'Wiarygodność i sukces', 'en' => 'Credibility and Success'],
@@ -460,25 +470,50 @@
                         <p>{!! $T['cert_p3'][$L] !!}</p>
                     </div>
 
-                    <ul class="ip-feature-list list-unstyled mb-0">
-                        <li>
-                            <span class="ip-crit-icon">
-                                <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
-                                    <path d="M9 4.5h11L25 9.5V27H9V4.5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
-                                    <path d="M19.5 4.5V10H25M12.5 14h9M12.5 18h9M12.5 22h5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-                                </svg>
-                            </span>
-                            {{ $T['cert_f1'][$L] }}
-                        </li>
-                        <li>
-                            <span class="ip-crit-icon">
-                                <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
-                                    <path d="M16 5a7 7 0 0 0-4 12.75V21h8v-3.25A7 7 0 0 0 16 5ZM13 24.5h6M14 27h4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </span>
-                            {{ $T['cert_f2'][$L] }}
-                        </li>
-                    </ul>
+                    {{-- Piktogramy wg propozycji klienta (materialy_klienta/propozycja-piktogramy.png).
+                         Numer 01/02 to znak wodny pod tekstem — dlatego aria-hidden i z-index 0,
+                         czytnik ekranu ma przeczytac tytul, nie "zero jeden". Kreska pod ikona
+                         jest krotka (w makiecie 54 px), nie na cala szerokosc karty. --}}
+                    <div class="ip-cert-cards">
+                        <article class="ip-cert-card">
+                            <span class="ip-cert-num" aria-hidden="true">01</span>
+
+                            <div class="ip-cert-top">
+                                <span class="ip-cert-icon">
+                                    {{-- Trzy zamkniete romby jeden na drugim, rysowane od dolu.
+                                         Wypelnienie biele jest czescia rysunku, nie ozdoba: to ono
+                                         zaslania gorne polowy nizszych warstw i daje efekt stosu.
+                                         Tlo karty tez jest biale — przy zmianie tla podmienic fill. --}}
+                                    <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                                        <path d="M24 25 44 34 24 43 4 34Z" fill="#fff" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+                                        <path d="M24 14.5 44 23.5 24 32.5 4 23.5Z" fill="#fff" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+                                        <path d="M24 4 44 13 24 22 4 13Z" fill="#fff" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+                                    </svg>
+                                </span>
+                                <h3>{{ $T['cert_f1'][$L] }}</h3>
+                            </div>
+
+                            <p>{{ $T['cert_d1'][$L] }}</p>
+                        </article>
+
+                        <article class="ip-cert-card">
+                            <span class="ip-cert-num" aria-hidden="true">02</span>
+
+                            <div class="ip-cert-top">
+                                <span class="ip-cert-icon">
+                                    {{-- Lisc: dwa luki schodzace sie w czubku u gory z prawej,
+                                         plus prosty nerw, ktory wychodzi ponizej nasady jako ogonek. --}}
+                                    <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                                        <path d="M9 41C9 21 20 9 43 5c-4 23-16 36-34 36Z" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+                                        <path d="M3 46 37 12" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+                                    </svg>
+                                </span>
+                                <h3>{{ $T['cert_f2'][$L] }}</h3>
+                            </div>
+
+                            <p>{{ $T['cert_d2'][$L] }}</p>
+                        </article>
+                    </div>
                 </div>
             </div>
 

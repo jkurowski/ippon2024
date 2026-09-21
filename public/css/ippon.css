@@ -3834,34 +3834,6 @@ a.ip-btn-submit {
 .ip-invrow-inner .ip-check-list + .ip-invrow-desc {
   margin-top: 26px;
 }
-.ip-feature-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px 28px;
-  margin-top: 34px;
-  /* dwa haslo obok siebie tak jak w makiecie — dlatego waskie kolumny
-       i mniejszy odstep, inaczej drugie zjezdza pod pierwsze */
-}
-.ip-feature-list li {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  flex: 1 1 240px;
-  max-width: 270px;
-  font-size: 18px;
-  font-weight: 300;
-  line-height: 26px;
-  color: #000000;
-}
-.ip-feature-list .ip-crit-icon {
-  flex: 0 0 62px;
-  width: 62px;
-  height: 62px;
-}
-.ip-feature-list .ip-crit-icon svg {
-  width: 30px;
-  height: 30px;
-}
 /* Wiersz 50/50 — w tej sekcji makieta dzieli ekran na pol,
    inaczej niz 7/5 na podstronach mieszkaniowych. */
 .ip-invrow.is-half .ip-invrow-media {
@@ -3956,9 +3928,6 @@ a.ip-btn-submit {
   .ip-about-subtitle {
     font-size: 27px;
     line-height: 35px;
-  }
-  .ip-feature-list li {
-    font-size: 17px;
   }
 }
 @media (max-width: 1199.98px) {
@@ -7016,5 +6985,130 @@ a.ip-btn-submit {
    schodzi dol kadru (nogawki), a glowa i kartony zostaja. */
 .ip-split-media.ip-boxes-media img {
   object-position: 50% 0;
+}
+/* ==========================================================================
+   PODSTRONA: O nas — piktogramy przy Certyfikacie Jakosci
+   Wg propozycji klienta (materialy_klienta/propozycja-piktogramy.png).
+   Zastapily wczesniejsza .ip-feature-list (ikona + samo haslo w jednej linii).
+   Makieta ma 1630 px szerokosci, nie 1920 — wymiary przeliczone wspolczynnikiem
+   ~0.9 wzgledem karty 468x268 px z propozycji.
+   ========================================================================== */
+.ip-cert-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 34px;
+}
+.ip-cert-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  /* z margin-top:auto na opisie wyrownuje kreski
+                                 w obu kartach, mimo roznej dlugosci tytulow */
+  overflow: hidden;
+  /* numer wychodzi poza krawedz przy waskiej karcie */
+  padding: 26px 24px 28px;
+  border: 1px solid rgba(184, 146, 74, 0.38);
+  background: #ffffff;
+  /* Kreska pod ikona — w makiecie krotka, nie na cala szerokosc karty. */
+}
+.ip-cert-card p {
+  position: relative;
+  margin: auto 0 0;
+  padding-top: 24px;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 26px;
+  color: #3b3b3b;
+}
+.ip-cert-card p:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 48px;
+  height: 1px;
+  background: rgba(177, 131, 78, 0.7);
+}
+.ip-cert-top {
+  position: relative;
+  z-index: 1;
+  /* tytul nad znakiem wodnym z numerem */
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  min-height: 84px;
+  margin-bottom: 24px;
+  /* padding-right zostawia prawa polowe numeru odslonieta — w makiecie tytul
+       zachodzi na cyfry tylko ogonkiem ostatniej linii, nie zakrywa ich calych */
+}
+.ip-cert-top h3 {
+  margin: 0;
+  padding-right: 36px;
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 30px;
+  text-transform: uppercase;
+  color: #000000;
+}
+.ip-cert-icon {
+  flex: 0 0 84px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 84px;
+  height: 84px;
+  border: 1px solid rgba(177, 131, 78, 0.65);
+  border-radius: 50%;
+  color: #b1834e;
+}
+.ip-cert-icon svg {
+  width: 36px;
+  height: 36px;
+}
+/* Numer jest ozdoba — siedzi pod tytulem, dlatego bez z-index i z aria-hidden
+   w szablonie. Playfair, bo to ten sam krój co tytuly sekcji. */
+.ip-cert-num {
+  position: absolute;
+  top: 2px;
+  right: 14px;
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  font-size: 112px;
+  font-weight: 700;
+  line-height: 1;
+  color: #f3e9de;
+  pointer-events: none;
+  user-select: none;
+}
+@media (max-width: 1399.98px) {
+  .ip-cert-top h3 {
+    font-size: 20px;
+    line-height: 28px;
+  }
+  .ip-cert-num {
+    font-size: 96px;
+  }
+}
+/* Ponizej 1200 px kolumna tekstu jest juz pelnej szerokosci, wiec karty
+   spokojnie zostaja obok siebie; lamiemy je dopiero na telefonie. */
+@media (max-width: 575.98px) {
+  .ip-cert-cards {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+  .ip-cert-icon {
+    flex: 0 0 68px;
+    width: 68px;
+    height: 68px;
+  }
+  .ip-cert-icon svg {
+    width: 30px;
+    height: 30px;
+  }
+  .ip-cert-top {
+    gap: 16px;
+    min-height: 0;
+  }
 }
 /*# sourceMappingURL=ippon.css.map */
