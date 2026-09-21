@@ -18,6 +18,18 @@ class InvestmentFormRequest extends FormRequest
     }
 
     /**
+     * Puste pole "Pozycja w miescie" ma znaczyc 0, czyli pozycja nieustawiona —
+     * karta laduje na koncu listy miasta. Bez tej zamiany pusty input leci jako
+     * "" i MySQL w trybie strict odrzuca zapis do kolumny INT NOT NULL.
+     */
+    protected function prepareForValidation()
+    {
+        if ($this->has('city_sort')) {
+            $this->merge(['city_sort' => (int) $this->input('city_sort')]);
+        }
+    }
+
+    /**
      * Get the validation rules that apply to the request.
      *
      * @return array
@@ -45,6 +57,12 @@ class InvestmentFormRequest extends FormRequest
             'address' => '',
             'stage' => ['nullable', 'string', 'max:120'],
             'city' => '',
+            /* Pozycja w miescie — recznie ustawiana kolejnosc kart na
+               podstronie /lokalizacja/{miasto}. 'sometimes', bo pole siedzi
+               w bloku @if(!Request::get('lang')) i przy edycji tlumaczenia
+               (?lang=en) nie leci w POST — bez tego zapis wersji angielskiej
+               zerowalby ustawiona pozycje. */
+            'city_sort' => ['sometimes', 'nullable', 'integer', 'min:0', 'max:9999'],
             'date_start' => '',
             'date_end' => '',
             'areas_amount' => '',

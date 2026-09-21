@@ -39,6 +39,7 @@ class Investment extends Model
         'type',
         'status',
         'developro',
+        'city_sort',
         'name',
         'slug',
         'url',

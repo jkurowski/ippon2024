@@ -133,6 +133,17 @@
                                     '0' => 'Nie'
                             ]])
                         </div>
+                        {{-- Kolejnosc kart na podstronie /lokalizacja/{miasto}.
+                             Osobna od przeciagania wierszy na liscie inwestycji,
+                             bo tamto steruje podstrona "Zrealizowane". --}}
+                        <div class="col-4">
+                            @include('form-elements.html-input-text', [
+                                'label' => 'Pozycja w mieście',
+                                'sublabel' => '(kolejność na stronie /lokalizacja, w obrębie statusu — 1 = pierwsza, puste lub 0 = na końcu grupy)',
+                                'name' => 'city_sort',
+                                'value' => $entry->city_sort,
+                            ])
+                        </div>
                         @endif
                     </div>
                     @if(!Request::get('lang'))

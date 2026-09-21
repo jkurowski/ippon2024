@@ -21,10 +21,23 @@ class IndexController extends Controller
         $page = Page::where('id', 18)->first();
         $city = $slug === self::ALL_SLUG ? null : City::whereSlug($slug)->firstOrFail();
 
+        /* Kolejnosc kart: zawsze grupami statusow (w sprzedazy, wkrotce,
+           planowane, zrealizowane), a w obrebie grupy:
+           - wybrane miasto: recznie, wedlug pola "Pozycja w miescie" (city_sort)
+             z formularza inwestycji w CMS-ie; city_sort = 0 to pozycja
+             nieustawiona (np. swiezo dodana inwestycja) — taka karta ma ladowac
+             na koncu swojej grupy, a nie na jej poczatku,
+           - zakladka "Wszystkie": alfabetycznie, bez zmian. city_sort numeruje
+             sie od 1 w kazdym miescie osobno, wiec po zmieszaniu miast jedynka
+             z malego miasta wskakiwalaby nad Olsztyn. */
         $investments = Investment::query()
             ->when($city, fn($q) => $q->where('city', '=', $city->id))
             ->where('status', '!=', 5)          // 5 = inwestycja ukryta
-            ->orderByRaw('FIELD(status, 1, 4, 3, 2)')   // w sprzedazy, wkrotce, planowane, zrealizowane
+            ->orderByRaw('FIELD(status, 1, 4, 3, 2)')
+            ->when(
+                $city,
+                fn($q) => $q->orderByRaw('city_sort = 0')->orderBy('city_sort')
+            )
             ->orderBy('name')
             ->get();
 
