@@ -125,6 +125,12 @@
                                     <span class="bullet bullet-dot"></span>
                                 </span> Nagrody</a>
                         </li>
+                        <li {{ Request::routeIs('admin.faq.*') ? 'class=active' : '' }}>
+                            <a href="{{ route('admin.faq.index') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span> FAQ</a>
+                        </li>
                         <li class="d-none">
                             <a href="">
                                 <span class="menu-bullet">

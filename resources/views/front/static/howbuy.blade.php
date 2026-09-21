@@ -191,9 +191,10 @@
          przeskalowane do 1650 px (2x szerokosci wyswietlania). Klucz 'pos'
          przesuwa kadr tam, gdzie waski pas 4:1 na tablecie ucinal glowy.
      Tresc krokow spisana z makiety, EN od klienta ("Jak kupic mieszkanie
-     09.2026.docx"). FAQ: EN to 14 pytan klienta z tego pliku; PL to nadal
-     nasze 7 pytan na bazie starej podstrony — DO POTWIERDZENIA PRZEZ KLIENTA
-     (brak polskiej wersji tych 14 pytan).
+     09.2026.docx"). FAQ nie jest juz tutaj — od 09.2026 siedzi w module FAQ
+     w CMS-ie. Przeniesione zostaly oba zestawy: 7 pytan PL (na bazie starej
+     podstrony, DO POTWIERDZENIA PRZEZ KLIENTA) i 14 pytan EN z pliku klienta.
+     Nie sa swoimi tlumaczeniami — kazdy wpis ma na razie jeden jezyk.
      ========================================================================== --}}
 @php
     $L = in_array($current_locale, ['pl', 'en']) ? $current_locale : 'pl';
@@ -284,136 +285,11 @@
                     'en' => 'All payments are also protected by the Developer Guarantee Fund (DFG).']],
     ];
 
-    /* FAQ osobno dla jezykow — pytania PL i EN to rozne zestawy:
-       PL: pierwsza odpowiedz z makiety, pozostale napisane na bazie starej wersji
-           podstrony — DO POTWIERDZENIA PRZEZ KLIENTA,
-       EN: 14 pytan od klienta ("Jak kupic mieszkanie 09.2026.docx").
-       Odpowiedzi to HTML (akapity, listy) — tresc nasza, nie od uzytkownika. */
-    $faq = [
-        'pl' => [
-            [
-                'q' => 'Jak wybrać nowe mieszkanie? Od czego zacząć?',
-                'a' => 'Wybór nowego mieszkania to decyzja, której nie należy podejmować pochopnie – liczy się nie tylko cena, ale dziesiątki czynników wpływających na komfort życia przez kolejne lata. Zanim zaczniesz przeglądać oferty, warto określić swoje priorytety: co jest dla Ciebie absolutnie najważniejsze, a z czego jesteś w stanie zrezygnować. Dobrym punktem startowym jest odpowiedź na trzy fundamentalne pytania dotyczące lokalizacji, metrażu i budżetu.',
-            ],
-            [
-                'q' => 'Rynek pierwotny czy wtórny? Krótkie porównanie',
-                'a' => 'Mieszkanie z rynku pierwotnego kupujesz bez pośrednika i bez podatku od czynności cywilnoprawnych, w standardzie deweloperskim, który wykańczasz po swojemu. Budynek jest nowy, energooszczędny i objęty gwarancją oraz pięcioletnią rękojmią. Rynek wtórny daje szybsze wprowadzenie i znaną okolicę, ale zwykle wyższe koszty eksploatacji i konieczność remontu.',
-            ],
-            [
-                'q' => 'Zakup pierwszego mieszkania. Jak do tego podejść?',
-                'a' => 'Zacznij od budżetu: sprawdź zdolność kredytową i policz wkład własny razem z kosztami okołozakupowymi (notariusz, wpisy, wykończenie). Dopiero potem szukaj mieszkania – będziesz oglądać oferty, na które realnie Cię stać. Na każdym etapie możesz liczyć na naszego doradcę, który wytłumaczy zapisy umowy i przeprowadzi przez formalności.',
-            ],
-            [
-                'q' => 'Jak oglądać nowe mieszkanie? Praktyczny przewodnik',
-                'a' => 'Sprawdź układ pomieszczeń i to, czy meble, których używasz, zmieszczą się bez kompromisów. Zwróć uwagę na strony świata i doświetlenie, wysokość pomieszczeń, miejsce na pralkę i szafy oraz na to, co widać z okien. Obejrzyj też części wspólne i otoczenie osiedla o różnych porach dnia – to one decydują o codziennym komforcie.',
-            ],
-            [
-                'q' => 'Ile wkładu własnego potrzebuję, żeby kupić mieszkanie?',
-                'a' => 'Banki zwykle wymagają od 10 do 20% wartości nieruchomości. Do tego warto doliczyć koszty okołozakupowe: taksę notarialną, wpisy sądowe, prowizję banku i wykończenie mieszkania. Wysokość wkładu i dostępne programy najlepiej potwierdzić u doradcy kredytowego – chętnie polecimy sprawdzonego.',
-            ],
-            [
-                'q' => 'Czy mogę negocjować cenę mieszkania z deweloperem?',
-                'a' => 'Ceny mieszkań wynikają z aktualnego cennika inwestycji, ale zawsze warto porozmawiać z biurem sprzedaży. Pole do rozmowy bywa przy konkretnych lokalach, formie płatności czy pakiecie wykończeniowym. Nasi doradcy przedstawią wszystkie dostępne warunki wprost, bez ukrytych kosztów.',
-            ],
-            [
-                'q' => 'Jakie miesięczne koszty ponoszę po zakupie mieszkania?',
-                'a' => 'Na miesięczne koszty składają się czynsz administracyjny (utrzymanie części wspólnych, fundusz remontowy), media rozliczane według liczników oraz rata kredytu, jeśli korzystasz z finansowania. Do tego dochodzi roczny podatek od nieruchomości. Wysokość czynszu dla konkretnej inwestycji poda Ci biuro sprzedaży.',
-            ],
-        ],
-        'en' => [
-            [
-                'q' => '1. What does the developer standard include?',
-                'a' => '<p>There is no single legal definition of the developer standard, so its exact scope is always described in the developer specification and the development agreement. In general, an apartment delivered to the developer standard is ready for finishing work. The exact scope may vary depending on the standard of the residential development.</p>
-                        <p>Our standard includes, among other things, machine-applied gypsum-lime plaster on the walls, floor screeds, complete electrical, water, sewage and heating systems with radiators, as well as kitchen sockets, an RTV + LAN socket and Smart Home installations.</p>',
-            ],
-            [
-                'q' => '2. What should you check before signing a development agreement?',
-                'a' => '<p>Before signing a development agreement, you should carefully check the Information Prospectus, payment schedule and the final date for the transfer of ownership.</p>
-                        <p>It is also important to check the exact size of the apartment, any additional areas or facilities included with it, such as a balcony, storage unit or parking space in the underground garage, as well as the finishing standard.</p>
-                        <p>For a safe purchase of a new apartment from a developer, the development agreement must be signed in the form of a notarial deed.</p>',
-            ],
-            [
-                'q' => '3. What additional costs are involved when buying an apartment from a developer?',
-                'a' => '<p>When buying a new apartment on the primary market, you do not pay the 2% tax on civil law transactions (PCC), which generally applies to purchases on the secondary market.</p>
-                        <p>However, there are some additional costs to consider:</p>
-                        <ul>
-                            <li><strong>Notary fees</strong> – the notary fee is shared equally between the developer and the buyer. There are also costs for copies of the notarial deed and entries in the Land and Mortgage Register.</li>
-                            <li><strong>Finishing costs</strong> – you should also plan a budget for finishing the apartment and making it ready to move into.</li>
-                        </ul>',
-            ],
-            [
-                'q' => '4. What happens during the technical inspection of an apartment and what should you check?',
-                'a' => '<p>The technical inspection is the moment when you check whether the apartment meets the conditions set out in the development agreement and complies with building standards.</p>
-                        <p>It is a good idea to bring a spirit level and a laser distance meter or ask a professional engineer to assist you.</p>
-                        <p>During the inspection, you should check the walls and angles, any scratches on the windows, ventilation, the location of electrical points and the quality of the floor screeds.</p>
-                        <p>All defects should be recorded in the inspection report. The developer then has a statutory period to respond to the reported defects.</p>',
-            ],
-            [
-                'q' => '5. Why choose a new apartment instead of one from the secondary market?',
-                'a' => '<p>Buying a new apartment from a developer can save you time and money at the start and gives you the benefits of modern construction.</p>
-                        <p>New apartments are built according to current building regulations and strict quality standards. When you buy on the primary market, you benefit from a 5-year statutory warranty for defects, modern architecture, underground garages, quiet lifts and energy-saving technologies such as photovoltaic panels and Smart Home systems.</p>
-                        <p>You also do not pay the 2% PCC tax and have complete freedom to design and finish your new interior from scratch.</p>',
-            ],
-            [
-                'q' => '6. How can you safely buy a new apartment? What is a Housing Escrow Account?',
-                'a' => '<p>The money paid by customers buying new apartments is protected under the Developer Act.</p>
-                        <p>Your payments do not go directly to the developer’s bank account. Instead, they are paid into a Housing Escrow Account managed by a bank.</p>
-                        <p>In the case of an open escrow account, the bank releases the money to the developer in stages. Funds are released only after an independent inspector confirms that a specific stage of construction has been completed. This provides a high level of protection for the buyer’s money.</p>',
-            ],
-            [
-                'q' => '7. Can I make changes to the layout of my new apartment?',
-                'a' => '<p>Yes. Most developers allow buyers to make changes at an early stage of construction.</p>
-                        <p>These changes allow you to adapt the apartment to your individual needs. The most common changes include moving partition walls, changing the location of electrical points such as lights and sockets, and modifying water and sewage connections, for example replacing a bathtub with a shower.</p>
-                        <p>Making these changes early can help you avoid expensive modifications when finishing the apartment later.</p>',
-            ],
-            [
-                'q' => '8. How much does it cost to finish an apartment per square metre?',
-                'a' => '<p>The cost of finishing an apartment depends on the materials you choose and the rates charged by the finishing company.</p>
-                        <p>As a general estimate, basic finishing costs start at around <strong>PLN 2,000 per square metre</strong>, including labour and materials.</p>
-                        <p>For premium interiors with high-quality materials and custom-made furniture, the total cost can be much higher.</p>',
-            ],
-            [
-                'q' => '9. How does buying a new apartment with a mortgage work?',
-                'a' => '<p>Buying an apartment with mortgage financing can be divided into a few simple steps:</p>
-                        <ol>
-                            <li>Check your mortgage eligibility with a financial advisor and choose your apartment.</li>
-                            <li>Sign a reservation agreement with the developer.</li>
-                            <li>Apply for a mortgage and submit the required technical documents provided by the developer.</li>
-                            <li>Sign the development agreement and the mortgage agreement with the bank.</li>
-                            <li>The bank releases the mortgage funds in stages according to the progress of construction.</li>
-                        </ol>',
-            ],
-            [
-                'q' => '10. How long is the statutory warranty for a new apartment and what does it cover?',
-                'a' => '<p>Under the Polish Civil Code, the statutory warranty for a new apartment is <strong>5 years from the date the apartment is handed over to the buyer</strong>.</p>
-                        <p>The developer is responsible for physical defects in the property. If a defect is discovered during this period, the owner has the right to ask the developer to repair it.</p>',
-            ],
-            [
-                'q' => '11. How to choose an apartment for a single person?',
-                'a' => '<p>When choosing an apartment for one person, it is worth considering a compact and functional studio or a small one-bedroom apartment.</p>
-                        <p>Location is very important. Good access to the city centre, public transport, shops and services makes everyday life easier.</p>
-                        <p>Smart Home systems are also a great advantage, improving both comfort and security. If you are looking for an apartment for one person in Olsztyn, <strong>TEMPO at Sikorskiego Street</strong> is a good option for people with an active lifestyle.</p>',
-            ],
-            [
-                'q' => '12. What should an apartment for a senior offer?',
-                'a' => '<p>An apartment for a senior should be safe, functional and free from architectural barriers.</p>
-                        <p>An important feature is a modern lift with direct access to the underground garage and storage units, as well as step-free access to the building.</p>
-                        <p>Easy access to medical centres, pharmacies, shops and public transport is also important. A senior-friendly development should also offer quiet green areas with benches and monitoring for greater safety.</p>',
-            ],
-            [
-                'q' => '13. What do families with children look for when choosing an apartment?',
-                'a' => '<p>For families with children, the main priorities are safety, space and easy access to schools, kindergartens, medical centres and shops.</p>
-                        <p>Safe and monitored green areas with walking paths, playgrounds and sports areas are also very important, as they provide space for families to spend time outdoors.</p>
-                        <p>Families also value environmentally friendly solutions that can help reduce everyday running costs. A good example in Olsztyn is the <strong>SLOW development</strong>, designed with family comfort in mind.</p>',
-            ],
-            [
-                'q' => '14. What green areas and shared facilities do modern residential developments offer?',
-                'a' => '<p>Modern residential developments provide shared spaces designed for relaxation, recreation and spending time together.</p>
-                        <p>For example, the <strong>SLOW development in Olsztyn</strong> offers an outdoor yoga area, a barbecue shelter with tables and a professional agility area for dogs.</p>
-                        <p>Residents can also use safe playgrounds, rain gardens, electric vehicle charging stations and bicycle shelters.</p>',
-            ],
-        ],
-    ];
+
+    /* FAQ nie jest juz w widoku — pytania i odpowiedzi siedza w module FAQ
+       w CMS-ie (tabela `faqs`, kolejnosc przeciaganiem wiersza). Kolekcja
+       $faq przychodzi z Static\IndexController@howbuy, juz przefiltrowana
+       do aktywnego jezyka, jako lista ['q' => ..., 'a' => ...]. */
 @endphp
 
 @section('pageheader')
@@ -556,14 +432,16 @@
         </div>
     </section>
 
-    {{-- FAQ --}}
+    {{-- FAQ — tresc z modulu FAQ w CMS-ie. Gdy dla aktywnego jezyka nie ma
+         ani jednego wpisu, cala sekcja znika zamiast zostawiac sam naglowek. --}}
+    @if($faq->isNotEmpty())
     <section class="ip-section ip-faq-section">
         <div class="container">
 
             <x-section-head>{{ $L == 'pl' ? 'FAQ – Pytania i odpowiedzi' : 'Frequently Asked Questions' }}</x-section-head>
 
             <div class="accordion ip-faq" id="faqAccordion">
-                @foreach($faq[$L] as $i => $item)
+                @foreach($faq as $i => $item)
                     <div class="accordion-item ip-faq-item">
                         <h3 class="accordion-header" id="faqHead{{ $i }}">
                             <button class="accordion-button @if($i > 0) collapsed @endif" type="button"
@@ -582,5 +460,6 @@
 
         </div>
     </section>
+    @endif
 
 @endsection

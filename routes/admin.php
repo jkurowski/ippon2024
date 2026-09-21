@@ -23,6 +23,7 @@ Route::group([
     Route::post('city/set', 'City\IndexController@sort')->name('city.sort');
     Route::post('job/set', 'Job\IndexController@sort')->name('job.sort');
     Route::post('awards/set', 'Awards\IndexController@sort')->name('awards.sort');
+    Route::post('faq/set', 'Faq\IndexController@sort')->name('faq.sort');
     Route::post('invest-page/set', 'Developro\Page\IndexController@sort')->name('investment_page.sort');
     Route::post('developro/investment/set', 'Developro\Investment\IndexController@sort')->name('developro.investment.sort');
 
@@ -58,6 +59,7 @@ Route::group([
         'job'=> 'Job\IndexController',
         'review' => 'Review\IndexController',
         'awards' => 'Awards\IndexController',
+        'faq' => 'Faq\IndexController',
     ]);
 
     Route::get('dictionary/{slug}/{locale}/edit', 'Dictionary\IndexController@edit')->name('dictionary.edit');
