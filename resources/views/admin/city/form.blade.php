@@ -29,13 +29,28 @@
                                 </div>
 
                                 <div class="row w-100 mb-4">
+                                    {{-- Podglad leci z 'uploads/header/', bo tam CityService zapisuje
+                                         pliki. Wczesniej bylo tu config('images.investment.header_file_path'),
+                                         czyli 'investment/header/' — sciezka naglowkow inwestycji,
+                                         przez co podglad miasta zawsze byl zepsutym obrazkiem. --}}
                                     @include('form-elements.html-input-file', [
                                         'label' => 'Nagłówek',
                                         'sublabel' => '(wymiary: '.config('images.investment.header_width').'px / '.config('images.investment.header_height').'px)',
                                         'name' => 'header',
                                         'file' => $entry->file_header,
-                                        'file_preview' => config('images.investment.header_file_path')
+                                        'file_preview' => 'uploads/header/'
                                         ])
+
+                                    @if($entry->file_header)
+                                        {{-- Bez obrazka podstrona /lokalizacja bierze naglowek
+                                             ze strony "Lokalizacja" w CMS-ie. --}}
+                                        <div class="col-12 mt-3">
+                                            <div class="form-check">
+                                                {!! Form::checkbox('delete_header', 1, false, ['class' => 'form-check-input', 'id' => 'delete_header']) !!}
+                                                {!! Form::label('delete_header', 'Usuń obrazek', ['class' => 'form-check-label']) !!}
+                                            </div>
+                                        </div>
+                                    @endif
                                 </div>
 
                             </div>

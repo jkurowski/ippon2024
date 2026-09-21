@@ -60,6 +60,12 @@ class IndexController extends Controller
 
         if ($request->hasFile('header')) {
             $this->service->uploadHeader($request->name, $request->file('header'), $city, true);
+        } elseif ($request->boolean('delete_header')) {
+            /* Checkbox "Usun obrazek" celowo nie jest w regulach walidacji —
+               to akcja, nie pole miasta, wiec nie ma go w validated() i nie
+               probuje sie zapisac do tabeli. Ma sens tylko wtedy, gdy nie
+               wgrano nowego pliku; wgranie i tak kasuje poprzedni. */
+            $this->service->deleteHeader($city);
         }
 
         return redirect(route('admin.city.index'))->with('success', 'Wpis zaktualizowany');

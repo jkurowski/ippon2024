@@ -210,7 +210,14 @@
 
 @section('pageheader')
     <div class="ip-pagehead">
-        @php $ipHeader = $city ? $ipFile('uploads/header', $city->file_header) : null; @endphp
+        @php
+            /* Naglowek: zdjecie miasta, a gdy miasto go nie ma — albo jestesmy
+               na zakladce "Wszystkie", gdzie miasta nie ma w ogole — zdjecie ze
+               strony "Lokalizacja" (Page id 18) z CMS-u. Oba pliki leza w tym
+               samym katalogu i sa ciete tak samo, wiec fallback jest 1:1. */
+            $ipHeader = ($city ? $ipFile('uploads/header', $city->file_header) : null)
+                ?? $ipFile('uploads/header', $page?->file_header);
+        @endphp
         @if($ipHeader)
             <img src="{{ $ipHeader }}" alt="">
         @endif
