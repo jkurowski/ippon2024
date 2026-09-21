@@ -2496,12 +2496,10 @@ a.ip-btn-submit {
         object-fit: cover;
     }
 
-    &:after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: fade(@ink-deep, 62%);
-    }
+    /* Bez warstwy przyciemniajacej — klient przyciemnia zdjecia naglowkowe
+       sam, w pliku graficznym. Bylo tu `&:after` z fade(@ink-deep, 62%);
+       nie przywracac bez ustalenia, tlo .ip-pagehead (@ink-deep) zostaje
+       jako podklad, gdy zdjecia nie ma w ogole. */
 
     .container {
         position: relative;
