@@ -6990,12 +6990,16 @@ a.ip-btn-submit {
    PODSTRONA: O nas — piktogramy przy Certyfikacie Jakosci
    Wg propozycji klienta (materialy_klienta/propozycja-piktogramy.png).
    Zastapily wczesniejsza .ip-feature-list (ikona + samo haslo w jednej linii).
-   Makieta ma 1630 px szerokosci, nie 1920 — wymiary przeliczone wspolczynnikiem
-   ~0.9 wzgledem karty 468x268 px z propozycji.
+
+   Uklad steruje sie szerokoscia KARTY (container query), nie szerokoscia okna.
+   Karta siedzi w kolumnie col-xl-6, wiec przy 1230 px jest wezsza niz przy
+   700 px na tablecie — punkty lamania liczone z okna zawsze trafialy obok.
    ========================================================================== */
 .ip-cert-cards {
+  /* auto-fit zamiast sztywnych dwoch kolumn: karta nigdy nie schodzi ponizej
+       300 px, wiec przy waskim kontenerze same ustawiaja sie jedna pod druga */
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 22px;
   margin-top: 34px;
 }
@@ -7005,6 +7009,7 @@ a.ip-btn-submit {
   flex-direction: column;
   /* z margin-top:auto na opisie wyrownuje kreski
                                  w obu kartach, mimo roznej dlugosci tytulow */
+  container-type: inline-size;
   overflow: hidden;
   /* numer wychodzi poza krawedz przy waskiej karcie */
   padding: 26px 24px 28px;
@@ -7044,11 +7049,15 @@ a.ip-btn-submit {
 }
 .ip-cert-top h3 {
   margin: 0;
-  padding-right: 36px;
+  min-width: 0;
+  /* bez tego flex nie zwezi tytulu ponizej
+                                     najdluzszego slowa i tekst wychodzi z karty */
+  padding-right: 24px;
+  overflow-wrap: break-word;
   font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
-  line-height: 30px;
+  line-height: 28px;
   text-transform: uppercase;
   color: #000000;
 }
@@ -7081,34 +7090,38 @@ a.ip-btn-submit {
   pointer-events: none;
   user-select: none;
 }
-@media (max-width: 1399.98px) {
+/* Prog policzony, nie zgadniety: najdluzsze slowo w tej sekcji
+   ("ENERGOOSZCZEDNE") ma 205 px przy 20 px Playfaira, a obok ikony zostaje
+   szerokosc wnetrza karty minus 130 px (ikona 84 + odstep 22 + padding 24).
+   Ponizej 340 px wnetrza ikona idzie NAD tytul, ktory dostaje wtedy cala
+   szerokosc karty — inaczej dlugie slowo lamalo sie w polowie albo wychodzilo
+   poza karte, gdzie scinal je overflow: hidden.
+   UWAGA: @container mierzy content-box, czyli szerokosc karty BEZ paddingu
+   (2x24 px) — prog z pelnej szerokosci karty bylby o 48 px za wysoki. */
+@container (max-width: 339.98px) {
+  .ip-cert-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    min-height: 0;
+    margin-bottom: 22px;
+  }
   .ip-cert-top h3 {
-    font-size: 20px;
-    line-height: 28px;
-  }
-  .ip-cert-num {
-    font-size: 96px;
-  }
-}
-/* Ponizej 1200 px kolumna tekstu jest juz pelnej szerokosci, wiec karty
-   spokojnie zostaja obok siebie; lamiemy je dopiero na telefonie. */
-@media (max-width: 575.98px) {
-  .ip-cert-cards {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 18px;
+    padding-right: 0;
+    font-size: 18px;
+    line-height: 26px;
   }
   .ip-cert-icon {
-    flex: 0 0 68px;
-    width: 68px;
-    height: 68px;
+    flex: 0 0 64px;
+    width: 64px;
+    height: 64px;
   }
   .ip-cert-icon svg {
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
   }
-  .ip-cert-top {
-    gap: 16px;
-    min-height: 0;
+  .ip-cert-num {
+    font-size: 72px;
   }
 }
 /*# sourceMappingURL=ippon.css.map */
