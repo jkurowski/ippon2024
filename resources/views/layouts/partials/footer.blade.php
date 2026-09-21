@@ -96,7 +96,8 @@
         <div class="row">
 
             <div class="col-12 col-lg-3">
-                <a href="{{ url('/') }}">
+                {{-- jak w naglowku: logo musi trzymac aktywny jezyk --}}
+                <a href="{{ route('index', ['locale' => app()->getLocale()]) }}">
                     <img class="ip-footer-logo" src="{{ asset('images/homepage/logo-footer.png') }}" width="268" height="97" alt="IPPON GROUP">
                 </a>
                 <p class="ip-footer-claim">{{ $ipF['claim'][$ipLang] }}</p>

@@ -128,7 +128,9 @@
      NOWY NAGLOWEK — makieta Figma 2026
      ========================================================================== --}}
 <header class="ip-header">
-    <a href="{{ url('/') }}" class="ip-logo">
+    {{-- Adres z prefiksem jezyka, inaczej klikniecie w logo na /en/... wyrzuca
+         na polska strone glowna. Nazwana trasa, bo grupa ma prefiks {locale?}. --}}
+    <a href="{{ route('index', ['locale' => app()->getLocale()]) }}" class="ip-logo">
         <img src="{{ asset('images/homepage/logo-ippon.png') }}" width="173" height="62" alt="IPPON GROUP">
     </a>
 

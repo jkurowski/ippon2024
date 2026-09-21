@@ -1,6 +1,6 @@
 @extends('layouts.page', ['body_class' => 'ip-page location-page'])
 
-@section('meta_title', $city ? $city->name : 'Mapa inwestycji')
+@section('meta_title', $city ? $city->name : (app()->getLocale() == 'en' ? 'Investment map' : 'Mapa inwestycji'))
 @section('seo_title', $page->meta_title)
 @section('seo_description', $page->meta_description)
 
@@ -181,6 +181,12 @@
 
     $ipCurrentSlug = $city?->slug ?? 'wszystkie';
 
+    /* Naglowek i zakladki byly wpisane po polsku na sztywno — na /en/lokalizacja
+       okruszki i tytul zostawaly polskie. Reszta widoku nadal jest polska,
+       patrz komentarz przy legendzie statusow. */
+    $ipL = in_array($current_locale, ['pl', 'en']) ? $current_locale : 'pl';
+    $ipMapTitle = $ipL == 'pl' ? 'Mapa inwestycji' : 'Investment map';
+
     /* Czesc plikow z CMS-u nie istnieje w lokalnej kopii — bez tej kontroli
        przegladarka pokazuje ikone zepsutego obrazka zamiast czystego tla. */
     $ipFile = function ($dir, $file) {
@@ -224,13 +230,13 @@
 
         <div class="container">
             <nav class="ip-breadcrumbs">
-                <a href="{{ url('/'.app()->getLocale()) }}">Strona główna</a>
+                <a href="{{ url('/'.app()->getLocale()) }}">{{ $ipL == 'pl' ? 'Strona główna' : 'Homepage' }}</a>
                 <i>|</i>
-                <span>Mapa inwestycji{{ $city ? ' – '.$city->name : '' }}</span>
+                <span>{{ $ipMapTitle }}{{ $city ? ' – '.$city->name : '' }}</span>
             </nav>
 
             <div class="ip-pagehead-title">
-                <h1>Mapa inwestycji</h1>
+                <h1>{{ $ipMapTitle }}</h1>
                 <div class="ip-rule"></div>
             </div>
         </div>

@@ -63,10 +63,10 @@
      ========================================================================== --}}
 @section('pageheader')
     @include('layouts.partials.ip-pagehead', [
-        'title'  => 'Mieszkania planowane',
+        'title'  => $current_locale == 'pl' ? 'Mieszkania planowane' : 'Planned apartments',
         'crumbs' => [
-            ['label' => 'Mieszkania', 'url' => null],
-            ['label' => 'Planowane',  'url' => null],
+            ['label' => $current_locale == 'pl' ? 'Mieszkania' : 'Apartments', 'url' => null],
+            ['label' => $current_locale == 'pl' ? 'Planowane'  : 'Planned',    'url' => null],
         ],
         'image'  => ($page->file_header && is_file(public_path('uploads/header/'.$page->file_header)))
                         ? asset('uploads/header/'.$page->file_header) : null,

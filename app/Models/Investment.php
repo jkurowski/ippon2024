@@ -27,6 +27,8 @@ class Investment extends Model
         'meta_description',
         'address',
         'stage',
+        'soon_title',
+        'soon_content',
         'url'
     ];
 
@@ -45,6 +47,8 @@ class Investment extends Model
         'url',
         'address',
         'stage',
+        'soon_title',
+        'soon_content',
         'city',
         'date_start',
         'date_end',

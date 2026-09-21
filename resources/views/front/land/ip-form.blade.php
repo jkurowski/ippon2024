@@ -119,7 +119,7 @@
     <script type="text/javascript">
         document.write("<button type=\"submit\" class=\"g-recaptcha ip-btn-submit\" data-sitekey=\"{{ config('services.recaptcha_v3.siteKey') }}\" data-callback=\"onRecaptchaSuccess\" data-action=\"submitContact\">@lang('website.button-send-message')</button>");
     </script>
-    <noscript>Do poprawnego działania, JavaScript musi być włączony.</noscript>
+    <noscript>{{ app()->getLocale() == 'en' ? 'JavaScript must be enabled for the form to work.' : 'Do poprawnego działania, JavaScript musi być włączony.' }}</noscript>
 </form>
 
 @include('layouts.partials.ip-form-scripts', ['formId' => 'land-form'])

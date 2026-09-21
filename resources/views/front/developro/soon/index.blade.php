@@ -63,10 +63,10 @@
      ========================================================================== --}}
 @section('pageheader')
     @include('layouts.partials.ip-pagehead', [
-        'title'  => 'Mieszkania już wkrótce',
+        'title'  => $current_locale == 'pl' ? 'Mieszkania już wkrótce' : 'Apartments coming soon',
         'crumbs' => [
-            ['label' => 'Mieszkania', 'url' => null],
-            ['label' => 'Już wkrótce',  'url' => null],
+            ['label' => $current_locale == 'pl' ? 'Mieszkania'  : 'Apartments',  'url' => null],
+            ['label' => $current_locale == 'pl' ? 'Już wkrótce' : 'Coming soon', 'url' => null],
         ],
         'image'  => ($page->file_header && is_file(public_path('uploads/header/'.$page->file_header)))
                         ? asset('uploads/header/'.$page->file_header) : null,

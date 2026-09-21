@@ -146,6 +146,33 @@
                         </div>
                         @endif
                     </div>
+
+                    {{-- Blok "Juz wkrotce" ze strony glownej (sekcja "Przyszlosc pisana
+                         komfortem"). Poza @if(!Request::get('lang')), bo oba pola sa
+                         tlumaczone i musza byc widoczne takze przy edycji EN. --}}
+                    <div class="row w-100 mb-4">
+                        <div class="col-12">
+                            <h2>Sekcja „Już wkrótce” na stronie głównej</h2>
+                            <p class="text-muted mb-2">Dotyczy wyłącznie inwestycji ze statusem <strong>Już wkrótce</strong>.
+                                Puste pola = blok bierze nazwę inwestycji i pierwsze 140 znaków zajawki, czyli zachowuje się jak dotąd.</p>
+                        </div>
+                        <div class="col-6">
+                            @include('form-elements.html-input-text', [
+                                'label' => 'Tytuł (Już wkrótce)',
+                                'sublabel' => '(hasło zamiast nazwy inwestycji; wyświetla się wersalikami)',
+                                'name' => 'soon_title',
+                                'value' => $entry->soon_title,
+                            ])
+                        </div>
+                        <div class="col-6">
+                            @include('form-elements.html-input-text', [
+                                'label' => 'Treść (Już wkrótce)',
+                                'sublabel' => '(jedno zdanie pod tytułem, zamiast zajawki)',
+                                'name' => 'soon_content',
+                                'value' => $entry->soon_content,
+                            ])
+                        </div>
+                    </div>
                     @if(!Request::get('lang'))
                     <div class="row w-100 form-group">
                         @include('form-elements.html-input-text', ['label' => 'Szerokość geograficzna', 'name' => 'lat', 'value' => $entry->lat, 'required' => 1])

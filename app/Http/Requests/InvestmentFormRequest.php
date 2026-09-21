@@ -56,6 +56,10 @@ class InvestmentFormRequest extends FormRequest
             'url.en' => ['nullable', 'string', 'max:230', 'regex:#^(https?://|/)#i'],
             'address' => '',
             'stage' => ['nullable', 'string', 'max:120'],
+            /* Naglowek i opis bloku "Juz wkrotce" na stronie glownej. Oba
+               tlumaczone, wiec formularz pokazuje je takze przy ?lang=en. */
+            'soon_title' => ['nullable', 'string', 'max:160'],
+            'soon_content' => ['nullable', 'string', 'max:400'],
             'city' => '',
             /* Pozycja w miescie — recznie ustawiana kolejnosc kart na
                podstronie /lokalizacja/{miasto}. 'sometimes', bo pole siedzi

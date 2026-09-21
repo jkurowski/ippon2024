@@ -1270,6 +1270,16 @@
             $photo = $ipCardPhoto($inv);
             $large = investmentLargeImage($inv, 'list');
             $city  = $cities->firstWhere('id', $inv->city);
+
+            /* Pole tlumaczone z fallbackiem na polski. Fallback aplikacji to 'en',
+               wiec przy tresci wpisanej tylko po polsku (np. nazwa Osiedla
+               Malczewskiego) spatie zwracalo pusty string i na /en/ zostawal
+               naglowek bez tekstu. Lepiej pokazac polska wersje niz nic. */
+            $ipSoon = fn ($field) => $inv->getTranslation($field, $current_locale, false)
+                ?: $inv->getTranslation($field, 'pl', false);
+
+            $ipSoonTitle = $ipSoon('soon_title') ?: $ipSoon('name');
+            $ipSoonDesc  = $ipSoon('soon_content');
         @endphp
 
         <div class="ip-split">
@@ -1289,10 +1299,17 @@
                 <div class="col-12 col-lg-4">
                     <div class="ip-split-panel">
                         <span class="ip-split-badge">{{ $current_locale == 'pl' ? 'Już wkrótce' : 'Coming soon' }}</span>
-                        <h3 class="ip-split-title">{{ $inv->name }}</h3>
+
+                        {{-- Haslo i zdanie z CMS-u (pola "Tytul/Tresc (Juz wkrotce)" w formularzu
+                             inwestycji). Puste = jak dotad: nazwa inwestycji i skrocona zajawka.
+                             Zajawka jest HTML-em z edytora, wiec leci przez excerpt(); wlasna tresc
+                             jest zwyklym tekstem i idzie w calosci, bez ucinania. --}}
+                        <h3 class="ip-split-title">{{ $ipSoonTitle }}</h3>
                         <hr class="ip-rule">
 
-                        @if($inv->entry_content)
+                        @if($ipSoonDesc)
+                            <p class="ip-split-desc">{{ $ipSoonDesc }}</p>
+                        @elseif($inv->entry_content)
                             <p class="ip-split-desc">{{ excerpt($inv->entry_content, 140) }}</p>
                         @endif
 
@@ -1541,56 +1558,27 @@
 {{-- Kontakt --}}
 <section class="ip-section pt-0">
     <div class="container">
-        <x-section-head>Porozmawiajmy o Twoim nowym mieszkaniu</x-section-head>
+        {{-- Naglowek i akapit byly wpisane po polsku na sztywno — na /en/ zostawaly
+             polskie. Teksty te same co w sekcji kontaktowej na podstronach. --}}
+        @php
+            $ipContactTitle = $current_locale == 'en'
+                ? 'Let’s talk about your new apartment'
+                : 'Porozmawiajmy o Twoim nowym mieszkaniu';
+
+            $ipContactLead = $current_locale == 'en'
+                ? 'Exceptional developments call for dedicated care. If you would like to learn the details of our projects, arrange a viewing or ask about bespoke solutions – <strong>we are at your disposal.</strong>'
+                : 'Wyjątkowe inwestycje wymagają dedykowanej opieki. Jeśli chcesz poznać szczegóły naszych projektów, umówić się na prezentację apartamentu lub zapytać o niestandardowe rozwiązania – <strong>jesteśmy do Twojej dyspozycji.</strong>';
+        @endphp
+
+        <x-section-head>{{ $ipContactTitle }}</x-section-head>
 
         <div class="row ip-cards-row align-items-start">
 
             <div class="col-12 col-lg-6">
-                <p class="ip-contact-lead">
-                    Wyjątkowe inwestycje wymagają dedykowanej opieki. Jeśli chcesz poznać szczegóły naszych projektów,
-                    umówić się na prezentację apartamentu lub zapytać o niestandardowe rozwiązania –
-                    <strong>jesteśmy do Twojej dyspozycji.</strong>
-                </p>
-
-                <div class="ip-contact-sep"></div>
-
-                <div class="ip-contact-cols">
-                    <ul class="ip-contact-list list-unstyled mb-0">
-                        <li>
-                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                            ul. Żelazna 4
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13" r="8"/><polyline points="12,9 12,13 15,15"/><line x1="5" y1="3" x2="2" y2="6"/><line x1="19" y1="3" x2="22" y2="6"/></svg>
-                            pn.–pt. 9:00–17:00
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
-                            <a href="tel:+48724222323">+48 724 222 323</a>
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
-                            <a href="tel:+48609084219">+48 609 084 219</a>
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16"/><polyline points="2,6 12,13 22,6"/></svg>
-                            <a href="mailto:mieszkania@ippon.group">mieszkania@ippon.group</a>
-                        </li>
-                    </ul>
-
-                    <div class="ip-contact-people">
-                        <div class="ip-person">
-                            <strong>Elżbieta Kalinowska</strong>
-                            <a href="mailto:e.kalinowska@ippon.group">e.kalinowska@ippon.group</a>
-                            <a href="tel:+48724222323">+48 724 222 323</a>
-                        </div>
-                        <div class="ip-person">
-                            <strong>Iwona Schubert</strong>
-                            <a href="mailto:i.schubert@ippon.group">i.schubert@ippon.group</a>
-                            <a href="tel:+48609884219">+48 609 884 219</a>
-                        </div>
-                    </div>
-                </div>
+                {{-- Dane kontaktowe leca z partiala, ktory obsluguje oba jezyki.
+                     Wczesniej byla tu jego kopia wklejona na sztywno i godziny
+                     otwarcia ("pn.-pt.") zostawaly polskie takze na /en/. --}}
+                @include('layouts.partials.ip-contact-info', ['lead' => $ipContactLead])
             </div>
 
             <div class="col-12 col-lg-6">

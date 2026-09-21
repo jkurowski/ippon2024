@@ -56,10 +56,10 @@
      ========================================================================== --}}
 @section('pageheader')
     @include('layouts.partials.ip-pagehead', [
-        'title'  => 'Mieszkania w sprzedaży',
+        'title'  => $current_locale == 'pl' ? 'Mieszkania w sprzedaży' : 'Apartments for sale',
         'crumbs' => [
-            ['label' => 'Mieszkania',  'url' => null],
-            ['label' => 'W sprzedaży', 'url' => null],
+            ['label' => $current_locale == 'pl' ? 'Mieszkania'  : 'Apartments', 'url' => null],
+            ['label' => $current_locale == 'pl' ? 'W sprzedaży' : 'For sale',   'url' => null],
         ],
         'image'  => ($page->file_header && is_file(public_path('uploads/header/'.$page->file_header)))
                         ? asset('uploads/header/'.$page->file_header) : null,

@@ -87,9 +87,9 @@
 
 @section('pageheader')
     @include('layouts.partials.ip-pagehead', [
-        'title'  => 'Inwestycje zrealizowane',
+        'title'  => $current_locale == 'pl' ? 'Inwestycje zrealizowane' : 'Completed investments',
         'crumbs' => [
-            ['label' => 'Inwestycje zrealizowane', 'url' => null],
+            ['label' => $current_locale == 'pl' ? 'Inwestycje zrealizowane' : 'Completed investments', 'url' => null],
         ],
         'image'  => ($page->file_header && is_file(public_path('uploads/header/'.$page->file_header)))
                         ? asset('uploads/header/'.$page->file_header) : null,
