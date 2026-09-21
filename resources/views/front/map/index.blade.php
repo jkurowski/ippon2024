@@ -266,7 +266,7 @@
                             </div>
 
                             <div class="ip-inv-body">
-                                <span class="ip-inv-brand">Ippon</span>
+                                <span class="ip-inv-brand">IPPON GROUP</span>
 
                                 <h2 class="ip-inv-name">
                                     @if($url)<a {!! investmentLinkAttrs($url) !!}>{{ $inv->name }}</a>@else{{ $inv->name }}@endif

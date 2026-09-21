@@ -7006,4 +7006,17 @@ a.ip-btn-submit {
   padding-top: 22px !important;
   padding-bottom: 22px !important;
 }
+/* Boksy samoobslugowe: kadr trzymany za gorna krawedz
+================================================== */
+/* Zdjecie w tej sekcji (images/homepage/boksy.jpg) to plik dociagniety przez
+   AI: oryginal mial 1352x744 i wlosy mezczyzny dotykaly gornej krawedzi, wiec
+   kadrowanie do apli obok scinalo mu pol glowy. Nowy plik ma 2400x1018
+   (2,36:1) — zapas nad glowa i dolozony korytarz po bokach.
+
+   Kadr zaczepiony na gornej krawedzi, zeby ten zapas nie poszedl jako
+   pierwszy: do ~2300 px okna zdjecie przycina sie tylko po bokach, wyzej
+   schodzi dol kadru (nogawki), a glowa i kartony zostaja. */
+.ip-split-media.ip-boxes-media img {
+  object-position: 50% 0;
+}
 /*# sourceMappingURL=ippon.css.map */

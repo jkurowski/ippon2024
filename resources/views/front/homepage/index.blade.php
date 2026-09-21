@@ -1495,8 +1495,12 @@
     <div class="ip-full">
         <div class="row g-0">
             <div class="col-12 col-lg-7 col-xl-8">
-                <div class="ip-split-media h-100">
-                    <img src="{{ asset('images/homepage/boksy.jpg') }}" alt="Boksy samoobsługowe 24/7">
+                {{-- ip-boxes-media: kadr zaczepiony na gornej krawedzi, zeby
+                     scinal sie dol zdjecia, a nie glowa (patrz ippon.less). --}}
+                <div class="ip-split-media ip-boxes-media">
+                    {{-- ?v=<czas pliku>: nazwa zostaje ta sama przy podmianie zdjecia,
+                         wiec bez tego wracajacy uzytkownik dostaje wersje z cache. --}}
+                    <img src="{{ asset('images/homepage/boksy.jpg').'?v='.filemtime(public_path('images/homepage/boksy.jpg')) }}" alt="Boksy samoobsługowe 24/7">
                 </div>
             </div>
             <div class="col-12 col-lg-5 col-xl-4">
