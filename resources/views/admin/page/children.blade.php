@@ -1,6 +1,7 @@
 @foreach ($pages as $page)
 <tr>
     <td><i class="fe-corner-down-right" style="margin-left: {{$page->depth * 10}}px;margin-right: 15px"></i> {{$page->title}}</td>
+    <td>@include('admin.page.header-thumb', ['page' => $page])</td>
     <td class="text-center">{!! status($page->active) !!}</td>
     <td class="text-center">{!! page_type($page->type) !!}</td>
     <td>

@@ -26,6 +26,7 @@
                     <thead class="thead-default">
                     <tr>
                         <th>Nazwa</th>
+                        <th>Nagłówek</th>
                         <th class="text-center">Status</th>
                         <th class="text-center">Typ</th>
                         <th>Ścieżka</th>
@@ -37,6 +38,7 @@
                         @foreach($list as $page)
                             <tr>
                                 <td>{{$page->title}}</td>
+                                <td>@include('admin.page.header-thumb', ['page' => $page])</td>
                                 <td class="text-center">{!! status($page->active) !!}</td>
                                 <td class="text-center">{!! page_type($page->type) !!}</td>
                                 @if($page->type == 1)
