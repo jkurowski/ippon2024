@@ -201,7 +201,7 @@
 
     $kroki = [
         [
-            'num' => '01', 'icon' => 'budynek', 'media' => 'foto', 'img' => 'images/howbuy/krok-1.jpg', 'pos' => 'center 30%', 'ai' => true,
+            'num' => '01', 'ico' => '01', 'media' => 'foto', 'img' => 'images/howbuy/krok-1.jpg', 'pos' => 'center 30%', 'ai' => true,
             'title' => ['pl' => 'Wybór mieszkania', 'en' => 'Choosing an apartment'],
             'sub'   => ['pl' => 'dopasowanego do Twoich potrzeb', 'en' => 'that fits your needs'],
             'desc'  => [
@@ -210,7 +210,7 @@
             ],
         ],
         [
-            'num' => '02', 'icon' => 'umowa', 'media' => 'panel',
+            'num' => '02', 'ico' => '02', 'media' => 'panel',
             'title' => ['pl' => 'Umowa rezerwacyjna', 'en' => 'Reservation agreement'],
             'sub'   => ['pl' => 'oraz opłata', 'en' => 'and fee'],
             'desc'  => [
@@ -226,7 +226,7 @@
             ],
         ],
         [
-            'num' => '03', 'icon' => 'dokument', 'media' => 'foto', 'img' => 'images/howbuy/krok-3.jpg', 'ai' => true,
+            'num' => '03', 'ico' => '03', 'media' => 'foto', 'img' => 'images/howbuy/krok-3.jpg', 'ai' => true,
             'title' => ['pl' => 'Czas na finansowanie –', 'en' => 'Time to arrange financing –'],
             'sub'   => ['pl' => 'formalności kredytowe', 'en' => 'mortgage formalities'],
             'desc'  => [
@@ -235,7 +235,7 @@
             ],
         ],
         [
-            'num' => '04', 'icon' => 'pioro', 'media' => 'foto', 'img' => 'images/howbuy/krok-4.jpg', 'ai' => true, 'ai_light' => true,
+            'num' => '04', 'ico' => '04', 'media' => 'foto', 'img' => 'images/howbuy/krok-4.jpg', 'ai' => true, 'ai_light' => true,
             'title' => ['pl' => 'Umowa deweloperska', 'en' => 'Development agreement'],
             'sub'   => ['pl' => 'w formie aktu notarialnego', 'en' => 'signed before a notary'],
             'desc'  => [
@@ -244,7 +244,7 @@
             ],
         ],
         [
-            'num' => '05', 'icon' => 'klodka', 'media' => 'schemat',
+            'num' => '05', 'ico' => '05', 'media' => 'schemat',
             'title' => ['pl' => 'Bezpieczne wpłaty', 'en' => 'Secure payments'],
             'sub'   => ['pl' => 'na Mieszkaniowy Rachunek Powierniczy', 'en' => 'to a Housing Escrow Account'],
             'desc'  => [
@@ -253,7 +253,7 @@
             ],
         ],
         [
-            'num' => '06', 'icon' => 'klucz', 'media' => 'foto', 'img' => 'images/howbuy/krok-6.jpg', 'pos' => 'center 25%', 'ai' => true,
+            'num' => '06', 'ico' => '06', 'media' => 'foto', 'img' => 'images/howbuy/krok-6.jpg', 'pos' => 'center 25%', 'ai' => true,
             'title' => ['pl' => 'Pozwolenie na użytkowanie', 'en' => 'Occupancy permit'],
             'sub'   => ['pl' => 'i Odbiór Techniczny', 'en' => 'and technical inspection'],
             'desc'  => [
@@ -262,7 +262,7 @@
             ],
         ],
         [
-            'num' => '07', 'icon' => 'dom', 'media' => 'foto', 'img' => 'images/howbuy/krok-7.jpg', 'ai' => true,
+            'num' => '07', 'ico' => '07', 'media' => 'foto', 'img' => 'images/howbuy/krok-7.jpg', 'ai' => true,
             'title' => ['pl' => 'Przeniesienie własności', 'en' => 'Transfer of ownership –'],
             'sub'   => ['pl' => '(Umowa przyrzeczona)', 'en' => 'final agreement'],
             'desc'  => [
@@ -313,8 +313,16 @@
                 <article class="ip-step">
 
                     <div class="ip-step-rail">
-                        {{-- otoczka bez ikonki — ikonki krokow wylecialy (decyzja Jacka) --}}
-                        <span class="ip-step-icon"></span>
+                        {{-- Ikonki krokow od klienta (09.2026), zrodla w
+                             public/materialy_klienta/jak_kupic_mieszkanie_kroki.
+                             Przyciete do tresci i wyrownane dluzszym bokiem na plotnie
+                             160 px, zeby w kolku mialy te sama wage — surowe pliki mialy
+                             rozne marginesy (od 630 do 1095 px tresci na 1254 px).
+                             Dekoracyjne: krok ma juz numer i tytul, stad puste alt. --}}
+                        <span class="ip-step-icon">
+                            <img src="{{ asset('images/howbuy/ikony/'.$krok['ico'].'.png') }}?v={{ @filemtime(public_path('images/howbuy/ikony/'.$krok['ico'].'.png')) }}"
+                                 alt="" aria-hidden="true" width="160" height="160">
+                        </span>
                         <span class="ip-step-line"></span>
                     </div>
 

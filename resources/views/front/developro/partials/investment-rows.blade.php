@@ -66,7 +66,9 @@
                         @endif
 
                         @if($url)
-                            <a {!! investmentLinkAttrs($url) !!} class="ip-btn-gold-lg">Zobacz więcej</a>
+                            <a {!! investmentLinkAttrs($url) !!} class="ip-btn-gold-lg">
+                                {{ $current_locale == 'pl' ? 'Zobacz więcej' : 'See more' }}
+                            </a>
                         @endif
                     </div>
                 </div>

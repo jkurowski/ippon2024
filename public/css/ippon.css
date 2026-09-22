@@ -4067,7 +4067,7 @@ a.ip-btn-submit {
    sie z nastepnym krokiem — stad `overflow` karty musi zostac widoczny. */
 .ip-step-rail {
   position: relative;
-  flex: 0 0 150px;
+  flex: 0 0 164px;
   display: flex;
   align-items: center;
   align-self: stretch;
@@ -4077,7 +4077,7 @@ a.ip-btn-submit {
 .ip-step-rail:after {
   content: '';
   position: absolute;
-  left: 119px;
+  left: 133px;
   top: 27px;
   width: 7px;
   height: 7px;
@@ -4086,21 +4086,31 @@ a.ip-btn-submit {
   border-radius: 50%;
   background: #ffffff;
 }
-/* Otoczka ikony zostaje pusta — ikonki wyleciały (decyzja Jacka), sam
-   zloty okrag trzyma rytm osi. */
+/* Kolko z ikonka kroku. Ikonki przyszly od klienta jako PNG-i 160x160
+   z przezroczystym tlem, wyrownane dluzszym bokiem — w kolku 90 px dajemy im
+   46 px, czyli ok. polowe srednicy, reszta to oddech przy obwodzie.
+   object-fit: contain, bo po wyrownaniu ikonki maja rozne proporcje
+   (od 152x85 przy uscisku dloni do 129x152 przy tarczy). */
 .ip-step-icon {
-  display: block;
-  width: 90px;
-  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 104px;
+  height: 104px;
   border: 1px solid #ca9b56;
   border-radius: 50%;
+}
+.ip-step-icon img {
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
 }
 /* Kazdy wpis ma wlasna linie: od gornej krawedzi karty do dolnej, z grotem
    na koncu. Karta ma padding 34px, wiec rail siega tylko tresci — stad
    ujemne top/bottom (i osobne wartosci w breakpointach). */
 .ip-step-line {
   position: absolute;
-  left: 122px;
+  left: 136px;
   top: -34px;
   bottom: -34px;
   width: 1px;
@@ -4588,16 +4598,28 @@ a.ip-btn-submit {
     gap: 20px 24px;
     padding: 28px 24px;
   }
+  /* Rail musi pomiescic kolko + odstep + linie. Przy 90 px linia (left: 44px)
+       szla srodkiem kolka, bo ono zostawalo 90 px az do progu 767 — na desktopie
+       uklad to 90 px kolko, 32 px przerwy i linia na 122 px, i tu trzymamy te
+       sama kolejnosc, tylko mniejsza: 64 + 28 + linia na 92 px. */
+  .ip-step-icon {
+    width: 80px;
+    height: 80px;
+  }
+  .ip-step-icon img {
+    width: 42px;
+    height: 42px;
+  }
   .ip-step-rail {
-    flex: 0 0 90px;
+    flex: 0 0 128px;
   }
   .ip-step-line {
-    left: 44px;
+    left: 110px;
     top: -28px;
     bottom: -28px;
   }
   .ip-step-rail:after {
-    left: 41px;
+    left: 107px;
     top: 23px;
   }
   .ip-step-num {
@@ -4631,12 +4653,10 @@ a.ip-btn-submit {
     padding: 22px 18px;
     gap: 16px;
   }
-  .ip-step-icon {
-    width: 64px;
-    height: 64px;
-  }
+  /* Kolko ma juz 80 px z progu 1199; tutaj linia znika, wiec rail zwezamy
+       do samego kolka. */
   .ip-step-rail {
-    flex: 0 0 64px;
+    flex: 0 0 80px;
   }
   .ip-step-line,
   .ip-step-rail:after {
@@ -5311,17 +5331,25 @@ a.ip-btn-submit {
     height: 280px;
     border-radius: 0;
   }
+  /* Ten sam problem co w krokach "Jak kupic": kolko ma tu 104 px (numer
+       kroku) i przy railu 90 px linia szla jego srodkiem. Kolka nie zwezamy,
+       zeby nie ruszac typografii numeru, tylko robimy miejsce obok. */
   .ip-career-steps .ip-step-rail {
-    flex: 0 0 90px;
+    flex: 0 0 150px;
   }
   .ip-career-steps .ip-step-line {
-    left: 44px;
+    left: 132px;
   }
   .ip-career-steps .ip-step-rail:after {
-    left: 41px;
+    left: 129px;
   }
 }
 @media (max-width: 767.98px) {
+  /* Linia osi tu znika (regula bazowa), wiec rail zwezamy do samego kolka —
+       inaczej po poszerzeniu go na progu 1199 zostaje 46 px pustego miejsca. */
+  .ip-career-steps .ip-step-rail {
+    flex: 0 0 104px;
+  }
   .ip-career-steps .ip-step-media {
     margin: 0 calc((100% - 100vw) / 2) -22px;
   }
