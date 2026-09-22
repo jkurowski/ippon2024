@@ -1,6 +1,8 @@
 {{-- Formularz zgloszenia gruntu w oprawie ze strony glownej (.ip-form).
-     Pola bez zmian — pod te nazwy podpieta jest walidacja (LandFormRequest),
-     mail LandSend i zapis klienta. Formularz leci POST-em na ten sam adres.
+     Pod nazwy pol podpieta jest walidacja (LandFormRequest), mail LandSend
+     i zapis klienta. Formularz leci POST-em na ten sam adres.
+     09.2026: zdjete pola form_price i form_date (oczekiwana cena i data
+     sprzedazy) — razem z nimi reguly w LandFormRequest i wiersze w mailu.
      Parametry:
        $page_name — nazwa formularza zapisywana przy zgloszeniu
        $obligation, $rules — z kontrolera (RodoSettings / RodoRules) --}}
@@ -61,20 +63,6 @@
             <div class="ip-field">
                 <label for="form_street">@lang('website.form-label-street')</label>
                 <input type="text" name="form_street" id="form_street" value="{{ old('form_street') }}">
-            </div>
-        </div>
-
-        <div class="col-12 col-sm-6">
-            <div class="ip-field">
-                <label for="form_price">@lang('website.form-label-expected-price')</label>
-                <input type="text" name="form_price" id="form_price" value="{{ old('form_price') }}">
-            </div>
-        </div>
-
-        <div class="col-12 col-sm-6">
-            <div class="ip-field">
-                <label for="form_date">@lang('website.form-label-expected-sale-date')</label>
-                <input type="text" name="form_date" id="form_date" value="{{ old('form_date') }}">
             </div>
         </div>
 

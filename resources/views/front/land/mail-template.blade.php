@@ -30,8 +30,6 @@
                         @isset($request->form_surname)<p><b>Nazwisko:</b> {{ $request->form_surname }}</p>@endisset
                         @isset($request->form_city)<p><b>Miasto:</b> {{ $request->form_city }}</p>@endisset
                         @isset($request->form_street)<p><b>Ulica:</b> {{ $request->form_street }}</p>@endisset
-                        @isset($request->form_price)<p><b>Cena:</b> {{ $request->form_price }}</p>@endisset
-                        @isset($request->form_date)<p><b>Data:</b> {{ $request->form_date }}</p>@endisset
                         @isset($request->form_book)<p><b>Księga:</b> {{ $request->form_book }}</p>@endisset
                         @isset($request->form_land)<p><b>Przeznaczenie:</b> {{ $request->form_land }}</p>@endisset
                         <hr style="border:0;border-bottom:1px solid #ececec" />

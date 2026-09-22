@@ -235,7 +235,7 @@
             ],
         ],
         [
-            'num' => '04', 'icon' => 'pioro', 'media' => 'foto', 'img' => 'images/howbuy/krok-4.jpg', 'ai' => true,
+            'num' => '04', 'icon' => 'pioro', 'media' => 'foto', 'img' => 'images/howbuy/krok-4.jpg', 'ai' => true, 'ai_light' => true,
             'title' => ['pl' => 'Umowa deweloperska', 'en' => 'Development agreement'],
             'sub'   => ['pl' => 'w formie aktu notarialnego', 'en' => 'signed before a notary'],
             'desc'  => [
@@ -335,9 +335,11 @@
                                 <img src="{{ asset($krok['img']) }}?v={{ @filemtime(public_path($krok['img'])) }}" alt="{{ $krok['title'][$L] }}" width="1650" height="707"
                                      @if(!empty($krok['pos'])) style="object-position: {{ $krok['pos'] }}" @endif>
                                 {{-- Oznaczenie zdjec wygenerowanych przez AI (przejrzystosc wobec
-                                     odwiedzajacych). Przy prawdziwym zdjeciu usun 'ai' z tablicy. --}}
+                                     odwiedzajacych). Przy prawdziwym zdjeciu usun 'ai' z tablicy.
+                                     'ai_light' tam, gdzie prawy dolny rog zdjecia jest ciemny
+                                     i ciemna plakietka by w nim zginela (zmierzone: krok-4). --}}
                                 @if(!empty($krok['ai']))
-                                    <x-ai-badge />
+                                    <x-ai-badge :light="!empty($krok['ai_light'])" />
                                 @endif
                                 @break
 

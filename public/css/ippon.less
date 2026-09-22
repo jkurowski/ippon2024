@@ -4732,12 +4732,21 @@ a.ip-btn-submit {
 
 /* Plakietka "AI" na zdjeciach wygenerowanych — maly, spokojny znacznik
    w prawym dolnym rogu. 12 px od brzegu, zeby nie wchodzila w zaokruglenie
-   rogu zdjecia (14 px). Kontener musi miec position: relative. */
+   rogu zdjecia (14 px). Kontener musi miec position: relative.
+
+   Dwa warianty, bo rogi zdjec bywaja i jasne, i ciemne — jeden kolor gubi
+   sie na polowie zdjec:
+     - domyslny: ciemna pigulka, biale litery — na JASNY rog,
+     - .is-light: jasna pigulka, ciemne litery — na CIEMNY rog
+       (ciemne zdjecie albo przyciemnienie, jak gradient .ip-trust-card:after).
+   z-index 3, bo w .ip-trust-card plakietka musi byc nad przyciemnieniem
+   (:after ma 1) i nad pasem z tytulem (.ip-trust-card-body ma 2) — przy
+   z-index 1 gradient rysowal sie na niej i "AI" praktycznie znikalo. */
 .ip-ai-badge {
     position: absolute;
     right: 12px;
     bottom: 12px;
-    z-index: 1;
+    z-index: 3;
     padding: 3px 8px;
     border-radius: 999px;
     background: rgba(0, 0, 0, .55);
@@ -4747,6 +4756,11 @@ a.ip-btn-submit {
     letter-spacing: .06em;
     color: @white;
     pointer-events: none;
+
+    &.is-light {
+        background: rgba(255, 255, 255, .82);
+        color: @ink;
+    }
 }
 
 /* Uniwersalna otoczka dla zdjecia AI poza krokami "Jak kupic" — daje punkt

@@ -43,8 +43,6 @@ class LandFormRequest extends FormRequest
             'form_phone' => 'required',
             'form_city' => '',
             'form_street' => '',
-            'form_price' => '',
-            'form_date' => '',
             'form_book' => '',
             'form_land' => '',
             'form_page' => '',

@@ -240,8 +240,8 @@
 @php
     $L = in_array($current_locale, ['pl', 'en']) ? $current_locale : 'pl';
 
-    /* UWAGA: zdjecia to placeholdery — makieta ma w tych miejscach ikonki,
-       wiec zdjec do kart jeszcze nie ma. Do podmiany na fotografie gruntow. */
+    /* UWAGA: placeholder — makieta ma w tych miejscach ikonki, wiec zdjec do
+       kart "Zyskaj pewnosc..." jeszcze nie ma. Do podmiany na fotografie gruntow. */
     $korzysci = [
         [
             'img'   => 'images/grunty-1.jpg',
@@ -269,10 +269,14 @@
         ],
     ];
 
+    /* Zdjecia krokow: materialy_klienta/zakup_gruntow_1234 (09.2026), przyciete
+       ze srodka do 3/4 i przeskalowane do 840x1120 — tyle maja karty .ip-trust-card.
+       Wygenerowane przez AI, stad 'ai' => true i plakietka na karcie. */
     $sciezka = [
         [
             'num'   => '01.',
-            'img'   => 'images/homepage/trust-card-1.jpg',
+            'img'   => 'images/land/krok-1.jpg',
+            'ai'    => true,
             'title' => ['pl' => 'Zgłoszenie gruntu', 'en' => 'Submit Your Land'],
             'desc'  => [
                 'pl' => 'Wypełnij krótki formularz na dole strony, podając podstawowe parametry działki',
@@ -281,7 +285,8 @@
         ],
         [
             'num'   => '02.',
-            'img'   => 'images/homepage/trust-card-2.jpg',
+            'img'   => 'images/land/krok-2.jpg',
+            'ai'    => true,
             'title' => ['pl' => 'Bezpłatna analiza', 'en' => 'Free Analysis'],
             'desc'  => [
                 'pl' => 'Nasz zespół ekspertów przeanalizuje potencjał terenu, dokumentację i przygotuje rynkową ofertę cenową',
@@ -290,7 +295,8 @@
         ],
         [
             'num'   => '03.',
-            'img'   => 'images/homepage/inw-synergia.jpg',
+            'img'   => 'images/land/krok-3.jpg',
+            'ai'    => true,
             'title' => ['pl' => 'Decyzja i umowa', 'en' => 'Decision and Agreement'],
             'desc'  => [
                 'pl' => 'Po akceptacji warunków przystępujemy do przygotowania transparentnej umowy notarialnej. Ty zyskujesz gwarancję szybkiej i bezpiecznej zapłaty',
@@ -299,7 +305,8 @@
         ],
         [
             'num'   => '04.',
-            'img'   => 'images/homepage/inw-slow.jpg',
+            'img'   => 'images/land/krok-4.jpg',
+            'ai'    => true,
             'title' => ['pl' => 'Finalizacja', 'en' => 'Completion'],
             'desc'  => [
                 'pl' => 'Nie musisz się martwić skomplikowanymi procedurami ani brakiem kompletnej dokumentacji',
@@ -460,7 +467,18 @@
                 @foreach($sciezka as $step)
                     <div class="col-12 col-md-6 col-xl-3">
                         <article class="ip-trust-card ip-step-card" tabindex="0">
-                            <img src="{{ asset($step['img']) }}" alt="{{ $step['title'][$L] }}">
+                            {{-- ?v=filemtime: zdjecia krokow byly juz raz podmieniane pod ta sama
+                                 nazwa, bez tego przegladarka trzyma stare z cache --}}
+                            <img src="{{ asset($step['img']) }}?v={{ @filemtime(public_path($step['img'])) }}"
+                                 alt="{{ $step['title'][$L] }}" width="840" height="1120">
+                            {{-- Zdjecia krokow sa wygenerowane przez AI. Przy prawdziwej
+                                 fotografii usun 'ai' z tablicy $sciezka.
+                                 Wariant jasny, bo dol karty przykrywa gradient
+                                 (.ip-trust-card:after, na dole rgba(0,0,0,.88)) —
+                                 ciemna plakietka znika tam niezaleznie od zdjecia. --}}
+                            @if(!empty($step['ai']))
+                                <x-ai-badge light />
+                            @endif
                             <div class="ip-trust-card-body">
                                 <span class="ip-step-num">{{ $step['num'] }}</span>
                                 <h3>{{ $step['title'][$L] }}</h3>
