@@ -157,14 +157,38 @@
      ========================================================================== --}}
 
 @php
+    $ipL = in_array($current_locale, ['pl', 'en']) ? $current_locale : 'pl';
+
+    /* Teksty widoku. Tlumaczyl sie tu tylko naglowek i okruszki — plakietki
+       statusu, legenda mapy, parametry kart, zakladka "Wszystkie" i komunikat
+       o pustej liscie byly wpisane po polsku na sztywno i takie zostawaly na
+       /en/lokalizacja. Angielskie brzmienia bierzemy z podstron inwestycji
+       (For sale / Coming soon / Planned / Completed) i ze strony glownej
+       (apartments), zeby nazwy statusow zgadzaly sie miedzy podstronami. */
+    $ipT = [
+        'title'      => ['pl' => 'Mapa inwestycji', 'en' => 'Investment map'],
+        'home'       => ['pl' => 'Strona główna',   'en' => 'Homepage'],
+        'all'        => ['pl' => 'Wszystkie',       'en' => 'All'],
+        'sale'       => ['pl' => 'W sprzedaży',     'en' => 'For sale'],
+        'soon'       => ['pl' => 'Wkrótce',         'en' => 'Coming soon'],
+        'planned'    => ['pl' => 'Planowana',       'en' => 'Planned'],
+        'done'       => ['pl' => 'Zrealizowane',    'en' => 'Completed'],
+        'apartments' => ['pl' => 'mieszkań',        'en' => 'apartments'],
+        'see'        => ['pl' => 'Zobacz inwestycję', 'en' => 'See investment'],
+        'empty'      => [
+            'pl' => 'Brak inwestycji w tej lokalizacji.',
+            'en' => 'No investments in this location.',
+        ],
+    ];
+
     /** Status inwestycji → etykieta + wariant kolorystyczny (legenda ma 3 pozycje). */
-    $ipStatus = function ($status) {
+    $ipStatus = function ($status) use ($ipT, $ipL) {
         return match ((int) $status) {
-            1       => ['label' => 'W sprzedaży',   'variant' => 'sale'],
-            4       => ['label' => 'Wkrótce',       'variant' => 'soon'],
-            3       => ['label' => 'Planowana',     'variant' => 'planned'],
-            2       => ['label' => 'Zrealizowane',  'variant' => 'done'],
-            default => ['label' => '',              'variant' => 'soon'],
+            1       => ['label' => $ipT['sale'][$ipL],    'variant' => 'sale'],
+            4       => ['label' => $ipT['soon'][$ipL],    'variant' => 'soon'],
+            3       => ['label' => $ipT['planned'][$ipL], 'variant' => 'planned'],
+            2       => ['label' => $ipT['done'][$ipL],    'variant' => 'done'],
+            default => ['label' => '',                    'variant' => 'soon'],
         };
     };
 
@@ -197,11 +221,7 @@
 
     $ipCurrentSlug = $city?->slug ?? 'wszystkie';
 
-    /* Naglowek i zakladki byly wpisane po polsku na sztywno — na /en/lokalizacja
-       okruszki i tytul zostawaly polskie. Reszta widoku nadal jest polska,
-       patrz komentarz przy legendzie statusow. */
-    $ipL = in_array($current_locale, ['pl', 'en']) ? $current_locale : 'pl';
-    $ipMapTitle = $ipL == 'pl' ? 'Mapa inwestycji' : 'Investment map';
+    $ipMapTitle = $ipT['title'][$ipL];
 
     /* Czesc plikow z CMS-u nie istnieje w lokalnej kopii — bez tej kontroli
        przegladarka pokazuje ikone zepsutego obrazka zamiast czystego tla. */
@@ -246,7 +266,7 @@
 
         <div class="container">
             <nav class="ip-breadcrumbs">
-                <a href="{{ url('/'.app()->getLocale()) }}">{{ $ipL == 'pl' ? 'Strona główna' : 'Homepage' }}</a>
+                <a href="{{ url('/'.app()->getLocale()) }}">{{ $ipT['home'][$ipL] }}</a>
                 <i>|</i>
                 <span>{{ $ipMapTitle }}{{ $city ? ' – '.$city->name : '' }}</span>
             </nav>
@@ -269,7 +289,7 @@
                    class="{{ $ipCurrentSlug === $c->slug ? 'is-active' : '' }}">{{ $c->name }}</a>
             @endforeach
             <a href="{{ route('map', ['locale' => app()->getLocale(), 'slug' => 'wszystkie']) }}"
-               class="{{ $ipCurrentSlug === 'wszystkie' ? 'is-active' : '' }}">Wszystkie</a>
+               class="{{ $ipCurrentSlug === 'wszystkie' ? 'is-active' : '' }}">{{ $ipT['all'][$ipL] }}</a>
         </nav>
 
         <div class="row g-0 ip-map-panel">
@@ -313,7 +333,7 @@
                                         @if($inv->areas_amount)
                                             <li>
                                                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18v-5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v5"/><path d="M5 11V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v4"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-                                                {{ $inv->areas_amount }} mieszkań
+                                                {{ $inv->areas_amount }} {{ $ipT['apartments'][$ipL] }}
                                             </li>
                                         @endif
                                         @if($area)
@@ -331,7 +351,7 @@
                                     </ul>
 
                                     @if($url)
-                                        <a {!! investmentLinkAttrs($url) !!} class="ip-inv-go" aria-label="Zobacz inwestycję {{ $inv->name }}">
+                                        <a {!! investmentLinkAttrs($url) !!} class="ip-inv-go" aria-label="{{ $ipT['see'][$ipL] }} {{ $inv->name }}">
                                             <svg viewBox="0 0 18 16" aria-hidden="true"><polyline points="10,1 17,8 10,15"/><line x1="1" y1="8" x2="17" y2="8"/></svg>
                                         </a>
                                     @endif
@@ -339,7 +359,7 @@
                             </div>
                         </article>
                     @empty
-                        <div class="ip-inv-empty">Brak inwestycji w tej lokalizacji.</div>
+                        <div class="ip-inv-empty">{{ $ipT['empty'][$ipL] }}</div>
                     @endforelse
                 </div>
             </div>
@@ -349,9 +369,9 @@
                     <div id="map"></div>
 
                     <div class="ip-map-legend">
-                        <span><i class="dot-sale"></i> W sprzedaży</span>
-                        <span><i class="dot-soon"></i> Wkrótce</span>
-                        <span><i class="dot-done"></i> Zrealizowane</span>
+                        <span><i class="dot-sale"></i> {{ $ipT['sale'][$ipL] }}</span>
+                        <span><i class="dot-soon"></i> {{ $ipT['soon'][$ipL] }}</span>
+                        <span><i class="dot-done"></i> {{ $ipT['done'][$ipL] }}</span>
                     </div>
                 </div>
             </div>
@@ -373,6 +393,9 @@
             if (!el || typeof L === 'undefined') return;
 
             var points = @json($ipPoints);
+
+            /* Teksty dymka musza przyjsc z PHP — inaczej na /en zostaja polskie. */
+            var t = @json(['see' => $ipT['see'][$ipL]]);
 
             var map = L.map(el, { scrollWheelZoom: false }).setView([53.7784, 20.4801], 12);
 
@@ -401,7 +424,7 @@
             points.forEach(function (p) {
                 var html = '<strong>' + p.name + '</strong>' +
                            (p.address ? '<br>' + p.address : '') +
-                           (p.url ? '<br><a href="' + p.url + '"' + (p.external ? ' target="_blank" rel="noopener"' : '') + '>Zobacz inwestycję</a>' : '');
+                           (p.url ? '<br><a href="' + p.url + '"' + (p.external ? ' target="_blank" rel="noopener"' : '') + '>' + t.see + '</a>' : '');
 
                 var marker = L.marker([p.lat, p.lng], { icon: pin(p.variant) })
                     .bindPopup(html);
