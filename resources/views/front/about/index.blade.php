@@ -404,7 +404,7 @@
         </div>
     </section>
 
-    <section class="ip-invrows ip-about-rows" style="padding-top: 0;">
+    <section class="ip-invrows ip-about-rows" style="padding-top: 0 !important;">
         <article class="ip-invrow is-reverse">
             {{-- Bez align-items-center: kolumna ze zdjeciem ma sie rozciagnac do
                  wysokosci tekstu (tekst jest tu dluzszy niz proporcja kadru).
