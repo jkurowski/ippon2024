@@ -7124,4 +7124,21 @@ a.ip-btn-submit {
     font-size: 72px;
   }
 }
+/* ==========================================================================
+   PODSTRONA: O nas — "Stabilnosc i doswiadczenie"
+   Kadr ma sztywna proporcje 1122/650, a kolumna tekstu jest tu duzo wyzsza —
+   przy szerokosciach ok. 1200–1600 px zostawialo to biale pasy nad i pod
+   zdjeciem. Kolumna ze zdjeciem rozciaga sie wiec na wysokosc wiersza
+   (w Blade zdjeta klasa align-items-center), a proporcja dziala dalej jako
+   dolna granica: gdy tekst jest krotszy, wiersz ma wysokosc kadru.
+   Tekst wysrodkowujemy tutaj, zeby przy szerokim ekranie zachowac uklad
+   z makiety.
+   ========================================================================== */
+@media (min-width: 992px) {
+  .ip-page .ip-about-rows .ip-invrow-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
 /*# sourceMappingURL=ippon.css.map */

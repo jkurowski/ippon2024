@@ -406,7 +406,10 @@
 
     <section class="ip-invrows ip-about-rows">
         <article class="ip-invrow is-reverse">
-            <div class="row g-0 align-items-center">
+            {{-- Bez align-items-center: kolumna ze zdjeciem ma sie rozciagnac do
+                 wysokosci tekstu (tekst jest tu dluzszy niz proporcja kadru).
+                 Pionowe wysrodkowanie tekstu przejmuje .ip-invrow-body w LESS. --}}
+            <div class="row g-0">
                 <div class="col-12 col-lg-7 ip-invrow-media">
                     <img src="{{ asset('images/about/stabilnosc.jpg') }}" alt="{{ $T['stab_title'][$L] }}">
                 </div>
@@ -562,7 +565,7 @@
     </section>
 
     {{-- Wiarygodnosc i sukces — karuzela nagrod z CMS-u (model Award) --}}
-    <section class="ip-section ip-about-section ip-awards-section">
+    <section class="ip-section ip-about-section ip-awards-section pb-0">
         <div class="container">
             <x-section-head>{{ $T['awards_title'][$L] }}</x-section-head>
 
