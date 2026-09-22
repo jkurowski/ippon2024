@@ -179,6 +179,22 @@
         return $min === $max ? $min.' m²' : $min.'–'.$max.' m²';
     };
 
+    /* Metraz na karcie: najpierw pole "Zakres powierzchni na liscie" wpisane
+       recznie w CMS-ie, a dopiero gdy puste — wyliczenie ze skrajnych wartosci
+       area_range (jak bylo). Reczny wpis idzie na karte doslownie, zeby dalo sie
+       napisac "od 35 m²" albo pokazac przerwy miedzy przedzialami. Jednostke
+       dokladamy tylko wtedy, gdy w tresci nie ma litery "m" — czyli gdy ktos
+       wpisal samo "35-56" i o niej zapomnial. */
+    $ipAreaLabel = function ($inv) use ($ipAreaRange) {
+        $manual = trim((string) $inv->area_range_list);
+
+        if ($manual === '') {
+            return $ipAreaRange($inv->area_range);
+        }
+
+        return mb_stripos($manual, 'm') === false ? $manual.' m²' : $manual;
+    };
+
     $ipCurrentSlug = $city?->slug ?? 'wszystkie';
 
     /* Naglowek i zakladki byly wpisane po polsku na sztywno — na /en/lokalizacja
@@ -263,7 +279,7 @@
                     @forelse($investments as $inv)
                         @php
                             $st    = $ipStatus($inv->status);
-                            $area  = $ipAreaRange($inv->area_range);
+                            $area  = $ipAreaLabel($inv);
                             $url   = investmentUrl($inv);
                         @endphp
 

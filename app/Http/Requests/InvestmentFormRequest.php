@@ -71,6 +71,9 @@ class InvestmentFormRequest extends FormRequest
             'date_end' => '',
             'areas_amount' => '',
             'area_range' => '',
+            /* Zakres powierzchni pokazywany na /lokalizacja/{miasto}. Pusty =
+               widok liczy go jak dotad ze skrajnych wartosci `area_range`. */
+            'area_range_list' => ['nullable', 'string', 'max:60'],
             'card_param' => ['nullable', 'string', 'max:60'],
             'card_badge' => ['nullable', 'string', 'max:40'],
             'office_address' => '',

@@ -274,6 +274,18 @@
                         </div>
                     </div>
 
+                    {{-- Metraz na karcie inwestycji na /lokalizacja/{miasto}. Bez tego
+                         pola lista liczy go sama ze skrajnych wartosci "Zakresu
+                         powierzchni w wyszukiwarce" — czyli "27-32,37-45,48-56,67-80"
+                         pokazuje jako "27-80 m2" i gubi przerwy miedzy przedzialami.
+                         Tamtego pola nie da sie opisac dowolnie, bo jego format czyta
+                         filtr wyszukiwarki. --}}
+                    <div class="row w-100 mb-4">
+                        <div class="col-6">
+                            @include('form-elements.input-text', ['label' => 'Zakres powierzchni na liście', 'sublabel' => 'pokazywany na podstronie <b>Lokalizacja</b> przy inwestycji. Puste = wyliczany automatycznie z pola obok (wartość najmniejsza–największa). Wpisz dokładnie to, co ma być widoczne, np. <b>35–56 m²</b> albo <b>od 35 m²</b>', 'name' => 'area_range_list', 'value' => $entry->area_range_list])
+                        </div>
+                    </div>
+
                     <div class="row w-100 mb-4">
                         <div class="col-12">
                             @include('form-elements.html-input-text', ['label' => 'Adres biura sprzedaży', 'name' => 'office_address', 'value' => $entry->office_address])
