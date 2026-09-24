@@ -20,6 +20,19 @@ class IndexController extends Controller
 {
     public function index(Request $request, PropertyFilterOptions $filter)
     {
+        return view('front.homepage.index', $this->homepageData($filter));
+    }
+
+    /* Dopieszczona strona glowna (uwagi klienta z poprawki-1/2.odt, 09.2026).
+       Osobny adres, zeby klient mogl porownac z obecna — te same dane, inny widok. */
+    public function newHomepage(Request $request, PropertyFilterOptions $filter)
+    {
+        /* 6 aktualnosci — nowa SG ma z nich karuzele (3 widoczne) */
+        return view('front.homepage.new', $this->homepageData($filter, 6));
+    }
+
+    private function homepageData(PropertyFilterOptions $filter, int $newsLimit = 3): array
+    {
         /* Hero bral wszystkie slajdy, takze oznaczone jako nieaktywne
            (active = 2 to "Nieaktywny" w adminie). */
         $sliders = Slider::where('active', 1)->orderBy('sort')->get();
@@ -51,7 +64,7 @@ class IndexController extends Controller
                 ->pluck('city')->filter()->unique()
         )->get();
 
-        $news = News::where('status', 1)->orderBy('date', 'DESC')->limit(3)->get();
+        $news = News::where('status', 1)->orderBy('date', 'DESC')->limit($newsLimit)->get();
 
         if(settings()->get("popup_status") == "1") {
             if(settings()->get("popup_mode") == "1") {
@@ -75,7 +88,7 @@ class IndexController extends Controller
             'areas' => $filterAreas,
         ] = $filter->all();
 
-        return view('front.homepage.index', compact(
+        return compact(
             'rules',
             'obligation',
             'sliders',
@@ -90,6 +103,6 @@ class IndexController extends Controller
             'filterRooms',
             'filterFloors',
             'filterAreas'
-        ));
+        );
     }
 }

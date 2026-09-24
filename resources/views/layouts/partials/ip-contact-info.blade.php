@@ -1,9 +1,12 @@
 {{-- Dane kontaktowe przy formularzu — ten sam uklad i te same klasy co
      w sekcji "Porozmawiajmy o Twoim nowym mieszkaniu" na stronie glownej.
      Parametry:
-       $lead — akapit nad kreska (HTML, opcjonalny) --}}
+       $lead — akapit nad kreska (HTML, opcjonalny)
+       $salesLabel — true = podpis "Biuro Sprzedazy" nad opiekunkami (uwaga
+                     klienta z 09.2026; na razie tylko nowa strona glowna) --}}
 @php
     $lead = $lead ?? null;
+    $salesLabel = $salesLabel ?? false;
     $L    = in_array($current_locale, ['pl', 'en']) ? $current_locale : 'pl';
 @endphp
 
@@ -38,6 +41,9 @@
     </ul>
 
     <div class="ip-contact-people">
+        @if($salesLabel)
+            <span class="ip-contact-label">{{ $L == 'pl' ? 'Biuro Sprzedaży' : 'Sales Office' }}</span>
+        @endif
         <div class="ip-person">
             <strong>Elżbieta Kalinowska</strong>
             <a href="mailto:e.kalinowska@ippon.group">e.kalinowska@ippon.group</a>

@@ -7954,3 +7954,1011 @@ a.ip-btn-submit {
         justify-content: center;
     }
 }
+
+/* ==========================================================================
+   PODSTRONA: Nowa strona glowna — dopieszczenie (/new-homepage, 09.2026)
+   Uwagi klienta: poprawki-1.odt, poprawki-2.odt ("za malo nowoczesna, nic sie
+   nie dzieje", wzor rohe.pl/kownatki). Wszystko pod body.ip-nh — obecna strona
+   glowna i podstrony zostaja bez zmian, dopoki klient nie zaakceptuje.
+
+   Jeden jezyk ruchu dla calej strony:
+     - krzywa "wyhamowania" (@nh-out) — ruch zaczyna sie szybko i miekko siada,
+     - wejscia 0.9-1.2 s, kolejne elementy grupy co 110 ms (--nh-i),
+     - zdjecia: maska otwiera sie w pionie + kadr schodzi ze skali 1.12,
+     - hover 0.5-0.7 s, kafel podnosi sie o 12 px,
+     - w petli rusza sie tylko wskaznik "przewin" i powolny ruch kadru slajdow.
+   Stany poczatkowe tylko pod html.nh-motion (patrz ip-motion.js).
+   ========================================================================== */
+@nh-ease:  cubic-bezier(.22, .61, .36, 1);
+@nh-out:   cubic-bezier(.16, 1, .3, 1);
+@nh-milk:  #fbf9f5;
+
+/* --- Naglowek: nizszy, mleczny, przezroczysty ----------------------------
+   Klient: "usuwamy biale tlo, zmniejszamy menu i robimy przezroczyste",
+   tlo "wtapiajace sie w obraz pod nim". Chowanie przy scrollu zostaje. */
+.ip-nh .ip-header {
+    height: 76px;
+    padding-left: 32px;
+    padding-right: 32px;
+    background: fade(@nh-milk, 58%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    backdrop-filter: blur(18px) saturate(140%);
+    border-bottom: 1px solid fade(@white, 35%);
+    transition: transform .35s ease, background-color .4s ease, box-shadow .4s ease;
+
+    /* po zejsciu z hero wiecej mleka — na bialych sekcjach szklo bez tla
+       zlewaloby sie z trescia pod spodem */
+    &.is-scrolled {
+        background: fade(@nh-milk, 86%);
+        box-shadow: 0 12px 32px -22px fade(@ink-deep, 40%);
+    }
+}
+
+/* hero wchodzi pod naglowek */
+.ip-nh .ip-header-spacer {
+    display: none;
+}
+
+.ip-nh .ip-logo img {
+    width: 132px;
+}
+
+.ip-nh .ip-cities {
+    gap: 44px;
+
+    a {
+        font-size: 15px;
+        font-weight: 500;
+        letter-spacing: .12em;
+        color: @ink;
+        transition: color .25s ease;
+    }
+}
+
+.ip-nh .ip-header-sep {
+    margin-left: 44px;
+}
+
+@media (max-width: 991.98px) {
+    .ip-nh .ip-header {
+        height: 64px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .ip-nh .ip-logo img {
+        width: 112px;
+    }
+}
+
+/* --- Wejscia przy scrollu (system) ---------------------------------------- */
+.nh-motion .ip-nh [data-nh-reveal] {
+    opacity: 0;
+    transform: translate3d(0, 36px, 0);
+    transition: opacity .9s @nh-ease, transform 1.1s @nh-out;
+    transition-delay: calc(var(--nh-i, 0) * 110ms);
+
+    &.is-in {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* wariant bez przesuniecia — dla kolumn z elementami position:fixed w srodku */
+.nh-motion .ip-nh [data-nh-reveal="fade"] {
+    transform: none;
+}
+
+/* ornament pod naglowkiem: kreski rozchodza sie od srodka */
+.nh-motion .ip-nh .ip-section-head[data-nh-reveal] .ip-ornament {
+    &:before,
+    &:after {
+        transform: scaleX(0);
+        transition: transform 1.3s @nh-out .3s;
+    }
+
+    &:before { transform-origin: right center; }
+    &:after  { transform-origin: left center; }
+}
+
+.nh-motion .ip-nh .ip-section-head[data-nh-reveal].is-in .ip-ornament {
+    &:before,
+    &:after {
+        transform: scaleX(1);
+    }
+}
+
+/* zdjecia pelnej szerokosci: maska otwiera sie w pionie, kadr schodzi ze skali.
+   Wlasciwosc scale (osobna od transform) nie gryzie sie z paralaksa i hoverem. */
+.nh-motion .ip-nh [data-nh-img] {
+    clip-path: inset(9% 0 9% 0);
+    transition: clip-path 1.4s @nh-out;
+
+    img {
+        scale: 1.12;
+        transition: scale 1.8s @nh-out;
+    }
+
+    &.is-in {
+        clip-path: inset(0 0 0 0);
+
+        img { scale: 1; }
+    }
+}
+
+/* paralaksa: warstwa o 16% wyzsza niz kadr, przesuw liczy ip-motion.js */
+.ip-nh .ip-nh-parallax {
+    position: absolute;
+    inset: -8% 0;
+    will-change: transform;
+
+    img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.ip-nh .ip-split-media {
+    overflow: hidden;
+}
+
+/* ruch kadru ("Ken Burns") na aktywnym slajdzie hero i banera planowanych.
+   Slajd wchodzacy (-next/-prev) dostaje animacje od razu, zeby po zmianie
+   klas na .active nie przeskoczyl — nazwa animacji sie nie zmienia, wiec
+   przegladarka jej nie restartuje. */
+@keyframes nhKenBurns {
+    from { transform: scale(1.09); }
+    to   { transform: scale(1); }
+}
+
+.nh-motion .ip-nh {
+    .ip-nh-hero .carousel-item,
+    .ip-banner .carousel-item {
+        &.active img,
+        &.carousel-item-next img,
+        &.carousel-item-prev img {
+            animation: nhKenBurns 9s linear both;
+        }
+    }
+}
+
+/* --- Hero ------------------------------------------------------------------ */
+@media (min-width: 1200px) {
+    .ip-nh .ip-nh-hero {
+        aspect-ratio: auto;
+        height: 100vh;
+        height: 100svh;
+        min-height: 680px;
+    }
+}
+
+/* przyciemnienie od lewego dolu — pod haslem, reszta zdjecia zostaje jasna */
+.ip-nh .ip-nh-hero:after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background:
+        linear-gradient(90deg, fade(@ink-deep, 58%) 0%, fade(@ink-deep, 22%) 42%, fade(@ink-deep, 0%) 65%),
+        linear-gradient(0deg, fade(@ink-deep, 45%) 0%, fade(@ink-deep, 0%) 45%);
+}
+
+.ip-nh .ip-hero-next {
+    z-index: 4;
+}
+
+.ip-nh-hero-caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    padding-bottom: clamp(64px, 11vh, 140px);
+    color: @white;
+    pointer-events: none;
+
+    a { pointer-events: auto; }
+}
+
+.ip-nh-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin: 0 0 26px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: .32em;
+    text-transform: uppercase;
+    color: @white;
+
+    &:before {
+        content: '';
+        width: 56px;
+        height: 1px;
+        background: @gold-light;
+    }
+}
+
+.ip-page .ip-nh-hero-title {
+    margin: 0;
+    font-family: @font-head;
+    font-size: clamp(44px, 5.4vw, 104px);
+    font-weight: 400;
+    line-height: 1.04;
+    letter-spacing: -.01em;
+    color: @white;
+    text-shadow: 0 2px 30px fade(@ink-deep, 25%);
+
+    em {
+        font-style: normal;
+        color: @gold-light;
+    }
+}
+
+/* kazda linia hasla wyjezdza spod wlasnej maski */
+.ip-nh-line {
+    display: block;
+    overflow: hidden;
+    padding-bottom: .08em;
+
+    > span { display: block; }
+}
+
+.ip-nh-hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-top: 44px;
+
+    .ip-btn-gold-lg { margin-top: 0; }
+}
+
+.ip-nh-count {
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: .2em;
+    color: fade(@white, 70%);
+
+    b {
+        font-weight: 500;
+        color: @white;
+    }
+}
+
+/* strzalka w CTA przesuwa sie za kursorem */
+.ip-nh-btn-arrow {
+    gap: 16px;
+
+    svg {
+        width: 18px;
+        height: 15px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.6;
+        transition: transform .4s @nh-out;
+    }
+
+    &:hover svg { transform: translateX(6px); }
+}
+
+@keyframes nhLineUp {
+    to { transform: translateY(0); }
+}
+
+@keyframes nhFadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: none; }
+}
+
+.nh-motion .ip-nh {
+    .ip-nh-line > span {
+        transform: translateY(110%);
+        animation: nhLineUp 1.2s @nh-out both;
+        animation-delay: calc(.3s + var(--nh-d, 0) * .12s);
+    }
+
+    .ip-nh-hero-in {
+        animation: nhFadeUp 1s @nh-out both;
+        animation-delay: calc(.3s + var(--nh-d, 0) * .12s);
+    }
+}
+
+/* pasek postepu = czas do nastepnego slajdu */
+@keyframes nhProgress {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
+}
+
+.ip-nh-progress {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+    height: 3px;
+    background: fade(@white, 18%);
+    pointer-events: none;
+
+    span {
+        display: block;
+        height: 100%;
+        background: @gold-light;
+        transform: scaleX(0);
+        transform-origin: left center;
+
+        &.is-running {
+            animation: nhProgress var(--nh-interval, 6500ms) linear forwards;
+        }
+    }
+}
+
+/* "Przewin" — tylko przy hero na caly ekran */
+@keyframes nhScrollCue {
+    0%   { transform: scaleY(0); transform-origin: top; }
+    45%  { transform: scaleY(1); transform-origin: top; }
+    55%  { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+.ip-page a.ip-nh-scroll {
+    position: absolute;
+    left: 50%;
+    bottom: 30px;
+    z-index: 3;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    transform: translateX(-50%);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .32em;
+    text-transform: uppercase;
+    color: @white;
+
+    &:after {
+        content: '';
+        width: 1px;
+        height: 56px;
+        background: linear-gradient(fade(@white, 90%), fade(@white, 0%));
+    }
+}
+
+.nh-motion .ip-nh a.ip-nh-scroll:after {
+    animation: nhScrollCue 2.4s @nh-ease infinite;
+}
+
+@media (min-width: 1200px) {
+    .ip-page a.ip-nh-scroll { display: flex; }
+}
+
+/* tablet: stare 16:9 bylo za niskie na haslo pod nalozonym naglowkiem */
+@media (min-width: 768px) and (max-width: 1199.98px) {
+    .ip-nh .ip-nh-hero {
+        aspect-ratio: auto;
+        height: 78vh;
+        height: 78svh;
+        min-height: 520px;
+        max-height: 820px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .ip-nh .ip-nh-hero {
+        max-height: 82vh;
+    }
+
+    .ip-nh-hero-caption {
+        padding-bottom: 36px;
+    }
+
+    .ip-nh-eyebrow {
+        margin-bottom: 16px;
+        font-size: 11px;
+        letter-spacing: .24em;
+
+        &:before { width: 32px; }
+    }
+
+    .ip-nh-hero-actions {
+        gap: 20px;
+        margin-top: 24px;
+
+        .ip-btn-gold-lg {
+            width: auto;
+            height: 50px;
+            padding: 0 24px;
+            font-size: 15px;
+        }
+    }
+}
+
+/* --- Inwestycje w sprzedazy: po 2 duze zdjecia na cala szerokosc --------
+   Klient: szare podswietlenie i zoom "to za malo", wybrany ma sie "wybijac",
+   "duze zdjecia, po 2 na cala szerokosc". Nazwa zawsze na zdjeciu, reszta
+   (opis, parametry, przyciski) wysuwa sie po najechaniu, pozostale kafle
+   szarzeja. Ponizej 992px i na dotyku tresc stoi pod zdjeciem / jest
+   rozwinieta — nie ma hovera, ktory by ja pokazal. */
+.ip-nh-inv-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6px;
+}
+
+.ip-nh-inv {
+    position: relative;
+    overflow: hidden;
+    background: @ink-deep;
+    transition: filter .6s ease;
+
+    /* zlota ramka wewnatrz zdjecia — ten sam motyw co w "Dlaczego warto
+       nam zaufac"; tutaj pojawia sie dopiero na wybranym kaflu */
+    &:before {
+        content: '';
+        position: absolute;
+        inset: 30px;
+        z-index: 3;
+        border: 1px solid fade(@gold-light, 0%);
+        pointer-events: none;
+        transition: inset .8s @nh-out, border-color .6s ease;
+    }
+
+    .ip-card-badge {
+        z-index: 4;
+    }
+}
+
+.ip-nh-inv-media {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+
+    a,
+    picture {
+        display: block;
+        height: 100%;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 1.4s @nh-out;
+    }
+}
+
+.ip-nh-inv-body {
+    position: relative;
+    padding: 28px 20px 34px;
+    background: @ink-deep;
+    color: @white;
+}
+
+.ip-nh-inv-loc {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: @gold-light;
+}
+
+.ip-page .ip-nh-inv-title {
+    margin: 10px 0 0;
+    font-family: @font-head;
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 1.15;
+    color: @white;
+
+    a {
+        color: inherit;
+        transition: color .3s ease;
+
+        &:hover { color: @gold-light; }
+    }
+}
+
+/* rozwijanie wysokosci bez liczenia w JS: grid 0fr -> 1fr */
+.ip-nh-inv-more {
+    display: grid;
+    grid-template-rows: 1fr;
+    transition: grid-template-rows .7s @nh-out, opacity .5s ease;
+
+    > div {
+        min-height: 0;
+        overflow: hidden;
+    }
+}
+
+.ip-nh-inv-desc {
+    max-width: 640px;
+    margin: 16px 0 0;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 26px;
+    color: fade(@white, 88%);
+}
+
+.ip-nh-inv-params {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 28px;
+    margin-top: 20px;
+
+    li {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 15px;
+        line-height: 20px;
+        color: @white;
+    }
+
+    svg {
+        flex: 0 0 22px;
+        width: 22px;
+        height: 22px;
+        color: @gold-light;
+    }
+}
+
+.ip-nh-inv-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 26px;
+}
+
+/* przycisk na ciemnym tle: obrys (albo zloty z .is-solid) */
+.ip-page a.ip-nh-btn-line {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    padding: 0 26px;
+    border: 1px solid fade(@white, 70%);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: @white;
+    transition: background .3s ease, border-color .3s ease, color .3s ease;
+
+    &:hover {
+        background: @white;
+        border-color: @white;
+        color: @ink;
+    }
+
+    &.is-solid {
+        background: @gold;
+        border-color: @gold;
+
+        &:hover {
+            background: @gold-light;
+            border-color: @gold-light;
+            color: @white;
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    .ip-nh-inv-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .ip-nh-inv.is-wide {
+        grid-column: 1 / -1;
+    }
+
+    /* ta sama wysokosc dla pary i dla kafla na caly wiersz (panorama) */
+    .ip-nh-inv-media {
+        aspect-ratio: auto;
+        height: clamp(560px, 42vw, 860px);
+
+        /* dodatkowe przyciemnienie wybranego kafla, pod tekstem */
+        &:after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: fade(@ink-deep, 30%);
+            opacity: 0;
+            transition: opacity .6s ease;
+            pointer-events: none;
+        }
+    }
+
+    /* przyciemnienie od dolu pod nazwa */
+    .ip-nh-inv:after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        background: linear-gradient(to top,
+                    fade(@ink-deep, 85%) 0%,
+                    fade(@ink-deep, 40%) 36%,
+                    fade(@ink-deep, 0%) 62%);
+        pointer-events: none;
+    }
+
+    .ip-nh-inv-body {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2;
+        max-width: 900px;
+        padding: 0 70px 62px;
+        background: none;
+    }
+
+    .ip-page .ip-nh-inv-title {
+        font-size: clamp(34px, 2.6vw, 50px);
+    }
+}
+
+@media (min-width: 992px) and (hover: hover) {
+    .ip-nh-inv-more {
+        grid-template-rows: 0fr;
+        opacity: 0;
+    }
+
+    .ip-nh-inv:hover,
+    .ip-nh-inv:focus-within {
+        &:before {
+            inset: 20px;
+            border-color: fade(@gold-light, 85%);
+        }
+
+        .ip-nh-inv-more {
+            grid-template-rows: 1fr;
+            opacity: 1;
+        }
+
+        .ip-nh-inv-media img { transform: scale(1.06); }
+        .ip-nh-inv-media:after { opacity: 1; }
+    }
+
+    /* pozostale szarzeja — bez przezroczystosci, bo przeswitywaloby biale tlo */
+    .ip-nh-inv-grid:has(.ip-nh-inv:hover) .ip-nh-inv:not(:hover) {
+        filter: grayscale(.85) brightness(.72);
+    }
+}
+
+/* --- Nadchodzace projekty: zdjecie prawie na caly ekran ------------------ */
+@media (min-width: 1200px) {
+    .ip-nh .ip-nh-split .ip-split-media {
+        min-height: clamp(700px, 90vh, 1080px);
+    }
+}
+
+/* panel rowna do wysokosci zdjecia — mial tylko min-height 700px i przy
+   wyzszym zdjeciu zostawala pod nim biala dziura */
+@media (min-width: 992px) {
+    .ip-nh .ip-nh-split .ip-split-panel {
+        height: 100%;
+    }
+}
+
+/* --- Dlaczego warto nam zaufac: zlote ramki wewnatrz zdjec --------------
+   Uwaga z 09.2026. Ramka wchodzi chwile po kaflu, na hover zaciesnia
+   sie ku krawedzi. z-index 3 — nad przyciemnieniem (1) i tekstem (2), patrz
+   pulapka z ::after w .ip-trust-card; pointer-events: none, zeby nie
+   przechwytywala hovera. */
+.ip-nh .ip-trust-card:before {
+    content: '';
+    position: absolute;
+    inset: 22px;
+    z-index: 3;
+    border: 1px solid fade(@gold-light, 75%);
+    pointer-events: none;
+    transition: inset .8s @nh-out, border-color .5s ease, opacity .9s ease .45s, transform 1.3s @nh-out .35s;
+}
+
+.ip-nh .ip-trust-card:hover:before,
+.ip-nh .ip-trust-card:focus:before {
+    inset: 14px;
+    border-color: @gold-light;
+}
+
+.nh-motion .ip-nh [data-nh-reveal] .ip-trust-card:before {
+    opacity: 0;
+    transform: scale(1.05);
+}
+
+.nh-motion .ip-nh [data-nh-reveal].is-in .ip-trust-card:before {
+    opacity: 1;
+    transform: none;
+}
+
+/* tekst musi zostac w srodku ramki */
+.ip-nh .ip-trust-card-body {
+    padding: 46px 48px;
+}
+
+@media (max-width: 1599.98px) {
+    .ip-nh .ip-trust-card-body { padding: 40px 40px; }
+}
+
+@media (max-width: 767.98px) {
+    .ip-nh .ip-trust-card:before { inset: 12px; }
+    .ip-nh .ip-trust-card:hover:before,
+    .ip-nh .ip-trust-card:focus:before { inset: 8px; }
+    .ip-nh .ip-trust-card-body { padding: 28px 30px; }
+}
+
+/* --- Film ------------------------------------------------------------------ */
+.ip-nh .ip-nh-film .ip-video {
+    img {
+        transition: filter .5s ease;
+    }
+
+    &:hover img { filter: brightness(1.15); }
+}
+
+/* Film zostaje w proporcji plakatu (1920:861) — przy stalej wysokosci
+   na szerokich ekranach obcinalo logo "GROUP" pod przyciskiem play. */
+
+/* --- Inwestycje planowane: caly ekran, mniejszy pasek ---------------------
+   Klient: "zdjecia na cala wielkosc ekranu, teksty mniejsze, zmniejszyc pasek
+   z opisem". Pasek z calej szerokosci robi sie kompaktowa karta z lewej:
+   opis na gorze, pod nim licznik, strzalki i przycisk. */
+@media (min-width: 1200px) {
+    .ip-nh .ip-nh-planned .ip-banner {
+        aspect-ratio: auto;
+        height: 100vh;
+        height: 100svh;
+        min-height: 680px;
+        max-height: 1200px;
+    }
+
+    .ip-nh .ip-nh-planned .ip-banner-bar {
+        left: ~"max(30px, (100% - 1732px) / 2)";
+        right: auto;
+        bottom: 56px;
+        width: 600px;
+        min-height: 0;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 22px 12px;
+        padding: 34px 36px 30px;
+        background: fade(@ink-deep, 55%);
+        -webkit-backdrop-filter: blur(14px);
+        backdrop-filter: blur(14px);
+        border: 1px solid fade(@white, 14%);
+        border-top: 2px solid @gold;
+
+        h3 {
+            font-size: 30px;
+            line-height: 38px;
+        }
+
+        .ip-banner-sub {
+            margin-top: 6px;
+            font-family: @font-body;
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 18px;
+            letter-spacing: .22em;
+        }
+
+        p {
+            margin-top: 14px;
+            font-size: 16px;
+            line-height: 26px;
+            color: fade(@white, 88%);
+        }
+    }
+
+    .ip-nh .ip-nh-planned {
+        .ip-banner-swap {
+            order: -1;
+            flex: 1 1 100%;
+            display: block;
+        }
+
+        .ip-banner-title,
+        .ip-banner-text {
+            max-width: none;
+        }
+
+        .ip-nh-count { order: 1; margin-right: 10px; }
+        .ip-nh-prev  { order: 2; }
+        .ip-nh-next  { order: 3; }
+
+        .ip-banner-nav {
+            flex-basis: 46px;
+            width: 46px;
+            height: 46px;
+            border-color: fade(@white, 50%);
+        }
+
+        .ip-banner-btn {
+            order: 4;
+            width: auto;
+            height: 46px;
+            margin-left: auto;
+            padding: 0 26px;
+            font-size: 14px;
+            letter-spacing: .08em;
+        }
+    }
+}
+
+@media (max-width: 1199.98px) {
+    .ip-nh .ip-nh-planned .ip-nh-count { display: none; }
+}
+
+/* --- Aktualnosci: karuzela na cala szerokosc (3 widoczne z 6) -----------
+   Pas przewijany z przyciaganiem (scroll-snap) — palec, touchpad i Shift+kolko
+   dzialaja bez JS; strzalki i pasek postepu doklada ip-motion.js.
+   Kadr 16:9 = proporcja miniatur (700x394); bylo 557:342 i boki grafik
+   z napisami byly obcinane. */
+.ip-nh-rail-track {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 24px;
+    /* gora/dol: miejsce na podniesienie kafla i cien, ktore pas by przycial */
+    padding: 12px 24px 44px;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar { display: none; }
+
+    &:focus-visible {
+        outline: 2px solid @gold;
+        outline-offset: -2px;
+    }
+}
+
+.ip-nh-rail-item {
+    flex: 0 0 calc((100% - 48px) / 3);
+    min-width: 0;
+    scroll-snap-align: start;
+}
+
+.ip-nh-rail-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    &[hidden] { display: none; }
+}
+
+.ip-nh-rail-bar {
+    position: relative;
+    flex: 1 1 auto;
+    height: 2px;
+    margin-right: 24px;
+    overflow: hidden;
+    background: @line;
+
+    span {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        background: @gold;
+        transition: width .3s ease;
+    }
+}
+
+.ip-nh-rail-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 52px;
+    width: 52px;
+    height: 52px;
+    padding: 0;
+    border: 1px solid @ink;
+    border-radius: 50%;
+    background: none;
+    color: @ink;
+    cursor: pointer;
+    transition: background .3s ease, border-color .3s ease, color .3s ease, opacity .3s ease;
+
+    svg {
+        width: 18px;
+        height: 15px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.5;
+    }
+
+    &:hover:not(:disabled) {
+        background: @gold;
+        border-color: @gold;
+        color: @white;
+    }
+
+    &:disabled {
+        opacity: .3;
+        cursor: default;
+    }
+}
+
+@media (max-width: 1199.98px) {
+    .ip-nh-rail-item {
+        flex-basis: calc((100% - 24px) / 2);
+    }
+}
+
+@media (max-width: 767.98px) {
+    .ip-nh-rail-track {
+        gap: 16px;
+        scroll-padding-inline: 20px;
+        padding: 12px 20px 36px;
+    }
+
+    /* nastepna karta wystaje — widac, ze pas sie przewija */
+    .ip-nh-rail-item {
+        flex-basis: 86%;
+    }
+
+    .ip-nh-rail-btn {
+        flex-basis: 44px;
+        width: 44px;
+        height: 44px;
+    }
+}
+
+.ip-nh .ip-news-card {
+    transition: transform .6s @nh-out, box-shadow .6s @nh-out;
+
+    .ip-news-media {
+        aspect-ratio: 16 / 9;
+    }
+
+    .ip-news-media img {
+        transition: transform 1.2s @nh-out;
+    }
+}
+
+@media (hover: hover) {
+    .ip-nh .ip-news-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 28px 50px -26px fade(@ink-deep, 38%);
+
+        .ip-news-media img { transform: scale(1.04); }
+    }
+}
+
+/* --- Boksy: panel (i zdjecie obok) wyzsze --------------------------------- */
+@media (min-width: 1200px) {
+    .ip-nh .ip-boxes-panel {
+        min-height: clamp(620px, 86vh, 1000px);
+    }
+}
+
+/* --- Kontakt: podpis nad opiekunkami (parametr salesLabel w partialu) ----- */
+.ip-contact-label {
+    display: block;
+    margin-bottom: 14px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: @gold;
+}
+
+/* "ogranicz ruch": bez klasy nh-motion nie ma wejsc, tu gasimy jeszcze hover */
+@media (prefers-reduced-motion: reduce) {
+    .ip-nh-inv,
+    .ip-nh-inv-media img,
+    .ip-nh-inv-more,
+    .ip-nh .ip-news-card,
+    .ip-nh .ip-news-media img {
+        transition: none;
+    }
+}
