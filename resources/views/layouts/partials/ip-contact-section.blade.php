@@ -12,7 +12,9 @@
                     na /kontakt sa one wyzej w kartach biur, wiec leci tam
                     zespol biura sprzedazy
        $action, $form_id — opcjonalnie, gdy formularz ma isc pod inny endpoint
-                    (schowek wysyla razem z lista odlozonych lokali) --}}
+                    (schowek wysyla razem z lista odlozonych lokali)
+       $office    — 'secretariat': dane sekretariatu w lewej kolumnie i mail
+                    z formularza na adres sekretariatu (ustawienie w adminie) --}}
 @php
     $lead = $lead ?? null;
     $form  = $form ?? 'front.contact.ip-form';
@@ -20,6 +22,7 @@
     $aside = $aside ?? 'layouts.partials.ip-contact-info';
     $action = $action ?? null;
     $form_id = $form_id ?? null;
+    $office = $office ?? 'sales';
 @endphp
 
 <section id="contact-form" class="ip-section ip-contact-section {{ $class }}">
@@ -29,7 +32,7 @@
 
         <div class="row ip-cards-row align-items-start">
             <div class="col-12 col-lg-6">
-                @include($aside, ['lead' => $lead])
+                @include($aside, ['lead' => $lead, 'office' => $office])
             </div>
 
             <div class="col-12 col-lg-6">
@@ -37,6 +40,7 @@
                     'page_name' => $page_name,
                     'action' => $action,
                     'form_id' => $form_id,
+                    'office' => $office,
                 ])
             </div>
         </div>

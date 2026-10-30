@@ -29,6 +29,7 @@
 
                     <div class="row w-100">
                         @include('form-elements.input-text', ['label' => 'Adres e-mail', 'sublabel' => 'Adres e-mail do formularza kontaktowego', 'name' => 'page_email', 'value' => settings()->get("page_email"), 'required' => 1])
+                        @include('form-elements.input-text', ['label' => 'Adres e-mail sekretariatu', 'sublabel' => 'Formularze: Kariera, O nas, Zakup gruntu. Puste = adres wyżej', 'name' => 'secretariat_email', 'value' => settings()->get("secretariat_email")])
                     </div>
 
                     <div class="row w-100">

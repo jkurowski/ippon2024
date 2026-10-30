@@ -7246,50 +7246,51 @@ a.ip-btn-submit {
   }
 }
 /* --- Wejscia przy scrollu (system) ---------------------------------------- */
-.nh-motion .ip-nh [data-nh-reveal] {
+/* .ip-page, nie .ip-nh: od 10.2026 te same wejscia sa na podstronach (layouts/page) */
+.nh-motion .ip-page [data-nh-reveal] {
   opacity: 0;
   transform: translate3d(0, 36px, 0);
   transition: opacity 0.9s cubic-bezier(0.22, 0.61, 0.36, 1), transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
   transition-delay: calc(var(--nh-i, 0) * 110ms);
 }
-.nh-motion .ip-nh [data-nh-reveal].is-in {
+.nh-motion .ip-page [data-nh-reveal].is-in {
   opacity: 1;
   transform: none;
 }
 /* wariant bez przesuniecia — dla kolumn z elementami position:fixed w srodku */
-.nh-motion .ip-nh [data-nh-reveal="fade"] {
+.nh-motion .ip-page [data-nh-reveal="fade"] {
   transform: none;
 }
 /* ornament pod naglowkiem: kreski rozchodza sie od srodka */
-.nh-motion .ip-nh .ip-section-head[data-nh-reveal] .ip-ornament:before,
-.nh-motion .ip-nh .ip-section-head[data-nh-reveal] .ip-ornament:after {
+.nh-motion .ip-page .ip-section-head[data-nh-reveal] .ip-ornament:before,
+.nh-motion .ip-page .ip-section-head[data-nh-reveal] .ip-ornament:after {
   transform: scaleX(0);
   transition: transform 1.3s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
 }
-.nh-motion .ip-nh .ip-section-head[data-nh-reveal] .ip-ornament:before {
+.nh-motion .ip-page .ip-section-head[data-nh-reveal] .ip-ornament:before {
   transform-origin: right center;
 }
-.nh-motion .ip-nh .ip-section-head[data-nh-reveal] .ip-ornament:after {
+.nh-motion .ip-page .ip-section-head[data-nh-reveal] .ip-ornament:after {
   transform-origin: left center;
 }
-.nh-motion .ip-nh .ip-section-head[data-nh-reveal].is-in .ip-ornament:before,
-.nh-motion .ip-nh .ip-section-head[data-nh-reveal].is-in .ip-ornament:after {
+.nh-motion .ip-page .ip-section-head[data-nh-reveal].is-in .ip-ornament:before,
+.nh-motion .ip-page .ip-section-head[data-nh-reveal].is-in .ip-ornament:after {
   transform: scaleX(1);
 }
 /* zdjecia pelnej szerokosci: maska otwiera sie w pionie, kadr schodzi ze skali.
    Wlasciwosc scale (osobna od transform) nie gryzie sie z paralaksa i hoverem. */
-.nh-motion .ip-nh [data-nh-img] {
+.nh-motion .ip-page [data-nh-img] {
   clip-path: inset(9% 0 9% 0);
   transition: clip-path 1.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.nh-motion .ip-nh [data-nh-img] img {
+.nh-motion .ip-page [data-nh-img] img {
   scale: 1.12;
   transition: scale 1.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.nh-motion .ip-nh [data-nh-img].is-in {
+.nh-motion .ip-page [data-nh-img].is-in {
   clip-path: inset(0 0 0 0);
 }
-.nh-motion .ip-nh [data-nh-img].is-in img {
+.nh-motion .ip-page [data-nh-img].is-in img {
   scale: 1;
 }
 /* paralaksa: warstwa o 16% wyzsza niz kadr, przesuw liczy ip-motion.js */
@@ -7348,6 +7349,31 @@ a.ip-btn-submit {
 }
 .ip-nh .ip-hero-next {
   z-index: 4;
+}
+/* Uwaga Zarzadu z 8.10.2026: "kwadracik z miniaturka kolejnego slajdu jest
+   za duzy". Bylo 245x218 w samym rogu; teraz mniejszy kadr 3:2 odsuniety od
+   krawedzi, z cienka ramka — czyta sie jak zapowiedz, nie jak drugie zdjecie. */
+@media (min-width: 768px) {
+  .ip-nh .ip-hero-next {
+    right: 40px;
+    bottom: 48px;
+    width: 168px;
+    height: 112px;
+    outline: 1px solid rgba(255, 255, 255, 0.45);
+    outline-offset: 5px;
+  }
+  .ip-nh .ip-hero-next .ip-hero-next-arrow {
+    width: 20px;
+    height: 30px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  .ip-nh .ip-hero-next {
+    right: 24px;
+    bottom: 32px;
+    width: 132px;
+    height: 88px;
+  }
 }
 .ip-nh-hero-caption {
   position: absolute;
@@ -8101,6 +8127,1046 @@ a.ip-btn-submit {
   .ip-nh .ip-news-card,
   .ip-nh .ip-news-media img {
     transition: none;
+  }
+}
+/* --- Formularz na niskich ekranach (uwaga Zarzadu z 8.10.2026) ------------
+   "Na MacBooku wyswietla sie poprawnie, na laptopie Pani Prezes nie miesci
+   sie w ekranie". Formularz mial ~690 px + naglowek sekcji, a laptop
+   z Windows (1366x768 albo 1920x1080 przy skalowaniu 125-150%) daje
+   ~600-650 px widocznej strony. Przy niskim oknie ciasniejsze odstepy
+   (20 -> 14 px) i nizsze pole wiadomosci. Dotyczy wszystkich .ip-form.
+   Potwierdzone 28.10: zrzut "how big is my browser" od p. Anny (mail
+   "Rozdzielczosc u szefowej", 14.07.2026) — Chrome na Windows, 1463x746. */
+@media (min-width: 992px) and (max-height: 900px) {
+  .ip-form {
+    padding: 26px 30px;
+  }
+  .ip-field {
+    margin-bottom: 14px;
+  }
+  .ip-field textarea {
+    min-height: 74px;
+    height: 74px;
+  }
+  .ip-form-check {
+    margin-top: 10px;
+  }
+  .ip-btn-submit {
+    margin-top: 16px;
+  }
+}
+/* Ponizej ~1912 px prawa krawedz formularza wchodzi pod boczny widget social
+   (na 1463 px u Prezes o 20 px: zaslanial pole "Telefon" i ramke). Pas jak
+   na listach lokali: 62 px od krawedzi ekranu = 20 px paddingu kontenera + 42. */
+@media (min-width: 992px) and (max-width: 1911.98px) {
+  .ip-form {
+    margin-right: 42px;
+  }
+}
+/* --- Aktualnosci jako kafle "Dlaczego warto nam zaufac" (front.news.ip-trust-card)
+   Uwaga Zarzadu z 8.10.2026. Kafel to <a>, a zdjecie siedzi w <picture>,
+   wiec reguly .ip-trust-card > img trzeba powtorzyc o poziom glebiej. */
+a.ip-news-trust {
+  color: #ffffff;
+  text-decoration: none;
+  /* tytuly aktualnosci sa dlugie — bez wersalikow i mniejsze niz w zaufaniu */
+}
+a.ip-news-trust picture img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+a.ip-news-trust:hover picture img,
+a.ip-news-trust:focus picture img {
+  transform: scale(1.06);
+}
+a.ip-news-trust .ip-trust-card-body h3 {
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 36px;
+  text-transform: none;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+a.ip-news-trust .ip-trust-card-desc p {
+  font-size: 16px;
+  line-height: 26px;
+}
+.ip-news-trust-date {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  color: #e8d4b4;
+}
+.ip-news-trust-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #d8b784;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.ip-news-trust-more svg {
+  width: 12px;
+  height: 12px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+}
+@media (max-width: 1599.98px) {
+  a.ip-news-trust .ip-trust-card-body h3 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+}
+/* ==========================================================================
+   KOMPONENT: Galeria na caly ekran (layouts/partials/ip-gallery, 10.2026)
+   Wzor: "Sprawdz inwestycje planowane" z paczki Marka. Klient: "duza
+   wizualizacja na caly ekran bez paskow i tabel", "wysuwany tekst".
+   Naglowek sekcji i opis slajdu leza na zdjeciu; przyciemnienie od gory
+   (pod naglowkiem) i od dolu (pod opisem), srodek kadru zostaje jasny.
+   Uzywana na SG i na podstronach — style nie zaleza od .ip-nh.
+   ========================================================================== */
+.ip-gallery {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  min-height: 680px;
+  height: 100vh;
+  height: 100svh;
+  max-height: 1100px;
+  overflow: hidden;
+  background: #26332b;
+  color: #ffffff;
+}
+.ip-gallery:after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(14, 17, 3, 0.78) 0%, rgba(14, 17, 3, 0.5) 22%, rgba(14, 17, 3, 0.06) 46%, rgba(14, 17, 3, 0.22) 64%, rgba(14, 17, 3, 0.88) 100%);
+}
+/* broni sie przed section { padding: 3rem 0 !important } ze starego arkusza */
+section.ip-gallery {
+  padding: 0 !important;
+}
+.ip-gallery-media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.ip-gallery-img {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.9s ease, visibility 0s 0.9s;
+  /* aktywny nad wychodzacym — przenikanie bez przeswitu tla */
+}
+.ip-gallery-img img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.ip-gallery-img.is-active {
+  z-index: 2;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.9s ease, visibility 0s;
+}
+.ip-gallery-img.is-leaving {
+  z-index: 1;
+  opacity: 1;
+  visibility: visible;
+  transition: none;
+}
+/* kadr powoli schodzi ze skali, jak w hero */
+@keyframes ipGalleryZoom {
+  from {
+    transform: scale(1.08);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+.nh-motion .ip-gallery-img.is-active img {
+  animation: ipGalleryZoom 9s linear both;
+}
+.ip-gallery-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  /* flex-item z margin: auto skurczylby sie do tresci */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 40px;
+  padding-top: 120px;
+  /* pod naglowek strony, ktory lezy na zdjeciu */
+  padding-bottom: 56px;
+}
+.ip-gallery-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+}
+.ip-gallery-eyebrow,
+.ip-gallery-cap-eyebrow {
+  margin: 0 0 14px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #e8d4b4;
+}
+.ip-page .ip-gallery-title {
+  max-width: 680px;
+  margin: 0;
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  font-size: clamp(36px, 3.6vw, 60px);
+  font-weight: 400;
+  line-height: 1.14;
+  color: #ffffff;
+  text-shadow: 0 2px 18px rgba(14, 17, 3, 0.2);
+}
+.ip-page a.ip-gallery-more,
+.ip-page a.ip-gallery-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+}
+.ip-page a.ip-gallery-more svg,
+.ip-page a.ip-gallery-btn svg {
+  width: 13px;
+  height: 13px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.ip-page a.ip-gallery-more:hover svg,
+.ip-page a.ip-gallery-btn:hover svg {
+  transform: translate(3px, -3px);
+}
+.ip-page a.ip-gallery-more {
+  padding: 10px 0;
+  border-bottom: 1px solid #d8b784;
+}
+.ip-page a.ip-gallery-btn {
+  height: 50px;
+  padding: 0 24px;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  letter-spacing: 0.04em;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+.ip-page a.ip-gallery-btn:hover {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: #000000;
+}
+.ip-gallery-foot {
+  display: flex;
+  align-items: flex-end;
+  gap: 40px;
+}
+/* opisy wszystkich slajdow w jednej komorce siatki — wysokosc bierze
+   najwyzszy, wiec strzalki nie skacza przy zmianie */
+.ip-gallery-captions {
+  flex: 1 1 auto;
+  display: grid;
+  min-width: 0;
+}
+.ip-gallery-cap {
+  grid-area: 1 / 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 24px 40px;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.35s ease, visibility 0s 0.35s;
+}
+.ip-gallery-cap.is-active {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.6s ease 0.15s, visibility 0s;
+}
+/* "wysuwany tekst" — nazwa i opis wjezdzaja od dolu, opis chwile pozniej */
+@keyframes ipGalleryCopy {
+  from {
+    transform: translate3d(0, 34px, 0);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+.nh-motion .ip-gallery-cap.is-active .ip-gallery-cap-name {
+  animation: ipGalleryCopy 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+.nh-motion .ip-gallery-cap.is-active .ip-gallery-cap-desc {
+  animation: ipGalleryCopy 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.22s both;
+}
+.nh-motion .ip-gallery-cap.is-active .ip-gallery-btn {
+  animation: ipGalleryCopy 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.34s both;
+}
+.ip-gallery-cap-eyebrow {
+  margin-bottom: 10px;
+  font-size: 11px;
+}
+.ip-page .ip-gallery-cap-title {
+  margin: 0;
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  font-size: clamp(32px, 3vw, 52px);
+  font-weight: 400;
+  line-height: 1.12;
+  color: #ffffff;
+}
+.ip-gallery-cap-desc {
+  max-width: 380px;
+  margin: 0 0 4px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+}
+.ip-gallery-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.ip-gallery-controls button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 50%;
+  background: none;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+.ip-gallery-controls button svg {
+  width: 18px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+}
+.ip-gallery-controls button:hover {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: #000000;
+}
+.ip-gallery-controls button:focus-visible {
+  outline: 2px solid #e2ba81;
+  outline-offset: 4px;
+}
+.ip-gallery-count {
+  min-width: 58px;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+.ip-gallery-count b {
+  font-weight: 600;
+}
+.ip-gallery-progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.14);
+}
+.ip-gallery-progress span {
+  display: block;
+  height: 100%;
+  width: 100%;
+  background: #b1834e;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+.ip-gallery-progress span.is-running {
+  animation: ipGalleryProgress var(--ip-interval, 7000ms) linear both;
+}
+@keyframes ipGalleryProgress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+@media (max-width: 1199.98px) {
+  .ip-gallery {
+    min-height: 640px;
+    max-height: 980px;
+  }
+  .ip-gallery-inner {
+    padding-top: 100px;
+    padding-bottom: 44px;
+  }
+  .ip-gallery-cap {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+  .ip-gallery-cap .ip-gallery-cap-desc {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .ip-gallery-cap .ip-gallery-btn {
+    grid-column: 2;
+    grid-row: 1;
+  }
+}
+@media (max-width: 767.98px) {
+  .ip-gallery {
+    min-height: 600px;
+    height: 92svh;
+  }
+  .ip-gallery-inner {
+    padding-top: 88px;
+    padding-bottom: 30px;
+  }
+  .ip-gallery-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .ip-gallery-foot {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 22px;
+  }
+  .ip-gallery-cap {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .ip-gallery-cap .ip-gallery-cap-desc {
+    grid-column: 1;
+    grid-row: auto;
+    font-size: 14px;
+  }
+  .ip-gallery-cap .ip-gallery-btn {
+    grid-column: 1;
+    grid-row: auto;
+    justify-self: start;
+  }
+  .ip-gallery-controls button {
+    width: 44px;
+    height: 44px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ip-gallery-img,
+  .ip-gallery-cap {
+    transition: none;
+  }
+}
+/* ==========================================================================
+   KOMPONENT: Duze zdjecie z wysuwanym opisem (layouts/partials/ip-feature)
+   Wzor: property-feature z paczki Marka. Planowane, Juz wkrotce, Obiekty
+   komercyjne (10.2026). Kafle jeden pod drugim z waska szczelina, jak
+   u Marka — kazdy to osobny "ekran". Crossfade kilku zdjec bierze klasy
+   .ip-gallery-img z galerii (ta sama obsluga w ip-motion.js).
+   ========================================================================== */
+.ip-features {
+  display: grid;
+  gap: 18px;
+}
+/* broni sie przed section { padding: 3rem 0 !important } ze starego arkusza */
+.ip-page section.ip-features-section {
+  padding: 0 0 18px !important;
+}
+.ip-feature {
+  position: relative;
+  isolation: isolate;
+  height: 78vh;
+  height: 78svh;
+  min-height: 580px;
+  max-height: 920px;
+  overflow: hidden;
+  background: #26332b;
+  color: #ffffff;
+  /* przyciemnienie tylko pod opisem — gorna czesc kadru zostaje jasna */
+}
+.ip-feature:after {
+  content: '';
+  position: absolute;
+  inset: 20% 0 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(0deg, rgba(14, 17, 3, 0.88) 0%, rgba(14, 17, 3, 0.45) 45%, transparent 100%);
+}
+.ip-feature-media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  /* hover = lekki zoom na warstwie slajdu, nie na img — img ma juz scale
+       z wejscia [data-nh-img] i transform z animacji ipGalleryZoom */
+}
+.ip-feature-media .ip-gallery-img {
+  transition: opacity 0.9s ease, visibility 0s 0.9s, scale 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.ip-feature-media .ip-gallery-img.is-active {
+  transition: opacity 0.9s ease, visibility 0s, scale 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.ip-feature-status {
+  position: absolute;
+  top: 32px;
+  right: 4.4%;
+  z-index: 2;
+  padding: 9px 16px;
+  background: #b1834e;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.ip-feature-info {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 44px;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 24px 50px;
+}
+.ip-feature-eyebrow {
+  margin: 0 0 14px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #e8d4b4;
+}
+.ip-page .ip-feature-title {
+  margin: 0 0 10px;
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  font-size: clamp(34px, 3.8vw, 60px);
+  font-weight: 400;
+  line-height: 1.1;
+  color: #ffffff;
+  text-shadow: 0 2px 18px rgba(14, 17, 3, 0.2);
+}
+.ip-feature-teaser {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #f0e5d4;
+}
+/* "wysuwany tekst": wysokosc 0fr -> 1fr, tresc przycina wewnetrzny div */
+.ip-feature-desc {
+  display: grid;
+  grid-template-rows: 0fr;
+  max-width: 700px;
+  opacity: 0;
+  transform: translate3d(0, 10px, 0);
+  transition: grid-template-rows 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.ip-feature-desc > div {
+  min-height: 0;
+  overflow: hidden;
+}
+.ip-feature-desc p {
+  margin: 16px 0 0;
+  font-size: 14px;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.9);
+}
+.ip-feature-desc p + p {
+  margin-top: 8px;
+}
+.ip-feature:focus-within .ip-feature-desc {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  transform: none;
+}
+@media (hover: hover) and (pointer: fine) {
+  .ip-feature:hover .ip-feature-desc {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    transform: none;
+  }
+  .ip-feature:hover .ip-feature-media .ip-gallery-img {
+    scale: 1.03;
+  }
+}
+.ip-feature-side {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin-bottom: 4px;
+}
+/* Ponizej ~1912 px przycisk przejezdzal przy przewijaniu pod bocznym
+   widgetem social — pas jak przy .ip-form (62 px od krawedzi ekranu). */
+@media (min-width: 992px) and (max-width: 1911.98px) {
+  .ip-feature-side {
+    margin-right: 42px;
+  }
+}
+/* tablet i telefon, a takze ekrany dotykowe: opis od razu, bez hovera */
+@media (hover: none), (max-width: 991.98px) {
+  .ip-feature-desc {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (max-width: 991.98px) {
+  .ip-feature {
+    height: 80svh;
+    min-height: 600px;
+  }
+  .ip-feature-info {
+    bottom: 32px;
+    grid-template-columns: 1fr;
+  }
+  .ip-feature-side {
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 18px;
+  }
+}
+@media (max-width: 767.98px) {
+  .ip-feature {
+    height: 88svh;
+    min-height: 620px;
+    max-height: 820px;
+  }
+  .ip-feature:after {
+    inset: 12% 0 0;
+  }
+  .ip-feature-status {
+    top: 22px;
+    right: 6%;
+    font-size: 10px;
+    padding: 8px 12px;
+  }
+  .ip-feature-eyebrow {
+    font-size: 10px;
+  }
+  .ip-feature-teaser {
+    font-size: 14px;
+  }
+  .ip-feature-desc p {
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  .ip-feature-side .ip-gallery-controls button {
+    width: 42px;
+    height: 42px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ip-feature-desc,
+  .ip-feature-media .ip-gallery-img {
+    transition: none;
+  }
+}
+/* Obiekty komercyjne: lead nad zdjeciami — rytm 120/88/64 zamiast 3rem */
+.ip-page section.ip-com-features {
+  padding-top: 120px !important;
+}
+@media (max-width: 1199.98px) {
+  .ip-page section.ip-com-features {
+    padding-top: 88px !important;
+  }
+}
+@media (max-width: 767.98px) {
+  .ip-page section.ip-com-features {
+    padding-top: 64px !important;
+  }
+}
+/* ==========================================================================
+   PODSTRONA: O nas — poprawki 10.2026 (mail 15.10)
+   "Maksymalnie powiekszmy zdjecia i dajmy im animacje, moze zoom":
+   zdjecia wchodza maska + zejsciem ze skali ([data-nh-img], ip-motion.js),
+   po najechaniu lekki zoom. Nagrody jak "Poznaj nas lepiej" od Marka.
+   ========================================================================== */
+.ip-about-section .ip-about-photo,
+.ip-about-rows .ip-invrow-media {
+  overflow: hidden;
+}
+.ip-about-section .ip-about-photo img,
+.ip-about-rows .ip-invrow-media img {
+  transition: scale 1.4s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@media (hover: hover) and (pointer: fine) {
+  .ip-about-section .ip-about-photo:hover img,
+  .ip-about-rows .ip-invrow-media:hover img {
+    transform: scale(1.04);
+  }
+}
+/* zdjecia certyfikatu i sportu: kolumna szersza niz tekst, kadr wyzszy */
+@media (min-width: 1200px) {
+  .ip-about-section .ip-about-photo img {
+    width: 100%;
+    height: auto;
+    min-height: 520px;
+    object-fit: cover;
+  }
+}
+/* --- Nagrody: kafle na pasie ---------------------------------------------- */
+.ip-awards-rail {
+  margin-top: 48px;
+  /* nastepna sekcja ("Wspieramy najlepszych") ma pt-0 — rytm 120/88/64 */
+  margin-bottom: 120px;
+}
+@media (max-width: 1199.98px) {
+  .ip-awards-rail {
+    margin-bottom: 88px;
+  }
+}
+.ip-awards-rail .ip-nh-rail-item {
+  display: flex;
+}
+.ip-award-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 28px 28px 32px;
+  border: 1px solid #bf9967;
+  background: #ffffff;
+  text-align: center;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.ip-award-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 45px -26px rgba(59, 45, 37, 0.32);
+}
+.ip-award-card h3 {
+  margin: 26px 0 14px;
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 1.25;
+  color: #000000;
+}
+.ip-award-card-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 170px;
+}
+.ip-award-card-img img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.ip-award-card-text {
+  text-align: left;
+}
+.ip-award-card-text p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #000000;
+}
+@media (max-width: 767.98px) {
+  .ip-awards-rail {
+    margin-top: 32px;
+    margin-bottom: 64px;
+  }
+  .ip-award-card {
+    padding: 24px 20px 26px;
+  }
+  .ip-award-card h3 {
+    font-size: 22px;
+  }
+  .ip-award-card-img {
+    height: 140px;
+  }
+}
+/* ==========================================================================
+   PODSTRONA: Zakup gruntu — poprawki 10.2026 (mail 15.10: "wieksze zdjecia")
+   ========================================================================== */
+/* korzysci: kafle od krawedzi do krawedzi ekranu, waska szczelina jak
+   miedzy duzymi zdjeciami na Planowanych */
+.ip-land-wide {
+  padding: 0 18px;
+}
+.ip-land-wide .ip-cards-row {
+  --bs-gutter-x: 18px;
+  margin-left: -9px;
+  margin-right: -9px;
+}
+/* zdjecie dzialki: wyzszy kadr niz proporcja pliku (851x700) */
+.ip-land-area .ip-land-photo {
+  overflow: hidden;
+}
+.ip-land-area .ip-land-photo img {
+  height: 640px;
+  object-fit: cover;
+}
+@media (max-width: 1199.98px) {
+  .ip-land-area .ip-land-photo img {
+    height: 520px;
+  }
+}
+@media (max-width: 767.98px) {
+  .ip-land-wide {
+    padding: 0 12px;
+  }
+  .ip-land-area .ip-land-photo img {
+    height: 380px;
+  }
+}
+/* ==========================================================================
+   PODSTRONA: Rabaty — karty po 3 (10.2026, mail 15.10)
+   Karta o stalej wysokosci: logo, kod, nazwa. Opis i warunki wysuwaja sie
+   na karte od dolu ([open]), zamiast rozpychac rzad jak <details> u Marka.
+   ========================================================================== */
+.ip-promo-grid {
+  --bs-gutter-y: 24px;
+  margin-top: 8px;
+}
+.ip-promo-card {
+  position: relative;
+  height: 100%;
+  min-height: 420px;
+  overflow: hidden;
+  border: 1px solid #d9d9d9;
+  background: #ffffff;
+  transition: border-color 0.3s ease, box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.ip-promo-card:hover {
+  border-color: #bf9967;
+}
+.ip-promo-card[open] {
+  border-color: #b1834e;
+  box-shadow: 0 22px 45px -26px rgba(59, 45, 37, 0.32);
+}
+.ip-promo-card summary {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 420px;
+  padding: 30px 30px 26px;
+  list-style: none;
+  cursor: pointer;
+}
+.ip-promo-card summary::-webkit-details-marker {
+  display: none;
+}
+.ip-promo-card summary:focus-visible {
+  outline: 2px solid #b1834e;
+  outline-offset: -4px;
+}
+.ip-promo-card-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 130px;
+  margin-bottom: 26px;
+}
+.ip-promo-card-logo img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.ip-promo-card-code {
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  font-size: 34px;
+  line-height: 1.15;
+  color: #b1834e;
+}
+.ip-promo-card-name {
+  margin-top: 10px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #000000;
+}
+.ip-promo-card-cta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid #d9d9d9;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #000000;
+}
+.ip-promo-card-cta span {
+  font-size: 20px;
+  color: #b1834e;
+}
+/* panel na calej karcie, wjezdza od dolu; przewija sie, gdy opis jest dlugi */
+@keyframes ipPromoPanel {
+  from {
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    transform: none;
+  }
+}
+.ip-promo-card-panel {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  overflow-y: auto;
+  padding: 30px 30px 28px;
+  background: #f7f3ec;
+  animation: ipPromoPanel 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.ip-promo-card-panel .ip-cms p {
+  margin: 0 0 10px;
+  font-size: 14px;
+  line-height: 1.75;
+}
+.ip-promo-card-panel-name {
+  margin: 0 36px 6px 0;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #000000;
+}
+.ip-promo-card-panel-code {
+  margin: 0 0 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #dccbb0;
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  font-size: 30px;
+  line-height: 1.15;
+  color: #b1834e;
+}
+.ip-page .ip-promo-card-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid #000000;
+  border-radius: 50%;
+  background: none;
+  font-size: 22px;
+  line-height: 1;
+  color: #000000;
+  cursor: pointer;
+}
+.ip-page .ip-promo-card-close:hover {
+  background: #000000;
+  color: #ffffff;
+}
+@media (max-width: 767.98px) {
+  .ip-promo-card,
+  .ip-promo-card summary {
+    min-height: 360px;
+  }
+  .ip-promo-card summary,
+  .ip-promo-card-panel {
+    padding: 24px 22px;
+  }
+  .ip-promo-card-code {
+    font-size: 28px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ip-promo-card-panel {
+    animation: none;
+  }
+}
+/* ==========================================================================
+   PODSTRONA: Jak kupic mieszkanie — poprawki 10.2026 (mail 15.10:
+   "animacje i powiekszone zdjecia"). Kadry wyzsze niz w 09.2026, wejscie
+   zdjec maska + zejsciem ze skali ([data-nh-img]), zoom po najechaniu.
+   ========================================================================== */
+.ip-step-media.is-photo {
+  min-height: 420px;
+  overflow: hidden;
+  border-radius: 0 14px 14px 0;
+}
+.ip-step-media.is-photo img {
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), scale 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@media (hover: hover) and (pointer: fine) {
+  .ip-step:hover .ip-step-media.is-photo img {
+    transform: scale(1.04);
+  }
+}
+/* 1200-1599: stale 660 px zdjecia zostawialo tekstowi ~130 px i karta rosla
+   na caly ekran (sprawdzone przy 1211 px) — szerokosc proporcjonalna */
+@media (max-width: 1599.98px) {
+  .ip-step-media {
+    flex-basis: 46%;
+    max-width: 46%;
+  }
+  .ip-step-media.is-photo {
+    flex-basis: 46%;
+    max-width: none;
+    min-height: 360px;
+  }
+}
+@media (max-width: 1199.98px) {
+  .ip-step-media.is-photo {
+    min-height: 0;
+    border-radius: 0 0 14px 14px;
+  }
+  .ip-step-media.is-photo img {
+    height: 380px;
+  }
+}
+@media (max-width: 767.98px) {
+  .ip-step-media.is-photo img {
+    height: 260px;
+  }
+}
+/* ==========================================================================
+   PODSTRONA: Kontakt — poprawki 10.2026 (mail 15.10: "formularz sie rozjechal")
+   Na laptopach (kolumna ~560 px) maile handlowcow wychodzily poza karty:
+   rozmiary od szerokosci ekranu, dlugi adres lamie sie po @.
+   Wysokosc formularza skraca blok "niskie ekrany" (max-height: 900px).
+   ========================================================================== */
+.ip-sales-card strong {
+  font-size: clamp(24px, 2.1vw, 34px);
+  line-height: 1.35;
+}
+.ip-sales-card a {
+  font-size: clamp(14px, 1.2vw, 19px);
+  line-height: 2;
+  overflow-wrap: anywhere;
+}
+@media (min-width: 992px) and (max-width: 1399.98px) {
+  .ip-sales-card {
+    padding: 22px 18px 20px;
   }
 }
 /*# sourceMappingURL=ippon.css.map */

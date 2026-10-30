@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 
 // CMS
 use App\Models\News;
+use App\Services\NewsService;
 
 class NewsObserver
 {
@@ -27,6 +28,8 @@ class NewsObserver
         if (File::isFile($file_thumb)) {
             File::delete($file_thumb);
         }
+
+        app(NewsService::class)->deleteCard($news);
     }
 
     /**

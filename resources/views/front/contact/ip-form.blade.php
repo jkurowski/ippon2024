@@ -80,6 +80,11 @@
     @endforeach
 
     <input name="form_page" type="hidden" value="{{ $page_name }}">
+    {{-- tylko slowo-klucz, adres wybiera kontroler — nie da sie podstawic
+         wlasnego odbiorcy --}}
+    @if(($office ?? 'sales') === 'secretariat')
+        <input name="form_office" type="hidden" value="secretariat">
+    @endif
     <script type="text/javascript">
         document.write("<button type=\"submit\" class=\"g-recaptcha ip-btn-submit\" data-sitekey=\"{{ config('services.recaptcha_v3.siteKey') }}\" data-callback=\"onRecaptchaSuccess\" data-action=\"submitContact\">@lang('website.button-send-message')</button>");
     </script>

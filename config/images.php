@@ -112,6 +112,17 @@ return [
         'facebook_file_path' => 'uploads/articles/share/',
     ],
 
+    /* Kafel aktualnosci 3:4 (front.news.ip-trust-card, uwaga Zarzadu z 8.10.2026).
+       Grafiki maja wpalony tekst, wiec bez przycinania: cala grafika w gornej
+       czesci kafla na rozmytym tle z niej samej, dol zostaje pod tytul.
+       focus_y = srodek grafiki w pionie (ulamek wysokosci kafla).
+       Pliki: uploads/news/card/ + card/webp/. Przegenerowanie: php artisan news:cards */
+    'news_card' => [
+        'width' => 840,
+        'height' => 1120,
+        'focus_y' => 0.30,
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Boxes

@@ -410,7 +410,7 @@
                  wysokosci tekstu (tekst jest tu dluzszy niz proporcja kadru).
                  Pionowe wysrodkowanie tekstu przejmuje .ip-invrow-body w LESS. --}}
             <div class="row g-0">
-                <div class="col-12 col-lg-7 ip-invrow-media">
+                <div class="col-12 col-lg-7 ip-invrow-media" data-nh-img>
                     <img src="{{ asset('images/about/stabilnosc.jpg') }}" alt="{{ $T['stab_title'][$L] }}">
                 </div>
                 <div class="col-12 col-lg-5 ip-invrow-body">
@@ -460,7 +460,7 @@
 
             <div class="row align-items-center ip-about-cert-row">
                 <div class="col-12 col-xl-6">
-                    <div class="ip-about-photo">
+                    <div class="ip-about-photo" data-nh-img>
                         <img src="{{ asset('images/about/certyfikat.jpg') }}"
                              alt="{{ $T['cert_title_1'][$L] }}" width="704" height="586">
                     </div>
@@ -537,7 +537,7 @@
         @foreach($wartosci as $row)
             <article class="ip-invrow is-half @if($row['reverse']) is-reverse @endif">
                 <div class="row g-0 align-items-center">
-                    <div class="col-12 col-lg-6 ip-invrow-media">
+                    <div class="col-12 col-lg-6 ip-invrow-media" data-nh-img>
                         <img src="{{ asset($row['img']) }}" alt="{{ $row['title'][$L] }}">
                     </div>
                     <div class="col-12 col-lg-6 ip-invrow-body">
@@ -572,6 +572,42 @@
             <p class="ip-about-lead">{{ $T['awards_lead'][$L] }}</p>
         </div>
 
+        {{-- 10.2026: kafle jak "Poznaj nas lepiej" z paczki Marka, na pasie
+             przewijanym w bok, ktory sam jedzie dalej (uwaga klienta 15.10:
+             "zeby przewijalo sie w karuzeli"). Pas i strzalki: ip-motion.js
+             [data-nh-rail], autoplay przez data-nh-rail-auto. Stary
+             #awardsCarousel (slick z app.js) wylaczony nizej. --}}
+        <div class="ip-nh-rail ip-awards-rail" data-nh-rail data-nh-rail-auto="5000">
+            <div class="ip-nh-rail-track" data-nh-rail-track tabindex="0"
+                 aria-label="{{ $L == 'pl' ? 'Nagrody i wyróżnienia — przewiń w bok' : 'Awards — scroll sideways' }}">
+                @foreach($awards as $award)
+                    <div class="ip-nh-rail-item" data-nh-reveal style="--nh-i: {{ min($loop->index, 3) }}">
+                        <article class="ip-award-card">
+                            <div class="ip-award-card-img">
+                                <img src="{{ asset('/uploads/awards/'.$award->file) }}" alt="{{ $award->name }}" loading="lazy" decoding="async">
+                            </div>
+                            <h3>{{ $award->name }}</h3>
+                            <div class="ip-award-card-text">{!! $award->text !!}</div>
+                        </article>
+                    </div>
+                @endforeach
+            </div>
+
+            <div class="container">
+                <div class="ip-nh-rail-controls" data-nh-rail-controls>
+                    <span class="ip-nh-rail-bar" aria-hidden="true"><span data-nh-rail-bar></span></span>
+
+                    <button type="button" class="ip-nh-rail-btn" data-nh-rail-prev aria-label="{{ $L == 'pl' ? 'Poprzednie nagrody' : 'Previous awards' }}">
+                        <svg viewBox="0 0 18 15" aria-hidden="true"><polyline points="7,1 1,7.5 7,14"/><line x1="1" y1="7.5" x2="17" y2="7.5"/></svg>
+                    </button>
+                    <button type="button" class="ip-nh-rail-btn" data-nh-rail-next aria-label="{{ $L == 'pl' ? 'Następne nagrody' : 'Next awards' }}">
+                        <svg viewBox="0 0 18 15" aria-hidden="true"><polyline points="11,1 17,7.5 11,14"/><line x1="1" y1="7.5" x2="17" y2="7.5"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        @if(1 == 2)
         <div id="awardsCarousel" class="container-fluid">
             <div class="row">
                 @foreach($awards as $award)
@@ -585,6 +621,7 @@
                 @endforeach
             </div>
         </div>
+        @endif
     </section>
 
     {{-- Wspieramy najlepszych --}}
@@ -611,7 +648,7 @@
                 <div class="col-12 col-xl-6 mt-4 mt-xl-0">
                     {{-- UWAGA: to kadr z makiety z wpalonym przyciskiem play.
                          Gdy klient poda film, wystarczy dodac data-video="ID". --}}
-                    <div class="ip-about-photo">
+                    <div class="ip-about-photo" data-nh-img>
                         <img src="{{ asset('images/about/sport.jpg') }}"
                              alt="{{ $L == 'pl' ? 'Marcin Tausiewicz' : 'Marcin Tausiewicz' }}" width="851" height="527">
                     </div>
@@ -626,6 +663,7 @@
         'lead'      => $T['contact_lead'][$L],
         'form'      => 'front.contact.ip-form',
         'page_name' => 'O nas',
+        'office'    => 'secretariat',
     ])
 
 @endsection

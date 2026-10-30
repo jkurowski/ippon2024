@@ -310,7 +310,8 @@
     <section class="ip-section ip-steps-section">
         <div class="container">
             @foreach($kroki as $krok)
-                <article class="ip-step">
+                {{-- 10.2026: wejscie krokow i zdjec przy scrollu (ip-motion.js) — mail 15.10 --}}
+                <article class="ip-step" data-nh-reveal>
 
                     <div class="ip-step-rail">
                         {{-- Ikonki krokow od klienta (09.2026), zrodla w
@@ -336,7 +337,7 @@
                         <p class="ip-step-desc">{{ $krok['desc'][$L] }}</p>
                     </div>
 
-                    <div class="ip-step-media @if($krok['media'] == 'foto') is-photo @endif">
+                    <div class="ip-step-media @if($krok['media'] == 'foto') is-photo @endif" @if($krok['media'] == 'foto') data-nh-img @endif>
                         @switch($krok['media'])
                             @case('foto')
                                 {{-- ?v=filemtime: plik podmieniany pod ta sama nazwa, bez tego przegladarki trzymaja stare zdjecie z cache --}}

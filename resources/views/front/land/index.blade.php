@@ -350,9 +350,15 @@
                 @endif
             </p>
 
+        </div>
+
+        {{-- 10.2026: kafle na cala szerokosc ekranu, bez kontenera (uwaga
+             klienta 15.10: "wieksze zdjecia"). UWAGA: zdjecia do podmiany —
+             klient chce "jakies inne" (mail 15.10, image001). --}}
+        <div class="ip-land-wide">
             <div class="row ip-cards-row">
                 @foreach($korzysci as $item)
-                    <div class="col-12 col-md-6 col-xl-4">
+                    <div class="col-12 col-md-6 col-xl-4" data-nh-reveal style="--nh-i: {{ $loop->index }}">
                         <article class="ip-trust-card" tabindex="0">
                             <img src="{{ asset($item['img']) }}" alt="{{ $item['title'][$L] }}">
                             <div class="ip-trust-card-body">
@@ -365,7 +371,6 @@
                     </div>
                 @endforeach
             </div>
-
         </div>
     </section>
 
@@ -444,7 +449,7 @@
                 </div>
 
                 <div class="col-12 col-xl-6">
-                    <div class="ip-land-photo">
+                    <div class="ip-land-photo" data-nh-img>
                         <img src="{{ asset('images/land/obszar-zainteresowania.jpg') }}"
                              alt="{{ $L == 'pl' ? 'Działka z zaznaczonymi granicami' : 'Plot with marked boundaries' }}"
                              width="851" height="700">
@@ -503,6 +508,7 @@
         'form'      => 'front.land.ip-form',
         'page_name' => 'land-form',
         'class'     => 'pt-0',
+        'office'    => 'secretariat',
     ])
 
 @endsection

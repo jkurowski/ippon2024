@@ -89,6 +89,34 @@
         </div>
     </section>
 
+    {{-- 10.2026: kazdy obiekt jako duze zdjecie z wysuwanym opisem, zdjecia
+         z galerii CMS-u przewijaja sie w karuzeli (uwaga klienta 15.10:
+         "w tym stylu co juz wkrotce... zdjecia w karuzeli"). Bez przycisku —
+         obiekty nie maja wlasnych podstron. Poprzednie wiersze .ip-comrows
+         zostaja nizej, wylaczone. --}}
+    @php
+        $ipComPhotos = \App\Models\Image::whereIn('gallery_id', $commercials->pluck('gallery_id')->filter())
+            ->orderBy('sort')->get()->groupBy('gallery_id');
+    @endphp
+
+    <section class="ip-features-section ip-com-features">
+        <div class="ip-features">
+            @foreach($commercials as $c)
+                @include('layouts.partials.ip-feature', [
+                    'photos' => ($ipComPhotos[$c->gallery_id] ?? collect())->map(fn ($img) => [
+                        'photo' => asset('uploads/gallery/images/'.$img->file),
+                        'webp'  => $img->file_webp ? asset('uploads/gallery/images/webp/'.$img->file_webp) : null,
+                        'alt'   => $img->file_alt ?: $c->name,
+                    ])->all(),
+                    'title'  => $c->name,
+                    'desc'   => $c->text,
+                    'first'  => $loop->first,
+                ])
+            @endforeach
+        </div>
+    </section>
+
+    @if(1 == 2)
     <section class="ip-invrows ip-comrows">
         @foreach($commercials as $c)
             <article class="ip-invrow @if($loop->even) is-reverse @endif">
@@ -115,4 +143,5 @@
             </article>
         @endforeach
     </section>
+    @endif
 @endsection

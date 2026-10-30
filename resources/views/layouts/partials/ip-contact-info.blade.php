@@ -3,10 +3,16 @@
      Parametry:
        $lead — akapit nad kreska (HTML, opcjonalny)
        $salesLabel — true = podpis "Biuro Sprzedazy" nad opiekunkami (uwaga
-                     klienta z 09.2026; na razie tylko nowa strona glowna) --}}
+                     klienta z 09.2026; na razie tylko nowa strona glowna)
+       $office — 'secretariat' = dane sekretariatu zamiast biura sprzedazy
+                 (uwagi klienta z 8.10 i 15.10.2026: kariera, o nas, zakup
+                 gruntu — "tego numeru i maila szukaja kandydaci") --}}
 @php
     $lead = $lead ?? null;
     $salesLabel = $salesLabel ?? false;
+    $office = $office ?? 'sales';
+    /* mail z Admin > Ustawienia > SEO; ten sam adres dostaje formularz */
+    $ipSecretariatMail = settings()->get('secretariat_email') ?: 'sekretariat@ippon.group';
     $L    = in_array($current_locale, ['pl', 'en']) ? $current_locale : 'pl';
 @endphp
 
@@ -16,6 +22,28 @@
 
 <div class="ip-contact-sep"></div>
 
+@if($office === 'secretariat')
+<div class="ip-contact-cols">
+    <ul class="ip-contact-list list-unstyled mb-0">
+        <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            ul. Żelazna 4, 10-419 Olsztyn
+        </li>
+        <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13" r="8"/><polyline points="12,9 12,13 15,15"/><line x1="5" y1="3" x2="2" y2="6"/><line x1="19" y1="3" x2="22" y2="6"/></svg>
+            {{ $L == 'pl' ? 'pn.–pt. 8:00–16:00' : 'Mon–Fri 8:00–16:00' }}
+        </li>
+    </ul>
+
+    <div class="ip-contact-people">
+        <span class="ip-contact-label">{{ $L == 'pl' ? 'Sekretariat' : 'Secretariat' }}</span>
+        <div class="ip-person">
+            <a href="tel:+48895265558">+48 89 526 55 58</a>
+            <a href="mailto:{{ $ipSecretariatMail }}">{{ $ipSecretariatMail }}</a>
+        </div>
+    </div>
+</div>
+@else
 <div class="ip-contact-cols">
     <ul class="ip-contact-list list-unstyled mb-0">
         <li>
@@ -56,3 +84,4 @@
         </div>
     </div>
 </div>
+@endif

@@ -111,7 +111,7 @@ class ContactController extends Controller
         $lastNotificationId = DB::table('notifications')->latest()->value('id');
 
         $client = $this->repository->createClient($request, $lastNotificationId);
-        Mail::to(settings()->get("page_email"))->send(new ChatSend($request, $client));
+        Mail::to(contactRecipient($request))->send(new ChatSend($request, $client));
 
         $url = 'https://ippon.thtg.io/api/v1/public/client';
 

@@ -512,6 +512,7 @@
                         : 'No matching offer? Write to us — we are happy to learn about your experience and will get back when a suitable project comes up.',
         'form'      => 'front.contact.ip-form',
         'page_name' => 'Kariera',
+        'office'    => 'secretariat',
     ])
 
 @endsection

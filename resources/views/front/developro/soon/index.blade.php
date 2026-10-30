@@ -74,5 +74,11 @@
 @stop
 
 @section('content')
-    @include('front.developro.partials.investment-rows', ['investments' => $investments])
+    {{-- 10.2026: duze zdjecia z wysuwanym opisem zamiast wierszy .ip-invrows
+         (uwaga klienta 15.10, wzor z paczki Marka). Stare wywolanie:
+         @include('front.developro.partials.investment-rows', ['investments' => $investments]) --}}
+    @include('front.developro.partials.investment-features', [
+        'investments' => $investments,
+        'status'      => $current_locale == 'pl' ? 'Już wkrótce' : 'Coming soon',
+    ])
 @endsection

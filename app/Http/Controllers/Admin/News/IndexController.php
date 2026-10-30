@@ -75,6 +75,9 @@ class IndexController extends Controller
 
         if ($request->hasFile('file')) {
             $this->service->upload($request->title, $request->file('file'), $news, true);
+        } elseif ($news->file && ! is_file(public_path(NewsService::cardPath($news)))) {
+            // wpis sprzed kafli 3:4 — zapis w adminie dorabia brakujacy kafel
+            $this->service->makeCard($news);
         }
 
         if ($request->hasFile('file_facebook')) {

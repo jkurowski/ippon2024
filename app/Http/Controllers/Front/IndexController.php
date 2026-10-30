@@ -20,15 +20,8 @@ class IndexController extends Controller
 {
     public function index(Request $request, PropertyFilterOptions $filter)
     {
-        return view('front.homepage.index', $this->homepageData($filter));
-    }
-
-    /* Dopieszczona strona glowna (uwagi klienta z poprawki-1/2.odt, 09.2026).
-       Osobny adres, zeby klient mogl porownac z obecna — te same dane, inny widok. */
-    public function newHomepage(Request $request, PropertyFilterOptions $filter)
-    {
-        /* 6 aktualnosci — nowa SG ma z nich karuzele (3 widoczne) */
-        return view('front.homepage.new', $this->homepageData($filter, 6));
+        /* 6 aktualnosci — SG ma z nich karuzele (3 widoczne) */
+        return view('front.homepage.index', $this->homepageData($filter, 6));
     }
 
     private function homepageData(PropertyFilterOptions $filter, int $newsLimit = 3): array

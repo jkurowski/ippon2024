@@ -1,5 +1,5 @@
 /* ==========================================================================
-   IPPON — ruch na nowej stronie glownej (/new-homepage)
+   IPPON — ruch na stronie glownej i podstronach (layouts/page)
    Bez bibliotek: jeden handler scrolla na rAF.
 
    [data-nh-reveal]    wejscie elementu przy pierwszym pojawieniu sie w oknie
@@ -179,10 +179,141 @@
         if (prev) prev.addEventListener('click', function () { go(-1); });
         if (next) next.addEventListener('click', function () { go(1); });
 
+        /* data-nh-rail-auto="ms": pas sam jedzie o karte, na koncu wraca na
+           poczatek. Stoi pod kursorem/fokusem, poza oknem i przy "ogranicz ruch". */
+        var auto = parseInt(rail.dataset.nhRailAuto, 10);
+        if (auto && motion) {
+            var held = false, seen = false;
+
+            window.setInterval(function () {
+                if (held || !seen || document.hidden) return;
+                var max = track.scrollWidth - track.clientWidth;
+                if (max <= 1) return;
+                if (track.scrollLeft >= max - 1) {
+                    track.scrollTo({ left: 0, behavior: 'smooth' });
+                    window.setTimeout(sync, 600);
+                } else {
+                    go(1);
+                }
+            }, auto);
+
+            rail.addEventListener('mouseenter', function () { held = true; });
+            rail.addEventListener('mouseleave', function () { held = false; });
+            rail.addEventListener('focusin',    function () { held = true; });
+            rail.addEventListener('focusout',   function (e) { if (!rail.contains(e.relatedTarget)) held = false; });
+            track.addEventListener('touchstart', function () { held = true; }, { passive: true });
+
+            if ('IntersectionObserver' in window) {
+                new IntersectionObserver(function (entries) { seen = entries[0].isIntersecting; }, { threshold: 0.4 }).observe(rail);
+            } else {
+                seen = true;
+            }
+        }
+
         // bez rAF: sync jest tani, a rAF stoi w karcie uznanej za niewidoczna
         track.addEventListener('scroll', sync, { passive: true });
         window.addEventListener('resize', sync);
         window.addEventListener('load', sync);
         sync();
+    });
+
+    /* --- Galeria na caly ekran (layouts/partials/ip-gallery, ip-feature) ----
+       Bez Bootstrapa: zdjecia przenikaja sie warstwami, opis kazdego slajdu
+       jest osobnym blokiem i widac tylko aktywny. Autoplay stoi, gdy kursor
+       albo fokus jest w galerii, gdy galeria jest poza oknem i przy
+       "ogranicz ruch". Strzalki klawiatury i przesuniecie palcem. */
+    document.querySelectorAll('[data-ip-gallery]').forEach(function (gallery) {
+        var slides   = gallery.querySelectorAll('[data-ip-gallery-slide]');
+        var caps     = gallery.querySelectorAll('[data-ip-gallery-cap]');
+        var counter  = gallery.querySelector('[data-ip-gallery-current]');
+        var progress = gallery.querySelector('[data-ip-gallery-progress]');
+        var count    = slides.length;
+        if (count < 2) return;
+
+        var interval = parseInt(gallery.dataset.interval, 10) || 7000;
+        var index    = 0;
+        var timer    = null;
+        var hovered  = false;
+        var visible  = false;
+
+        /* opis per slajd jest tylko w ip-gallery; ip-feature ma jeden wspolny */
+        function setCap(i, on) {
+            var cap = caps[i];
+            if (!cap) return;
+            cap.classList.toggle('is-active', on);
+            if (on) { cap.removeAttribute('aria-hidden'); } else { cap.setAttribute('aria-hidden', 'true'); }
+            cap.inert = !on;
+        }
+
+        function show(to) {
+            to = (to + count) % count;
+            if (to === index) return;
+
+            slides[index].classList.remove('is-active');
+            slides[index].classList.add('is-leaving');
+            var leaving = slides[index];
+            window.setTimeout(function () { leaving.classList.remove('is-leaving'); }, 1000);
+
+            setCap(index, false);
+            index = to;
+            slides[index].classList.add('is-active');
+            setCap(index, true);
+
+            if (counter) counter.textContent = String(index + 1).padStart(2, '0');
+            schedule();
+        }
+
+        function schedule() {
+            window.clearTimeout(timer);
+            if (progress) progress.classList.remove('is-running');
+
+            if (!motion || hovered || !visible) return;
+
+            if (progress) {
+                void progress.offsetWidth;   // restart animacji paska od zera
+                progress.classList.add('is-running');
+            }
+            timer = window.setTimeout(function () { show(index + 1); }, interval);
+        }
+
+        gallery.querySelector('[data-ip-gallery-prev]').addEventListener('click', function () { show(index - 1); });
+        gallery.querySelector('[data-ip-gallery-next]').addEventListener('click', function () { show(index + 1); });
+
+        gallery.addEventListener('keydown', function (e) {
+            if (e.key === 'ArrowLeft')  { show(index - 1); }
+            if (e.key === 'ArrowRight') { show(index + 1); }
+        });
+
+        function pause(state) { hovered = state; schedule(); }
+        gallery.addEventListener('mouseenter', function () { pause(true); });
+        gallery.addEventListener('mouseleave', function () { pause(false); });
+        gallery.addEventListener('focusin',    function () { pause(true); });
+        gallery.addEventListener('focusout',   function (e) { if (!gallery.contains(e.relatedTarget)) pause(false); });
+
+        /* swipe — tylko wyraznie poziomy ruch, pionowy zostaje przewijaniem */
+        var startX = null, startY = null;
+        gallery.addEventListener('touchstart', function (e) {
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+        }, { passive: true });
+        gallery.addEventListener('touchend', function (e) {
+            if (startX === null) return;
+            var dx = e.changedTouches[0].clientX - startX;
+            var dy = e.changedTouches[0].clientY - startY;
+            startX = null;
+            if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) show(index + (dx < 0 ? 1 : -1));
+        }, { passive: true });
+
+        /* autoplay tylko, gdy galeria jest w oknie — inaczej uzytkownik
+           dojezdza do niej w polowie losowego slajdu */
+        if ('IntersectionObserver' in window) {
+            new IntersectionObserver(function (entries) {
+                visible = entries[0].isIntersecting;
+                schedule();
+            }, { threshold: 0.35 }).observe(gallery);
+        } else {
+            visible = true;
+            schedule();
+        }
     });
 })();

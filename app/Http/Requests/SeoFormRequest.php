@@ -28,6 +28,7 @@ class SeoFormRequest extends FormRequest
             'page_description' => 'required|string|max:255',
             'page_url' => 'required|string|max:255|url',
             'page_email' => 'required|string|max:255|email:rfc,dns',
+            'secretariat_email' => 'nullable|string|max:255|email:rfc,dns',
         ];
     }
 }

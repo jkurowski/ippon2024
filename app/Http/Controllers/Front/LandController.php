@@ -40,7 +40,7 @@ class LandController extends Controller
         $lastNotificationId = DB::table('notifications')->latest()->value('id');
 
         $client = $this->repository->createClient($request, $lastNotificationId);
-        Mail::to(settings()->get("page_email"))->send(new LandSend($request, $client));
+        Mail::to(contactRecipient($request))->send(new LandSend($request, $client));
 
 //        if( count(Mail::failures()) == 0 ) {
 //            $cookie_name = 'dp_';

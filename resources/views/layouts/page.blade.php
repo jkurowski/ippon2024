@@ -33,6 +33,15 @@
 
     @stack('style')
 
+    {{-- Animacje wejscia jak na stronie glownej (uwagi klienta 15.10.2026:
+         "dajmy im jakies animacje"). Klasa stawiana przez JS, wiec bez JS
+         i przy "ogranicz ruch" tresc jest widoczna od razu. --}}
+    <script>
+        if (!window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            document.documentElement.classList.add('nh-motion');
+        }
+    </script>
+
 </head>
 <body class="{{ !empty($body_class) ? $body_class : '' }}">
 {!! settings()->get("scripts_afterbody") !!}
@@ -64,6 +73,8 @@
 <script src="{{ asset('/js/jquery.min.js') }}" charset="utf-8"></script>
 <script src="{{ asset('/js/bootstrap.bundle.min.js') }}?v=5.3.8" charset="utf-8"></script>
 <script src="{{ asset('/js/app.min.js') }}?v={{ filemtime(public_path('js/app.min.js')) }}" charset="utf-8"></script>
+
+<script src="{{ asset('js/ip-motion.js') }}?v={{ filemtime(public_path('js/ip-motion.js')) }}" defer></script>
 
 @stack('scripts')
 

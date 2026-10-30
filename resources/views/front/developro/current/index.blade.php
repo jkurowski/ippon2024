@@ -67,8 +67,10 @@
 @stop
 
 @section('content')
-    @include('front.developro.partials.investment-rows', [
-        'investments' => $investments,
-        'showLogo'    => true,
+    {{-- 10.2026: wiersze .ip-invrows zastapione kaflami ze strony glownej
+         (uwaga klienta 15.10). Stare wywolanie zostaje na wypadek powrotu:
+         @include('front.developro.partials.investment-rows', ['investments' => $investments, 'showLogo' => true]) --}}
+    @include('front.developro.partials.sale-cards', [
+        'cards' => saleCards($boxes, $investments, $cities),
     ])
 @endsection

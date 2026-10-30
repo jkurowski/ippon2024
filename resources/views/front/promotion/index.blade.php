@@ -108,6 +108,52 @@
             </x-section-head>
 
             @if($list->count() > 0)
+                {{-- 10.2026: siatka po 3 jak w paczce Marka (#/rabaty), ale tekst
+                     nie rozpycha karty — klient 15.10: "po 3 w rzedzie wyglada ok,
+                     tylko inaczej sie tekst powinien wyswietlac". Karta ma stala
+                     wysokosc; opis, kod i warunki wysuwaja sie na nia od dolu
+                     po kliknieciu (<details>, dziala bez JS). Poprzedni akordeon
+                     wylaczony nizej. --}}
+                <div class="row ip-promo-grid">
+                    @foreach ($list as $item)
+                        <div class="col-12 col-md-6 col-xl-4" data-nh-reveal style="--nh-i: {{ $loop->index % 3 }}">
+                            <details class="ip-promo-card">
+                                <summary>
+                                    <span class="ip-promo-card-logo">
+                                        @if($item->file)
+                                            <img src="{{ asset('uploads/promotions/'.$item->file) }}" alt="{{ $item->name }}" loading="lazy">
+                                        @endif
+                                    </span>
+                                    @if($item->discount)
+                                        <span class="ip-promo-card-code">{{ $item->discount }}</span>
+                                    @endif
+                                    <span class="ip-promo-card-name">{{ $item->name }}</span>
+                                    <span class="ip-promo-card-cta">
+                                        {{ $L == 'pl' ? 'Poznaj korzyści' : 'See the benefits' }}
+                                        <span aria-hidden="true">+</span>
+                                    </span>
+                                </summary>
+
+                                <div class="ip-promo-card-panel">
+                                    <button type="button" class="ip-promo-card-close"
+                                            onclick="this.closest('details').open = false"
+                                            aria-label="{{ $L == 'pl' ? 'Zamknij' : 'Close' }}">&times;</button>
+
+                                    <p class="ip-promo-card-panel-name">{{ $item->name }}</p>
+                                    @if($item->discount)
+                                        <p class="ip-promo-card-panel-code">{{ $item->discount }}</p>
+                                    @endif
+                                    <div class="ip-cms">
+                                        {!! $item->text !!}
+                                        {!! $item->description !!}
+                                    </div>
+                                </div>
+                            </details>
+                        </div>
+                    @endforeach
+                </div>
+
+                @if(1 == 2)
                 <div class="accordion ip-promo-list" id="promoAccordion">
                     @foreach ($list as $item)
                         <div class="accordion-item ip-promo-item">
@@ -148,6 +194,7 @@
                         </div>
                     @endforeach
                 </div>
+                @endif
             @else
                 <p class="ip-news-empty">
                     {{ $L == 'pl' ? 'Aktualnie nie prowadzimy żadnej promocji.' : 'There are no active promotions right now.' }}
