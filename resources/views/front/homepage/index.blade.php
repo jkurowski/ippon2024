@@ -240,7 +240,7 @@
                     <div class="ip-nh-inv-more">
                         <div>
                             @if($card['desc'])
-                                <p class="ip-nh-inv-desc">{{ $card['desc'] }}</p>
+                                <p class="ip-nh-inv-desc">{!! noOrphans($card['desc']) !!}</p>
                             @endif
 
                             @if($area || $card['handover'] || $card['advantage'])
@@ -357,7 +357,7 @@
                         <div class="ip-trust-card-body">
                             <h3>{{ $item['title'] }}</h3>
                             <div class="ip-trust-card-desc">
-                                <p>{{ $item['desc'] }}</p>
+                                <p>{!! noOrphans($item['desc']) !!}</p>
                             </div>
                         </div>
                     </article>
@@ -490,7 +490,7 @@
 
         <div class="row ip-cards-row align-items-start">
             <div class="col-12 col-lg-6" data-nh-reveal style="--nh-i: 0">
-                @include('layouts.partials.ip-contact-info', ['lead' => $ipContactLead, 'salesLabel' => true])
+                @include('layouts.partials.ip-contact-info', ['lead' => $ipContactLead, 'office' => 'both'])
             </div>
 
             {{-- samo przenikanie, bez przesuniecia: transform na przodku zamienia

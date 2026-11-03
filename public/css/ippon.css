@@ -2303,6 +2303,29 @@ a.ip-btn-submit {
   padding: 0 6px;
   opacity: 0.6;
 }
+/* Jasne zdjecie w tle (klasa z isLightImage(), tla od klienta z 2.11.2026):
+   ciemny tytul i okruszki. Delikatna mleczna mgielka za tytulem - tla od
+   klienta maja wzor (bluszcz, kwiaty) dokladnie tam, gdzie stoi tekst. */
+.ip-pagehead.is-light {
+  background: #fbf9f5;
+  color: #000000;
+}
+.ip-pagehead.is-light:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(ellipse 60% 55% at 50% 58%, rgba(251, 249, 245, 0.72), rgba(251, 249, 245, 0) 100%);
+  pointer-events: none;
+}
+.ip-pagehead.is-light .ip-breadcrumbs,
+.ip-pagehead.is-light .ip-pagehead-title h1,
+.ip-pagehead.is-light .ip-pagehead-lead {
+  color: #000000;
+}
+.ip-pagehead.is-light .ip-breadcrumbs a:hover {
+  color: #b1834e;
+}
 .ip-pagehead-title {
   position: absolute;
   left: 0;
@@ -4989,7 +5012,9 @@ a.ip-btn-submit {
    karte i wyrownuje ja z pozostalymi. */
 .ip-office-logo {
   display: block;
-  width: 108px;
+  width: 230px;
+  /* logo poziome od 2.11.2026, wczesniej pionowe 108 px */
+  max-width: 100%;
   height: auto;
   margin-top: auto;
 }
@@ -5583,6 +5608,21 @@ a.ip-btn-submit {
 }
 .ip-rent-text ul {
   margin-bottom: 20px;
+}
+/* nazwa lokalu na liscie /wynajem (na karcie stoi w naglowku strony) */
+.ip-rent-detail .ip-rent-name {
+  /* (0,2,0) - bije .ip-page h2 */
+  margin: 0 0 24px;
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.25;
+  color: #000000;
+}
+@media (max-width: 767.98px) {
+  .ip-rent-detail .ip-rent-name {
+    font-size: 26px;
+  }
 }
 .ip-rent-back {
   width: 266px;
@@ -7198,8 +7238,10 @@ a.ip-btn-submit {
    ========================================================================== */
 /* --- Naglowek: nizszy, mleczny, przezroczysty ----------------------------
    Klient: "usuwamy biale tlo, zmniejszamy menu i robimy przezroczyste",
-   tlo "wtapiajace sie w obraz pod nim". Chowanie przy scrollu zostaje. */
-.ip-nh .ip-header {
+   tlo "wtapiajace sie w obraz pod nim". Chowanie przy scrollu zostaje.
+   Od 11.2026 na WSZYSTKICH stronach, nie tylko pod .ip-nh (uwaga klienta
+   30.10 i 2.11: "na podstronach pasek jest bialy, ma byc mleczny jak na SG"). */
+.ip-header {
   height: 76px;
   padding-left: 32px;
   padding-right: 32px;
@@ -7211,7 +7253,7 @@ a.ip-btn-submit {
   /* po zejsciu z hero wiecej mleka — na bialych sekcjach szklo bez tla
        zlewaloby sie z trescia pod spodem */
 }
-.ip-nh .ip-header.is-scrolled {
+.ip-header.is-scrolled {
   background: rgba(251, 249, 245, 0.86);
   box-shadow: 0 12px 32px -22px rgba(14, 17, 3, 0.4);
 }
@@ -7219,29 +7261,52 @@ a.ip-btn-submit {
 .ip-nh .ip-header-spacer {
   display: none;
 }
-.ip-nh .ip-logo img {
+/* Podstrony: miejsce po naglowku ma jego nowa wysokosc */
+.ip-header-spacer {
+  height: 76px;
+}
+/* Podstrona z ciemnym pasem (.ip-pagehead): pas wchodzi pod naglowek jak
+   hero na SG, inaczej mleczne szklo lezy na bialym tle i wyglada jak bialy
+   pasek. content-box + padding = pas rosnie o wysokosc naglowka we wszystkich
+   wariantach (400 / is-tall / mobile), zdjecie (inset: 0) wypelnia tez
+   padding, a .container z tytulem schodzi w dol o tyle samo.
+   Bez :has() (stare przegladarki) zostaje odstep — pas jest tylko wyzszy. */
+.ip-header-spacer:has(~ .ip-pagehead) {
+  display: none;
+}
+.ip-header-spacer ~ .ip-pagehead {
+  box-sizing: content-box;
+  padding-top: 76px;
+}
+.ip-logo img {
   width: 132px;
 }
-.ip-nh .ip-cities {
+.ip-cities {
   gap: 44px;
 }
-.ip-nh .ip-cities a {
+.ip-cities a {
   font-size: 15px;
   font-weight: 500;
   letter-spacing: 0.12em;
   color: #000000;
   transition: color 0.25s ease;
 }
-.ip-nh .ip-header-sep {
+.ip-header-sep {
   margin-left: 44px;
 }
 @media (max-width: 991.98px) {
-  .ip-nh .ip-header {
+  .ip-header {
     height: 64px;
     padding-left: 20px;
     padding-right: 20px;
   }
-  .ip-nh .ip-logo img {
+  .ip-header-spacer {
+    height: 64px;
+  }
+  .ip-header-spacer ~ .ip-pagehead {
+    padding-top: 64px;
+  }
+  .ip-logo img {
     width: 112px;
   }
 }
@@ -9167,6 +9232,247 @@ section.ip-gallery {
 @media (min-width: 992px) and (max-width: 1399.98px) {
   .ip-sales-card {
     padding: 22px 18px 20px;
+  }
+}
+/* ==========================================================================
+   PODSTRONA: O nas — uwagi klienta z 30.10.2026
+   1) "Zoom na zdjeciach jest agresywny, zrobic delikatniejszy jak na stronie
+      glownej": wejscie [data-nh-img] ma tu plytsza maske (3% zamiast 9%)
+      i mniejsza skale (1.04 zamiast 1.12), hover 1.02 zamiast 1.04.
+   2) "Nie da sie powiekszyc zdjec? Jest duza przestrzen": certyfikat
+      i sport przeszly z kontenera na wiersze .ip-invrow do krawedzi ekranu.
+   ========================================================================== */
+.nh-motion .ip-page .ip-about-rows [data-nh-img],
+.nh-motion .ip-page .ip-about-section [data-nh-img] {
+  clip-path: inset(3% 0 3% 0);
+}
+.nh-motion .ip-page .ip-about-rows [data-nh-img] img,
+.nh-motion .ip-page .ip-about-section [data-nh-img] img {
+  scale: 1.04;
+}
+.nh-motion .ip-page .ip-about-rows [data-nh-img].is-in,
+.nh-motion .ip-page .ip-about-section [data-nh-img].is-in {
+  clip-path: inset(0 0 0 0);
+}
+.nh-motion .ip-page .ip-about-rows [data-nh-img].is-in img,
+.nh-motion .ip-page .ip-about-section [data-nh-img].is-in img {
+  scale: 1;
+}
+@media (hover: hover) and (pointer: fine) {
+  .ip-about-section .ip-about-photo:hover img,
+  .ip-about-rows .ip-invrow-media:hover img {
+    transform: scale(1.02);
+  }
+}
+/* certyfikat jest prawie kwadratowy, a tekst z kartami wysoki - kolumna
+   zdjecia rozciaga sie do wysokosci tekstu (jak "Stabilnosc"), kadr
+   trzyma ramke certyfikatu w srodku */
+.ip-about-cert .ip-invrow-media {
+  min-height: 100%;
+}
+.ip-about-cert .ip-invrow-media img {
+  object-position: 60% center;
+}
+/* sport jest ostatni przed formularzem, ktory ma swoj gorny odstep 120 px */
+.ip-page .ip-invrows.ip-about-rows.ip-about-sport {
+  padding-bottom: 0 !important;
+}
+/* Zakup gruntu: bez ksiegi wieczystej i przeznaczenia formularz jest krotszy,
+   "Dodatkowe informacje" nizsze (uwaga klienta 2.11.2026) */
+#land-form .ip-field textarea {
+  min-height: 80px;
+  height: 80px;
+}
+/* ==========================================================================
+   PODSTRONA: Zakup gruntu — "Obszar naszego zainteresowania" (2.11.2026)
+   Zdjecie dzialki na cala szerokosc + pinezki z haslem; opis kryterium
+   wysuwa sie po najechaniu albo fokusie (Tab). Ponizej 992 px opisy leca
+   lista pod zdjeciem, pinezki zostaja samymi podpisami.
+   ========================================================================== */
+.ip-land-area-wide .ip-land-intro {
+  max-width: 760px;
+  margin: -10px auto 48px;
+}
+.ip-land-map {
+  position: relative;
+  aspect-ratio: 2400 / 1029;
+  max-height: 86vh;
+  min-height: 420px;
+  overflow: hidden;
+}
+.ip-land-map > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* clip-path z wejscia [data-nh-img] przycinalby dymki - tu sama skala */
+.nh-motion .ip-page .ip-land-map[data-nh-img] {
+  clip-path: none;
+}
+.ip-land-pin {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transform: translate(-22px, -50%);
+  outline: 0;
+  cursor: default;
+}
+.ip-land-pin-dot {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #b1834e;
+  color: #ffffff;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+  /* delikatne pulsowanie, zeby bylo widac, ze to cos aktywnego */
+}
+.ip-land-pin-dot .ip-pin {
+  width: 24px;
+  height: 24px;
+}
+.ip-land-pin-dot:before {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  animation: ipLandPulse 2.6s ease-out infinite;
+}
+@keyframes ipLandPulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+.ip-land-pin-label {
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.92);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #000000;
+  white-space: nowrap;
+}
+.ip-land-pin-card {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 0;
+  width: 380px;
+  padding: 24px 26px;
+  background: #ffffff;
+  border-top: 3px solid #b1834e;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 25px;
+  color: #000000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.5s ease, visibility 0s 0.5s;
+}
+.ip-land-pin-card strong {
+  display: block;
+  margin-bottom: 8px;
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: #000000;
+}
+/* pinezki z prawej polowy otwieraja dymek w lewo, zeby nie wyszedl za ekran */
+.ip-land-pin.is-left .ip-land-pin-card {
+  left: auto;
+  right: 0;
+}
+.ip-land-pin:hover,
+.ip-land-pin:focus,
+.ip-land-pin:focus-within {
+  z-index: 4;
+}
+.ip-land-pin:hover .ip-land-pin-card,
+.ip-land-pin:focus .ip-land-pin-card,
+.ip-land-pin:focus-within .ip-land-pin-card {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition: opacity 0.4s ease, transform 0.5s ease, visibility 0s;
+}
+.ip-land-pin:focus-visible .ip-land-pin-dot {
+  outline: 2px solid #ffffff;
+  outline-offset: 4px;
+}
+.ip-land-area-list {
+  display: none;
+}
+@media (max-width: 991.98px) {
+  .ip-land-map {
+    min-height: 340px;
+  }
+  .ip-land-pin-card {
+    display: none;
+  }
+  .ip-land-pin-dot {
+    width: 36px;
+    height: 36px;
+  }
+  .ip-land-pin-label {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+  .ip-land-area-list {
+    display: block;
+    margin-top: 48px;
+  }
+}
+@media (max-width: 575.98px) {
+  /* na telefonie same kropki - podpisy nachodzilyby na siebie */
+  .ip-land-pin-label {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ip-land-pin-dot:before {
+    animation: none;
+  }
+}
+/* Planowane / Juz wkrotce: wstep miedzy naglowkiem strony a pierwsza
+   wizualizacja (uwaga klienta 2.11.2026: "tlo zlewa sie z wizka") */
+.ip-page .ip-section.ip-features-intro {
+  padding: 100px 0 72px !important;
+}
+.ip-features-intro-lead {
+  max-width: 820px;
+  margin: 30px auto 0;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 30px;
+  color: #000000;
+}
+@media (max-width: 1199.98px) {
+  .ip-page .ip-section.ip-features-intro {
+    padding: 80px 0 56px !important;
+  }
+}
+@media (max-width: 767.98px) {
+  .ip-page .ip-section.ip-features-intro {
+    padding: 56px 0 40px !important;
+  }
+  .ip-features-intro-lead {
+    font-size: 16px;
+    line-height: 27px;
   }
 }
 /*# sourceMappingURL=ippon.css.map */

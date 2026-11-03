@@ -79,7 +79,7 @@
                         </div>
 
                         @if(!empty($item['desc']))
-                            <p class="ip-gallery-cap-desc">{{ $item['desc'] }}</p>
+                            <p class="ip-gallery-cap-desc">{!! noOrphans($item['desc']) !!}</p>
                         @endif
 
                         @if(!empty($item['url']))

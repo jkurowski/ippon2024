@@ -10,6 +10,11 @@
     $image  = $image ?? null;
     $class  = $class ?? "";
     $lead   = $lead ?? null;
+
+    // jasne zdjecie (np. tla od klienta z 2.11.2026) -> ciemny tekst, patrz isLightImage()
+    if (isLightImage($image)) {
+        $class = trim($class.' is-light');
+    }
 @endphp
 
 <div class="ip-pagehead {{ $class }}">

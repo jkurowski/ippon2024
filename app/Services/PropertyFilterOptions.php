@@ -80,8 +80,11 @@ class PropertyFilterOptions
             return $this->areas;
         }
 
+        // tylko mieszkania: komorki (2-4 m2) dawaly przedzial 0-20 (uwaga klienta
+        // 2.11.2026); area to varchar, wiec +0, inaczej MIN/MAX licza po tekscie
         $range = Property::whereIn('investment_id', $this->investmentIds())
-            ->selectRaw('MIN(area) as min_area, MAX(area) as max_area')
+            ->where('type', self::TYPE_FLAT)
+            ->selectRaw('MIN(area+0) as min_area, MAX(area+0) as max_area')
             ->first();
 
         if (!$range || !$range->min_area) {

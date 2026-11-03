@@ -66,24 +66,14 @@
             </div>
         </div>
 
-        <div class="col-12 col-sm-6">
-            <div class="ip-field">
-                <label for="form_book">@lang('website.form-label-mortgage-number')</label>
-                <input type="text" name="form_book" id="form_book" value="{{ old('form_book') }}">
-            </div>
-        </div>
-
-        <div class="col-12 col-sm-6">
-            <div class="ip-field">
-                <label for="form_land">@lang('website.form-label-land-designation')</label>
-                <input type="text" name="form_land" id="form_land" value="{{ old('form_land') }}">
-            </div>
-        </div>
+        {{-- 2.11.2026: usuniete "Numer ksiegi wieczystej" i "Przeznaczenie terenu"
+             (uwaga klienta: krotszy formularz). Pola byly opcjonalne, wiec
+             LandFormRequest i mail dzialaja bez nich. --}}
     </div>
 
     <div class="ip-field">
         <label for="form_message">@lang('website.form-label-additional-information') <span class="text-danger">*</span></label>
-        <textarea name="form_message" id="form_message" rows="4"
+        <textarea name="form_message" id="form_message" rows="3"
                   class="validate[required] @error('form_message') is-invalid @enderror">{{ old('form_message') }}</textarea>
         @error('form_message')<span class="invalid-feedback d-block" role="alert">{{ $message }}</span>@enderror
     </div>

@@ -25,8 +25,8 @@ class BoxService
         $file->storeAs('boxes', $name, 'public_uploads');
         $filepath = public_path('uploads/boxes/' . $name);
 
-        /* Kafel na SG ma 557 px szerokosci, wiec 960 px wystarcza (config
-           images.box.width). Bez przycinania — kadr robi object-fit w CSS;
+        /* Szerokosc z config images.box.width (1920 px - kafel ma ok. 557 px,
+           ale przy skalowaniu ekranu i animacji powiekszenia 960 px pikselowalo). Bez przycinania — kadr robi object-fit w CSS;
            mniejszy obrazek zostaje w swoim rozmiarze (upsize). */
         $image = Image::make($filepath)
             ->resize(config('images.box.width'), null, function ($constraint) {

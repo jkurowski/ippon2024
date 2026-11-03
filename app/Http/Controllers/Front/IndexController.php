@@ -47,7 +47,7 @@ class IndexController extends Controller
         $boxes = Boxes::orderBy('sort')->get();
 
         $investments_soon = Investment::whereStatus(4)->get();
-        $investments_planned = Investment::whereStatus(3)->orderBy('id', 'DESC')->get();
+        $investments_planned = Investment::whereStatus(3)->orderBy('sort')->orderBy('id', 'DESC')->get(); /* kolejnosc z adminu (uwaga klienta 2.11.2026) */
 
         /* Miasto jest w inwestycji obcym kluczem — plakietki na zdjeciach
            biora nazwe stad, zeby nie strzelac zapytaniem w petli widoku. */

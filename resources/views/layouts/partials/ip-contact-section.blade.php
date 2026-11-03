@@ -14,7 +14,10 @@
        $action, $form_id — opcjonalnie, gdy formularz ma isc pod inny endpoint
                     (schowek wysyla razem z lista odlozonych lokali)
        $office    — 'secretariat': dane sekretariatu w lewej kolumnie i mail
-                    z formularza na adres sekretariatu (ustawienie w adminie) --}}
+                    z formularza na adres sekretariatu (ustawienie w adminie)
+       $info      — uklad danych w lewej kolumnie, gdy ma byc inny niz $office
+                    (np. 'both' = sekretariat + biuro sprzedazy jak na SG,
+                    a mail z formularza dalej wg $office) --}}
 @php
     $lead = $lead ?? null;
     $form  = $form ?? 'front.contact.ip-form';
@@ -23,6 +26,7 @@
     $action = $action ?? null;
     $form_id = $form_id ?? null;
     $office = $office ?? 'sales';
+    $info = $info ?? $office;
 @endphp
 
 <section id="contact-form" class="ip-section ip-contact-section {{ $class }}">
@@ -32,7 +36,7 @@
 
         <div class="row ip-cards-row align-items-start">
             <div class="col-12 col-lg-6">
-                @include($aside, ['lead' => $lead, 'office' => $office])
+                @include($aside, ['lead' => $lead, 'office' => $info])
             </div>
 
             <div class="col-12 col-lg-6">

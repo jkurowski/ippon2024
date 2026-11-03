@@ -317,14 +317,17 @@
 @endphp
 
 @section('pageheader')
+    {{-- 2.11.2026: tytul "Zakup gruntu" (wersaliki jak na innych podstronach),
+         haslo zwyklym tekstem pod spodem - wczesniej cale haslo bylo tytulem
+         i szlo wielkimi literami (uwaga klienta: "ujednolicic") --}}
     @include('layouts.partials.ip-pagehead', [
-        'title'  => $L == 'pl'
+        'title'  => $L == 'pl' ? 'Zakup gruntu' : 'Land purchase',
+        'lead'   => $L == 'pl'
                         ? 'Rozwiń potencjał swojej ziemi. Bezpieczna sprzedaż gruntów z Ippon Group'
                         : 'Unlock the potential of your land. A secure land sale with Ippon Group',
         'crumbs' => [
             ['label' => $L == 'pl' ? 'Zakup gruntu' : 'Land purchase', 'url' => null],
         ],
-        'class'  => 'is-tall',
         'image'  => ($page->file_header && is_file(public_path('uploads/header/'.$page->file_header)))
                         ? asset('uploads/header/'.$page->file_header) : null,
     ])
@@ -374,6 +377,121 @@
         </div>
     </section>
 
+    {{-- Obszar naszego zainteresowania - od 2.11.2026 zdjecie dzialki na cala
+         szerokosc z pinezkami; opis kryterium wysuwa sie po najechaniu / fokusie
+         (uwaga klienta: "pinezki z haslem, po najechaniu tekst, spojniej ze
+         strona glowna"). Ponizej 992 px pinezki sa tylko podpisami, a pelne
+         opisy leca lista pod zdjeciem (dotyk nie ma hovera).
+         Zdjecie wygenerowane przez AI (Higgsfield, GPT Image 2.5, 21:9 2k) -
+         stare 851 px z wpalonymi pinezkami rozmyloby sie na calej szerokosci.
+         Poprzedni uklad w @if(1 == 2) nizej. --}}
+    @php
+        $pinezki = [
+            ['x' => 22, 'y' => 34, 'icon' => 0, 'title' => ['pl' => 'Lokalizacja', 'en' => 'Location'],
+             'desc' => ['pl' => 'Interesują nas atrakcyjne działki w miastach takich jak Olsztyn, Warszawa, Trójmiasto oraz w ich bezpośrednich okolicach',
+                        'en' => 'We are interested in attractive development sites in cities such as Olsztyn, Warsaw and the Tri-City area, as well as in their immediate surroundings']],
+            ['x' => 50, 'y' => 58, 'icon' => 1, 'title' => ['pl' => 'Przeznaczenie', 'en' => 'Intended Use'],
+             'desc' => ['pl' => 'Grunty pod wielorodzinne budownictwo mieszkaniowe (osiedla bloków, apartamentowce) oraz nieruchomości o potencjale komercyjnym (pod parki handlowe i obiekty street mall)',
+                        'en' => 'Land designated for multi-family residential development (housing estates and apartment buildings), as well as properties with commercial potential for retail parks and street mall developments']],
+            ['x' => 62, 'y' => 30, 'icon' => 2, 'title' => ['pl' => 'Status', 'en' => 'Status'],
+             'desc' => ['pl' => 'Działki objęte Miejscowym Planem Zagospodarowania Przestrzennego (MPZP), z wydanymi Warunkami Zabudowy (WZ), jak również tereny o statusie rolnym, leśnym lub poprzemysłowym wymagające transformacji',
+                        'en' => 'Land covered by a Local Spatial Development Plan (MPZP), with valid Development Conditions (WZ), as well as agricultural, forest, or post-industrial land requiring redevelopment or a change of designated use']],
+        ];
+    @endphp
+
+    <section class="ip-section ip-land-section ip-land-area ip-land-area-wide">
+        <div class="container">
+            <x-section-head>{{ $L == 'pl' ? 'Obszar naszego zainteresowania' : 'Areas of Interest' }}</x-section-head>
+
+            <p class="ip-land-intro text-center">
+                @if($L == 'pl')
+                    W ramach dynamicznej ekspansji na rynku nieruchomości poszukujemy gruntów spełniających poniższe kryteria:
+                @else
+                    As part of our dynamic expansion in the real estate market, we are looking for land that meets the following criteria:
+                @endif
+            </p>
+        </div>
+
+        <div class="ip-land-map" data-nh-img>
+            <img src="{{ asset('images/land/dzialka-panorama.jpg') }}?v={{ @filemtime(public_path('images/land/dzialka-panorama.jpg')) }}"
+                 alt="{{ $L == 'pl' ? 'Działka budowlana z lotu ptaka' : 'Aerial view of a building plot' }}"
+                 width="2400" height="1029">
+            <x-ai-badge light />
+
+            @foreach($pinezki as $pin)
+                <div class="ip-land-pin {{ $pin['x'] > 55 ? 'is-left' : '' }}" style="left: {{ $pin['x'] }}%; top: {{ $pin['y'] }}%" tabindex="0">
+                    <span class="ip-land-pin-dot">@include('layouts.partials.ip-pin')</span>
+                    <span class="ip-land-pin-label">{{ $pin['title'][$L] }}</span>
+                    <span class="ip-land-pin-card" role="tooltip">
+                        <strong>{{ $pin['title'][$L] }}</strong>
+                        {{ $pin['desc'][$L] }}
+                    </span>
+                </div>
+            @endforeach
+        </div>
+
+        {{-- te same kryteria jako lista - widoczna tylko ponizej 992 px --}}
+        <div class="container ip-land-area-list">
+                    <ul class="ip-crit-list list-unstyled mb-0">
+                        <li class="ip-crit-item">
+                            <span class="ip-crit-icon">
+                                <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                                    <path d="M16 4.5c-4.2 0-7.6 3.35-7.6 7.5 0 5.65 6.8 13.8 7.1 14.15a.65.65 0 0 0 1 0c.3-.35 7.1-8.5 7.1-14.15 0-4.15-3.4-7.5-7.6-7.5Z" stroke="currentColor" stroke-width="1.4"/>
+                                    <circle cx="16" cy="12" r="2.9" stroke="currentColor" stroke-width="1.4"/>
+                                </svg>
+                            </span>
+                            <div class="ip-crit-text">
+                                <h3>{{ $L == 'pl' ? 'Lokalizacja' : 'Location' }}</h3>
+                                <p>
+                                    @if($L == 'pl')
+                                        Interesują nas atrakcyjne działki w miastach takich jak Olsztyn, Warszawa, Trójmiasto oraz w ich bezpośrednich okolicach
+                                    @else
+                                        We are interested in attractive development sites in cities such as Olsztyn, Warsaw and the Tri-City area, as well as in their immediate surroundings
+                                    @endif
+                                </p>
+                            </div>
+                        </li>
+
+                        <li class="ip-crit-item">
+                            <span class="ip-crit-icon">
+                                <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                                    <path d="M6 27V9.5l8-4.5 8 4.5V27M22 27V14h4v13M6 27h20M10.5 13h3M10.5 18h3M17 18h1.5M10.5 23h3M17 23h1.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                            <div class="ip-crit-text">
+                                <h3>{{ $L == 'pl' ? 'Przeznaczenie' : 'Intended Use' }}</h3>
+                                <p>
+                                    @if($L == 'pl')
+                                        Grunty pod wielorodzinne budownictwo mieszkaniowe (osiedla bloków, apartamentowce) oraz nieruchomości o potencjale komercyjnym (pod parki handlowe i obiekty street mall)
+                                    @else
+                                        Land designated for multi-family residential development (housing estates and apartment buildings), as well as properties with commercial potential for retail parks and street mall developments
+                                    @endif
+                                </p>
+                            </div>
+                        </li>
+
+                        <li class="ip-crit-item">
+                            <span class="ip-crit-icon">
+                                <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                                    <path d="M5 27h13M8.5 9.5l6-6 4.5 4.5-6 6-4.5-4.5ZM17 12l7.5 7.5M21.5 7.5 27 13M12.5 5.5 15 3M23 21.5 20.5 24" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                            <div class="ip-crit-text">
+                                <h3>{{ $L == 'pl' ? 'Status' : 'Status' }}</h3>
+                                <p>
+                                    @if($L == 'pl')
+                                        Działki objęte Miejscowym Planem Zagospodarowania Przestrzennego (MPZP), z wydanymi Warunkami Zabudowy (WZ), jak również tereny o statusie rolnym, leśnym lub poprzemysłowym wymagające transformacji
+                                    @else
+                                        Land covered by a Local Spatial Development Plan (MPZP), with valid Development Conditions (WZ), as well as agricultural, forest, or post-industrial land requiring redevelopment or a change of designated use
+                                    @endif
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+        </div>
+    </section>
+
+    @if(1 == 2)
     {{-- Obszar naszego zainteresowania — tu ikonki zostaja, tak jak w makiecie --}}
     <section class="ip-section ip-land-section ip-land-area">
         <div class="container">
@@ -459,6 +577,8 @@
 
         </div>
     </section>
+
+    @endif
 
     {{-- Sciezka do finalizacji — karty ze zdjeciem, opis po najechaniu --}}
     <section class="ip-section ip-land-section">

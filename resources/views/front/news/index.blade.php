@@ -86,10 +86,12 @@
         <div class="container">
 
             @if($articles->count() > 0)
-                <div class="row ip-cards-row">
+                <div class="row ip-cards-row ip-news-grid">
                     @foreach($articles as $news)
                         <div class="col-12 col-md-6 col-xl-4">
-                            @include('front.news.ip-card', ['news' => $news])
+                            {{-- kafel 3:4 jak na SG (uwaga klienta 30.10.2026: "mialy byc
+                                 w pionie", spojnie ze strona glowna) --}}
+                            @include('front.news.ip-trust-card', ['news' => $news])
                         </div>
                     @endforeach
                 </div>

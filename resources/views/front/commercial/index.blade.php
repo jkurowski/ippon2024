@@ -60,8 +60,9 @@
     $T = [
         /* EN jak w menu (resources/lang/en/website.php: menu-commercial-buildings) */
         'title'     => ['pl' => 'Obiekty komercyjne', 'en' => 'Commercial buildings'],
-        'section_1' => ['pl' => 'Przestrzenie komercyjne i parki', 'en' => 'Commercial Spaces and'],
-        'section_2' => ['pl' => 'handlowe typu street mall', 'en' => 'Street Mall Retail Parks'],
+        /* 2.11.2026: czarna linia = "Przestrzenie komercyjne", zlota = reszta (uwaga klienta) */
+        'section_1' => ['pl' => 'Przestrzenie komercyjne', 'en' => 'Commercial Spaces'],
+        'section_2' => ['pl' => 'i parki handlowe typu street mall', 'en' => 'and Street Mall Retail Parks'],
     ];
 @endphp
 

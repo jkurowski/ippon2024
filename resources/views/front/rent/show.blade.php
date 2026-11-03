@@ -49,45 +49,7 @@
 
 @section('content')
 
-    <section class="ip-section ip-rent-detail">
-        <div class="container">
-            <div class="row align-items-start ip-rent-row">
-
-                <div class="col-12 col-xl-6">
-                    <div class="ip-rent-photo">
-                        @if($rent->file)
-                            <img src="{{ asset('uploads/rents/'.$rent->file) }}" alt="{{ $rent->name }}">
-                        @endif
-                        <span class="ip-card-badge">{{ rentType($rent->type) }}</span>
-                    </div>
-
-                    @if($rent->area)
-                        <ul class="ip-rent-params list-unstyled mb-0">
-                            <li>
-                                <span>{{ $L == 'pl' ? 'Powierzchnia' : 'Area' }}</span>
-                                <strong>{{ $rent->area }} m²</strong>
-                            </li>
-                            <li>
-                                <span>{{ $L == 'pl' ? 'Rodzaj' : 'Type' }}</span>
-                                <strong>{{ rentType($rent->type) }}</strong>
-                            </li>
-                        </ul>
-                    @endif
-                </div>
-
-                <div class="col-12 col-xl-6 mt-4 mt-xl-0">
-                    <div class="ip-cms ip-rent-text">
-                        {!! parse_text($rent->text) !!}
-                    </div>
-
-                    <a href="{{ route('rent', ['locale' => $L]) }}" class="ip-btn-outline ip-rent-back">
-                        @lang('website.button-back-to-list')
-                    </a>
-                </div>
-
-            </div>
-        </div>
-    </section>
+    @include('front.rent.partials.detail', ['rent' => $rent])
 
     {{-- Zapytaj o lokal — ten sam komponent co na pozostalych podstronach --}}
     @include('layouts.partials.ip-contact-section', [
@@ -98,6 +60,7 @@
         'form'      => 'front.contact.ip-form',
         'page_name' => 'Wynajem: '.$rent->name,
         'class'     => 'pt-0',
+        'info'      => 'both', /* uwaga klienta 2.11.2026: sekretariat jak na SG */
     ])
 
 @endsection

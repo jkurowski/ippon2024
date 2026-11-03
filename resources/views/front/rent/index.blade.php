@@ -59,7 +59,44 @@
     ])
 @stop
 
+{{-- Lista od 2.11.2026 = pelne szczegoly kazdego lokalu jeden pod drugim
+     (uwaga klienta: kafle "wygladaja bardzo biednie"), na dole jeden
+     formularz z sekretariatem jak na SG. Karta /wynajem/{slug} zostaje
+     pod stare linki. Poprzednie kafle ponizej w @if(1 == 2). --}}
 @section('content')
+    @forelse($rents as $r)
+        @include('front.rent.partials.detail', [
+            'rent'  => $r,
+            'back'  => false,
+            'title' => true,
+            'class' => $loop->first ? '' : 'pt-0',
+        ])
+    @empty
+        <section class="ip-section ip-rent-section">
+            <div class="container">
+                <p class="ip-rent-empty">
+                    {{ $L == 'pl'
+                        ? 'Aktualnie nie mamy wolnych powierzchni - napisz na mieszkania@ippon.group, damy znać, gdy coś się zwolni.'
+                        : 'There is no space available at the moment - write to mieszkania@ippon.group and we will let you know when something frees up.' }}
+                </p>
+            </div>
+        </section>
+    @endforelse
+
+    @include('layouts.partials.ip-contact-section', [
+        'title'     => $L == 'pl' ? 'Zapytaj o lokal' : 'Ask about the space',
+        'lead'      => $L == 'pl'
+                        ? 'Chcesz obejrzeć powierzchnię albo poznać warunki najmu? <strong>Napisz lub zadzwoń - odpowiadamy w dni robocze.</strong>'
+                        : 'Would you like to view the space or learn the terms? <strong>Write or call - we reply on business days.</strong>',
+        'form'      => 'front.contact.ip-form',
+        'page_name' => 'Wynajem',
+        'class'     => 'pt-0',
+        'info'      => 'both',
+    ])
+@endsection
+
+@if(1 == 2)
+
     <section class="ip-section ip-rent-section">
         <div class="container">
 
@@ -108,4 +145,5 @@
 
         </div>
     </section>
-@endsection
+
+@endif

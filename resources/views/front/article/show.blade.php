@@ -56,7 +56,9 @@
             ['label' => \Carbon\Carbon::parse($article->date)->format('d.m.Y'), 'url' => null],
         ],
         'image'  => ($page->file_header && is_file(public_path('uploads/header/'.$page->file_header)))
-                        ? asset('uploads/header/'.$page->file_header) : null,
+                        ? asset('uploads/header/'.$page->file_header)
+                        // tlo zapasowe (Gemini od klienta 2.11.2026), gdy w CMS nie ma pliku
+                        : asset('images/pagehead/blog.jpg'),
     ])
 @stop
 

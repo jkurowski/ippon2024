@@ -62,7 +62,7 @@
                         @endunless
 
                         @if($inv->entry_content)
-                            <div class="ip-invrow-desc">{!! $inv->entry_content !!}</div>
+                            <div class="ip-invrow-desc">{!! noOrphans($inv->entry_content, true) !!}</div>
                         @endif
 
                         @if($url)

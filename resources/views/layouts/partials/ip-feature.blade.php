@@ -69,7 +69,7 @@
             {{-- dwa poziomy: zewnetrzny animuje wysokosc (grid 0fr -> 1fr),
                  wewnetrzny przycina tresc w trakcie --}}
             @if(!empty($desc))
-                <div class="ip-feature-desc"><div>{!! $desc !!}</div></div>
+                <div class="ip-feature-desc"><div>{!! noOrphans($desc, true) !!}</div></div>
             @endif
         </div>
 

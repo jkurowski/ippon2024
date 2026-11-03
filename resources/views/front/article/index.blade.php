@@ -71,10 +71,12 @@
             ['label' => 'Blog', 'url' => null],
         ],
         'lead'   => $L == 'pl'
-                        ? 'Poradniki i komentarze o rynku mieszkaniowym — z perspektywy dewelopera.'
-                        : 'Guides and commentary on the housing market — from a developer’s perspective.',
+                        ? 'Poradniki i komentarze o rynku mieszkaniowym - z perspektywy dewelopera.'
+                        : 'Guides and commentary on the housing market - from a developer’s perspective.',
         'image'  => ($page->file_header && is_file(public_path('uploads/header/'.$page->file_header)))
-                        ? asset('uploads/header/'.$page->file_header) : null,
+                        ? asset('uploads/header/'.$page->file_header)
+                        // tlo zapasowe (Gemini od klienta 2.11.2026), gdy w CMS nie ma pliku
+                        : asset('images/pagehead/blog.jpg'),
     ])
 @stop
 

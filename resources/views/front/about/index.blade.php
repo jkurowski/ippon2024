@@ -449,6 +449,84 @@
         <img src="{{ asset('images/about/video-ippon.jpg') }}" alt="Ippon Group">
     </div>
 
+    {{-- Certyfikat Jakosci. Do 2.11.2026 zdjecie siedzialo w kontenerze (pol
+         szerokosci tresci); uwaga klienta z 30.10: "nie da sie powiekszyc
+         jeszcze zdjec? jest duza przestrzen" - teraz wiersz do krawedzi
+         ekranu, jak "Stabilnosc" wyzej. Poprzedni uklad w @if(1 == 2). --}}
+    <section class="ip-section ip-about-section pb-0">
+        <div class="container">
+            <x-section-head>
+                {{ $T['cert_title_1'][$L] }}
+                    <span>{{ $T['cert_title_2'][$L] }}</span>
+            </x-section-head>
+        </div>
+    </section>
+
+    <section class="ip-invrows ip-about-rows ip-about-cert">
+        <article class="ip-invrow">
+            <div class="row g-0">
+                <div class="col-12 col-lg-6 ip-invrow-media" data-nh-img>
+                    <img src="{{ asset('images/about/certyfikat.jpg') }}" alt="{{ $T['cert_title_1'][$L] }}">
+                </div>
+                <div class="col-12 col-lg-6 ip-invrow-body">
+                    <div class="ip-invrow-inner">
+                        <div class="ip-about-text">
+                            <p>{!! $T['cert_p1'][$L] !!}</p>
+                            <p>{!! $T['cert_p2'][$L] !!}</p>
+                            <p>{!! $T['cert_p3'][$L] !!}</p>
+                        </div>
+
+                            {{-- Piktogramy wg propozycji klienta (materialy_klienta/propozycja-piktogramy.png).
+                                 Numer 01/02 to znak wodny pod tekstem — dlatego aria-hidden i z-index 0,
+                                 czytnik ekranu ma przeczytac tytul, nie "zero jeden". Kreska pod ikona
+                                 jest krotka (w makiecie 54 px), nie na cala szerokosc karty. --}}
+                            <div class="ip-cert-cards">
+                                <article class="ip-cert-card">
+                                    <span class="ip-cert-num" aria-hidden="true">01</span>
+
+                                    <div class="ip-cert-top">
+                                        <span class="ip-cert-icon">
+                                            {{-- Trzy zamkniete romby jeden na drugim, rysowane od dolu.
+                                                 Wypelnienie biele jest czescia rysunku, nie ozdoba: to ono
+                                                 zaslania gorne polowy nizszych warstw i daje efekt stosu.
+                                                 Tlo karty tez jest biale — przy zmianie tla podmienic fill. --}}
+                                            <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                                                <path d="M24 25 44 34 24 43 4 34Z" fill="#fff" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+                                                <path d="M24 14.5 44 23.5 24 32.5 4 23.5Z" fill="#fff" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+                                                <path d="M24 4 44 13 24 22 4 13Z" fill="#fff" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+                                            </svg>
+                                        </span>
+                                        <h3>{{ $T['cert_f1'][$L] }}</h3>
+                                    </div>
+
+                                    <p>{{ $T['cert_d1'][$L] }}</p>
+                                </article>
+
+                                <article class="ip-cert-card">
+                                    <span class="ip-cert-num" aria-hidden="true">02</span>
+
+                                    <div class="ip-cert-top">
+                                        <span class="ip-cert-icon">
+                                            {{-- Lisc: dwa luki schodzace sie w czubku u gory z prawej,
+                                                 plus prosty nerw, ktory wychodzi ponizej nasady jako ogonek. --}}
+                                            <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                                                <path d="M9 41C9 21 20 9 43 5c-4 23-16 36-34 36Z" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+                                                <path d="M3 46 37 12" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+                                            </svg>
+                                        </span>
+                                        <h3>{{ $T['cert_f2'][$L] }}</h3>
+                                    </div>
+
+                                    <p>{{ $T['cert_d2'][$L] }}</p>
+                                </article>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </section>
+
+    @if(1 == 2)
     {{-- Certyfikat Jakosci — zdjecie w kontenerze, tak jak w makiecie --}}
     <section class="ip-section ip-about-section">
         <div class="container">
@@ -522,6 +600,8 @@
 
         </div>
     </section>
+
+    @endif
 
     {{-- Architektura, Natura, Czlowiek — wiersze na pelna szerokosc --}}
     <section class="ip-section ip-about-section pb-0 pt-0">
@@ -624,6 +704,43 @@
         @endif
     </section>
 
+    {{-- Wspieramy najlepszych - od 2.11.2026 wiersz do krawedzi ekranu
+         (ta sama uwaga co przy certyfikacie). Poprzedni uklad w @if(1 == 2). --}}
+    <section class="ip-section ip-about-section pb-0 pt-0">
+        <div class="container">
+            <x-section-head>{{ $T['sport_title'][$L] }}</x-section-head>
+        </div>
+    </section>
+
+    <section class="ip-invrows ip-about-rows ip-about-sport">
+        <article class="ip-invrow is-half is-reverse">
+            <div class="row g-0">
+                {{-- UWAGA: kadr z makiety z wpalonym przyciskiem play.
+                     Gdy klient poda film, wystarczy dodac data-video="ID". --}}
+                <div class="col-12 col-lg-6 ip-invrow-media" data-nh-img>
+                    <img src="{{ asset('images/about/sport.jpg') }}" alt="Marcin Tausiewicz">
+                </div>
+                <div class="col-12 col-lg-6 ip-invrow-body">
+                    <div class="ip-invrow-inner">
+                            <div class="ip-about-text">
+                                <h3 class="ip-about-subtitle">{{ $L == 'pl' ? 'Ippon Group w sporcie' : 'Ippon Group in sport' }}</h3>
+                                <div class="ip-rule"></div>
+
+                                @if($L == 'pl')
+                                    <p>W budownictwie, tak jak w sporcie, o sukcesie decydują milimetry, sekundy i bezkompromisowa precyzja. Dumą napawa nas fakt, że jako sponsor <strong>wspieramy sportowca Marcina Tausiewicza</strong>. Wspólnie udowadniamy, że pasja połączona z determinacją pozwala sięgać po najwyższe trofea.</p>
+                                    <p>Marcin Tausiewicz to jeden z najbardziej utytułowanych polskich zawodników strzelectwa dynamicznego IPSC, reprezentujący Legię Warszawa. Jest <strong>wielokrotnym mistrzem Polski</strong> oraz zwycięzcą prestiżowych zawodów międzynarodowych. Do jego największych sukcesów należą <strong>wicemistrzostwo Europy</strong> w pistolecie IPSC oraz <strong>indywidualne wicemistrzostwo świata</strong> i <strong>drużynowe mistrzostwo świata</strong> w strzelbie IPSC, zdobyte w 2023 roku.</p>
+                                @else
+                                    <p>In construction, just as in sport, success is determined by millimetres, seconds and uncompromising precision. We are proud to sponsor athlete <strong>Marcin Tausiewicz</strong>. Together, we demonstrate that passion combined with determination makes it possible to reach the highest levels of achievement.</p>
+                                    <p>Marcin Tausiewicz is one of Poland’s most accomplished <strong>IPSC practical shooting competitors</strong>, representing Legia Warsaw. He is a multiple Polish Champion and a winner of prestigious international competitions. His greatest achievements include becoming <strong>European Vice-Champion in IPSC Handgun</strong>, as well as winning an <strong>individual World Vice-Championship title and a team World Championship title in IPSC Shotgun in 2023</strong>.</p>
+                                @endif
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </section>
+
+    @if(1 == 2)
     {{-- Wspieramy najlepszych --}}
     <section class="ip-section ip-about-section pb-0 pt-0">
         <div class="container">
@@ -657,6 +774,8 @@
         </div>
     </section>
 
+    @endif
+
     {{-- Porozmawiajmy o Twoim nowym mieszkaniu — wspolny komponent --}}
     @include('layouts.partials.ip-contact-section', [
         'title'     => $T['contact_title'][$L],
@@ -664,6 +783,7 @@
         'form'      => 'front.contact.ip-form',
         'page_name' => 'O nas',
         'office'    => 'secretariat',
+        'info'      => 'both', /* uwaga klienta 30.10.2026: "taki jak na stronie glownej" */
     ])
 
 @endsection

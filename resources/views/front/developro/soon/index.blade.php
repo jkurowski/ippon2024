@@ -77,6 +77,24 @@
     {{-- 10.2026: duze zdjecia z wysuwanym opisem zamiast wierszy .ip-invrows
          (uwaga klienta 15.10, wzor z paczki Marka). Stare wywolanie:
          @include('front.developro.partials.investment-rows', ['investments' => $investments]) --}}
+    {{-- 2.11.2026: krotki wstep miedzy ciemnym naglowkiem a pierwsza
+         wizualizacja - wczesniej jedno przechodzilo w drugie (uwaga klienta:
+         "tlo zlewa sie z wizualizacja, musi byc odstep i krotki tekst") --}}
+    <section class="ip-section ip-features-intro">
+        <div class="container">
+            <x-section-head>
+                {{ $current_locale == 'pl' ? 'Nowe adresy na horyzoncie.' : 'New addresses on the horizon.' }}
+                <span>{{ $current_locale == 'pl' ? 'Mieszkania już wkrótce' : 'Apartments coming soon' }}</span>
+            </x-section-head>
+
+            <p class="ip-features-intro-lead">
+                {{ $current_locale == 'pl'
+                       ? 'Inwestycje tuż przed startem sprzedaży. Zostaw kontakt - przedstawimy Ci ceny i dostępne lokale, zanim ruszy sprzedaż.'
+                       : 'Developments just before the sales launch. Leave your details - we will share prices and available units before sales open.' }}
+            </p>
+        </div>
+    </section>
+
     @include('front.developro.partials.investment-features', [
         'investments' => $investments,
         'status'      => $current_locale == 'pl' ? 'Już wkrótce' : 'Coming soon',

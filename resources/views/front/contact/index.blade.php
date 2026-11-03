@@ -135,7 +135,9 @@
             'sub'   => ['pl' => 'Siedziba spółki', 'en' => 'Registered office'],
             'lines' => ['Ippon Group Sp. z o.o.', 'ul. Aleja Armii Ludowej 26, 8 piętro', '00-609 Warszawa'],
             /* ten kafelek nie ma przycisku "jak dojechac", wiec dol wypelnia logo */
-            'logo'  => 'images/logo.png',
+            /* 2.11.2026: logo poziome (uwaga klienta "zajmie wiecej miejsca") -
+               wersja z ciemnym napisem zrobiona z bialego logo stopki */
+            'logo'  => 'images/homepage/logo-ippon-dark.png',
             'hours' => null,
             'phone' => null,
             'mail'  => null,
@@ -227,7 +229,7 @@
                             </ul>
 
                             @if(!empty($biuro['logo']))
-                                <img class="ip-office-logo" src="{{ asset($biuro['logo']) }}" alt="Ippon Group" width="224" height="233">
+                                <img class="ip-office-logo" src="{{ asset($biuro['logo']) }}" alt="Ippon Group" width="536" height="194">
                             @endif
 
                             @if($biuro['map'])
@@ -247,8 +249,8 @@
     @include('layouts.partials.ip-contact-section', [
         'title'     => $L == 'pl' ? 'Masz pytania? Napisz do nas!' : 'Any questions? Write to us!',
         'lead'      => $L == 'pl'
-                        ? 'Odpowiadamy na wiadomości w dni robocze. Jeśli sprawa jest pilna – <strong>zadzwoń do biura sprzedaży.</strong>'
-                        : 'We reply on business days. If the matter is urgent – <strong>call the sales office.</strong>',
+                        ? 'Wyjątkowe inwestycje wymagają dedykowanej opieki. Jeśli chcesz poznać szczegóły naszych projektów, umówić się na prezentację apartamentu lub zapytać o niestandardowe rozwiązania - <strong>jesteśmy do Twojej dyspozycji.</strong>'
+                        : 'Exceptional developments call for dedicated care. If you would like to learn the details of our projects, arrange a viewing or ask about bespoke solutions - <strong>we are at your disposal.</strong>',
         'form'      => 'front.contact.ip-form',
         'page_name' => 'Kontakt',
         'aside'     => 'front.contact.ip-sales',

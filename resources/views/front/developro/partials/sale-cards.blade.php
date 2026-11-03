@@ -49,7 +49,7 @@
                             @endif
 
                             @if($card['desc'])
-                                <p class="ip-card-desc">{{ $card['desc'] }}</p>
+                                <p class="ip-card-desc">{!! noOrphans($card['desc']) !!}</p>
                             @endif
 
                             {{-- Parametry pokazujemy tylko te, ktore klient wypelnil w CMS-ie —

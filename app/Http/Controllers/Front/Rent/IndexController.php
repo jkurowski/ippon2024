@@ -24,7 +24,12 @@ class IndexController extends Controller
     {
         $page = Page::find(8);
         $rents = $this->repository->allSortByWhere('active', 1, 'sort','ASC');
-        return view('front.rent.index', compact('page', 'rents'));
+
+        /* lista pokazuje od razu szczegoly + formularz (uwaga klienta 2.11.2026) */
+        $obligation = RodoSettings::find(1);
+        $rules = RodoRules::orderBy('sort')->whereStatus(1)->get();
+
+        return view('front.rent.index', compact('page', 'rents', 'obligation', 'rules'));
     }
 
     public function show($lang, $slug, $id){

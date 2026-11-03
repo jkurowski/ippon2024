@@ -128,7 +128,8 @@
 
                 <div class="ip-footer-member">
                     <span>{{ $ipF['member'][$ipLang] }}</span>
-                    <img src="{{ asset('images/homepage/pzfd.png') }}" width="175" height="62" alt="{{ $ipF['pzfd'][$ipLang] }}">
+                    {{-- biala wersja z ksiegi znaku PZFD (uwaga klienta 2.11.2026), byla zlota pzfd.png --}}
+                    <img src="{{ asset('images/homepage/pzfd-white.png') }}" width="175" height="62" alt="{{ $ipF['pzfd'][$ipLang] }}">
                 </div>
             </div>
 
