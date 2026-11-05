@@ -240,11 +240,13 @@
 @php
     $L = in_array($current_locale, ['pl', 'en']) ? $current_locale : 'pl';
 
-    /* UWAGA: placeholder — makieta ma w tych miejscach ikonki, wiec zdjec do
-       kart "Zyskaj pewnosc..." jeszcze nie ma. Do podmiany na fotografie gruntow. */
+    /* Zdjecia kart "Zyskaj pewnosc...". Uwaga klienta 5.11.2026: nowa grafika
+       (zakup-gruntow.png, 1536x1024, kadr 3:4 wokol laptopa) w "Bezplatna wycena",
+       dotychczasowy uscisk dloni przeniesiony do "Wsparcie w formalnosciach". */
     $korzysci = [
         [
-            'img'   => 'images/grunty-1.jpg',
+            'img'   => 'images/land/wycena-audyt.jpg',
+            'ai'    => true, // grafika wygenerowana przez AI (potwierdzone 5.11.2026)
             'title' => ['pl' => 'Bezpłatna wycena i audyt prawny', 'en' => 'Free valuation and legal audit'],
             'desc'  => [
                 'pl' => 'Nasi analitycy bezpłatnie ocenią potencjał inwestycyjny Twojej działki i pomogą ustalić jej dokładny status formalno-prawny',
@@ -252,7 +254,7 @@
             ],
         ],
         [
-            'img'   => 'images/grunty-2.jpg',
+            'img'   => 'images/grunty-1.jpg',
             'title' => ['pl' => 'Wsparcie w formalnościach', 'en' => 'Support with formalities'],
             'desc'  => [
                 'pl' => 'Interesują nas również grunty o nieunormowanej sytuacji. Przeprowadzimy Cię przez skomplikowane procedury urzędowe',
@@ -364,6 +366,9 @@
                     <div class="col-12 col-md-6 col-xl-4" data-nh-reveal style="--nh-i: {{ $loop->index }}">
                         <article class="ip-trust-card" tabindex="0">
                             <img src="{{ asset($item['img']) }}" alt="{{ $item['title'][$L] }}">
+                            @if(!empty($item['ai']))
+                                <x-ai-badge light />
+                            @endif
                             <div class="ip-trust-card-body">
                                 <h3>{{ $item['title'][$L] }}</h3>
                                 <div class="ip-trust-card-desc">
