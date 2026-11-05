@@ -28,6 +28,7 @@ class BuildingFormRequest extends FormRequest
             'name' => 'required|string|max:255',
             'number' => 'required|string|max:255',
             'display_sold' => 'required',
+            'status' => 'nullable|integer|in:1,2,3,4',
             'active' => 'required',
             'investment_id' => [
                 'required',

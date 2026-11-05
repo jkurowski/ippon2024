@@ -2781,6 +2781,47 @@ a.ip-btn-submit {
     }
 }
 
+/* Podzial osiedla na budynki (Slow) - status budynku z CMS-u */
+.ip-inv-buildings {
+    margin: 10px 0 0;
+
+    li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 15px;
+        line-height: 22px;
+        color: #3a3a3a;
+
+        + li {
+            margin-top: 6px;
+        }
+    }
+}
+
+.ip-inv-bstatus {
+    flex: 0 0 auto;
+    min-width: 108px;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 14px;
+    letter-spacing: .04em;
+    text-align: center;
+    text-transform: uppercase;
+    color: @white;
+    background: #1f1f1f;
+
+    &.is-sale {
+        background: @gold;
+    }
+
+    &.is-done {
+        background: #9a9a9a;
+    }
+}
+
 .ip-inv-desc {
     margin: 10px 0 0;
     font-size: 15px;
@@ -6366,6 +6407,80 @@ a.ip-btn-submit {
 ================================================== */
 .ip-rent-row {
     --bs-gutter-x: 60px;
+}
+
+/* Galeria lokalu na wynajem: 3 zdjecia obok siebie, przewijane (5.11.2026) */
+.ip-rent-gallery {
+    position: relative;
+    margin-top: 56px;
+}
+
+.ip-rent-gallery-track {
+    display: flex;
+    column-gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar { display: none; }
+}
+
+.ip-rent-gallery-item {
+    flex: 0 0 calc((100% - 40px) / 3);
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    scroll-snap-align: start;
+    background: @line;
+
+    img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 1.2s @nh-out;
+    }
+
+    &:hover img { transform: scale(1.03); }
+}
+
+.ip-rent-gallery-nav {
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    margin-top: -26px;
+    border: 0;
+    border-radius: 50%;
+    background: @white;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, .18);
+    cursor: pointer;
+    transition: background .25s ease;
+
+    svg {
+        width: 18px;
+        height: 16px;
+        fill: none;
+        stroke: @ink;
+        stroke-width: 1.6;
+    }
+
+    &:hover { background: @gold; svg { stroke: @white; } }
+
+    &.is-prev { left: -26px; }
+    &.is-next { right: -26px; }
+}
+
+@media (max-width: 991.98px) {
+    .ip-rent-gallery-item { flex-basis: calc((100% - 20px) / 2); }
+    .ip-rent-gallery-nav.is-prev { left: 6px; }
+    .ip-rent-gallery-nav.is-next { right: 6px; }
+}
+
+@media (max-width: 575.98px) {
+    .ip-rent-gallery-item { flex-basis: 85%; }
 }
 
 .ip-rent-photo {
@@ -10012,18 +10127,27 @@ section.ip-gallery {
     }
 }
 
+/* 5.11.2026 "loga firm sa za male": pole 130 -> 240 px wysokosci, logo
+   rozciagane do 320 px szerokosci (pliki w CMS-ie maja 265x199, 4:3).
+   Na przyszlosc klient dostal wymiar 640x480 px (4:3), logo na ok. 80% pola. */
 .ip-promo-card-logo {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 130px;
-    margin-bottom: 26px;
+    height: 240px;
+    margin: -6px -8px 22px;
 
     img {
-        max-width: 100%;
-        max-height: 100%;
+        width: 100%;
+        max-width: 320px;
+        height: 100%;
         object-fit: contain;
     }
+}
+
+.ip-promo-card,
+.ip-promo-card summary {
+    min-height: 520px;
 }
 
 .ip-promo-card-code {
@@ -10206,23 +10330,40 @@ section.ip-gallery {
    2) "Nie da sie powiekszyc zdjec? Jest duza przestrzen": certyfikat
       i sport przeszly z kontenera na wiersze .ip-invrow do krawedzi ekranu.
    ========================================================================== */
+/* 5.11.2026: "animacje nie zlagodnialy" - zdjecia wchodza teraz jak karty
+   na stronie glownej ([data-nh-reveal]): samo wyplyniecie z dolu, bez maski
+   i bez zejscia ze skali; zoom po najechaniu zostaje ledwie widoczny i wolny. */
 .nh-motion .ip-page .ip-about-rows [data-nh-img],
 .nh-motion .ip-page .ip-about-section [data-nh-img] {
-    clip-path: inset(3% 0 3% 0);
+    clip-path: none;
+    opacity: 0;
+    transform: translate3d(0, 28px, 0);
+    transition: opacity 1.1s @nh-ease, transform 1.3s @nh-out;
 
-    img { scale: 1.04; }
+    img {
+        scale: 1;
+        transition: transform 2.4s @nh-out;
+    }
 
     &.is-in {
-        clip-path: inset(0 0 0 0);
-
-        img { scale: 1; }
+        clip-path: none;
+        opacity: 1;
+        transform: none;
     }
 }
 
 @media (hover: hover) and (pointer: fine) {
     .ip-about-section .ip-about-photo:hover img,
     .ip-about-rows .ip-invrow-media:hover img {
-        transform: scale(1.02);
+        transform: scale(1.015);
+    }
+}
+
+/* wartosci i sport: kolumna zdjecia (7/12) rozciaga sie do wysokosci tekstu */
+@media (min-width: 992px) {
+    .ip-about-values .ip-invrow-media,
+    .ip-about-sport .ip-invrow-media {
+        min-height: 100%;
     }
 }
 
@@ -10279,13 +10420,14 @@ section.ip-gallery {
     clip-path: none;
 }
 
+/* 5.11.2026: "znaczniki i naglowki na grafice - powiekszyc" (44 -> 64 px, napis 14 -> 20 px) */
 .ip-land-pin {
     position: absolute;
     z-index: 3;
     display: flex;
     align-items: center;
-    gap: 12px;
-    transform: translate(-22px, -50%);
+    gap: 16px;
+    transform: translate(-32px, -50%);
     outline: 0;
     cursor: default;
 }
@@ -10294,14 +10436,14 @@ section.ip-gallery {
     position: relative;
     display: grid;
     place-items: center;
-    width: 44px;
-    height: 44px;
+    width: 64px;
+    height: 64px;
     border-radius: 50%;
     background: @gold;
     color: @white;
     box-shadow: 0 6px 18px rgba(0, 0, 0, .28);
 
-    .ip-pin { width: 24px; height: 24px; }
+    .ip-pin { width: 34px; height: 34px; }
 
     /* delikatne pulsowanie, zeby bylo widac, ze to cos aktywnego */
     &:before {
@@ -10320,9 +10462,9 @@ section.ip-gallery {
 }
 
 .ip-land-pin-label {
-    padding: 8px 16px;
+    padding: 13px 24px;
     background: fade(@white, 92%);
-    font-size: 14px;
+    font-size: 20px;
     font-weight: 500;
     letter-spacing: .14em;
     text-transform: uppercase;
@@ -10332,16 +10474,16 @@ section.ip-gallery {
 
 .ip-land-pin-card {
     position: absolute;
-    top: calc(100% + 14px);
+    top: calc(100% + 16px);
     left: 0;
-    width: 380px;
-    padding: 24px 26px;
+    width: 440px;
+    padding: 26px 30px;
     background: @white;
     border-top: 3px solid @gold;
     box-shadow: 0 18px 40px rgba(0, 0, 0, .22);
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 300;
-    line-height: 25px;
+    line-height: 28px;
     color: @ink;
     opacity: 0;
     visibility: hidden;
@@ -10352,7 +10494,7 @@ section.ip-gallery {
         display: block;
         margin-bottom: 8px;
         font-family: @font-head;
-        font-size: 22px;
+        font-size: 26px;
         font-weight: 500;
         color: @ink;
     }

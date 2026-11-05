@@ -27,6 +27,7 @@ class Building extends Model
         'meta_robots',
         'active',
         'display_sold',
+        'status',
         'content',
         'area_range',
         'rooms_range',

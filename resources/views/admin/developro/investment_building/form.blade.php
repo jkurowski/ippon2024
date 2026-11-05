@@ -57,6 +57,15 @@
                             '0' => 'Nie'
                             ]
                         ])
+                        {{-- Status budynku na mapie inwestycji (/lokalizacja): gdy ustawiony, karta osiedla rozbija sie na budynki --}}
+                        @include('form-elements.html-select', ['label' => 'Status na mapie inwestycji', 'name' => 'status', 'selected' => $entry->status, 'select' => [
+                            '' => '- nie rozbijaj osiedla na budynki -',
+                            '1' => 'W sprzedaży',
+                            '4' => 'Wkrótce',
+                            '3' => 'Planowana',
+                            '2' => 'Zrealizowane',
+                            ]
+                        ])
                         @include('form-elements.html-input-text', ['label' => 'Nazwa budynku', 'name' => 'name', 'value' => $entry->name, 'required' => 1])
                         @include('form-elements.html-input-text-count', ['label' => 'Nagłówek strony', 'sublabel'=> 'Meta tag - title', 'name' => 'meta_title', 'value' => $entry->meta_title, 'maxlength' => 60])
                         @include('form-elements.html-input-text-count', ['label' => 'Opis strony', 'sublabel'=> 'Meta tag - description', 'name' => 'meta_description', 'value' => $entry->meta_description, 'maxlength' => 158])

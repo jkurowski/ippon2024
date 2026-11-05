@@ -1,7 +1,7 @@
 {{-- Slajd hero w calej serii rozmiarow (SliderService).
 
      Progi media pokrywaja sie z ippon.less: ponizej 768px hero jest 4/5 i leci
-     kadr pionowy, ponizej 1200px jest 16/9, wyzej proporcja 1920/781.
+     kadr pionowy, ponizej 1200px jest 16/9, wyzej hero ma wysokosc ekranu, kadr 1920x960 (2:1, od 5.11.2026).
      <picture> bierze PIERWSZY pasujacy <source>, wiec kolejnosc idzie od
      najwezszego progu.
 

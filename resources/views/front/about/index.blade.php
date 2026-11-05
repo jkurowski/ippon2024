@@ -615,12 +615,13 @@
 
     <section class="ip-invrows ip-about-rows ip-about-values">
         @foreach($wartosci as $row)
+            {{-- 5.11.2026 "zdjecia nie sa powiekszone": zdjecie 7/12 i na wysokosc tekstu (bylo 6/12, wysrodkowane) --}}
             <article class="ip-invrow is-half @if($row['reverse']) is-reverse @endif">
-                <div class="row g-0 align-items-center">
-                    <div class="col-12 col-lg-6 ip-invrow-media" data-nh-img>
+                <div class="row g-0">
+                    <div class="col-12 col-lg-7 ip-invrow-media" data-nh-img>
                         <img src="{{ asset($row['img']) }}" alt="{{ $row['title'][$L] }}">
                     </div>
-                    <div class="col-12 col-lg-6 ip-invrow-body">
+                    <div class="col-12 col-lg-5 ip-invrow-body">
                         <div class="ip-invrow-inner">
                             <h2>{{ $row['title'][$L] }}</h2>
                             <div class="ip-rule"></div>
@@ -717,10 +718,10 @@
             <div class="row g-0">
                 {{-- UWAGA: kadr z makiety z wpalonym przyciskiem play.
                      Gdy klient poda film, wystarczy dodac data-video="ID". --}}
-                <div class="col-12 col-lg-6 ip-invrow-media" data-nh-img>
+                <div class="col-12 col-lg-7 ip-invrow-media" data-nh-img>
                     <img src="{{ asset('images/about/sport.jpg') }}" alt="Marcin Tausiewicz">
                 </div>
-                <div class="col-12 col-lg-6 ip-invrow-body">
+                <div class="col-12 col-lg-5 ip-invrow-body">
                     <div class="ip-invrow-inner">
                             <div class="ip-about-text">
                                 <h3 class="ip-about-subtitle">{{ $L == 'pl' ? 'Ippon Group w sporcie' : 'Ippon Group in sport' }}</h3>

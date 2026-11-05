@@ -180,9 +180,14 @@ return [
         |
         | Klucz tablicy = nazwa podkatalogu w uploads/slider/.
         */
+        /* 5.11.2026 (klient: "jaki wymiar slajdera, zeby tekst na grafice byl
+           widoczny w calosci?"): hero na desktopie ma wysokosc ekranu, czyli
+           ok. 2:1 (1463x746, 1920x950). Kadr 1920x781 (2,46:1) przegladarka
+           ucinala z bokow o ok. 20% - stad ucinane napisy. Teraz 2:1; grafiki
+           klient przygotowuje w 1920x960. Po zmianie: php artisan slider:regenerate */
         'sizes' => [
-            '1920' => ['width' => 1920, 'height' => 781],
-            '1440' => ['width' => 1440, 'height' => 586],
+            '1920' => ['width' => 1920, 'height' => 960],
+            '1440' => ['width' => 1440, 'height' => 720],
             '1024' => ['width' => 1024, 'height' => 576],
         ],
 
@@ -198,7 +203,7 @@ return [
 
         /* Zgodnosc wstecz: 'big_*' czyta stary formularz i stare szablony. */
         'big_width' => 1920,
-        'big_height' => 781,
+        'big_height' => 960,
 
         'file_path' => 'uploads/slider/',
         'source_file_path' => 'uploads/slider/source/',

@@ -174,6 +174,7 @@
         'planned'    => ['pl' => 'Planowana',       'en' => 'Planned'],
         'done'       => ['pl' => 'Zrealizowane',    'en' => 'Completed'],
         'apartments' => ['pl' => 'mieszkań',        'en' => 'apartments'],
+        'building'   => ['pl' => ['Budynek', 'Budynki'], 'en' => ['Building', 'Buildings']],
         'see'        => ['pl' => 'Zobacz inwestycję', 'en' => 'See investment'],
         'empty'      => [
             'pl' => 'Brak inwestycji w tej lokalizacji.',
@@ -232,15 +233,15 @@
     /* Punkty na mape. Budowane tutaj, bo wieloliniowy @json(...) z nawiasami
        kwadratowymi rozjezdza parser dyrektyw Blade'a. */
     $ipPoints = $investments
-        ->filter(fn($i) => $i->marker && $i->lat && $i->lng)
+        ->filter(fn($i) => $i->map_marker)
         ->map(function ($i) use ($ipStatus) {
             $url = investmentUrl($i);
 
             return [
                 'id'       => $i->id,
-                'lat'      => (float) $i->lat,
-                'lng'      => (float) $i->lng,
-                'name'     => $i->name,
+                'lat'      => (float) $i->map_lat,
+                'lng'      => (float) $i->map_lng,
+                'name'     => $i->map_name,
                 'address'  => $i->address,
                 'variant'  => $ipStatus($i->status)['variant'],
                 'url'      => $url,
@@ -259,6 +260,12 @@
                samym katalogu i sa ciete tak samo, wiec fallback jest 1:1. */
             $ipHeader = ($city ? $ipFile('uploads/header', $city->file_header) : null)
                 ?? $ipFile('uploads/header', $page?->file_header);
+
+            /* Strona "Lokalizacja" nie ma zdjecia w CMS-ie (uwaga klienta 5.11.2026:
+               "brakuje tla dla mapy - Wszystkie") - bierzemy zdjecie pierwszego miasta. */
+            foreach ($ipHeader ? [] : $mapCities as $c) {
+                if ($ipHeader = $ipFile('uploads/header', $c->file_header)) break;
+            }
         @endphp
         @if($ipHeader)
             <img src="{{ $ipHeader }}" alt="">
@@ -318,7 +325,7 @@
                                 <span class="ip-inv-brand">IPPON GROUP</span>
 
                                 <h2 class="ip-inv-name">
-                                    @if($url)<a {!! investmentLinkAttrs($url) !!}>{{ $inv->name }}</a>@else{{ $inv->name }}@endif
+                                    @if($url)<a {!! investmentLinkAttrs($url) !!}>{{ $inv->map_name }}</a>@else{{ $inv->map_name }}@endif
                                 </h2>
 
                                 @if($inv->address)
@@ -328,12 +335,25 @@
                                     </div>
                                 @endif
 
+                                {{-- podzial osiedla na budynki (status budynku z CMS-u) --}}
+                                @if($inv->map_buildings->isNotEmpty())
+                                    <ul class="ip-inv-buildings list-unstyled">
+                                        @foreach($inv->map_buildings as $bStatus => $bList)
+                                            @php $bSt = $ipStatus($bStatus); @endphp
+                                            <li>
+                                                <span class="ip-inv-bstatus is-{{ $bSt['variant'] }}">{{ $bSt['label'] }}</span>
+                                                {{ $ipT['building'][$ipL][$bList->count() > 1 ? 1 : 0] }} {{ $bList->pluck('number')->implode(', ') }}
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                @endif
+
                                 <div class="ip-inv-foot">
                                     <ul class="ip-inv-params list-unstyled">
-                                        @if($inv->areas_amount)
+                                        @if($inv->map_areas)
                                             <li>
                                                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18v-5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v5"/><path d="M5 11V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v4"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-                                                {{ $inv->areas_amount }} {{ $ipT['apartments'][$ipL] }}
+                                                {{ $inv->map_areas }} {{ $ipT['apartments'][$ipL] }}
                                             </li>
                                         @endif
                                         @if($area)
