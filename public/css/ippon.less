@@ -6245,6 +6245,32 @@ a.ip-btn-submit {
     }
 }
 
+/* Wpis z grafika w pionie 3:4 (paczka klienta 5.11.2026): cala grafika zamiast kadru 16:9.
+   Na telefonie nad tekstem, zwezona, zeby nie zajmowala dwoch ekranow; od 992 px
+   grafika w lewej kolumnie (5/12), tekst w prawej (7/12). */
+.ip-post.is-portrait {
+    .ip-post-media {
+        max-width: 560px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    @media (min-width: 992px) {
+        display: grid;
+        grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+        column-gap: 56px;
+        align-items: start;
+
+        /* przy dlugiej tresci grafika jedzie razem z tekstem (naglowek ma 76 px) */
+        .ip-post-media {
+            max-width: none;
+            margin: 0;
+            position: sticky;
+            top: 100px;
+        }
+    }
+}
+
 .ip-post-lead {
     margin: 0 0 30px;
     font-size: 22px;
