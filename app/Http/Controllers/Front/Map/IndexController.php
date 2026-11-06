@@ -17,6 +17,9 @@ class IndexController extends Controller
     /** Zakladka "Wszystkie" — pseudo-slug, nie jest miastem w CMS. */
     public const ALL_SLUG = 'wszystkie';
 
+    /** Inwestycje niemieszkaniowe - na mapie zawsze na koncu listy. */
+    public const NON_RESIDENTIAL_SLUGS = ['boxy-samoobslugowe'];
+
     public function index($language, $slug)
     {
         $page = Page::where('id', 18)->first();
@@ -34,6 +37,8 @@ class IndexController extends Controller
         $investments = Investment::query()
             ->when($city, fn($q) => $q->where('city', '=', $city->id))
             ->where('status', '!=', 5)          // 5 = inwestycja ukryta
+            // 6.11.2026: "BOX dac na sam koniec, inwestycje mieszkaniowe jako pierwsze"
+            ->orderByRaw("slug IN ('".implode("','", self::NON_RESIDENTIAL_SLUGS)."')")
             ->orderByRaw('FIELD(status, 1, 4, 3, 2)')
             ->when(
                 $city,

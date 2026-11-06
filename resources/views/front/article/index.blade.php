@@ -58,7 +58,7 @@
      NOWY WIDOK — Blog (lista)
      Wpisy na pelnej szerokosci: zdjecie dochodzi do krawedzi ekranu, obok
      data, tytul i zajawka (uklad .ip-invrow z podstron mieszkaniowych).
-     Zdjecia leca z miniatur (/uploads/articles/thumbs), tak jak dotad.
+     Zdjecia z pelnego pliku (/uploads/articles, 1060 px) - od 6.11.2026, wczesniej miniatury.
      ========================================================================== --}}
 @php
     $L = in_array($current_locale, ['pl', 'en']) ? $current_locale : 'pl';
@@ -92,11 +92,14 @@
 
                         <div class="col-12 col-lg-6 ip-invrow-media">
                             @if($url)<a href="{{ $url }}">@endif
+                                {{-- 6.11.2026 "ciagle zdjecia sa niewyrazne": kafel ma pol ekranu
+                                     (ok. 900-1300 px), a miniatury maja 700x394 - bierzemy pelny
+                                     plik 1060x596. Ostrzej juz tylko z wiekszych zdjec od klienta. --}}
                                 <picture>
-                                    <source type="image/webp" srcset="{{ asset('/uploads/articles/thumbs/webp/'.$article->file_webp) }}">
-                                    <source type="image/jpeg" srcset="{{ asset('/uploads/articles/thumbs/'.$article->file) }}">
-                                    <img src="{{ asset('/uploads/articles/thumbs/'.$article->file) }}"
-                                         alt="{{ $article->file_alt ?: $article->title }}" width="700" height="394">
+                                    <source type="image/webp" srcset="{{ asset('/uploads/articles/webp/'.$article->file_webp) }}">
+                                    <source type="image/jpeg" srcset="{{ asset('/uploads/articles/'.$article->file) }}">
+                                    <img src="{{ asset('/uploads/articles/'.$article->file) }}"
+                                         alt="{{ $article->file_alt ?: $article->title }}" width="1060" height="596" loading="lazy" decoding="async">
                                 </picture>
                             @if($url)</a>@endif
                         </div>

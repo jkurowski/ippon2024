@@ -55,6 +55,11 @@
     $postCard     = $article->file ? \App\Services\NewsService::cardPath($article) : null;
     $postPortrait = $postSize && $postSize[1] > $postSize[0] && is_file(public_path($postCard));
     $postCardWebp = $postPortrait ? \App\Services\NewsService::cardPath($article, true) : null;
+
+    /* 6.11.2026 ("wszystko skoncentrowane w centrum, po bokach mnostwo miejsca -
+       moze jak w Wynajmie, zdjecia w karuzeli"): galeria z tresci idzie pod wpis,
+       po 3 zdjecia obok siebie, na cala szerokosc kontenera. */
+    [$postText, $postPhotos] = extract_gallery($article->content);
 @endphp
 
 @section('pageheader')
@@ -74,7 +79,7 @@
 
     <article class="ip-section ip-post-section">
         <div class="container">
-            <div class="ip-post @if($postPortrait) is-portrait @endif">
+            <div class="ip-post @if($article->file) has-media @endif @if($postPortrait) is-portrait @endif">
 
                 @if($postPortrait)
                     <div class="ip-post-media">
@@ -102,7 +107,7 @@
                 @endif
 
                 <div class="ip-cms ip-post-text">
-                    {!! parse_text($article->content) !!}
+                    {!! parse_text($postText) !!}
                 </div>
 
                 <a href="{{ route('front.articles.index', ['locale' => $L]) }}" class="ip-btn-outline ip-post-back">
@@ -112,6 +117,8 @@
                 </div>
 
             </div>
+
+            @include('layouts.partials.ip-photo-carousel', ['photos' => $postPhotos, 'rel' => 'news-'.$article->id, 'L' => $L])
         </div>
     </article>
 

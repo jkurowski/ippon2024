@@ -172,8 +172,8 @@
             ['label' => $L == 'pl' ? 'Kontakt' : 'Contact', 'url' => null],
         ],
         'lead'   => $L == 'pl'
-                        ? 'Jesteśmy do Twojej dyspozycji — zadzwoń, napisz albo wpadnij do biura sprzedaży.'
-                        : 'We are at your disposal — call us, write to us or drop by the sales office.',
+                        ? 'Jesteśmy do Twojej dyspozycji – zadzwoń, napisz lub odwiedź biuro sprzedaży.'
+                        : 'We are at your disposal – call us, write to us or visit the sales office.',
         'image'  => ($page->file_header && is_file(public_path('uploads/header/'.$page->file_header)))
                         ? asset('uploads/header/'.$page->file_header) : null,
     ])

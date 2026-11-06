@@ -32,3 +32,24 @@ if (! function_exists('makeGallery')) {
         }
     }
 }
+
+if (! function_exists('extract_gallery')) {
+    /**
+     * Wycina z tresci CMS-u pierwsza galerie ([galeria=slider]N[/galeria], tez
+     * carousel/gallery) i zwraca [tresc bez galerii, zdjecia galerii].
+     * Widok pokazuje wtedy zdjecia osobno, karuzela po 3 na cala szerokosc
+     * (layouts.partials.ip-photo-carousel) - uwagi klienta z 5 i 6.11.2026.
+     */
+    function extract_gallery(?string $text): array
+    {
+        $text = (string) $text;
+
+        if (! preg_match('/\[galeria=(?:slider|carousel|gallery)\](\d+)\[\/galeria\]/', $text, $m)) {
+            return [$text, collect()];
+        }
+
+        $photos = \App\Models\Image::where('gallery_id', (int) $m[1])->orderBy('sort')->get();
+
+        return [str_replace($m[0], '', $text), $photos];
+    }
+}

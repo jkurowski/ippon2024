@@ -330,9 +330,10 @@
         'crumbs' => [
             ['label' => $L == 'pl' ? 'Zakup gruntu' : 'Land purchase', 'url' => null],
         ],
-        /* 5.11.2026: "inne ujecie na tlo, lepiej elewacje, a nie skarpe" - zdjecie z CMS-u
-           (132045_header-zakup-gruntu.jpg) to dol wizki Tempo; bierzemy kadr elewacji
-           z tej samej wizki. Zeby wrocic do CMS-u, wystarczy usunac plik. */
+        /* 6.11.2026: "na tlo lepiej dac to, co w Planowanych" - jasne tlo z kwiatami
+           (Gemini od klienta z 2.11, to samo co blog.jpg); ciemny tekst dobiera
+           isLightImage(). 5.11 byl tu kadr elewacji Tempo. Zeby wrocic do CMS-u,
+           wystarczy usunac plik. */
         'image'  => is_file(public_path('images/pagehead/zakup-gruntu.jpg'))
                         ? asset('images/pagehead/zakup-gruntu.jpg').'?v='.filemtime(public_path('images/pagehead/zakup-gruntu.jpg'))
                         : (($page->file_header && is_file(public_path('uploads/header/'.$page->file_header)))

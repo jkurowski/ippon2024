@@ -13,12 +13,7 @@
        w karuzeli". Galeria wpieta w opis z CMS-u ([galeria=slider]N[/galeria])
        szla jednym duzym, pionowym zdjeciem w waskiej kolumnie tekstu. Wycinamy
        ja z opisu i pokazujemy pod spodem na cala szerokosc kontenera. */
-    $rentText = (string) $rent->text;
-    $rentPhotos = collect();
-    if (preg_match('/\[galeria=(?:slider|carousel|gallery)\](\d+)\[\/galeria\]/', $rentText, $gm)) {
-        $rentPhotos = \App\Models\Image::where('gallery_id', (int) $gm[1])->orderBy('sort')->get();
-        $rentText = str_replace($gm[0], '', $rentText);
-    }
+    [$rentText, $rentPhotos] = extract_gallery($rent->text);
 @endphp
     <section class="ip-section ip-rent-detail {{ $class }}">
         <div class="container">
@@ -64,53 +59,6 @@
 
             </div>
 
-            @if($rentPhotos->isNotEmpty())
-                <div class="ip-rent-gallery" data-rent-gallery>
-                    <div class="ip-rent-gallery-track">
-                        @foreach($rentPhotos as $photo)
-                            <a href="{{ asset('uploads/gallery/images/'.$photo->file) }}" class="swipebox ip-rent-gallery-item" rel="rent-{{ $rent->id }}">
-                                <picture>
-                                    @if($photo->file_webp)
-                                        <source type="image/webp" srcset="{{ asset('uploads/gallery/images/webp/'.$photo->file_webp) }}">
-                                    @endif
-                                    <img src="{{ asset('uploads/gallery/images/'.$photo->file) }}" alt="{{ $photo->name }}" loading="lazy" decoding="async">
-                                </picture>
-                            </a>
-                        @endforeach
-                    </div>
-                    @if($rentPhotos->count() > 3)
-                        <button type="button" class="ip-rent-gallery-nav is-prev" aria-label="{{ $L == 'pl' ? 'Poprzednie zdjęcia' : 'Previous photos' }}">
-                            <svg viewBox="0 0 18 16" aria-hidden="true"><polyline points="8,1 1,8 8,15"/><line x1="1" y1="8" x2="17" y2="8"/></svg>
-                        </button>
-                        <button type="button" class="ip-rent-gallery-nav is-next" aria-label="{{ $L == 'pl' ? 'Następne zdjęcia' : 'Next photos' }}">
-                            <svg viewBox="0 0 18 16" aria-hidden="true"><polyline points="10,1 17,8 10,15"/><line x1="1" y1="8" x2="17" y2="8"/></svg>
-                        </button>
-                    @endif
-                </div>
-            @endif
+            @include('layouts.partials.ip-photo-carousel', ['photos' => $rentPhotos, 'rel' => 'rent-'.$rent->id])
         </div>
     </section>
-
-    @if($rentPhotos->count() > 3)
-        @once
-            @push('scripts')
-                <script>
-                    /* karuzela galerii lokalu: przewijanie o jedno zdjecie (scroll-snap w CSS) */
-                    document.querySelectorAll('[data-rent-gallery]').forEach(function (g) {
-                        var track = g.querySelector('.ip-rent-gallery-track');
-                        g.querySelectorAll('.ip-rent-gallery-nav').forEach(function (btn) {
-                            btn.addEventListener('click', function () {
-                                var item = track.querySelector('.ip-rent-gallery-item');
-                                var step = item ? item.getBoundingClientRect().width + parseFloat(getComputedStyle(track).columnGap || 0) : track.clientWidth;
-                                var dir = btn.classList.contains('is-prev') ? -1 : 1;
-                                var max = track.scrollWidth - track.clientWidth - 2;
-                                if (dir > 0 && track.scrollLeft >= max) { track.scrollTo({ left: 0, behavior: 'smooth' }); return; }
-                                if (dir < 0 && track.scrollLeft <= 2) { track.scrollTo({ left: max + 2, behavior: 'smooth' }); return; }
-                                track.scrollBy({ left: dir * step, behavior: 'smooth' });
-                            });
-                        });
-                    });
-                </script>
-            @endpush
-        @endonce
-    @endif

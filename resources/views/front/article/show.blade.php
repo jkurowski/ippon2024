@@ -45,6 +45,9 @@
 @php
     $L = in_array($current_locale, ['pl', 'en']) ? $current_locale : 'pl';
     $other = $other ?? collect();
+
+    /* galeria z tresci jako karuzela po 3 pod wpisem (jak aktualnosci, 6.11.2026) */
+    [$postText, $postPhotos] = extract_gallery($article->content);
 @endphp
 
 @section('pageheader')
@@ -66,7 +69,7 @@
 
     <article class="ip-section ip-post-section">
         <div class="container">
-            <div class="ip-post">
+            <div class="ip-post @if($article->file) has-media @endif">
 
                 @if($article->file)
                     <div class="ip-post-media">
@@ -78,19 +81,25 @@
                     </div>
                 @endif
 
+                <div class="ip-post-body">
+
                 @if($article->content_entry)
                     <p class="ip-post-lead">{{ $article->content_entry }}</p>
                 @endif
 
                 <div class="ip-cms ip-post-text">
-                    {!! parse_text($article->content) !!}
+                    {!! parse_text($postText) !!}
                 </div>
 
                 <a href="{{ route('front.news.index', ['locale' => $L]) }}" class="ip-btn-outline ip-post-back">
                     @lang('website.button-back-to-list')
                 </a>
 
+                </div>
+
             </div>
+
+            @include('layouts.partials.ip-photo-carousel', ['photos' => $postPhotos, 'rel' => 'blog-'.$article->id, 'L' => $L])
         </div>
     </article>
 

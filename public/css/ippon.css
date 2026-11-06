@@ -5505,9 +5505,25 @@ a.ip-btn-submit {
 }
 /* Wpis
 ================================================== */
+/* 6.11.2026 "wszystko skoncentrowane w centrum, po bokach mnostwo miejsca":
+   wpis na cala szerokosc kontenera (bylo max 1100 px), zdjecie obok tekstu
+   jak w Wynajmie - poziome 6/6, pionowe 3:4 5/7. Galeria z tresci pod spodem
+   (layouts.partials.ip-photo-carousel). */
 .ip-post {
-  max-width: 1100px;
   margin: 0 auto;
+}
+@media (min-width: 992px) {
+  .ip-post.has-media {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: 56px;
+    align-items: start;
+  }
+  .ip-post.has-media .ip-post-media {
+    margin: 0;
+    position: sticky;
+    top: 100px;
+  }
 }
 .ip-post-media {
   margin-bottom: 44px;
@@ -8097,6 +8113,16 @@ a.ip-btn-submit {
 }
 .ip-nh .ip-nh-film .ip-video:hover img {
   filter: brightness(1.15);
+}
+/* 6.11.2026: "Teraz sie zlewa film z grafika" - odstep przed pelnoekranowa
+   galeria inwestycji planowanych. */
+.ip-nh .ip-nh-film {
+  margin-bottom: 97px;
+}
+@media (max-width: 991.98px) {
+  .ip-nh .ip-nh-film {
+    margin-bottom: 60px;
+  }
 }
 /* Film zostaje w proporcji plakatu (1920:861) — przy stalej wysokosci
    na szerokich ekranach obcinalo logo "GROUP" pod przyciskiem play. */

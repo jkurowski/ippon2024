@@ -188,7 +188,9 @@ return [
         'sizes' => [
             '1920' => ['width' => 1920, 'height' => 960],
             '1440' => ['width' => 1440, 'height' => 720],
-            '1024' => ['width' => 1024, 'height' => 576],
+            /* 6.11.2026: tez 2:1 - na tablecie hero ma 78vh (np. 1195x589), a kadr
+               16:9 ucinal napisy z gory i z dolu grafiki ("IV ETAP"). */
+            '1024' => ['width' => 1024, 'height' => 512],
         ],
 
         /* Kadr pionowy pod telefony — z osobnego uploadu. */
