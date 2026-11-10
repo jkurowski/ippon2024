@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\History;
 
 use App\Helpers\PropertyAreaTypes;
+use App\Helpers\ProvinceTypes;
 use App\Http\Controllers\Controller;
 use App\Models\Investment;
 use App\Models\Property;
@@ -309,7 +310,7 @@ class IndexController extends Controller
             $this->value($company?->website),
 
             // B
-            $this->value($company?->province),
+            $this->province($company?->province),
             $this->value($company?->district),
             $this->value($company?->municipality),
             $this->value($company?->city),
@@ -319,7 +320,7 @@ class IndexController extends Controller
             $this->value($company?->postal_code),
 
             // C
-            $this->value($salePoint?->province),
+            $this->province($salePoint?->province),
             $this->value($salePoint?->district),
             $this->value($salePoint?->municipality),
             $this->value($salePoint?->city),
@@ -331,7 +332,7 @@ class IndexController extends Controller
             $this->value($salePoint?->contact_method),
 
             // D
-            $this->value($investment->inv_province),
+            $this->province($investment->inv_province),
             $this->value($investment->inv_county),
             $this->value($investment->inv_municipality),
             $this->value($investment->inv_city),
@@ -449,6 +450,18 @@ class IndexController extends Controller
     private function money($amount): string
     {
         return number_format((float) $amount, 2, '.', '');
+    }
+
+    /**
+     * Województwo: panel zapisuje klucz z listy bez polskich znaków ("warminsko-mazurskie"),
+     * raport ma mieć nazwę ("warmińsko-mazurskie"). Wartość spoza listy - bez zmian.
+     */
+    private function province($value): string
+    {
+        $value = $this->value($value);
+        $name = ProvinceTypes::getProvinces()[mb_strtolower($value)] ?? null;
+
+        return $name ? mb_strtolower($name) : $value;
     }
 
     private function value($value): string
