@@ -11,6 +11,7 @@ use App\Services\BuildingService;
 
 use App\Models\Investment;
 use App\Models\Building;
+use App\Helpers\InvestmentHelpers;
 
 class BuildingController extends Controller
 {
@@ -47,6 +48,8 @@ class BuildingController extends Controller
             'cardTitle' => 'Dodaj budynek',
             'backButton' => route('admin.developro.investment.buildings.index', $investment),
             'investment' => $investment,
+            'companies' => InvestmentHelpers::getCompanies(),
+            'salePoints' => InvestmentHelpers::getSalePoints(),
         ])->with('entry', Building::make());
     }
 
@@ -72,7 +75,9 @@ class BuildingController extends Controller
             'cardTitle' => 'Edytuj budynek',
             'backButton' => route('admin.developro.investment.buildings.index', $investment),
             'investment' => $investment->load('plan'),
-            'entry' => $building
+            'entry' => $building,
+            'companies' => InvestmentHelpers::getCompanies(),
+            'salePoints' => InvestmentHelpers::getSalePoints(),
         ]);
     }
 

@@ -15,6 +15,8 @@ class Building extends Model
      */
     protected $fillable = [
         'investment_id',
+        'company_id',
+        'sale_point_id',
         'name',
         'number',
         'html',
@@ -32,6 +34,22 @@ class Building extends Model
         'rooms_range',
         'price_range'
     ];
+
+    /**
+     * Spolka celowa budynku (raport cen). Pusta = spolka z inwestycji.
+     */
+    public function company(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(InvestmentCompany::class);
+    }
+
+    /**
+     * Punkt sprzedazy budynku (raport cen). Pusty = punkt z inwestycji.
+     */
+    public function salePoint(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(InvestmentSalePoint::class);
+    }
 
     /**
      * Get building floors

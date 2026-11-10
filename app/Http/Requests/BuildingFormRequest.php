@@ -29,6 +29,8 @@ class BuildingFormRequest extends FormRequest
             'number' => 'required|string|max:255',
             'display_sold' => 'required',
             'active' => 'required',
+            'company_id' => ['nullable', 'integer', Rule::exists('investment_companies', 'id')],
+            'sale_point_id' => ['nullable', 'integer', Rule::exists('investment_sale_points', 'id')],
             'investment_id' => [
                 'required',
                 'integer',

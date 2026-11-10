@@ -105,6 +105,7 @@ class IndexController extends Controller
             ->get();
         foreach ($investments as $investment) {
 
+            $properties = $this->reportProperties($investment);
             $filename = "ceny-ofertowe-" . $investment->slug . "-" . $today . ".csv";
             $csvPath = public_path("datasets/{$filename}");
 
@@ -112,14 +113,19 @@ class IndexController extends Controller
             $csv = fopen($csvPath, 'w');
             fputcsv($csv, self::REPORT_HEADERS);
 
-            foreach ($this->reportProperties($investment) as $property) {
+            foreach ($properties as $property) {
                 fputcsv($csv, $this->reportRow($investment, $property));
             }
 
             fclose($csv);
 
+            // tytul zasobu: wszystkie spolki z pliku (budynki moga miec inne niz inwestycja)
+            $companyNames = $properties
+                ->map(fn ($p) => ($p->building?->company ?? $investment->company)?->name)
+                ->filter()->unique()->implode(', ');
+
             $data = [
-                'company_name' => $investment->company->name ?? 'Brak nazwy firmy',
+                'company_name' => $companyNames ?: ($investment->company->name ?? 'Brak nazwy firmy'),
                 'file_csv' => $filename
             ];
 
@@ -260,7 +266,10 @@ class IndexController extends Controller
         // lokale usługowe nie są lokalami mieszkalnymi ani ich częściami - nie podlegają raportowi
         return $investment->activeProperties()
             ->where('type', '!=', PropertyAreaTypes::SHOP)
-            ->with(['priceHistory', 'relatedProperties.priceHistory', 'priceComponents'])
+            ->with([
+                'priceHistory', 'relatedProperties.priceHistory', 'priceComponents',
+                'building.company', 'building.salePoint',
+            ])
             ->get();
     }
 
@@ -270,8 +279,12 @@ class IndexController extends Controller
      */
     private function reportRow(Investment $investment, Property $property): array
     {
-        $company = $investment->company;
-        $salePoint = $investment->salePoint;
+        // Etapy jednej inwestycji moga nalezec do roznych spolek celowych (Osiedle Slow: B3.x i B4.x).
+        // Spolka, punkt sprzedazy i prospekt ustawione w budynku maja pierwszenstwo przed inwestycja.
+        $building = $property->building;
+        $company = $building?->company ?? $investment->company;
+        $salePoint = $building?->salePoint ?? $investment->salePoint;
+        $brochure = $building?->file_brochure ?: $investment->file_brochure;
 
         $isApartment = $property->type == PropertyAreaTypes::ROOM_APARTMENT;
         $price = $this->offerPrice($property);
@@ -377,8 +390,8 @@ class IndexController extends Controller
                 : 'X',
 
             // J
-            $investment->file_brochure
-                ? $baseUrl . 'investment/brochure/' . $investment->file_brochure
+            $brochure
+                ? $baseUrl . 'investment/brochure/' . $brochure
                 : 'X',
         ];
 
