@@ -67,31 +67,6 @@
                 <div class="col-12 col-xl-6 d-flex align-items-center">
                     @if($current_locale == 'pl')
                     <div class="left-right-text" data-aos="fade-up" data-aos-offset="500" data-aos-delay="0">
-                        <h2 class="slow-header justify-content-start"><span class="rostemary">Dodatkowe metry</span> <span class="abuget brown">gratis</span></h2>
-                        <p>Każde mieszkanie osiedla Slow zostało indywidualnie zaprojektowane przez architektów wnętrz, dzięki temu uzyskaliśmy ich wyjątkową funkcjonalność i ergonomię. Odkryj komfortowe mieszkania z poddaszem na drugim piętrze. Zyskaj dodatkową przestrzeń i <b>powiększ swoje mieszkanie nawet o 26 m<sup>2</sup></b>.</p>
-                        <p>&nbsp;</p>
-                        <p>Zamieszkaj w 2-poziomowym mieszkaniu o metrażu nawet do <b>80 m<sup>2</sup></b>.</p>
-                        <a href="{{ route('developro.investment.page', [$investment->slug, 'mieszkania']) }}" class="bttn bttn-icon mt-4 bttn-slow">ZOBACZ MIESZKANIA <i class="ms-3 las la-chevron-circle-right"></i></a>
-                    </div>
-                    @else
-                    <div class="left-right-text" data-aos="fade-up" data-aos-offset="500" data-aos-delay="0">
-                        <h2 class="slow-header justify-content-start"><span class="rostemary">Extra Square Meters</span> <span class="abuget brown">for free</span></h2>
-                        <p>Every apartment in the Slow estate has been individually designed by interior architects, which has resulted in their exceptional functionality and ergonomics. Discover comfortable apartments with attics on the second floor. Gain extra space and enlarge your apartment by up to 26 m<sup>2</sup></b>.</p>
-                        <p>&nbsp;</p>
-                        <p>Live in a two-level apartment with an area of up to 80 m<sup>2</sup></b>.</p>
-                        <a href="{{ route('developro.investment.page', [$investment->slug, 'mieszkania']) }}" class="bttn bttn-icon mt-4 bttn-slow">CHECK APARTMENTS <i class="ms-3 las la-chevron-circle-right"></i></a>
-                    </div>
-                    @endif
-                </div>
-                <div class="col-12 col-xl-6" data-aos="fade-up" data-aos-offset="500" data-aos-delay="0">
-                    <img src="{{ asset('/uploads/files/osiedle-slow/dodatkowe-metry.jpg') }}" alt="Wizualizacja osiedla Aurora" class="golden-border w-100" width="840" height="760">
-                </div>
-            </div>
-
-            <div class="row left-right flex-row-reverse row-offset-up">
-                <div class="col-12 col-xl-6 d-flex align-items-center">
-                    @if($current_locale == 'pl')
-                    <div class="left-right-text" data-aos="fade-up" data-aos-offset="500" data-aos-delay="0">
                         <h2 class="slow-header justify-content-start"><span class="rostemary">Zobacz jak <br>wygląda życie w rytmie</span> <span class="abuget brown">Slow</span></h2>
                         <p>Osiedle SLOW to miejsce dla osób które w myśl filozofii slow life, chcą mieszkać na cichym, kameralnym osiedlu, blisko przyrody i terenów rekreacyjnych.</p>
                     </div>
