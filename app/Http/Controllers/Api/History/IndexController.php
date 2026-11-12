@@ -245,6 +245,17 @@ class IndexController extends Controller
      */
     private const EXCLUDED_INVESTMENT_SLUGS = ['boxy-samoobslugowe'];
 
+    /**
+     * Inwestycje, w których miejsca postojowe i komórki NIE są pomieszczeniami przynależnymi (art. 2 ust. 4
+     * ustawy o własności lokali), tylko prawem do wyłącznego korzystania z części nieruchomości wspólnej.
+     * Takie pozycje idą do grupy G (prawa niezbędne do korzystania z lokalu), nie do F.
+     * Wg odpowiedzi klienta z 12.11.2026: Slow - wszystkie budynki; Synergia i Tempo - pomieszczenia przynależne.
+     */
+    private const EXCLUSIVE_USE_INVESTMENT_SLUGS = ['osiedle-slow'];
+
+    /** Budynki dociągane po kondygnacji dla lokali bez przypisanego budynku, klucz = id budynku. */
+    private array $floorBuildings = [];
+
     /** Skróty rodzajów pomieszczeń w identyfikatorze (pole F2), np. "MP-13". Wzorzec MC: "GAR03", "PIW03". */
     private const PREMISES_CODES = [
         PropertyAreaTypes::STORAGE => 'KL',
@@ -260,7 +271,7 @@ class IndexController extends Controller
             ->where('type', '!=', PropertyAreaTypes::SHOP)
             ->with([
                 'priceHistory', 'relatedProperties.priceHistory', 'priceComponents',
-                'building.company', 'building.salePoint',
+                'building.company', 'building.salePoint', 'floor',
             ])
             ->get()
             // mieszkanie bez ceny w panelu (np. robocza kopia lokalu) nie jest ofertą - nie ma czego raportować
@@ -278,6 +289,8 @@ class IndexController extends Controller
      * - komórka / miejsce postojowe / ogródek sprzedawane osobno (nieprzypisane do mieszkania z raportu)
      *   = własny wiersz z grupą F, bez danych lokalu (E = "X", F5 = "X").
      *   Pomieszczenie przypisane do mieszkania występuje tylko w wierszu tego mieszkania.
+     * - w inwestycjach z EXCLUSIVE_USE_INVESTMENT_SLUGS te same pozycje trafiają do grupy G zamiast F
+     *   (G nie ma pola identyfikatora, więc identyfikator jest częścią opisu prawa w G1).
      */
     private function reportRows(Investment $investment): array
     {
@@ -306,6 +319,8 @@ class IndexController extends Controller
         $identifiers = $this->identifiers($investment);
         $idOf = fn (Property $p) => $identifiers[$p->id] ?? $this->baseIdentifier($p);
 
+        $exclusiveUse = in_array($investment->slug, self::EXCLUSIVE_USE_INVESTMENT_SLUGS, true);
+
         $rows = [];
 
         foreach ($apartments as $apartment) {
@@ -324,21 +339,27 @@ class IndexController extends Controller
                 $price !== null ? $priceDate : 'X',
             ];
 
-            $f = $relatedOf[$apartment->id]->map(fn ($p) => $this->premisesCells($p, $idOf($p), $id))->all();
+            $f = $g = [];
+            if ($exclusiveUse) {
+                $g = $relatedOf[$apartment->id]->map(fn ($p) => $this->rightCells($p, $idOf($p), $id))->all();
+            } else {
+                $f = $relatedOf[$apartment->id]->map(fn ($p) => $this->premisesCells($p, $idOf($p), $id))->all();
+            }
             $h = $this->componentCells($apartment, $priceDate, $id);
 
-            for ($i = 0, $n = max(1, count($f), count($h)); $i < $n; $i++) {
-                $rows[] = $this->row($head, $e, $f[$i] ?? null, $h[$i] ?? null);
+            for ($i = 0, $n = max(1, count($f), count($g), count($h)); $i < $n; $i++) {
+                $rows[] = $this->row($head, $e, $f[$i] ?? null, $g[$i] ?? null, $h[$i] ?? null);
             }
         }
 
         foreach ($standalone as $premises) {
             $head = $this->investmentCells($investment, $premises);
-            $f =$this->premisesCells($premises, $idOf($premises), 'X');
+            $f = $exclusiveUse ? null : $this->premisesCells($premises, $idOf($premises), 'X');
+            $g = $exclusiveUse ? $this->rightCells($premises, $idOf($premises), 'X') : null;
             $h = $this->componentCells($premises, $this->priceDate($premises), 'X');
 
             for ($i = 0, $n = max(1, count($h)); $i < $n; $i++) {
-                $rows[] = $this->row($head, null, $i === 0 ? $f : null, $h[$i] ?? null);
+                $rows[] = $this->row($head, null, $i === 0 ? $f : null, $i === 0 ? $g : null, $h[$i] ?? null);
             }
         }
 
@@ -346,14 +367,13 @@ class IndexController extends Controller
     }
 
     /** Składa wiersz z grup; brak grupy = "X" w każdym jej polu. Pilnuje liczby kolumn. */
-    private function row(array $head, ?array $e, ?array $f, ?array $h): array
+    private function row(array $head, ?array $e, ?array $f, ?array $g, ?array $h): array
     {
         $row = array_merge(
             $head,
             $e ?? array_fill(0, 6, 'X'),
             $f ?? array_fill(0, 5, 'X'),
-            // G - prawa niezbędne do korzystania z lokalu: brak takich pozycji w ofercie
-            array_fill(0, 4, 'X'),
+            $g ?? array_fill(0, 4, 'X'),
             $h ?? array_fill(0, 4, 'X')
         );
 
@@ -370,7 +390,7 @@ class IndexController extends Controller
      */
     private function investmentCells(Investment $investment, Property $property): array
     {
-        $building = $property->building;
+        $building = $this->buildingOf($property);
         $company = $building?->company ?? $investment->company;
         $salePoint = $building?->salePoint ?? $investment->salePoint;
 
@@ -429,6 +449,46 @@ class IndexController extends Controller
     }
 
     /**
+     * Grupa G dla miejsca postojowego / komórki oddawanych do wyłącznego korzystania (4 pola).
+     * Opis prawa zawiera rodzaj i identyfikator pozycji, np.
+     * "prawo do wyłącznego korzystania - miejsce parkingowe B3.1 / MP-2". Bez ceny "X" (wtedy data też "X").
+     */
+    private function rightCells(Property $premises, string $identifier, string $apartmentIdentifier): array
+    {
+        $price = $this->offerPrice($premises);
+        $kind = mb_strtolower((string) PropertyAreaTypes::getStatusText((int) $premises->type));
+
+        return [
+            trim('prawo do wyłącznego korzystania - ' . $kind) . ' ' . $identifier,
+            $price !== null ? $this->money($price) : 'X',
+            $price !== null ? $this->priceDate($premises) : 'X',
+            $apartmentIdentifier,
+        ];
+    }
+
+    /**
+     * Budynek lokalu. Lokal bez przypisanego budynku (w Slow część miejsc postojowych) dostaje budynek
+     * swojej kondygnacji - inaczej trafiłby do spółki z inwestycji zamiast do spółki swojego etapu.
+     */
+    private function buildingOf(Property $property): ?\App\Models\Building
+    {
+        if ($property->building) {
+            return $property->building;
+        }
+
+        $buildingId = $property->floor?->building_id;
+        if (!$buildingId) {
+            return null;
+        }
+
+        if (!array_key_exists($buildingId, $this->floorBuildings)) {
+            $this->floorBuildings[$buildingId] = \App\Models\Building::with(['company', 'salePoint'])->find($buildingId);
+        }
+
+        return $this->floorBuildings[$buildingId];
+    }
+
+    /**
      * Grupa H - po jednym zestawie 4 pól na składnik ceny. Nazwa to nazwa składnika (pivot.category to tylko
      * obowiązkowy/opcjonalny), kwota stała albo za m2 x powierzchnia; bez kwoty "X" (wtedy data też "X").
      */
@@ -473,7 +533,7 @@ class IndexController extends Controller
         $groups = [];
         foreach ($all as $property) {
             $base = $this->baseIdentifier($property);
-            $building = $this->value($property->building?->number);
+            $building = $this->value($this->buildingOf($property)?->number);
 
             $groups[$building === 'X' || $base === 'X' ? $base : $building . ' / ' . $base][] = $property;
         }
