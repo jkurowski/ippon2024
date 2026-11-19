@@ -33,5 +33,11 @@ return [
     'recaptcha_v3' => [
         'siteKey' => env('RECAPTCHA_V3_SITE_KEY'),
         'secretKey' => env('RECAPTCHA_V3_SECRET_KEY'),
-    ]
+    ],
+
+    // Mini API /api/sync (tylko odczyt), klucz min. 32 znaki; pusty = API wylaczone
+    'sync' => [
+        'key' => env('SYNC_API_KEY'),
+    ],
+
 ];
