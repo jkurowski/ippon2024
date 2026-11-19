@@ -427,10 +427,31 @@ class IndexController extends Controller
             $this->value($investment->inv_municipality),
             $this->value($investment->inv_city),
             $this->value($investment->inv_street),
-            $this->value($investment->inv_property_number),
+            // numer nieruchomości i współrzędne: z budynku lokalu, gdy ustawione (Slow - każdy budynek ma własny
+            // numer przy Kordeckiego i własny punkt, dane od klienta 19.11.2026), inaczej z inwestycji
+            $this->value($this->filled($building?->inv_property_number) ? $building->inv_property_number : $investment->inv_property_number),
             $this->value($investment->inv_postal_code),
-            $this->coordinate($investment->inv_longitude),
-            $this->coordinate($investment->inv_latitude),
+            ...$this->coordinates($building, $investment),
+        ];
+    }
+
+    private function filled($value): bool
+    {
+        return $value !== null && trim((string) $value) !== '';
+    }
+
+    /**
+     * D8 i D9 zawsze z jednego źródła (para długość + szerokość), żeby nie skleić punktu z budynku i inwestycji.
+     */
+    private function coordinates(?\App\Models\Building $building, Investment $investment): array
+    {
+        $source = ($building && $this->filled($building->inv_longitude) && $this->filled($building->inv_latitude))
+            ? $building
+            : $investment;
+
+        return [
+            $this->coordinate($source->inv_longitude),
+            $this->coordinate($source->inv_latitude),
         ];
     }
 

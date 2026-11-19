@@ -31,6 +31,10 @@ class BuildingFormRequest extends FormRequest
             'active' => 'required',
             'company_id' => ['nullable', 'integer', Rule::exists('investment_companies', 'id')],
             'sale_point_id' => ['nullable', 'integer', Rule::exists('investment_sale_points', 'id')],
+            // raport cen (dane.gov.pl): numer nieruchomości i współrzędne WGS-84 budynku; puste = jak w inwestycji
+            'inv_property_number' => ['nullable', 'string', 'max:50'],
+            'inv_longitude' => ['nullable', 'numeric', 'between:14,25'],
+            'inv_latitude' => ['nullable', 'numeric', 'between:49,55'],
             'investment_id' => [
                 'required',
                 'integer',
