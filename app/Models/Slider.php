@@ -17,6 +17,7 @@ class Slider extends Model
         'file',
         'file_mobile',
         'file_webp',
+        'file_video',
         'file_alt',
         'link',
         'link_button',

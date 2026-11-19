@@ -143,7 +143,18 @@
             @endforeach
         </nav>
 
-        <span class="ip-header-sep"></span>
+        {{-- 16.11.2026 (p. Anna): Panel Klienta jako ikona "ludka" w miejscu zlotej
+             kreski miedzy miastami a hamburgerem. Panel jest jeszcze nieaktywny -
+             gdy ruszy, wystarczy podmienic adres ponizej. --}}
+        @php $ipClientPanelUrl = '#'; @endphp
+        <a href="{{ $ipClientPanelUrl }}" class="ip-client-panel"
+           aria-label="{{ app()->getLocale() == 'en' ? 'Customer panel' : 'Panel klienta' }}"
+           title="{{ app()->getLocale() == 'en' ? 'Customer panel' : 'Panel klienta' }}">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="12" cy="8" r="4.25" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M3.75 21.25c.6-4.2 4.03-7 8.25-7s7.65 2.8 8.25 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+        </a>
 
         <button type="button" class="ip-burger" aria-label="Menu" aria-expanded="false" aria-controls="ipMenu">
             <span></span>
@@ -200,7 +211,6 @@
                 'key'   => 'strefa-klienta',
                 'label' => ['pl' => 'Strefa Klienta', 'en' => 'Customer Zone'],
                 'sub'   => [
-                    ['label' => ['pl' => 'Panel klienta',         'en' => 'Customer panel'],           'url' => '#'],
                     ['label' => ['pl' => 'Jak kupić mieszkanie?', 'en' => 'How to buy an apartment?'], 'url' => route('static.howbuy', $ipL)],
                     ['label' => ['pl' => 'Rabaty',                'en' => 'Discounts'],                'url' => route('promotion', $ipL)],
                     ['label' => ['pl' => 'Mieszkanie pod klucz',  'en' => 'Turnkey apartment'],        'url' => route('pod-klucz', $ipL)],

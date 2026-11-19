@@ -72,8 +72,13 @@
         'crumbs' => [
             ['label' => $T['title'][$L], 'url' => null],
         ],
-        'image'  => ($page->file_header && is_file(public_path('uploads/header/'.$page->file_header)))
-                        ? asset('uploads/header/'.$page->file_header) : null,
+        /* 16.11.2026: tlo "takie jak w Inwestycjach zrealizowanych (z cegla)" -
+           kopia naglowka zrealizowanych z CMS-u w repo. Zeby wrocic do CMS-u,
+           wystarczy usunac plik. */
+        'image'  => is_file(public_path('images/pagehead/cegla.jpg'))
+                        ? asset('images/pagehead/cegla.jpg').'?v='.filemtime(public_path('images/pagehead/cegla.jpg'))
+                        : (($page->file_header && is_file(public_path('uploads/header/'.$page->file_header)))
+                            ? asset('uploads/header/'.$page->file_header) : null),
     ])
 @stop
 

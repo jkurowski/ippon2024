@@ -20,10 +20,20 @@ class IndexController extends Controller
     /** Inwestycje niemieszkaniowe - na mapie zawsze na koncu listy. */
     public const NON_RESIDENTIAL_SLUGS = ['boxy-samoobslugowe'];
 
+    /**
+     * Miejscowosci bez wlasnej zakladki na mapie, pokazywane w zakladce miasta obok.
+     * 16.11.2026 (p. Anna): na mapie Olsztyna brakowalo Warmia Luxury Residence -
+     * w CMS-ie ma miasto "Naterki", ktore nie jest aktywne w naglowku.
+     */
+    public const CITY_SUBURBS = ['olsztyn' => ['naterki']];
+
     public function index($language, $slug)
     {
         $page = Page::where('id', 18)->first();
         $city = $slug === self::ALL_SLUG ? null : City::whereSlug($slug)->firstOrFail();
+        $cityIds = $city
+            ? City::whereIn('slug', array_merge([$city->slug], self::CITY_SUBURBS[$city->slug] ?? []))->pluck('id')
+            : collect();
 
         /* Kolejnosc kart: zawsze grupami statusow (w sprzedazy, wkrotce,
            planowane, zrealizowane), a w obrebie grupy:
@@ -35,7 +45,7 @@ class IndexController extends Controller
              sie od 1 w kazdym miescie osobno, wiec po zmieszaniu miast jedynka
              z malego miasta wskakiwalaby nad Olsztyn. */
         $investments = Investment::query()
-            ->when($city, fn($q) => $q->where('city', '=', $city->id))
+            ->when($city, fn($q) => $q->whereIn('city', $cityIds))
             ->where('status', '!=', 5)          // 5 = inwestycja ukryta
             // 6.11.2026: "BOX dac na sam koniec, inwestycje mieszkaniowe jako pierwsze"
             ->orderByRaw("slug IN ('".implode("','", self::NON_RESIDENTIAL_SLUGS)."')")

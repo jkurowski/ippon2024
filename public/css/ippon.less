@@ -10601,3 +10601,60 @@ section.ip-gallery {
     .ip-page .ip-section.ip-features-intro { padding: 56px 0 40px !important; }
     .ip-features-intro-lead { font-size: 16px; line-height: 27px; }
 }
+
+/* ==========================================================================
+   Panel Klienta - ikona "ludka" w naglowku (16.11.2026, p. Anna)
+   Stoi w miejscu zlotej kreski miedzy miastami a hamburgerem.
+   ========================================================================== */
+.ip-client-panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 26px;
+    width: 26px;
+    height: 26px;
+    margin-left: 44px;
+    color: @gold-line;
+    transition: color .25s ease;
+
+    svg {
+        display: block;
+        width: 26px;
+        height: 26px;
+    }
+
+    &:hover,
+    &:focus-visible {
+        color: @gold;
+    }
+}
+
+/* < 992 px miasta sa schowane, hamburger nie ma lewego marginesu */
+@media (max-width: 991.98px) {
+    .ip-client-panel {
+        margin-left: 0;
+        margin-right: 20px;
+    }
+}
+
+/* ==========================================================================
+   Hero: film w slajdzie (CMS > Slider, 16.11.2026)
+   Film lezy na zdjeciu slajdu i pojawia sie dopiero, gdy ruszy (klasa
+   is-video-playing z ip-motion.js) - do tego czasu, przy bledzie i przy
+   wylaczonych animacjach widac zdjecie.
+   ========================================================================== */
+.ip-hero .ip-hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0;
+    transition: opacity .6s ease;
+    pointer-events: none;
+}
+
+.ip-hero .carousel-item.is-video-playing .ip-hero-video {
+    opacity: 1;
+}

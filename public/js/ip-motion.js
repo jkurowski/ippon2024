@@ -91,20 +91,93 @@
     if (hero) {
         var current  = hero.querySelector('[data-nh-hero-current]');
         var progress = hero.querySelector('[data-nh-progress]');
+        var items    = hero.querySelectorAll('.carousel-item');
+        var defaultInterval = parseInt(hero.getAttribute('data-bs-interval'), 10) || 6500;
 
-        var restartProgress = function () {
+        /* Filmy w slajdach (CMS > Slider, 16.11.2026). Przy wylaczonych animacjach
+           albo trybie oszczedzania danych film nie startuje - zostaje zdjecie. */
+        var noVideo = (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)
+            || (navigator.connection && navigator.connection.saveData);
+
+        var intervalOf = function (item) {
+            return parseInt(item && item.getAttribute('data-bs-interval'), 10) || defaultInterval;
+        };
+
+        var videoOf = function (item) {
+            return item && item.hasAttribute('data-ip-video') ? item.querySelector('video') : null;
+        };
+
+        /* Pasek postepu trwa tyle, co biezacy slajd - przy filmie jego dlugosc. */
+        var restartProgress = function (item) {
             if (!progress) return;
+            progress.parentNode.style.setProperty('--nh-interval', intervalOf(item) + 'ms');
             progress.classList.remove('is-running');
             void progress.offsetWidth;   // wymusza reflow, inaczej animacja nie startuje od zera
             progress.classList.add('is-running');
         };
 
-        hero.addEventListener('slide.bs.carousel', function (event) {
-            if (current) current.textContent = String(event.to + 1).padStart(2, '0');
-            restartProgress();
+        var playVideo = function (item) {
+            var video = videoOf(item);
+            if (!video || noVideo) return;
+            try { video.currentTime = 0; } catch (e) {}
+            var started = video.play();
+            if (started && started.catch) started.catch(function () {});   // autoplay zablokowany -> zostaje zdjecie
+        };
+
+        var activeItem = function () {
+            return hero.querySelector('.carousel-item.active');
+        };
+
+        Array.prototype.forEach.call(items, function (item) {
+            var video = videoOf(item);
+            if (!video) return;
+
+            if (noVideo) {
+                video.preload = 'none';
+                return;
+            }
+
+            video.loop = items.length < 2;
+            video.addEventListener('playing', function () {
+                item.classList.add('is-video-playing');
+            });
+
+            /* Bootstrap czyta data-bs-interval aktywnego slajdu przy kazdym cycle(),
+               wiec wystarczy wpisac tam dlugosc filmu. Gdy film jest wlasnie na
+               ekranie, startujemy go i odliczanie od nowa, zeby szly razem. */
+            var useDuration = function () {
+                if (!isFinite(video.duration) || video.duration <= 0) return;
+                item.setAttribute('data-bs-interval', Math.round(video.duration * 1000));
+
+                if (item === activeItem()) {
+                    playVideo(item);
+                    restartProgress(item);
+                    var api = window.bootstrap && window.bootstrap.Carousel.getInstance(hero);
+                    if (api && items.length > 1) api.cycle();
+                }
+            };
+
+            if (video.readyState >= 1) useDuration();
+            else video.addEventListener('loadedmetadata', useDuration);
         });
 
-        restartProgress();
+        hero.addEventListener('slide.bs.carousel', function (event) {
+            if (current) current.textContent = String(event.to + 1).padStart(2, '0');
+            restartProgress(event.relatedTarget);
+            playVideo(event.relatedTarget);
+        });
+
+        hero.addEventListener('slid.bs.carousel', function (event) {
+            Array.prototype.forEach.call(items, function (item) {
+                var video = videoOf(item);
+                if (!video || item === event.relatedTarget) return;
+                video.pause();
+                item.classList.remove('is-video-playing');
+            });
+        });
+
+        restartProgress(activeItem());
+        playVideo(activeItem());
     }
 
     /* --- Film: plakat -> YouTube dopiero po kliknieciu -------------------- */

@@ -330,12 +330,11 @@
         'crumbs' => [
             ['label' => $L == 'pl' ? 'Zakup gruntu' : 'Land purchase', 'url' => null],
         ],
-        /* 6.11.2026: "na tlo lepiej dac to, co w Planowanych" - jasne tlo z kwiatami
-           (Gemini od klienta z 2.11, to samo co blog.jpg); ciemny tekst dobiera
-           isLightImage(). 5.11 byl tu kadr elewacji Tempo. Zeby wrocic do CMS-u,
-           wystarczy usunac plik. */
-        'image'  => is_file(public_path('images/pagehead/zakup-gruntu.jpg'))
-                        ? asset('images/pagehead/zakup-gruntu.jpg').'?v='.filemtime(public_path('images/pagehead/zakup-gruntu.jpg'))
+        /* 16.11.2026: tlo "takie jak w Inwestycjach zrealizowanych (z cegla)" -
+           kopia naglowka zrealizowanych z CMS-u (wczesniej, od 6.11: kwiaty
+           zakup-gruntu.jpg). Zeby wrocic do CMS-u, wystarczy usunac plik. */
+        'image'  => is_file(public_path('images/pagehead/cegla.jpg'))
+                        ? asset('images/pagehead/cegla.jpg').'?v='.filemtime(public_path('images/pagehead/cegla.jpg'))
                         : (($page->file_header && is_file(public_path('uploads/header/'.$page->file_header)))
                             ? asset('uploads/header/'.$page->file_header) : null),
     ])

@@ -82,14 +82,15 @@ class IndexController extends Controller
             $investment_room = $investment->load([
                 'buildingRooms' => function ($query) use ($investment, $request, $buildingFilter) {
                     /* Prefiks `properties.` jest konieczny: relacja buildingRooms
-                       dolacza `floors`, a ta tabela tez ma kolumne building_id —
-                       bez tego MySQL rzuca "Column 'building_id' is ambiguous". */
+                       dolacza `floors` i `buildings`, a te tabele tez maja kolumny
+                       building_id i (od 5.11.2026) status — bez prefiksu MySQL rzuca
+                       "Column ... is ambiguous" i lista mieszkan Slow dawala 500. */
                     if ($buildingFilter) {
                         $query->where('properties.building_id', $buildingFilter->id);
                     }
 
                     if (!$request->input('status')) {
-                        $query->orderBy('status', 'ASC');
+                        $query->orderBy('properties.status', 'ASC');
                     }
                     $query->orderBy('highlighted', 'DESC');
                     /* wybor uzytkownika musi isc PRZED number_order — wczesniej
@@ -104,7 +105,7 @@ class IndexController extends Controller
                         $query->where('rooms', $request->input('rooms'));
                     }
                     if ($request->input('status')) {
-                        $query->where('status', $request->input('status'));
+                        $query->where('properties.status', $request->input('status'));
                     }
 
                     if ($request->exists('floor')) {
@@ -131,7 +132,7 @@ class IndexController extends Controller
 
                     // Hide properties where status = 3 and their building's display_sold = 0
                     $query->where(function ($q) {
-                        $q->where('status', '!=', 3)
+                        $q->where('properties.status', '!=', 3)
                             ->orWhereHas('building', function ($subQuery) {
                                 $subQuery->where('display_sold', 1);
                             });

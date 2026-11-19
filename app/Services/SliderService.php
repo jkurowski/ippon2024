@@ -20,6 +20,7 @@ use Intervention\Image\ImageManagerStatic as Image;
  *   uploads/slider/1024/<nazwa>     /
  *   uploads/slider/mobile/<nazwa>   kadr pionowy 4/5 (osobny upload)
  *   uploads/slider/thumbs/<nazwa>   miniaturka "nastepny slajd" w nawigacji
+ *   uploads/slider/video/<film>     film slajdu (16.11.2026) - bez przetwarzania, wlasna nazwa
  *
  * Obok kazdego JPG-a lezy blizniaczy .webp o tej samej nazwie bazowej.
  */
@@ -87,6 +88,32 @@ class SliderService
         );
 
         $model->update(['file_mobile' => $name]);
+    }
+
+    /**
+     * Film w hero (16.11.2026). Plik idzie bez przetwarzania - serwer nie konwertuje
+     * ani nie kompresuje, wiec film trzeba przygotowac wczesniej (MP4 H.264, gra
+     * zawsze wyciszony; zalecane do ok. 15 MB i 1920 px szerokosci).
+     */
+    public function uploadVideo(string $title, UploadedFile $file, object $model, bool $delete = false)
+    {
+        if ($delete) {
+            $this->deleteVideo($model);
+        }
+
+        $name = $this->uniqueName($title, $file->getClientOriginalExtension() ?: 'mp4');
+        $file->storeAs('slider/video', $name, 'public_uploads');
+
+        $model->update(['file_video' => $name]);
+    }
+
+    public function deleteVideo(object $model)
+    {
+        if ($model->file_video && File::isFile(public_path('uploads/slider/video/' . $model->file_video))) {
+            File::delete(public_path('uploads/slider/video/' . $model->file_video));
+        }
+
+        $model->update(['file_video' => null]);
     }
 
     /**
@@ -162,6 +189,10 @@ class SliderService
         if ($model->file_mobile) {
             $this->forget('uploads/slider/mobile-source/', $model->file_mobile);
             $this->forget(config('images.slider.mobile_file_path'), $model->file_mobile);
+        }
+
+        if ($model->file_video && File::isFile(public_path('uploads/slider/video/' . $model->file_video))) {
+            File::delete(public_path('uploads/slider/video/' . $model->file_video));
         }
     }
 

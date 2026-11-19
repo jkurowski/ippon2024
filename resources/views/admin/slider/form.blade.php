@@ -58,6 +58,23 @@
                                 <div class="row w-100 form-group">
                                     @include('form-elements.html-input-file', ['label' => 'Zdjęcie mobile', 'sublabel' => '(kadr pionowy pod telefony, proporcja 4:5 — zalecane '.config('images.slider.mobile_width').'px / '.config('images.slider.mobile_height').'px)', 'name' => 'file_mobile'])
                                 </div>
+                                {{-- Film w hero (16.11.2026). Zdjecie wyzej zostaje potrzebne:
+                                     to kadr startowy, miniaturka "nastepny" i zapas, gdy film
+                                     sie nie wczyta albo uzytkownik ma wylaczone animacje. --}}
+                                <div class="row w-100 form-group">
+                                    @include('form-elements.html-input-file', ['label' => 'Film', 'sublabel' => '(opcjonalnie, zamiast zdjęcia w tle slajdu: MP4 lub WEBM, do 100 MB, zalecane 1920px szerokości i do ok. 15 MB. Film gra bez dźwięku, a slajd trwa tyle, ile film. Zdjęcie powyżej jest nadal wymagane - to pierwszy kadr i miniaturka)', 'name' => 'file_video'])
+                                </div>
+                                @if($entry->file_video)
+                                    <div class="row w-100 form-group">
+                                        <div class="col-12 control-input">
+                                            <video src="{{ asset('uploads/slider/video/'.$entry->file_video) }}" controls muted preload="metadata" style="max-width: 420px; width: 100%; display: block;"></video>
+                                            <label class="mt-2 d-inline-flex align-items-center gap-2">
+                                                <input type="hidden" name="delete_video" value="0">
+                                                <input type="checkbox" name="delete_video" value="1"> Usuń film (slajd wróci do samego zdjęcia)
+                                            </label>
+                                        </div>
+                                    </div>
+                                @endif
                                 <div class="row w-100 form-group">
                                     @include('form-elements.html-input-text', ['label' => 'Atrybut ALT zdjęcia', 'name' => 'file_alt', 'value' => $entry->file_alt])
                                 </div>

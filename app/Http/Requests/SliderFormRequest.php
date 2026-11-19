@@ -38,6 +38,11 @@ class SliderFormRequest extends FormRequest
                plik, a Intervention wywracal sie dopiero przy przetwarzaniu. */
             'file' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:12288',
             'file_mobile' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:8192',
+
+            /* Film w hero (16.11.2026). MP4 (H.264) albo WebM - te formaty gra kazda
+               przegladarka; MOV z telefonu trzeba najpierw przekonwertowac. */
+            'file_video' => 'nullable|file|mimetypes:video/mp4,video/webm|max:102400',
+            'delete_video' => 'nullable|boolean',
         ];
     }
 
@@ -54,6 +59,9 @@ class SliderFormRequest extends FormRequest
             'file_mobile.image' => 'Plik musi być obrazkiem',
             'file_mobile.mimes' => 'Dozwolone formaty: JPG, PNG, WEBP',
             'file_mobile.max' => 'Maksymalny rozmiar zdjęcia: 8 MB',
+            'file_video.mimetypes' => 'Dozwolone formaty filmu: MP4, WEBM',
+            'file_video.max' => 'Maksymalny rozmiar filmu: 100 MB',
+            'file_video.uploaded' => 'Film nie został wgrany - prawdopodobnie jest większy niż limit serwera',
         ];
     }
 }

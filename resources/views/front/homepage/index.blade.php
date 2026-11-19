@@ -45,8 +45,12 @@
         ->map(function ($s) {
             $thumb = 'uploads/slider/thumbs/'.$s->file;
 
+            $video = $s->file_video && is_file(public_path('uploads/slider/video/'.$s->file_video))
+                ? asset('uploads/slider/video/'.$s->file_video) : null;
+
             return [
                 'slider' => $s,
+                'video'  => $video,
                 'thumb'  => asset(is_file(public_path($thumb)) ? $thumb : 'uploads/slider/'.$s->file),
                 'link'   => $s->link,
                 'target' => $s->link_target ?: '_self',
@@ -60,6 +64,7 @@
            jest pusty. */
         $heroSlides = array_map(fn ($n) => [
             'slider' => null,
+            'video'  => null,
             'img'    => asset('images/homepage/hero-'.$n.'.jpg'),
             'thumb'  => asset('images/homepage/hero-thumb-'.$n.'.jpg'),
             'link'   => null,
@@ -79,7 +84,8 @@
          data-bs-interval="{{ $heroInterval }}" data-bs-pause="false">
         <div class="carousel-inner">
             @foreach ($heroSlides as $i => $slide)
-                <div class="carousel-item @if($i === 0) active @endif" data-thumb="{{ $slide['thumb'] }}">
+                <div class="carousel-item @if($i === 0) active @endif" data-thumb="{{ $slide['thumb'] }}"
+                     @if($slide['video']) data-ip-video @endif>
                     @if($slide['link'])
                         <a href="{{ $slide['link'] }}" target="{{ $slide['target'] }}">
                     @endif
@@ -89,6 +95,18 @@
                     @else
                         <img src="{{ $slide['img'] }}" alt="Inwestycja IPPON Group"
                              fetchpriority="{{ $i === 0 ? 'high' : 'low' }}" decoding="async">
+                    @endif
+
+                    {{-- Film (CMS > Slider, 16.11.2026) lezy na zdjeciu i pokazuje sie dopiero,
+                         gdy ruszy - do tego czasu widac zdjecie. Odtwarzanie, pauze na
+                         nieaktywnych slajdach i czas slajdu = dlugosc filmu ustawia ip-motion.js.
+                         Bez autoplay w HTML: przy wylaczonych animacjach (prefers-reduced-motion)
+                         film nie startuje i zostaje zdjecie. --}}
+                    @if($slide['video'])
+                        <video class="ip-hero-video" muted playsinline disablepictureinpicture
+                               preload="{{ $i === 0 ? 'auto' : 'metadata' }}" aria-hidden="true">
+                            <source src="{{ $slide['video'] }}" type="{{ str_ends_with(strtolower($slide['video']), '.webm') ? 'video/webm' : 'video/mp4' }}">
+                        </video>
                     @endif
 
                     @if($slide['link'])

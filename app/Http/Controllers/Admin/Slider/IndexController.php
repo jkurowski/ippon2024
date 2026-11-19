@@ -61,6 +61,10 @@ class IndexController extends Controller
             $this->service->uploadMobile($request->title, $request->file('file_mobile'), $slider);
         }
 
+        if ($request->hasFile('file_video')) {
+            $this->service->uploadVideo($request->title, $request->file('file_video'), $slider);
+        }
+
         return redirect(route('admin.slider.index'))->with('success', 'Nowy obrazek dodany');
     }
 
@@ -85,6 +89,12 @@ class IndexController extends Controller
             $this->service->uploadMobile($request->title, $request->file('file_mobile'), $slider, true);
         }
 
+        if ($request->hasFile('file_video')) {
+            $this->service->uploadVideo($request->title, $request->file('file_video'), $slider, true);
+        } elseif ($request->boolean('delete_video')) {
+            $this->service->deleteVideo($slider);
+        }
+
         return redirect(route('admin.slider.index'))->with('success', 'Obrazek zaktualizowany');
     }
 
@@ -107,6 +117,6 @@ class IndexController extends Controller
      *  w kolumnach `file`/`file_mobile` ladowalby obiekt UploadedFile zamiast nazwy. */
     private function attributes(SliderFormRequest $request): array
     {
-        return Arr::except($request->validated(), ['file', 'file_mobile']);
+        return Arr::except($request->validated(), ['file', 'file_mobile', 'file_video', 'delete_video']);
     }
 }
