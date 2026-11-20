@@ -41,6 +41,12 @@ if (! function_exists('noOrphans')) {
                 $part = preg_replace('/(?<![\p{L}\d&;])(' . $short . ') +(?=\S)/iu', '$1&nbsp;', $part);
             }
 
+            // Adres (20.11.2026, uwaga klienta: "ul. Nowowiejskiego 1" - sama "1" spadala
+            // do nowej linii): skrot ul./al./pl./os. trzyma sie nazwy ulicy, a numer
+            // (1, 12a, 4/6) - ostatniego slowa nazwy.
+            $part = preg_replace('/(?<![\p{L}])(ul|al|pl|os)\. +(?=\p{L})/iu', '$1.&nbsp;', $part);
+            $part = preg_replace('/(?<=\p{L}) +(\d{1,4}[a-z]?(?:\/\d{1,4}[a-z]?)?)(?![\p{L}\d])(?=\s*(?:$|[,;.)]|<))/u', '&nbsp;$1', $part);
+
             $parts[$i] = $part;
         }
 

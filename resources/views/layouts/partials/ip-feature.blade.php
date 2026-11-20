@@ -60,7 +60,7 @@
                 <p class="ip-feature-eyebrow">{{ $eyebrow }}</p>
             @endif
 
-            <h2 class="ip-feature-title">{{ $title }}</h2>
+            <h2 class="ip-feature-title">{!! noOrphans($title) !!}</h2>
 
             @if(!empty($teaser))
                 <p class="ip-feature-teaser">{{ $teaser }}</p>

@@ -4150,7 +4150,7 @@ a.ip-btn-submit {
 /* Karty na zakupie gruntow maja dluzsze opisy niz na stronie glownej (EN nawet
    o polowe dluzsze od PL) i przy waskich kartach opis wypychal tytul poza
    gore karty. Selektory przez .ip-land-section, zeby nie ruszac strony glownej. */
-@media (min-width: 1200px) and (max-width: 1399.98px) {
+@media (min-width: 1200px) and (max-width: 1439.98px) {
     /* 4 karty w rzedzie maja tu ~265-300 px. Wysokosc karty zostaje stala —
        rosnaca karta przy hoverze szarpalaby calym rzedem — wiec zmniejszamy tresc. */
     .ip-land-section .ip-step-card {
@@ -10657,4 +10657,71 @@ section.ip-gallery {
 
 .ip-hero .carousel-item.is-video-playing .ip-hero-video {
     opacity: 1;
+}
+
+/* ==========================================================================
+   Kafle "Aktualne inwestycje" (.ip-sale-cards): parametry w jednej linii
+   (uwaga klienta 20.11.2026). Przy 18 px metraz + odbior + pietra mieszcza
+   sie dopiero od ok. 1700 px szerokosci okna - na laptopach (1280-1699: od 1440 px 15 px, ponizej 14 px)
+   zmniejszamy czcionke, ikony i odstepy. Ponizej 1280 (i przy 2 kaflach
+   w rzedzie) moga sie dalej zawijac.
+   ========================================================================== */
+@media (min-width: 1200px) and (max-width: 1699.98px) {
+    .ip-sale-cards .ip-card-params {
+        li {
+            gap: 5px;
+            font-size: 15px;
+
+            + li {
+                margin-left: 7px;
+            }
+
+            &:after {
+                margin-left: 7px;
+            }
+        }
+
+        svg {
+            width: 20px;
+            height: 20px;
+            flex-basis: 20px;
+        }
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1439.98px) {
+    .ip-sale-cards .ip-card-params {
+        li {
+            gap: 4px;
+            font-size: 14px;
+
+            + li {
+                margin-left: 6px;
+            }
+
+            &:after {
+                margin-left: 6px;
+            }
+        }
+
+        svg {
+            width: 18px;
+            height: 18px;
+            flex-basis: 18px;
+        }
+    }
+}
+
+/* ==========================================================================
+   Inwestycje zrealizowane: jeden kadr 16:9 dla wszystkich zdjec w karuzeli
+   (uwaga klienta 20.11.2026 - w B4.1 i B4.2 sa zdjecia kwadratowe i 4:3,
+   karuzela brala wysokosc z biezacego zdjecia i kafel "skakal"). Zdjecia
+   o innych proporcjach sa kadrowane od srodka.
+   ========================================================================== */
+.ip-done-media > img,
+.ip-done-media .textSlider .rslides img {
+    aspect-ratio: 16 / 9;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
 }
