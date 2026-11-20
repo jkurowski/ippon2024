@@ -157,9 +157,13 @@
             'sub'   => ['pl' => 'Olsztyn', 'en' => 'Olsztyn'],
             'lines' => ['ul. Żelazna 4', '10-419 Olsztyn'],
             'hours' => ['pl' => 'pn.–pt. 9:00–17:00', 'en' => 'Mon–Fri 9:00–17:00'],
-            /* telefony do biura sprzedazy sa nizej, przy osobach — jak na obecnej stronie */
             'phone' => null,
             'mail'  => ['label' => 'mieszkania@ippon.group', 'href' => 'mailto:mieszkania@ippon.group'],
+            /* 20.11.2026: uwaga klienta — telefony do biura sprzedazy pod e-mailem */
+            'phones_after' => [
+                ['label' => '+48 724 222 323', 'href' => 'tel:+48724222323'],
+                ['label' => '+48 609 884 219', 'href' => 'tel:+48609884219'],
+            ],
             'map'   => $mapa,
         ],
     ];
@@ -226,6 +230,13 @@
                                         <a href="{{ $biuro['mail']['href'] }}">{{ $biuro['mail']['label'] }}</a>
                                     </li>
                                 @endif
+
+                                @foreach($biuro['phones_after'] ?? [] as $tel)
+                                    <li>
+                                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.2 3.8h3l1.5 3.7-2 1.4a11.5 11.5 0 0 0 5.4 5.4l1.4-2 3.7 1.5v3a1.8 1.8 0 0 1-2 1.8C10.8 18.9 5.1 13.2 4.4 5.8a1.8 1.8 0 0 1 1.8-2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                                        <a href="{{ $tel['href'] }}">{{ $tel['label'] }}</a>
+                                    </li>
+                                @endforeach
                             </ul>
 
                             @if(!empty($biuro['logo']))

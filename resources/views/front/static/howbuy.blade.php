@@ -434,8 +434,8 @@
                     <p>{{ $L == 'pl' ? 'Znajdź mieszkanie, które będzie Twoje.' : 'Find the apartment that will be yours.' }}</p>
                 </div>
 
-                {{-- UWAGA: makieta nie mowi, dokad prowadzi przycisk — na razie wyszukiwarka --}}
-                <a href="{{ route('search', ['locale' => $L]) }}" class="ip-btn-gold-lg ip-btn-arrow">
+                {{-- 20.11.2026: uwaga klienta — lista aktualnych inwestycji zamiast wyszukiwarki --}}
+                <a href="{{ route('developro.current', ['locale' => $L]) }}" class="ip-btn-gold-lg ip-btn-arrow">
                     {{ $L == 'pl' ? 'Zobacz dostępne mieszkania' : 'See available apartments' }}
                     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m-5.5-5.5L19 12l-5.5 5.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </a>

@@ -207,8 +207,8 @@
     @include('layouts.partials.ip-contact-section', [
         'title'     => $L == 'pl' ? 'Chcesz skorzystać z rabatu?' : 'Want to use a discount?',
         'lead'      => $L == 'pl'
-                        ? 'Napisz, którą inwestycją jesteś zainteresowany — sprawdzimy, co możemy dla Ciebie zrobić. <strong>Odpowiadamy w dni robocze.</strong>'
-                        : 'Tell us which investment you are interested in and we will check what we can do. <strong>We reply on business days.</strong>',
+                        ? 'Wyjątkowe inwestycje wymagają dedykowanej opieki. Jeśli chcesz poznać szczegóły naszych projektów, umówić się na prezentację apartamentu lub zapytać o niestandardowe rozwiązania — jesteśmy do Twojej dyspozycji.'
+                        : 'Exceptional investments deserve dedicated care. If you would like to learn more about our projects, arrange an apartment presentation or ask about tailored solutions, we are at your disposal.',
         'form'      => 'front.contact.ip-form',
         'page_name' => 'Rabaty',
         'class'     => 'pt-0',
