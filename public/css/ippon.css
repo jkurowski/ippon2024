@@ -9744,10 +9744,10 @@ section.ip-gallery {
     font-size: 14px;
   }
   .ip-sale-cards .ip-card-params li + li {
-    margin-left: 6px;
+    margin-left: 5px;
   }
   .ip-sale-cards .ip-card-params li:after {
-    margin-left: 6px;
+    margin-left: 5px;
   }
   .ip-sale-cards .ip-card-params svg {
     width: 18px;
